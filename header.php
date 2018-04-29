@@ -27,12 +27,15 @@
       <link href="css/style1.css" rel="stylesheet">
       <link href="css/style.css" rel="stylesheet">
       <link href="css/learn.css" rel="stylesheet"> -->
+      <link href="css/learn.css" rel="stylesheet">
+      <link href="css/custom.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/login.css">
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
       <link href="css/landing-page.min.css" rel="stylesheet">
 
       <style>
   body{
-      background: #E5E5E5;
+      /*background: #E5E5E5;*/
   }
   #navbar{
     font-size: 15px;
@@ -51,19 +54,19 @@
 
 }
 
-    </style>
+ 
 
-    <?php if (function_exists(custom_styles())) {
+    <?php if (function_exists('custom_styles')) {
       custom_styles();
     }
     ?>
-
+   </style>
   </head>
 
   <body>
     <!-- Navigation -->
     <div id="navbar">
-    <nav class="navbar navbar-expand-lg navbar-light  style="background-color: #FAFAFA;"">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FAFAFA;">
       <a class="navbar-brand" href="../index.php"><img src="../img/logo.png" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -84,9 +87,18 @@
                 <a href="testimonies.php" class="nav-link">TESTIMONIES</a>
             </li> <li class="nav-item">
                 <a href="#" class="nav-link">ALUMNI</a>
+
             </li> <li class="nav-item">
                 <a href="#" class="nav-link">PARTNERS</a>
             </li>
+ 
+            <!-- Fix if(signed_in) display "login" else display "logout" -->
+            <li class="nav-item">
+                <a href="login.php" class="nav-link">LOGIN</a>
+            </li> 
+            <!-- <li class="nav-item"> -->
+                <!-- <a href="logout.php" class="nav-link">LOGOUT</a> -->
+            <!-- </li> -->
       
     </ul>
          

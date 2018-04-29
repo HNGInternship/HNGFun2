@@ -6,7 +6,6 @@ function custom_styles()
 {
 	echo <<<_END
 
-	<style>
 		.page-body{
 			font-family: 'Open Sans', sans-serif;
 		}
@@ -23,12 +22,12 @@ function custom_styles()
 		.jumbotron h1{
 			font-size: 32px;
 			font-weight: normal;
+			font-family: 'Open Sans', sans-serif;
 		}
 		.main-form{
 			width: 80%;
 			max-width: 700px;
 		}
-	</style>
 _END;
 }
 ?>
@@ -138,8 +137,16 @@ _END;
 			
 		</div>
 	</main>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M" crossorigin="anonymous"></script>
+
+	<script>
+		
+	</script>
 </body>
 </html>
 
