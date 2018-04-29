@@ -14,7 +14,6 @@ include_once("header.php");
         font-size: 20px;
     }
     .navbar {
-        background-color: #E5E5E5;
         text-align: center;
     }
     

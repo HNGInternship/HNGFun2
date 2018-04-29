@@ -18,7 +18,6 @@ include_once("header.php");
     }
     a {
         font-size: 14px !important;
-        color: #2196F3 !important;
     }
     
 </style>
@@ -28,7 +27,7 @@ include_once("header.php");
         <h1 class="login-title text-center" style="padding-top: 20px; color: #3D3D3D">Register</h1>
         <p style="font-size: 16px" class="text-center">Just a few clicks away from joining the biggest software development internship in Africa
         </p>
-        <p><span style='color: grey'>Already have an account?</span> <a href="/login.php">Login</a></p>
+        <p><span style='color: grey'>Already have an account?</span> <a href="/login.php" style="color: #2196F3; text-decoration: none">Login</a></p>
         <form action="" class="text-center">
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
@@ -77,12 +76,12 @@ include_once("header.php");
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms" name="terms">
                     <label class="form-check-label" for="terms">
-                    I agree to the <a href="">Terms and Conditions</a>
+                    I agree to the <a href="" style="color: #2196F3; text-decoration: none">Terms and Conditions</a>
                     </label>
                 </div>
             </div>
             <br>
-            <button type="submit" class="btn btn-signup">Sign Up </button>
+            <button type="submit" class="btn btn-signup">Register </button>
         </form>
 
     </div>
