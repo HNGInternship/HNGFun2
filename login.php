@@ -1,16 +1,16 @@
- <?php include("header.php");?>
+ <?php 
+ include("header.php");
+ ?>
 
 <head>
     <title>Login</title>
 	<style>
 	
-	@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
-
-
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
 .page
 {    
 	margin: 0 auto 30px;
-     width: 300px;
+    width: 300px;
 }
 .login-card {
   padding: 20px;
@@ -110,9 +110,9 @@
     <div class="login-card">
     <h1>Login</h1>
   <form action="checkLogin.php" method="post">
-    <input type="text" name="id"  placeholder="ID">
-    <input type="password" name="password" placeholder="Password">
-	<input type="checkbox" name="remember" value=""> Remember me<br>
+    <input type="text" name="id" id="id"  placeholder="ID">
+    <input type="password" name="password" id="password" placeholder="Password">
+	<input type="checkbox" name="remember" id="remember" value=""> Remember me<br>
     <input type="submit" name="login" class="login login-submit" value="Login">
   </form>
     
