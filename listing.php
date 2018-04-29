@@ -1,70 +1,94 @@
 <?php
 include_once("header.php");
-require 'db.php';
+require 'config.php';
+try {
+  $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
+
+} catch (PDOException $pe) {
+  die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+}
+
+ 
 $sql = 'SELECT * FROM interns_data';
 $q = $conn->query($sql);
 $q->setFetchMode(PDO::FETCH_ASSOC);
 $data = $q->fetchAll();
 ?>
-<header class="masthead" style="background-image: url('img/about-bg.jpg')">
-   <div class="overlay"></div>
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-               <h1>Meet our Interns</h1>
-               <span class="subheading">Intern Gallery</span>
-            </div>
-        </div>
-    </header>
 
-  <div class="container" id="container">
-
-
-<!--Section: interns v.1-->
-<section class="section pb-3 text-center">
-
-
-    <div class="row">
-
-    <?php foreach($data as $list){ ?>
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-3 mb-4">
-
-            <!--Card-->
-            <div class="card testimonial-card" height=300px>
-
-                <!--Background color-->
-                <div class="card-up deep-purple lighten-2"></div>
-                <div class="card-body">
-                <!--Avatar-->
-                <div class="avatar mx-auto white"><img style="width: 400px; height: 300px" src="<?= $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="avatar mx-auto white" class="rounded-circle img-fluid"></div>
-
-                    <!--Name-->
-                    <h4 class="card-title mt-1"><?= $list['name']?></h4>
-                    <hr>
-                    <span class="align-middle">
-                    <a href="profile.php?id=<?=$list['username']?>">
-                      <button class="btn btn-success">View Profile</button>
-                    </a>
-                  </span>
-                </div>
-
-            </div>
-
-
+<style>
+   #contain img{
+    width:100%;
+    padding:5px;
+    height:200px;
+    
+    
+   }
+   #contain{
+     margin-left:auto;
+     margin-right:auto;
+     
+    
+   }
+   #contain #border{
+     margin-left:70px;
+     margin-right:70px;
+     padding:0;
+     width: 250px;
+     border: solid 1px #E5E5E5;
+   }
+   #caption{
+     text-align:center;
+     
+   }
+   
+body{
+  background-color:white;
+}
+   
+</style>
+      <div class="container" >
+      <br>
+      <div class="container" id="caption">
+          <h1>OUR INTERNS</h1><br>
+          <hr>
+          <br>
+          <p>HNG4.0 has been a life-transforming journey for interns across Africa.</p>
+          <p>Don't take our word for it...take theirs.</p>
       </div>
-    <?php } ?>
+     <br>
+     <form class="form-inline" style="margin-left:9%">
+        <select class="form-control mr-sm-3 " style="width:170px">
+          <option>Skills</option>
+        </select>
+        <select class="form-control mr-sm-3" style="width:170px">
+          <option>Country</option>
+        </select>
+        <input class="form-control mr-sm-3" type="search" placeholder="Search Name" aria-label="Search" style="width:170px">
 
-   </section>
-   <!--Section: Testimonials v.1-->
-
-
+        <button class="btn btn-primary mr-sm-3" type="submit" style="width:110px">Search</button>
+        <button class="btn btn-outline-primary mr-sm-3" type="submit" style="width:102px">Clear</button>
+    </form>
+    
+     <br>
+    
+  <div class="row container" id="contain" >
+  <?php foreach($data as $list){ ?>
+     <div class="col-md-3" >
+         <div class="thumbnail img-responsive" id="border">
+          <img src="<?= $list['image_filename'] ?>" alt="Lights" >
+           <a href="profile.php?id=<?=$list['username']?>">
+             <div class="caption pull-right">
+              <img src="http://res.cloudinary.com/julietezekwe/image/upload/v1525004514/git.png" alt="git" style="width:30px; height:30px; padding:3px;">
+            </div>
+          </a>
+         <button class="btn btn-default" style="margin:3px;">View profile</button>
+   </div>
+ 
+    <div style="margin-left:150px; textialign:center"><h5><?=$list['username']?></h5>
+      
+    </div>
+    
 </div>
-
-
-
-<?php
-include_once("footer.php");
-?>
+<?php } ?>
+</div>
+</div>
