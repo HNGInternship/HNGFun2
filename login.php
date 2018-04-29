@@ -36,7 +36,7 @@ padding-top: 20px;
 }
 
 .login-card input[type=submit] {
-  width: 90%;
+  width: 100%;
   display: block;
   margin: 0px 0px;
   position: relative;
@@ -45,7 +45,7 @@ padding-top: 20px;
 .login-card input[type=text], input[type=password] {
   height: 38px;
   font-size: 14px;
-  width: 90%;
+  width: 100%;
   margin: 15px 0px;
    display: block;
   border: 0.5px solid grey;
@@ -112,7 +112,7 @@ padding-top: 20px;
  margin-left: 40px;
 }
 .login-out {
-  width: 89%;
+  width: 100%;
   text-align: center;
   font-size: 14px;
    opacity: 0.8;
@@ -126,7 +126,7 @@ padding-top: 20px;
   </head>
   <div class="page">
     <div class="login-card">
-    <h1 style="margin-right: 30px">Log In</h1><br>
+    <h1 style="font-size: 45px">Log In</h1><br>
    <p class="login-out" style="margin:0px 0px; ">Login to access your dashboard and manage your account.</p>
   <form action="checkLogin.php" method="post" style="">
    <input type="text" name="username" id="username"  placeholder="Username or Email">
