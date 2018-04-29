@@ -88,8 +88,12 @@
             </li> <li class="nav-item">
                 <a href="#" class="nav-link">ALUMNI</a>
             </li> 
+            <!-- Fix if(signed_in) display "login" else display "logout" -->
+            </li> <li class="nav-item">
+                <a href="login.php" class="nav-link">LOGIN</a>
+            </li> 
             <!-- <li class="nav-item"> -->
-                <!-- <a href="#" class="nav-link">PARTNERS</a> -->
+                <!-- <a href="logout.php" class="nav-link">LOGOUT</a> -->
             <!-- </li> -->
       
     </ul>
