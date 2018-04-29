@@ -42,11 +42,23 @@ h2 {
 }
 
 /* FOOTER */
+footer {
+	margin-top: 50px !important;
+}
+
 .footer-li {
-	border-right: 1px solid #3D3D3D;
+	border-right: 1px solid #3D3D3D !important;
 	margin-right: 0 !important;
 }
 
 .footer-li:last-child {
-	border: none;
+	border: none !important;
+}
+
+i {
+	color: #3D3D3D !important;
+}
+
+.copyright {
+	text-align: center;
 }
