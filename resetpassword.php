@@ -13,9 +13,9 @@ include_once("header.php");
             <div style="padding: 20px 200px 0px 200px;  width: 800px;">
                 <input type="text" class="form-control form-control-lg rounded-right" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
                 <br />
-                <button class="btn btn-primary btn-block" type="submit" style="border-radius: 8px; background-color: #0475CE;">Reset Password</button>
+                <button class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;">Reset Password</button>
                 <p style='color: #ADADAD '>
-                    Already have account? <span style="color: #1E99E0">Log In</span>
+                     Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
                 </p>
             </div>
         </form>

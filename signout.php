@@ -19,16 +19,8 @@ include_once("header.php");
     
     .btn-primary {
         margin-left: -10px;
-        background-color: #2196F3;
-        border-color: #2196F3;
     }
     
-    .btn-primary:hover,
-    .btn-primary:active,
-    .btn-primary:visited,
-    .btn-primary:focus {
-        background-color: #0475CE !important;
-    }
     
     footer {
         background: none;
