@@ -34,9 +34,11 @@ include_once("header.php");
       }
     
 		.btn{
-			width:400px;
+			width:300px;
 		}
-
+	p{
+		font-size: 15px;
+	}
 	 @media (min-width: 992px) {
         body {
           padding-top: 56px;
@@ -53,13 +55,14 @@ include_once("header.php");
       <div class="row">
         <div class="col-lg-12 text-center">
 		<strong>
-          <h1 class="mt-5">Invite to HNG</h1>
+          <h3 class="mt-5">Invite to HNG</h3>
           <p class="lead">You can send out invites to your friends all over the world to join <br>
 			this amazing community</p>
 		</strong>
         </div>
-		
-		<div class="col-lg-6">
+		<div class="col-lg-2">
+		</div>
+		<div class="col-lg-4">
           <form>
 			  <div class="form-group">
 				<label for="exampleInputEmail1">Email Address</label>
@@ -73,7 +76,7 @@ include_once("header.php");
 			</form>
         </div>
 		
-		<div class="col-lg-6">
+		<div class="col-lg-4">
           <form>
 			  <div class="form-group">
 				<label for="exampleInputEmail1">Full Name</label>
@@ -87,19 +90,14 @@ include_once("header.php");
 			  
 			</form>
         </div>
-		
+		<div class="col-lg-2">
+		</div>
 		<div class="col-lg-12 text-center">
 			<br/><br/>
 			<button type="submit" class="btn btn-primary">Send Invite</button>
         </div>
       </div>
     </div>
-
-	
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   </body>
 
 </html>
