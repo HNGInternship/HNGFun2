@@ -23,7 +23,7 @@ include_once("header.php");
 		<h3 class="text-center">Ready to get started? register now</h3>
 		<div class="d-flex justify-content-center mt-3">
 		  <form class="w-75">
-		  	<label class="mb-0 pb-0">Email</label>
+		  	<label class="mb-0 pb-0">Email:</label>
 		  	<div class="input-group mb-4 mt-0">
 		  	  <div class="input-group-prepend ">
 		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
