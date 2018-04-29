@@ -55,6 +55,11 @@
 
     </style>
 
+    <?php if (function_exists(custom_styles())) {
+      custom_styles();
+    }
+    ?>
+
   </head>
 
   <body>
