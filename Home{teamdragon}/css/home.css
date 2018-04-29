@@ -1,0 +1,144 @@
+
+
+
+
+body{
+	position: relative;
+	background: #FAFAFA;
+}
+a{
+	position: absolute;
+width: 667px;
+height: 44.63px;
+left: 380px;
+top: 438.37px;
+text-align: center;
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 37px;
+text-decoration: none;
+color: #2196F3;
+}
+a.hover{
+	background: #2196F3;
+}
+.legend1{
+	position: absolute;
+	width: 307.46px;
+	height: 189.67px;
+	left: 548.31px;
+	top: 199px;
+
+	font-family: Work Sans;
+	font-style: normal;
+	font-weight: bold;
+	line-height: normal;
+	font-size: 159px;
+	letter-spacing: -0.1em;
+
+	color: #212121;
+}
+.legend2{
+	position: absolute;
+	width: 433px;
+	height: 106px;
+	left: 497px;
+	top: 332px;
+	font-family: Work Sans;
+	font-style: normal;
+	font-weight: bold;
+	line-height: normal;
+	font-size: 89px;
+	text-align: center;
+	letter-spacing: -0.04em;
+	color: #212121;
+}
+
+h3{
+	position: absolute;
+	width: 340px;
+	height: 34px;
+	left: 558px;
+	top: 681px;
+	font-family: Lato;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+	font-size: 28px;
+	color: #212121;
+}
+.intern1{
+	position: absolute;
+	width: 340px;
+	height: 34px;
+	left: 542px;
+	top: 879px;
+	font-family: Lato;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+	font-size: 28px;
+	color: #212121;
+}
+.sub1{
+	position: absolute;
+	width: 748px;
+	height: 72px;
+	left: 361px;
+	top: 931px;
+	font-family: Lato;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-size: 20px;
+	text-align: center;
+	color: #616161;
+}
+p{
+	position: absolute;
+	width: 745px;
+	height: 72px;
+	left: 365px;
+	top: 730px;
+
+	font-family: Lato;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-size: 20px;
+	text-align: center;
+
+	color: #616161;
+}
+
+.register{
+	position: absolute;
+	width: 499px;
+	height: 33px;
+	left: 479px;
+	top: 1239px;
+	font-family: Work Sans;
+	font-style: normal;
+	font-weight: bold;
+	line-height: normal;
+	font-size: 28px;
+	color: #000000;
+}
+.email{
+	position: absolute;
+width: 38px;
+height: 20px;
+left: 274px;
+top: 1297px;
+
+font-family: Lato;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 16px;
+
+color: #212121;
+}
+
