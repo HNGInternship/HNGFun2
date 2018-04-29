@@ -21,6 +21,7 @@ hr.under-line {
 }
 .learn-icon:hover {
     background: #48BBFC;
+    padding: 1em;
 }
 .learn-desc {
     border: 1px solid #E1E1E1;
