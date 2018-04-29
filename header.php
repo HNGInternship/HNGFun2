@@ -88,9 +88,9 @@
             </li> 
            <li class="nav-item">
                 <a href="#" class="nav-link">PARTNERS</a>
-            </li>
-      
+            </li> 
     </ul>
+  </div>
          
     </nav>
     </div>

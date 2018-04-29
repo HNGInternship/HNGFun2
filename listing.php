@@ -1,12 +1,14 @@
 <?php
 include_once("header.php");
-require 'config.php';
-try {
+require 'db.php';
+
+
+/*try {
   $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
 
 } catch (PDOException $pe) {
   die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-}
+}*/
 
  
 $sql = 'SELECT * FROM interns_data';
