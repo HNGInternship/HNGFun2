@@ -5,7 +5,7 @@ include_once("header.php");
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
   <p class="hero-main-text font-weight-bold"> hng</p>
   <p class="hero-sub-text-1 font-weight-bold"> Internship</p>
-  <p class="hero-sub-text-2 text-primary"> Become a better Software Developer</p>
+  <p class="hero-sub-text-2 text-primary" style='color: #2196F3'> Become a better Software Developer</p>
 </div>
 
 <div class="container container-fluid bg-transparent text-center mt-5 px-5 pt-5">
@@ -18,6 +18,32 @@ include_once("header.php");
   <p class="text-secondary mx-5 px-5">We needed developers in Nigeria, and there were just not enough. We found that telent was hiding in different small locations all over the country - but they needed training and exposure to best practices. The initial idea was to simply do a remote internship to find coders. We did not expect 1000+ people would apply to the internship. But we saw strongly people wanted to develop their skills, and it became a mission for us to make this happen.</p>
 </div>
 
+<style>
+    .btn {
+        border-radius: 8px; 
+        background-color: #2196F3; 
+        border-color: #2196F3;
+    }
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:visited,
+    .btn-primary:focus {
+        background-color: #0475CE !important;
+    }
+</style>
+
+<div class="container container-fluid bg-transparent text-center" style="margin-bottom: 100px">
+    <h3 class="row justify-content-center">
+        Ready to get started? Register now
+    </h3>
+    <br />
+    <div class="row justify-content-center">
+        <a href=signup.php>
+            <button class="btn btn-lg btn-primary">Sign Up</button>
+        </a>
+    </div>
+</div>
+<!--
 <div class="my-5 py-5">
 	<div class="container container-fluid bg-transparent my-5 py-5">
 		<h3 class="text-center">Ready to get started? register now</h3>
@@ -37,6 +63,8 @@ include_once("header.php");
 		</div>
 	</div>
 </div>
+-->
+
 
 <?php
 include_once("footer.php");
