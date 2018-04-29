@@ -43,7 +43,7 @@ include_once("header.php");
             </div>
 
              <div class="form-row">
-                <div class="form-group col-md-12" style="padding-right:50px">>
+                <div class="form-group col-md-12" style="padding-right:50px">
                 <input type="text" name="username" id="username" class="form-control" placeholder="User Name">
                 </div>
           </div>  
