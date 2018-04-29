@@ -20,13 +20,13 @@
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
-   
+     <link rel="stylesheet" href="css/custom.css" type="text/css">
+    <link href="css/learn2.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-      <!-- <link href="css/style2.css" rel="stylesheet">
+      <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
       <link href="css/style.css" rel="stylesheet">
-      <link href="css/learn.css" rel="stylesheet"> -->
+     <!-- <link href="css/learn.css" rel="stylesheet"> -->
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
       <link href="css/landing-page.min.css" rel="stylesheet">
 
@@ -58,7 +58,7 @@
   <body>
     <!-- Navigation -->
     <div id="navbar">
-    <nav class="navbar navbar-expand-lg navbar-light  style="background-color: #FAFAFA;"">
+    <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #FAFAFA;">
       <a class="navbar-brand" href="../index.php"><img src="../img/logo.png" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

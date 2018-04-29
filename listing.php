@@ -81,7 +81,9 @@ body{
               <img src="http://res.cloudinary.com/julietezekwe/image/upload/v1525004514/git.png" alt="git" style="width:30px; height:30px; padding:3px;">
             </div>
           </a>
-         <button class="btn btn-default" style="margin:3px;">View profile</button>
+             <a href="profile.php?id=<?=$list['username']?>">
+                 <button class="btn btn-default" style="margin:3px;">View Profile</button>
+             </a>
    </div>
  
     <div style="margin-left:150px; textialign:center"><h5><?=$list['username']?></h5>
