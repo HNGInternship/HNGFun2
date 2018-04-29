@@ -21,17 +21,19 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
-   
+    <link href="css/learn2.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-      <link href="css/style2.css" rel="stylesheet">
+      <!-- <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
       <link href="css/style.css" rel="stylesheet">
-      <link href="css/learn.css" rel="stylesheet">
-      <link href="css/learn2.css" rel="stylesheet">
+      <link href="css/learn.css" rel="stylesheet"> -->
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
       <link href="css/landing-page.min.css" rel="stylesheet">
 
       <style>
+  body{
+      background: #E5E5E5;
+  }
   #navbar{
     font-size: 15px;
     font-weight: bold;
