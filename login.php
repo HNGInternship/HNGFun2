@@ -128,7 +128,7 @@ padding-top: 20px;
     <div class="login-card">
 
     <h1 style="font-size: 45px">Log In</h1><br>
-   <p class="login-out" style="margin:0px 0px; ">Login to access your dashboard and manage your account.</p>
+   <p class="login-out" style="margin-left: -30px; ">Login to access your dashboard and manage your account.</p>
 
 
   <form action="checkLogin.php" method="post" style="">
