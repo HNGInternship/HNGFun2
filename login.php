@@ -27,9 +27,9 @@
 padding-top: 20px;
 margin-left: 20px;
   color:#000;
-  font-weight: 1000;
+  font-weight: 900;
   text-align: center;
-  font-size: 2.2em;
+  font-size: 2.0em;
   line-height: 0px;
   font-family:Roboto;
 }
@@ -111,7 +111,7 @@ margin-left: 20px;
  margin-left: 40px;
 }
 .login-out {
-  width: 100%;
+  width: 90%;
   text-align: center;
   font-size: 14px;
    opacity: 0.8;
