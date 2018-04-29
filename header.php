@@ -34,7 +34,7 @@
   body{
       background: #E5E5E5;
   }
-  #navbar{
+  .navbar{
     font-size: 15px;
     font-weight: bold;
     padding-right: 100px;
@@ -57,7 +57,7 @@
 
   <body>
     <!-- Navigation -->
-    <div id="navbar">
+    
     <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #FAFAFA;">
       <a class="navbar-brand" href="../index.php"><img src="../img/logo.png" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,4 +93,3 @@
   </div>
          
     </nav>
-    </div>
