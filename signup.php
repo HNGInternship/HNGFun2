@@ -45,14 +45,18 @@ a {
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <select id="inputState" class="form-control" style="padding: 0;">
-                        <option selected>Choose...</option>
-                        <option>...</option>
+                    <select id="country" name="country" class="form-control" style="padding: 0;">
+                        <option selected>Choose Country...</option>
+                        <option>Nigeria</option>
+                        <option>Ghana</option>
+                        <option>Cameroun</option>
+                        <option>Kenya</option>
+                        <option>Sout Africa</option>
                     </select>
         </div>
                     <div class="form-group col-md-6">
                         <select id="inputState" class="form-control" style="padding: 0;">
-                            <option selected>Choose...</option>
+                            <option selected>Choose State...</option>
                             <option>...</option>
                         </select>
                     </div>
