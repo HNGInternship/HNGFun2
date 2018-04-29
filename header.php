@@ -85,7 +85,7 @@
             </li> <li class="nav-item">
                 <a href="sponsors.php" class="nav-link">SPONSORS</a>
             </li> <li class="nav-item">
-                <a href="#" class="nav-link">ALUMNI</a>
+                <a href="alumni.php" class="nav-link">ALUMNI</a>
             </li> 
             <!-- <li class="nav-item"> -->
                 <!-- <a href="#" class="nav-link">PARTNERS</a> -->
