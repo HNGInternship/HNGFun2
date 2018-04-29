@@ -42,7 +42,7 @@
           font-weight: bold;
           padding-right: 100px;
           padding-left: 100px;
-          background-color: #FFFFFF;
+          background-color: #F4F4F4;
         } 
   
         .nav-item{
@@ -56,7 +56,15 @@
         }
 
         footer {
-          background: #FFFFFF;
+          background: #FAFAFA;
+        }
+
+        .justify-space-between {
+          justify-content: space-between;
+        }
+
+        .wrap {
+          flex-wrap: wrap;
         }
 
     </style>
