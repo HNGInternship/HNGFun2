@@ -51,7 +51,7 @@ include_once("header.php");
             <br />
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email Address">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
                 </div>
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number">

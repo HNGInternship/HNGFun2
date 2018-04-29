@@ -2,16 +2,15 @@
 
 <head>
     <title>Login</title>
-
-  <style>
-  
-  @import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
+	<style>
+	
+	@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
 
 
 .page
 {    
-  padding-top: 90px;
-  margin: 0 auto 30px;
+	padding-top: 90px;
+	margin: 0 auto 30px;
      width: 400px;
 }
 .login-card {
@@ -26,7 +25,7 @@
 
 .login-card h1 {
 padding-top: 20px;
-
+margin-left: 20px;
   color:#000;
   font-weight: 700;
   text-align: center;
@@ -38,7 +37,7 @@ padding-top: 20px;
 .login-card input[type=submit] {
   width: 90%;
   display: block;
-  margin: 0px 0px;
+  margin: 10px 40px;
   position: relative;
 }
 
@@ -46,7 +45,7 @@ padding-top: 20px;
   height: 38px;
   font-size: 14px;
   width: 90%;
-  margin: 15px 0px;
+  margin: 15px 40px;
    display: block;
   border: 0.5px solid grey;
   background: #fff;
@@ -112,7 +111,7 @@ padding-top: 20px;
  margin-left: 40px;
 }
 .login-out {
-  width: 89%;
+  width: 90%;
   text-align: center;
   font-size: 14px;
    opacity: 0.8;
@@ -122,21 +121,21 @@ padding-top: 20px;
   text-decoration: none;
   color: #2196F3;
 }
-    </style>
+		</style>
   </head>
   <div class="page">
     <div class="login-card">
-    <h1 style="margin-right: 30px">Log In</h1><br>
-   <p class="login-out" style="margin:0px 0px;margin-left: 39px; ">Login to access your dashboard and manage your account.</p>
-  <form action="checkLogin.php" method="post" style="">
+    <h1>Log In</h1><br>
+	 <p class="login-out" style="margin:0px 20px; margin-left: 39px;">Login to access your dashboard and manage your account.</p>
+  <form action="checkLogin.php" method="post">
    <input type="text" name="username" id="username"  placeholder="Username or Email">
     <input type="password" name="password" id="password" placeholder="Password">
-  <input type="checkbox" name="remember" id="remember" value="" style="margin-left: 0px;font-size: 10px;">&nbsp Remember me<br>
+	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;">&nbsp Remember me<br>
     <input type="submit" name="login" class="login login-submit" value="Login">
   </form>
     
-  <div class="login-help" style="margin-top: 10px"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="resetpassword.php">Forgot Password?</a></div>
+  <div class="login-help"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="resetpassword.php">Forgot Password?</a></div>
 </div>
- <div class="login-out" style="margin-left: 20px; text-align: center;">Don't have an account?<a href="signup.php" >&nbsp Get Started</a></div>
+ <div class="login-out" style="margin-left: 50px; text-align: center;">Don't have an account?<a href="signup.php" >&nbsp Get Started</a></div>
  </div>
  <?php include("footer.php");?>

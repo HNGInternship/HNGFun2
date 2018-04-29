@@ -58,7 +58,7 @@
           background: #FFFFFF;
         }
           
-    .btn {
+    .btn-primary {
         border-radius: 8px; 
         background-color: #2196F3; 
         border-color: #2196F3;
