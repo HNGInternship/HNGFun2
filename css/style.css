@@ -62,3 +62,15 @@ i {
 .copyright {
 	text-align: center;
 }
+
+button.home-signup {
+	height: 72px !important;
+	width: 300px !important;
+	border-radius: 5px !important;
+	color: white !important;
+	background: #48BBFC !important;
+	margin: 0 auto;
+	border: none;
+	align-self: center;
+	cursor: pointer !important;
+}
