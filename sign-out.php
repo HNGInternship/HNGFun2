@@ -11,7 +11,7 @@ include_once("header.php");
         margin-right: 300px;
     }
     .msg {
-        font-size: 30px;
+        font-size: 20px;
     }
     .navbar {
         background-color: #E5E5E5;
