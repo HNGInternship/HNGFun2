@@ -18,10 +18,10 @@ hr.under-line {
     cursor: pointer;
     display: flex;
     justify-content: center;
+    padding: 1em;
 }
 .learn-icon:hover {
     background: #48BBFC;
-    padding: 1em;
 }
 .learn-desc {
     border: 1px solid #E1E1E1;
