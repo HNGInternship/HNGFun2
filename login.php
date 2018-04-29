@@ -20,7 +20,7 @@ include_once("header.php");
 		</form>
 
 		<small class="forgot-password">Forgot Password?
-			<span><a href="forgotpassword.php" class="text-primary text-lighter">Click Here</a></span>
+			<span><a href="reset-password.php" class="text-primary text-lighter">Click Here</a></span>
 		</small>
 
 		<small class="signup">Don't have an account?
