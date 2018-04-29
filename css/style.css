@@ -26,3 +26,39 @@ h2 {
 .rounded-circle {
 	object-fit: cover;
 }
+
+/* NAVBAR HEADER */
+#navbar {
+	margin-left: 10px !important;
+}
+
+.navbar-brand {
+	width: 300px !important;
+}
+
+.navbar-logo {
+	height: 40px !important;
+	width: auto !important;
+}
+
+/* FOOTER */
+footer {
+	margin-top: 50px !important;
+}
+
+.footer-li {
+	border-right: 1px solid #3D3D3D !important;
+	margin-right: 0 !important;
+}
+
+.footer-li:last-child {
+	border: none !important;
+}
+
+i {
+	color: #3D3D3D !important;
+}
+
+.copyright {
+	text-align: center;
+}
