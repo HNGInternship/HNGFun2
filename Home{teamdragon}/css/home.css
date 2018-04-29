@@ -129,4 +129,17 @@ p{
 
 form {
 	font-family:Lato;
+	position: absolute;
+	width: 100%;
+	left: 30%;
+	top: 1300px;
+	font-family: Lato;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;	
+}
+#email {
+	height:40px;
+	padding: 5px;
+	width:30%;
 }
