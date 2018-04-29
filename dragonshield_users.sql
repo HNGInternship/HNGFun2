@@ -34,6 +34,8 @@ CREATE TABLE `users_data` (
 `nationality` varchar (50) NOT NULL,
 `city` varchar (50) NOT NULL,
 `password` varchar (255) NOT NULL,
+`reset_link` varchar (255) NOT NULL,
+`reset_link_expiry` VARCHAR (255) NOT NULL,
 PRIMARY KEY (`user_id`)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
