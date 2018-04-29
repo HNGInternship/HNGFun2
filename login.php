@@ -19,6 +19,7 @@
   margin: 0 auto 10px;
   border-radius: 5px;
   overflow: hidden;
+  font-family:Roboto;
   
 }
 
@@ -26,10 +27,10 @@
 padding-top: 20px;
 margin-left: 20px;
   color:#000;
-  font-weight: 900;
+  font-weight: 1000;
   text-align: center;
-  font-size: 1.9em;
-  line-height: 1px;
+  font-size: 2.2em;
+  line-height: 0px;
   font-family:Roboto;
 }
 
@@ -41,8 +42,8 @@ margin-left: 20px;
 }
 
 .login-card input[type=text], input[type=password] {
-  height: 33px;
-  font-size: 12px;
+  height: 38px;
+  font-size: 14px;
   width: 90%;
   margin: 15px 40px;
    display: block;
@@ -51,6 +52,7 @@ margin-left: 20px;
  border-radius: 5px; 
   padding: 0 8px;
    opacity: 0.6;
+   font-family:Roboto;
 }
 
 .login-card input[type=checkbox] {
@@ -98,12 +100,12 @@ margin-left: 20px;
 
 .login-help {
   width: 70%;
-  font-size: 12px;
+  font-size: 14px;
   margin-:10px 40x;
 }
 
 .login-help a {
- margin-left: 12px;
+ margin-left: 14px;
 }
 .login-help img {
  margin-left: 40px;
@@ -111,8 +113,9 @@ margin-left: 20px;
 .login-out {
   width: 100%;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
    opacity: 0.8;
+   font-family:Roboto;
 }
 .login-out a{
   text-decoration: none;
@@ -122,8 +125,8 @@ margin-left: 20px;
   </head>
   <div class="page">
     <div class="login-card">
-    <h1>Log In</h1>
-	 <p class="login-out" style="margin: 20px;">Login to access your dashboard and manage your account.</p>
+    <h1>Log In</h1><br>
+	 <p class="login-out" style="margin:0px 20px;">Login to access your dashboard and manage your account.</p>
   <form action="checkLogin.php" method="post">
    <input type="text" name="username" id="username"  placeholder="Username or Email">
     <input type="password" name="password" id="password" placeholder="Password">
