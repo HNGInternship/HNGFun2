@@ -1,7 +1,19 @@
 <?php
 include_once("header.php");
-?>
 
+
+$to = "starboi247@gmail.com";
+$subject = "My subject";
+$txt = "Hello world!";
+$headers = "From: starboi247@gmail.com" . "\r\n" .
+"CC: starboi247@ymail.com";
+if (mail($to, $subject, $txt,$headers)) {
+echo("<p>Email successfully sent!</p>");
+} else {
+	echo("<p>Email delivery failed…</p>");
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
