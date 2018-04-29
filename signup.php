@@ -50,7 +50,7 @@ include_once("header.php");
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <select id="country" name="country" class="form-control" style="padding: 0;">
-                        <option selected>Choose Country...</option>
+                        <option selected>Choose your Country</option>
                         <option>Nigeria</option>
                         <option>Ghana</option>
                         <option>Cameroun</option>
