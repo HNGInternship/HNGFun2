@@ -17,7 +17,7 @@
         
         <div class="row sponsor-row">
             <div class="col-md-4 pl-0">
-                <img src="img/figma2.png" alt="figma" srcset="" class="img-fluid">
+                <img src="img/figma.png" alt="figma" srcset="" class="img-fluid">
             </div>
             <div class="col-md-8 pt-4">
                 <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
