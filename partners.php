@@ -11,7 +11,7 @@ include_once("header.php");
 
     
     .rightColumn {
-        padding: 50px 5px 5px 80px;
+        padding: 50px 5px 5px 20px;
 		
     }
 
@@ -39,9 +39,32 @@ include_once("header.php");
 		
 		padding-top: 20px;
 		padding-left: 10px;
+		padding-bottom: 10px;
 		background-color: #ffffff;
 		width: 100%;
 		
+	}
+	
+	.head{
+		margin-top: 40px;
+		margin-left: 40px;
+		color: #ffffff;
+		}
+	.circle{
+		width: 43px;
+		height: 43px;
+		border-radius: 50%;
+		background-color: #48BBFC;
+		z-index: 100;
+	}
+	.btn{
+		margin-top: -130px;
+		background-color: #ffffff;
+		border-radius: 50px;
+		color: #48BBFC;
+		margin-left: 100px;
+		width: 181px;
+		height: 39px;
 	}
 
 </style>
@@ -53,9 +76,14 @@ include_once("header.php");
 	<div class="overlay" style="background-color: #2A3135"></div>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3 col-md-6 col-lg-4">
+				<div class="col-sm-3 col-md-6 col-lg-4 mx-auto">
 					<img src="img/overlay.jpg">
-					
+					<button type="button" class="btn">VISIT WEBSITE</button>
+				</div>
+				<div class="col head">
+					<h3>Hotels.ng <img src="img/value.png" width="67px" height="87px"> <span class="circle"></span> </img></h3>
+					<h5>Yaba, Lagos, Nigeria</h5>
+				</div>
 		</div>
 </header>
 </section>
@@ -66,6 +94,19 @@ include_once("header.php");
 				<h3 style="border-bottom: 2px solid #2196F3; display: inline block; ">About</h3>
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				
+				<div class="row mx-auto">
+					<div class="col">
+						<i class="fa fa-twitter fa-lg"></i>
+					</div>
+					<div class="col">
+						<i class="fa fa-facebook fa-lg"></i>
+					</div>
+					<div class="col">
+						<i class="fa fa-github fa-lg"></i>
+					</div>
+				</div>
+				
 		</div>
 	</div>
 						

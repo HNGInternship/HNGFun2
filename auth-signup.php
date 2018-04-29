@@ -1,5 +1,86 @@
 <?php
+require_once("db.php");
 include_once("header.php");
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $val = (object) $_POST;
+    // check all values are filled
+    if(empty($val['firstname']))
+        return "Firstname can't be empty";
+    if(empty($val['lastname']))
+        return "lastname can't be empty";
+    if(empty($val['email']))
+        return "email can't be empty";
+    if(empty($val['phone']))
+        return "phone can't be empty";
+    if(empty($val['country']))
+        return "country can't be empty";
+    if(empty($val['state']))
+        return "state can't be empty";
+    if(empty($val['password']))
+        return "password can't be empty";
+    
+    // check if email or phone doesn't exist
+    try {
+        $Estmt->$conn->prepare("SELECT * FROM users WHERE email = :email");
+        $Estmt->bindParam(":email", $email);
+        $email = $val['email'];
+
+        $Pstmt->$conn->prepare("SELECT * FROM users WHERE phone = :phone");
+        $Pstmt->bindParam(":phone", $phone);
+        $phone = $val['phone'];
+
+        if ($Estmt->execute()) {
+            return "An account with tis email already exists.";
+        }
+
+        if ($Pstmt->execute()) {
+            return "An account with tihs email already exists.";
+        }
+    } catch(PDOException $ex) {
+        //log errors
+    }
+    // check if passwords match
+    if( $_POST['password'] != $_POST['c_pasword']) {
+        return "Passwords do not match";
+        // show password 
+    }
+        
+    // Create account insert values in db
+    try {
+
+        $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, phone, country, state, password, token)
+        VALUES (:firstname, :lastname, :email, :phone, :country, :state, :password, :token)");
+    
+        $stmt->bindParam(':firstname', $firstname);
+        $stmt->bindParam(':lastname', $lastname);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':country', $country);
+        $stmt->bindParam(':state', $state);    
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':token', '');
+    
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $country = $_POST['country'];
+        $state = $_POST['state'];
+        $password = $_POST['password'];
+
+        $stmt->execute();
+
+        return "Account created successfully "; // redirect pages
+
+    } catch(PDOException $ex) {
+        // log errors internally
+        return "We counldn't process your request, please try again latet";
+    }
+
+    
+
+}
 ?>
 <style>
     body {
@@ -18,7 +99,7 @@ a {
     font-size: 14px !important;
     color: #2196F3 !important;
 }
-        </style>
+</style>
         <br><br>
 <div class="row h-100">
     <div class="col-md-6  mx-auto">
@@ -40,7 +121,7 @@ a {
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email Address">
                 </div>
                 <div class="form-group col-md-6">
-                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number">
+                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number">
                 </div>
             </div>
             <div class="form-row">
@@ -55,7 +136,7 @@ a {
                     </select>
         </div>
                     <div class="form-group col-md-6">
-                        <select id="inputState" class="form-control" style="padding: 0;">
+                        <select name="state" id="inputState" class="form-control" style="padding: 0;">
                             <option selected>Choose State...</option>
                             <option>...</option>
                         </select>
