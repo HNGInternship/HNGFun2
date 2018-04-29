@@ -93,12 +93,12 @@ include_once("header.php");
 		</div>
 
 		<form class="w-50 mt-2">
-			<input type="text" name="username" class="form-control mb-3" placeholder="Username or Email">
-			<input type="text" name="password" class="form-control mb-3" placeholder="Password">
-			<input type="checkbox" name="" class="" placeholder="Password"><span style="font-size: 14px;"> Remember me</span> 
+			<input type="text" name="username" class="form-control mb-3" placeholder="Username or Email" required >
+			<input type="text" name="password" class="form-control mb-3" placeholder="Password" required >
+			<input type="checkbox" name="remember_me" class="" placeholder="Password"><span style="font-size: 14px;"> Remember me</span> 
 			<button class="btn btn-blue w-100 rounded py-2" style="margin-bottom: 10px">Log In</button>
 		</form>
-
+		<small>Forgotten password? </small><a href="reset-password.php">reset here</a>
 		<small>Not yet registered?
 			<span><a href="signup.php" class="text-primary text-lighter">SignUp</a></span>
 		</small>
