@@ -45,12 +45,12 @@ include_once("header.php");
     </h3>
     <br />
     <div class="row justify-content-center">
-         <form class="form-inline">
-             <div class="input-group mb-3">
+         <form class="form-inline" method="POST" action="signup.php">
+             <div class="input-group mb-3" >
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1">@</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="email" class="form-control" name="email" id="email" placeholder="example@email.com" aria-label="Username" aria-describedby="basic-addon1" required>
                 <div class="input-group-append">
                     <button class="btn-signup btn-md" style="font-size: 16px;">Sign Up </button>
                 </div>
