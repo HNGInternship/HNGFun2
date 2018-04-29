@@ -1,3 +1,6 @@
+.hero-div, .hero-text{
+	font-family: 'Work Sans', sans-serif;
+}
 .hero-main-text{
 	font-size: 800%;
 	text-transform: uppercase;
@@ -15,6 +18,7 @@
 	/*text-transform: capitalize;*/
 	margin: -1% 0 0 0;
 	padding: 0!important;
+	font-weight: lighter!important;
 }
 .font-icon{
 	font-size: 200%;
@@ -32,9 +36,29 @@ a{
 .f-2{
 	font-size: 70%;
 }
+.f-4{
+	font-size: 200%;
+}
+.f-1{
+	font-size: 90%;
+}
 .ml-10{
 	margin-left: 22%;
 }
 .text-lighter{
 	color: #fafafa;
+}
+.font-icon, .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+color: #c4c4c4!important;
+opacity: 1 !important; /* Firefox */
+font-family: Lato;
+}
+
+.font-icon, input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: #FFFFFF !important;
+}
+
+.bd-top{
+	border-top: 2px solid #000;
+	width:5%;
 }
