@@ -26,7 +26,7 @@ include_once("header.php");
         background: none;
     }
     
-    @media only screen and (max-width: 600px){
+    @media only screen and (max-width: 1000px){
         .container {
             padding-left: 50px;
         }
