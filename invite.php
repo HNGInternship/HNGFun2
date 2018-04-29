@@ -6,7 +6,7 @@
 	 * Upload a logo called "slack.png" to the same directory for slack
 	 */
 	define('SUBDOMAIN','{hnginternship4}');
-	define('TOKEN','{YOUR API TOKEN HERE}');
+	define('TOKEN','{xoxp-340958278947-341290703349-356302020102-f943a0e1b43cd95e2ca5abb1b7a29bdb}');
 ?>
 
 <?php
