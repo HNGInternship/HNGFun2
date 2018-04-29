@@ -1,3 +1,30 @@
+
+<?php 
+
+
+
+// for choosing active page on nav bar
+
+$fileName=basename($_SERVER['PHP_SELF']);
+
+$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php');
+$activeArray = array('','','','','','');
+
+$fileIndex=array_search($fileName,$files);
+
+
+// if page is unknown, dont mark any nav item
+
+if($fileIndex!=false){
+
+$activeArray[$fileIndex]="active";
+}
+
+/////////////////////////////////////////////////////////
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +76,7 @@
             padding-right: 15px;
             padding-left: 15px;
         }
-        .nav-item:hover { 
+        .nav-item:hover, .active { 
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
 
@@ -76,22 +103,22 @@
         
       
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li class="nav-item <?= $activeArray[0] ?>">
                 <a href="index.php" class="nav-link">HOME</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn.php" class="nav-link">LEARN</a>
             </li> 
-            <li class="nav-item">
+            <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing.php" class="nav-link">INTERN</a>
             </li> 
-            <li class="nav-item">
+            <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="testimonies.php" class="nav-link">TESTIMONIES</a>
             </li> 
-            <li class="nav-item">
+            <li class="nav-item <?= $activeArray[4] ?>">
                 <a href="sponsors.php" class="nav-link">SPONSORS</a>
             </li> 
-            <li class="nav-item">
+            <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni.php" class="nav-link">ALUMNI</a>
             </li> 
            <li class="nav-item">
@@ -101,3 +128,5 @@
   </div>
          
     </nav>
+
+    

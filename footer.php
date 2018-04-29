@@ -58,4 +58,18 @@ footer{
 }
 </style>
 
+<!-- <script type="text/javascript">
+
+  $( document ).ready(function() {
+    console.log( "ready!" );
+});
+
+  window.onload=function(){
+      console.log("loaded");
+      var pageName=['index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php'];
+      var path=window.location.pathname;
+      console.log("hjgfhg "+path);
+    }
+    </script> -->
+
 </html>
