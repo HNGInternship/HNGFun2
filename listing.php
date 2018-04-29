@@ -3,14 +3,6 @@ include_once("header.php");
 require 'db.php';
 
 
-/*try {
-  $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-
-} catch (PDOException $pe) {
-  die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-}*/
-
- 
 $sql = 'SELECT * FROM interns_data';
 $q = $conn->query($sql);
 $q->setFetchMode(PDO::FETCH_ASSOC);
@@ -44,7 +36,6 @@ $data = $q->fetchAll();
    }
 </style>
       <div class="container" >
-      <br>
       <div class="container" id="caption">
           <h1>OUR INTERNS</h1><br>
           <hr>
