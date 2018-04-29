@@ -1,113 +1,139 @@
-<?php
-$erros = [];
-$username = '';
-$password = '';
+ <?php include("header.php");?>
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-	$username = $_POST['username'] ?? '';
-	$password = $_POST['password'] ?? '';
-
-	// Simple validation
-	if(is_blank($username)) {
-		$erros[] = "Username cannot be blank.";
-	}
-
-	if(is_blank($username)) {
-		$erros[] = "Password cannot be blank.";
-	}
-
-	//
-	if(empty($errors)) {
-
-		$user = find_user_by_id($username);
-		$login_failure = "Log in was unsuccessful.";
-		
-		if($user) {
-			
-			if(password_verify($password, $user['hashed_password'])) {
-				// password matches
-				login_user($user);
-				redirect_to(url_for('/dashboard/index.php'));
-			} else {
-				// username found, but password does not match
-				$errors[] = $login_failure;
-			}
-		} else {
-			// no user 
-			$errors[] = $login_failure;
-		}
-	}
+<head>
+    <title>Login</title>
+	<style>
 	
+	@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
+
+
+.page
+{    
+	margin: 0 auto 30px;
+     width: 400px;
+}
+.login-card {
+  padding: 5px 20px;
+  width: 350px;
+  background-color: #fff;
+  margin: 0 auto 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  
 }
 
-function find_user_by_id($id) {
-	// global conn;
-
-	$sql = "SELECT * from users WHERE user_id = '".$id."' LIMIT 1";
-	  try {
-         $query = $conn->query($sql);
-            $user = $query->fetch(PDO::FETCH_OBJ);
-    } catch (PDOException $e) {
-        throw $e;
-    }
+.login-card h1 {
+padding-top: 20px;
+margin-left: 20px;
+  color:#000;
+  font-weight: 900;
+  text-align: center;
+  font-size: 2.0em;
+  line-height: 1px;
+  font-family:Times, Times New Roman, serif;
 }
+
+.login-card input[type=submit] {
+  width: 90%;
+  display: block;
+  margin: 10px 40px;
+  position: relative;
+}
+
+.login-card input[type=text], input[type=password] {
+  height: 33px;
+  font-size: 12px;
+  width: 90%;
+  margin: 15px 40px;
+   display: block;
+  border: 0.5px solid grey;
+  background: #fff;
+ border-radius: 5px; 
+  padding: 0 8px;
+   opacity: 0.6;
+}
+
+.login-card input[type=checkbox] {
+  border: 1px solid grey;
+}
+.login-card input[type=text]:hover, input[type=password]:hover { 
  
-//Check for blank input
-function is_blank($val) {
-	$input = trim($val);
-	if($input === '' || null) {
-		return false;
-	}
-
-	return true;
 }
 
-//Redirect pages
-function redirect_to($location) {
-	header("Location: " . $location);
-	exit;
+.login {
+  text-align: center;
+  font-size: 13px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
 }
 
-//Perform all login 
-function login_user($user) {
-
-	session_regenerate_id();
-	$_SESSION['user_id'] = $user['id'];
-	$_SESSION['username'] = $user['username'];
-	$_SESSION['last_login'] = time();
-
-	return true;
+.login-submit {
+  margin-top: 10px;
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #2196F3;
+  border-radius: 2px;
 }
 
-?>
-<?php
-include_once("header.php");
-?>
+.login-submit:hover {
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #C0E2D4;
+}
 
-<div class="d-flex justify-content-center align-items-center pt-5 pl-5">
-	<div class="d-block w-50 mt-5 ml-10">
-		<div class="w-50">
-			<h2 class="text-center my-0 py-0" style="margin-bottom: 10px">Log In</h2>
-			<p class="text-center text-lighte" style="font-size: 15px; opacity: 0.7">Login to access your dashboard and manage your account.</p>
-		</div>
+.login-card a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 400;
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity ease 0.5s;
+}
 
-		<form class="w-50 mt-2">
-			<input type="text" name="username" class="form-control mb-3" placeholder="Username or Email">
-			<input type="text" name="password" class="form-control mb-3" placeholder="Password">
-			<input type="checkbox" name="" class="" placeholder="Password"><span style="font-size: 14px;"> Remember me</span> 
-			<button class="btn btn-blue w-100 rounded py-2" style="margin-bottom: 10px">Log In</button>
-		</form>
+.login-card a:hover {
+  opacity: 1;
+}
 
-		<small>Not yet registered?
-			<span><a href="signup.php" class="text-primary text-lighter">SignUp</a></span>
-		</small>
-	</div>
+.login-help {
+  width: 70%;
+  font-size: 12px;
+  margin-:10px 40x;
+}
+
+.login-help a {
+ margin-left: 10px;
+}
+.login-help img {
+ margin-left: 40px;
+}
+.login-out {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+   opacity: 0.8;
+}
+.login-out a{
+  text-decoration: none;
+  color: #2196F3;
+}
+		</style>
+  </head>
+  <div class="page">
+    <div class="login-card">
+    <h1>Log In</h1>
+	 <p class="login-out" style="margin: 20px;">Login to access your dashboard and manage your account.</p>
+  <form action="checkLogin.php" method="post">
+   <input type="text" name="username" id="username"  placeholder="Username or Email Address">
+    <input type="password" name="password" id="password" placeholder="Password">
+	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;"> <a href="#">Forgot Password?</a>Remember me<br>
+    <input type="submit" name="login" class="login login-submit" value="Login">
+  </form>
+    
+  <div class="login-help"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="#">Forgot Password?</a></div>
 </div>
-
-<?php
-include_once("footer.php");
-?>
-
-
-   
+ <div class="login-out" >Don't have an account?<a href="#" >&nbsp Get Started</a></div>
+ </div>
+ <?php include("footer.php");?>

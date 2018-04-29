@@ -51,14 +51,11 @@ a {
                         <option>Ghana</option>
                         <option>Cameroun</option>
                         <option>Kenya</option>
-                        <option>Sout Africa</option>
+                        <option>South Africa</option>
                     </select>
         </div>
                     <div class="form-group col-md-6">
-                        <select id="inputState" class="form-control" style="padding: 0;">
-                            <option selected>Choose State...</option>
-                            <option>...</option>
-                        </select>
+                        <input type="text" name="state" id="state" class="form-control" placeholder="State">
                     </div>
         </div>
                     <div class="form-row">
