@@ -22,3 +22,19 @@
 .w-80{
 	width: 80%!important;
 }
+a{
+	text-decoration: none;
+}
+.btn-blue{
+	background-color: blue;
+	color: #fff;
+}
+.f-2{
+	font-size: 70%;
+}
+.ml-10{
+	margin-left: 22%;
+}
+.text-lighter{
+	color: #fafafa;
+}
