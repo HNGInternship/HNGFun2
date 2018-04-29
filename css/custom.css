@@ -1,4 +1,4 @@
-.hero-div{
+.hero-div, .hero-text{
 	font-family: 'Work Sans', sans-serif;
 }
 .hero-main-text{
@@ -39,6 +39,9 @@ a{
 .f-4{
 	font-size: 200%;
 }
+.f-1{
+	font-size: 90%;
+}
 .ml-10{
 	margin-left: 22%;
 }
@@ -53,4 +56,9 @@ font-family: Lato;
 
 .font-icon, input:-ms-input-placeholder { /* Internet Explorer 10-11 */
 color: #FFFFFF !important;
+}
+
+.bd-top{
+	border-top: 2px solid #000;
+	width:5%;
 }
