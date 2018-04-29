@@ -30,6 +30,10 @@ include_once("header.php");
     .btn-primary:focus {
         background-color: #0475CE !important;
     }
+    
+    footer {
+        background: none;
+    }
 </style>
 
 <div id='signout' class='container'>
