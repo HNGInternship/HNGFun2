@@ -9,14 +9,13 @@
 
 .page
 {    
-	padding-top: 30px;
+	padding-top: 70px;
 	margin: 0 auto 30px;
      width: 400px;
 }
 .login-card {
   padding: 5px 20px;
   width: 350px;
-  background-color: #fff;
   margin: 0 auto 10px;
   border-radius: 5px;
   overflow: hidden;
