@@ -16,7 +16,6 @@
 
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
-      
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -52,7 +51,7 @@
         .nav-item:hover { 
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
-
+            margin-bottom: -3px
         }
 
         footer {
