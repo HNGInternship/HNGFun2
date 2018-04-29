@@ -26,3 +26,13 @@ h2 {
 .rounded-circle {
 	object-fit: cover;
 }
+
+/* FOOTER */
+.footer-li {
+	border-right: 1px solid #3D3D3D;
+	margin-right: 0 !important;
+}
+
+.footer-li:last-child {
+	border: none;
+}
