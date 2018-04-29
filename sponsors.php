@@ -11,7 +11,7 @@ include_once("header.php");
            <div class="d-block w-80">
               <div class="row border rounded pb-0 w-80">
                   <div class="col-3 pl-0 my-0 py-0">
-                      <img src="figma-dark.png" alt="figma" srcset="" class="img-fluid my-0 py-0">
+                      <img src="img/figma.png" alt="figma" srcset="" class="img-fluid my-0 py-0">
                   </div>
                   <div class="col-9 pt-4 my-0 py-0">
                       <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
@@ -21,7 +21,7 @@ include_once("header.php");
 
               <div class="row border rounded pb-0 w-80">
                   <div class="col-3 pl-0 my-0 py-0">
-                      <img src="oracle.png" alt="figma" srcset="" class="img-fluid my-0 py-0">
+                      <img src="img/oracle.png" alt="figma" srcset="" class="img-fluid my-0 py-0">
                   </div>
                   <div class="col-9 pt-4 my-0 py-0">
                       <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
@@ -31,7 +31,7 @@ include_once("header.php");
 
               <div class="row border rounded pb-0 w-80">
                   <div class="col-3 pl-0 my-0 py-0">
-                      <img src="bluechips.png" alt="figma" srcset="" class="img-fluid my-0 py-0">
+                      <img src="img/bluechip.png" alt="figma" srcset="" class="img-fluid my-0 py-0">
                   </div>
                   <div class="col-9 pt-4 my-0 py-0">
                       <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
@@ -41,7 +41,7 @@ include_once("header.php");
 
               <div class="row border rounded pb-0 w-80">
                   <div class="col-3 pl-0 my-0 py-0">
-                      <img src="hng-square.png" alt="figma" srcset="" class="img-fluid my-0 py-0">
+                      <img src="img/hotels.png" alt="figma" srcset="" class="img-fluid my-0 py-0">
                   </div>
                   <div class="col-9 pt-4 my-0 py-0">
                       <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
