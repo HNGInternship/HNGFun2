@@ -9,7 +9,7 @@
 
 .page
 {    
-	padding-top: 70px;
+	padding-top: 90px;
 	margin: 0 auto 30px;
      width: 400px;
 }
@@ -27,9 +27,9 @@
 padding-top: 20px;
 margin-left: 20px;
   color:#000;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
-  font-size: 2.0em;
+  font-size: 1.8em;
   line-height: 0px;
   font-family:Roboto;
 }
@@ -111,7 +111,7 @@ margin-left: 20px;
  margin-left: 40px;
 }
 .login-out {
-  width: 90%;
+  width: 80%;
   text-align: center;
   font-size: 14px;
    opacity: 0.8;
@@ -130,7 +130,7 @@ margin-left: 20px;
   <form action="checkLogin.php" method="post">
    <input type="text" name="username" id="username"  placeholder="Username or Email">
     <input type="password" name="password" id="password" placeholder="Password">
-	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;">Remember me<br>
+	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;">&nbsp Remember me<br>
     <input type="submit" name="login" class="login login-submit" value="Login">
   </form>
     
