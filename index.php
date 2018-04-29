@@ -30,6 +30,13 @@ include_once("header.php");
     .btn-primary:focus {
         background-color: #0475CE !important;
     }
+    .btn-signup {
+        background-color: #2196F3;
+        border-color: #2196F3;
+        /*padding: 0.4em 8em !important;*/
+        color: white;
+        border-radius: 4px;
+    }
 </style>
 
 <div class="container container-fluid bg-transparent text-center" style="margin-bottom: 100px">
@@ -38,9 +45,18 @@ include_once("header.php");
     </h3>
     <br />
     <div class="row justify-content-center">
-        <a href=signup.php>
-            <button class="btn btn-lg btn-primary">Sign Up</button>
-        </a>
+         <form class="form-inline">
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <button class="btn-signup btn-md" style="font-size: 16px;">Sign Up </button>
+                </div>
+              </div>
+         </form>
+          
     </div>
 </div>
 <!--
