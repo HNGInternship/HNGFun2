@@ -131,7 +131,7 @@ margin-left: 20px;
    <input type="text" name="username" id="username"  placeholder="Username or Email">
     <input type="password" name="password" id="password" placeholder="Password">
 	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;">&nbsp Remember me<br>
-    <input type="submit" name="login" class="login login-submit" value="Login">
+    <input type="submit" name="login" class="login login-submit" value="Login" style="background-color: #0475CE">
   </form>
     
   <div class="login-help"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="resetpassword.php">Forgot Password?</a></div>
