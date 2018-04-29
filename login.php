@@ -127,7 +127,7 @@ padding-top: 20px;
   <div class="page">
     <div class="login-card">
     <h1 style="margin-right: 30px">Log In</h1><br>
-   <p class="login-out" style="margin:0px 0px; ">Login to access your dashboard and manage your account.</p>
+   <p class="login-out" style="margin:0px 0px;margin-left: 39px; ">Login to access your dashboard and manage your account.</p>
   <form action="checkLogin.php" method="post" style="">
    <input type="text" name="username" id="username"  placeholder="Username or Email">
     <input type="password" name="password" id="password" placeholder="Password">
