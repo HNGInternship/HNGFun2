@@ -87,7 +87,7 @@ $data = $q->fetchAll();
           <i class="fa fa-github fa-lg"></i>
         </div>
       </div>
-      <h4 class="text-center mt-3"><?=$list['username'] . " " . $index?></h4>
+      <h4 class="text-center mt-3"><?=$list['username']?></h4>
       <p class="small text-center mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
     </div>
   <?php if($count === 3 || $index == $total - 1) { ?>
