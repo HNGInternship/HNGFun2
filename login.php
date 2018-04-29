@@ -9,6 +9,7 @@
 
 .page
 {    
+	padding-top: 30px;
 	margin: 0 auto 30px;
      width: 400px;
 }
@@ -28,9 +29,9 @@ margin-left: 20px;
   color:#000;
   font-weight: 900;
   text-align: center;
-  font-size: 2.0em;
+  font-size: 1.9em;
   line-height: 1px;
-  font-family:Times, Times New Roman, serif;
+  font-family:Roboto;
 }
 
 .login-card input[type=submit] {
@@ -104,7 +105,7 @@ margin-left: 20px;
 }
 
 .login-help a {
- margin-left: 10px;
+ margin-left: 12px;
 }
 .login-help img {
  margin-left: 40px;
@@ -126,14 +127,14 @@ margin-left: 20px;
     <h1>Log In</h1>
 	 <p class="login-out" style="margin: 20px;">Login to access your dashboard and manage your account.</p>
   <form action="checkLogin.php" method="post">
-   <input type="text" name="username" id="username"  placeholder="Username or Email Address">
+   <input type="text" name="username" id="username"  placeholder="Username or Email">
     <input type="password" name="password" id="password" placeholder="Password">
-	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;"> <a href="#">Forgot Password?</a>Remember me<br>
+	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;">Remember me<br>
     <input type="submit" name="login" class="login login-submit" value="Login">
   </form>
     
-  <div class="login-help"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="#">Forgot Password?</a></div>
+  <div class="login-help"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="resetpassword.php">Forgot Password?</a></div>
 </div>
- <div class="login-out" >Don't have an account?<a href="#" >&nbsp Get Started</a></div>
+ <div class="login-out" >Don't have an account?<a href="signup.php" >&nbsp Get Started</a></div>
  </div>
  <?php include("footer.php");?>
