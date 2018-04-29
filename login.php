@@ -59,7 +59,7 @@ margin-left: 20px;
   border: 1px solid grey;
 }
 .login-card input[type=text]:hover, input[type=password]:hover { 
- 
+  background: #fff;
 }
 
 .login {
