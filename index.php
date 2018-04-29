@@ -20,9 +20,9 @@ include_once("header.php");
 
 <div class="my-5 py-5">
 	<div class="container container-fluid bg-transparent my-5 py-5">
-		<h3 class="text-center">Ready to get started? register now</h3>
+		<h3 class="text-center">Ready to get started?</h3>
 		<div class="d-flex justify-content-center mt-3">
-		  <form class="w-75">
+		  <!-- <form class="w-75">
 		  	<label class="mb-0 pb-0">Email</label>
 		  	<div class="input-group mb-4 mt-0">
 		  	  <div class="input-group-prepend ">
@@ -33,8 +33,14 @@ include_once("header.php");
 		  	  	<p class="font-weight-normal text-white f-4 mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
 		  	  </a>
 		  	</div>
-		  </form>
+			</form> -->
+			<a href="./signup.php">
+				<button class="home-signup">
+					SIGN UP
+				</button>
+			</a>
 		</div>
+		
 	</div>
 </div>
 

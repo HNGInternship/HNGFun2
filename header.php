@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
+    <link rel="shortcut icon" href="images/favicon.png">
    
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
@@ -31,9 +32,10 @@
       <link href="css/learn.css" rel="stylesheet">
       <link href="css/custom.css" rel="stylesheet">
       <link rel="stylesheet" href="css/login.css">
-<!--    <link href="css/carousel.css" rel="stylesheet">-->
+      <link rel="stylesheet" href="css/signout.css">
       <link href="css/landing-page.min.css" rel="stylesheet">
       <link href="css/shield-invite.css" rel="stylesheet">
+      <!-- <link href="css/carousel.css" rel="stylesheet"> -->
       
 
       <style>

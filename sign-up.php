@@ -1,42 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="images/favicon.png">
-
-    <title>Sign Up | HNG Internship</title>
-
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-
-  <body class="account">
-
-    <div class="navbar navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="./"><img src="images/logo.png"></a>
-        </div>
-        <div class="navbar-collapse collapse navbar-right">
-          <ul class="nav navbar-nav">
-            <li class="activo"><a href="#">Home</a></li>
-            <li><a href="#.">Learn</a></li>
-            <li><a href="#.">Interns</a></li>
-            <li><a href="#.">Testimonies</a></li>
-            <li><a href="#.">Alumni</a></li>
-            <li><a href="#.">Partners</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
-
+<?php
+include_once("header.php");
+?>
+  <div class="account">
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -105,20 +70,8 @@
 
         </div> <!-- /container -->
     </div>
+  </div>
 
-    <div id="footer">
-      <div class="container">
-        <footer>
-          <img class="b-right social" src="images/twitter.png">
-          <img class="b-right social fb" src="images/facebook.png">
-          <img class="social" src="images/github.png">
-          
-          <p>Copyright &copy; HNG FUN 2018</p>
-        </footer>
-      </div> <!-- /container -->
-    </div>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+<?php
+include_once("footer.php");
+?>
