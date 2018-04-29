@@ -85,7 +85,7 @@ function login_user($user) {
 include_once("header.php");
 ?>
 
-<div class="d-flex justify-content-center align-items-center mt-5 pt-5 pl-5">
+<div class="d-flex justify-content-center align-items-center pt-5 pl-5">
 	<div class="d-block w-50 mt-5 ml-10">
 		<div class="w-50">
 			<h2 class="text-center my-0 py-0" style="margin-bottom: 10px">Log In</h2>
