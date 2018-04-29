@@ -22,7 +22,7 @@ function custom_styles()
 		.jumbotron h1{
 			font-size: 32px;
 			font-weight: normal;
-			font-family: 'Open Sans', sans-serif;
+			font-family: 'Open Sans', sans-serif !important;
 		}
 		.main-form{
 			width: 80%;
@@ -74,13 +74,13 @@ _END;
 					</div>
 
 					<div class="col-sm-6">
-						<div class="form-group pr-3 has-danger ">
+						<div class="form-group pr-3 has-danger">
 						    <label for="nationality">Nationality</label>
-						    <select class="form-control" id="nationality">
+						    <select class="form-control" id="nationality" name="nationality">
 						      <option>Select your country</option>
 						      <?php
 						      foreach ($countrylist as $key => $country) {
-						      	echo "<option>$country</option>";
+						      	echo "<option id='".strtolower($country)."'>$country</option>";
 						      }
 						      ?>
 						    </select>
@@ -88,10 +88,10 @@ _END;
 					  
 					</div>
 					<div class="col-sm-6">
-						<div class="form-group pl-3">
+						<div class="form-group pl-3" id="chose_state">
 						    <label for="state">State</label> 
 						    
-						    <select class="form-control" id="state">
+						    <select class="form-control" id="state" name="state">
 						      <option>Select your state</option>
 						      <?php
 						      foreach ($states as $key => $state) { ?>
@@ -99,7 +99,7 @@ _END;
 						      <?php }
 						      ?>
 						    </select>
-						  </div>
+						</div>
 					</div>
 
 					<div class="col-sm-6">
@@ -137,19 +137,25 @@ _END;
 			
 		</div>
 	</main>
-	<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M" crossorigin="anonymous"></script>
-
-	<script>
-		
-	</script>
-</body>
-</html>
+	
 
 <?php
+function custom_scripts(){
+	echo <<<_END
+	<script>
+		
+	$("select[name='nationality']").on('change', function() {
+		if (!($("#nigeria").is(":selected"))) {
+			$("#state").addClass("d-none");
+			$("#chose_state").append('<input type="text" class="form-control" id="enter_state" placeholder="Enter your state">');
+
+		}else{
+			$("#state").removeClass("d-none");
+			$("#enter_state").addClass("d-none");
+		}
+	});
+	</script>
+_END;
+}
 include_once("footer.php");
 ?>
