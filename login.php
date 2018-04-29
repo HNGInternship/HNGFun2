@@ -81,7 +81,6 @@ margin-left: 20px;
 .login-submit:hover {
   border: 0px;
   text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #C0E2D4;
 }
 
 .login-card a {
