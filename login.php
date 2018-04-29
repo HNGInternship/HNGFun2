@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		
 		if($user) {
 			
-			if(password_verify($password, $user['hashed_password'])) {
+			if(password_verify($password, $user->password)) {
 				// password matches
 				login_user($user);
 				redirect_to(url_for('/listing.php'));
@@ -60,7 +60,8 @@ function find_user_by_id($id) {
 	$sql = "SELECT * from users WHERE user_id = '".$id."' LIMIT 1";
 	  try {
          $query = $conn->query($sql);
-            $user = $query->fetch(PDO::FETCH_OBJ);
+		 $user = $query->fetch(PDO::FETCH_OBJ);
+		 echo $user;
     } catch (PDOException $e) {
         throw $e;
     }
