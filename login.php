@@ -9,16 +9,17 @@
 
 .page
 {    
+	padding-top: 70px;
 	margin: 0 auto 30px;
      width: 400px;
 }
 .login-card {
   padding: 5px 20px;
   width: 350px;
-  background-color: #fff;
   margin: 0 auto 10px;
   border-radius: 5px;
   overflow: hidden;
+  font-family:Roboto;
   
 }
 
@@ -29,8 +30,8 @@ margin-left: 20px;
   font-weight: 900;
   text-align: center;
   font-size: 2.0em;
-  line-height: 1px;
-  font-family:Times, Times New Roman, serif;
+  line-height: 0px;
+  font-family:Roboto;
 }
 
 .login-card input[type=submit] {
@@ -41,8 +42,8 @@ margin-left: 20px;
 }
 
 .login-card input[type=text], input[type=password] {
-  height: 33px;
-  font-size: 12px;
+  height: 38px;
+  font-size: 14px;
   width: 90%;
   margin: 15px 40px;
    display: block;
@@ -51,6 +52,7 @@ margin-left: 20px;
  border-radius: 5px; 
   padding: 0 8px;
    opacity: 0.6;
+   font-family:Roboto;
 }
 
 .login-card input[type=checkbox] {
@@ -81,7 +83,6 @@ margin-left: 20px;
 .login-submit:hover {
   border: 0px;
   text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #C0E2D4;
 }
 
 .login-card a {
@@ -99,21 +100,22 @@ margin-left: 20px;
 
 .login-help {
   width: 70%;
-  font-size: 12px;
+  font-size: 14px;
   margin-:10px 40x;
 }
 
 .login-help a {
- margin-left: 10px;
+ margin-left: 14px;
 }
 .login-help img {
  margin-left: 40px;
 }
 .login-out {
-  width: 100%;
+  width: 90%;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
    opacity: 0.8;
+   font-family:Roboto;
 }
 .login-out a{
   text-decoration: none;
@@ -123,17 +125,17 @@ margin-left: 20px;
   </head>
   <div class="page">
     <div class="login-card">
-    <h1>Log In</h1>
-	 <p class="login-out" style="margin: 20px;">Login to access your dashboard and manage your account.</p>
+    <h1>Log In</h1><br>
+	 <p class="login-out" style="margin:0px 20px;">Login to access your dashboard and manage your account.</p>
   <form action="checkLogin.php" method="post">
-   <input type="text" name="username" id="username"  placeholder="Username or Email Address">
+   <input type="text" name="username" id="username"  placeholder="Username or Email">
     <input type="password" name="password" id="password" placeholder="Password">
-	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;"> <a href="#">Forgot Password?</a>Remember me<br>
+	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;">Remember me<br>
     <input type="submit" name="login" class="login login-submit" value="Login">
   </form>
     
-  <div class="login-help"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="#">Forgot Password?</a></div>
+  <div class="login-help"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="resetpassword.php">Forgot Password?</a></div>
 </div>
- <div class="login-out" >Don't have an account?<a href="#" >&nbsp Get Started</a></div>
+ <div class="login-out" >Don't have an account?<a href="signup.php" >&nbsp Get Started</a></div>
  </div>
  <?php include("footer.php");?>

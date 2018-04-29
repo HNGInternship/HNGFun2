@@ -23,6 +23,8 @@ include_once("header.php");
 		border-radius: 7px;
 	}
 
+
+
 </style>
 <div class="" style="padding-top: 10%; width:100%;">
 	<!-- <div style="text-align: center; margin-bottom: 20px; margin-top: -10px;">
@@ -52,9 +54,9 @@ include_once("header.php");
 				if ($error){
 			?>
 			
-			<p style="font-family: 'Roboto', sans-serif; color: #9d3d3d">
+			<small style="font-family: 'Roboto', sans-serif; color: #9d3d3d">
 				Please fill in all fields
-			</p>
+			</small>
 			
 			<?php
 					}
@@ -63,32 +65,6 @@ include_once("header.php");
 				}
 			?>
 
-
-      <!--   <form method="POST" class="text-center" style="margin-top: 5px;">
-            <div class="form-row" style="margin-left: 30px;">
-                <div class="form-group col-md-6">
-                	<label align="left" style="font-size: 15px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Firstname</label>
-                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                	<label align="left" style="font-size: 15px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Lastname</label>
-                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="">
-                </div>
-            </div>
-            <div class="form-row" style="margin-left: 30px;">
-                <div class="form-group col-md-6" style="margin-left: 0px; ">
-                	<label align="left" style="font-size: 15px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Email address</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                	<label align="left" style="font-size: 15px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Phone</label>
-                    <input type="text" name="phone" id="phone" class="form-control" placeholder="">
-                </div>
-            </div>
-                 
-                    <button style="margin-top: 30px; border:0px; margin-bottom: 7px; background-color: #2196F3; color: white; width: 400px; font-size: 12px; height: 40px; border-radius: 10px" id="submitbutton" class="">Send Invite</button>
-        </form>
- -->
            </div>
         </div>
 
@@ -139,19 +115,19 @@ include_once("header.php");
 	                    echo 'Something went wrong, try again!';
 	                    echo '</p>';
 	                     if ($reply['error']==="already_invited") {
-	                    	echo '<p style="font-family: \'Roboto\', sans-serif; color: #9d3d3d">';
+	                    	echo '<small style="font-family: \'Roboto\', sans-serif; color: #9d3d3d">';
 	                         echo 'Please Check your email, invite already sent to this  email.'.' '.$_POST['email'];
-	                           echo '</p>';
+	                           echo '</small>';
 	                     }
 	                  if ($reply['error']==="invalid_email") {
-	                    	echo '<p style="font-family: \'Roboto\', sans-serif; color: #9d3d3d">';
+	                    	echo '<small style="font-family: \'Roboto\', sans-serif; color: #9d3d3d">';
 	                         echo 'Note that Slack does not recognize some email addresses even though they are technically valid';
-	                          echo '</p>';
+	                          echo '</small>';
 	                    }
 	                    if ($reply['error']==="already_in_team") {
-	                    	echo '<p style="font-family: \'Roboto\', sans-serif; color: #9d3d3d">';
+	                    	echo '<small style="font-family: \'Roboto\', sans-serif; color: #9d3d3d">';
 	                         echo 'This email has already been used , try another email!';
-	                           echo '</p>';
+	                           echo '</small>';
 	                     }
 	                    showForm();
 	            }
@@ -199,25 +175,7 @@ include_once("header.php");
         </form>
 
 		
-			<!-- <form method="post">
-				<p style="font-family: 'Roboto', sans-serif; color: #ffffff">
-					First Name
-				</p>
-				
-				<input type="text" name="first" style="width: 250px; " <?php echo strlen($_POST['first']) > 0 ? 'value="'.$_POST['first'].'"' : ''; ?> />
-				
-				<p style="font-family: 'Roboto', sans-serif; color: #ffffff">
-					Last Name
-				</p>
-				<input type="text" name="last" style="width: 250px; " <?php echo strlen($_POST['last']) > 0 ? 'value="'.$_POST['last'].'"' : ''; ?> />
-				<p style="font-family: 'Roboto', sans-serif; color: #ffffff">
-					Email address
-				</p>
-				<input type="text" name="mail" style="width: 250px; " <?php echo strlen($_POST['mail']) > 0 ? 'value="'.$_POST['mail'].'"' : ''; ?> />
-				<p>
-					<input type="submit" value="Sign me up!" />
-				</p>
-			</form> -->
+			
 			
 		<?php		
 		
