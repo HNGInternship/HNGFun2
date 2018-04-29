@@ -111,7 +111,7 @@ margin-left: 20px;
  margin-left: 40px;
 }
 .login-out {
-  width: 89%;
+  width: 90%;
   text-align: center;
   font-size: 14px;
    opacity: 0.8;
