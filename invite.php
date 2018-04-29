@@ -28,11 +28,7 @@ include_once("header.php");
    <!-- Custom styles for this template -->
    <link href="css/dragonSh.css" rel="stylesheet">
     <style>
-		invite-bd{
-        padding: 40px;
-		color: #666666;
-      }
-    
+		
 		.btn{
 			width:300px;
 		}
