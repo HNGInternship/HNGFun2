@@ -56,6 +56,10 @@
           background: #FFFFFF;
         }
 
+        .justify-space-between {
+          justify-content: space-between;
+        }
+
     </style>
 
   </head>
