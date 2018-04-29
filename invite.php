@@ -35,11 +35,7 @@ include_once("header.php");
 	p{
 		font-size: 15px;
 	}
-	 @media (min-width: 992px) {
-        body {
-          padding-top: 56px;
-        }
-      }
+	 
     </style>
 
   </head>
