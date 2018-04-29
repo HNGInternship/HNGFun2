@@ -111,7 +111,7 @@ margin-left: 20px;
  margin-left: 40px;
 }
 .login-out {
-  width: 80%;
+  width: 85%;
   text-align: center;
   font-size: 14px;
    opacity: 0.8;
@@ -136,6 +136,6 @@ margin-left: 20px;
     
   <div class="login-help"> <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="20px" width="20px"/><a href="resetpassword.php">Forgot Password?</a></div>
 </div>
- <div class="login-out" style="margin-left: 30px; text-align: left;">Don't have an account?<a href="signup.php" >&nbsp Get Started</a></div>
+ <div class="login-out" style="margin-left: 50px; text-align: left;">Don't have an account?<a href="signup.php" >&nbsp Get Started</a></div>
  </div>
  <?php include("footer.php");?>
