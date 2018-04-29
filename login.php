@@ -11,7 +11,7 @@ include_once("header.php");
 
 		<form class="form-container">
 			<input type="text" name="" class="form-control login-input" placeholder="Username or Email">
-			<input type="text" name="" class="form-control login-input" placeholder="Password">
+			<input type="password" name="" class="form-control login-input" placeholder="Password">
 			<div class="remember-div">
 				<input type="checkbox" name="remember" class="form-control checkbox" placeholder="Remember Me">
 				<label class="remember-label" for="remember">Remember Me</label>
