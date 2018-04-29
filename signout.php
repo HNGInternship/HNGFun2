@@ -25,11 +25,24 @@ include_once("header.php");
     footer {
         background: none;
     }
+    
+    @media only screen and (max-width: 600px){
+        .container {
+            padding-left: 50px;
+        }
+        h1 {
+            font-size: 40px;
+            margin-right: 150px
+        }
+        .btn {
+            margin-right: -200px
+        }
+    }
 </style>
 
-<div id='signout' class='container'>
-    <div class='row' style="padding-top: 60px">
-        <div class='col-md-9'>
+<div id='signout' class='container' style="padding-top: 60px">
+    <div class='row' >
+        <div class='col-md-9 col-sm-12'>
             <div class="row">
                 <div style="color: #3D3D3D">
                     <h1><strong>YOU ARE NOW SIGNED OUT</strong></h1>
