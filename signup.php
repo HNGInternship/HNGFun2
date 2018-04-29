@@ -99,6 +99,7 @@ _END;
 						      <?php }
 						      ?>
 						    </select>
+						    <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
 						</div>
 					</div>
 
@@ -145,12 +146,13 @@ function custom_scripts(){
 	<script>
 		
 	$("select[name='nationality']").on('change', function() {
+		
 		if (!($("#nigeria").is(":selected"))) {
 			$("#state").addClass("d-none");
-			$("#chose_state").append('<input type="text" class="form-control" id="enter_state" placeholder="Enter your state">');
+			$("#enter_state").removeClass('d-none');
 
 		}else{
-			$("#state").removeClass("d-none");
+			$("#state").removeClass("d-none");			
 			$("#enter_state").addClass("d-none");
 		}
 	});
