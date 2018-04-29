@@ -1,6 +1,11 @@
 <?php 
 include_once("header.php");
 ?>
+    <style>
+        .sponsor-subbg-text {
+            font-size: 70%;
+        }
+    </style>
     <div class="container sponsor-container">        
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Sponsors</h1>
             <div class="d-flex justify-content-center">
@@ -13,7 +18,7 @@ include_once("header.php");
            <div class="d-block w-80">
               <div class="row border rounded ">
                   <div class="col-3 pl-0">
-                      <img src="img/figma-dark.png" alt="figma" srcset="" class="img-fluid ">
+                      <img src="img/figma-dark.png" alt="figma" srcset="" class="img-fluid">
                   </div>
                   <div class="col-9 pt-4 ">
                       <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
