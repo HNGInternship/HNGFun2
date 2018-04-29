@@ -130,7 +130,7 @@ margin-left: 20px;
   <form action="checkLogin.php" method="post">
    <input type="text" name="username" id="username"  placeholder="Username or Email Address">
     <input type="password" name="password" id="password" placeholder="Password">
-	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;"> <a href="#">Forgot Password?</a>Remember me<br>
+	<input type="checkbox" name="remember" id="remember" value="" style="margin-left: 40px;font-size: 10px;">Remember me<br>
     <input type="submit" name="login" class="login login-submit" value="Login">
   </form>
     
