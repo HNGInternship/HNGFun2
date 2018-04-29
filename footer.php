@@ -1,35 +1,34 @@
 <footer>
-   <div class="container">
+   <div class="container footer">
       <div class="row">
          <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
-               <li class="list-inline-item">
+               <li class="list-inline-item contact-icon">
                   <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">
-                     <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                     <span>
+                        <i class="fa fa-twitter fa-lg"></i>
                      </span>
                   </a>
                </li>
-               <li class="list-inline-item">
+               <li class="list-inline-item contact-icon" style="border: 1px solid black;border-top-style: none;border-bottom-style: none; ">
                   <a id="facebook" href="https://web.facebook.com/hotelsng/" target="_blank">
-                     <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                     <span>
+                        <i class="fa fa-facebook fa-lg"></i>
                      </span>
                   </a>
                </li>
-               <li class="list-inline-item">
+               <li class="list-inline-item contact-icon">
                   <a id="github" href="https://github.com/HNGInternship/" target="_blank">
-                     <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                     <span>
+                        <i class="fa fa-github fa-lg"></i>
                      </span>
                   </a>
                </li>
     
             </ul>
-            <p class="copyright text-muted">Copyright &copy; HNG FUN <?= date("Y")?></p>
+            <div style="text-align: center">
+                <p class="copyright text-muted">Copyright &copy; HNG FUN <?php echo date("Y")?></p> 
+            </div>
          </div>
       </div>
    </div>
@@ -46,5 +45,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
+
+<style>
+  /*for footer*/
+.contact-icon{
+  margin: 0px !important;
+  padding: 0% 2%;
+}
+
+footer{
+  background: #fafafa !important;
+}
+</style>
 
 </html>
