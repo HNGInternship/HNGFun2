@@ -50,7 +50,7 @@ $data = $q->fetchAll();
      
    }*/
 </style>
-<div class="container mt-5 mb-5 px-5">
+<main class="container mt-5 mb-5 px-5">
   <h2>Our Interns</h2>
   <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto mb-5" />
   <p class="text-center my-1">HNG4.0 has been a life-transforming journey for interns across Africa.</p>
@@ -96,4 +96,7 @@ $data = $q->fetchAll();
    }
   } 
   ?>
-</div>
+</main>
+<?php
+include_once("footer.php");
+?>
