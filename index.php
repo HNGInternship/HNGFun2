@@ -4,15 +4,15 @@ include_once("header.php");
 
 <style>
 	.hero-sub-text-2{
-		color: #2196F3;
+		color: #2196F3 !important;
 	}
 	
 	.text-primary{
-		color: #2196F3;
+		color: #2196F3 !important;
 	}
 	
 	.btn-blue{
-		background-color: #2196F3;
+		background-color: #2196F3 !important;
 	}
 </style>
 
