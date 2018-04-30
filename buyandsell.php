@@ -135,7 +135,7 @@ h3{
 				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/group.png">
+							<img src="img/gimage.png">
 						</div>
 						
 						<div class="col-2">
@@ -166,7 +166,7 @@ h3{
 				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/group.png">
+							<img src="img/gimage.png">
 						</div>
 						
 						<div class="col-2">
@@ -197,7 +197,7 @@ h3{
 				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/group.png">
+							<img src="img/gimage.png">
 						</div>
 						
 						<div class="col-2">
@@ -229,7 +229,7 @@ h3{
 				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/group.png">
+							<img src="img/gimage.png">
 						</div>
 						
 						<div class="col-2">
@@ -308,7 +308,7 @@ h3{
 				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/group.png">
+							<img src="img/gimage.png">
 						</div>
 						
 						<div class="col-2">
@@ -339,7 +339,7 @@ h3{
 				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/group.png">
+							<img src="img/gimage.png">
 						</div>
 						
 						<div class="col-2">
@@ -370,7 +370,7 @@ h3{
 				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/group.png">
+							<img src="img/gimage.png">
 						</div>
 						
 						<div class="col-2">
@@ -402,7 +402,7 @@ h3{
 				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/group.png">
+							<img src="img/gimage.png">
 						</div>
 						
 						<div class="col-2">
