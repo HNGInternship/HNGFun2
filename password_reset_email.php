@@ -85,6 +85,7 @@
 
   <!--[if !mso]><!-->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Lato:300,400,500,700);
   </style>
@@ -111,8 +112,7 @@
 
 </head>
 
-<body style="background-color:#ffffff;">
-
+<body style="background-color:#ffffff; font-family: 'Roboto', sans-serif;">
 
   <div style="background-color:#ffffff;">
 
@@ -405,6 +405,7 @@
       </table>
 
     </div>
+    </div>
 
 
     <!--[if mso | IE]>
@@ -414,7 +415,10 @@
       <![endif]-->
 
 
-  </div>
+
+  <div style='color: #3D3D3D; padding-bottom: 80px'>
+
+</div>
 
 </body>
 
