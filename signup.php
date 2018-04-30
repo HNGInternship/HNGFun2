@@ -5,7 +5,7 @@ include_once("header.php");
 function custom_styles()
 {
 	echo <<<_END
-
+		
 		.page-body{
 			font-family: 'Open Sans', sans-serif;
 		}
@@ -28,6 +28,20 @@ function custom_styles()
 			width: 80%;
 			max-width: 700px;
 		}
+		.main-form label {
+		    display: block;
+		    font-weight: 400;
+		    padding-left: 10px;
+		    color: #808080;
+		    font-size: 95%;
+		}
+		.main-form label:after {
+		    content: "* ";
+		    color: red;
+		    font-size: 80%;
+		    padding-left: 1px;
+		}
+		
 _END;
 }
 ?>
@@ -44,37 +58,37 @@ _END;
 				<p class="form-text">Already have an account? <a href="login.php">Log in</a></p>
 				<div class="row">
 					<div class="col-sm-6">
-						<div class="form-group pr-3">
+						<div class="form-group pr-sm-3">
 						    <label for="firstname">First Name</label>
-						    <input type="text" class="form-control" id="firstname" aria-describedby="nameerr" placeholder="John">
+						    <input type="text" class="form-control" id="firstname" aria-describedby="nameerr" placeholder="John" required="required">
 						    <!-- <small id="emailHelp" class="has-danger form-text">We'll never share your email with anyone else.</small> -->
 					    </div>
 					  
 					</div>
 					<div class="col-sm-6">
-						<div class="form-group pl-3">
+						<div class="form-group pl-sm-3">
 						    <label for="lastname">Last Name</label>
-						    <input type="text" class="form-control" id="lastname" placeholder="Doe">
+						    <input type="text" class="form-control" id="lastname" placeholder="Doe" required="required" required="required">
 						  </div>
 					</div>
 				
 					<div class="col-sm-6">
-						<div class="form-group pr-3">
+						<div class="form-group pr-sm-3">
 						    <label for="email">Email Address</label>
-						    <input type="email" class="form-control" id="email" aria-describedby="mailerr" placeholder="johndoe@mail.com">
+						    <input type="email" class="form-control" id="email" aria-describedby="mailerr" placeholder="johndoe@mail.com" required="required">
 						    <!-- <small id="mailerr" class="has-danger form-text">We'll never share your email with anyone else.</small> -->
 					    </div>
 					  
 					</div>
 					<div class="col-sm-6">
-						<div class="form-group pl-3">
-						    <label for="phone">Last Name</label>
-						    <input type="telephone" class="form-control" id="phone" placeholder="+2348012345678">
+						<div class="form-group pl-sm-3">
+						    <label for="phone">Phone Number</label>
+						    <input type="telephone" class="form-control" id="phone" placeholder="+2348012345678" required="required">
 						  </div>
 					</div>
 
 					<div class="col-sm-6">
-						<div class="form-group pr-3 has-danger">
+						<div class="form-group pr-sm-3 has-danger">
 						    <label for="nationality">Nationality</label>
 						    <select class="form-control" id="nationality" name="nationality">
 						      <option>Select your country</option>
@@ -88,7 +102,7 @@ _END;
 					  
 					</div>
 					<div class="col-sm-6">
-						<div class="form-group pl-3" id="chose_state">
+						<div class="form-group pl-sm-3" id="chose_state">
 						    <label for="state">State</label> 
 						    
 						    <select class="form-control" id="state" name="state">
@@ -99,20 +113,21 @@ _END;
 						      <?php }
 						      ?>
 						    </select>
+						    <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
 						</div>
 					</div>
 
 					<div class="col-sm-6">
-						<div class="form-group pr-3">
+						<div class="form-group pr-sm-3">
 						    <label for="password">Password</label>
-						    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+						    <input type="password" class="form-control" id="password" placeholder="Enter your password" required="required">
 						  </div>
 					</div>
 				
 					<div class="col-sm-6">
-						<div class="form-group pl-3">
+						<div class="form-group pl-sm-3">
 						    <label for="confirm_password">Confirm Password</label>
-						    <input type="password" class="form-control" id="confirm_password" aria-describedby="cpwderr" placeholder="johndoe@mail.com">
+						    <input type="password" class="form-control" id="confirm_password" aria-describedby="cpwderr" placeholder="johndoe@mail.com" required="required">
 						    <!-- <small id="cpwderr" class="has-danger form-text">We'll never share your email with anyone else.</small> -->
 					    </div>
 					  
@@ -145,12 +160,13 @@ function custom_scripts(){
 	<script>
 		
 	$("select[name='nationality']").on('change', function() {
+		
 		if (!($("#nigeria").is(":selected"))) {
 			$("#state").addClass("d-none");
-			$("#chose_state").append('<input type="text" class="form-control" id="enter_state" placeholder="Enter your state">');
+			$("#enter_state").removeClass('d-none');
 
 		}else{
-			$("#state").removeClass("d-none");
+			$("#state").removeClass("d-none");			
 			$("#enter_state").addClass("d-none");
 		}
 	});

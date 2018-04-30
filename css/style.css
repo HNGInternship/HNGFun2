@@ -62,3 +62,67 @@ i {
 .copyright {
 	text-align: center;
 }
+
+button.home-signup {
+	height: 72px !important;
+	width: 300px !important;
+	border-radius: 5px !important;
+	color: white !important;
+	background: #48BBFC !important;
+	margin: 0 auto;
+	border: none;
+	align-self: center;
+	cursor: pointer !important;
+}
+
+div#navbar {
+	padding-top: 10px;
+}
+
+ul.navbar-nav {
+	height: 66px !important;
+}
+
+li.nav-item {
+	text-align: center;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav.navbar {
+	box-sizing: border-box !important;
+	padding: 0 16px !important;
+}
+
+form.home-signup-form {
+	height: 111px;
+	width: 905px;
+}
+
+input.home-signup-email,
+span.home-signup-email,
+a.home-signup-email-btn {
+	height: 80px;
+	font-size: 18px;
+}
+
+span.home-signup-email {
+	width: 91px;
+	padding: 0px !important;
+	justify-content: center;
+	font-size: 35px;
+}
+
+a.home-signup-email-btn {
+	font-size: 28px !important;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+a.home-signup-email-btn>p {
+	border: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}

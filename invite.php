@@ -57,11 +57,6 @@ include_once("header.php");
 		<div class="col-lg-4">
           <form>
 			  <div class="form-group">
-				<label for="exampleInputEmail1">Email Address</label>
-				<input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email">
-			  </div>
-			  <br/>
-			  <div class="form-group">
 				<label for="exampleInputPassword1">Email Address</label>
 				<input type="text" class="form-control" id="fName" placeholder="Full Name">
 			  </div>
@@ -70,11 +65,6 @@ include_once("header.php");
 		
 		<div class="col-lg-4">
           <form>
-			  <div class="form-group">
-				<label for="exampleInputEmail1">Full Name</label>
-				<input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email">
-			  </div>
-			  <br/>
 			  <div class="form-group">
 				<label for="exampleInputPassword1">Full Name</label>
 				<input type="text" class="form-control" id="fName" placeholder="Full Name">

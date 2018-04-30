@@ -2,3 +2,6 @@
 .ssh/
 docker-compose.yml
 config.php
+.idea/
+.phpintel/
+.vscode/
