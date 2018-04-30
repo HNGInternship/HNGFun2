@@ -46,11 +46,8 @@ $activeArray[$fileIndex]="active";
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD
-=======
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
->>>>>>> 5c415019ec94d605279497e4b60496afe614e8cc
      <link rel="stylesheet" href="css/custom.css" type="text/css">
      
     <!-- Custom styles for this template -->
@@ -115,8 +112,8 @@ $activeArray[$fileIndex]="active";
     <!-- Navigation -->
     
     <nav class="navbar navbar-expand-lg navbar-light"  >
-      <a class="navbar-brand" href="../index.php"><img src="img/Approved HNG Logo.png" alt=""></a>      <a class="navbar-brand" href="../index.php">
-        <img src="img/Approved HNG Logo.png" alt="HNG logo" class="img-fluid">
+      <a class="navbar-brand" href="../index.php">
+        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
