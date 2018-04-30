@@ -45,10 +45,10 @@ include_once("header.php");
                
             <form action="" class="text-center" name="register_form" id="register_form">
             <div class="form-row">
-                <div class="form-group col-md-6" style="padding-right:50px">
+                <div class="form-group col-md-6" style="padding-right:25px">
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
                 </div>
-                <div class="form-group col-md-6" style="padding-right:50px">
+                <div class="form-group col-md-6" style="padding-right:25px">
                     <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
                 </div>
             </div>
@@ -58,19 +58,19 @@ include_once("header.php");
              
             <br />
             <div class="form-row">
-                <div class="form-group col-md-6" style="padding-right:50px">
+                <div class="form-group col-md-6" style="padding-right:25px">
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
                 </div>
-                <div class="form-group col-md-6" style="padding-right:50px">
+                <div class="form-group col-md-6" style="padding-right:25px">
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 </div>
             </div>
             <br />
-            <div class="form-row">
+            <!-- <div class="form-row">
                     <div class="form-group col-md-6" style="padding-right:50px">
                         <input type="text" name="state" id="state" class="form-control" placeholder="Enter your state ">
                     </div>
-            </div>
+            </div> -->
 
             
             <br />
