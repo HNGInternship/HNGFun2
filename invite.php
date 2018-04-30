@@ -33,7 +33,7 @@ include_once("header.php");
 	</div> -->
     <div class="col-md-6  mx-auto">
         <h1 class="login-title text-center" style="font-weight: bold; font-size: 50px">Invite to HNG</h1>
-        <p style="font-size: 16px; margin-bottom: 0px; margin-top: 0px; opacity: 0.7" class="text-center">Learning is fun when it is done with friends. Invite your friends and your friends' friends<br/> Learn to collaborate and build awesome stuff together!<br/><br/>
+        <p style="font-size: 16px; margin-bottom: 0px; margin-top: 0px; opacity: 0.7" class="text-center">Wouldn't you love to collaborate with your friends and earn HNG Coins for yourself while at it? It's fun, you get to form alliances, deliver projects and win competitions.<br/>Quick! Invite your friends to join the biggest remote software internship in Africa.<br/><br/>
         </p>
 
         <?php
