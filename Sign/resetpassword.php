@@ -34,10 +34,10 @@ include_once("../header.php");
                 Create a new password and confirm it.
             </p>
             <div style="padding: 20px 200px 0px 200px;  width: 800px;">
-                <input type="text" name="pass" class="form-control form-control-lg rounded-right" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="password" name="pass" class="form-control form-control-lg rounded-right" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
                 <br />
 
-                <input type="text" name="pass-confirm" class="form-control form-control-lg rounded-right" placeholder="Confrim Password" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="password" name="pass-confirm" class="form-control form-control-lg rounded-right" placeholder="Confrim Password" aria-label="Username" aria-describedby="basic-addon1">
                 <br />
                 <input type="hidden" name="token" value="<?php $token = $_GET['token']; echo $token;   ?>">
                 <button id="btn-change" name="pword-change" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;">Change Password</button>
