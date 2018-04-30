@@ -5,9 +5,9 @@
     }
 </style>
 
-<div style="text-align: center; margin-top: -50px; padding-bottom: 10px">
+<div style="text-align: center; margin-top: -80px; padding-bottom: 10px">
     <h1 class="font-weight-bold" style="color: #2196F3">
-        HNG Internship
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid" style='height: 70px'>
     </h1>
 </div>
 <div class="container" style='color: #3D3D3D;'>
