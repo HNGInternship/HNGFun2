@@ -1,4 +1,4 @@
- <?php include("../header.php");?>
+ <?php include("/header.php");?>
 
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
@@ -121,4 +121,4 @@
 
     });
 </script>
- <?php include("../footer.php");?>
+ <?php include("/footer.php");?>
