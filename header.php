@@ -7,7 +7,7 @@
 
 $fileName=basename($_SERVER['PHP_SELF']);
 
-$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php');
+$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
 $activeArray = array('','','','','','');
 
 $fileIndex=array_search($fileName,$files);
@@ -50,7 +50,6 @@ $activeArray[$fileIndex]="active";
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
      <link rel="stylesheet" href="css/custom.css" type="text/css">
      
-    <link href="css/learn2.css" rel="stylesheet">
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
@@ -71,7 +70,7 @@ $activeArray[$fileIndex]="active";
          /* padding-right: 100px;
           padding-left: 100px;*/
           background-color: #F4F4F4;
-          padding: 0px 100px;
+          padding: 0 10em;
         } 
   
         .nav-item{
@@ -88,8 +87,6 @@ $activeArray[$fileIndex]="active";
             /*background-color: rgba(199, 196, 196, 0.1);*/
             /*border-bottom: 3px solid rgb(90, 145, 247);*/
             border-bottom: 3px solid #2196F3;
-
-
         }
 
         footer {
@@ -112,7 +109,9 @@ $activeArray[$fileIndex]="active";
     <!-- Navigation -->
     
     <nav class="navbar navbar-expand-lg navbar-light"  >
-      <a class="navbar-brand" href="../index.php"><img src="../img/logo.png" alt=""></a>
+      <a class="navbar-brand" href="../index.php">
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -139,8 +138,8 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni.php" class="nav-link">Alumni</a>
             </li> 
-           <li class="nav-item">
-                <a href="#" class="nav-link">Partners</a>
+           <li class="nav-item <?= $activeArray[6] ?>">
+                <a href="partners.php" class="nav-link">Partners</a>
             </li> 
     </ul>
   </div>
