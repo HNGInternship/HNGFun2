@@ -44,7 +44,7 @@ include_once("header.php");
 		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="joemark@example.com" aria-label="Username" aria-describedby="basic-addon1">
 		  	</div>
             
-              <input type="submit" value="Send" name="submit-invites" class="btn btn-primary sendInvitesButton">
+             <a href="invitesentmessage.php"> <input type="submit" value="Send" name="submit-invites" class="btn btn-primary sendInvitesButton"></a>
           </form>
 		</div>
     </div>
