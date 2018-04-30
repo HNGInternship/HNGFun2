@@ -38,6 +38,7 @@
       <style>
         body {
           background-color: #FAFAFA;
+            color: #3d3d3d
         }
         .navbar{
           font-size: 15px;
