@@ -43,8 +43,9 @@ include_once("header.php");
 		  	  </div>
 		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
 		  	</div>
-            
-              <input type="submit" value="Send" name="submit-invites" class="btn btn-primary sendInvitesButton">
+                    <a href="invite-sent.php" class="btn btn-md btn-primary sendInvitesButton" id="sendInvitesButton">Send</a>
+              
+              <!-- <input type="submit" value="Send" name="submit-invites" class="btn btn-primary sendInvitesButton" href="invite-sent.php"> -->
           </form>
 		</div>
     </div>
