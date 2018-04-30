@@ -87,10 +87,14 @@ include_once("header.php");
 
 <style>
 	.login-button {
-		margin-bottom: 10px;
-		background-color:#2196F3;
-		color:#fff;
-	}
+		background: #2196F3;
+        padding: 0.4em 8em !important;
+        color: white;
+        border-radius: 5px;
+    }
+    .login-button:hover {
+        opacity: 0.8;
+    }
 	.fa.fa-lock {
 		color:#2196F3;
 	}
@@ -108,7 +112,7 @@ include_once("header.php");
 		<div class="d-block w-50 mt-5 login-con">
 			<div class="w-50 m-auto">
 				<h2 class="text-center my-0 py-0" style="margin-bottom: 10px">Log In</h2>
-				<p class="text-center text-lighte" style="font-size: 15px; opacity: 0.7">Login to access your dashboard and manage your account.</p>
+				<p class="text-center" style="font-size: 15px; opacity: 0.7">Login to access your dashboard and manage your account.</p>
 			</div>
 
 			<form class="w-50 m-auto">

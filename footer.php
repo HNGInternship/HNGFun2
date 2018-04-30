@@ -55,6 +55,7 @@
 
 footer{
   background: #fafafa !important;
+  color: #3D3D3D;
 }
 </style>
 
