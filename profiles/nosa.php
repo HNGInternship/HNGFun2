@@ -1,38 +1,50 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] === "POST"){
   if(!isset($conn)) {
-    include '../../config.php';
-    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+        include '../../config.php';
+        $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
   }
   
-  if(isset($_POST['q']) && $_POST['q'] != '') {
-    $q = trim($_POST['q']);
+    if(isset($_POST['q']) && $_POST['q'] != '') {
+      $q = trim($_POST['q']);
 
-    $words = explode(':', $q);
-    if((count($words) > 1) && ($words[0] == 'train')) {
-      $qa_array = explode('#', $words[1]);
+      $words = explode(':', $q);
+      if((count($words) > 1) && ($words[0] == 'train')) {
+        $qa_array = explode('#', $words[1]);
 
-      $question = trim($qa_array[0]);
-      $question_length = strlen($question);
-      $question = ($question[$question_length - 1] == '?') ? substr($question, 0, $question_length -1) : $question;
+        $question = trim($qa_array[0]);
+        $question_length = strlen($question);
+        $question = ($question[$question_length - 1] == '?') ? substr($question, 0, $question_length -1) : $question;
 
-      $answer = trim($qa_array[1]);
-      $password = trim($qa_array[2]);
+        $answer = trim($qa_array[1]);
+        $password = trim($qa_array[2]);
 
-      if(count($qa_array) != 3 || $question == '' || $answer == '') {
-        echo "Incorrect training format. Train me using <span class=\"highlight\">train: question # answer # password<span>"; exit();
-      }
+        if(count($qa_array) != 3 || $question == '' || $answer == '') {
+          echo "Incorrect training format. Train me using <span class=\"highlight\">train: question # answer # password<span>"; exit();
+    }
     
-      if($password == 'password') {
-        $sql = "select * from chatbot where question like '{$question}%'";
-        $query = $conn->prepare($sql);
-        $query->execute();
-        $results = $query->fetchAll(PDO::FETCH_OBJ);
+        if($password == 'password') {
+          $sql = "select * from chatbot where question like '{$question}%'";
+          $query = $conn->prepare($sql);
+          $query->execute();
+          $results = $query->fetchAll(PDO::FETCH_OBJ);
 
-        if($query->rowCount()) {
-          foreach ($results as $result) {
-            if($answer == trim($result->answer)) {
-              echo "I already know this"; exit();
+          if($query->rowCount()) {
+            foreach ($results as $result) {
+              if($answer == trim($result->answer)) {
+                echo "I already know this"; exit();
+              }
+            }
+
+            $sql = "insert into chatbot(question, answer) values('{$question}', '{$answer}')";
+            $query = $conn->prepare($sql);
+            $query->execute();
+
+            if($query->rowCount()) {
+              echo "I'm familiar with this quetion. Although I have taken note of this answer as well. Thanks for retraininig me."; exit();
+            }
+            else{
+              echo "Sorry, something went wrong."; exit();
             }
           }
 
@@ -40,37 +52,25 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
           $query = $conn->prepare($sql);
           $query->execute();
 
-          if($query->rowCount()) {
-            echo "I'm familiar with this quetion. Although I have taken note of this answer as well. Thanks for retraininig me."; exit();
-          }
-          else{
-            echo "Sorry, something went wrong."; exit();
-          }
-        }
+          if($query->rowCount()) echo "Okay, thanks."; exit();
+          
+        } else  echo "Your password is incorrect"; exit();
+      }
 
-        $sql = "insert into chatbot(question, answer) values('{$question}', '{$answer}')";
-        $query = $conn->prepare($sql);
-        $query->execute();
+      $q_length = strlen($q);
+      $q = ($q[$q_length - 1] == '?') ? substr($q, 0, $q_length - 1) : $q; // Ensure '?' is always removed question
+      $sql = "select * from chatbot where question like '$q%'";
+      $query = $conn->prepare($sql);
+      $query->execute();
+      $results = $query->fetchAll(PDO::FETCH_OBJ);
+      $numOfAnswers = $query->rowCount();
 
-        if($query->rowCount()) echo "Okay, thanks."; exit();
-        
-      } else  echo "Your password is incorrect"; exit();
+      if ($numOfAnswers == 1) echo $results[0]->answer;
+      else if($numOfAnswers > 1) echo $results[rand(0, $numOfAnswers - 1)]->answer; 
+      else echo "Sorry, I don't understand this. <br/><br/>If it's something you think I should know, train me using <span class=\"highlight\">train: question # answer # password<span>";
+      
+      exit();
     }
-
-    $q_length = strlen($q);
-    $q = ($q[$q_length - 1] == '?') ? substr($q, 0, $q_length - 1) : $q; // Ensure '?' is always removed question
-    $sql = "select * from chatbot where question like '$q%'";
-    $query = $conn->prepare($sql);
-    $query->execute();
-    $results = $query->fetchAll(PDO::FETCH_OBJ);
-    $numOfAnswers = $query->rowCount();
-
-    if ($numOfAnswers == 1) echo $results[0]->answer;
-    else if($numOfAnswers > 1) echo $results[rand(0, $numOfAnswers - 1)]->answer; 
-    else echo "Sorry, I don't understand this. <br/><br/>If it's something you think I should know, train me using <span class=\"highlight\">train: question # answer # password<span>";
-    
-    exit();
-  }
 }
 
 ///////////////////
@@ -1310,7 +1310,7 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
 
   .chat-message.left .chat-avatar {
     float: left;
-    background: url("http://res.cloudinary.com/thecommunity-ng/image/upload/v1525046460/robot-2154228_640_zq40sa.png") no-repeat;
+    background: url("//res.cloudinary.com/thecommunity-ng/image/upload/v1525046460/robot-2154228_640_zq40sa.png") no-repeat;
     background-position: center;
     background-size: contain;
   }
@@ -1383,6 +1383,10 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
   .msg-wrapper {
     display: table;
     width: 100%;
+  }
+
+  footer {
+    background: transparent;
   }
 </style>
 
@@ -1482,7 +1486,7 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
           </div>
           <div class="chat-toolbar">
             <b style="margin-left: 66.22px;">Nosa's Chatbot</b>
-            <button type="button" class="close-chat" data-toggle="collapse" data-target="#chatContainer">
+            <button type="button" class="close-chat" data-toggle="collapse" data-target="#chatContainer" aria-controls="chatContainer" aria-expanded="false">
               <i class="fa fa-times icon"></i>
             </button>
           </div>
