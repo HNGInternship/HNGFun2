@@ -110,7 +110,17 @@ include_once("header.php");
 <script type="text/javascript">
        $( document ).ready(function() {
     $("#register").click(function(e){
+        console.log("fhdfdhdhghg")
         e.preventDefault();
+
+        const pair = StellarSdk.Keypair.random();
+
+        const secret_key = pair.secret();
+// SAV76USXIJOBMEQXPANUOQM6F5LIOTLPDIDVRJBFFE2MDJXG24TAPUU7
+        const public_key = pair.publicKey();
+// GCFXHS4GXL6BVUCXBWXGTITROWLVYXQKQLF4YH5O5JT3YZXCYPAFBJZB
+
+
 
         var firstname = $("#firstname").val();
          var lastname = $("#lastname").val();
@@ -178,10 +188,11 @@ include_once("header.php");
             $("#register").html('Registering..');
 
              var data = $("#register_form").serialize();
+             data += "&public_key=" + public_key + "&secret_key=" + secret_key;
 
-            
+            console.log(data)
 
-             $.ajax('process.php',{
+            $.ajax('process.php',{
             type : 'post',
             data : data,
             success: function(data){
@@ -216,8 +227,7 @@ include_once("header.php");
             $("#register").html('Registering..');
             },
         });
-    
-
+     
         }
         
      });

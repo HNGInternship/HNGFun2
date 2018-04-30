@@ -135,7 +135,7 @@ background: rgba(0, 0, 0, 0.8);
   </div>
   <div class="form-group col-xs-12 col-sm-5">
     <label class="label-for-form" for="wallet">Send HNGcoin to :*</label>
-    <input type="text" class="form-control form-control-lg input-for-form" id="wallet" placeholder="Your HNCoin Wallet">
+    <input type="text" class="form-control form-control-lg input-for-form" id="wallet" placeholder="Your HNCoin Wallet" disabled>
   </div>
 </form>
 

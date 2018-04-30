@@ -41,6 +41,7 @@ $activeArray[$fileIndex]="active";
       <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 
+   <script src="js/jquery.min.js"></script>
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
