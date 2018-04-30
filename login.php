@@ -118,7 +118,7 @@ include_once("header.php");
 				<button class="btn w-100 rounded py-2 login-button">Login</button>
 			</form>
 			<div class="w-50 m-auto text-center">
-				<a href="reset-password.php">
+				<a href="resetpassword.php">
 					<small><i class="fa fa-lock"></i>&nbsp;&nbsp;Forgotten password? </small>
 				</a>
 			</div>

@@ -61,7 +61,7 @@ $activeArray[$fileIndex]="active";
 
       <style>
         body {
-          background-color: #FAFAFA;
+          background-color: #FFFFFF;
 
         }
         .navbar{
@@ -99,6 +99,9 @@ $activeArray[$fileIndex]="active";
             .navbar {
                 padding: 1em;
             }
+            .login-con, .reset-title {
+			    width: 100% !important;
+		    }
         }   
 
     </style>
