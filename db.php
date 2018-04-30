@@ -2,6 +2,7 @@
 /*
 DO NOT MODIFY THIS FILE!!!
  */
+<<<<<<< HEAD
 require '../config.php';
 
 // try {
@@ -13,6 +14,9 @@ require '../config.php';
 
 
 
+=======
+require './config.php';
+>>>>>>> 033ec22ade1626e17aefdff03cbe66c7d8a17e56
  
 try {
     $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
