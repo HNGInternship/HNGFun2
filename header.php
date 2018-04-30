@@ -15,7 +15,7 @@ $fileIndex=array_search($fileName,$files);
 
 // if page is unknown, dont mark any nav item
 
-if($fileIndex!=false){
+if($fileIndex!==FALSE){
 
 $activeArray[$fileIndex]="active";
 }
@@ -63,22 +63,32 @@ $activeArray[$fileIndex]="active";
       <style>
         body {
           background-color: #FAFAFA;
+
         }
         .navbar{
           font-size: 15px;
           font-weight: bold;
-          padding-right: 100px;
-          padding-left: 100px;
+         /* padding-right: 100px;
+          padding-left: 100px;*/
           background-color: #F4F4F4;
+          padding: 0px 100px;
         } 
   
         .nav-item{
-            padding-right: 15px;
-            padding-left: 15px;
+            /*padding-right: 15px;
+            padding-left: 15px;*/
+            padding: 24px 15px;
+            border-bottom: 3px solid #f4f4f4;
         }
+
+
+
+
         .nav-item:hover, .active { 
-            background-color: rgba(199, 196, 196, 0.1);
-            border-bottom: 3px solid rgb(90, 145, 247);
+            /*background-color: rgba(199, 196, 196, 0.1);*/
+            /*border-bottom: 3px solid rgb(90, 145, 247);*/
+            border-bottom: 3px solid #2196F3;
+
 
         }
 
@@ -112,25 +122,25 @@ $activeArray[$fileIndex]="active";
       
         <ul class="navbar-nav ml-auto">
             <li class="nav-item <?= $activeArray[0] ?>">
-                <a href="index.php" class="nav-link">HOME</a>
+                <a href="index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
-                <a href="learn.php" class="nav-link">LEARN</a>
+                <a href="learn.php" class="nav-link">Learn</a>
             </li> 
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="listing.php" class="nav-link">INTERN</a>
+                <a href="listing.php" class="nav-link">Intern</a>
             </li> 
             <li class="nav-item <?= $activeArray[3] ?>">
-                <a href="testimonies.php" class="nav-link">TESTIMONIES</a>
+                <a href="testimonies.php" class="nav-link">Testimonies</a>
             </li> 
             <li class="nav-item <?= $activeArray[4] ?>">
-                <a href="sponsors.php" class="nav-link">SPONSORS</a>
+                <a href="sponsors.php" class="nav-link">Sponsors</a>
             </li> 
             <li class="nav-item <?= $activeArray[5] ?>">
-                <a href="alumni.php" class="nav-link">ALUMNI</a>
+                <a href="alumni.php" class="nav-link">Alumni</a>
             </li> 
            <li class="nav-item">
-                <a href="#" class="nav-link">PARTNERS</a>
+                <a href="#" class="nav-link">Partners</a>
             </li> 
     </ul>
   </div>
