@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
 //this file is for processsin requests  
 
 
@@ -103,6 +103,108 @@ if(isset($_POST['login'])){
 	}
 
 }
+
+
+	..
+	//password reset 
+	
+	//send token via email
+	
+	if(isset ($_POST['reset_password_token'])){
+
+		$email = $_POST['email'];
+
+		//set reset password token 
+      $hash = md5( rand(0,1000) );
+
+      $token = "reset".$hash;
+
+      //check if email exists 
+      require_once('db.php');
+
+      $member_response = $member_class->check_email($email,$conn);
+
+      if($member_response==false){
+
+      die("Email doesnt exist..check the email you typed well"); 
+
+      }
+      else{
+      	//update password reset token
+      	
+      	$reset_token_check = $member_class->update_token($email,$token,$conn);
+      	if($reset_token_check ==true){
+
+      		//sending email starts here 
+      		$htmlContent = file_get_contents("password_reset_email.php?token=".$token);
+      		// Set content-type header for sending HTML email
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+			// Additional headers
+			$headers .= 'From: Internship<info@hng.com>' . "\r\n";
+			$headers .= 'Cc: hng@hng.com' . "\r\n";
+			$headers .= 'Bcc: info@hng.com' . "\r\n";
+
+			$subject = 'Password reset email';
+
+			// Send email
+			if(mail($email,$subject,$htmlContent,$headers)):
+			    die('Email has been sent successfully');
+			else:
+			    die('Error occured while sending email)';
+			endif;
+
+      		//sending email ends here
+      	}
+      	else{
+      		//error while updating reset token 
+      		
+      		die('Error occured while setting reset token')
+      	}
+
+      }
+
+
+	}	
+
+
+	if(isset ($_POST['reset_password'])){
+		 require_once('db.php');
+     
+      //get data from post array
+      $id = $_POST['id'];
+
+      $password= $_POST['password'];
+
+      $password2=$_POST['password_confirm'];
+
+      if($password !== $password2){
+
+      die("Passwords do not match");
+
+      }
+
+      else if($password==""){
+
+      die("Fill in your password");
+
+      }
+        
+       else{
+     //instantiate the member class
+      $member_class = new Member();
+
+      $reset_response=$member_class->update_password($id,$password,$conn);
+          if($reset_response==true){
+           die(true); 
+          }
+          else{
+          die("Error occured while reseting password");  
+          }
+     }
+
+  }
 
 	
 ?>

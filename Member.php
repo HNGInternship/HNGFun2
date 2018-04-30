@@ -39,28 +39,21 @@ public function __construct(){
       }
       
       //check if email exists already before registration to avoid double email
-  public function check_email($email,$db){
+  public function check_email($email,$conn){
          
-          $query = "SELECT * FROM ".$this->table." WHERE email=? LIMIT 1";
-          $statement = $db->prepare($query);
-          $statement->bind_param("s",$email);
-     if ( $statement->execute() ){   
-         $result = $statement->get_result();
-         $num = $result->num_rows;
-         
-         if($num > 0){
-        //email exists   
-         return "yes";
-         }
-         else{
-             //email doesnt exist and is okay
-            return "no"; 
-         }
-     }
-     else{
-        return false;
-     }
+          $query = "SELECT * FROM ".$this->table." WHERE email='$email' LIMIT 1";
           
+          $stmt = $conn->prepare($query);
+         
+          $stmt->execute();
+
+         if($stmt->rowCount() > 0)
+                        {
+                         return true
+                        }
+                         else {
+                             return false; 
+                       }        
       }
 
 
@@ -169,22 +162,24 @@ public function __construct(){
         
     }   
     
-    
+      
+
     //password token update
     public function update_token($email,$token,$db){
-        $query="UPDATE ".$this->table." SET password_token=? WHERE email=? LIMIT 1";
-        $statement = $db->prepare($query);
-        $statement->bind_param("ss",$token,$email);
-     
-     if ( $statement->execute() ){
-         return true;
-     }
-     
-     else{
-        return false;
         
-     }
-        
+
+        try {
+
+            $query="UPDATE ".$this->table." SET password_reset_token='$token' WHERE email='$email' LIMIT 1";
+
+            $db->exec($query);
+          return true;
+          }
+        catch(PDOException $e)
+            {
+           // echo $query . "<br>" . $e->getMessage();
+            return false;
+            }       
         
         
     }
@@ -331,28 +326,26 @@ public function __construct(){
     //to check password token for password resets       
     public function check_token($token,$db){
           //$password_hash = md5($password);
-          $query = "SELECT * FROM ".$this->table." WHERE password_token=? LIMIT 1";
-          $statement = $db->prepare($query);
-          $statement->bind_param("s",$token);
-     if ( $statement->execute() ){   
-         $result = $statement->get_result();
-         $num = $result->num_rows;
+          $query = "SELECT * FROM ".$this->table." WHERE password_reset_token='$token' LIMIT 1";
+
+          $stmt = $conn->prepare($query);
          
-         if($num > 0){
-             $row = $result->fetch_assoc();
-            
-            
-            // print_r($row);
-            return $row;
-        
-         }
-         else{
-            return false; 
-         }
-     }
-     else{
-        return false;
-     }
+          $stmt->execute();
+
+         if($stmt->rowCount() > 0)
+                        {
+                          while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                          {
+                                // print_r($row);
+                                     $_SESSION['id'] = $row['id'];
+                                     ;
+                                     $_SESSION['email'] = $row['email'];
+
+                                     return true;
+                          }
+                        } else {
+                             return false; 
+                       }
           
       }
 
@@ -360,21 +353,29 @@ public function __construct(){
    //change password function
     public function update_password($id,$password,$db){
          $password_hash = md5($password);
-       $query="UPDATE ".$this->table." SET password=? WHERE id=? LIMIT 1";
-        $statement = $db->prepare($query);
-        $statement->bind_param("ss",$password_hash,$id);
-     
-     if ( $statement->execute() ){
-         return true;
-     }
-     
-     else{
-        return false;
-        
-     }
+       $query="UPDATE ".$this->table." SET password='$password' WHERE id='$id' LIMIT 1";
+       $stmt = $conn->prepare($query);
+         
+          $stmt->execute();
+
+         if($stmt->rowCount() > 0){
+                  
+           return true;
+        }
+      else {
+           return false; 
+       } 
        
        
    }
 
+
+//password reset function starts here 
+
+  
+  
+  
+  
+ 
 //member class ends here    
 }

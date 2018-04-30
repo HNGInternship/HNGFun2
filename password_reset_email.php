@@ -1,4 +1,7 @@
-<?php include("header.php");?>
+<?php //include("header.php");
+
+$token = $_GET['token'];
+?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -320,7 +323,7 @@
                       <div style="font-family:Lato;font-size:15px;letter-spacing:0.48px;line-height:20x;text-align:center;color:#000000;">
                         We heard that you lost your HNGInternship password. Sorry about that!</br>
                         But don’t worry! You can use the link to reset your password:</br>
-                        To get a new password reset link, visit <a href="http://revenge.hng.fun/resetpassword.php"><span style="color:#2F80ED">here</span></a>
+                        To get a new password reset link, visit <a href="http://revenge.hng.fun/passwordreset.php?token=<?php echo $token;?>"><span style="color:#2F80ED">here</span></a>
                       </div>
 
                     </td>
@@ -423,4 +426,4 @@
 </body>
 
 </html>
-<?php include("footer.php");?>
+<?php //include("footer.php");?>
