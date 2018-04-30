@@ -84,7 +84,7 @@ public function __construct(){
 
            // echo $db->error.$query;
     
-        $statement->bind_param("ssssssss",$firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee, $public_key, $secret_hash);
+        $statement->bind_param($firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee, $public_key, $secret_hash);
 
         
      $result = $db->query($query);
