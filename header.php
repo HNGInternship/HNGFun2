@@ -17,22 +17,41 @@
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
      <link rel="stylesheet" href="css/custom.css" type="text/css">
     <link href="css/learn2.css" rel="stylesheet">
+=======
+    <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
+    <link rel="shortcut icon" href="images/favicon.png">
+   
+>>>>>>> a8667a330dfdc4d84bf4deb0e69e71d87429e320
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
       <link href="css/style.css" rel="stylesheet">
+<<<<<<< HEAD
       <link href="css/custom.css" rel="stylesheet">
      <!-- <link href="css/learn.css" rel="stylesheet"> -->
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
+=======
+      <link href="css/learn.css" rel="stylesheet">
+      <link href="css/custom.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/login.css">
+      <link rel="stylesheet" href="css/signout.css">
+>>>>>>> a8667a330dfdc4d84bf4deb0e69e71d87429e320
       <link href="css/landing-page.min.css" rel="stylesheet">
+      <link href="css/shield-invite.css" rel="stylesheet">
+      <!-- <link href="css/carousel.css" rel="stylesheet"> -->
+      
 
       <style>
+<<<<<<< HEAD
         body {
           background-color: #FAFAFA;
         }
@@ -44,10 +63,22 @@
           background-color: #FFFFFF;
         } 
   
+=======
+        body{
+            background-color: #fafafa;
+            font-family: 'Lato', sans-serif;
+        }
+        #navbar{
+            font-size: 15px;
+            font-weight: bold;
+        } 
+        
+>>>>>>> a8667a330dfdc4d84bf4deb0e69e71d87429e320
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
         }
+<<<<<<< HEAD
         .nav-item:hover { 
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
@@ -56,14 +87,25 @@
 
         footer {
           background: #FFFFFF;
+=======
+
+        .nav-item:hover { 
+            background-color: rgba(199, 196, 196, 0.1);
+            border-bottom: 3px solid rgb(90, 145, 247);
+>>>>>>> a8667a330dfdc4d84bf4deb0e69e71d87429e320
         }
 
+  <?php if (function_exists('custom_styles')) {
+      custom_styles();
+    }
+    ?>
     </style>
 
   </head>
 
   <body>
     <!-- Navigation -->
+<<<<<<< HEAD
     
     <nav class="navbar navbar-expand-lg navbar-light"  >
       <a class="navbar-brand" href="../index.php"><img src="../img/logo.png" alt=""></a>
@@ -100,3 +142,39 @@
   </div>
          
     </nav>
+=======
+    <div id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
+        <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn.php" class="nav-link">LEARN</a>
+                </li> <li class="nav-item">
+                    <a href="listing.php" class="nav-link">INTERN</a>
+                </li> <li class="nav-item">
+                    <a href="testimonies.php" class="nav-link">TESTIMONIES</a>
+                </li> <li class="nav-item">
+                    <a href="sponsors.php" class="nav-link">SPONSORS</a>
+                </li> <li class="nav-item">
+                    <a href="#" class="nav-link">ALUMNI</a>
+                </li> 
+                <!-- Fix if(signed_in) display "login" else display "logout" -->
+                </li> <li class="nav-item">
+                    <a href="login.php" class="nav-link">LOGIN</a>
+                </li> 
+                <!-- <li class="nav-item"> -->
+                    <!-- <a href="logout.php" class="nav-link">LOGOUT</a> -->
+                <!-- </li> -->
+        
+            </ul>
+            
+        </nav>
+    </div>
+>>>>>>> a8667a330dfdc4d84bf4deb0e69e71d87429e320
