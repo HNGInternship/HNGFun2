@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if(empty($errors)) {
 	$login_failure = "Log in was unsuccessful.";
    try {
-	$query = "SELECT * FROM users_data WHERE (email = :username OR username = :username) AND password = :password";
+	$query = "SELECT * FROM users_data WHERE (email = :username OR users = :username) AND password = :password";
 		$q = $conn->prepare($query);
 		$q->execute(array(':username' => $username,':password' => $password ));
         $q->setFetchMode(PDO::FETCH_ASSOC);
