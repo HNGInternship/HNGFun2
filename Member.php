@@ -39,7 +39,7 @@ public function __construct(){
    public function render_email($token) {
     
             ob_start();
-            include "password_reset_email.php";
+            include "password_reset_email.phtml";
             return ob_get_contents();
        }
 

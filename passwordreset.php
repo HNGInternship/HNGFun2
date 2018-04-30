@@ -1,5 +1,5 @@
- <?php include("header.php");?>
-<?php session_start();
+ <?php session_start(); include("header.php");?>
+<?php 
 //check email reset token
 
         $token = $_GET['token'];
