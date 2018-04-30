@@ -121,8 +121,8 @@ if(isset($_POST['login'])){
 
       //check if email exists 
       require_once('db.php');
-
-      $member_response = $member_class->check_email($email,$conn);
+      $member = new Member();
+      $member_response = $member->check_email($email,$conn);
 
       if($member_response==false){
 
@@ -132,8 +132,8 @@ if(isset($_POST['login'])){
       else{
       	//update password reset token
       	
-      	$reset_token_check = $member_class->update_token($email,$token,$conn);
-      	
+      	$reset_token_check =  $member->update_token($email,$token,$conn);
+
       	if($reset_token_check ==true){
 
       		//sending email starts here 
