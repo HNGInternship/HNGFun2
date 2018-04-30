@@ -75,30 +75,21 @@ public function __construct(){
         
         
         $password_hash = md5($password);
+        
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee ) VALUES(?,?,?,?,?,?,?,?)";
-        
-            $statement = $db->prepare($query);
+                try {
+            $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee ) 
+        VALUES ('$firstname','$lastname','$email','$username,'$nationality','$phone','$password_hash','$timee')";
 
-           // echo $db->error.$query;
-    
-        $statement->bind_param("ssssssss",$firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee);
-
-        
-     $result = $db->query($query);
-     
-     if ( $statement->execute() ){
-         
-         return true;
-     }
-     
-     else{
-        
-        return false;
-        //echo $db->error;
-     }
-                   
+            $conn->exec($query);
+          return true;
+          }
+        catch(PDOException $e)
+            {
+           // echo $query . "<br>" . $e->getMessage();
+            return false;
+            }            
         
     }
 
@@ -218,37 +209,27 @@ public function __construct(){
     }
     
 //login check
-  public function check($email,$password,$db){
+  public function check($email,$password,$conn){
 
         $this->table = "users";
-          $password_hash = md5($password);
-          $query = "SELECT * FROM ".$this->table." WHERE email=? AND password=? LIMIT 1";
-          $statement = $db->prepare($query);
-          $statement->bind_param("ss",$email,$password_hash);
-     if ( $statement->execute() ){   
-         $result = $statement->get_result();
-         $num = $result->num_rows;
-         
-         if($num > 0){
-             
-             $row = $result->fetch_assoc();
-             
-             
-            // print_r($row);
-             $_SESSION['id'] = $row['id'];
-             ;
-             $_SESSION['email'] = $row['email'];
-            
-                return true;
+        $password_hash = md5($password);
 
-         }
-         else{
-            return false; 
-         }
-     }
-     else{
-        return false;
-     }
+    $stmt = $conn->prepare("SELECT * FROM ".$this->table." WHERE email='$email' AND password='$password_hash' LIMIT 1");
+    $stmt->execute();
+                        if($stmt->rowCount() > 0)
+                        {
+                          while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                          {
+                                // print_r($row);
+                                     $_SESSION['id'] = $row['id'];
+                                     ;
+                                     $_SESSION['email'] = $row['email'];
+
+                                     return true;
+                          }
+                        } else {
+                             return false; 
+                       }
           
       }
 
