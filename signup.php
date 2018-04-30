@@ -42,12 +42,9 @@ include_once("header.php");
                 </div>
             </div>
 
-             <div class="form-row">
-                <div class="form-group col-md-12" style="padding-right:50px">
-                <input type="text" name="username" id="username" class="form-control" placeholder="User Name">
-                </div>
-          </div>  
+            <input type="hidden" name="username" id="username" class="form-control" placeholder="User Name">
 
+             
             <br />
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
@@ -162,6 +159,7 @@ include_once("header.php");
         }
         else{
             
+            $("#username").val(firstname);
             
             $("#register").html('Registering..');
 
