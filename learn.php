@@ -62,7 +62,7 @@ include_once("header.php");
 <div class="container">
     <div class="row justify-content-md-center text-center">
         <div class="col"></div>
-        <div class="col-8">
+        <div class="col-8" style="margin-top: 1em;">
             <h3>What Interns Learn</h3>
             <hr class="under-line">
             <span>

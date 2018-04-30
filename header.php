@@ -23,7 +23,6 @@
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
      <link rel="stylesheet" href="css/custom.css" type="text/css">
      
-    <link href="css/learn2.css" rel="stylesheet">
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
@@ -40,8 +39,7 @@
         .navbar{
           font-size: 15px;
           font-weight: bold;
-          padding-right: 100px;
-          padding-left: 100px;
+          padding: 0 10em;
           background-color: #FFFFFF;
         } 
   
@@ -52,7 +50,6 @@
         .nav-item:hover { 
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
-
         }
 
         footer {
@@ -67,7 +64,9 @@
     <!-- Navigation -->
     
     <nav class="navbar navbar-expand-lg navbar-light"  >
-      <a class="navbar-brand" href="../index.php"><img src="../img/logo.png" alt=""></a>
+      <a class="navbar-brand" href="../index.php">
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid" style="height: 33px">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
