@@ -34,7 +34,7 @@ include_once("header.php");
 	</div>
 
 	<div>
-		<a href="invite_3sent.php"><button style="background-color: #2196F3; color: white; font-size: 15px; height: 50px; width: 200px; border:0; margin-bottom: 50px;"">Send</button></a>
+		<a href="invitesentmessage.php"><button style="background-color: #2196F3; color: white; font-size: 15px; height: 50px; width: 200px; border:0; margin-bottom: 50px;"">Send</button></a>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
