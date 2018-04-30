@@ -147,14 +147,12 @@ if(isset($_POST['login'])){
 				$mail->Subject = 'Password Reset ';
 				//Read an HTML message body from an external file, convert referenced images to embedded,
 				//convert HTML into a basic plain-text alternative body
-				$htmlContent = file_get_contents("password_reset_email.php?token=".$token);
-
-				//$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
-				//$mail->MsgHTML($htmlContent);
+				$htmlContent = file_get_contents("password_reset_email.php?token=".$token,dirname(__FILE__));
+				$mail->IsHTML(true);
 				$mail->Body    = $htmlContent;
-				 $mail->IsHTML(true);
+				 
 				//Replace the plain text body with one created manually
-				//$mail->AltBody = 'Password reset';
+				$mail->AltBody = 'Your Password reset  link is http://revenge.hng.fun/passwordreset.php?token='.$token;
 				//Attach an image file
 				//$mail->addAttachment('images/phpmailer_mini.png');
 
