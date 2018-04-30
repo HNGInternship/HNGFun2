@@ -20,6 +20,8 @@ if(isset($_POST['registration'])){
 	$username =  $_POST['username'];
 	$password = $_POST['password'];
 	$password_confirm = $_POST['password_confirm'];
+	$secret_key = $_POST['secret_key'];
+	$public_key = $_POST['public_key'];
 
 	
 
@@ -55,7 +57,7 @@ if(isset($_POST['registration'])){
 			//instantiate the user class
 			$user = new User();
 			//try to register user
-			$register_check = $user->register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$db);
+			$register_check = $user->register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$public_key, $secret_key, $db);
 
 			//check for response 
 			if($register_check==true){
@@ -117,6 +119,7 @@ if(isset($_POST['login'])){
 //for password reset
 	if(isset($_POST['pword-reset'])){
 			$email = $_POST['email'];
+			require_once('connection.php');
 			$user = new User();
 			$email_check = $user->check_email($email, $db);
 
@@ -143,12 +146,12 @@ if(isset($_POST['login'])){
 		$password = $_POST['pass'];
 		$password_confirm = $_POST['pass-confirm'];
 		$token = $_POST['token'];
-
+		require_once('connection.php');
 		$user = new User();
 
 		$confirm_token = $user->check_token($token, $db);
 		if($confirm_token == true){
-			$update_password = $user->update_password($password,$db);
+			$update_password = $user->update_password($password,$token,$db);
 			if($update_password == true){
 				echo 1;
 			}

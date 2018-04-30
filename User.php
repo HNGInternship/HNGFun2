@@ -69,21 +69,22 @@ public function __construct(){
 //register construct function
 //
    
-     public function register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$db){
+     public function register($firstname,$lastname,$email,$username,$nationality,$phone,$password, $public_key, $secret_key, $db){
         
         $this->table = 'users';
         
         
         $password_hash = md5($password);
+        $secret_hash = md5($secret_key);
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee ) VALUES(?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee, public_key, secret_key ) VALUES(?,?,?,?,?,?,?,?,?,?)";
         
             $statement = $db->prepare($query);
 
            // echo $db->error.$query;
     
-        $statement->bind_param("ssssssss",$firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee);
+        $statement->bind_param("ssssssss",$firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee, $public_key, $secret_hash);
 
         
      $result = $db->query($query);
@@ -161,7 +162,7 @@ public function __construct(){
         
         $query="UPDATE ".$this->table." SET fullname=?,email=? WHERE id=? LIMIT 1";
         $statement = $db->prepare($query);
-        $statement->bind_param("ssss",$fullname,$email,$id);
+        $statement->bind_param("sss",$fullname,$email,$id);
     
     
      
@@ -377,11 +378,11 @@ public function __construct(){
 
 
    //change password function
-    public function update_password($password,$db){
+    public function update_password($password,$token,$db){
          $password_hash = md5($password);
-       $query="UPDATE ".$this->table." SET password=? WHERE id=? LIMIT 1";
+       $query="UPDATE ".$this->table." SET password=? WHERE token=? LIMIT 1";
         $statement = $db->prepare($query);
-        $statement->bind_param("ss",$password_hash,$id);
+        $statement->bind_param("ss",$password_hash,$token);
      
      if ( $statement->execute() ){
          return true;
