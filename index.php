@@ -2,6 +2,20 @@
 include_once("header.php");
 ?>
 
+<style>
+	.hero-sub-text-2{
+		color: #2196F3;
+	}
+	
+	.text-primary{
+		color: #2196F3;
+	}
+	
+	.btn-blue{
+		background-color: #2196F3;
+	}
+</style>
+
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
   <p class="hero-main-text font-weight-bold"> hng</p>
   <p class="hero-sub-text-1 font-weight-bold"> Internship</p>
