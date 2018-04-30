@@ -1,5 +1,6 @@
 <?php
 require '../../config.php';
+require 'db.php';
 
 try {
     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
@@ -9,6 +10,7 @@ try {
 }
 
 $msg = '';
+$reset_link_passed = false;
 
 // Handle mailing
 if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -24,7 +26,7 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
 		"Content-type" => "text/plain;charset=utf-8",
 		"From" => "shield.hng.fun"
 	);
-	
+
 	if(mail($user_email, $subject, $message, $header)) {
 		$msg = "You have been sent  a reset link";
 	}else{
