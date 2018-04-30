@@ -5,7 +5,10 @@ include_once("header.php");
 function custom_styles()
 {
 	echo <<<_END
-
+		body{
+		background-color: #fafafa;
+		font-family: 'Lato', sans-serif;
+		}
 		.page-body{
 			font-family: 'Open Sans', sans-serif;
 		}
@@ -41,6 +44,7 @@ function custom_styles()
 		    font-size: 80%;
 		    padding-left: 1px;
 		}
+		
 _END;
 }
 ?>
