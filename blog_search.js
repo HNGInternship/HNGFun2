@@ -8,8 +8,17 @@
         let search = document.querySelector('#search');
 
 
-        showSuggestions(json) {
+        function suggestionsToList(items) {
+             var output = '';
 
+             for(i=0; i < itme.length; i++) {
+                 output = `<li><a href="search.php?q=${iems[i]}">${items[i]}</a></li>`;
+             }
+        }
+
+        function showSuggestions(json) {
+            var list = suggestionsToList(json);
+            suggestions.style.display = 'block';
         }
     
         function getSuggestions() {
@@ -35,5 +44,5 @@
         }
 
         search.addEventListener('input', getSuggestions);
-    }
+    });
 </script>

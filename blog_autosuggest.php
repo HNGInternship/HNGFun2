@@ -61,7 +61,10 @@ $query = isset($_GET['q']) ? $_GET['q'] : '';
 
 $suggestions = serach($query, $choices);
 sort($suggestions);
-$max_suggestions($suggestions);
+$max_suggestions = 5;
+$top_suggestions = array_slice($suggestions, 0, $max_suggestions);
+
+echo json_encode($top_suggestions);
 
 
 $choices = $data;
