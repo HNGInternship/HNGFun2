@@ -93,7 +93,7 @@ include_once("header.php");
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms" name="terms">
                     <label class="form-check-label" for="terms">
-                    I agree to the <a class='link' href="" style="color: #2196F3; text-decoration: none">Terms and Conditions</a>
+                    I agree to the <a class='link' href="terms-and-conditions.php" style="color: #2196F3; text-decoration: none">Terms and Conditions</a>
                     </label>
                 </div>
             </div>
