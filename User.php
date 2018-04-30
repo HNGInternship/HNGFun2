@@ -358,11 +358,11 @@ public function __construct(){
          $num = $result->num_rows;
          
          if($num > 0){
-             $row = $result->fetch_assoc();
-            
+            // $row = $result->fetch_assoc();
+            return true;
             
             // print_r($row);
-            return $row;
+            //return $row;
         
          }
          else{
@@ -377,7 +377,7 @@ public function __construct(){
 
 
    //change password function
-    public function update_password($id,$password,$db){
+    public function update_password($password,$db){
          $password_hash = md5($password);
        $query="UPDATE ".$this->table." SET password=? WHERE id=? LIMIT 1";
         $statement = $db->prepare($query);
