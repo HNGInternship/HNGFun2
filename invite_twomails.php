@@ -26,7 +26,7 @@ include_once("header.php");
 	</div>
 	<div style="margin-top: 50px;" id="input">
 		<label for="email"></label>
-		<input type="text" placeholder=" johndoe@example.com" name="email" id="email" style="border-radius: 7px; border-top: 0px ;width: 350px; height: 40px; margin-left: -3px;"><br/>
+		<input type="text" placeholder=" johndoe@example.com" name="email" id="email" style="border-radius: 7px; border-top: 0px; border-left-color: #2196F3; width: 350px; height: 40px; margin-left: -3px;"><br/>
 		
 	</div>
 	<div align="center">
