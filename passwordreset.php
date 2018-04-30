@@ -5,7 +5,7 @@
     <h1 class="font-weight-bold">
         Set a New Password
     </h1>
-    <p>Set a new password for your account.</p>
+    <p style="margin-top: -15px;">Set a new password for your account.</p>
 </div>
 <div class="container" style='color: #3D3D3D; padding-bottom: 100px'>
     <form>
@@ -22,8 +22,8 @@
     </div>
         <br />
     <div class="row justify-content-center">
-        <a href="index.php"><button type="submit" class="btn btn-primary btn-sm" style="width: 360px; border-radius: 5px" >Create New Password</button></a>
-    </div>
+        <a href="index.php"><button type="submit" class="btn btn-primary btn-sm" style="width: 360px; border-radius: 5px; padding: 9px; margin-top: -50px; background-color: #2196F3;" >Create New Password</button></a> 
+     </div>
     </form>
     
 </div>
