@@ -1,6 +1,6 @@
  <?php include("header.php");?>
 
-
+<div style="font-family: 'Roboto', sans-serif; margin-top: 100px;">
 <div style="text-align: center; padding-bottom: 10px">
     <h1 class="font-weight-bold">
         Set a New Password
@@ -26,6 +26,7 @@
      </div>
     </form>
     
+</div>
 </div>
 <div style='color: #3D3D3D; padding-bottom: 100px'>
 
