@@ -1,13 +1,5 @@
 <?php
-require '../../config.php';
 require 'db.php';
-
-try {
-    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-
-} catch (PDOException $e) {
-    die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
-}
 
 $msg = '';
 $reset_link_passed = false;
