@@ -48,7 +48,7 @@ include_once("header.php");
                
         <div class="img-center"> <img src="img/Ellipse.png"> </div>
                 
-        <form action="">
+        <form action="" style="margin-left: -20px;">
             <a class="button dashboard" href="#" foot>Return to Dashboard</a>
         </form>
 
@@ -58,6 +58,9 @@ include_once("header.php");
         </div>
 
     </div>
+    <div style='color: #3D3D3D; padding-bottom: 100px'>
+
+</div>
 
         <?php
         include_once("footer.php");
