@@ -135,12 +135,16 @@ include_once("header.php");
 <div class="login-container">
 	<div class="inner-login-container">
 		<div class="w-50">
+			<span style="color:#FF0000;font-size:18px"><?= $errors['failed'] ?? '';?></span>
+
 			<h2 class="text-center my-0 py-0">Log In</h2>
 			<p class="text-center f-2 mt-0 pt-0">Login to access your dashboard and manage your account.</p>
 		</div>
 
 		<form class="form-container" method="POST">
+			<span style="color:#FF0000;font-size:12px"><?=  $errors['username'] ?? '';?></span>
 			<input type="text" name="username" class="form-control login-input" placeholder="Username or Email">
+			<span style="color:red;font-size:12px"><?=  $errors['password'] ?? '';?></span>
 			<input type="password" name="password" class="form-control login-input" placeholder="Password">
 			<div class="remember-div">
 				<input type="checkbox" name="remember" class="form-control checkbox" placeholder="Remember Me">
