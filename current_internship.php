@@ -96,7 +96,7 @@
   	    <i class="fa fa-chevron-left fa-stack-1x "></i>
   	  </span>
       <div class="mx-auto col-md-10">
-      <h5>PARTNERS &amp; TECHNOLOGIES USED</h5>
+      <h5 class="mb-4">PARTNERS &amp; TECHNOLOGIES USED</h5>
       <span class="my-deck">
 	    <div class="card">
 	      <img class="card-img-top" src="img/oracle_jet.png" alt="Oracle Jet logo">
