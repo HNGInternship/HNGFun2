@@ -28,6 +28,19 @@ function custom_styles()
 			width: 80%;
 			max-width: 700px;
 		}
+		.main-form label {
+		    display: block;
+		    font-weight: 400;
+		    padding-left: 10px;
+		    color: #808080;
+		    font-size: 95%;
+		}
+		.main-form label:after {
+		    content: "* ";
+		    color: red;
+		    font-size: 80%;
+		    padding-left: 1px;
+		}
 _END;
 }
 ?>
