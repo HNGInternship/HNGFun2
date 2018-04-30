@@ -140,7 +140,7 @@ if(isset($_POST['login'])){
 				//Set who the message is to be sent from
 				$mail->setFrom('internship@hngfun.com', 'Hng');
 				//Set an alternative reply-to address
-				$mail->addReplyTo('mark@hotels.ng', 'First Last');
+				$mail->addReplyTo('mark@hotels.ng', 'Mark');
 				//Set who the message is to be sent to
 				$mail->addAddress($email, 'Intern');
 				//Set the subject line
