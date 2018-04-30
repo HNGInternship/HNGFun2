@@ -61,7 +61,7 @@ $activeArray[$fileIndex]="active";
 
       <style>
         body {
-          background-color: #FFFFFF;
+          background-color: #FAFAFA;
 
         }
         .navbar{
