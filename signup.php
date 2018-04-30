@@ -254,7 +254,7 @@ include_once("header.php");
 </div>
 -->
 <script type="text/javascript">
-    /*
+    
        $( document ).ready(function() {
     $("#register").click(function(e){
         e.preventDefault();
@@ -262,12 +262,8 @@ include_once("header.php");
         var firstname = $("#firstname").val();
          var lastname = $("#lastname").val();
         var email = $("#email").val();
-        var phone = $("#phone").val(); 
-        var password = $("#password").val();
-        var password_confirm = $("#password_confirm").val();
-        var state = $("#state").val();
-        var country = $("#country").val();
-
+         var password = $("#password").val();
+        
         var terms = $('#terms').is(':checked'); 
         
         if(firstname ==""){
@@ -285,34 +281,13 @@ include_once("header.php");
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
         }
-        else if(country ==""){
-            alert('Please enter your country');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter your country');
-        }
-
-        else if(state ==""){
-            alert('Please enter state');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter state');
-        }
-
-         else if(phone ==""){
-            alert('Please enter Phone Number');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter Phone Number');
-        }
+        
         else if(password ==""){
             alert('Please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
         }
 
-        else if(password != password_confirm){
-            alert('Passwords dont match');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Passwords dont match');
-        }
         else if(terms == false){
             alert('You must accept our terms and conditions to register');
             $("#message").addClass('alert alert-danger');
@@ -320,13 +295,10 @@ include_once("header.php");
         }
         else{
             
-            $("#username").val(firstname);
-            
-            $("#register").html('Registering..');
+              
+      $("#register").html('Registering..');
 
              var data = $("#register_form").serialize();
-
-            
 
              $.ajax('process.php',{
             type : 'post',
@@ -372,7 +344,7 @@ include_once("header.php");
 
 
     });
-    */
+    
 </script>
 <?php
     include_once("footer.php");

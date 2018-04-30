@@ -15,11 +15,9 @@ if(isset($_POST['registration'])){
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
-	$phone = $_POST['phone'];
-	$nationality = $_POST['country'];
-	$username =  $_POST['username'];
+	
 	$password = $_POST['password'];
-	$password_confirm = $_POST['password_confirm'];
+	
 
 	
 
@@ -35,18 +33,11 @@ if(isset($_POST['registration'])){
 	elseif($email == ""){
 		echo "Please enter your email";
 	}
-	elseif($username == ""){
-		echo "Please enter your Username";
-	}
+	
 	elseif($password == ""){
 		echo "Please enter your Password";
 	}
-	elseif($nationality == ""){
-		echo "Please enter your Nationality";
-	}
-	elseif($password != $password_confirm){
-		echo "Passwords do not match";
-	}
+	
 	else{
 
 				//connect to database
@@ -55,7 +46,7 @@ if(isset($_POST['registration'])){
 			//instantiate the member class
 			$member = new Member();
 			//try to register user
-			$register_check = $member->register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$db);
+			$register_check = $member->register($firstname,$lastname,$email,$password,$db);
 
 			//check for response 
 			if($register_check==true){

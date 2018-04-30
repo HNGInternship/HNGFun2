@@ -69,7 +69,7 @@ public function __construct(){
 //register construct function
 //
    
-     public function register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$db){
+     public function register($firstname,$lastname,$email,$password,$db){
         
         $this->table = 'users';
         
@@ -79,10 +79,10 @@ public function __construct(){
         $timee=date('Y-m-d H:i:s');
 
                 try {
-            $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee ) 
-        VALUES ('$firstname','$lastname','$email','$username,'$nationality','$phone','$password_hash','$timee')";
+            $query = "INSERT INTO ".$this->table."(firstname,lastname,email,password,timee ) 
+        VALUES ('$firstname','$lastname','$email','$password_hash','$timee')";
 
-            $conn->exec($query);
+            $db->exec($query);
           return true;
           }
         catch(PDOException $e)
