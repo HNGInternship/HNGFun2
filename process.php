@@ -41,12 +41,12 @@ if(isset($_POST['registration'])){
 	else{
 
 				//connect to database
-			require_once('connection.php');
+			require_once('db.php');
 
 			//instantiate the member class
 			$member = new Member();
 			//try to register user
-			$register_check = $member->register($firstname,$lastname,$email,$password,$db);
+			$register_check = $member->register($firstname,$lastname,$email,$password,$conn);
 
 			//check for response 
 			if($register_check==true){
@@ -88,12 +88,12 @@ if(isset($_POST['login'])){
 	else{
 
 		//connect to database
-			require_once('connection.php');
+			require_once('db.php');
 
 			//instantiate the member class
 			$member = new Member();
 
-			$login_check = $member->check($email,$password,$db);
+			$login_check = $member->check($email,$password,$conn);
 			if($login_check == true){
 				echo true;
 			}
