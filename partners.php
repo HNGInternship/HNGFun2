@@ -93,7 +93,7 @@ include_once("header.php");
 		<div class="cont voffset">
 				<h3 style="border-bottom: 2px solid #2196F3; display: inline block; ">About</h3>
 
-				<p> An online travel agency specialising in hotel bookings withing Nigeria. 
+				<p class="text-center"> An online travel agency specialising in hotel bookings withing Nigeria. 
 					The HNG Internship program was started by Hotels.ng CEO Mark Essien and was designed to 
 					locate the most talented software developers in Nigeria and Africa as a whole. Creating an 
 					interactive platform for software development leanrning that is both fun and rewarding.</p>
