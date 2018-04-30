@@ -1,3 +1,93 @@
+<<<<<<< HEAD
+<?php
+include_once("header.php");
+?>
+<style>
+    body {
+        font-size: inherit !important;
+    }
+			.btn-signup {
+				background: #2196F3;
+                    padding: 0.4em 8em !important;
+                    color: white;
+                    border-radius: 4px;
+            }
+            p, label {
+                font-size: 14px !important;
+            }
+a {
+    font-size: 14px !important;
+    color: #2196F3 !important;
+}
+        </style>
+        <br><br>
+<div class="row h-100">
+    <div class="col-md-6  mx-auto">
+        <h1 class="login-title text-center">Register</h1>
+        <p style="font-size: 16px" class="text-center">Just a few clicks away from joining the biggest software development internship in Africa
+        </p>
+        <p>Already have an account? <a href="/login.php">Login</a></p>
+        <form action="" class="text-center">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <select id="country" name="country" class="form-control" style="padding: 0;">
+                        <option selected>Choose Country...</option>
+                        <option>Nigeria</option>
+                        <option>Ghana</option>
+                        <option>Cameroun</option>
+                        <option>Kenya</option>
+                        <option>Sout Africa</option>
+                    </select>
+        </div>
+                    <div class="form-group col-md-6">
+                        <select id="inputState" class="form-control" style="padding: 0;">
+                            <option selected>Choose State...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+        </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="password" name="c_password" id="c_password" class="form-control" placeholder="Confirm Password ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="terms" name="terms">
+      <label class="form-check-label" for="terms">I agree to <a href="">Terms and Conditions</a>
+      </label>
+    </div>
+  </div>
+                    <br>
+                    <button type="submit" class="btn btn-signup">Sign Up </button>
+        </form>
+
+        </div>
+        </div>
+
+        <?php
+        include_once("footer.php");
+        ?>
+=======
 <?php 
 require_once('country-array.php');
 include_once("header.php");
@@ -5,7 +95,7 @@ include_once("header.php");
 function custom_styles()
 {
 	echo <<<_END
-
+		
 		.page-body{
 			font-family: 'Open Sans', sans-serif;
 		}
@@ -28,6 +118,20 @@ function custom_styles()
 			width: 80%;
 			max-width: 700px;
 		}
+		.main-form label {
+		    display: block;
+		    font-weight: 400;
+		    padding-left: 10px;
+		    color: #808080;
+		    font-size: 95%;
+		}
+		.main-form label:after {
+		    content: "* ";
+		    color: red;
+		    font-size: 80%;
+		    padding-left: 1px;
+		}
+		
 _END;
 }
 ?>
@@ -44,37 +148,37 @@ _END;
 				<p class="form-text">Already have an account? <a href="login.php">Log in</a></p>
 				<div class="row">
 					<div class="col-sm-6">
-						<div class="form-group pr-3">
+						<div class="form-group pr-sm-3">
 						    <label for="firstname">First Name</label>
-						    <input type="text" class="form-control" id="firstname" aria-describedby="nameerr" placeholder="John">
+						    <input type="text" class="form-control" id="firstname" aria-describedby="nameerr" placeholder="John" required="required">
 						    <!-- <small id="emailHelp" class="has-danger form-text">We'll never share your email with anyone else.</small> -->
 					    </div>
 					  
 					</div>
 					<div class="col-sm-6">
-						<div class="form-group pl-3">
+						<div class="form-group pl-sm-3">
 						    <label for="lastname">Last Name</label>
-						    <input type="text" class="form-control" id="lastname" placeholder="Doe">
+						    <input type="text" class="form-control" id="lastname" placeholder="Doe" required="required" required="required">
 						  </div>
 					</div>
 				
 					<div class="col-sm-6">
-						<div class="form-group pr-3">
+						<div class="form-group pr-sm-3">
 						    <label for="email">Email Address</label>
-						    <input type="email" class="form-control" id="email" aria-describedby="mailerr" placeholder="johndoe@mail.com">
+						    <input type="email" class="form-control" id="email" aria-describedby="mailerr" placeholder="johndoe@mail.com" required="required">
 						    <!-- <small id="mailerr" class="has-danger form-text">We'll never share your email with anyone else.</small> -->
 					    </div>
 					  
 					</div>
 					<div class="col-sm-6">
-						<div class="form-group pl-3">
-						    <label for="phone">Last Name</label>
-						    <input type="telephone" class="form-control" id="phone" placeholder="+2348012345678">
+						<div class="form-group pl-sm-3">
+						    <label for="phone">Phone Number</label>
+						    <input type="telephone" class="form-control" id="phone" placeholder="+2348012345678" required="required">
 						  </div>
 					</div>
 
 					<div class="col-sm-6">
-						<div class="form-group pr-3 has-danger">
+						<div class="form-group pr-sm-3 has-danger">
 						    <label for="nationality">Nationality</label>
 						    <select class="form-control" id="nationality" name="nationality">
 						      <option>Select your country</option>
@@ -88,7 +192,7 @@ _END;
 					  
 					</div>
 					<div class="col-sm-6">
-						<div class="form-group pl-3" id="chose_state">
+						<div class="form-group pl-sm-3" id="chose_state">
 						    <label for="state">State</label> 
 						    
 						    <select class="form-control" id="state" name="state">
@@ -99,20 +203,21 @@ _END;
 						      <?php }
 						      ?>
 						    </select>
+						    <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
 						</div>
 					</div>
 
 					<div class="col-sm-6">
-						<div class="form-group pr-3">
+						<div class="form-group pr-sm-3">
 						    <label for="password">Password</label>
-						    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+						    <input type="password" class="form-control" id="password" placeholder="Enter your password" required="required">
 						  </div>
 					</div>
 				
 					<div class="col-sm-6">
-						<div class="form-group pl-3">
+						<div class="form-group pl-sm-3">
 						    <label for="confirm_password">Confirm Password</label>
-						    <input type="password" class="form-control" id="confirm_password" aria-describedby="cpwderr" placeholder="johndoe@mail.com">
+						    <input type="password" class="form-control" id="confirm_password" aria-describedby="cpwderr" placeholder="johndoe@mail.com" required="required">
 						    <!-- <small id="cpwderr" class="has-danger form-text">We'll never share your email with anyone else.</small> -->
 					    </div>
 					  
@@ -145,12 +250,13 @@ function custom_scripts(){
 	<script>
 		
 	$("select[name='nationality']").on('change', function() {
+		
 		if (!($("#nigeria").is(":selected"))) {
 			$("#state").addClass("d-none");
-			$("#chose_state").append('<input type="text" class="form-control" id="enter_state" placeholder="Enter your state">');
+			$("#enter_state").removeClass('d-none');
 
 		}else{
-			$("#state").removeClass("d-none");
+			$("#state").removeClass("d-none");			
 			$("#enter_state").addClass("d-none");
 		}
 	});
@@ -159,3 +265,4 @@ _END;
 }
 include_once("footer.php");
 ?>
+>>>>>>> a8667a330dfdc4d84bf4deb0e69e71d87429e320

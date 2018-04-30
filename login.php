@@ -129,12 +129,29 @@ function login_user($user) {
 ?>
 <?php
 include_once("header.php");
+// require_once("./auth_scripts/login.php");
 ?>
 
 <div class="login-container">
 	<div class="inner-login-container">
 		<div class="w-50">
+
 			<span style="color:#FF0000;font-size:18px"><?= $errors['failed'] ?? '';?></span>
+
+			<h2 class="text-center my-0 py-0" style="margin-bottom: 10px">Log In</h2>
+			<p class="text-center text-lighte" style="font-size: 15px; opacity: 0.7">Login to access your dashboard and manage your account.</p>
+		</div>
+
+		<form class="w-50 mt-2">
+			<input type="text" name="username" class="form-control mb-3" placeholder="Username or Email">
+			<input type="text" name="password" class="form-control mb-3" placeholder="Password">
+			<input type="checkbox" name="" class="" placeholder="Password"><span style="font-size: 14px;"> Remember me</span> 
+			<button class="btn btn-blue w-100 rounded py-2" style="margin-bottom: 10px">Log In</button>
+		</form>
+
+		<small>Not yet registered?
+			<span><a href="signup.php" class="text-primary text-lighter">SignUp</a></span>
+
 			<h2 class="text-center my-0 py-0">Log In</h2>
 			<p class="text-center f-2 mt-0 pt-0">Login to access your dashboard and manage your account.</p>
 		</div>
@@ -149,15 +166,16 @@ include_once("header.php");
 				<input type="checkbox" name="remember" class="form-control checkbox" placeholder="Remember Me">
 				<label class="remember-label" for="remember">Remember Me</label>
 			</div>
-			<button class="btn btn-blue w-100 rounded py-2 login-btn">Login</button>
+			<button type="submit" class="btn btn-blue w-100 rounded py-2 login-btn">Login</button>
 		</form>
 
 		<small class="forgot-password">Forgot Password?
-			<span><a href="forgotpassword.php" class="text-primary text-lighter">Click Here</a></span>
+			<span><a href="reset-password.php" class="text-primary text-lighter">Click Here</a></span>
 		</small>
 
 		<small class="signup">Don't have an account?
 			<span><a href="signup.php" class="text-primary text-lighter">Get Started</a></span>
+
 		</small>
 	</div>
 </div>

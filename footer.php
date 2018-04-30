@@ -26,7 +26,9 @@
                </li>
     
             </ul>
-            <p class="copyright text-muted">Copyright &copy; HNG FUN <?= date("Y")?></p>
+            <div style="text-align: center">
+                <p class="copyright text-muted">Copyright &copy; HNG FUN <?= date("Y")?></p> 
+            </div>
          </div>
       </div>
    </div>
@@ -42,7 +44,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <?php if (function_exists('custom_styles')) {
+    <?php if (function_exists('custom_scripts')) {
           custom_scripts();
         }
      ?>
