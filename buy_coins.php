@@ -1,7 +1,7 @@
 <?php
 //this file is being created by Nedy, uncomment later
 // include_once("coin_header.php");
-include_once("header.php");
+include_once("coin_header.php");
 
 ?>
 
