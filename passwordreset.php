@@ -3,10 +3,10 @@
 
 <div style="text-align: center; padding-bottom: 10px">
     <h1 class="font-weight-bold">
-        Reset Password
+        Set a New Password
     </h1>
+    <p>Set a new password for your account.</p>
 </div>
-<br />
 <div class="container" style='color: #3D3D3D; padding-bottom: 100px'>
     <form>
         <div class="form-row justify-content-center">
@@ -20,8 +20,9 @@
             <input type="password" name="password" id="password" class="form-control" placeholder="Confirm New Password" value="">
         </div>
     </div>
+        <br />
     <div class="row justify-content-center">
-        <a href="index.php"><button type="submit" class="btn btn-primary">Reset Password</button></a>
+        <a href="index.php"><button type="submit" class="btn btn-primary btn-sm">Create New Password</button></a>
     </div>
     </form>
     
