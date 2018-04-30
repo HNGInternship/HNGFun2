@@ -69,21 +69,22 @@ public function __construct(){
 //register construct function
 //
    
-     public function register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$db){
+     public function register($firstname,$lastname,$email,$username,$nationality,$phone,$password, $public_key, $secret_key, $db){
         
         $this->table = 'users';
         
         
         $password_hash = md5($password);
+        $secret_hash = md5($secret_key);
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee ) VALUES(?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee, public_key, secret_key ) VALUES(?,?,?,?,?,?,?,?,?,?)";
         
             $statement = $db->prepare($query);
 
            // echo $db->error.$query;
     
-        $statement->bind_param("ssssssss",$firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee);
+        $statement->bind_param("ssssssss",$firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee, $public_key, $secret_hash);
 
         
      $result = $db->query($query);

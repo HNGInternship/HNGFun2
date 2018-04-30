@@ -20,6 +20,8 @@ if(isset($_POST['registration'])){
 	$username =  $_POST['username'];
 	$password = $_POST['password'];
 	$password_confirm = $_POST['password_confirm'];
+	$secret_key = $_POST['secret_key'];
+	$public_key = $_POST['public_key'];
 
 	
 
@@ -55,7 +57,7 @@ if(isset($_POST['registration'])){
 			//instantiate the user class
 			$user = new User();
 			//try to register user
-			$register_check = $user->register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$db);
+			$register_check = $user->register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$public_key, $secret_key, $db);
 
 			//check for response 
 			if($register_check==true){
