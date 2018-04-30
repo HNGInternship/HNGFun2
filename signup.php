@@ -66,6 +66,7 @@ include_once("header.php");
                 </div>
             </div>
             <br />
+            <!--
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                      <input type="text" name="country" id="country" class="form-control" placeholder="Enter your country ">
@@ -74,7 +75,7 @@ include_once("header.php");
                         <input type="text" name="state" id="state" class="form-control" placeholder="Enter your state ">
                     </div>
         </div>
-
+            -->
             
             <br />
              <div class="form-row">

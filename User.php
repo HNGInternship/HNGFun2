@@ -162,7 +162,7 @@ public function __construct(){
         
         $query="UPDATE ".$this->table." SET fullname=?,email=? WHERE id=? LIMIT 1";
         $statement = $db->prepare($query);
-        $statement->bind_param("ssss",$fullname,$email,$id);
+        $statement->bind_param("sss",$fullname,$email,$id);
     
     
      
@@ -378,11 +378,11 @@ public function __construct(){
 
 
    //change password function
-    public function update_password($password,$db){
+    public function update_password($password,$token,$db){
          $password_hash = md5($password);
-       $query="UPDATE ".$this->table." SET password=? WHERE id=? LIMIT 1";
+       $query="UPDATE ".$this->table." SET password=? WHERE token=? LIMIT 1";
         $statement = $db->prepare($query);
-        $statement->bind_param("ss",$password_hash,$id);
+        $statement->bind_param("ss",$password_hash,$token);
      
      if ( $statement->execute() ){
          return true;

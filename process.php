@@ -119,6 +119,7 @@ if(isset($_POST['login'])){
 //for password reset
 	if(isset($_POST['pword-reset'])){
 			$email = $_POST['email'];
+			require_once('connection.php');
 			$user = new User();
 			$email_check = $user->check_email($email, $db);
 
@@ -145,12 +146,12 @@ if(isset($_POST['login'])){
 		$password = $_POST['pass'];
 		$password_confirm = $_POST['pass-confirm'];
 		$token = $_POST['token'];
-
+		require_once('connection.php');
 		$user = new User();
 
 		$confirm_token = $user->check_token($token, $db);
 		if($confirm_token == true){
-			$update_password = $user->update_password($password,$db);
+			$update_password = $user->update_password($password,$token,$db);
 			if($update_password == true){
 				echo 1;
 			}
