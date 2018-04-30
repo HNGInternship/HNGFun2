@@ -1,6 +1,5 @@
 <?php
 include_once("header.php");
-<<<<<<< HEAD
 error_reporting(-1);
 
 if(isset($_POST['send'])){
@@ -1027,4 +1026,3 @@ $msg = '
 <?php
 include_once("footer.php");
 ?>
->>>>>>> a8667a330dfdc4d84bf4deb0e69e71d87429e320
