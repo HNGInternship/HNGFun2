@@ -1,17 +1,17 @@
  <?php include("header.php");?>
 
 
-
+<div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
+    <h1 class="font-weight-normal">
+        <h1>Log In</h1>
+	    <p style="font-size: 16px;">Login to access your dashboard and manage your account.</p>
+    </h1>
+</div>
 <div class="container" style='color: #3D3D3D'>
     <div class="row justify-content-md-center" style="text-align: center">
         <div class="col-lg-4">
             <div style="padding: 0px 20px 0px 20px">
                 <form class="form-signin">
-            <h1 class="h3 mb-3 font-weight-normal">
-                <h1>Log In</h1>
-	           <p style="font-size: 16px;">Login to access your dashboard and manage your account.</p>
-                <br/>
-            </h1>
             <label for="inputEmail" class="sr-only">Email</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
             <br/>
