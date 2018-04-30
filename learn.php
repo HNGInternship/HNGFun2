@@ -59,55 +59,6 @@ include_once("header.php");
     }
 </style>
 
-
-<hr>
-<!-- courses -->
-<section>
-    <div class="container">
-        <div class="sec-title-two centered">
-            <h2 style="margin-bottom:30px">What We Learn</h2>
-        </div>
-        <div class="row" style="margin-bottom: 20px;">
-            <div class="col-md-4 text-center">
-                <button class="btn btn-info btn-circle btn-xl">
-                    <span>UI/UX</span>
-                </button>
-                <h4>PRICIPLES OF PRODUCT DESIGN</h4>
-            </div>
-            <div class="col-md-4 text-center">
-                <button class="btn btn-info btn-circle btn-xl">
-                    <span>HTML/CSS/ <br> SASS/VUE</span>
-                </button>
-                <h4>FRONT-END WEB DEVELOPMENT</h4>
-            </div>
-            <div class="col-md-4 text-center">
-                <button class="btn btn-info btn-circle btn-xl">
-                    <span>PHP/LARAVEL</span>
-                </button>
-                <h4>BACK-END WEB DEVELOPMENT</h4>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <button class="btn btn-info btn-circle btn-xl">
-                    <span>UBUNTU/<br>NGINX/<br>DOCKER</span>
-                </button>
-                <h4>DEV OPS</h4>
-            </div>
-            <div class="col-md-4 text-center">
-                <button class="btn btn-info btn-circle btn-xl">
-                    <span>MYSQL</span>
-                </button>
-                <h4>DATABASES</h4>
-            </div>
-            <div class="col-md-4 text-center">
-                <button class="btn btn-info btn-circle btn-xl">
-                    <span>GIT</span>
-                </button>
-                <h4>VERSION CONTROL</h4>
-            </div>
-
 <div class="container">
     <div class="row justify-content-md-center text-center">
         <div class="col"></div>
