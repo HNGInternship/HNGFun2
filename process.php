@@ -131,7 +131,40 @@ if(isset($_POST['login'])){
       	if($reset_token_check ==true){
 
       		//sending email starts here 
-      		$htmlContent = file_get_contents("password_reset_email.php?token=".$token);
+      		require_once ('phpmailer/PHPMailerAutoload.php');
+
+				//Create a new PHPMailer instance
+				$mail = new PHPMailer;
+				// Set PHPMailer to use the sendmail transport
+				$mail->isSendmail();
+				//Set who the message is to be sent from
+				$mail->setFrom('internship@hngfun.com', 'First Last');
+				//Set an alternative reply-to address
+				$mail->addReplyTo('mark@hotels.ng', 'First Last');
+				//Set who the message is to be sent to
+				$mail->addAddress($email, 'Intern');
+				//Set the subject line
+				$mail->Subject = 'Password Reset ';
+				//Read an HTML message body from an external file, convert referenced images to embedded,
+				//convert HTML into a basic plain-text alternative body
+				$htmlContent = file_get_contents("password_reset_email.php?token=".$token);
+
+				//$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
+				$mail->msgHTML($htmlContent);
+				//Replace the plain text body with one created manually
+				$mail->AltBody = '';
+				//Attach an image file
+				//$mail->addAttachment('images/phpmailer_mini.png');
+
+				//send the message, check for errors
+				if (!$mail->send()) {
+				    echo "Mailer Error: " . $mail->ErrorInfo;
+				} else {
+				    echo "Message sent!";
+				}
+      		
+
+      		/*
       		// Set content-type header for sending HTML email
 			$headers = "MIME-Version: 1.0" . "\r\n";
 			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -141,7 +174,7 @@ if(isset($_POST['login'])){
 			$headers .= 'Cc: hng@hng.com' . "\r\n";
 			$headers .= 'Bcc: info@hng.com' . "\r\n";
 
-			$subject = 'Password reset email';
+			$subject = 'Password reset mail';
 
 			// Send email
 			if(mail($email,$subject,$htmlContent,$headers)):
@@ -151,6 +184,8 @@ if(isset($_POST['login'])){
 			endif;
 
       		//sending email ends here
+
+      		*/
       	}
       	else{
       		//error while updating reset token 
