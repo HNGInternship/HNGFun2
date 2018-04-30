@@ -22,7 +22,9 @@ include_once("header.php");
 		</div>
 	</div>
 </div>
+<div style='color: #3D3D3D; padding-bottom: 100px'>
 
+</div>
 <?php
     include_once("footer.php");
 ?>
