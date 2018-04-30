@@ -19,8 +19,10 @@
 	}
 
 	section p {
-		font-size: 18px;
-		color: #3D3D3D;
+	  font-size: 18px;
+	  color: #3D3D3D;
+	  line-height: 28px;
+	  text-align: justify;
 	}
 
 	.profile-box {
