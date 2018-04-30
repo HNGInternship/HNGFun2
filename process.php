@@ -148,6 +148,7 @@ if(isset($_POST['login'])){
 				//Read an HTML message body from an external file, convert referenced images to embedded,
 				//convert HTML into a basic plain-text alternative body
 				$htmlContent = file_get_contents("password_reset_email.php?token=".$token,dirname(__FILE__));
+				echo $htmlContent;
 				$mail->IsHTML(true);
 				$mail->Body    = $htmlContent;
 				 
