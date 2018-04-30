@@ -33,7 +33,16 @@ public function __construct(){
                              return false; 
                        }      
       }
-   
+
+
+      //password reset email rendering
+   public function render_email($token) {
+    
+            ob_start();
+            include "password_reset_email.php";
+            return ob_get_contents();
+       }
+
      public function register($firstname,$lastname,$email,$password,$db){
         
         $this->table = 'users';

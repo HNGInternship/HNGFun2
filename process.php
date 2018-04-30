@@ -147,8 +147,7 @@ if(isset($_POST['login'])){
 				$mail->Subject = 'Password Reset ';
 				//Read an HTML message body from an external file, convert referenced images to embedded,
 				//convert HTML into a basic plain-text alternative body
-				$htmlContent = file_get_contents("password_reset_email.php?token=".$token,dirname(__FILE__));
-				echo "contents are : ".$htmlContent;
+				$htmlContent = $member->render_email($token);
 				$mail->IsHTML(true);
 				$mail->Body    = $htmlContent;
 				 
@@ -158,6 +157,8 @@ if(isset($_POST['login'])){
 				//$mail->addAttachment('images/phpmailer_mini.png');
 
 				//send the message, check for errors
+				
+				echo $htmlContent;
 				if (!$mail->send()) {
 				    echo "Mailer Error: " . $mail->ErrorInfo;
 				} else {
