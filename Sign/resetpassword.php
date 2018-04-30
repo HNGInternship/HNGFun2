@@ -26,7 +26,7 @@ include_once("header.php");
 </div>
 
 <!--form for changing password-->
-<div id="change-password" class="container" >
+<div id="password-change" class="container" >
     <div class="row justify-content-md-center">
         <form id="form-change" style='text-align: center; padding: 100px'>
             <h1>Change Password</h1>
@@ -55,9 +55,9 @@ include_once("header.php");
         if(token){
             $('#get-email-reset').hide();
         }
-        else{
-             $('#change-password').hide();
 
+        else{
+             $('#password-change').hide();
         }
     $(document).ready(function(){
         //ajax for password reset
