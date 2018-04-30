@@ -75,9 +75,7 @@ if(isset($_POST['registration'])){
 if(isset($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	
 
-	
 
 	if($email ==""){
 		echo "Please enter your email";
@@ -104,11 +102,7 @@ if(isset($_POST['login'])){
 
 }
 
-
-	..
-	//password reset 
 	
-	//send token via email
 	
 	if(isset ($_POST['reset_password_token'])){
 
