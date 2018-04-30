@@ -165,46 +165,6 @@ if(isset($_POST['login'])){
 				    echo "Message sent!";
 				}
       		
-
-
-					body = file_get_contents('email/htmlemail.html'); // include our formatted email
-
-					$mail->AltBody = "To view this message please use an HTML compatible email viewer, or visit http://mysite.com/emailcampaign"; // give folks who can't read HTML email something to read
-					$mail->SetFrom($email,$name);
-					$address = $email;
-					$mail->AddAddress($address, $name);
-					$mail->Subject = "Subject";
-					$mail->MsgHTML($body);
-					$mail->addAttachment("email/attachment.pdf"); // just repeat this for multiple attachments
-
-					// send statement, followed by error reporting (comment out for production)
-					if(!$mail->Send()) {
-					  echo "Mailer Error: " . $mail->ErrorInfo; // for testing
-					} else {
-					  echo 'Message sent!'; // for testing
-					}
-      		/*
-      		// Set content-type header for sending HTML email
-			$headers = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-			// Additional headers
-			$headers .= 'From: Internship<info@hng.com>' . "\r\n";
-			$headers .= 'Cc: hng@hng.com' . "\r\n";
-			$headers .= 'Bcc: info@hng.com' . "\r\n";
-
-			$subject = 'Password reset mail';
-
-			// Send email
-			if(mail($email,$subject,$htmlContent,$headers)):
-			    die('Email has been sent successfully');
-			else:
-			    die('Error occured while sending email');
-			endif;
-
-      		//sending email ends here
-
-      		*/
       	}
       	else{
       		//error while updating reset token 
