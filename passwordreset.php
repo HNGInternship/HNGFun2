@@ -22,7 +22,7 @@
     </div>
         <br />
     <div class="row justify-content-center">
-        <a href="index.php"><button type="submit" class="btn btn-primary btn-sm">Create New Password</button></a>
+        <a href="index.php"><button type="submit" class="btn btn-primary btn-sm" style="width: 360px; border-radius: 5px" >Create New Password</button></a>
     </div>
     </form>
     
