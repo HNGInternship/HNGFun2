@@ -151,6 +151,7 @@ if(isset($_POST['login'])){
 
 				//$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
 				$mail->msgHTML($htmlContent);
+				 $mail->IsHTML(true);
 				//Replace the plain text body with one created manually
 				//$mail->AltBody = 'Password reset';
 				//Attach an image file
