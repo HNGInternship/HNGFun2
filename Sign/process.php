@@ -113,5 +113,58 @@ if(isset($_POST['login'])){
 
 }
 
+
+//for password reset
+	if(isset($_POST['pword-reset'])){
+			$email = $_POST['email'];
+			$user = new User();
+			$email_check = $user->check_email($email, $db);
+
+			if($email_check = 'yes'){
+				$reset_pin = rand(10000,99999);
+				$user_update_token = $user->update_token($email,$reset_pin, $db);
+				if($user_update_token = true){
+					$subject = "Password Reset for HNG Account";
+					$message = "Your password Reset Pin is ".$reset_pin;
+					if(mail($email, $subject, $message)){
+						echo "An email to reset your password has been sent to you";
+					}
+
+				}
+			}
+
+
+
+	}
+
+
+	//for password change
+	if(isset($_POST['pword-change'])){
+		$password = $_POST['pass'];
+		$password_confirm = $_POST['pass-confirm'];
+		$token = $_POST['token'];
+
+		$user = new User();
+
+		$confirm_token = $user->check_token($token, $db);
+		if($confirm_token == true){
+			$update_password = $user->update_password($password,$db);
+			if($update_password == true){
+				echo 1;
+			}
+			else{
+				echo 2;
+			}
+			
+		}
+
+		else{
+			echo 0;
+		}
+	}
+
+	
+		
+
 	
 ?>
