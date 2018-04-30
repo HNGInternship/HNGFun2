@@ -38,22 +38,24 @@ public function __construct(){
           
       }
       
+
       //check if email exists already before registration to avoid double email
   public function check_email($email,$conn){
          
-          $query = "SELECT * FROM ".$this->table." WHERE email='$email' LIMIT 1";
-          
-          $stmt = $conn->prepare($query);
-         
-          $stmt->execute();
+          $this->table = "users";
 
-         if($stmt->rowCount() > 0)
+    $stmt = $conn->prepare("SELECT * FROM ".$this->table." WHERE email='$email' LIMIT 1");
+    $stmt->execute();
+                        if($stmt->rowCount() > 0)
                         {
-                         return true
-                        }
-                         else {
+                          while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                          {
+
+                                     return true;
+                          }
+                        } else {
                              return false; 
-                       }        
+                       }      
       }
 
 

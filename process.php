@@ -133,6 +133,7 @@ if(isset($_POST['login'])){
       	//update password reset token
       	
       	$reset_token_check = $member_class->update_token($email,$token,$conn);
+      	
       	if($reset_token_check ==true){
 
       		//sending email starts here 
