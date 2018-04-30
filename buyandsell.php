@@ -1,5 +1,5 @@
 <?php
-include_once("header.php");
+include_once("coin_header.php");
 ?>
 
 <style>
