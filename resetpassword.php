@@ -55,21 +55,11 @@ include_once("header.php");
             data : data,
             success: function(data){
 
-             if(data==true){
-                $("#message").addClass('alert alert-success');
-            $("#message").html("Reset link has been successfully sent");
+             
+             $("#message").addClass('alert alert-success');
+            $("#message").html(data);
 
-            $("#reset").html('SENT');
-
-             }  
-             else{
-                alert(data);
-                $("#message").addClass('alert alert-danger');
-            
-                $("#message").html(data);
-                 $("#reset").html('Failed');
-             } 
-            
+            $("#reset").html('DONE');          
 
             },
            error : function(jqXHR,textStatus,errorThrown){

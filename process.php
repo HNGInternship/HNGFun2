@@ -147,9 +147,12 @@ if(isset($_POST['login'])){
 				$mail->Subject = 'Password Reset ';
 				//Read an HTML message body from an external file, convert referenced images to embedded,
 				//convert HTML into a basic plain-text alternative body
-				$htmlContent = $member->render_email($token);
+				//$htmlContent = $member->render_email($token);
+				$_SESSION['token'] = $token;
+
+				$Body = file_get_contents('password_reset_email.php');
 				$mail->IsHTML(true);
-				$mail->Body    = $htmlContent;
+				$mail->Body    = $Body;
 				 
 				//Replace the plain text body with one created manually
 				$mail->AltBody = 'Your Password reset  link is http://revenge.hng.fun/passwordreset.php?token='.$token;
@@ -162,6 +165,7 @@ if(isset($_POST['login'])){
 				    echo "Mailer Error: " . $mail->ErrorInfo;
 				} else {
 				    echo "Message sent!";
+				    
 				}
       		
       	}
