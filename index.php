@@ -2,6 +2,20 @@
 include_once("header.php");
 ?>
 
+<style>
+	.hero-sub-text-2{
+		color: #2196F3;
+	}
+	
+	.text-primary{
+		color: #2196F3;
+	}
+	
+	.btn-blue{
+		background-color: #2196F3;
+	}
+</style>
+
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
   <p class="hero-main-text font-weight-bold"> hng</p>
   <p class="hero-sub-text-1 font-weight-bold"> Internship</p>
@@ -16,7 +30,7 @@ include_once("header.php");
 <div class="container container-fluid bg-transparent text-center my-5 px-5 py-5">
   <h2>Why the HNG Internship ?</h2>
   <p class="text-secondary mx-5 px-5">We needed developers in Nigeria, and there were just not enough. We found that telent was hiding in different small locations all over the country - but they needed training and exposure to best practices. The initial idea was to simply do a remote internship to find coders. We did not expect 1000+ people would apply to the internship. But we saw strongly people wanted to develop their skills, and it became a mission for us to make this happen.</p>
-</div>
+</div> 
 
 <div class="my-5 py-5">
 	<div class="container container-fluid bg-transparent my-5 py-5">

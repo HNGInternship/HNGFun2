@@ -85,29 +85,59 @@ function login_user($user) {
 include_once("header.php");
 ?>
 
-<div class="d-flex justify-content-center align-items-center mt-5 pt-5 pl-5">
-	<div class="d-block w-50 mt-5 ml-10">
-		<div class="w-50">
-			<h2 class="text-center my-0 py-0" style="margin-bottom: 10px">Log In</h2>
-			<p class="text-center text-lighte" style="font-size: 15px; opacity: 0.7">Login to access your dashboard and manage your account.</p>
+<style>
+	.login-button {
+		background: #2196F3;
+        padding: 0.4em 8em !important;
+        color: white;
+        border-radius: 5px;
+    }
+    .login-button:hover {
+        opacity: 0.8;
+    }
+	.fa.fa-lock {
+		color:#2196F3;
+	}
+	
+	 /* media queries */
+	 @media (max-width: 599px) { 
+		 .login-con {
+			 width: 100% !important;
+		 }
+	 }
+</style>
+
+<div class="container">
+	<div class="d-flex flex-column justify-content-center align-items-center">
+		<div class="d-block w-50 mt-5 login-con">
+			<div class="w-50 m-auto">
+				<h2 class="text-center my-0 py-0" style="margin-bottom: 10px">Log In</h2>
+				<p class="text-center" style="font-size: 15px; opacity: 0.7">Login to access your dashboard and manage your account.</p>
+			</div>
+
+			<form class="w-50 m-auto">
+				<input type="text" name="username" class="form-control mb-3" placeholder="Username or Email" required >
+				<input type="text" name="password" class="form-control mb-3" placeholder="Password" required >
+				<input type="checkbox" name="remember_me" class="" placeholder="Password"><span style="font-size: 14px;"> Remember me</span> 
+				<button class="btn w-100 rounded py-2 login-button">Login</button>
+			</form>
+			<div class="w-50 m-auto text-center">
+				<a href="resetpassword.php">
+					<small><i class="fa fa-lock"></i>&nbsp;&nbsp;Forgotten password? </small>
+				</a>
+			</div>
+			<div class="w-50 m-auto text-center">
+				<small>
+					<span style="color: #c4c4c4">
+						Don't have an account?&nbsp;
+					<span>
+					<a href="signup.php" class="text-primary text-lighter text-center">Get Started</a>
+				</small>
+			</div>
 		</div>
-
-		<form class="w-50 mt-2">
-			<input type="text" name="username" class="form-control mb-3" placeholder="Username or Email">
-			<input type="text" name="password" class="form-control mb-3" placeholder="Password">
-			<input type="checkbox" name="" class="" placeholder="Password"><span style="font-size: 14px;"> Remember me</span> 
-			<button class="btn btn-blue w-100 rounded py-2" style="margin-bottom: 10px">Log In</button>
-		</form>
-
-		<small>Not yet registered?
-			<span><a href="signup.php" class="text-primary text-lighter">SignUp</a></span>
-		</small>
 	</div>
 </div>
 
 <?php
 include_once("footer.php");
 ?>
-
-
-   
