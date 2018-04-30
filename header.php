@@ -33,6 +33,7 @@
      <!-- <link href="css/learn.css" rel="stylesheet"> -->
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
       <link href="css/landing-page.min.css" rel="stylesheet">
+      <link href="css/learn2.css" rel="stylesheet">
 
       <style>
         body {
@@ -41,21 +42,15 @@
         .navbar{
           font-size: 15px;
           font-weight: bold;
-         /* padding-right: 100px;
-          padding-left: 100px;*/
           background-color: #F4F4F4;
           padding: 0 10em;
         } 
   
         .nav-item{
-            /*padding-right: 15px;
-            padding-left: 15px;*/
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
         .nav-item:hover, .active { 
-            /*background-color: rgba(199, 196, 196, 0.1);*/
-            /*border-bottom: 3px solid rgb(90, 145, 247);*/
             border-bottom: 3px solid #2196F3;
         }
         footer {
