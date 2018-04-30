@@ -7,7 +7,7 @@
 
 $fileName=basename($_SERVER['PHP_SELF']);
 
-$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php');
+$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
 $activeArray = array('','','','','','');
 
 $fileIndex=array_search($fileName,$files);
@@ -15,7 +15,7 @@ $fileIndex=array_search($fileName,$files);
 
 // if page is unknown, dont mark any nav item
 
-if($fileIndex!=false){
+if($fileIndex!==FALSE){
 
 $activeArray[$fileIndex]="active";
 }
@@ -62,21 +62,31 @@ $activeArray[$fileIndex]="active";
       <style>
         body {
           background-color: #FAFAFA;
+
         }
         .navbar{
           font-size: 15px;
           font-weight: bold;
+         /* padding-right: 100px;
+          padding-left: 100px;*/
+          background-color: #F4F4F4;
           padding: 0 10em;
-          background-color: #FFFFFF;
         } 
   
         .nav-item{
-            padding-right: 15px;
-            padding-left: 15px;
+            /*padding-right: 15px;
+            padding-left: 15px;*/
+            padding: 24px 15px;
+            border-bottom: 3px solid #f4f4f4;
         }
+
+
+
+
         .nav-item:hover, .active { 
-            background-color: rgba(199, 196, 196, 0.1);
-            border-bottom: 3px solid rgb(90, 145, 247);
+            /*background-color: rgba(199, 196, 196, 0.1);*/
+            /*border-bottom: 3px solid rgb(90, 145, 247);*/
+            border-bottom: 3px solid #2196F3;
         }
 
         footer {
@@ -100,7 +110,7 @@ $activeArray[$fileIndex]="active";
     
     <nav class="navbar navbar-expand-lg navbar-light"  >
       <a class="navbar-brand" href="../index.php">
-        <img src="img/logo.png" alt="HNG logo" class="img-fluid" style="height: 33px">
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -111,25 +121,25 @@ $activeArray[$fileIndex]="active";
       
         <ul class="navbar-nav ml-auto">
             <li class="nav-item <?= $activeArray[0] ?>">
-                <a href="index.php" class="nav-link">HOME</a>
+                <a href="index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
-                <a href="learn.php" class="nav-link">LEARN</a>
+                <a href="learn.php" class="nav-link">Learn</a>
             </li> 
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="listing.php" class="nav-link">INTERN</a>
+                <a href="listing.php" class="nav-link">Intern</a>
             </li> 
             <li class="nav-item <?= $activeArray[3] ?>">
-                <a href="testimonies.php" class="nav-link">TESTIMONIES</a>
+                <a href="testimonies.php" class="nav-link">Testimonies</a>
             </li> 
             <li class="nav-item <?= $activeArray[4] ?>">
-                <a href="sponsors.php" class="nav-link">SPONSORS</a>
+                <a href="sponsors.php" class="nav-link">Sponsors</a>
             </li> 
             <li class="nav-item <?= $activeArray[5] ?>">
-                <a href="alumni.php" class="nav-link">ALUMNI</a>
+                <a href="alumni.php" class="nav-link">Alumni</a>
             </li> 
-           <li class="nav-item">
-                <a href="partners.php" class="nav-link">PARTNERS</a>
+           <li class="nav-item <?= $activeArray[6] ?>">
+                <a href="partners.php" class="nav-link">Partners</a>
             </li> 
     </ul>
   </div>
