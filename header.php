@@ -67,21 +67,14 @@ $activeArray[$fileIndex]="active";
         .navbar{
           font-size: 15px;
           font-weight: bold;
-         /* padding-right: 100px;
-          padding-left: 100px;*/
           background-color: #F4F4F4;
           padding: 0 10em;
         } 
   
         .nav-item{
-            /*padding-right: 15px;
-            padding-left: 15px;*/
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
-
-
-
 
         .nav-item:hover, .active { 
             /*background-color: rgba(199, 196, 196, 0.1);*/
@@ -100,6 +93,13 @@ $activeArray[$fileIndex]="active";
         .wrap {
           flex-wrap: wrap;
         }
+
+         /* media queries */
+        @media (max-width: 599px) { 
+            .navbar {
+                padding: 1em;
+            }
+        }   
 
     </style>
 
