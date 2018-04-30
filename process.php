@@ -147,7 +147,7 @@ if(isset($_POST['login'])){
 			if(mail($email,$subject,$htmlContent,$headers)):
 			    die('Email has been sent successfully');
 			else:
-			    die('Error occured while sending email)';
+			    die('Error occured while sending email');
 			endif;
 
       		//sending email ends here
@@ -155,7 +155,7 @@ if(isset($_POST['login'])){
       	else{
       		//error while updating reset token 
       		
-      		die('Error occured while setting reset token')
+      		die('Error occured while setting reset token');
       	}
 
       }

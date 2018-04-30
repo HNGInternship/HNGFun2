@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 class Member {
     
 public $timee;
@@ -12,32 +12,6 @@ public function __construct(){
 }
 
 
-//get data needed  from email
- public function get_data($email_data,$db){
-         
-          $query = "SELECT * FROM ".$this->table." WHERE email=? LIMIT 1";
-          $statement = $db->prepare($query);
-          $statement->bind_param("s",$email_data);
-     if ( $statement->execute() ){   
-         $result = $statement->get_result();
-         $num = $result->num_rows;
-         
-         if($num > 0){
-              $row = $result->fetch_assoc();
-             
-         return $row;
-         }
-         else{
-    
-            return false; 
-         }
-     }
-     else{
-        return false;
-     }
-          
-      }
-      
 
       //check if email exists already before registration to avoid double email
   public function check_email($email,$conn){
@@ -53,16 +27,12 @@ public function __construct(){
 
                                      return true;
                           }
-                        } else {
+                        } 
+
+                        else {
                              return false; 
                        }      
       }
-
-
- 
-
-//register construct function
-//
    
      public function register($firstname,$lastname,$email,$password,$db){
         
