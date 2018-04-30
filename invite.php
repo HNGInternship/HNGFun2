@@ -27,21 +27,21 @@ include_once("header.php");
 		  	  <div class="input-group-prepend ">
 		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
 		  	  </div>
-		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
+		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="joemark@example.com" aria-label="Username" aria-describedby="basic-addon1">
 		  	</div>
 
               <div class="input-group mb-4 mt-0">
 		  	  <div class="input-group-prepend ">
 		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
 		  	  </div>
-		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
+		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="joemark@example.com" aria-label="Username" aria-describedby="basic-addon1">
 		  	</div>
 
               <div class="input-group mb-4 mt-0">
 		  	  <div class="input-group-prepend ">
 		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
 		  	  </div>
-		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
+		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="joemark@example.com" aria-label="Username" aria-describedby="basic-addon1">
 		  	</div>
             
               <input type="submit" value="Send" name="submit-invites" class="btn btn-primary sendInvitesButton">
