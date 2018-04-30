@@ -80,19 +80,6 @@ function display_session_message() {
 	}
 }
 
-function find_user_by_id($id) {
-  // global conn;
-
-  $sql = "SELECT * from users WHERE user_id = '".$id."' LIMIT 1";
-    try {
-     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-         $query = $conn->query($sql);
-     $user = $query->fetch(PDO::FETCH_OBJ);
-     echo $user;
-    } catch (PDOException $e) {
-        throw $e;
-    }
-}
  
 //Check for blank input
 function is_blank($val) {
