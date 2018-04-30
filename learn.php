@@ -45,7 +45,7 @@ include_once("header.php");
             </div>
             <div class="col-md-4 text-center">
                 <button class="btn btn-info btn-circle btn-xl">
-                    <span class="">HTML/CSS/ <br> SASS/VUE</span>
+                    <span>HTML/CSS/ <br> SASS/VUE</span>
                 </button>
                 <h4>FRONT-END WEB DEVELOPMENT</h4>
             </div>
