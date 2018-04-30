@@ -1486,7 +1486,7 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
           </div>
           <div class="chat-toolbar">
             <b style="margin-left: 66.22px;">Nosa's Chatbot</b>
-            <button type="button" class="close-chat" data-toggle="collapse" data-target="#chatContainer" aria-controls="chatContainer" aria-expanded="false">
+            <button type="button" class="close-chat" data-toggle="dropdown" data-target="#chatContainer" aria-controls="chatContainer" aria-expanded="false">
               <i class="fa fa-times icon"></i>
             </button>
           </div>
