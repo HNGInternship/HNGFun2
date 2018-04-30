@@ -150,7 +150,8 @@ if(isset($_POST['login'])){
 				$htmlContent = file_get_contents("password_reset_email.php?token=".$token);
 
 				//$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
-				$mail->msgHTML($htmlContent);
+				//$mail->MsgHTML($htmlContent);
+				$mail->Body    = $htmlContent;
 				 $mail->IsHTML(true);
 				//Replace the plain text body with one created manually
 				//$mail->AltBody = 'Password reset';
@@ -165,6 +166,23 @@ if(isset($_POST['login'])){
 				}
       		
 
+
+					body = file_get_contents('email/htmlemail.html'); // include our formatted email
+
+					$mail->AltBody = "To view this message please use an HTML compatible email viewer, or visit http://mysite.com/emailcampaign"; // give folks who can't read HTML email something to read
+					$mail->SetFrom($email,$name);
+					$address = $email;
+					$mail->AddAddress($address, $name);
+					$mail->Subject = "Subject";
+					$mail->MsgHTML($body);
+					$mail->addAttachment("email/attachment.pdf"); // just repeat this for multiple attachments
+
+					// send statement, followed by error reporting (comment out for production)
+					if(!$mail->Send()) {
+					  echo "Mailer Error: " . $mail->ErrorInfo; // for testing
+					} else {
+					  echo 'Message sent!'; // for testing
+					}
       		/*
       		// Set content-type header for sending HTML email
 			$headers = "MIME-Version: 1.0" . "\r\n";
