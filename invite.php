@@ -171,7 +171,7 @@ include_once("header.php");
 		                </div>
 		            </div>
 		                 
-		                    <button style="margin-top: 30px; border:0px; margin-bottom: 7px; background-color: #2196F3; color: white; width: 400px; font-size: 18px; pointer: cursor; height: 40px; border-radius: 10px" id="submitbutton" class="">Send Invite</button>
+		                    <button style="margin-top: 30px; border:0px; margin-bottom: 7px; background-color: #2196F3; color: white; width: 400px; font-size: 18px; cursor: pointer; height: 40px; border-radius: 10px" id="submitbutton" class="">Send Invite</button>
         </form>
 
 		
