@@ -1,4 +1,5 @@
 <?php
+require_once('country-array.php');
 include_once("header.php");
 ?>
   <div class="account">
@@ -33,22 +34,27 @@ include_once("header.php");
             
             <div class="input-block mr-9">
             <label>Nationality</label>
-            <select class="form-control" name="Nationality" required>
-              <option value=""></option>
-              <option value="US">USA</option>
-              <option value="UK">United Kingdom</option>
-              <option value="GH">Ghana</option>
+            <select class="form-control" name="nationality" required>
+              <option value="">Select Your Country</option>
+              <?php
+						      foreach ($countrylist as $key => $country) {
+						      	echo "<option id='".strtolower($country)."'>$country</option>";
+						      }
+						    ?>
             </select>
             </div>
 
             <div class="input-block">
             <label>City</label>
-            <select class="form-control" name="City" required>
-              <option value=""></option>
-              <option value="Lagos">Lagos</option>
-              <option value="Abuja">Abuja</option>
-              <option value="Ibadan">Ibadan</option>
-            </select>
+            <select class="form-control" id="state" name="state" required>
+              <option value="">Select your State</option>
+              <?php
+						      foreach ($states as $key => $state) { ?>
+						      	<option value="<?php echo $key;?>"><?php echo $state?></option>"
+						      <?php }
+						      ?>
+						 </select>
+						 <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
             </div>
             
             <div class="input-block mr-9">
@@ -73,5 +79,22 @@ include_once("header.php");
   </div>
 
 <?php
+function custom_scripts(){
+	echo <<<_END
+	<script>
+		
+	$("select[name='nationality']").on('change', function() {
+		
+		if (!($("#nigeria").is(":selected"))) {
+			$("#state").addClass("d-none");
+			$("#enter_state").removeClass('d-none');
+		}else{
+			$("#state").removeClass("d-none");			
+			$("#enter_state").addClass("d-none");
+		}
+	});
+	</script>
+_END;
+}
 include_once("footer.php");
 ?>
