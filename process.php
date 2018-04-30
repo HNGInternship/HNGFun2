@@ -158,7 +158,6 @@ if(isset($_POST['login'])){
 
 				//send the message, check for errors
 				
-				echo $htmlContent;
 				if (!$mail->send()) {
 				    echo "Mailer Error: " . $mail->ErrorInfo;
 				} else {
