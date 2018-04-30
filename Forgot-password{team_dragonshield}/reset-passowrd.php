@@ -1,42 +1,59 @@
 <?php
+require '../../config.php';
 
-$reset_link_passed = false;
+try {
+    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+
+} catch (PDOException $e) {
+    die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+}
+
+$msg = '';
 
 // Handle mailing
 if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-	// Get email
 	$user_email = $_POST['email'];
+	$reset_token = sha1($user_email) .'<br>';
 
-	// Generate reset link
-	$reset_token = sha1(rand(1, 1000000));
+	$reset_link = urlencode("https://shield.hng.fun/reset-password.php?token=". $reset_token);
+	$reset_link += urlencode("&email=". $user_email);
 
-	// Create URL and append link
-	$reset_link = urlencode("https://hng.fun/reset-password.php?token=". $reset_token);
-
-	// Prepare email for user
 	$subject = 'Password Reset Link';
 	$message = "Click on the link below to reset your password.\n\n". $reset_link;
-	$header = "Content-type:text/plain;charset=utf-8" . "\r\n";
-	$header += "From:hng.fun";
-
-	// Send email to user
-	mail($user_email, $subject, $message, $header);
+	$header = array(
+		"Content-type" => "text/plain;charset=utf-8",
+		"From" => "shield.hng.fun"
+	);
+	
+	if(mail($user_email, $subject, $message, $header)) {
+		$msg = "You have been sent  a reset link";
+	}else{
+		$msg = "Mail could not be sent due to some reasons";
+	}
 }
-else if(isset($_GET['token']) && $_GET['token'] != '') { // Handle token
-	// Split out token
-	$token = $_GET['token'];
+else if(isset($_GET['token']) && isset($_GET['email'])) { // Handle token
+	$token = urldecode($_GET['token']);
+	$user_email = urldecode($_GET['email']);
 
-	// Check if equal to token stored in db
+	if($token == sha1($user_email)){
+		$reset_link_passed = true;
+	}
+	else {
+		$reset_link_passed = false;
+	}
+}
+else if (isset($_POST['password']) && isset($_POST['email_for_update']) && $_POST['password'] != '') { // Handle new password reset
+	$password = sha1($_POST['password']);
+	$user_email = $_POST['email_for_update'];
 
-	// Check for expiry
-	// If accurate allow user input new password
-	echo 'works';
-}
-else if (isset($_POST['password']) && $_POST['password'] != '') { // Handle new password reset
-	echo 'password reset';
-}
-else {
-	echo 'bad';
+	$sql = "UPDATE users_data SET password = ? WHERE email = ? LIMIT 1";
+	$query = $conn->prepare($sql);
+	$query->bindParam(1, $password);
+	$query->bindParam(2, $user_email);
+	$query->execute();
+	if($query->rowCount() == 1){
+		$msg = "Your password has been reset";
+	}
 }
 
 ?>
@@ -91,8 +108,9 @@ else {
 			<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 				<?php if($reset_link_passed){ ?>
 					<div class="row">
-						<input type="password" class="form-control" name="password" id="email">
+						<input type="password" class="form-control" name="password" id="email" placeholder="Enter new password">
 					</div>
+					<input type="hidden" name="email_for_update" value="<?php echo $user_email; ?>">
 				<?php }else { ?>
 					<div class="row">
 						<input type="text" class="form-control" name="email" id="email" placeholder="johndoe@mail.com">
@@ -100,7 +118,7 @@ else {
 				<?php } ?>
 
 				<div class="row">
-					<input type="submit" class="btn btn-primary" id="btn" value="Reset password" placeholder="Enter new password">
+					<input type="submit" class="btn btn-primary" id="btn" value="<?php echo ($reset_link_passed) ? 'Reset password' : 'Send Link'; ?>" placeholder="Enter new password">
 				</div>
 
 				<div class="row">
@@ -111,5 +129,12 @@ else {
 	</div>
 
 	</div>
+
+	<?php if(isset($msg) && $msg != ''){ ?>
+		<script type="text/javascript">
+			alert('<?php echo $msg ?>');
+			console.log('works');
+		</script>
+	<?php } ?>
 </body>
 </html>
