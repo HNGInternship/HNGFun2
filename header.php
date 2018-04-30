@@ -130,7 +130,7 @@ $activeArray[$fileIndex]="active";
                 <a href="alumni.php" class="nav-link">ALUMNI</a>
             </li> 
            <li class="nav-item">
-                <a href="#" class="nav-link">PARTNERS</a>
+                <a href="partners.php" class="nav-link">PARTNERS</a>
             </li> 
     </ul>
   </div>
