@@ -8,7 +8,7 @@ include_once("header.php");
     /* horizontal line learn page */
     hr.under-line {
         width: 10%;
-        border-top: 3px solid #c4c4c4;
+        border-top: 3px solid #000;
     }
     /* card */
     .learn-card {
@@ -63,7 +63,7 @@ include_once("header.php");
     <div class="row justify-content-md-center text-center">
         <div class="col"></div>
         <div class="col-8" style="margin-top: 1em;">
-            <h3>What Interns Learn</h3>
+            <h1 class="sponsorsbg-text pt-5 text-center hero-text">What Interns Learn</h1>
             <hr class="under-line">
             <span>
                 HNG 4.0 has been a life-transforming journey for interns across Africa.
