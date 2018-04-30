@@ -4,9 +4,10 @@ include_once("header.php");
 
 
 <div class="container" >
-    <div id="message"></div>
+    
 
     <div class="row justify-content-md-center">
+        <div id="message"></div>
         <form style='text-align: center; padding: 100px' id="reset_form">
             <h1>Reset Password</h1>
             <p style="width: 480px; margin-left: 150px;">
