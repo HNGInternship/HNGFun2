@@ -33,7 +33,7 @@ include_once("header.php");
 	</div> -->
     <div class="col-md-6  mx-auto">
         <h1 class="login-title text-center" style="font-weight: bold; font-size: 50px">Invite to HNG</h1>
-        <p style="font-size: 16px; margin-bottom: 0px; margin-top: 0px; opacity: 0.7" class="text-center">You can send out invites to all your friends all over the world to join<br/> this amazing community
+        <p style="font-size: 16px; margin-bottom: 0px; margin-top: 0px; opacity: 0.7" class="text-center">Learning is fun when it is done with friends. Invite your friends and your friends' friends<br/> Learn to collaborate and build awesome stuff together!<br/><br/>
         </p>
 
         <?php
@@ -153,25 +153,25 @@ include_once("header.php");
 		            <div class="form-row" style="margin-left: 30px;">
 		                <div class="form-group col-md-6">
 		                	<label align="left" style="font-size: 15px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Firstname</label>
-		                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="" value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname']; } ?>"" />
+		                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Optional" value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname']; } ?>"" />
 		                </div>
 		                <div class="form-group col-md-6">
 		                	<label align="left" style="font-size: 15px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Lastname</label>
-		                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="" value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname']; } ?>" />
+		                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Optional" value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname']; } ?>" />
 		                </div>
 		            </div>
 		            <div class="form-row" style="margin-left: 30px;">
 		                <div class="form-group col-md-6" style="margin-left: 0px; ">
 		                	<label align="left" style="font-size: 15px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Email address</label>
-		                    <input type="email" name="email" id="email" class="form-control" placeholder="" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>"/>
+		                    <input type="email" name="email" id="email" class="form-control" placeholder="name@example.com" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>"/>
 		                </div>
 		                <div class="form-group col-md-6">
 		                	<label align="left" style="font-size: 15px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Phone</label>
-		                    <input type="text" name="phone" id="phone" class="form-control" placeholder="" value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>">
+		                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Optional" value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>">
 		                </div>
 		            </div>
 		                 
-		                    <button style="margin-top: 30px; border:0px; margin-bottom: 7px; background-color: #2196F3; color: white; width: 400px; font-size: 12px; height: 40px; border-radius: 10px" id="submitbutton" class="">Send Invite</button>
+		                    <button style="margin-top: 30px; border:0px; margin-bottom: 7px; background-color: #2196F3; color: white; width: 400px; font-size: 18px; pointer: cursor; height: 40px; border-radius: 10px" id="submitbutton" class="">Send Invite</button>
         </form>
 
 		
