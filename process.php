@@ -138,7 +138,7 @@ if(isset($_POST['login'])){
 				// Set PHPMailer to use the sendmail transport
 				$mail->isSendmail();
 				//Set who the message is to be sent from
-				$mail->setFrom('internship@hngfun.com', 'First Last');
+				$mail->setFrom('internship@hngfun.com', 'Hng');
 				//Set an alternative reply-to address
 				$mail->addReplyTo('mark@hotels.ng', 'First Last');
 				//Set who the message is to be sent to
