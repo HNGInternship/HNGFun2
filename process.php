@@ -51,7 +51,7 @@ if(isset($_POST['registration'])){
 			//check for response 
 			if($register_check==true){
 				
-				$login_check = $member->check($email,$password,$db);
+				$login_check = $member->check($email,$password,$conn);
 
 				if($login_check == true){
 
