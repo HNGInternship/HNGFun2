@@ -1,0 +1,52 @@
+/* horizontal line */
+hr.under-line {
+    width: 10%;
+    border-top: 3px solid #c4c4c4;
+}
+/* card */
+.learn-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+    margin: 2em 0em;
+}
+.learn-icon {
+    background: #E1E1E1;
+    border: none;
+    flex: 1 1 20%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+.learn-icon:hover {
+    background: #48BBFC;
+}
+.learn-desc {
+    border: 1px solid #E1E1E1;
+    flex: 1 1 60%;
+    padding: 0.4em 1em;
+}
+.learn-desc p {
+    margin: 5px 0;
+}
+.learn-desc a {
+    font-size: 0.6em;
+    color: #48BBFC;
+    text-decoration: underline;
+}
+.title {
+    font-weight: 600;
+    font-size: 0.7em;
+}
+.brief {
+    font-size: 0.6em;
+}
+
+/* media queries */
+@media (min-width: 900px) { 
+    .learn-card {
+        flex-direction: row;
+    } 
+}

@@ -1,28 +1,4 @@
 
-<?php 
-
-
-
-// for choosing active page on nav bar
-
-$fileName=basename($_SERVER['PHP_SELF']);
-
-$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
-$activeArray = array('','','','','','');
-
-$fileIndex=array_search($fileName,$files);
-
-
-// if page is unknown, dont mark any nav item
-
-if($fileIndex!==FALSE){
-
-$activeArray[$fileIndex]="active";
-}
-
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,13 +11,11 @@ $activeArray[$fileIndex]="active";
     <meta name="author" content="">
 
     <title>HNG FUN</title>
-    <!--ajax scripts-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-   <script src="js/jquery.min.js"></script>
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -78,36 +52,11 @@ $activeArray[$fileIndex]="active";
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
-
         .nav-item:hover, .active { 
             border-bottom: 3px solid #2196F3;
         }
         footer {
           background: #FAFAFA;
-        }
-
-        .justify-space-between {
-          justify-content: space-between;
-        }
-
-        .wrap {
-          flex-wrap: wrap;
-        }
-
-         /* media queries */
-        @media (max-width: 599px) { 
-            .navbar {
-                padding: 1em;
-            }
-            .login-con, .reset-title {
-			    width: 100% !important;
-		    }
-        }   
-	.headerLogo {
-	      width: 100% !important;
-		height: 30px !important;
-	      }
-
         }
         .justify-space-between {
           justify-content: space-between;
@@ -135,10 +84,14 @@ $activeArray[$fileIndex]="active";
     <!-- Navigation -->
     
     <nav class="navbar navbar-expand-lg navbar-light"  >
-      <a class="navbar-brand" href="../index.php">
-        <img src="img/approved_HNG_logo.png" alt="HNG logo" class="img-fluid headerLogo">
-      </a>
 
+      <a class="navbar-brand" href="../index.php">
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid">
+
+      <a class="navbar-brand" href="#">
+        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
+
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -147,6 +100,25 @@ $activeArray[$fileIndex]="active";
         
       
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="index.php" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="learn.php" class="nav-link">Learn</a>
+            </li> 
+            <li class="nav-item">
+                <a href="listing.php" class="nav-link">Intern</a>
+            </li> 
+            <li class="nav-item">
+                <a href="testimonies.php" class="nav-link">Testimonies</a>
+            </li> 
+            <li class="nav-item">
+                <a href="sponsors.php" class="nav-link">Sponsors</a>
+            </li> 
+            <li class="nav-item">
+                <a href="alumni.php" class="nav-link">Alumni</a>
+            </li> 
+           <li class="nav-item">
             <li class="nav-item <?= $activeArray[0] ?>">
                 <a href="index.php" class="nav-link">Home</a>
             </li>
@@ -166,30 +138,10 @@ $activeArray[$fileIndex]="active";
                 <a href="alumni.php" class="nav-link">Alumni</a>
             </li> 
            <li class="nav-item <?= $activeArray[6] ?>">
-            <!-- 
-            <li class="nav-item">
-                <a href="index.php" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="learn.php" class="nav-link">Learn</a>
-            </li> 
-            <li class="nav-item">
-                <a href="listing.php" class="nav-link">Intern</a>
-            </li> 
-            <li class="nav-item">
-                <a href="testimonies.php" class="nav-link">Testimonies</a>
-            </li> 
-            <li class="nav-item">
-                <a href="sponsors.php" class="nav-link">Sponsors</a>
-            </li> 
-            <li class="nav-item">
-                <a href="alumni.php" class="nav-link">Alumni</a>
-            </li> 
-           <li class="nav-item"> -->
+          
                 <a href="partners.php" class="nav-link">Partners</a>
             </li> 
     </ul>
   </div>
          
     </nav>
-<<<<<<< HEAD
