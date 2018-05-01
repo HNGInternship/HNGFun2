@@ -35,6 +35,16 @@
     border-radius: 5px;
 }
 
+label {
+    color: #BDBDBD;
+}
+
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #BDBDBD;
+}
+
 footer {
     padding-bottom: 0;
 }
