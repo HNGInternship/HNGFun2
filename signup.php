@@ -43,7 +43,7 @@ include_once("header.php");
             
                </div>
                
-            <form action="" class="text-center" name="register_form" id="register_form">
+            <form action="" method="post" class="text-center" name="register_form" id="register_form">
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
@@ -66,7 +66,7 @@ include_once("header.php");
                 </div>
             </div>
             <br />
-           
+            <!--
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                      <input type="text" name="country" id="country" class="form-control" placeholder="Enter your country ">
@@ -75,7 +75,7 @@ include_once("header.php");
                         <input type="text" name="state" id="state" class="form-control" placeholder="Enter your state ">
                     </div>
         </div>
-            
+            -->
             
             <br />
              <div class="form-row">
@@ -110,17 +110,7 @@ include_once("header.php");
 <script type="text/javascript">
        $( document ).ready(function() {
     $("#register").click(function(e){
-        console.log("fhdfdhdhghg")
         e.preventDefault();
-
-        const pair = StellarSdk.Keypair.random();
-
-        const secret_key = pair.secret();
-// SAV76USXIJOBMEQXPANUOQM6F5LIOTLPDIDVRJBFFE2MDJXG24TAPUU7
-        const public_key = pair.publicKey();
-// GCFXHS4GXL6BVUCXBWXGTITROWLVYXQKQLF4YH5O5JT3YZXCYPAFBJZB
-
-
 
         var firstname = $("#firstname").val();
          var lastname = $("#lastname").val();
@@ -134,50 +124,50 @@ include_once("header.php");
         var terms = $('#terms').is(':checked'); 
         
         if(firstname ==""){
-            alert('please enter your firstname');
+            //alert('please enter your firstname');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter your firstname');
         }
         else if(lastname ==""){
-            alert('please enter your lastname');
+            //alert('please enter your lastname');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter your lastname');
         }
        else if(email ==""){
-            alert('please enter email');
+            //alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
         }
         else if(country ==""){
-            alert('Please enter your country');
+           // alert('Please enter your country');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter your country');
         }
 
         else if(state ==""){
-            alert('Please enter state');
+           // alert('Please enter state');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter state');
         }
 
          else if(phone ==""){
-            alert('Please enter Phone Number');
+            //alert('Please enter Phone Number');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter Phone Number');
         }
         else if(password ==""){
-            alert('Please enter password');
+           // alert('Please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
         }
 
         else if(password != password_confirm){
-            alert('Passwords dont match');
+           // alert('Passwords dont match');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Passwords dont match');
         }
         else if(terms == false){
-            alert('You must accept our terms and conditions to register');
+           // alert('You must accept our terms and conditions to register');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Terms and conditions not accepted by you');
         }
@@ -188,11 +178,10 @@ include_once("header.php");
             $("#register").html('Registering..');
 
              var data = $("#register_form").serialize();
-             data += "&public_key=" + public_key + "&secret_key=" + secret_key;
 
-            console.log(data)
-
-            $.ajax('process.php',{
+            
+             //alert('worked');
+             $.ajax('process.php',{
             type : 'post',
             data : data,
             success: function(data){
@@ -206,7 +195,7 @@ include_once("header.php");
             window.location ="dashboard.php";
              }  
              else{
-                alert(data);
+               // alert(data);
                 $("#message").html(data);
                  $("#register").html('Failed');
              } 
@@ -215,7 +204,7 @@ include_once("header.php");
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
-                    alert('Request not completed');
+                  //  alert('Request not completed');
                  }
                 $("#register").html('Failed');
             },
@@ -227,7 +216,8 @@ include_once("header.php");
             $("#register").html('Registering..');
             },
         });
-     
+    
+
         }
         
      });

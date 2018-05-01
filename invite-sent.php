@@ -17,7 +17,6 @@ include_once("header.php");
 
 
         .dashboard {
-            margin: 0 0 0 170px; 
 		    background: #2196F3;
             padding: 0.7em 1em !important;
             color: white;
@@ -36,28 +35,19 @@ include_once("header.php");
             
         </style>
 
-
-        <br><br>
-    <div class="container">
+    <div class="d-flex flex-column align-items-center justify-content-center mb-5">   
         
-
-
-        <div class="row h-100">
-        <div class="col-md-6  mx-auto">
-        <h1 class="login-title text-center">Invite Sent!</h1>
-               
-        <div class="img-center"> <img src="img/Ellipse.png"> </div>
+        
+            <h1 class="login-title text-center mt-3">Invite Sent!</h1>
                 
-        <form action="">
-            <a class="button dashboard" href="#" foot>Return to Dashboard</a>
-        </form>
+            <div class="img-center"> <img src="img/Ellipse.png">
+            </div>
 
-       
-
-        </div>
-        </div>
-
+            <div>
+                <a class="button dashboard" href="#" foot>Return to Dashboard</a>
+            </div>        
     </div>
+
 
         <?php
         include_once("footer.php");

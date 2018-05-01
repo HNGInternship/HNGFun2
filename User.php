@@ -41,25 +41,15 @@ public function __construct(){
       //check if email exists already before registration to avoid double email
   public function check_email($email,$db){
          
-          $query = "SELECT * FROM ".$this->table." WHERE email=? LIMIT 1";
-          $statement = $db->prepare($query);
-          $statement->bind_param("s",$email);
-     if ( $statement->execute() ){   
-         $result = $statement->get_result();
-         $num = $result->num_rows;
-         
-         if($num > 0){
-        //email exists   
-         return "yes";
-         }
-         else{
-             //email doesnt exist and is okay
-            return "no"; 
-         }
-     }
-     else{
-        return false;
-     }
+    $query = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
+    $result = mysqli_query($db,$query);
+    if(mysqli_num_rows($result) > 0){
+        
+        return true;
+        }
+        else{
+            return false;
+        }
           
       }
 
@@ -69,22 +59,21 @@ public function __construct(){
 //register construct function
 //
    
-     public function register($firstname,$lastname,$email,$username,$nationality,$phone,$password, $public_key, $secret_key, $db){
+     public function register($firstname,$lastname,$email,$username,$phone,$password,$db){
         
         $this->table = 'users';
         
         
         $password_hash = md5($password);
-        $secret_hash = md5($secret_key);
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee, public_key, secret_key ) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,phone,password,timee ) VALUES(?,?,?,?,?,?,?)";
         
             $statement = $db->prepare($query);
 
            // echo $db->error.$query;
     
-        $statement->bind_param($firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee, $public_key, $secret_hash);
+        $statement->bind_param("sssssss",$firstname,$lastname,$email,$username,$phone,$password_hash,$timee);
 
         
      $result = $db->query($query);
@@ -182,7 +171,7 @@ public function __construct(){
     
     //password token update
     public function update_token($email,$token,$db){
-        $query="UPDATE ".$this->table." SET password_token=? WHERE email=? LIMIT 1";
+        $query="UPDATE ".$this->table." SET token=? WHERE email=? LIMIT 1";
         $statement = $db->prepare($query);
         $statement->bind_param("ss",$token,$email);
      
@@ -220,38 +209,20 @@ public function __construct(){
     
 //login check
   public function check($email,$password,$db){
-
-        $this->table = "users";
-          $password_hash = md5($password);
-          $query = "SELECT * FROM ".$this->table." WHERE email=? AND password=? LIMIT 1";
-          $statement = $db->prepare($query);
-          $statement->bind_param("ss",$email,$password_hash);
-     if ( $statement->execute() ){   
-         $result = $statement->get_result();
-         $num = $result->num_rows;
-         
-         if($num > 0){
-             
-             $row = $result->fetch_assoc();
-             
-             
-            // print_r($row);
-             $_SESSION['id'] = $row['id'];
-             ;
-             $_SESSION['email'] = $row['email'];
-            
-                return true;
-
-         }
-         else{
-            return false; 
-         }
-     }
-     else{
+    $password_hash = md5($password);
+    $table = 'users';
+    $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password_hash' LIMIT 1";
+    $result = mysqli_query($db,$query);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_array($result);
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['email'] = $row['email'];
+        return true;
+        
+    }else{
         return false;
-     }
-          
-      }
+    }
+  }
 
   
   public function get_data_from_id($id,$db){
@@ -350,29 +321,15 @@ public function __construct(){
 
     //to check password token for password resets       
     public function check_token($token,$db){
-          //$password_hash = md5($password);
-          $query = "SELECT * FROM ".$this->table." WHERE password_token=? LIMIT 1";
-          $statement = $db->prepare($query);
-          $statement->bind_param("s",$token);
-     if ( $statement->execute() ){   
-         $result = $statement->get_result();
-         $num = $result->num_rows;
-         
-         if($num > 0){
-            // $row = $result->fetch_assoc();
-            return true;
-            
-            // print_r($row);
-            //return $row;
+        $query = "SELECT * FROM users WHERE token = '$token' LIMIT 1";
+    $result = mysqli_query($db,$query);
+    if(mysqli_num_rows($result) > 0){
         
-         }
-         else{
-            return false; 
-         }
-     }
-     else{
-        return false;
-     }
+        return true;
+        }
+        else{
+            return false;
+        }
           
       }
 
