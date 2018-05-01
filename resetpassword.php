@@ -51,16 +51,6 @@ include_once("header.php");
 </div>
 
 
-<?php 
-include('../config.php');
-include('db.php');
-
-$q = "SELECT * FROM users";
-$res = mysqli_query($db, $q);
-$row = mysqli_fetch_array($res);
-while($row){
-    echo $row['firstname'];
-}
 
 
  ?>
