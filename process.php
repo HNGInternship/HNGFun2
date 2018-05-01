@@ -48,7 +48,7 @@ if(isset($_POST['registration'])){
 	else{
 
 				//connect to database
-			require_once('db.php');
+			require_once('connect.php');
 
 			//instantiate the user class
 			$user = new User();
@@ -95,7 +95,7 @@ if(isset($_POST['login'])){
 	else{
 
 		//connect to database
-			require_once('db.php');
+			require_once('connect.php');
 
 			//instantiate the user class
 			$user = new User();
@@ -115,7 +115,7 @@ if(isset($_POST['login'])){
 //for password reset
 	if(isset($_POST['pword-reset'])){
 			$email = $_POST['email'];
-			require_once('db.php');
+			require_once('connect.php');
 			$user = new User();
 			$email_check = $user->check_email($email, $db);
 
@@ -153,7 +153,7 @@ if(isset($_POST['login'])){
 		echo 3;
 		}
 		$token = $_POST['token'];
-		require_once('db.hp');
+		require_once('connect.php');
 		$user = new User();
 
 		$confirm_token = $user->check_token($token, $db);
