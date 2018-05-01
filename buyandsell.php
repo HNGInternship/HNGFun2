@@ -20,6 +20,11 @@ include_once("coin_header.php");
 	font-weight: bold;
 	font-family: lato;
 }
+
+.mod{
+	width: 200px;
+	height: 75px;
+}
 .body{
 	font-family: lato;
 	background-color: #ffffff;
@@ -53,7 +58,7 @@ h3{
 
 .sell{
 	background-color: #FAFAFA;
-	height: 650px;
+	height: 500px;
 	overflow-y: scroll;
 	padding: 0px;
 	
@@ -82,7 +87,7 @@ h3{
 		<div class="container mx-auto text-center">
 			<div class="row mx-auto">
 				<div class="col">
-					<button type="button" class="btn top">Sell my coin</button>
+					<button type="button" class="btn top" data-toggle="modal" data-target="#sellModal">Sell my coin</button>
 				</div>
 				
 			</div>
@@ -110,8 +115,8 @@ h3{
 		</div>
 		
 		<div class="row">
-			<div class="container sell">
-				<div class="row heading mx-auto ">
+			<div class="container heading">
+				<div class="row mx-auto ">
 				
 					<div class="col mx-auto">
 						Seller
@@ -129,6 +134,9 @@ h3{
 					</div>
 
 				</div>
+			</div>
+				
+			<div class="container sell">
 				
 				<div class="listing">
 				
@@ -283,8 +291,8 @@ h3{
 		</div>
 		
 		<div class="row">
-			<div class="container sell">
-				<div class="row heading mx-auto ">
+			<div class="container heading">
+				<div class="row mx-auto ">
 				
 					<div class="col mx-auto">
 						Seller
@@ -302,6 +310,8 @@ h3{
 					</div>
 
 				</div>
+			</div>
+			<div class="container sell">
 				
 				<div class="listing">
 				
@@ -328,7 +338,7 @@ h3{
 						</div>
 						
 						<div class="col-1">
-							<button type="button" class="btn" data-toggle="modal" data-target="#sellModal"> SELL</button>
+							<button type="button" class="btn"> SELL</button>
 						</div>
 						
 					</div>
@@ -359,7 +369,7 @@ h3{
 						</div>
 						
 						<div class="col-1">
-							<button type="button" class="btn" data-toggle="modal" data-target="#sellModal"> SELL</button>
+							<button type="button" class="btn" > SELL</button>
 						</div>
 						
 					</div>
@@ -390,7 +400,7 @@ h3{
 						</div>
 						
 						<div class="col-1">
-							<button type="button" class="btn" data-toggle="modal" data-target="#sellModal"> SELL</button>
+							<button type="button" class="btn" > SELL</button>
 						</div>
 						
 					</div>
@@ -422,7 +432,7 @@ h3{
 						</div>
 						
 						<div class="col-1">
-							<button type="button" class="btn" data-toggle="modal" data-target="#sellModal"> SELL</button>
+							<button type="button" class="btn"  > SELL</button>
 						</div>
 						
 					</div>
@@ -471,19 +481,22 @@ h3{
 				Wallet ID: <br/>
 				<input type="text" placeholder="Marvelous350" class="form-control" id="wallet-id"></input> <br/>
 				Amount of HNGcoin: <br/>
-				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin"></input>
+				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin"></input><br/>
+				Send as notification <br/>
+				<input type="text" placeholder="Buyer Wallet ID" class="form-control" id="buyer-wallet-id"></input>
 			</div>
 			<div class="col">
 				Payment Information <br/>
 				<input type="text" placeholder="Payment method" class="form-control" id="payment info"></input><br/>
 				Price/coin <br/>
-				<input type="text" placeholder="3,340,345.64" class="form-control" id="price"></input>
+				<input type="text" placeholder="3,340,345.64" class="form-control" id="price"></input> <br/>
+				<button type="button" class="btn btn-primary mod">Sell</button>
 			</div>
 		</div>
       </div>
       <div class="modal-footer mx-auto text-center">
 		<div class="col mx-auto text-center">
-			<button type="button" class="btn btn-primary top">Sell</button>
+			
 		</div>
         
       </div>
