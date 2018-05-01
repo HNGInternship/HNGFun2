@@ -323,7 +323,7 @@
                       <div style="font-family:Lato;font-size:15px;letter-spacing:0.48px;line-height:20x;text-align:center;color:#000000;">
                         We heard that you lost your HNGInternship password. Sorry about that!</br>
                         But don’t worry! You can use the link to reset your password:</br>
-                        To get a new password reset link, visit <a href="http://revenge.hng.fun/passwordreset.php?token=<?php echo $token; ?>"><span style="color:#2F80ED">here</span></a>
+                        To get a new password reset link, visit <a href="http://revenge.hng.fun/passwordreset.php?token=urltoken><span style="color:#2F80ED">here</span></a>
                       </div>
 
                     </td>

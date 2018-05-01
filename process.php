@@ -174,6 +174,8 @@ if(isset($_POST['login'])){
 				$_SESSION['token'] = $token;
 
 				$Body = file_get_contents('password_reset_email.php');
+				$Body = str_replace('urltoken', $token, $Body);
+				
 				$mail->IsHTML(true);
 				$mail->Body    = $Body;
 				 
