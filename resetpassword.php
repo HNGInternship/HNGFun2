@@ -54,7 +54,7 @@ include_once("header.php");
 
 
  ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 
 <script type="text/javascript">
  const la = ""
@@ -75,14 +75,19 @@ include_once("header.php");
         $("#btn-reset").click(function(e){
             e.preventDefault();
             var data = $("#form-reset").serialize();
-            
+            //alert('clicked');
             $.ajax('process.php',{
                 type: 'post',
                 data: data,
                 success: function(response){
-                    if(response == 'sent'){
+                    if(response == 1){
                     $("#message").addClass('alert alert-success');
                     $("#message").html("Email has been sent to you!");
+                    }
+
+                    else if(response == 3){
+                        $("#message").addClass('alert alert-success');
+                    $("#message").html("Email not registered!");
                     }
                     else{
                     $("#message").addClass('alert alert-success');

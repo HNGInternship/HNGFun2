@@ -214,7 +214,7 @@ include_once("header.php");
                         if(textStatus ='error'){
                         //  alert('Request not completed');
                         }
-                        $("#register").html('Failed');
+                        $("#register").html('Failed!!');
                         },
                     beforeSend :function(){
 

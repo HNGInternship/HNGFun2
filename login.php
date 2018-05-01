@@ -92,7 +92,7 @@
                 $("#message").addClass('alert alert-danger');
             
                 $("#message").html(data);
-                 $("#login").html('Failed');
+                 $("#login").html('Failed!');
              } 
             
 
@@ -101,7 +101,9 @@
                  if(textStatus ='error'){
                     //alert('Request not completed');
                  }
-                $("#login").html('Failed');
+                $("#login").html('Failed!!');
+                $("#message").removeClass('alert alert-danger');
+                $("#message").html(errorThrown);
             },
             beforeSend :function(){
 

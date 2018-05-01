@@ -120,14 +120,22 @@ if(isset($_POST['login'])){
 			$user = new User();
 			$email_check = $user->check_email($email, $db);
 
-			if($email_check = 'yes'){
+			if($email_check == true){
 				$reset_pin = rand(10000,99999);
 				$user_update_token = $user->update_token($email,$reset_pin, $db);
 				if($user_update_token = true){
+					$headers = "MIME-Version: 1.0" . "\r\n";
+					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+					
+					// More headers
+					$headers .= 'From: <hng@email.com.com>' . "\r\n";
+					//$headers .= 'Cc: myboss@example.com' . "\r\n";
 					$subject = "Password Reset for HNG Account";
 					$message = "Your password Reset Pin is ".$reset_pin;
-					if(mail($email, $subject, $message)){
-						echo "An email to reset your password has been sent to you";
+					$message .= " use this link to reset your password";
+					$message .= " <a href='http://5serve.com/test/resetpassword.php?token=".$reset_pin."'>Here</a>";
+					if(mail($email, $subject, $message,$headers)){
+						echo 'sent';
 					}
 
 				}
@@ -139,9 +147,12 @@ if(isset($_POST['login'])){
 
 
 	//for password change
-	if(isset($_POST['pword-change'])){
+	if(isset($_POST['token'])){
 		$password = $_POST['pass'];
 		$password_confirm = $_POST['pass-confirm'];
+		if($password  != $password_confirm ){
+		echo 3;
+		}
 		$token = $_POST['token'];
 		require_once('db.php');
 		$user = new User();
@@ -162,6 +173,7 @@ if(isset($_POST['login'])){
 			echo 0;
 		}
 	}
+
 
 	
 		

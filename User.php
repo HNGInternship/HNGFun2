@@ -44,25 +44,25 @@ class User
     public function check_email($email, $db)
     {
         
-        // $query  = "SELECT * FROM interns_data WHERE email = '$email' LIMIT 1";
-        $query  = "SELECT * FROM interns_data WHERE email = :email LIMIT 1";
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $results = $stmt->fetchAll();
-        if(count($results) > 0){
-            return true;
-        }
-        return false;
-
-        // $result = mysqli_query($db, $query);
-        // if (mysqli_num_rows($result) > 0) {
-            
+         $query  = "SELECT * FROM interns_data WHERE email = '$email' LIMIT 1";
+        // $query  = "SELECT * FROM interns_data WHERE email = :email LIMIT 1";
+        // $stmt = $db->prepare($query);
+        // $stmt->bindParam(':email', $email);
+        // $stmt->execute();
+        // $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        // $results = $stmt->fetchAll();
+        // if(count($results) > 0){
         //     return true;
-        // } else {
-        //     return false;
         // }
+        // return false;
+
+         $result = mysqli_query($db, $query);
+         if (mysqli_num_rows($result) > 0) {
+            
+            return true;
+         } else {
+             return false;
+         }
         
     }
     
