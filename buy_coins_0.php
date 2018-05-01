@@ -23,7 +23,6 @@ body{
 
 }
 
-
 td,.heavy-text{
     font-weight: 600;
 
@@ -137,14 +136,24 @@ background: rgba(0, 0, 0, 0.8);
 </section> -->
 
 <div class="main-container">
+<<<<<<< HEAD
+<h1 style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 2.4%;margin-bottom:0%;
+=======
 <h1  style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 2.4%;margin-bottom:0%;
+>>>>>>> 57d006287c50ff3591b2f3b7b4002f6883426e88
 font-family: 'Work Sans';
 font-style: normal;
 font-weight: bold;
 line-height: normal;
+<<<<<<< HEAD
+font-size: 1.429em;"> INPUT DETAILS</h1>
+
+<p style="text-align: left;color: #3D3D3D;font-size:1.286em;line-height: 1.571em; margin: 1.4% 0%;"> Please input the necessary details and crosscheck that they are correct before proceeding</p>
+=======
 font-size: 1.25em;"> INPUT DETAILS</h1>
 
 <p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;"> Please input the necessary details and crosscheck that they are correct before proceeding</p>
+>>>>>>> 57d006287c50ff3591b2f3b7b4002f6883426e88
 
 <main class="container">
     <div class="container">

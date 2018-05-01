@@ -140,9 +140,15 @@ font-family: 'Work Sans';
 font-style: normal;
 font-weight: bold;
 line-height: normal;
+<<<<<<< HEAD
+font-size: 1.429em;"> SEND PAYMENT</h1>
+
+<p style="text-align: left;color: #3D3D3D;font-size:1.286em;line-height: 1.571em; margin: 1.4% 0%;"> You are buying 0.00118811 HNGcoins from Dammy. Please send payment per instructions below</p>
+=======
 font-size: 1.25em;"> SEND PAYMENT</h1>
 
 <p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;"> You are buying &nbsp;0.00118811&nbsp; HNGcoins from Dammy. Please send payment per instructions below</p>
+>>>>>>> 57d006287c50ff3591b2f3b7b4002f6883426e88
 
 <main class="container">
 
@@ -166,7 +172,11 @@ font-size: 1.25em;"> SEND PAYMENT</h1>
 
     <tr>
       <td>Amount to be paid</td>
+<<<<<<< HEAD
+      <td>3,395 NGN/</td>
+=======
       <td>3,395 NGN</td>
+>>>>>>> 57d006287c50ff3591b2f3b7b4002f6883426e88
     </tr>
     <tr>
       <td>Bank Name</td>
@@ -213,9 +223,15 @@ font-family: 'Work Sans';
 font-style: normal;
 font-weight: bold;
 line-height: normal;
+<<<<<<< HEAD
+font-size: 1.429em;"> SEND PROOF OF PAYMENT</h1>
+
+<p style="text-align: left;color: #3D3D3D;font-size:1.286em;line-height: 1.571em; margin: 1.4% 0%;"> You are required to submit a screenshot of successful payment transaction</p>
+=======
 font-size: 1.25em;"> SUBMIT PROOF OF PAYMENT</h1>
 
 <p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;"> You are required to submit a screenshot of successful payment transaction</p>
+>>>>>>> 57d006287c50ff3591b2f3b7b4002f6883426e88
 
 <div class="row justify-content-md-center justify-content-xs-center" style="padding-bottom: 3.7%;">
 
