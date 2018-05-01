@@ -4,7 +4,7 @@
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
     <h1 class="font-weight-normal">
         <h1>Log In</h1>
-	    <p style="font-size: 16px;">Login to access your dashboard and manage your account.</p>
+        <p style="font-size: 16px;">Login to access your dashboard and manage your account.</p>
     </h1>
 </div>
 
@@ -53,13 +53,13 @@
         
         
         if(email ==""){
-            alert('please enter email');
+            //alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
         }
        
         else if(password ==""){
-            alert('Please enter password');
+            //alert('Please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
         }
@@ -88,7 +88,7 @@
             window.location ="dashboard.php";
              }  
              else{
-                alert(data);
+                //alert(data);
                 $("#message").addClass('alert alert-danger');
             
                 $("#message").html(data);
@@ -99,7 +99,7 @@
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
-                    alert('Request not completed');
+                    //alert('Request not completed');
                  }
                 $("#login").html('Failed');
             },

@@ -2,6 +2,22 @@
 include_once("coin_header.php");
 ?>
 
+<?php
+
+	$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
+	$stmt = $conn->prepare($sql);
+	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	$stmt->execute();
+	$sell_requests = $stmt->fetchAll();
+
+	$sql = "select buy_requests.id, amount, trade_limit, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
+	$stmt = $conn->prepare($sql);
+	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	$stmt->execute();
+	$buy_requests = $stmt->fetchAll();
+	
+?>
+
 <style>
 .top{
 	background-color: #2196F3;
@@ -138,130 +154,41 @@ h3{
 				
 			<div class="container sell">
 				
-				<div class="listing">
-				
-				
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="img/gimage.png">
+				<?php
+					foreach($sell_requests as $r){
+				?>
+					<div class="listing">
+						<div class="row mx-auto">
+							<div class="col-1">
+								<img src="<?php echo $r['image_filename']; ?>" width="50">
+							</div>
+							
+							<div class="col-2">
+								<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
+							</div>
+							
+							<div class="col-3">
+								<span class="blue">National Bank Transfer </span><br/>Nigeria
+							</div>
+							
+							<div class="col-3">
+							<?php echo $r['price_per_coin']; ?> <br/>NGN
+							</div>
+							
+							<div class="col-2">
+							<?php echo $r['trade_limit']; ?> <br/> NGN
+							</div>
+							
+							<div class="col-1">
+								<a href="buy_coins.php?request_id=<?php echo $r['id']; ?>" type="button" class="btn"> BUY</a>
+							</div>
+							
 						</div>
-						
-						<div class="col-2">
-							<span class="blue">Marvelous350 </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-							3,399,945.02 <br/>NGN
-						</div>
-						
-						<div class="col-2">
-							100,000 - 211,271 <br/> NGN
-						</div>
-						
-						<div class="col-1">
-							<button type="button" class="btn"> BUY</button>
-						</div>
-						
 					</div>
-				</div>
 				
-<div class="listing">
-				
-				
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="img/gimage.png">
-						</div>
-						
-						<div class="col-2">
-							<span class="blue">Marvelous350 </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-							3,399,945.02 <br/>NGN
-						</div>
-						
-						<div class="col-2">
-							100,000 - 211,271 <br/> NGN
-						</div>
-						
-						<div class="col-1">
-							<button type="button" class="btn"> BUY</button>
-						</div>
-						
-					</div>
-				</div>
-				
-				<div class="listing">
+				<?php } ?>
 				
 				
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="img/gimage.png">
-						</div>
-						
-						<div class="col-2">
-							<span class="blue">Marvelous350 </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-							3,399,945.02 <br/>NGN
-						</div>
-						
-						<div class="col-2">
-							100,000 - 211,271 <br/> NGN
-						</div>
-						
-						<div class="col-1">
-							<button type="button" class="btn"> BUY</button>
-						</div>
-						
-					</div>
-				</div>
-				
-				
-				<div class="listing">
-				
-				
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="img/gimage.png">
-						</div>
-						
-						<div class="col-2">
-							<span class="blue">Marvelous350 </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-							3,399,945.02 <br/>NGN
-						</div>
-						
-						<div class="col-2">
-							100,000 - 211,271 <br/> NGN
-						</div>
-						
-						<div class="col-1">
-							<button type="button" class="btn"> BUY</button>
-						</div>
-						
-					</div>
-				</div>
 				
 			</div>
 			
@@ -313,16 +240,17 @@ h3{
 			</div>
 			<div class="container sell">
 				
+			<?php
+				foreach($buy_requests as $r){
+			?>
 				<div class="listing">
-				
-				
 					<div class="row mx-auto">
 						<div class="col-1">
-							<img src="img/gimage.png">
+							<img src="<?php echo $r['image_filename']; ?>" width="50">
 						</div>
 						
 						<div class="col-2">
-							<span class="blue">Marvelous350 </span><br/>(500+;98%)
+							<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
 						</div>
 						
 						<div class="col-3">
@@ -330,113 +258,21 @@ h3{
 						</div>
 						
 						<div class="col-3">
-							3,399,945.02 <br/>NGN
+						<?php echo $r['bid_per_coin']; ?> <br/>NGN
 						</div>
 						
 						<div class="col-2">
-							100,000 - 211,271 <br/> NGN
+						<?php echo $r['trade_limit']; ?> <br/> NGN
 						</div>
 						
 						<div class="col-1">
-							<button type="button" class="btn"> SELL</button>
+						<a href="" type="button" class="btn"> SELL</a>
 						</div>
 						
 					</div>
 				</div>
-				
-<div class="listing">
-				
-				
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="img/gimage.png">
-						</div>
-						
-						<div class="col-2">
-							<span class="blue">Marvelous350 </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-							3,399,945.02 <br/>NGN
-						</div>
-						
-						<div class="col-2">
-							100,000 - 211,271 <br/> NGN
-						</div>
-						
-						<div class="col-1">
-							<button type="button" class="btn" > SELL</button>
-						</div>
-						
-					</div>
-				</div>
-				
-				<div class="listing">
-				
-				
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="img/gimage.png">
-						</div>
-						
-						<div class="col-2">
-							<span class="blue">Marvelous350 </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-							3,399,945.02 <br/>NGN
-						</div>
-						
-						<div class="col-2">
-							100,000 - 211,271 <br/> NGN
-						</div>
-						
-						<div class="col-1">
-							<button type="button" class="btn" > SELL</button>
-						</div>
-						
-					</div>
-				</div>
-				
-				
-				<div class="listing">
-				
-				
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="img/gimage.png">
-						</div>
-						
-						<div class="col-2">
-							<span class="blue">Marvelous350 </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-							3,399,945.02 <br/>NGN
-						</div>
-						
-						<div class="col-2">
-							100,000 - 211,271 <br/> NGN
-						</div>
-						
-						<div class="col-1">
-							<button type="button" class="btn"  > SELL</button>
-						</div>
-						
-					</div>
-				</div>
+			
+			<?php } ?>
 				
 			</div>
 			

@@ -1,17 +1,6 @@
 <?php
 
 include_once("coin_header.php");
-if(!isset($_GET['request_id'])){
-    echo "<script>alert('Request ID required');</script>";
-}
-$request_id = $_GET['request_id'];
-
-$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id where sell_requests.id = :request_id";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(':request_id', $request_id);
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-$stmt->execute();
-$sell_request = $stmt->fetch();
 
 ?>
 
@@ -24,17 +13,23 @@ body{
     font-family: Lato;
 
 
+
+}
+
+.main-container{
+  padding-right: 10%;
+    padding-left: 10%;
+    font-size: 14px;
+
 }
 
 main{
 
-    margin-top: 6.9%;
     margin-bottom: 7.4%;
-    margin-right: 10%;
-    margin-left: 10%;
+    /*margin-right: 10%;
+    margin-left: 10%;*/
     padding-bottom: 3.1%;
  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
-    font-size: 14px;
  
 }
 
@@ -135,6 +130,16 @@ background: rgba(0, 0, 0, 0.8);
     <p>ertghe</p>
 </section> -->
 
+<div class="main-container">
+<h1 style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 2.4%;margin-bottom:0%;
+font-family: 'Work Sans';
+font-style: normal;
+font-weight: bold;
+line-height: normal;
+font-size: 1.429em;"> INPUT DETAILS</h1>
+
+<p style="text-align: left;color: #3D3D3D;font-size:1.286em;line-height: 1.571em; margin: 1.4% 0%;"> Please input the necessary details and crosscheck that they are correct before proceeding</p>
+
 <main class="container">
     <div class="container">
 
@@ -197,15 +202,14 @@ background: rgba(0, 0, 0, 0.8);
 <table class="table table-bordered col-xs-12 col-sm-10">
   <thead>
     <tr>
-      <th scope="col">Buying From</th>
-      <th scope="col"><?php echo $sell_request['full_name']; ?></th>
-
+      <th class="w-50" scope="col">Buying From</th>
+      <th class="w-50" scope="col">Dammy</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Price</td>
-      <td><?php echo $sell_request['price_per_coin']; ?> NGN/HNGcoin</td>
+      <td>3,395,925 NGN/HNGcoin</td>
     </tr>
     <tr>
       <td>Payment Method</td>
@@ -232,7 +236,7 @@ background: rgba(0, 0, 0, 0.8);
 <p class="footerText" style="text-align: center;color: #3D3D3D;"> You will recieve HNGcoin immediately after seller has confirmed your payment</p>
    
 </main>    
-<!-- </div> -->
+</div>
 
 <script type="text/javascript">
     
