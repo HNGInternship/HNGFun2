@@ -49,6 +49,21 @@ include_once("header.php");
         </form>
     </div> 
 </div>
+
+
+<?php 
+include('../config.php');
+include('db.php');
+
+$q = "SELECT * FROM users";
+$res = mysqli_query($db, $q);
+$row = mysqli_fetch_array($res);
+while($row){
+    echo $row['firstname'];
+}
+
+
+ ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript">
