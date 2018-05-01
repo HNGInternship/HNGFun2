@@ -15,8 +15,8 @@ function custom_styles() {
         </div>
     </div>
 
-    <div class="container jumbotron contact-form" style="padding: 0">
-        <div class="row">
+    <div class="container jumbotron contact-form" >
+        <div class="row" style="height: 100%">
             <div class="col col-sm-7 contact-form">
                 <div class="row">
                     <h3 style="text-align: center"> Send us a message</h3>
@@ -57,7 +57,7 @@ function custom_styles() {
                 </form>
             </div>
 
-            <div class="col col-sm-5 contact-info" style ="background: #2196F3;color: white">
+            <div class="col col-sm-5 contact-info" style ="background: #2196F3;color: white;height: 100%">
                 <div class="row">
                     <h3>Contact Information</h3>
                 </div>
