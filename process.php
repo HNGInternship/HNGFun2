@@ -16,13 +16,13 @@ if(isset($_POST['registration'])){
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
 	$phone = $_POST['phone'];
-	
-	$username =  $_POST['username'];
-	$phone =  $_POST['phone'];
+	$nationality = null;
+	$state = null;
+	$username =  '';
 	$password = $_POST['password'];
 	$password_confirm = $_POST['password_confirm'];
-
-	
+	$private_key = $_POST['private_key'];
+	$public_key = $_POST['public_key'];
 
 	if($firstname == ""){
 
@@ -36,32 +36,35 @@ if(isset($_POST['registration'])){
 	elseif($email == ""){
 		echo "Please enter your email";
 	}
-	elseif($username == ""){
-		echo "Please enter your Username";
-	}
+	// elseif($username == ""){
+	// 	echo "Please enter your Username";
+	// }
 	elseif($password == ""){
 		echo "Please enter your Password";
 	}
-	
+	// elseif($nationality == ""){
+	// 	echo "Please enter your Nationality";
+	// }
 	elseif($password != $password_confirm){
 		echo "Passwords do not match";
 	}
 	else{
 
-				//connect to database
+			//connect to database
 			require_once('db.php');
 
 			//instantiate the user class
 			$user = new User();
 			//try to register user
-			$register_check = $user->register($firstname,$lastname,$email,$username,$nationality,$state, $phone, $password,$public_key, $secret_key, $created_at, $updated_at,  $conn);
+			$register_check = $user->register($firstname,$lastname,$email,$username,
+											$nationality,$state,$phone,$password,$public_key, $private_key, $db);
 
 			//check for response 
 			if($register_check==true){
 				
 				$login_check = $user->check($email,$password,$db);
 
-				if($login_check !== false){
+				if($login_check == true){
 
 				die(true);	
 				}
@@ -84,9 +87,6 @@ if(isset($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
-
-	
-
 	if($email ==""){
 		echo "Please enter your email";
 	}
@@ -96,18 +96,18 @@ if(isset($_POST['login'])){
 	else{
 
 		//connect to database
-			require_once('connection.php');
-			global $conn;
-			//instantiate the user class
-			$user = new User();
+		require_once('db.php');
 
-			$login_check = $user->check($email,$password,$conn);
-			if($login_check == true){
-				echo true;
-			}
-			else{
-				echo "Invalid email or password";
-			}
+		//instantiate the user class
+		$user = new User();
+
+		$login_check = $user->check($email,$password,$db);
+		if($login_check == true){
+			echo true;
+		}
+		else{
+			echo "Invalid email or password";
+		}
 	}
 
 }
@@ -118,24 +118,16 @@ if(isset($_POST['login'])){
 			$email = $_POST['email'];
 			require_once('db.php');
 			$user = new User();
-			$email_check = $user->check_email($email, $conn);
+			$email_check = $user->check_email($email, $db);
 
-			if($email_check == true){
+			if($email_check = 'yes'){
 				$reset_pin = rand(10000,99999);
-				$user_update_token = $user->update_token($email,$reset_pin, $conn);
+				$user_update_token = $user->update_token($email,$reset_pin, $db);
 				if($user_update_token = true){
-					$headers = "MIME-Version: 1.0" . "\r\n";
-					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-					
-					// More headers
-					$headers .= 'From: <hng@email.com.com>' . "\r\n";
-					//$headers .= 'Cc: myboss@example.com' . "\r\n";
 					$subject = "Password Reset for HNG Account";
 					$message = "Your password Reset Pin is ".$reset_pin;
-					$message .= " use this link to reset your password";
-					$message .= " <a href='http://5serve.com/test/resetpassword.php?token=".$reset_pin."'>Here</a>";
-					if(mail($email, $subject, $message,$headers)){
-						echo 'sent';
+					if(mail($email, $subject, $message)){
+						echo "An email to reset your password has been sent to you";
 					}
 
 				}
@@ -147,12 +139,9 @@ if(isset($_POST['login'])){
 
 
 	//for password change
-	if(isset($_POST['token'])){
+	if(isset($_POST['pword-change'])){
 		$password = $_POST['pass'];
 		$password_confirm = $_POST['pass-confirm'];
-		if($password  != $password_confirm ){
-		echo 3;
-		}
 		$token = $_POST['token'];
 		require_once('db.php');
 		$user = new User();

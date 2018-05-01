@@ -106,7 +106,8 @@ include_once("header.php");
     </div>
 </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.0/stellar-sdk.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script type="text/javascript">
        $( document ).ready(function() {
     $("#register").click(function(e){
@@ -118,7 +119,7 @@ include_once("header.php");
         var phone = $("#phone").val(); 
         var password = $("#password").val();
         var password_confirm = $("#password_confirm").val();
-        var state = $("#state").val();
+        // var state = $("#state").val();
         var country = $("#country").val();
 
         var terms = $('#terms').is(':checked'); 
@@ -138,17 +139,17 @@ include_once("header.php");
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
         }
-        else if(country ==""){
-           // alert('Please enter your country');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter your country');
-        }
+        // else if(country ==""){
+        //    // alert('Please enter your country');
+        //     $("#message").addClass('alert alert-danger');
+        //     $("#message").html('Please enter your country');
+        // }
 
-        else if(state ==""){
-           // alert('Please enter state');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter state');
-        }
+        // else if(state ==""){
+        //    // alert('Please enter state');
+        //     $("#message").addClass('alert alert-danger');
+        //     $("#message").html('Please enter state');
+        // }
 
          else if(phone ==""){
             //alert('Please enter Phone Number');
@@ -177,44 +178,54 @@ include_once("header.php");
             
             $("#register").html('Registering..');
 
-             var data = $("#register_form").serialize();
-
+            var data = $("#register_form").serialize();
             
-             //alert('worked');
-             $.ajax('process.php',{
-            type : 'post',
-            data : data,
-            success: function(data){
+            const pair = StellarSdk.Keypair.random();
+            const secret_key = pair.secret();
+            const public_key = pair.publicKey();
 
-             if(data==true){
-                $("#message").addClass('alert alert-success');
-            $("#message").html("Registration successful");
+            // use public key to create account
+            axios
+                .get('https://friendbot.stellar.org?addr='+public_key)
+                .then(function(response){
+                    data += "&private_key="+secret_key+"&public_key="+public_key;
+                        
+                    //alert('worked');
+                    $.ajax('process.php',{
+                    type : 'post',
+                    data : data,
+                    success: function(data){
 
-            $("#register").html('Registration successful');
+                        if(data==true){
+                            $("#message").addClass('alert alert-success');
+                        $("#message").html("Registration successful");
 
-            window.location ="dashboard.php";
-             }  
-             else{
-               // alert(data);
-                $("#message").html(data);
-                 $("#register").html('Failed!');
-             } 
-            
+                        $("#register").html('Registration successful');
 
-            },
-           error : function(jqXHR,textStatus,errorThrown){
-                 if(textStatus ='error'){
-                  //  alert('Request not completed');
-                 }
-                $("#register").html('Failed');
-            },
-            beforeSend :function(){
+                        window.location ="dashboard.php";
+                        }  
+                        else{
+                        // alert(data);
+                            $("#message").html(data);
+                            $("#register").html('Failed!');
+                        } 
+                    },
+                    error : function(jqXHR,textStatus,errorThrown){
+                        if(textStatus ='error'){
+                        //  alert('Request not completed');
+                        }
+                        $("#register").html('Failed');
+                        },
+                    beforeSend :function(){
 
-            $("#message").removeClass('alert alert-danger');
-            $("#message").html('');
+                        $("#message").removeClass('alert alert-danger');
+                        $("#message").html('');
 
-            $("#register").html('Registering..');
-            },
+                        $("#register").html('Registering..');
+                    },
+                }).catch(function(error){
+                    console.error(error);
+                });
         });
     
 
