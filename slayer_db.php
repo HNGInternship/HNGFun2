@@ -1,17 +1,17 @@
 <?php
 
 
-// require_once 'config.php';
-define ('DB_USER', "root");
-define ('DB_PASSWORD', "");
-define ('DB_DATABASE', "hng_fun2");
-define ('DB_HOST', "localhost");
+require_once 'db.php';
+// define ('DB_USER', "root");
+// define ('DB_PASSWORD', "");
+// define ('DB_DATABASE', "slayers_db");
+// define ('DB_HOST', "localhost");
 
-try {
-    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-} catch (PDOException $pe) {
-    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-}
+// try {
+//     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+// } catch (PDOException $pe) {
+//     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+// }
 
 global $conn;
 
@@ -25,6 +25,7 @@ $sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
     `image_filename` text NOT NULL,
     `public_key` text NOT NULL,
     `private_key` text NOT NULL,
+    `token` TEXT NULL,
     `created_at` DATETIME NOT NULL DEFAULT NOW(),
     `updated_at` DATETIME DEFAULT NULL,
     PRIMARY KEY (id))";
