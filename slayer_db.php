@@ -1,7 +1,7 @@
 <?php
 
-
 require_once 'db.php';
+
 // define ('DB_USER', "root");
 // define ('DB_PASSWORD', "");
 // define ('DB_DATABASE', "hng_fun");
@@ -29,6 +29,15 @@ $sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
     `created_at` DATETIME NOT NULL DEFAULT NOW(),
     `updated_at` DATETIME DEFAULT NULL,
     PRIMARY KEY (id))";
+
+
+try {
+    $db = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+} catch (PDOException $pe) {
+    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+}
+
+global $db;
 
 
     $sql2 = "CREATE TABLE IF NOT EXISTS buy_requests (

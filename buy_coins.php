@@ -58,6 +58,11 @@ td,.footerText{
 
 }
 
+td{
+
+  font-weight: 600;
+}
+
 #sellerDetails{
     font-weight: bold;
 }
@@ -199,7 +204,6 @@ background: rgba(0, 0, 0, 0.8);
     <tr>
       <th scope="col">Buying From</th>
       <th scope="col"><?php echo $sell_request['full_name']; ?></th>
-
     </tr>
   </thead>
   <tbody>
