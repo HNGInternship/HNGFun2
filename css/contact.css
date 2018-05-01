@@ -1,4 +1,4 @@
-.jumbotron {
+.jumbotron.contact {
     text-align: left;
     padding-top: 3rem;
     padding-bottom: 14rem;
@@ -27,6 +27,23 @@
     z-index: -1;
 }
 
+.jumbotron.contact-form {
+    background-color: #fff;
+    width: 1225px;
+    height: 550px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+
+label {
+    color: #BDBDBD;
+}
+
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #BDBDBD;
+}
 
 footer {
     padding-bottom: 0;
