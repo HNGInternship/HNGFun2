@@ -7,7 +7,6 @@
 //require_once('classes/User.php');
 require_once('User.php');
 
-
 //for registration 
 
 if(isset($_POST['registration'])){
@@ -15,14 +14,15 @@ if(isset($_POST['registration'])){
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
-	$phone = $_POST['phone'];
+	$state = $_POST['state'];
 	$nationality = $_POST['country'];
 	$username =  $_POST['username'];
 	$password = $_POST['password'];
 	$password_confirm = $_POST['password_confirm'];
 	$secret_key = $_POST['secret_key'];
 	$public_key = $_POST['public_key'];
-
+	$created_at = date("d-m-y H:i:s");
+	$updated_at = date("d-m-y H:i:s");
 	
 
 	if($firstname == ""){
@@ -53,16 +53,19 @@ if(isset($_POST['registration'])){
 
 				//connect to database
 			require_once('connection.php');
-
+			
+				global $conn;
+				
+				//var_dump($conn);
 			//instantiate the user class
 			$user = new User();
 			//try to register user
-			$register_check = $user->register($firstname,$lastname,$email,$username,$nationality,$phone,$password,$public_key, $secret_key, $db);
+			$register_check = $user->register($firstname,$lastname,$email,$username,$nationality,$state,$password,$public_key, $secret_key, $created_at, $updated_at,  $conn);
 
 			//check for response 
 			if($register_check==true){
 				
-				$login_check = $user->check($email,$password,$db);
+				$login_check = $user->check($email,$password,$conn);
 
 				if($login_check == true){
 

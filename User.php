@@ -1,4 +1,6 @@
 <?php session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 class User {
     
 public $timee;
@@ -69,22 +71,23 @@ public function __construct(){
 //register construct function
 //
    
-     public function register($firstname,$lastname,$email,$username,$nationality,$phone,$password, $public_key, $secret_key, $db){
+     public function register($firstname,$lastname,$email,$username,$country,$state,$password, $public_key, $secret_key, $createsd_at, $updated_at,  $db){
         
-        $this->table = 'users';
+        $this->table = 'interns_data';
         
         
         $password_hash = md5($password);
         $secret_hash = md5($secret_key);
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,nationality,phone,password,timee, public_key, secret_key ) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,country,state,password, public_key, private_key, created_at, updated_at ) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         
             $statement = $db->prepare($query);
 
-           // echo $db->error.$query;
+
+           var_dump($db->error);
     
-        $statement->bind_param($firstname,$lastname,$email,$username,$nationality,$phone,$password_hash,$timee, $public_key, $secret_hash);
+        $statement->bind_param('sssssssssss',$firstname,$lastname,$email,$username,$country,$state,$password_hash, $public_key, $secret_hash,  $createsd_at, $updated_at);
 
         
      $result = $db->query($query);
@@ -96,8 +99,8 @@ public function __construct(){
      
      else{
         
-        return false;
-        //echo $db->error;
+        //return false;
+        var_dump($db->error);
      }
                    
         

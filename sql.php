@@ -112,7 +112,7 @@ $sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
     }
 
     else{
-        echo $exec;
+        echo "error creating tables";
     }
 
 
