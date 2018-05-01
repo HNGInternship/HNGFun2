@@ -80,9 +80,14 @@ include_once("header.php");
                 type: 'post',
                 data: data,
                 success: function(response){
-                    if(response == 'sent'){
+                    if(response == 1){
                     $("#message").addClass('alert alert-success');
                     $("#message").html("Email has been sent to you!");
+                    }
+
+                    else if(response == 3){
+                        $("#message").addClass('alert alert-success');
+                    $("#message").html("Email not registered!");
                     }
                     else{
                     $("#message").addClass('alert alert-success');

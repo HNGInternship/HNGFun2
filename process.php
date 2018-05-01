@@ -120,17 +120,31 @@ if(isset($_POST['login'])){
 			$user = new User();
 			$email_check = $user->check_email($email, $db);
 
-			if($email_check = 'yes'){
+			if($email_check = true){
 				$reset_pin = rand(10000,99999);
 				$user_update_token = $user->update_token($email,$reset_pin, $db);
 				if($user_update_token = true){
 					$subject = "Password Reset for HNG Account";
-					$message = "Your password Reset Pin is ".$reset_pin;
+					$headers = "MIME-Version: 1.0" . "\r\n";
+					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+					
+					// More headers
+					$headers .= 'From: <hng@email.com.com>' . "\r\n";
+					
+					$message = "You requested for a password change."
+					$message .= " Click the link to reset your password";
+					$message .= " <a href='http://5serve.com/test/resetpassword.php?token=".$reset_pin."'>Here</a>";
 					if(mail($email, $subject, $message)){
-						echo "An email to reset your password has been sent to you";
+						echo 1;
+					}else{
+						echo 2;
 					}
 
 				}
+			}
+
+			else{
+				echo 3;
 			}
 
 
