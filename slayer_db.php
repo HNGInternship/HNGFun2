@@ -17,14 +17,19 @@ global $conn;
 
 $sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
     `id` int(20) NOT NULL AUTO_INCREMENT,
-    `first_name` varchar(100) NOT NULL,
-    `last_name` varchar(100) NOT NULL,
+    `firstname` varchar(100) NOT NULL,
+    `lastname` varchar(100) NOT NULL,
+    `email` varchar(225) NOT NULL,
+    `phone` varchar(16) NOT NULL, 
     `username` varchar(100) NOT NULL,
+    `password` varchar(100) NOT NULL,
     `skills` text,
     `country` varchar(100) DEFAULT NULL,
+    `state` varchar(100) NULL,
     `image_filename` text NOT NULL,
     `public_key` text NOT NULL,
     `private_key` text NOT NULL,
+    `token` text NOT NULL,
     `created_at` DATETIME NOT NULL DEFAULT NOW(),
     `updated_at` DATETIME DEFAULT NULL,
     PRIMARY KEY (id))";
