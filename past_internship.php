@@ -3,6 +3,9 @@ include_once("header.php");
 ?>
 <style>
 
+  main {
+    margin-top: 50px;
+  }
   a {
     text-decoration: none !important;
     color: #007bff;
