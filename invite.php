@@ -901,20 +901,41 @@ $msg = '
 	}
 
 </style>
-<div class="" style="padding-top: 10%">
+<div class="" style="padding-top: 7%">    
+
     <div class="col-md-6  mx-auto">
-        <h1 class="login-title text-center" style="font-weight: bold; font-size: 50px">Invite to HNG</h1>
-        <p style="font-size: 16px; margin-bottom: 0px; margin-top: 0px; opacity: 0.7" class="text-center">You can send out invites to all your friends all over the world to join<br/> this amazing community
+	<div style="text-align:center;">
+	<img src="images/coins.png" style="width: 42px; margin-top: -20px;margin-right: 3px; display: inline-block;">
+        <h1 class="login-title text-center" style="font-weight: bold; font-size: 28px;display: inline;padding-top: 27px; margin-top: 40px;">Share HNG coins with friends</h1>
+        </div>
+		<p style="font-size: 16px;margin-bottom: 30px; margin-top: 10px; opacity: 0.7" class="text-center">Encourage your friends to start coding by offering them HNG coins today!
         </p>
+<<<<<<< HEAD
         <form action="#"  method="POST" class="text-center" style="margin-top:">
             <!-- <div class="form-row" style="margin-left: 30px;">
+=======
+		<div class="form-row" style="margin:0 auto;">
+			<div class="form-group col-md-6">
+    <label for="username"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="" style="border-color:#0475CE;">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="amount"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</label>
+    <input type="text" class="form-control" id="amount" placeholder="" style="border-color:#0475CE;">
+  </div>
+  
+  <button style="margin-top: 45px; border:0px; margin-bottom: 50px; margin-left: auto; margin-right: auto; background-color: #2196F3; color: white; width: 400px; font-size: 15px; height: 40px; text-align:center;border-radius: 10px" id="submitbutton" class="">SEND COINS</button>
+  </div>
+       <!-- <form action="" class="text-center" style="margin-top:">
+            <div class="form-row" style="margin-left: 30px;">
+>>>>>>> 513113879be07d7958d89eda70aaf915149905ca
                 <div class="form-group col-md-6">
-                	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Firstname</p>
-                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="">
+                	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</p>
+                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder=""/>
                 </div>
                 <div class="form-group col-md-6">
-                	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">lastname</p>
-                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="">
+                	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</p>
+                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder=""/>
                 </div>
             </div> -->
             <center>
@@ -930,8 +951,12 @@ $msg = '
             </div>
             </center>
                  
+<<<<<<< HEAD
                     <button name="send" style="margin-top: 30px; border:0px; margin-bottom: 7px; background-color: #2196F3; color: white; width: 400px; font-size: 12px; height: 40px; border-radius: 10px" id="submitbutton" class="">Send Invite</button>
         </form>
+=======
+        </form>-->
+>>>>>>> 513113879be07d7958d89eda70aaf915149905ca
 
         </div>
         </div>
