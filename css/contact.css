@@ -53,8 +53,62 @@ body {
     background: #e5e5e5 !important;
 }
 
+.contact-info {
+    margin-left: 7em;
+    color: #ffffff;
+    position: relative;
+}
 
+.col.col-sm-3.contact-info p {
+    font-weight: 100;
+    padding: 0;
+    margin: 0;
+    font-size: .9em;
+    padding-top: 2em;
+}
+
+.col.col-sm-3.contact- h3 {
+    margin-left: -2em;
+    font-weight: 300;
+    
+}
+
+.col.col-sm-7.contact-form h3.text-left {
+    margin-bottom: 1.3em;
+}
 
 #contact-half {
-    background: linear-gradient( to right, #ffffff 0%, #ffffff 50%, #2196F3 50%, #2196F3 100%);
+    background: linear-gradient( to right, #ffffff 0%, #ffffff 50%, #ffffff 57%, #2196F3 57%, #2196F3 100%);
+}
+
+.social-media {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: -0.9em;
+}
+
+i.fa {
+    color: #ffffff !important;
+    padding: 0 .6em;
+    cursor: pointer;
+    font-size: 1.7em;
+}
+
+.contact-icon {
+    position: absolute;
+    left: -70px;
+    /* top: 20px; */
+}
+
+.location {
+    top: 80px;
+}
+
+.phone {
+    top: 160px;
+}
+
+.mail{
+    top: 224px;
 }
