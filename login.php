@@ -101,7 +101,7 @@
                  if(textStatus ='error'){
                     //alert('Request not completed');
                  }
-                $("#login").html('Failed');
+                $("#login").html('Failed!!');
             },
             beforeSend :function(){
 
