@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION["all"])){
     $_SESSION["all"] = [];
 }if(!defined('DB_USER')){
-    require_once "connection.php";
+    require_once "../config.php";
     $servername = DB_HOST;
     $username = DB_USER;
     $password = DB_PASSWORD;
