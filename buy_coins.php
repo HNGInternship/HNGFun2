@@ -1,6 +1,17 @@
 <?php
 
 include_once("coin_header.php");
+if(!isset($_GET['request_id'])){
+    echo "<script>alert('Request ID required');</script>";
+}
+$request_id = $_GET['request_id'];
+
+$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id where sell_requests.id = :request_id";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':request_id', $request_id);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$sell_request = $stmt->fetch();
 
 ?>
 
@@ -9,7 +20,7 @@ include_once("coin_header.php");
 body{
 
     background: #ffffff;
-    font-size: 14px;
+    /*font-size: 14px;*/
     font-family: Lato;
 
 
@@ -23,7 +34,8 @@ main{
     margin-left: 10%;
     padding-bottom: 3.1%;
  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
-
+    font-size: 14px;
+ 
 }
 
 .input-form{
@@ -44,6 +56,11 @@ td,.footerText{
     color: #323232;
     line-height:1.250em;
 
+}
+
+td{
+
+  font-weight: 600;
 }
 
 #sellerDetails{
@@ -108,7 +125,7 @@ background: rgba(0, 0, 0, 0.8);
 /*}*/
 
  /* media queries */
-    @media (min-width: 360px) { 
+    @media(min-width: 360px) { 
         #checkMark {
             left:10%;        } 
     }
@@ -134,7 +151,7 @@ background: rgba(0, 0, 0, 0.8);
   </div>
   <div class="form-group col-xs-12 col-sm-5">
     <label class="label-for-form" for="wallet">Send HNGcoin to :*</label>
-    <input type="text" class="form-control form-control-lg input-for-form" id="wallet" placeholder="Your HNCoin Wallet" disabled>
+    <input type="text" class="form-control form-control-lg input-for-form" id="wallet" placeholder="Your HNGcoin Wallet">
   </div>
 </form>
 
@@ -153,15 +170,15 @@ background: rgba(0, 0, 0, 0.8);
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-        <p  id="closeButton" style="text-align: right;margin-bottom: 0%;opacity: 1;" class="close" data-dismiss="modal" aria-label="Close">
-          <img src="img/icons/cancel_icon.svg">
+        <p  id="closeButton" style="text-align: right;margin-bottom: 0%;opacity: 1; padding-right: 5%" class="close" data-dismiss="modal" aria-label="Close">
+          <img src="img/icons/cancel_icon.svg" style="border: 1.5px solid #EB5757;padding: 1%;border-radius: 50%">
         </p>
       <div class="modal-body">
         <h4 style="text-align: center;" id="modalHeader">Confirming ...</h4>
       </div>
 <p class="footerText visible" id="modalFooter" style="text-align: center;color: #3D3D3D; margin-top: 0%;"> You will recieve HNGcoin immediately after seller has confirmed your payment</p>
 
-<div id="checkMark" class="hidden" style="background: #2196F3 ; position: relative; width: 150px;height: 150px;border-radius: 50%;left:32%;margin-bottom: 1.4%;">
+<div id="checkMark" class="hidden" style="background: #2196F3 ; position: relative; width: 150px;height: 150px;border-radius: 50%;left:35%;margin-bottom: 1.4%;">
     <img src="img/icons/check_icon.svg" style="position: absolute;top:25%;left: 23%">
 </div>
       
@@ -186,13 +203,13 @@ background: rgba(0, 0, 0, 0.8);
   <thead>
     <tr>
       <th scope="col">Buying From</th>
-      <th scope="col">Dammy</th>
+      <th scope="col"><?php echo $sell_request['full_name']; ?></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Price</td>
-      <td>3,395,925 NGN/HNGcoin</td>
+      <td><?php echo $sell_request['price_per_coin']; ?> NGN/HNGcoin</td>
     </tr>
     <tr>
       <td>Payment Method</td>
