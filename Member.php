@@ -305,7 +305,7 @@ public function __construct(){
 
 
     //to check password token for password resets       
-    public function check_token($token,$db){
+    public function check_token($token,$conn){
           //$password_hash = md5($password);
           $query = "SELECT * FROM ".$this->table." WHERE password_reset_token='$token' LIMIT 1";
 
@@ -332,7 +332,7 @@ public function __construct(){
 
 
    //change password function
-    public function update_password($id,$password,$db){
+    public function update_password($id,$password,$conn){
          $password_hash = md5($password);
        $query="UPDATE ".$this->table." SET password='$password' WHERE id='$id' LIMIT 1";
        $stmt = $conn->prepare($query);

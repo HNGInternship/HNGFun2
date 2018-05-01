@@ -1,8 +1,9 @@
  <?php session_start(); include("header.php");?>
 <?php 
 //check email reset token
+    if(isset($_GET['token'])){
 
-        $token = $_GET['token'];
+      $token = $_GET['token'];  
 
         require_once('db.php');
         require_once('Member.php');
@@ -12,10 +13,19 @@
      $password_response=$member_class->check_token($token,$conn);
      if($password_response==false){
 
-       echo "<div style='color:red; font-weight:bold;'>Your token is invalid or has already been used </div>";
+       echo "<div class ='alert alert-danger'style='color:red; font-weight:bold; text-align:center'>Your token is invalid or has already been used </div>";
       die(); 
 
      }
+
+        }
+        else{
+           echo "<div class ='alert alert-danger'style='color:red; font-weight:bold; text-align:center'>You have no taken for password reset </div>";
+      die();  
+        }
+        
+
+       
      
 
 ?>
@@ -27,9 +37,10 @@
     <p style="margin-top: -15px;">Set a new password for your account.</p>
 </div>
 <div class="container" style='color: #3D3D3D; padding-bottom: 100px'>
-    <div id="message"></div>
+        <div id="message"></div>
     <form id="reset_form">
         <div class="form-row justify-content-center">
+
                 <div class="form-group col-md-6" style="padding-right:100px; padding-left: 100px">
                     <input type="password" name="password" id="password" class="form-control" placeholder="New Password" value="">
 
@@ -62,12 +73,12 @@
         e.preventDefault();
 
         var password = $("#password").val();
-        vqr confirm_password = $("#password_confirm").val();
+        var confirm_password = $("#password_confirm").val();
         
         if(password ==""){
             alert('please enter password');
             $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter email');
+            $("#message").html('Please enter Password');
         }
        
         else if(password != confirm_password){
