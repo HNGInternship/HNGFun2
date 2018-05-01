@@ -1,3 +1,14 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Display Table</h1>
+</body>
+</html>
+
 <?php 
 
 include('../config.php');
@@ -13,3 +24,4 @@ while ($row = mysqli_fetch_array($res) {
 }
 
  ?>
+
