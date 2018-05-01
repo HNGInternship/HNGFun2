@@ -47,6 +47,11 @@ td,.footerText{
 
 }
 
+td{
+
+  font-weight: 600;
+}
+
 #sellerDetails{
     font-weight: bold;
 }

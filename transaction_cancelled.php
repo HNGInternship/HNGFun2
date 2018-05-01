@@ -140,9 +140,11 @@ font-family: 'Work Sans';
 font-style: normal;
 font-weight: bold;
 line-height: normal;
-font-size: 1.25em;"> SEND PAYMENT</h1>
+font-size: 1.25em;"> TRANSACTION CANCELLED</h1>
 
-<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;"> You are buying &nbsp;0.00118811&nbsp; HNGcoins from Dammy. Please send payment per instructions below</p>
+<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;"> Your trade of &nbsp; 0.11233444 &nbsp;  with Dammy has been cancelled.</p>
+
+<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;font-style: italic"> Your deposit would be refunded within the next 1 hour. Please provide proof below so we can identify your deposit. If you do not see the refund, please contact support.</p>
 
 <main class="container">
 
@@ -193,16 +195,10 @@ font-size: 1.25em;"> SEND PAYMENT</h1>
 
 <div class="row justify-content-md-center">
 
-    <hr style="margin-bottom: 5.2%; background: #f2f2f2;" class="col-10">
+    <hr style="margin-bottom: 2.2%; background: #f2f2f2;" class="col-10">
 
 </div>
 
-<div class="row justify-content-md-center justify-content-xs-center" style="padding-bottom: 3.7%;">
-
-    <button type="button" id="buyButton" class="btn btn-primary col-xs-6 col-sm-3"  style="font-size: 1.563em;
-    color:#fafafa;line-height: 1.875em;">Cancel Trade</button>
-        
-    </div>
 
 
    
