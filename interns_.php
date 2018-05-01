@@ -1,6 +1,4 @@
-<?php
-include_once("header.php");
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +11,13 @@ include_once("header.php");
     <meta name="author" content="">
 
     <title>Interns</title>
+	
 		<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+		<script type="text/javascript" src="js/loader.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/loader.css" rel="stylesheet">
 		<script type="text/javascript" src="js/intern_.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/intern_.css" />
 		<style type="text/css">
@@ -64,6 +68,11 @@ include_once("header.php");
   </head>
 
 <body>
+<div class="page-overlay">
+  <div class="text"><p></p></div>
+	<div class="paper-progress-bar"></div>
+</div>
+<div class="inside">
     <main class="wrapper">
 	  <section style="width:70%;margin-left:200px;margin-top:50px;">
 	   <div style="margin-top:20px;">
@@ -217,6 +226,7 @@ Don’t take our word for it...take theirs.</p>
 </table>
 </section>
 </main>
+</div>
 </body>
 <?php
 include("footer.php");
