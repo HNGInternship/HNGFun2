@@ -59,9 +59,9 @@ include_once("header.php");
     <div class="col-4">
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active" id="v-pills-tab-1" data-toggle="pill" href="#v-pills-tab-1-label" role="tab" aria-controls="v-pills-tab-1-label" aria-selected="true">HNG 1.0 (May 1st - July 23rd 2016)</a>
-        <a class="nav-link" id="v-pills-tab-2" data-toggle="pill" href="#v-pills-tab-2-label" role="tab" aria-controls="v-pills-tab-2-label" aria-selected="false">HNG 1.0 (May 1st - July 23rd 2016)</a>
-        <a class="nav-link" id="v-pills-tab-3" data-toggle="pill" href="#v-pills-tab-3-label" role="tab" aria-controls="v-pills-tab-3-label" aria-selected="false">HNG 1.0 (May 1st - July 23rd 2016)</a>
-        <a class="nav-link" id="v-pills-tab-4" data-toggle="pill" href="#v-pills-tab-4-label" role="tab" aria-controls="v-pills-tab-4-label" aria-selected="false">HNG 1.0 (May 1st - July 23rd 2016)</a>
+        <a class="nav-link" id="v-pills-tab-2" data-toggle="pill" href="#v-pills-tab-2-label" role="tab" aria-controls="v-pills-tab-2-label" aria-selected="false">HNG 2.0 (May 1st - July 23rd 2017)</a>
+        <a class="nav-link" id="v-pills-tab-3" data-toggle="pill" href="#v-pills-tab-3-label" role="tab" aria-controls="v-pills-tab-3-label" aria-selected="false">HNG 3.0 (Sept. 3rd - Nov. 23rd 2017)</a>
+        <a class="nav-link" id="v-pills-tab-4" data-toggle="pill" href="#v-pills-tab-4-label" role="tab" aria-controls="v-pills-tab-4-label" aria-selected="false">HNG 4.0 (May 1st - july 23rd 2018)</a>
       </div>
     </div>
     <div class="col-8">
@@ -163,6 +163,9 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
   </div>
 </div>
 </main>
+  <div style='color: #3D3D3D; padding-bottom: 80px'>
+
+</div>
 
 
 <?php
