@@ -7,3 +7,4 @@ config.php
 .idea/
 phpmyadmin/
 bower_components/
+vendor/
