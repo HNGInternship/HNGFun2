@@ -134,7 +134,7 @@ if(isset($_POST['login'])){
 					$message = "You requested for a password change.";
 					$message .= " Click the link to reset your password";
 					$message .= " <a href='http://5serve.com/test/resetpassword.php?token=".$reset_pin."'>Here</a>";
-					if(mail($email, $subject, $message)){
+					if(mail($email, $subject, $message, $headers)){
 						echo 1;
 					}else{
 						echo 2;
