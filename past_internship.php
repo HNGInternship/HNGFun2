@@ -1,8 +1,8 @@
+
 <?php
 include_once("header.php");
 ?>
 <style>
-
   main {
     margin-top: 50px;
   }
@@ -13,8 +13,6 @@ include_once("header.php");
   .nav-item:hover, .active {
     border-bottom: none !important;
   }
-
-
   .nav-pills{
     border: 1px solid lightgrey;
   }
@@ -27,19 +25,15 @@ include_once("header.php");
     text-align: center;
     background-color: #F4F4F4;
   }
-
   .nav-pills .nav-link:hover{
     font-size: 75%;
     color: #007bff;
   }
-
   .nav-pills .nav-link.active {
     background-color: #F4F4F4;
     color: #007bff;
     border-bottom: 1px solid lightgrey !important;
   }
-
-
 </style>
 <main>
 <div class="container">
@@ -56,7 +50,7 @@ include_once("header.php");
       <div class="tab-content" id="v-pills-tabContent">
       <!-- hng 1.0 -->
         <div class="tab-pane fade show active" id="v-pills-tab-1-label" role="tabpanel" aria-labelledby="v-pills-tab-1">
-          <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSipOBWQCRcVtWoovIoACMPLJMbJM_odJaMKQQ2fe4tNZgavimd" width="100%" style="margin-bottom:20px;">
+          <img class="img-fluid" src="https://media.npr.org/assets/img/2016/06/03/1_blackmencode-reddingrucker_computer-edit_wide-9f1fbcd2af0a9ebdd4a081fe27ac1ea6bfb95256-s900-c85.jpg" width="100%" style="margin-bottom:20px;">
           <h5>About HNG 1.0</h5>
           <p style="text-align: justify;"><small> The HNG 1.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
 Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. Nec ad doming fuisset argumentum, cu per vocibus adolescens, quo in cibo malis posidonium. Ne usu lorem oblique</small> </p>
