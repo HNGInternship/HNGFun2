@@ -4,6 +4,7 @@ include_once("header.php");
 <style>
 	body{
 		overflow-x: hidden;
+		100%;
 	}
 	main{
 		background-color: #fff;
