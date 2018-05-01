@@ -11,7 +11,7 @@
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 
       <!-- Custom fonts for this template -->
@@ -41,23 +41,29 @@
       
 
       <style>
-        body{
-            background-color: #fafafa;
-            font-family: 'Lato', sans-serif;
+        body {
+          background-color: #FAFAFA;
         }
-        #navbar{
-            font-size: 15px;
-            font-weight: bold;
+        .navbar{
+          font-size: 15px;
+          font-weight: bold;
+          padding-right: 100px;
+          padding-left: 100px;
+          background-color: #FFFFFF;
         } 
-        
+  
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
         }
-
         .nav-item:hover { 
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
+
+        }
+
+        footer {
+          background: #FFFFFF;
         }
 
   <?php if (function_exists('custom_styles')) {

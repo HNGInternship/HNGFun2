@@ -26,7 +26,9 @@
                </li>
     
             </ul>
-            <p class="copyright text-muted">Copyright &copy; HNG FUN <?= date("Y")?></p>
+            <div style="text-align: center">
+                <p class="copyright text-muted">Copyright &copy; HNG FUN <?= date("Y")?></p> 
+            </div>
          </div>
       </div>
    </div>

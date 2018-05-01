@@ -42,9 +42,17 @@ include_once("header.php");
                 <div class="learn-image"> <i class="far fa-object-ungroup"></i> </div>
                 <div class="learn-description">Principles of Product Design (UI/UX)</div>
             </div>
+<<<<<<< HEAD
+            <div class="col-md-4 text-center">
+                <button class="btn btn-info btn-circle btn-xl">
+                    <span>HTML/CSS/ <br> SASS/VUE</span>
+                </button>
+                <h4>FRONT-END WEB DEVELOPMENT</h4>
+=======
             <div class="learn-item">
                 <div class="learn-image" style="color:red !important;"> <i class="fab fa-html5"></i> </i> </div>
                 <div class="learn-description">Front End Web Development</div>
+>>>>>>> 033ec22ade1626e17aefdff03cbe66c7d8a17e56
             </div>
             <div class="learn-item">
                 <div class="learn-image"> <i class="fas fa-server"></i> </div>

@@ -5,3 +5,8 @@ config.php
 .idea/
 .phpintel/
 .vscode/
+<<<<<<< HEAD
+.idea/
+phpmyadmin/
+=======
+>>>>>>> 033ec22ade1626e17aefdff03cbe66c7d8a17e56

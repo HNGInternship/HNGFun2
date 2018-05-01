@@ -42,11 +42,6 @@ $data = $q->fetchAll();
      text-align:center;
      
    }
-   
-body{
-  background-color:white;
-}
-   
 </style>
       <div class="container" >
       <br>
