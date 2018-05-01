@@ -49,4 +49,12 @@ footer {
     padding-bottom: 0;
 }
 
-body{background: #e5e5e5 !important;}
+body {
+    background: #e5e5e5 !important;
+}
+
+
+
+#contact-half {
+    background: linear-gradient( to right, #ffffff 0%, #ffffff 50%, #2196F3 50%, #2196F3 100%);
+}
