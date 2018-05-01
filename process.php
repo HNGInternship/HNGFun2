@@ -136,7 +136,30 @@ if(isset($_POST['login'])){
 				//Create a new PHPMailer instance
 				$mail = new PHPMailer;
 				// Set PHPMailer to use the sendmail transport
-				$mail->isSendmail();
+				//$mail->isSendmail();
+				//Tell PHPMailer to use SMTP
+					$mail->isSMTP();
+					//Enable SMTP debugging
+					// 0 = off (for production use)
+					// 1 = client messages
+					// 2 = client and server messages
+					$mail->SMTPDebug = 0;
+					//Set the hostname of the mail server
+					$mail->Host = 'smtp.gmail.com';
+					// use
+					// $mail->Host = gethostbyname('smtp.gmail.com');
+					// if your network does not support SMTP over IPv6
+					//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+					$mail->Port = 587;
+					//Set the encryption system to use - ssl (deprecated) or tls
+					$mail->SMTPSecure = 'tls';
+					//Whether to use SMTP authentication
+					$mail->SMTPAuth = true;
+					//Username to use for SMTP authentication - use full email address for gmail
+					$mail->Username = "teamdragonrevenge@gmail.com";
+					//Password to use for SMTP authentication
+					$mail->Password = "dragonrevenge2018";
+
 				//Set who the message is to be sent from
 				$mail->setFrom('internship@hngfun.com', 'Hng');
 				//Set an alternative reply-to address
@@ -151,6 +174,8 @@ if(isset($_POST['login'])){
 				$_SESSION['token'] = $token;
 
 				$Body = file_get_contents('password_reset_email.php');
+				$Body = str_replace('urltoken', $token, $Body);
+				
 				$mail->IsHTML(true);
 				$mail->Body    = $Body;
 				 
@@ -162,9 +187,10 @@ if(isset($_POST['login'])){
 				//send the message, check for errors
 				
 				if (!$mail->send()) {
-				    echo "Mailer Error: " . $mail->ErrorInfo;
+				    //echo "Mailer Error: " . $mail->ErrorInfo;
+				    "Error occured while sending mail";
 				} else {
-				    echo "Message sent!";
+				    echo "Message sent";
 
 				}
       		
