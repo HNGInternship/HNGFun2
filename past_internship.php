@@ -1,46 +1,58 @@
 <?php
 include_once("header.php");
 ?>
-<style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  main {
-    margin-top: 50px;
-  }
-  a {
-    text-decoration: none !important;
-    color: #007bff;
-  }
-  .nav-item:hover, .active {
-    border-bottom: none !important;
-  }
+    <!-- styles link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <!-- font-awesome -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  .nav-pills{
-    border: 1px solid lightgrey;
-  }
-  .nav-pills .nav-link{
-    border-radius: 0;
-    border-bottom: 1px solid lightgrey;
-    font-size: 70%;
-    color: grey;
-    padding: 20px;
-    text-align: center;
-    background-color: #F4F4F4;
-  }
+  <style>
 
-  .nav-pills .nav-link:hover{
-    font-size: 75%;
-    color: #007bff;
-  }
+    main {
+      margin-top: 50px;
+    }
+    a {
+      text-decoration: none !important;
+      color: #000;
+    }
 
-  .nav-pills .nav-link.active {
-    background-color: #F4F4F4;
-    color: #007bff;
-    border-bottom: 1px solid lightgrey !important;
-  }
+    .nav-item:hover, .active {
+      border-bottom: none !important;
+    }
 
 
-</style>
+    .nav-pills{
+      border: 1px solid lightgrey;
+    }
+    .nav-pills .nav-link{
+      border-radius: 0;
+      border-bottom: 1px solid lightgrey;
+      font-size: 70%;
+      color: grey;
+      padding: 20px;
+      text-align: center;
+      background-color: #F4F4F4;
+    }
+
+    .nav-pills .nav-link:hover{
+      font-size: 75%;
+      color: #007bff;
+    }
+
+    .nav-pills .nav-link.active {
+      background-color: #F4F4F4;
+      color: #007bff;
+      border-bottom: 1px solid lightgrey !important;
+    }
+
+
+  </style>
+</head>
 <main>
 <div class="container">
   <div class="row">
@@ -67,7 +79,7 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
             </div>
             <div class="col-6">
               <h5>Final 20 participants</h5>
-              <p><small><a href="alumni.php">View Participants</a></small></p>
+              <p><small><a href="alumni.php" style="color: #007bff;">View Participants</a></small></p>
             </div>
           </div>
           <h5>Partners</h5>
@@ -90,7 +102,7 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
             </div>
             <div class="col-6">
               <h5>Final 20 participants</h5>
-              <p><small><a href="alumni.php">View Participants</a></small></p>
+              <p><small><a href="alumni.php" style="color: #007bff;">View Participants</a></small></p>
             </div>
           </div>
           <h5>Partners</h5>
@@ -113,7 +125,7 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
             </div>
             <div class="col-6">
               <h5>Final 20 participants</h5>
-              <p><small><a href="alumni.php">View Participants</a></small></p>
+              <p><small><a href="alumni.php" style="color: #007bff;">View Participants</a></small></p>
             </div>
           </div>
           <h5>Partners</h5>
@@ -136,7 +148,7 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
             </div>
             <div class="col-6">
               <h5>Final 20 participants</h5>
-              <p><small><a href="alumni.php">View Participants</a></small></p>
+              <p><small><a href="alumni.php" style="color: #007bff;">View Participants</a></small></p>
             </div>
           </div>
           <h5>Partners</h5>
