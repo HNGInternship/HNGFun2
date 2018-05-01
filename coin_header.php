@@ -7,8 +7,8 @@
 
 $fileName=basename($_SERVER['PHP_SELF']);
 
-$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
-$activeArray = array('','','','','','');
+$files = array('buy_coins.php','buyandsell.php','help.php');
+$activeArray = array('','','','');
 
 $fileIndex=array_search($fileName,$files);
 
@@ -122,11 +122,11 @@ $activeArray[$fileIndex]="active";
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Buy HNGcoin <span class="sr-only">(current)</span></a>
+          <li class="nav-item <?= $activeArray[0] ?>">
+            <a class="nav-link" href="#">Buy HNGcoin <span class="sr-only"></span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sell HNGcoin</a>
+          <li class="nav-item <?= $activeArray[1] ?>">
+            <a class="nav-link" href="buyandsell.php">Sell HNGcoin</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Help</a>
@@ -138,6 +138,12 @@ $activeArray[$fileIndex]="active";
         </form> -->
 
             <ul class="navbar-nav ml-auto navbar-row upper-navbar py-0 mt-2 mt-lg-0">
+
+              <li class="pt-0 mt-3 mb-0 pl-2 pr-0 ">
+                <a class="nav-link  mr-3 " href="#" id="navbarSettings">
+                    Current Balance : 3655.240 HNGcoin
+                </a>
+            </li>
             
             <li class="nav-item dropdown py-0 mt-3 mb-0 ">
                 <a class="nav-link dropdown-toggle mr-3 remove-after notification" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
