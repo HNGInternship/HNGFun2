@@ -197,7 +197,7 @@ include_once("header.php");
              else{
                // alert(data);
                 $("#message").html(data);
-                 $("#register").html('Failed');
+                 $("#register").html('Failed!');
              } 
             
 

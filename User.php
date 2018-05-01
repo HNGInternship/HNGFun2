@@ -67,7 +67,7 @@ public function __construct(){
         $password_hash = md5($password);
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,phone,password) VALUES(?,?,?,?,?,?)";
+        $query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,phone,password) VALUES(?,?,?,?,?,?)"; 
         
             $statement = $db->prepare($query);
 
