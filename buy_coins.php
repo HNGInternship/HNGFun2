@@ -1,13 +1,15 @@
 <?php
 
 include_once("coin_header.php");
+include_once("db.php");
+
 if(!isset($_GET['request_id'])){
     echo "<script>alert('Request ID required');</script>";
 }
 $request_id = $_GET['request_id'];
 
 $sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id where sell_requests.id = :request_id";
-$stmt = $conn->prepare($sql);
+$stmt = $db->prepare($sql);
 $stmt->bindParam(':request_id', $request_id);
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
