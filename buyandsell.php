@@ -22,7 +22,7 @@ include_once("coin_header.php");
 }
 
 .mod{
-	width: 200px;
+	width: 100%;
 	height: 75px;
 }
 .body{
@@ -469,8 +469,8 @@ h3{
 </section>
 
 <!---Modal--->
-<div class="modal fade" id="sellModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade bd-example-modal-lg" id="sellModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header mx-auto text-center">
         <h5 class="modal-title" id="sellModalLabel">Sell MY Coin</h5>
