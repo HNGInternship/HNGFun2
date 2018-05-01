@@ -1,6 +1,17 @@
 <?php
 
 include_once("coin_header.php");
+if(!isset($_GET['request_id'])){
+    echo "<script>alert('Request ID required');</script>";
+}
+$request_id = $_GET['request_id'];
+
+$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id where sell_requests.id = :request_id";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':request_id', $request_id);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$sell_request = $stmt->fetch();
 
 ?>
 
@@ -186,13 +197,13 @@ background: rgba(0, 0, 0, 0.8);
   <thead>
     <tr>
       <th scope="col">Buying From</th>
-      <th scope="col">Dammy</th>
+      <th scope="col"><?php echo $sell_request['full_name']; ?></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Price</td>
-      <td>3,395,925 NGN/HNGcoin</td>
+      <td><?php echo $sell_request['price_per_coin']; ?> NGN/HNGcoin</td>
     </tr>
     <tr>
       <td>Payment Method</td>
