@@ -1,5 +1,5 @@
 .page404 {
-    height: 80vh;
+    height: 100vh;
     border-radius: 0;
     margin-bottom: 0;
     background: #2196F3;
@@ -8,6 +8,11 @@
 .content404 {
     text-align: center;
     color: #fff;
+    position: relative;
+}
+
+.content404 {
+    padding-top: -10px;
 }
 
 section.content404 hr {
@@ -18,6 +23,8 @@ section.content404 hr {
 .bigtext {
     font-size: 8em;
     font-weight: 200;
+    padding-top: -10px;
+    margin-top: -19px;
 }
 
 .btn-404 {
@@ -27,6 +34,12 @@ section.content404 hr {
     padding: 10px 20px;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+.image404 {
+    margin: auto;
+    width: 80%;
+    margin-top: -80px;
 }
 
 footer {
