@@ -6,3 +6,5 @@ config.php
 .vscode/
 .idea/
 phpmyadmin/
+bower_components/
+vendor/
