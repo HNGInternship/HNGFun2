@@ -14,8 +14,9 @@ include_once("header.php");
                 Enter your email address and we'll send you an email with instructions to reset your password.
             </p>
             <div style="padding: 20px 200px 0px 200px;  width: 800px;">
-                <input type="text" class="form-control form-control-lg rounded-right" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" name="email" class="form-control form-control-lg rounded-right" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
                 <br />
+                <input type="hidden" name="pword-reset" value="yes">
                 <button id="btn-reset" name="pword-reset" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;">Reset Password</button>
                 <p style='color: #ADADAD '>
                      Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
@@ -67,9 +68,15 @@ include_once("header.php");
             $.ajax('process.php',{
                 type: 'post',
                 data: data,
-                success: function(){
+                success: function(response){
+                    if(response == 'sent'){
                     $("#message").addClass('alert alert-success');
-                    $("#message").html("Login successful");
+                    $("#message").html("Email has been sent to you!");
+                    }
+                    else{
+                    $("#message").addClass('alert alert-success');
+                    $("#message").html('Password reset failed, please try again.');
+                    }
 
                 }
             });
@@ -95,6 +102,12 @@ include_once("header.php");
                 else if(response == 2){
                     $("#message").addClass('alert alert-success');
                     $("#message").html("Password change wasn't successful, try again");
+                }
+                
+                else if(response == 3){
+                 $("#message").addClass('alert alert-success');
+                    $("#message").html("Password don't match");
+                
                 }
                 else{
 

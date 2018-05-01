@@ -36,7 +36,8 @@ $activeArray[$fileIndex]="active";
     <meta name="author" content="">
 
     <title>HNG FUN</title>
-
+    <!--ajax scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
