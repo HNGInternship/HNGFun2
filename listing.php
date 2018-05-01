@@ -1,12 +1,14 @@
 <?php
 include_once("header.php");
-require 'config.php';
-try {
+require 'db.php';
+
+
+/*try {
   $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
 
 } catch (PDOException $pe) {
   die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-}
+}*/
 
  
 $sql = 'SELECT * FROM interns_data';
@@ -40,11 +42,6 @@ $data = $q->fetchAll();
      text-align:center;
      
    }
-   
-body{
-  background-color:white;
-}
-   
 </style>
       <div class="container" >
       <br>
@@ -81,7 +78,9 @@ body{
               <img src="http://res.cloudinary.com/julietezekwe/image/upload/v1525004514/git.png" alt="git" style="width:30px; height:30px; padding:3px;">
             </div>
           </a>
-         <button class="btn btn-default" style="margin:3px;">View profile</button>
+             <a href="profile.php?id=<?=$list['username']?>">
+                 <button class="btn btn-default" style="margin:3px;">View Profile</button>
+             </a>
    </div>
  
     <div style="margin-left:150px; textialign:center"><h5><?=$list['username']?></h5>
