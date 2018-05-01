@@ -33,7 +33,7 @@ function custom_styles() {
             <div class="col col-sm-7 contact-form">
                 <!-- <section class="row"> -->
                     <h3 class="text-left"> Send us a message</h3>
-                    <span></span> <!-- for the envelope icon on the right -->
+                    <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span> <!-- for the envelope icon on the right -->
                 
                 <form method="post">
                         <div class="form-group row">
@@ -57,19 +57,25 @@ function custom_styles() {
                             </div>
                         </div>
                   
-                    <div class="form-group row">
-                        <!-- <div class="col-8"> -->
-                              <label for="message" class="col-form-label-sm" style="display: inline-block;">Message</label>
-                            <textarea id="contact-message" class="form-control" name="message" row="7" col="7" placeholder="Type your message..."></textarea>
-                        <!-- </div> -->
+                    <div class="row">
+                        <div class="col-10">
+                              <label for="message" class="col-form-label-sm">Message</label>
+                         
+                        </div>
                     </div>
+                    <div class="row">
+                        <textarea id="contact-message" class="form-control" name="message" placeholder="Type your message..."></textarea>
+                    </div>
+
+                    <button class="send-button" type="submit"><img src="./img/send.png" alt="envelope" ></button>
+                      
                 </form>
             <!-- </section> -->
             </div>
 
             <div class="col col-sm-3 contact-info">
                 <div class="row">
-                    <h3>Contact Information</h3>
+                    <h4>Contact Information</h4>
                 </div>
 
                 <div class="row">
@@ -87,9 +93,9 @@ function custom_styles() {
                     <p>support@hng.fun</p>
                 </div>
                   <div class="social-media">
-                    <i class="fa fa-twitter"></i>
-                    <i class="fa fa-facebook"></i>
-                    <i class="fa fa-github"></i>
+                    <i class="fa fa-twitter"><a href="#"></a></i>
+                    <i class="fa fa-facebook"><a href="#"></a></i>
+                    <i class="fa fa-github"><a href="#"></a></i>
                 </div>
             </div>
         </div>
