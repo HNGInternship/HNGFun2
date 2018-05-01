@@ -60,6 +60,21 @@ include_once("header.php");
         width: 100%;
         justify-content: center;
     }
+  
+    input[type="text"]#help-search::-webkit-input-placeholder { /* Chrome */
+        color: #48BBFC !important;
+    }
+    input[type="text"]#help-search:-ms-input-placeholder { /* IE 10+ */
+        color: #48BBFC !important;
+    }
+    input[type="text"]#help-search::-moz-placeholder { /* Firefox 19+ */
+        color: #48BBFC !important;
+        opacity: 1;
+    }
+    input[type="text"]#help-search:-moz-placeholder { /* Firefox 4 - 18 */
+        color: #48BBFC !important;
+        opacity: 1;
+    }
 
     #help-search{
         width: 47%;
@@ -108,7 +123,11 @@ include_once("header.php");
 
     i.fa.fa-chevron-down {
         color: #ffffff !important;
-        padding-left: 22px;
+        padding-left: 24px;
+    }
+
+    i.fa.fa-chevron-down:nth-of-type(3n) {
+        padding-left: 36px;
     }
 
     .contact-container {
@@ -126,6 +145,7 @@ include_once("header.php");
         padding-left: 30px;
         display: inline-block;
         margin-right: 5em;
+        max-width: 280px;
     }
 
     button.btn.btn-link {
