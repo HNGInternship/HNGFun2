@@ -1,132 +1,165 @@
 <?php
-
 include_once("coin_header.php");
-include_once("db.php");
-
-
-
 ?>
 
 <style>
-
 body{
-
     background: #ffffff;
     /*font-size: 14px;*/
     font-family: Lato;
-
-
 }
-
+.main-container{
+  padding-right: 10%;
+    padding-left: 10%;
+    font-size: 14px;
+}
+td,.heavy-text{
+    font-weight: 600;
+}
 main{
-
-    margin-top: 0;
     margin-bottom: 7.4%;
-    margin-right: 10%;
-    margin-left: 10%;
+    /*margin-right: 10%;
+    margin-left: 10%;*/
     padding-bottom: 3.1%;
  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
-    font-size: 14px;
  
 }
-
-.header-text {
-    margin-top: 6.5%
-}
-
 .input-form{
     padding-top: 11%;
     padding-bottom:4.5%;
 }
-
 .label-for-form,#sellerDetails,thead>tr>th{
     font-size: 1.25em;
     color: #3d3d3d;
     line-height: 1.5em;
-
-
 }
-
 td,.footerText{
      font-size: 1.125em;
     color: #323232;
     line-height:1.250em;
-
 }
-
-td{
-
-  font-weight: 600;
-}
-
 #sellerDetails{
     font-weight: bold;
 }
-
 .input-for-form{
-
     font-size: 1.25em;
     color: #828282;
     line-height: 1.5em;
-
 }
-
 .table-div{
     padding-bottom: 5.5%;
 }
-
 .modal-content{
     padding: 1.4% 3.3%;
 }
-
 #modalHeader{
   /*font-size: 1.25em;*/
   /*font-size: 2.625em;*/
   font-size: 2em;
-
   
-
 font-style: normal;
 font-weight: bold;
 line-height: normal;
 color: #3d3d3d;
 margin-bottom: 2.2%;
 }
-
-
 #confirmModal{
-
     background: rgba(196, 196, 196, 0.3) !important;
 }
-
-
 .visible{
     display: block;
 }
-
 .hidden{
     display: none;
 }
 
-/*#scrim{
-background: rgba(0, 0, 0, 0.8);
-    color: white;
-    position: fixed;
-    z-index: 999999999;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    /*display: none;*/
-/*}*/
 
- /* media queries */
+
+/*breadcrumbs*/
+
+
+/*.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+}
+.breadcrumb .item {
+  flex: 1 0 25%;
+  box-sizing: border-box;
+  background: #e0ddd5;
+  color: #171e42;
+  padding: 10px;
+}
+
+
+.breadcrumb { 
+  list-style: none; 
+  overflow: hidden; 
+  font: 18px Sans-Serif;
+  padding: 0%;
+   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.breadcrumb { 
+  list-style: none; 
+  overflow: hidden; 
+  font: 18px Sans-Serif;
+}
+
+.breadcrumb div a {
+  color: white;
+  text-decoration: none; 
+  padding: 10px 0 10px 65px;
+  background: brown; 
+  background: hsla(34,85%,35%,1); 
+  position: relative; 
+  display: block;
+}
+
+
+.breadcrumb div a::after { 
+  content: " "; 
+  display: block; 
+  width: 0; 
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid hsla(34,85%,35%,1);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px; 
+  left: 100%;
+  z-index: 2; 
+}
+
+.breadcrumb div a::before { 
+  content: " "; 
+  display: block; 
+  width: 0; 
+  height: 0;
+  border-top: 50px solid transparent;       
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px; 
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1; 
+}*/
+
+
+
+
+
+
+
+/*******************************************/
     @media(min-width: 360px) { 
         #checkMark {
             left:10%;        } 
     }
-
-
   
 </style>
 
@@ -136,10 +169,65 @@ background: rgba(0, 0, 0, 0.8);
     <p>ertghe</p>
 </section> -->
 
-<div class="header-text container">
-    <h5>INPUT DETAILS</h5>
-    <p>Please input the necessary details and cross check that they are correct before proceeding</p>
-</div>
+<div class="main-container">
+
+  <!-- <div class="container" style="margin-top: 6.5%"> -->
+
+
+ <!--    <div class="breadcrumb">
+  <div class="item" style="background:red "><a>Heriberto Nickel</a></div>
+  <div class="item" style="background:blue"><a>Brittaney Haliburton</a></div>
+  <div class="item" style="background:yellow "><a>Maritza Winkler</a></div>
+  <div class="item" style="background:green"><a>Carmon Rigg</a></div>
+</div> -->
+
+  
+<div class="row no-gutters" style="margin-top: 6.5%">
+
+    <div style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">1</span>
+
+      
+    </div>
+
+    <div  style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img  style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">2</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_1_arrow.svg" alt="first arrow">
+
+      
+    </div>
+
+    <div style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">3</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_2_arrow.svg" alt="first arrow">
+
+
+      
+    </div>
+
+     <div  style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">4</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_2_arrow.svg" alt="first arrow">
+
+
+      
+    </div>
+  </div>
+<h1  style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 2.4%;margin-bottom:0%;
+font-family: 'Work Sans';
+font-style: normal;
+font-weight: bold;
+line-height: normal;
+font-size: 1.25em;"> INPUT DETAILS</h1>
+
+<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;"> Please input the necessary details and crosscheck that they are correct before proceeding</p>
 
 <main class="container">
     <div class="container">
@@ -168,7 +256,7 @@ background: rgba(0, 0, 0, 0.8);
 
 
 <!-- Modal -->
-<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
         <p  id="closeButton" style="text-align: right;margin-bottom: 0%;opacity: 1; padding-right: 5%" class="close" data-dismiss="modal" aria-label="Close">
@@ -185,7 +273,7 @@ background: rgba(0, 0, 0, 0.8);
       
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Modal -->
 
@@ -203,8 +291,8 @@ background: rgba(0, 0, 0, 0.8);
 <table class="table table-bordered col-xs-12 col-sm-10">
   <thead>
     <tr>
-      <th scope="col">Selling to</th>
-      <th scope="col">Dammy</th>
+      <th class="w-50" scope="col">Selling To</th>
+      <th class="w-50" scope="col">Dammy</th>
     </tr>
   </thead>
   <tbody>
@@ -237,45 +325,33 @@ background: rgba(0, 0, 0, 0.8);
 <p class="footerText" style="text-align: center;color: #3D3D3D;"> You will recieve HNGcoin immediately after seller has confirmed your payment</p>
    
 </main>    
-<!-- </div> -->
+</div>
 
 <script type="text/javascript">
     
     window.onload = function() {
    
-
     $('#buyButton').on('click', function () {
-
         setTimeout(completeTransaction, 2000);
       
     });
-
-
     
     
    $('#closeButton').on('click', function () {
-
        $('#checkMark').toggleClass('visible');
     $('#checkMark').toggleClass('hidden');
     $('#modalHeader').html('Confirming...');
     $('#modalFooter').toggleClass('hidden');
     $('#modalFooter').toggleClass('visible');
     });
-
-
   }
-
-
   function completeTransaction(){
     $('#checkMark').toggleClass('visible');
     $('#checkMark').toggleClass('hidden');
     $('#modalHeader').html('Transaction Complete');
     $('#modalFooter').toggleClass('hidden');
     $('#modalFooter').toggleClass('visible');
-
-
   }
-
 </script>
 
 <!-- Footer -->
