@@ -72,6 +72,8 @@ $activeArray[$fileIndex]="active";
           background-color: #F4F4F4;
           padding: 0 5%;
         } 
+		
+		
         
         .nav-item{
             padding: 24px 15px;
@@ -83,6 +85,12 @@ $activeArray[$fileIndex]="active";
             /*border-bottom: 3px solid rgb(90, 145, 247);*/
             border-bottom: 3px solid #2196F3;
         }
+		.mod{
+			width: 100%;
+			height: 75px;
+			background-color: #2196F3 !important;
+			color: #ffffff;
+		}
 
         footer {
           background: #FAFAFA;
@@ -95,7 +103,16 @@ $activeArray[$fileIndex]="active";
         .wrap {
           flex-wrap: wrap;
         }
-
+		
+		.note-body{
+			background-color:#F2F2F2;
+			font-size: 14px;
+			padding-right: 10px;
+		}
+		
+		a{
+			color: #2196F3;
+		}
          /* media queries */
         @media (max-width: 599px) { 
             .navbar {
@@ -104,7 +121,8 @@ $activeArray[$fileIndex]="active";
             .login-con, .reset-title {
 			    width: 100% !important;
 		    }
-        }   
+        }
+   
 
     </style>
 
@@ -144,19 +162,28 @@ $activeArray[$fileIndex]="active";
                     <i class="fa fa-bell navbar-icon fa-lg"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-notification" aria-labelledby="navbarSettings">
-                    <span class="dropdown-item hover-text" href="#">You have a reservation on hotels.ng <br> <a href="">Claim reservation</a></span>
-
-                    <div class="dropdown-divider"></div>
-                    <span class="dropdown-item hover-text" href="#">You have a reservation on hotels.ng <br> <a  href="">Claim reservation</a></span>
-                    <div class="dropdown-divider"></div>
-                    <span class="dropdown-item hover-text" href="#">You have a reservation on hotels.ng <br> <a  href="">Claim reservation</a></span>
-                    <div class="dropdown-divider"></div>
-                    <span class="dropdown-item hover-text" href="#">You have a reservation on hotels.ng <br> <a  href="">Claim reservation</a></span>
-                    <div class="dropdown-divider"></div>
-                    <span class="dropdown-item hover-text" href="#">You have a reservation on hotels.ng <br> <a  href="">Claim reservation</a></span>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item hover-text" href="#">For security purposes please check your <br> login contact here. We will notify<br> this address whenever <br>you update your password </a>
-
+                    <span class="dropdown-item hover-text"><b>Notifications</b></span>
+					<div class="dropdown-divider"></div>
+					<div class="note-body">
+						
+						
+						
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>2 hours ago</span>
+						<div class="dropdown-divider"></div>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>29 April</span>
+						<div class="dropdown-divider"></div>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>26 April </span>
+						<div class="dropdown-divider"></div>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>25 April</span>
+						<div class="dropdown-divider"></div>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>24 April</span>
+						<div class="dropdown-divider"></div>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>20 April</span>
+						<div class="dropdown-divider"></div>
+						
+										
+					</div>
+					<a class="dropdown-item hover-text text-center" href="#">See All</a>
                 </div>
             </li>
 
@@ -179,4 +206,60 @@ $activeArray[$fileIndex]="active";
     </nav>
     
    
-    
+
+<!---Modal--->
+<div class="modal fade bd-example-modal-lg" id="sellnote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header mx-auto text-center">
+        
+      </div>
+      <div class="modal-body">
+        <div class="row mx-auto text-center">
+			<div class="col mx-auto text-center">
+				Marvelous350 wants to sell 0.321 coins
+			</div>
+			
+		</div>
+      </div>
+      <div class="modal-footer mx-auto text-center">
+		<div class="col mx-auto text-center">
+			<button type="button" class="btn btn-primary mod">Accept</button>
+		</div>
+		<div class="col mx-auto text-center">
+			<button type="button" class="btn btn-primary mod">Decline</button>
+		</div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!---Modal--->
+<div class="modal fade bd-example-modal-lg" id="buynote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header mx-auto text-center">
+        
+      </div>
+      <div class="modal-body">
+        <div class="row mx-auto text-center">
+			<div class="col mx-auto text-center">
+				Marvelous350 wants to buy 0.321 coins
+			</div>
+			
+		</div>
+      </div>
+      <div class="modal-footer mx-auto text-center">
+		<div class="col mx-auto text-center">
+			<button type="button" class="btn btn-primary mod">Accept</button>
+		</div>
+		<div class="col mx-auto text-center">
+			<button type="button" class="btn btn-primary mod">Decline</button>
+		</div>
+        
+      </div>
+    </div>
+  </div>
+</div>
