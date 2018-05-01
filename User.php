@@ -6,7 +6,7 @@ public $table;
 
 public function __construct(){
     
-    $this->table = "interns_data";   
+    $this->table = "users";   
  date_default_timezone_set('Africa/Lagos');
 
 }
@@ -41,7 +41,7 @@ public function __construct(){
       //check if email exists already before registration to avoid double email
   public function check_email($email,$db){
          
-    $query = "SELECT * FROM interns_data WHERE email = '$email' LIMIT 1";
+    $query = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
     $result = mysqli_query($db,$query);
     if(mysqli_num_rows($result) > 0){
         
@@ -61,7 +61,7 @@ public function __construct(){
    
      public function register($firstname,$lastname,$email,$username,$phone,$password,$db){
         
-        $this->table = 'interns_data';
+        $this->table = 'users';
         
         
         $password_hash = md5($password);
@@ -210,8 +210,8 @@ public function __construct(){
 //login check
   public function check($email,$password,$db){
     $password_hash = md5($password);
-    $table = 'interns_data';
-    $query = "SELECT * FROM interns_data WHERE email = '$email' AND password = '$password_hash' LIMIT 1";
+    $table = 'users';
+    $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password_hash' LIMIT 1";
     $result = mysqli_query($db,$query);
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_array($result);
@@ -321,7 +321,7 @@ public function __construct(){
 
     //to check password token for password resets       
     public function check_token($token,$db){
-        $query = "SELECT * FROM interns_data WHERE token = '$token' LIMIT 1";
+        $query = "SELECT * FROM users WHERE token = '$token' LIMIT 1";
     $result = mysqli_query($db,$query);
     if(mysqli_num_rows($result) > 0){
         
