@@ -6,6 +6,7 @@ include_once("header.php");
     body {
         /* background-color: firebrick; */
         font-family: 'Fruktur';
+        background: #ffffff !important;
     }
 
     .whole-background {
@@ -33,7 +34,7 @@ include_once("header.php");
 
     .form-control {
         
-        border-color: #48BBFC;
+        border: 1px solid #48BBFC !important;
         color: #48BBFC;
         text-align: center;
         margin: 0 auto;
@@ -149,7 +150,7 @@ include_once("header.php");
          font-size: 0.9em;
     }
 
-    input[type="email"] {
+    .form-wrapper input[type="email"] {
         margin-bottom: 2em;
     }
 
