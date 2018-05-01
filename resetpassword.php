@@ -75,7 +75,7 @@ include_once("header.php");
         $("#btn-reset").click(function(e){
             e.preventDefault();
             var data = $("#form-reset").serialize();
-            alert('clicked');
+            //alert('clicked');
             $.ajax('process.php',{
                 type: 'post',
                 data: data,
