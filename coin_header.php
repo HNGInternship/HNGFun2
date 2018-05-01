@@ -2,7 +2,7 @@
 <?php 
 
 
-require_once("db.php");
+// require_once("db.php");
 // for choosing active page on nav bar
 
 $fileName=basename($_SERVER['PHP_SELF']);
@@ -110,7 +110,7 @@ $activeArray[$fileIndex]="active";
 			padding-right: 10px;
 		}
 		
-		a{
+		span>a{
 			color: #2196F3;
 		}
          /* media queries */
@@ -157,11 +157,6 @@ $activeArray[$fileIndex]="active";
 
             <ul class="navbar-nav ml-auto navbar-row upper-navbar py-0 mt-2 mt-lg-0">
 
-              <li class="pt-0 mt-3 mb-0 pl-2 pr-0 ">
-                <a class="nav-link  mr-3 " href="#" id="navbarSettings">
-                    Current Balance : 3655.240 HNGcoin
-                </a>
-            </li>
             
             <li class="nav-item dropdown py-0 mt-3 mb-0 ">
                 <a class="nav-link dropdown-toggle mr-3 remove-after notification" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -174,17 +169,17 @@ $activeArray[$fileIndex]="active";
 						
 						
 						
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>2 hours ago</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>2 hours ago</span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>29 April</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>29 April</span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>26 April </span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>26 April </span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>25 April</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>25 April</span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>24 April</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>24 April</span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>20 April</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>20 April</span>
 						<div class="dropdown-divider"></div>
 						
 										
