@@ -1,9 +1,9 @@
  <?php session_start(); include("header.php");?>
-<?php 
+<?php
 //check email reset token
     if(isset($_GET['token'])){
 
-      $token = $_GET['token'];  
+      $token = $_GET['token'];
 
         require_once('db.php');
         require_once('Member.php');
@@ -14,19 +14,19 @@
      if($password_response==false){
 
        echo "<div class ='alert alert-danger'style='color:red; font-weight:bold; text-align:center'>Your token is invalid or has already been used </div>";
-      die(); 
+      die();
 
      }
 
         }
         else{
-           echo "<div class ='alert alert-danger'style='color:red; font-weight:bold; text-align:center'>You have no taken for password reset </div>";
-      die();  
+           echo "<div class ='alert alert-danger'style='color:red; font-weight:bold; text-align:center'>You have no token for password reset </div>";
+      die();
         }
-        
 
-       
-     
+
+
+
 
 ?>
 <div style="font-family: 'Roboto', sans-serif; margin-top: 100px;">
@@ -49,7 +49,7 @@
                     <input type="hidden" name="">
                     <input type="hidden" name="reset_password" value="yes">
                 </div>
-                
+
     </div>
     <div class="form-row justify-content-center">
         <div class="form-group col-md-6" style="padding-right:100px; padding-left: 100px">
@@ -58,10 +58,10 @@
     </div>
         <br />
     <div class="row justify-content-center">
-        <a href="#"><button type="submit" id="reset"  class="btn btn-primary btn-sm" style="width: 360px; border-radius: 5px; padding: 9px; margin-top: -50px; background-color: #2196F3;" >Create New Password</button></a> 
+        <a href="#"><button type="submit" id="reset"  class="btn btn-primary btn-sm" style="width: 360px; border-radius: 5px; padding: 9px; margin-top: -50px; background-color: #2196F3;" >Create New Password</button></a>
      </div>
     </form>
-    
+
 </div>
 </div>
 <div style='color: #3D3D3D; padding-bottom: 100px'>
@@ -74,28 +74,28 @@
 
         var password = $("#password").val();
         var confirm_password = $("#password_confirm").val();
-        
+
         if(password ==""){
             alert('please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter Password');
         }
-       
+
         else if(password != confirm_password){
             alert('Passwords dont match');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Passwords dont match');
         }
 
-       
+
         else{
-            
-            
+
+
             $("#reset").html('Resetting..');
 
              var data = $("#reset_form").serialize();
 
-            
+
 
              $.ajax('process.php',{
             type : 'post',
@@ -108,15 +108,15 @@
 
             $("#reset").html('Done');
 
-             }  
+             }
              else{
                 alert(data);
                 $("#message").addClass('alert alert-danger');
-            
+
                 $("#message").html(data);
                  $("#reset").html('Failed');
-             } 
-            
+             }
+
 
             },
            error : function(jqXHR,textStatus,errorThrown){
@@ -133,10 +133,10 @@
             $("#reset").html('Sending..');
             },
         });
-    
+
 
         }
-        
+
      });
 
 
