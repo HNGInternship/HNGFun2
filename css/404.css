@@ -1,5 +1,5 @@
 .page404 {
-    height: 100vh;
+    height: 103vh;
     border-radius: 0;
     margin-bottom: 0;
     background: #2196F3;
@@ -36,11 +36,16 @@ section.content404 hr {
     text-decoration: none;
 }
 
+.content404 p  {
+    margin-bottom: 20px;
+}
+
 .image404 {
     margin: auto;
     width: 80%;
     margin-top: -80px;
 }
+
 
 footer {
     margin-top: 0 !important;
