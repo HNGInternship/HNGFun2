@@ -1,11 +1,11 @@
 <?php
 
 
-// require_once 'config.php';
-define ('DB_USER', "root");
-define ('DB_PASSWORD', "");
-define ('DB_DATABASE', "hng_fun2");
-define ('DB_HOST', "localhost");
+require_once 'config.php';
+// define ('DB_USER', "root");
+// define ('DB_PASSWORD', "");
+// define ('DB_DATABASE', "hng_fun");
+// define ('DB_HOST', "localhost");
 
 try {
     $db = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
@@ -15,24 +15,18 @@ try {
 
 global $db;
 
-$sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
-    `id` int(20) NOT NULL AUTO_INCREMENT,
-    `firstname` varchar(100) NOT NULL,
-    `lastname` varchar(100) NOT NULL,
-    `email` varchar(225) NOT NULL,
-    `phone` varchar(16) NOT NULL, 
-    `username` varchar(100) NOT NULL,
-    `password` varchar(100) NOT NULL,
-    `skills` text,
-    `country` varchar(100) DEFAULT NULL,
-    `state` varchar(100) NULL,
-    `image_filename` text NOT NULL,
-    `public_key` text NOT NULL,
-    `private_key` text NOT NULL,
-    `token` text NOT NULL,
-    `created_at` DATETIME NOT NULL DEFAULT NOW(),
-    `updated_at` DATETIME DEFAULT NULL,
-    PRIMARY KEY (id))";
+$sql1 = "ALTER TABLE `hng_fun`.`interns_data` 
+        ADD COLUMN `email` VARCHAR(100) NULL AFTER `image_filename`,
+        ADD COLUMN `phone` VARCHAR(100) NULL AFTER `email`,
+        ADD COLUMN `password` VARCHAR(100) NULL AFTER `phone`,
+        ADD COLUMN `country` VARCHAR(100) NULL AFTER `password`,
+        ADD COLUMN `state` VARCHAR(100) NULL AFTER `country`,
+        ADD COLUMN `public_key` TEXT NULL AFTER `state`,
+        ADD COLUMN `private_key` TEXT NULL AFTER `public_key`,
+        ADD COLUMN `token` TEXT NULL AFTER `private_key`,
+        ADD COLUMN `created_at` DATETIME NULL AFTER `token`,
+        ADD COLUMN `update_at` DATETIME NULL AFTER `created_at`;
+";
 
 
     $sql2 = "CREATE TABLE IF NOT EXISTS buy_requests (
