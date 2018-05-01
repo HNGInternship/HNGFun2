@@ -256,7 +256,7 @@ font-size: 1.25em;"> INPUT DETAILS</h1>
 
 
 <!-- Modal -->
-<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
         <p  id="closeButton" style="text-align: right;margin-bottom: 0%;opacity: 1; padding-right: 5%" class="close" data-dismiss="modal" aria-label="Close">
@@ -273,7 +273,7 @@ font-size: 1.25em;"> INPUT DETAILS</h1>
       
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Modal -->
 
