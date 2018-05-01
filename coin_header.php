@@ -2,7 +2,7 @@
 <?php 
 
 
-
+require_once("db.php");
 // for choosing active page on nav bar
 
 $fileName=basename($_SERVER['PHP_SELF']);
