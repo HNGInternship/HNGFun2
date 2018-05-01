@@ -2,7 +2,9 @@
 /*
 DO NOT MODIFY THIS FILE!!!
  */
-require '../config.php';
+
+/* Instead of rediting this, just move your config.php a step outside the HNGFun folder */
+require 'config_slayers.php';
 
 // try {
 //     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
@@ -15,7 +17,7 @@ require '../config.php';
 
  
 try {
-    $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
 
 } catch (PDOException $pe) {
     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());

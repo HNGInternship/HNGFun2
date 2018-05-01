@@ -36,7 +36,7 @@ include_once("header.php");
 	}
 </style>
 
-<main class="mx-auto col-md-10 mt-5 mb-5">
+<main class="container mt-5 mb-5">
   <h2>We've Come A Long Way</h2>
   <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto" />
   <section class="mt-5">
