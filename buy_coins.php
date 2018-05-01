@@ -9,7 +9,7 @@ include_once("coin_header.php");
 body{
 
     background: #ffffff;
-    font-size: 14px;
+    /*font-size: 14px;*/
     font-family: Lato;
 
 
@@ -23,7 +23,8 @@ main{
     margin-left: 10%;
     padding-bottom: 3.1%;
  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
-
+    font-size: 14px;
+ 
 }
 
 .input-form{
@@ -108,7 +109,7 @@ background: rgba(0, 0, 0, 0.8);
 /*}*/
 
  /* media queries */
-    @media (min-width: 360px) { 
+    @media(min-width: 360px) { 
         #checkMark {
             left:10%;        } 
     }
@@ -134,7 +135,7 @@ background: rgba(0, 0, 0, 0.8);
   </div>
   <div class="form-group col-xs-12 col-sm-5">
     <label class="label-for-form" for="wallet">Send HNGcoin to :*</label>
-    <input type="text" class="form-control form-control-lg input-for-form" id="wallet" placeholder="Your HNCoin Wallet" disabled>
+    <input type="text" class="form-control form-control-lg input-for-form" id="wallet" placeholder="Your HNGcoin Wallet">
   </div>
 </form>
 
@@ -153,15 +154,15 @@ background: rgba(0, 0, 0, 0.8);
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-        <p  id="closeButton" style="text-align: right;margin-bottom: 0%;opacity: 1;" class="close" data-dismiss="modal" aria-label="Close">
-          <img src="img/icons/cancel_icon.svg">
+        <p  id="closeButton" style="text-align: right;margin-bottom: 0%;opacity: 1; padding-right: 5%" class="close" data-dismiss="modal" aria-label="Close">
+          <img src="img/icons/cancel_icon.svg" style="border: 1.5px solid #EB5757;padding: 1%;border-radius: 50%">
         </p>
       <div class="modal-body">
         <h4 style="text-align: center;" id="modalHeader">Confirming ...</h4>
       </div>
 <p class="footerText visible" id="modalFooter" style="text-align: center;color: #3D3D3D; margin-top: 0%;"> You will recieve HNGcoin immediately after seller has confirmed your payment</p>
 
-<div id="checkMark" class="hidden" style="background: #2196F3 ; position: relative; width: 150px;height: 150px;border-radius: 50%;left:32%;margin-bottom: 1.4%;">
+<div id="checkMark" class="hidden" style="background: #2196F3 ; position: relative; width: 150px;height: 150px;border-radius: 50%;left:35%;margin-bottom: 1.4%;">
     <img src="img/icons/check_icon.svg" style="position: absolute;top:25%;left: 23%">
 </div>
       
@@ -185,8 +186,8 @@ background: rgba(0, 0, 0, 0.8);
 <table class="table table-bordered col-xs-12 col-sm-10">
   <thead>
     <tr>
-      <th scope="col">Buying From</th>
-      <th scope="col">Dammy</th>
+      <th class="w-50" scope="col">Buying From</th>
+      <th class="w-50" scope="col">Dammy</th>
     </tr>
   </thead>
   <tbody>
