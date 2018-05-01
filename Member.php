@@ -337,7 +337,7 @@ public function __construct(){
 
           try {
 
-           $query="UPDATE ".$this->table." SET password='$password' WHERE id='$id' LIMIT 1";
+           $query="UPDATE ".$this->table." SET password='$password_hash' WHERE id='$id' LIMIT 1";
 
             $conn->exec($query);
           return true;
