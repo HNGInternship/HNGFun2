@@ -38,7 +38,7 @@ include_once("header.php");
     <div class="d-flex flex-column align-items-center justify-content-center mb-5">   
         
         
-            <h1 class="login-title text-center">Invite Sent!</h1>
+            <h1 class="login-title text-center mt-3">Invite Sent!</h1>
                 
             <div class="img-center"> <img src="img/Ellipse.png">
             </div>
