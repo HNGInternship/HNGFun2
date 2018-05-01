@@ -1,0 +1,29 @@
+
+.jumbotron {
+    text-align: left;
+    padding-top: 3rem;
+    padding-bottom: 14rem;
+    border-radius: 0;
+    max-height: 120px;
+}
+
+.bg-cover {
+    background-size: cover;
+    color: white;
+    background-position: center center;
+    position: relative;
+    z-index: -2;
+    background-image: url('../img/contact.png');
+}
+
+.overlay {
+    background-color: #000;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
