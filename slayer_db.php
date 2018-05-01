@@ -4,16 +4,16 @@
 require_once 'db.php';
 // define ('DB_USER', "root");
 // define ('DB_PASSWORD', "");
-// define ('DB_DATABASE', "slayers_db");
+// define ('DB_DATABASE', "hng_fun");
 // define ('DB_HOST', "localhost");
 
 // try {
-//     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+//     $db = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 // } catch (PDOException $pe) {
 //     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
 // }
 
-global $conn;
+global $db;
 
 $sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
     `id` int(20) NOT NULL AUTO_INCREMENT,
@@ -108,7 +108,7 @@ $sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
 
     foreach ($sqls as $sql) {
         try {
-            $stm = $conn->prepare($sql);
+            $stm = $db->prepare($sql);
             $exec = $stm->execute();
         } catch (PDOException $pe) {
             die("Could not create table  ". $pe->getMessage());
