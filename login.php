@@ -102,6 +102,8 @@
                     //alert('Request not completed');
                  }
                 $("#login").html('Failed!!');
+                $("#message").removeClass('alert alert-danger');
+                $("#message").html(errorThrown);
             },
             beforeSend :function(){
 
