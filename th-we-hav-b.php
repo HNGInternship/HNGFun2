@@ -99,7 +99,7 @@
 			<div class="card-body cbb">
               <div class="row">
                 <div class="col-md-4 cardImg">
-					<img class="card-img-top" height="150px" src="images/lapImg2.jpg" alt="Card image cap">
+					<img class="card-img-top" height="150px" src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525164775/lapImg2.jpg" alt="Card image cap">
                 </div>
 				<div class="col-md-8">
 					<h5>Shot.ng</h5>
@@ -118,7 +118,7 @@
 			<div class="card-body cbb">
               <div class="row">
                 <div class="col-md-4 cardImg">
-					<img class="card-img-top" height="150px" src="images/lapImg2.jpg" alt="Card image cap">
+					<img class="card-img-top" height="150px" src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525164775/lapImg2.jpg" alt="Card image cap">
                 </div>
 				<div class="col-md-8">
 					<h5>Shot.ng</h5>
@@ -138,7 +138,7 @@
 			<div class="card-body cbb">
               <div class="row">
                 <div class="col-md-4 cardImg">
-					<img class="card-img-top" height="150px" src="images/lapImg2.jpg" alt="Card image cap">
+					<img class="card-img-top" height="150px" src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525164775/lapImg2.jpg" alt="Card image cap">
                 </div>
 				<div class="col-md-8">
 					<h5>Shot.ng</h5>
@@ -157,7 +157,7 @@
 			<div class="card-body cbb">
               <div class="row">
                 <div class="col-md-4 cardImg">
-					<img class="card-img-top" height="150px" src="images/lapImg2.jpg" alt="Card image cap">
+					<img class="card-img-top" height="150px" src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525164775/lapImg2.jpg" alt="Card image cap">
                 </div>
 				<div class="col-md-8">
 					<h5>Shot.ng</h5>
