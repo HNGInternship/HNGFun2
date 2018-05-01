@@ -91,7 +91,7 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
         <!-- end of hng 1.0 -->
         <!-- hng 2.0 -->
         <div class="tab-pane fade" id="v-pills-tab-2-label" role="tabpanel" aria-labelledby="v-pills-tab-2">
-        <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSipOBWQCRcVtWoovIoACMPLJMbJM_odJaMKQQ2fe4tNZgavimd" width="100%" style="margin-bottom:20px;">
+        <img class="img-fluid" src="http://assets.nydailynews.com/polopoly_fs/1.2715151.1468825081!/img/httpImage/image.jpg_gen/derivatives/article_750/star-code.jpg" width="100%" style="margin-bottom:20px;">
           <h5>About HNG 2.0</h5>
           <p style="text-align: justify;"><small> The HNG 2.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
 Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. Nec ad doming fuisset argumentum, cu per vocibus adolescens, quo in cibo malis posidonium. Ne usu lorem oblique</small> </p>
@@ -114,7 +114,7 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
         <!-- end of hng 2.0 -->
         <!-- hng 3.0 -->
         <div class="tab-pane fade" id="v-pills-tab-3-label" role="tabpanel" aria-labelledby="v-pills-tab-3">
-        <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSipOBWQCRcVtWoovIoACMPLJMbJM_odJaMKQQ2fe4tNZgavimd" width="100%" style="margin-bottom:20px;">
+        <img class="img-fluid" src="https://blog.linkedin.com/content/dam/blog/en-us/corporate/blog/2014/02/high-school-students-computer.jpg" width="100%" style="margin-bottom:20px;">
           <h5>About HNG 3.0</h5>
           <p style="text-align: justify;"><small> The HNG 3.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
 Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. Nec ad doming fuisset argumentum, cu per vocibus adolescens, quo in cibo malis posidonium. Ne usu lorem oblique</small> </p>
@@ -137,7 +137,7 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
         <!-- end of hng.3.0 -->
         <!-- hng 4.0 -->
         <div class="tab-pane fade" id="v-pills-tab-4-label" role="tabpanel" aria-labelledby="v-pills-tab-4">
-        <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSipOBWQCRcVtWoovIoACMPLJMbJM_odJaMKQQ2fe4tNZgavimd" width="100%" style="margin-bottom:20px;">
+        <img class="img-fluid" src="http://assets.nydailynews.com/polopoly_fs/1.2715151.1468825081!/img/httpImage/image.jpg_gen/derivatives/article_750/star-code.jpg" width="100%" style="margin-bottom:20px;">
           <h5>About HNG 4.0</h5>
           <p style="text-align: justify;"><small> The HNG 4.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
 Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. Nec ad doming fuisset argumentum, cu per vocibus adolescens, quo in cibo malis posidonium. Ne usu lorem oblique</small> </p>
