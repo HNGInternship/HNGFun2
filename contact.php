@@ -1,5 +1,9 @@
 <?php
 include_once("header.php");
+ function custom_styles() {
+     $styles = '<style>body{background:#e5e5e5!important;}</style>';
+     echo $styles;
+ };
 ?>
 
  <div class="jumbotron bg-cover">

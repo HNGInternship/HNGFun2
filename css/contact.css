@@ -1,10 +1,10 @@
-
 .jumbotron {
     text-align: left;
     padding-top: 3rem;
     padding-bottom: 14rem;
     border-radius: 0;
     max-height: 120px;
+    margin-bottom: 6rem;
 }
 
 .bg-cover {
@@ -27,3 +27,9 @@
     z-index: -1;
 }
 
+
+footer {
+    padding-bottom: 0;
+}
+
+body{background: #e5e5e5 !important;}

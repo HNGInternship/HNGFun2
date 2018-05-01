@@ -46,11 +46,7 @@ section.content404 hr {
     margin-top: -80px;
 }
 
-footer {
-    margin-top: 0 !important;
-    padding-top: 5;
-    padding-bottom: 20px;
-}
+
 
 @media screen and (max-width: 770px) {
     .inner-login-container {
