@@ -32,18 +32,54 @@ include_once("header.php");
 
 	<div>
 
-		<div class="slideshow" style="width: 100%;">
+		<div class="slideshow" style="width: 100%; margin-top: 50px">
 			<div class="slide" id="first">
 				<div class="row">
-					<div class="col-lg-4" style="height: 200px">
-						<p style="width: 150px; height: 100px; background-color: grey"></p>
+					<div class="col-lg-4" style="height: 200px;">
+						<img style="width: 300px; height: 100px; background-color: grey">
 						<p>The design team has juts created another hit which is now featured on dribble be sure to check it out</p>
 					</div>
 					<div class="col-lg-4" style="height: 200px">
-						<p>dgf</p>
+						<img src="" width="300px" height="100px">
+						<p>This week on Announcements: This week, more people are going to be disabled, if you are lower than stage 2, hurry up to avoid disabling this week</p>
 					</div>
 					<div class="col-lg-4" style="height: 200px">
-						<p>hjfre</p>
+						<img src=""  width="300px" height="100px">
+						<p>ARE YOU READY!!!!!??? this weeks competiton is on cryptocurrencies does your team have what it takes to win? THEN PARTICIPATE!!!</p>
+					</div>
+				</div>
+			</div>
+			<div class="slide" id="second"  style="">
+				<div class="row">
+					<div class="col-lg-4" style="height: 200px">
+						
+					</div>
+					<div class="col-lg-4 " style="height: 200px">
+						
+					</div>
+					<div class="col-lg-4 " style="height: 200px">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="slideshow" style="width: 100%; margin-top: 50px">
+			<div class="slide" id="first">
+				<div class="row">
+					<div class="col-lg-4" style="height: 200px;">
+						<img style="width: 300px; height: 100px; background-color: grey">
+						<p>Now we have a total of 10 sponsors as at friday evening with google and microsoft who joined frieday aftenoon. Also we now have 40 hubs across Nigeria.... </p>
+					</div>
+					<div class="col-lg-4" style="height: 200px">
+						<img src="" width="300px" height="100px">
+						<p>This week on Announcements: This week, more people are going to be disabled, if you are lower than stage 2, hurry up to avoid disabling this week</p>
+					</div>
+					<div class="col-lg-4" style="height: 200px">
+						<img src=""  width="300px" height="100px">
+						<p>ARE YOU READY!!!!!??? this weeks competiton is on cryptocurrencies does your team have what it takes to win? THEN PARTICIPATE!!!</p>
 					</div>
 				</div>
 			</div>

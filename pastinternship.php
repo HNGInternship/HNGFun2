@@ -13,12 +13,16 @@ include_once("header.php");
 	.container{
 		text-align: justify;
 	}
+	.col-lg-8{
+		margin-top: 30px;
+	}
 </style>
 
 
 <div class="container" style="padding-top: 50px">
 	<div class="row">
 		<div class="col-lg-4" style="padding-top: 30px">
+			<p style="margin-bottom: 5px; margin-top: 0px; font-weight: bold;">Check Cycles</p>
 			<button id="1" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid; border-color: lightgrey; background-color: white; font-weight: lighter;">HNG 1.0(May ist - july 23rd 2016)</button>
 			<button id="2" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid;border-color: lightgrey; background-color: white; font-weight: lighter;">HNG 2.0(May ist - july 23rd 2017)</button>
 			<button id="3" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid; border-color: lightgrey; background-color: white; font-weight: lighter;">HNG 3.0(Sept 3rd - Nov 23rd 2017)</button>
