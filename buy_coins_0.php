@@ -72,18 +72,90 @@ margin-bottom: 2.2%;
 .hidden{
     display: none;
 }
-/*#scrim{
-background: rgba(0, 0, 0, 0.8);
-    color: white;
-    position: fixed;
-    z-index: 999999999;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    /*display: none;*/
-/*}*/
- /* media queries */
+
+
+
+/*breadcrumbs*/
+
+
+/*.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+}
+.breadcrumb .item {
+  flex: 1 0 25%;
+  box-sizing: border-box;
+  background: #e0ddd5;
+  color: #171e42;
+  padding: 10px;
+}
+
+
+.breadcrumb { 
+  list-style: none; 
+  overflow: hidden; 
+  font: 18px Sans-Serif;
+  padding: 0%;
+   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.breadcrumb { 
+  list-style: none; 
+  overflow: hidden; 
+  font: 18px Sans-Serif;
+}
+
+.breadcrumb div a {
+  color: white;
+  text-decoration: none; 
+  padding: 10px 0 10px 65px;
+  background: brown; 
+  background: hsla(34,85%,35%,1); 
+  position: relative; 
+  display: block;
+}
+
+
+.breadcrumb div a::after { 
+  content: " "; 
+  display: block; 
+  width: 0; 
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid hsla(34,85%,35%,1);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px; 
+  left: 100%;
+  z-index: 2; 
+}
+
+.breadcrumb div a::before { 
+  content: " "; 
+  display: block; 
+  width: 0; 
+  height: 0;
+  border-top: 50px solid transparent;       
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px; 
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1; 
+}*/
+
+
+
+
+
+
+
+/*******************************************/
     @media(min-width: 360px) { 
         #checkMark {
             left:10%;        } 
@@ -98,6 +170,56 @@ background: rgba(0, 0, 0, 0.8);
 </section> -->
 
 <div class="main-container">
+
+  <!-- <div class="container" style="margin-top: 6.5%"> -->
+
+
+ <!--    <div class="breadcrumb">
+  <div class="item" style="background:red "><a>Heriberto Nickel</a></div>
+  <div class="item" style="background:blue"><a>Brittaney Haliburton</a></div>
+  <div class="item" style="background:yellow "><a>Maritza Winkler</a></div>
+  <div class="item" style="background:green"><a>Carmon Rigg</a></div>
+</div> -->
+
+  
+<div class="row no-gutters" style="margin-top: 6.5%">
+
+    <div style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">1</span>
+
+      
+    </div>
+
+    <div  style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img  style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">2</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_1_arrow.svg" alt="first arrow">
+
+      
+    </div>
+
+    <div style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">3</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_2_arrow.svg" alt="first arrow">
+
+
+      
+    </div>
+
+     <div  style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">4</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_2_arrow.svg" alt="first arrow">
+
+
+      
+    </div>
+  </div>
 <h1  style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 2.4%;margin-bottom:0%;
 font-family: 'Work Sans';
 font-style: normal;
