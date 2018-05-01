@@ -92,7 +92,7 @@
                 $("#message").addClass('alert alert-danger');
             
                 $("#message").html(data);
-                 $("#login").html('Failed');
+                 $("#login").html('Failed!');
              } 
             
 
