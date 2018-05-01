@@ -32,7 +32,7 @@ include_once("header.php");
     .nav-pills .nav-link{
       border-radius: 0;
       border-bottom: 1px solid lightgrey;
-      font-size: 70%;
+      font-size: 1rem;
       color: grey;
       padding: 20px;
       text-align: center;
@@ -69,20 +69,20 @@ include_once("header.php");
       <!-- hng 1.0 -->
         <div class="tab-pane fade show active" id="v-pills-tab-1-label" role="tabpanel" aria-labelledby="v-pills-tab-1">
           <img class="img-fluid" src="https://media.npr.org/assets/img/2016/06/03/1_blackmencode-reddingrucker_computer-edit_wide-9f1fbcd2af0a9ebdd4a081fe27ac1ea6bfb95256-s900-c85.jpg" width="100%" style="margin-bottom:20px;">
-          <h5>About HNG 1.0</h5>
-          <p style="text-align: justify;"><small> The HNG 1.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
+          <h3>About HNG 1.0</h3>
+          <p style="text-align: justify; font-size: 1rem;" class="text-muted"><small> The HNG 1.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
 Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. Nec ad doming fuisset argumentum, cu per vocibus adolescens, quo in cibo malis posidonium. Ne usu lorem oblique</small> </p>
           <div class="row">
             <div class="col-6">
-              <h5>Duration</h5>
-              <p><small>Febuary 23rd - April 23rd 2016</small></p>
+              <h4>Duration</h4>
+              <p class="text-muted">Febuary 23rd - April 23rd 2016</p>
             </div>
             <div class="col-6">
-              <h5>Final 20 participants</h5>
-              <p><small><a href="alumni.php" style="color: #007bff;">View Participants</a></small></p>
+              <h4>Final 20 participants</h4>
+              <p><a href="alumni.php" style="color: #007bff;">View Participants</a></p>
             </div>
           </div>
-          <h5>Partners</h5>
+          <h4>Partners</h4>
           <img class="img-fluid rounded" src="img/hng-square.png" width="100" style="margin-right: 20px;">
           <img class="img-fluid rounded" src="img/oracle-red.png" width="100" style="margin-right: 20px;">
           <img class="img-fluid rounded" src="img/figma-dark.png" width="100" style="margin-right: 20px;">
@@ -92,20 +92,20 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
         <!-- hng 2.0 -->
         <div class="tab-pane fade" id="v-pills-tab-2-label" role="tabpanel" aria-labelledby="v-pills-tab-2">
         <img class="img-fluid" src="http://assets.nydailynews.com/polopoly_fs/1.2715151.1468825081!/img/httpImage/image.jpg_gen/derivatives/article_750/star-code.jpg" width="100%" style="margin-bottom:20px;">
-          <h5>About HNG 2.0</h5>
-          <p style="text-align: justify;"><small> The HNG 2.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
+          <h3>About HNG 2.0</h3>
+          <p style="text-align: justify; font-size: 1rem;" class="text-muted"><small> The HNG 2.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
 Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. Nec ad doming fuisset argumentum, cu per vocibus adolescens, quo in cibo malis posidonium. Ne usu lorem oblique</small> </p>
           <div class="row">
             <div class="col-6">
-              <h5>Duration</h5>
-              <p><small>Febuary 23rd - April 23rd 2016</small></p>
+              <h4>Duration</h4>
+              <p class="text-muted">Febuary 23rd - April 23rd 2016</p>
             </div>
             <div class="col-6">
-              <h5>Final 20 participants</h5>
-              <p><small><a href="alumni.php" style="color: #007bff;">View Participants</a></small></p>
+              <h4>Final 20 participants</h4>
+              <p><a href="alumni.php" style="color: #007bff;">View Participants</a></p>
             </div>
           </div>
-          <h5>Partners</h5>
+          <h4>Partners</h4>
           <img class="img-fluid rounded" src="img/hng-square.png" width="100" style="margin-right: 20px;">
           <img class="img-fluid rounded" src="img/oracle-red.png" width="100" style="margin-right: 20px;">
           <img class="img-fluid rounded" src="img/figma-dark.png" width="100" style="margin-right: 20px;">
@@ -115,20 +115,20 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
         <!-- hng 3.0 -->
         <div class="tab-pane fade" id="v-pills-tab-3-label" role="tabpanel" aria-labelledby="v-pills-tab-3">
         <img class="img-fluid" src="https://blog.linkedin.com/content/dam/blog/en-us/corporate/blog/2014/02/high-school-students-computer.jpg" width="100%" style="margin-bottom:20px;">
-          <h5>About HNG 3.0</h5>
-          <p style="text-align: justify;"><small> The HNG 3.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
+          <h3>About HNG 3.0</h3>
+          <p style="text-align: justify; font-size: 1rem;" class="text-muted"><small> The HNG 3.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
 Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. Nec ad doming fuisset argumentum, cu per vocibus adolescens, quo in cibo malis posidonium. Ne usu lorem oblique</small> </p>
           <div class="row">
             <div class="col-6">
-              <h5>Duration</h5>
-              <p><small>Febuary 23rd - April 23rd 2016</small></p>
+              <h4>Duration</h4>
+              <p class="text-muted">Febuary 23rd - April 23rd 2016</p>
             </div>
             <div class="col-6">
-              <h5>Final 20 participants</h5>
-              <p><small><a href="alumni.php" style="color: #007bff;">View Participants</a></small></p>
+              <h4>Final 20 participants</h4>
+              <p><a href="alumni.php" style="color: #007bff;">View Participants</a></p>
             </div>
           </div>
-          <h5>Partners</h5>
+          <h4>Partners</h4>
           <img class="img-fluid rounded" src="img/hng-square.png" width="100" style="margin-right: 20px;">
           <img class="img-fluid rounded" src="img/oracle-red.png" width="100" style="margin-right: 20px;">
           <img class="img-fluid rounded" src="img/figma-dark.png" width="100" style="margin-right: 20px;">
@@ -138,20 +138,20 @@ Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. N
         <!-- hng 4.0 -->
         <div class="tab-pane fade" id="v-pills-tab-4-label" role="tabpanel" aria-labelledby="v-pills-tab-4">
         <img class="img-fluid" src="http://assets.nydailynews.com/polopoly_fs/1.2715151.1468825081!/img/httpImage/image.jpg_gen/derivatives/article_750/star-code.jpg" width="100%" style="margin-bottom:20px;">
-          <h5>About HNG 4.0</h5>
-          <p style="text-align: justify;"><small> The HNG 4.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
+          <h3>About HNG 4.0</h3>
+          <p style="text-align: justify; font-size: 1rem;" class="text-muted"><small> The HNG 4.0 internship in partnership with HOTELS.NG, ORACLE, FIGMA, and BLUECHIP TECHNOLOGIES Lorem ipsum dolor sit amet, graecis evertitur voluptatibus his ne. Adhuc autem admodum vis ei, libris timeam officiis sit ex. Cu aliquid habemus torquatos per. Mandamus voluptaria consetetur ei per, vim cu sumo conceptam. Nemore maluisset no vix, ad inimicus efficiantur contentiones nec, vis nominavi pertinacia ex.
 Nam an equidem intellegam, pro ei novum zril. Constituto delicatissimi ut sea. Nec ad doming fuisset argumentum, cu per vocibus adolescens, quo in cibo malis posidonium. Ne usu lorem oblique</small> </p>
           <div class="row">
             <div class="col-6">
-              <h5>Duration</h5>
-              <p><small>Febuary 23rd - April 23rd 2016</small></p>
+              <h4>Duration</h4>
+              <p class="text-muted">Febuary 23rd - April 23rd 2016</p>
             </div>
             <div class="col-6">
-              <h5>Final 20 participants</h5>
-              <p><small><a href="alumni.php" style="color: #007bff;">View Participants</a></small></p>
+              <h4>Final 20 participants</h4>
+              <p><a href="alumni.php" style="color: #007bff;">View Participants</a</p>
             </div>
           </div>
-          <h5>Partners</h5>
+          <h4>Partners</h4>
           <img class="img-fluid rounded" src="img/hng-square.png" width="100" style="margin-right: 20px;">
           <img class="img-fluid rounded" src="img/oracle-red.png" width="100" style="margin-right: 20px;">
           <img class="img-fluid rounded" src="img/figma-dark.png" width="100" style="margin-right: 20px;">
