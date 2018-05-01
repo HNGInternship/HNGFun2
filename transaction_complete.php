@@ -63,9 +63,9 @@ font-family: 'Work Sans';
 font-style: normal;
 font-weight: bold;
 line-height: normal;
-font-size: 1.25em;"> TRANSACTION PENDING</h1>
+font-size: 1.25em;"> TRANSACTION COMPLETE</h1>
 
-<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;"> Seller needs to confirm your payment before the transaction is completed.</p>
+<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%;"> You have recieved &nbsp;0.1123344 HNGcoins&nbsp; from Dammy. Your coins have been sent to Wallet &nbsp;#12331.</p>
 
 <main class="container">
 
@@ -80,14 +80,14 @@ font-size: 1.25em;"> TRANSACTION PENDING</h1>
 <h2 style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 14.5%;margin-bottom:4.9%;
 font-style: normal;
 line-height: normal;
-font-size: 2.4em;"> Confirming...</h2>
+font-size: 2.4em;"> Transaction Completed</h2>
 
 </div>
 
-<div class="row justify-content-md-center">
-  
-  <p  style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin-bottom:18.7%;margin-top: 0%"> You will recieve HNGcoin immediately after seller has confirmed your payment.</p>
 
+
+<div id="checkMark" style="text-align: center">
+    <img src="img/icons/check_icon.svg" style="background:#2196F3;padding: 2%;border-radius: 100%;margin-bottom: 18.7%;">
 </div>
    
 </main>    
