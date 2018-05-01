@@ -1,0 +1,124 @@
+<?php
+
+
+// require_once 'config.php';
+define ('DB_USER', "root");
+define ('DB_PASSWORD', "");
+define ('DB_DATABASE', "hng_fun2");
+define ('DB_HOST', "localhost");
+
+try {
+    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+} catch (PDOException $pe) {
+    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+}
+
+global $conn;
+
+$sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
+    `id` int(20) NOT NULL AUTO_INCREMENT,
+    `first_name` varchar(100) NOT NULL,
+    `last_name` varchar(100) NOT NULL,
+    `username` varchar(100) NOT NULL,
+    `skills` text,
+    `country` varchar(100) DEFAULT NULL,
+    `image_filename` text NOT NULL,
+    `public_key` text NOT NULL,
+    `private_key` text NOT NULL,
+    `created_at` DATETIME NOT NULL DEFAULT NOW(),
+    `updated_at` DATETIME DEFAULT NULL,
+    PRIMARY KEY (id))";
+
+
+    $sql2 = "CREATE TABLE IF NOT EXISTS buy_requests (
+        `id` int(20) NOT NULL AUTO_INCREMENT,
+        `intern_id` int(20) NOT NULL,
+        `amount` float NOT NULL,
+        `trade_limit` float DEFAULT NULL,
+        `bid_per_coin` float NOT NULL,
+        `status` ENUM('Completed', 'Pending', 'Closed', 'Open') NOT NULL,
+        `created_at` DATETIME NOT NULL DEFAULT NOW(),
+        PRIMARY KEY (id),
+        FOREIGN KEY (intern_id) REFERENCES interns_data (id) on delete cascade)";
+  
+     
+     $sql3 = "CREATE TABLE IF NOT EXISTS sell_requests(
+        `id` int(20) NOT NULL AUTO_INCREMENT,
+        `intern_id` int(20) NOT NULL,
+        `amount` float NOT NULL,
+        `trade_limit` float DEFAULT NULL,
+        `price_per_coin` float NOT NULL,
+        `status` ENUM('Completed', 'Pending', 'Closed', 'Open') NOT NULL,
+        `created_at` DATETIME NOT NULL DEFAULT NOW(),
+        PRIMARY KEY (id),
+        FOREIGN KEY (intern_id) REFERENCES interns_data (id) on delete cascade)";
+
+         
+       $sql4 = "CREATE TABLE IF NOT EXISTS banks(
+             `id` int(20) NOT NULL AUTO_INCREMENT,
+            `name` varchar(100) NOT NULL,
+            PRIMARY KEY (id))";
+
+     
+    
+       $sql5 = "CREATE TABLE IF NOT EXISTS accounts(
+        `id` int(20) NOT NULL AUTO_INCREMENT,
+        `intern_id` int(20) NOT NULL,
+        `bank_id` int(20) NOT NULL,
+        `name` varchar(100) NOT NULL,
+        `number` int(100) NOT NULL,
+        `created_at` DATETIME NOT NULL DEFAULT NOW(),
+        PRIMARY KEY (id),
+        FOREIGN KEY (intern_id) REFERENCES interns_data (id) on delete cascade,
+        FOREIGN KEY (bank_id) REFERENCES banks (id) on delete cascade)";
+
+        $sql6 = "CREATE TABLE IF NOT EXISTS wallets (
+            `id` int(20) NOT NULL AUTO_INCREMENT,
+            `intern_id` int(20) NOT NULL,
+            `balance` float NOT NULL,
+            `created_at` DATETIME NOT NULL DEFAULT NOW(),
+            PRIMARY KEY (id),
+            FOREIGN KEY (intern_id) REFERENCES interns_data (id) on delete cascade)";
+
+        $sql7 = "CREATE TABLE IF NOT EXISTS sell_transactions(
+            `id` int(20) NOT NULL AUTO_INCREMENT,
+            `sell_request_id` int(20) NOT NULL,
+            `buyer_id` int(20) NOT NULL,
+            `status` ENUM('Completed', 'Pending', 'Closed', 'Open') NOT NULL,
+            `created_at` DATETIME NOT NULL DEFAULT NOW(),
+            `completed_at` DATETIME  DEFAULT NULL,
+            PRIMARY KEY (id),
+            FOREIGN KEY (sell_request_id) REFERENCES sell_requests (id) on delete cascade,
+            FOREIGN KEY (buyer_id) REFERENCES interns_data (id) on delete cascade)";
+
+        $sql8 = "CREATE TABLE IF NOT EXISTS buy_transactions(
+            `id` int(20) NOT NULL AUTO_INCREMENT,
+            `buy_request_id` int(20) NOT NULL,
+            `seller_id` int(20) NOT NULL,
+            `status` ENUM('Completed', 'Pending', 'Closed', 'Open') NOT NULL,
+            `created_at` DATETIME NOT NULL DEFAULT NOW(),
+            `completed_at` DATETIME  DEFAULT NULL,
+            PRIMARY KEY (id),
+            FOREIGN KEY (buy_request_id) REFERENCES buy_requests (id) on delete cascade,
+            FOREIGN KEY (seller_id) REFERENCES interns_data (id) on delete cascade)";
+
+
+    $sqls = [$sql1, $sql2, $sql3, $sql4, $sql5,$sql6, $sql7, $sql8];
+
+    foreach ($sqls as $sql) {
+        try {
+            $stm = $conn->prepare($sql);
+            $exec = $stm->execute();
+        } catch (PDOException $pe) {
+            die("Could not create table  ". $pe->getMessage());
+        }
+       
+    } 
+
+    if ($exec) {
+        echo  count($sqls). " tables successfully created";
+    }
+
+    else{
+        echo "error creating tables";
+    }
