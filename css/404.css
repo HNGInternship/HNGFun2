@@ -8,7 +8,26 @@
 .content404 {
     text-align: center;
     color: #fff;
+}
 
+section.content404 hr {
+    border: 3px solid #fff;
+    width: 28%;
+}
+
+.bigtext {
+    font-size: 8em;
+    font-weight: 200;
+}
+
+
+.btn-404 {
+    background: #fff;
+    color: #2196F3;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
 footer {

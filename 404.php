@@ -6,11 +6,11 @@ include_once("header.php");
       <div class="container">
           <section class="content404">
         <h1 class="bigtext">404</h1>
-            <p>oops the page you are looking forc can't be found !</p>
+            <h4>oops the page you are looking forc can't be found !</h4>
 
                 <hr>
 
-                <p><a class="white btn btn-primary btn-lg" href="./index.php">Go to home page</a></p>
+                <p><a class=" btn-404 btn-lg" href="./index.php">Go to home </a></p>
 
           </section>
       
