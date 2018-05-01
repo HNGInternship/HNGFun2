@@ -73,11 +73,9 @@ include_once("header.php");
       width: 80%;
       padding: 0px 2em;
       margin: 0px auto;
-      /*border: 1px solid #ddd;
-      background-color: #ededed;*/
     }
     .top {
-      width: 75%;
+      width: 74%;
       margin: 2em auto;
       margin-bottom: 0px;
       padding: 5em;
@@ -85,7 +83,7 @@ include_once("header.php");
       border: 1px solid lightgrey;
     }
     .table, thead {
-      margin-top: 0px auto;
+      margin-top: 0px;
     }
     .in {
       display: inline-flex;
@@ -95,25 +93,43 @@ include_once("header.php");
     table {
       border: 1px solid lightgrey;
       margin: 0 auto;
-      table-layout: auto;
     }
-    @media screen and (max-width: 767) {
+    tbody > tr:hover {
+    	background: #e5e5e5;
+    }
+    @media screen and (max-width: 767px) {
+      html, body {
+      	width: 100%;
+      }
       table {
-        margin-left: -4em;
+      	margin-left: -2em;
+        padding: 0px;
         font-size: 70%;
         border-style: solid;
-        border-collapse: separate;
+        border-collapse: collapse;
+      }
+      th {
+      	height: 50px;
       }
       .top {
-        margin: unset;
-        padding: auto;
-        border: unset;
-        text-align: justify;
-        display: inline-grid;
+        padding: 1em;
+        border: 1px solid lightgrey;
+        text-align: center;
+        display: block;
+        max-width: 500px; 
+        margin: 0px auto;
       }
       .in {
-        width: 120%
+        width: 90%;
       }
+      #p {
+      	float: none !important;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+    	.top {
+    		width: 70%;
+    	}
     }
     a {
       margin: 0.5em;
