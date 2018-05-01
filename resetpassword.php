@@ -51,7 +51,12 @@ include_once("header.php");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-     var token = "<?php echo $_GET['token'];   ?>";
+ const la = ""
+     var token = "<?php if(isset($_GET['token'])){
+         echo $_GET['token'];
+     }else{
+        echo null;
+     } ?>";
         if(token){
             $('#get-email-reset').hide();
         }
@@ -64,6 +69,7 @@ include_once("header.php");
         $("#btn-reset").click(function(e){
             e.preventDefault();
             var data = $("#form-reset").serialize();
+            
             $.ajax('process.php',{
                 type: 'post',
                 data: data,

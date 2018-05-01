@@ -71,23 +71,23 @@ public function __construct(){
 //register construct function
 //
    
-     public function register($firstname,$lastname,$email,$username,$country,$state,$password, $public_key, $secret_key, $createsd_at, $updated_at,  $db){
+     public function register($firstname,$lastname,$email,$username,$country,$state, $phone, $password, $public_key, $secret_key, $createsd_at, $updated_at,  $db){
         
-        $this->table = 'interns_data';
+        $this->table = 'interns_data'; 
         
         
         $password_hash = md5($password);
         $secret_hash = md5($secret_key);
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,country,state,password, public_key, private_key, created_at, updated_at ) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         
             $statement = $db->prepare($query);
 
 
            var_dump($db->error);
     
-        $statement->bind_param('sssssssssss',$firstname,$lastname,$email,$username,$country,$state,$password_hash, $public_key, $secret_hash,  $createsd_at, $updated_at);
+        $statement->bind_param('ssssssssssss',$firstname,$lastname,$email,$username,$country, $state, $phone, $password_hash, $public_key, $secret_hash,  $createsd_at, $updated_at);
 
         
      $result = $db->query($query);
@@ -224,7 +224,7 @@ public function __construct(){
 //login check
   public function check($email,$password,$db){
 
-        $this->table = "users";
+        $this->table = "interns_data";
           $password_hash = md5($password);
           $query = "SELECT * FROM ".$this->table." WHERE email=? AND password=? LIMIT 1";
           $statement = $db->prepare($query);
