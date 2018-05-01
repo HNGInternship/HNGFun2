@@ -334,18 +334,21 @@ public function __construct(){
    //change password function
     public function update_password($id,$password,$conn){
          $password_hash = md5($password);
-       $query="UPDATE ".$this->table." SET password='$password' WHERE id='$id' LIMIT 1";
-       $stmt = $conn->prepare($query);
-         
-          $stmt->execute();
 
-         if($stmt->rowCount() > 0){
-                  
-           return true;
-        }
-      else {
-           return false; 
-       } 
+          try {
+
+           $query="UPDATE ".$this->table." SET password='$password' WHERE id='$id' LIMIT 1";
+
+            $conn->exec($query);
+          return true;
+          }
+        catch(PDOException $e)
+            {
+           // echo $query . "<br>" . $e->getMessage();
+            return false;
+            }    
+
+    
        
        
    }
