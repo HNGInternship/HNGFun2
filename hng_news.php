@@ -27,16 +27,17 @@ include_once("header.php");
 	</div>
 
 	<div style="text-align: center;">
-		<button style="background-color: #2196F3; color: white; height: 60px; width: 170px">TRENDING</button>
+		<button style="background-color: #2196F3; color: white; height: 60px; width: 170px">TRENDIG</button>
 	</div>
 
 	<div>
 
-		<div class="slideshow" style="width: 100%">
+		<div class="slideshow" style="width: 100%;">
 			<div class="slide" id="first">
 				<div class="row">
 					<div class="col-lg-4" style="height: 200px">
-						<p>ese</p>
+						<p style="width: 150px; height: 100px; background-color: grey"></p>
+						<p>The design team has juts created another hit which is now featured on dribble be sure to check it out</p>
 					</div>
 					<div class="col-lg-4" style="height: 200px">
 						<p>dgf</p>
@@ -46,15 +47,15 @@ include_once("header.php");
 					</div>
 				</div>
 			</div>
-			<div class="slide" id="second">
+			<div class="slide" id="second"  style="">
 				<div class="row">
-					<div class="col-lg-4 col-md-4 col-sm-4" style="height: 200px">
+					<div class="col-lg-4" style="height: 200px">
 						
 					</div>
-					<div class="col-lg-4 col-md-4 col-sm-4" style="height: 200px">
+					<div class="col-lg-4 " style="height: 200px">
 						
 					</div>
-					<div class="col-lg-4 col-md-4 col-sm-4" style="height: 200px">
+					<div class="col-lg-4 " style="height: 200px">
 						
 					</div>
 				</div>
@@ -63,36 +64,6 @@ include_once("header.php");
 
 	</div>
 </div>
-
-		<script>
-$(document).ready(function() {
-    setInterval(function() {
-        var $curr = $('.slideshow .slide:visible'), // should be the first image
-            $next = ($curr.next().length) ? $curr.next() : $('.slideshow .slide').first();
-            // if there isn't a next image, loop back to the first image
-        $next.css('z-index',2).fadeIn('slow', function() { // move it to the top
-            $curr.hide().css('z-index',0); // move this to the bottom
-            $next.css('z-index',1);        // now move it to the middle
-        });
-    }, 6000); // milliseconds
-});
-</script>
-
-<style>
-.slideshow {
-    position: relative; /* necessary to absolutely position the images inside */
-    width: 500px; /* same as the images inside */
-    
-}
-.slideshow .slide {
-    position: absolute;
-    display: none;
-}
-.slideshow .slide:first-child {
-    display: block; /* overrides the previous style */
-}
-</style>
-
 
 
 <?php
