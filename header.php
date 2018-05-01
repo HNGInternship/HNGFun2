@@ -36,6 +36,7 @@
       <link rel="stylesheet" href="css/signout.css">
       <link href="css/landing-page.min.css" rel="stylesheet">
       <link href="css/shield-invite.css" rel="stylesheet">
+      <link href="css/404.css" rel="stylesheet">
       <!-- <link href="css/carousel.css" rel="stylesheet"> -->
       
 
