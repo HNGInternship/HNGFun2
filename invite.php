@@ -35,7 +35,8 @@ include_once("header.php");
                         Together we can build a better, enviable Africa.<br>  
                         Invite a friend to join the tech revolution now!
                     </p>
-                    <a href="invite-emails.php" class="btn btn-md btn-primary" id="sendInvitesButton">Send Invites</a>
+                    <!-- <a href="invite-emails.php" class="btn btn-md btn-primary" id="sendInvitesButton">Send Invites</a> -->
+                    <a href="invite_twomails.php" class="btn btn-md btn-primary" id="sendInvitesButton">Send Invites</a>
                 </div>   
                 <!-- /right:div -->
             
