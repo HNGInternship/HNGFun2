@@ -4,7 +4,7 @@ DO NOT MODIFY THIS FILE!!!
  */
 
 /* Instead of rediting this, just move your config.php a step outside the HNGFun folder */
-require 'config.php';
+require 'config.example.php';
 
 // try {
 //     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
