@@ -126,9 +126,9 @@
       <![endif]-->
 
 
-    <div style="background:#E5E5E5;background-color:#E5E5E5;Margin:0px auto;max-width:600px;">
+    <div style="background:transparent;Margin:0px auto;max-width:600px;">
 
-      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#E5E5E5;background-color:#E5E5E5;width:100%;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:transparent;width:100%;">
         <tbody>
           <tr>
             <td style="direction:ltr;font-size:0px;padding:20px 0;padding-top:0;text-align:center;vertical-align:top;">
@@ -307,7 +307,7 @@
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;padding-top:50;word-break:break-word;">
 
-                      <div style="font-family:Work Sans;font-size:32px;font-weight:bold;letter-spacing:30%;line-height:24px;text-align:center;color:#3D3D3D;">
+                      <div style="font-family:Lato;font-size:32px;font-weight:bold;letter-spacing:30%;line-height:24px;text-align:center;color:#3D3D3D;">
                         Please Reset your Password
                       </div>
 
@@ -317,7 +317,7 @@
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 
-                      <div style="font-family:Lato;font-size:15px;letter-spacing:0.48px;line-height:20x;text-align:center;color:#000000;">
+                      <div style="font-family:Lato;font-size:16px;letter-spacing:0.48px;line-height:20x;text-align:center;color:#000000;">
                         We heard that you lost your HNGInternship password. Sorry about that!</br>
                         But don’t worry! You can use the link to reset your password:</br>
                         To get a new password reset link, visit <a href="http://revenge.hng.fun/passwordreset.php?token=urltoken"> <span style="color:#2F80ED">here</span> </a>
@@ -381,7 +381,7 @@
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 
-                      <div style="font-family:Lato;font-size:15px;letter-spacing:0.48px;line-height:20x;text-align:center;color:#000000;">
+                      <div style="font-family:Lato;font-size:16px;letter-spacing:0.48px;line-height:20x;text-align:center;color:#000000;">
                         Thanks, </br>your friends at HNG
                       </div>
 
