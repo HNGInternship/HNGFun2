@@ -4,7 +4,7 @@
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
     <h1 class="font-weight-normal">
         <h1>Log In</h1>
-        <p style="font-size: 16px;">Login to access your dashboard and manage your account.</p>
+	    <p style="font-size: 16px;">Login to access your dashboard and manage your account.</p>
     </h1>
 </div>
 
@@ -14,10 +14,10 @@
         <div class="col-lg-4">
             <div style="padding: 0px 20px 0px 20px">
                 <form class="form-signin" id="login_form">
-            <label for="inputEmail" class="sr-only">Email</label>
+            <label for="email" class="sr-only">Email</label>
             <input type="email" id="email" class="form-control" placeholder="Email" name="email" required="" autofocus="">
             <br/>
-            <label for="inputPassword" class="sr-only">Password</label>
+            <label for="password" class="sr-only">Password</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
             <br/>
             <input type="hidden" name="login" value="yes">
@@ -53,13 +53,13 @@
         
         
         if(email ==""){
-            //alert('please enter email');
+            alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
         }
        
         else if(password ==""){
-            //alert('Please enter password');
+            alert('Please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
         }
@@ -88,22 +88,20 @@
             window.location ="dashboard.php";
              }  
              else{
-                //alert(data);
+                alert(data);
                 $("#message").addClass('alert alert-danger');
             
                 $("#message").html(data);
-                 $("#login").html('Failed!');
+                 $("#login").html('Failed');
              } 
             
 
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
-                    //alert('Request not completed');
+                    alert('Request not completed');
                  }
-                $("#login").html('Failed!!');
-                $("#message").removeClass('alert alert-danger');
-                $("#message").html(errorThrown);
+                $("#login").html('Failed');
             },
             beforeSend :function(){
 
