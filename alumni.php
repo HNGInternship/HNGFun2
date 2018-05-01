@@ -1,5 +1,7 @@
-<!doctype html>
-<html lang="en">
+<?php
+include_once("header.php");
+?>
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -83,16 +85,35 @@
       border: 1px solid lightgrey;
     }
     .table, thead {
-      margin-top: 0px !important;
+      margin-top: 0px auto;
     }
     .in {
       display: inline-flex;
       width: 28%;
-      background: whitesmoke;
+      font-weight: bold;
     }
     table {
       border: 1px solid lightgrey;
       margin: 0 auto;
+      table-layout: auto;
+    }
+    @media screen and (max-width: 767) {
+      table {
+        margin-left: -4em;
+        font-size: 70%;
+        border-style: solid;
+        border-collapse: separate;
+      }
+      .top {
+        margin: unset;
+        padding: auto;
+        border: unset;
+        text-align: justify;
+        display: inline-grid;
+      }
+      .in {
+        width: 120%
+      }
     }
     a {
       margin: 0.5em;
@@ -100,6 +121,7 @@
     }
     #p {
       font-weight: bold;
+      float: left;
     }
     </style>
 
@@ -112,7 +134,7 @@
       <hr style="width:5%;border:1px solid #555;margin-top:0px;">
       <p class="heading">HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
       <div class="top">
-        <p style="float:left;" id="p">HNG Alumni</p>
+        <p id="p">HNG Alumni</p>
         <p>HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
       <p><strong>TOOLS BUILT</strong>:&nbsp;CHATBOTS, CRYPTOCURRENCY</p>
       <input type="text" placeholder="Search Interns" class="form-control in" />
@@ -142,7 +164,7 @@
       <div class="article-loop">
        <tbody>
           <tr>
-            <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+            <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
             <td>Sambo Abubakar</td>
             <td>@Sadiq</td>
             <td></td>
@@ -156,7 +178,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -170,7 +192,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -184,7 +206,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -198,7 +220,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -212,7 +234,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -226,7 +248,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -240,7 +262,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -254,7 +276,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -268,7 +290,7 @@
 
       <div class="article-loop">
             <tr>
-              <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+              <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
               <td>Sambo Abubakar</td>
               <td>@Sadiq</td>
               <td></td>
@@ -300,7 +322,7 @@
       <div class="article-loop">
        <tbody>
           <tr>
-            <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+            <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
             <td>Jeremiah x</td>
             <td>@Jeremiah</td>
             <td></td>
@@ -314,7 +336,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Jeremiah x</td>
           <td>@Jeremiah</td>
           <td></td>
@@ -328,7 +350,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Jeremiah x</td>
           <td>@Jeremiah</td>
           <td></td>
@@ -342,7 +364,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Jeremiah x</td>
           <td>@Jeremiah</td>
           <td></td>
@@ -356,7 +378,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Jeremiah x</td>
           <td>@Jeremiah</td>
           <td></td>
@@ -370,7 +392,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Jeremiah x</td>
           <td>@Jeremiah</td>
           <td></td>
@@ -384,7 +406,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Jeremiah x</td>
           <td>@Jeremiah</td>
           <td></td>
@@ -398,7 +420,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Jeremiah x</td>
           <td>@Jeremiah</td>
           <td></td>
@@ -412,7 +434,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Jeremiah x</td>
           <td>@Jeremiah</td>
           <td></td>
@@ -426,7 +448,7 @@
 
       <div class="article-loop">
             <tr>
-              <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+              <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
               <td>Jeremiah x</td>
               <td>@Jeremiah</td>
               <td></td>
@@ -457,7 +479,7 @@
       <div class="article-loop">
        <tbody>
           <tr>
-            <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+            <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
             <td>Sambo Abubakar</td>
             <td>@Sadiq</td>
             <td></td>
@@ -471,7 +493,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -485,7 +507,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -499,7 +521,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -513,7 +535,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -527,7 +549,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -541,7 +563,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -555,7 +577,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -569,7 +591,7 @@
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td>Sambo Abubakar</td>
           <td>@Sadiq</td>
           <td></td>
@@ -583,7 +605,7 @@
 
       <div class="article-loop">
             <tr>
-              <th scope="row"><img src="profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+              <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
               <td>Sambo Abubakar</td>
               <td>@Sadiq</td>
               <td></td>
@@ -752,4 +774,7 @@
 
 
   </body>
-</html>
+
+<?php
+include_once("footer.php");
+?>
