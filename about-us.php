@@ -5,6 +5,9 @@ include_once("header.php");
 	body{
 		overflow-x: hidden;
 	}
+	main{
+		background-color: #fff;
+	}
 	.jumbotron{
 		background-color: #2f70ed;
 	}
