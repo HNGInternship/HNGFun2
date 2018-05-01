@@ -18,6 +18,7 @@ if(isset($_POST['registration'])){
 	$phone = $_POST['phone'];
 	
 	$username =  $_POST['username'];
+	$phone =  $_POST['phone'];
 	$password = $_POST['password'];
 	$password_confirm = $_POST['password_confirm'];
 
@@ -53,14 +54,14 @@ if(isset($_POST['registration'])){
 			//instantiate the user class
 			$user = new User();
 			//try to register user
-			$register_check = $user->register($firstname,$lastname,$email,$username,$phone,$password,$db);
+			$register_check = $user->register($firstname,$lastname,$email,$username,$nationality,$state, $phone, $password,$public_key, $secret_key, $created_at, $updated_at,  $conn);
 
 			//check for response 
 			if($register_check==true){
 				
 				$login_check = $user->check($email,$password,$db);
 
-				if($login_check == true){
+				if($login_check !== false){
 
 				die(true);	
 				}
@@ -95,12 +96,12 @@ if(isset($_POST['login'])){
 	else{
 
 		//connect to database
-			require_once('db.php');
-
+			require_once('connection.php');
+			global $conn;
 			//instantiate the user class
 			$user = new User();
 
-			$login_check = $user->check($email,$password,$db);
+			$login_check = $user->check($email,$password,$conn);
 			if($login_check == true){
 				echo true;
 			}
@@ -117,11 +118,11 @@ if(isset($_POST['login'])){
 			$email = $_POST['email'];
 			require_once('db.php');
 			$user = new User();
-			$email_check = $user->check_email($email, $db);
+			$email_check = $user->check_email($email, $conn);
 
 			if($email_check == true){
 				$reset_pin = rand(10000,99999);
-				$user_update_token = $user->update_token($email,$reset_pin, $db);
+				$user_update_token = $user->update_token($email,$reset_pin, $conn);
 				if($user_update_token = true){
 					$headers = "MIME-Version: 1.0" . "\r\n";
 					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
