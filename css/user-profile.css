@@ -1,0 +1,73 @@
+bodydd{
+	padding-bottom: 0px;
+	font-family: 'Open Sans', Arial, Tahoma;
+	color: #363636;
+	background: #ededed;
+	font-size: 14px;
+}
+
+h2{
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size:1.5em;
+	line-height: 1.4em;
+
+
+}
+
+.sect{
+	padding:50px;
+}
+.container-main{
+	background: #fff;
+	margin-top: 80px;
+	padding:0 0px 50px 0px;
+	box-shadow: 5px 5px 15px #888888;
+	font-family: 'Open Sans', Arial, Tahoma;
+	width: 100%;
+}
+.img{
+	padding: 10px;
+}
+.hh{
+	color:#2196F3;
+}
+.btn{
+	background:#2196F3;
+	color:#ffffff;
+}
+
+ 
+.dropdownBirth{
+	width: 100px;
+}
+.profile-img{
+	width:160px;
+	display: block;
+	margin: auto;
+	margin-top:-80px;
+}
+
+.btn-change{
+	width:200px;
+	margin-left: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
