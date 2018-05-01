@@ -6,7 +6,7 @@ public $table;
 
 public function __construct(){
     
-    $this->table = "users";   
+    $this->table = "interns_data";   
  date_default_timezone_set('Africa/Lagos');
 
 }
@@ -41,7 +41,7 @@ public function __construct(){
       //check if email exists already before registration to avoid double email
   public function check_email($email,$db){
          
-    $query = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
+    $query = "SELECT * FROM interns_data WHERE email = '$email' LIMIT 1";
     $result = mysqli_query($db,$query);
     if(mysqli_num_rows($result) > 0){
         
@@ -59,21 +59,21 @@ public function __construct(){
 //register construct function
 //
    
-     public function register($firstname,$lastname,$email,$username,$phone,$password,$db){
+     public function register($firstname,$lastname,$email,$username,$country,$state, $phone, $password, $public_key, $secret_key, $createsd_at, $updated_at,  $db){
         
-        $this->table = 'users';
+        $this->table = 'interns_data'; 
         
         
         $password_hash = md5($password);
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,phone,password,timee ) VALUES(?,?,?,?,?,?,?)";
+        $query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         
             $statement = $db->prepare($query);
 
            // echo $db->error.$query;
     
-        $statement->bind_param("sssssss",$firstname,$lastname,$email,$username,$phone,$password_hash,$timee);
+        $statement->bind_param('ssssssssssss',$firstname,$lastname,$email,$username,$country, $state, $phone, $password_hash, $public_key, $secret_hash,  $createsd_at, $updated_at);
 
         
      $result = $db->query($query);
@@ -210,8 +210,8 @@ public function __construct(){
 //login check
   public function check($email,$password,$db){
     $password_hash = md5($password);
-    $table = 'users';
-    $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password_hash' LIMIT 1";
+    $table = 'interns_data';
+    $query = "SELECT * FROM interns_data WHERE email = '$email' AND password = '$password_hash' LIMIT 1";
     $result = mysqli_query($db,$query);
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_array($result);
@@ -321,7 +321,7 @@ public function __construct(){
 
     //to check password token for password resets       
     public function check_token($token,$db){
-        $query = "SELECT * FROM users WHERE token = '$token' LIMIT 1";
+        $query = "SELECT * FROM interns_data WHERE token = '$token' LIMIT 1";
     $result = mysqli_query($db,$query);
     if(mysqli_num_rows($result) > 0){
         

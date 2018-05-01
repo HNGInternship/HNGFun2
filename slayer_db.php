@@ -20,6 +20,8 @@ $sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
     `first_name` varchar(100) NOT NULL,
     `last_name` varchar(100) NOT NULL,
     `username` varchar(100) NOT NULL,
+    `email` varchar(100) NOT NULL,
+    `phone_number` varchar(30) NOT NULL,
     `skills` text,
     `country` varchar(100) DEFAULT NULL,
     `image_filename` text NOT NULL,
