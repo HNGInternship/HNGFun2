@@ -1,0 +1,18 @@
+.page404 {
+    height: 80vh;
+    border-radius: 0;
+    margin-bottom: 0;
+    background: #2196F3;
+}
+
+.content404 {
+    text-align: center;
+    color: #fff;
+
+}
+
+footer {
+    margin-top: 0 !important;
+    padding-top: 5;
+    padding-bottom: 20px;
+}
