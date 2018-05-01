@@ -115,7 +115,7 @@ $activeArray[$fileIndex]="active";
     
     <nav class="navbar navbar-expand-lg navbar-light"  >
       <a class="navbar-brand" href="../index.php">
-        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
+        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="100" height="50" class="img-fluid">
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
