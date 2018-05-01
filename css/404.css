@@ -36,7 +36,7 @@ section.content404 hr {
     text-decoration: none;
 }
 
-.content404 p  {
+.content404 p {
     margin-bottom: 20px;
 }
 
@@ -46,9 +46,19 @@ section.content404 hr {
     margin-top: -80px;
 }
 
-
 footer {
     margin-top: 0 !important;
     padding-top: 5;
     padding-bottom: 20px;
+}
+
+@media screen and (max-width: 770px) {
+    .inner-login-container {
+        flex-direction: column;
+        width: 90vw;
+        padding: 0 10vw;
+    }
+    .form-container {
+        width: 100% !important;
+    }
 }
