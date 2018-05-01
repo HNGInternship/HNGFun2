@@ -37,9 +37,14 @@ $activeArray[$fileIndex]="active";
 
     <title>HNG FUN</title>
 
+
+
+
+
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
+   <script src="js/jquery.min.js"></script>
 
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
@@ -49,7 +54,7 @@ $activeArray[$fileIndex]="active";
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
      <link rel="stylesheet" href="css/custom.css" type="text/css">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+<!--      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
@@ -60,10 +65,7 @@ $activeArray[$fileIndex]="active";
       <link href="css/landing-page.min.css" rel="stylesheet">
 
       <style>
-        body {
-          background-color: #FAFAFA!important;
-
-        }
+      
         .navbar{
           font-size: 15px;
           font-weight: bold;
@@ -139,7 +141,7 @@ $activeArray[$fileIndex]="active";
             
             <li class="nav-item dropdown py-0 mt-3 mb-0 ">
                 <a class="nav-link dropdown-toggle mr-3 remove-after notification" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-bell navbar-icon fa-lg"></i>
+                    <i class="fa fa-bell navbar-icon fa-lg"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-notification" aria-labelledby="navbarSettings">
                     <span class="dropdown-item hover-text" href="#">You have a reservation on hotels.ng <br> <a href="">Claim reservation</a></span>
@@ -160,12 +162,12 @@ $activeArray[$fileIndex]="active";
 
             <li class="nav-item  pt-0 mt-3 mb-0 pl-2 pr-0 ">
                 <a class="nav-link  mr-3 " href="#" id="navbarSettings">
-                    wallet
+                    Wallet
                 </a>
             </li>
             <li class="nav-item dropdown py-0 my-0">
                 <a class="nav-link dropdown-toggle mr-3" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-circle navbar-icon fa-3x"></i>
+                    <i class="fa fa-user-circle navbar-icon fa-3x"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarSettings">
                     <a class="dropdown-item py-3" href=" #">Admin Login</a>
