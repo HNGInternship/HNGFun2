@@ -7,7 +7,7 @@ include_once("header.php");
           <section class="content404">
         <h1 class="bigtext">404</h1>
             <img src="img/404.png" alt="404" class="image404">
-            <h4>oops the page you are looking forc can't be found !</h4>
+            <h4>oops the page you are looking for can't be found !</h4>
                 
                 <hr>
 
