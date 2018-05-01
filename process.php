@@ -143,7 +143,7 @@ if(isset($_POST['login'])){
 					// 0 = off (for production use)
 					// 1 = client messages
 					// 2 = client and server messages
-					$mail->SMTPDebug = 2;
+					$mail->SMTPDebug = 0;
 					//Set the hostname of the mail server
 					$mail->Host = 'smtp.gmail.com';
 					// use
@@ -186,7 +186,7 @@ if(isset($_POST['login'])){
 				
 				if (!$mail->send()) {
 				    //echo "Mailer Error: " . $mail->ErrorInfo;
-				    
+				    "Error occured while sending mail";
 				} else {
 				    echo "Message sent";
 
