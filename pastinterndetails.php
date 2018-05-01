@@ -16,7 +16,7 @@ include_once("header.php");
     border-bottom: 1px solid #ccc;
 }
 
-img {
+#mastHead {
   height: 350px;
   width: 800px;
 }
@@ -64,7 +64,7 @@ p {
 
               <div class="tab-pane fade show active" id="list-hng1" role="tabpanel" aria-labelledby="list-hng1-list">
                 
-               <img src="img/bg-masthead.jpg" class="img-rounded">
+               <img id="mastHead" src="img/bg-masthead.jpg" class="img-rounded">
 
                <h3>About HNG 1.0 </h3>
                <p>The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa. Everyone is welcome to participate (there is no entrance exam). We create fun challenges every week on our slack channel. THose who solve them stay on. Everyone gets to learn important concepts quickly, and make connections with people they can work with in the future. The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalist are connected to the best companies in the tech ecosystem and get full time jobs and contracts immediately. </p>
@@ -204,7 +204,7 @@ p {
         </div>      
       </div>
 
-
+</div>
 
 
     <!-- Optional JavaScript -->

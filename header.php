@@ -84,8 +84,13 @@
     <!-- Navigation -->
     
     <nav class="navbar navbar-expand-lg navbar-light"  >
+
       <a class="navbar-brand" href="../index.php">
         <img src="img/logo.png" alt="HNG logo" class="img-fluid">
+
+      <a class="navbar-brand" href="#">
+        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
+
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -114,6 +119,26 @@
                 <a href="alumni.php" class="nav-link">Alumni</a>
             </li> 
            <li class="nav-item">
+            <li class="nav-item <?= $activeArray[0] ?>">
+                <a href="index.php" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item <?= $activeArray[1] ?>">
+                <a href="learn.php" class="nav-link">Learn</a>
+            </li> 
+            <li class="nav-item <?= $activeArray[2] ?>">
+                <a href="listing.php" class="nav-link">Intern</a>
+            </li> 
+            <li class="nav-item <?= $activeArray[3] ?>">
+                <a href="testimonies.php" class="nav-link">Testimonies</a>
+            </li> 
+            <li class="nav-item <?= $activeArray[4] ?>">
+                <a href="sponsors.php" class="nav-link">Sponsors</a>
+            </li> 
+            <li class="nav-item <?= $activeArray[5] ?>">
+                <a href="alumni.php" class="nav-link">Alumni</a>
+            </li> 
+           <li class="nav-item <?= $activeArray[6] ?>">
+          
                 <a href="partners.php" class="nav-link">Partners</a>
             </li> 
     </ul>

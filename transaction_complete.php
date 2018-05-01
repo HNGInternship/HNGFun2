@@ -34,7 +34,7 @@ main{
  
 }
 
-#
+
 
 .footerText{
      font-size: 1.125em;
@@ -58,6 +58,47 @@ main{
 </section> -->
 
 <div class="main-container">
+
+<div style="margin-top: 6.5%;display:flex">
+
+    <div id="crumb1" class="crumbs"  style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">1</span>
+
+      
+    </div>
+
+    <div id="crumb2" class="crumbs" style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
+    <img  style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">2</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_1_arrow.svg" alt="first arrow">
+
+      
+    </div>
+
+    <div id="crumb3" class="crumbs" style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">3</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_1_arrow.svg" alt="first arrow">
+
+
+      
+    </div>
+
+     <div id="crumb4" class="crumbs" style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">4</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_1_arrow.svg" alt="first arrow">
+
+
+      
+    </div>
+  </div>
+
+
 <h1 style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 2.4%;margin-bottom:0%;
 font-family: 'Work Sans';
 font-style: normal;
@@ -95,6 +136,40 @@ font-size: 2.4em;"> Transaction Completed</h2>
 
 
 </div>
+
+
+<script type="text/javascript">
+    
+
+   
+    // $('#crumb1').on('click', function () {
+
+    //     moveToPage("buy_coins_0.php");
+      
+    // });
+
+    //  $('#crumb2').on('click', function () {
+
+    //     moveToPage("buy_coins_1.php");
+      
+    // });
+
+
+    //   $('#crumb3').on('click', function () {
+
+    //     moveToPage("transaction_pending.php");
+      
+    // });
+
+
+
+  
+  function moveToPage(page){
+  window.location.href = page;
+  }
+}
+
+</script>
 
 
 <!-- Footer -->

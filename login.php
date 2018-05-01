@@ -14,6 +14,7 @@
         <div class="col-lg-4">
             <div style="padding: 0px 20px 0px 20px">
                 <form class="form-signin" id="login_form">
+
             <label for="email" class="sr-only">Email</label>
             <input type="email" id="email" class="form-control" placeholder="Email" name="email" required="" autofocus="">
             <br/>

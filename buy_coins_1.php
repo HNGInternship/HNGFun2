@@ -72,17 +72,10 @@ margin-bottom: 2.2%;
 .hidden{
     display: none;
 }
-/*#scrim{
-background: rgba(0, 0, 0, 0.8);
-    color: white;
-    position: fixed;
-    z-index: 999999999;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    /*display: none;*/
-/*}*/
+.crumbs:hover{
+  cursor: pointer;
+}
+
  /* media queries */
     @media(min-width: 360px) { 
         #checkMark {
@@ -92,12 +85,48 @@ background: rgba(0, 0, 0, 0.8);
 </style>
 
 
-<!-- <div class="container-fluid">
-<section id="scrim">
-    <p>ertghe</p>
-</section> -->
 
 <div class="main-container">
+
+<div style="margin-top: 6.5%;display:flex">
+
+    <div id="crumb1" class="crumbs"  style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">1</span>
+
+      
+    </div>
+
+    <div id="crumb2" class="crumbs" style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
+    <img  style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">2</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_1_arrow.svg" alt="first arrow">
+
+      
+    </div>
+
+    <div id="crumb3" class="crumbs" style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">3</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_1_arrow.svg" alt="first arrow">
+
+
+      
+    </div>
+
+     <div id="crumb4" class="crumbs" style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <img style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
+    <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">4</span>
+
+    <img style="width: 20%;height: 100%;position: absolute;top: 0%;left: -2%;padding-left: 0%;" src="img/blue_2_arrow.svg" alt="first arrow">
+
+
+      
+    </div>
+  </div>
+
 <h1 style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 2.4%;margin-bottom:0%;
 font-family: 'Work Sans';
 font-style: normal;
@@ -162,7 +191,7 @@ font-size: 1.25em;"> SEND PAYMENT</h1>
 
 <div class="row justify-content-md-center justify-content-xs-center" style="padding-bottom: 3.7%;">
 
-    <button type="button" id="buyButton" class="btn btn-primary col-xs-6 col-sm-3"  style="font-size: 1.563em;
+    <button type="button" id="cancelButton" class="btn btn-primary col-xs-6 col-sm-3"  style="font-size: 1.563em;
     color:#fafafa;line-height: 1.875em;">Cancel Trade</button>
         
     </div>
@@ -182,7 +211,7 @@ font-size: 1.25em;"> SUBMIT PROOF OF PAYMENT</h1>
 
 <div class="row justify-content-md-center justify-content-xs-center" style="padding-bottom: 3.7%;">
 
-    <button type="button" class="btn btn-primary btn-sm col-xs-6 col-sm-3"  style="font-size: 1.563em;
+    <button type="button" id="proofButton" class="btn btn-primary btn-sm col-xs-6 col-sm-3"  style="font-size: 1.563em;
     color:#fafafa;line-height: 1.875em; margin-top:4.6%;margin-bottom:6.8%">Submit Payment Proof</button>
         
     </div>
@@ -194,29 +223,32 @@ font-size: 1.25em;"> SUBMIT PROOF OF PAYMENT</h1>
     
     window.onload = function() {
    
-    $('#buyButton').on('click', function () {
-        setTimeout(completeTransaction, 2000);
+    $('#crumb1').on('click', function () {
+
+        moveToPage("buy_coins_0.php");
+      
+    });
+
+  
+    
+
+    $('#cancelButton').on('click', function () {
+        moveToPage("transaction_cancelled.php");
+      
+    });
+
+
+    $('#proofButton').on('click', function () {
+        moveToPage("transaction_pending.php");
       
     });
     
-    
-   $('#closeButton').on('click', function () {
-       $('#checkMark').toggleClass('visible');
-    $('#checkMark').toggleClass('hidden');
-    $('#modalHeader').html('Confirming...');
-    $('#modalFooter').toggleClass('hidden');
-    $('#modalFooter').toggleClass('visible');
-    });
+  
+  function moveToPage(page){
+  window.location.href = page;
   }
-  function completeTransaction(){
-    $('#checkMark').toggleClass('visible');
-    $('#checkMark').toggleClass('hidden');
-    $('#modalHeader').html('Transaction Complete');
-    $('#modalFooter').toggleClass('hidden');
-    $('#modalFooter').toggleClass('visible');
-  }
+}
 </script>
-
 <!-- Footer -->
 <?php
 include_once("footer.php");

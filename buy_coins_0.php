@@ -150,6 +150,9 @@ margin-bottom: 2.2%;
 }*/
 
 
+.crumbs:hover{
+  cursor: pointer;
+}
 
 
 
@@ -182,16 +185,16 @@ margin-bottom: 2.2%;
 </div> -->
 
   
-<div class="row no-gutters" style="margin-top: 6.5%">
+<div style="margin-top: 6.5%;display:flex">
 
-    <div style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <div id="crumb1" class="crumbs"  style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
     <img style="width: 100%" src="img/blue_1_bar.svg" alt="first arrow">
     <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">1</span>
 
       
     </div>
 
-    <div  style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <div id="crumb2" class="crumbs" style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
     <img  style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
     <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">2</span>
 
@@ -200,7 +203,7 @@ margin-bottom: 2.2%;
       
     </div>
 
-    <div style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+    <div id="crumb3" class="crumbs" style="position: relative; margin-right: -0.45%;margin-left: 0%;width: 25%;color: white">
     <img style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
     <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">3</span>
 
@@ -210,7 +213,7 @@ margin-bottom: 2.2%;
       
     </div>
 
-     <div  style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
+     <div id="crumb4" class="crumbs" style="position: relative; margin-right: 0%;margin-left: 0%;width: 25%;color: white">
     <img style="width: 100%" src="img/blue_2_bar.svg" alt="first arrow">
     <span style="position:absolute;top:30%;left: 50%;font-size: 1.253em">4</span>
 
@@ -331,27 +334,17 @@ font-size: 1.25em;"> INPUT DETAILS</h1>
     
     window.onload = function() {
    
+
     $('#buyButton').on('click', function () {
-        setTimeout(completeTransaction, 2000);
+        moveToPage("buy_coins_1.php");
       
     });
     
-    
-   $('#closeButton').on('click', function () {
-       $('#checkMark').toggleClass('visible');
-    $('#checkMark').toggleClass('hidden');
-    $('#modalHeader').html('Confirming...');
-    $('#modalFooter').toggleClass('hidden');
-    $('#modalFooter').toggleClass('visible');
-    });
+  
+  function moveToPage(page){
+  window.location.href = page;
   }
-  function completeTransaction(){
-    $('#checkMark').toggleClass('visible');
-    $('#checkMark').toggleClass('hidden');
-    $('#modalHeader').html('Transaction Complete');
-    $('#modalFooter').toggleClass('hidden');
-    $('#modalFooter').toggleClass('visible');
-  }
+}
 </script>
 
 <!-- Footer -->
