@@ -67,13 +67,17 @@ public function __construct(){
         $password_hash = md5($password);
         $timee=date('Y-m-d H:i:s');
 
+
+        //$query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,phone,password) VALUES(?,?,?,?,?,?)"; 
+
         $query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+
         
             $statement = $db->prepare($query);
 
            // echo $db->error.$query;
     
-        $statement->bind_param('ssssssssssss',$firstname,$lastname,$email,$username,$country, $state, $phone, $password_hash, $public_key, $secret_hash,  $createsd_at, $updated_at);
+        $statement->bind_param('ssssssssssss',$firstname,$lastname,$email,$username,$country, $state, $phone, $password_hash, $public_key, $secret_hash,  $created_at, $updated_at);
 
         
      $result = $db->query($query);
