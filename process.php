@@ -112,18 +112,7 @@ if(isset($_POST['login'])){
 		else{
 			echo "Invalid email or password";
 		}
-			require_once('db.php');
-
-			//instantiate the member class
-			$member = new Member();
-
-			$login_check = $member->check($email,$password,$conn);
-			if($login_check == true){
-				echo true;
-			}
-			else{
-				echo "Invalid email or password";
-			}
+			
 	}
 
 }

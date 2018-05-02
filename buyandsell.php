@@ -1,5 +1,8 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
+if(empty($_SESSION)){
+	header("Location: login.php");
+}
 include_once("coin_header.php");
 include_once("db.php");
 if(!empty($_SESSION["id"])){
@@ -194,9 +197,9 @@ h3{
 							
 							<div class="col-1">
 							<?php 
-							if($r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
+							if(!empty($_SESSION['id']) && $r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
 							?>
-							<a href="transaction_cancelled.php?buy=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger">Cancel</a>
+							<a href="transaction_cancelled.php?buy=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger" onclick="return  confirm('Are you sure you want to delete this request')">Cancel</a>
 							<?php
 							}else{
 							?>
@@ -290,9 +293,9 @@ h3{
 						
 						<div class="col-1">
 						<?php 
-							if($r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
+							if(!empty($_SESSION['id']) && $r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
 							?>
-							<a href="transaction_cancelled.php?sell=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger">Cancel</a>
+							<a href="transaction_cancelled.php?sell=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger" onclick="return  confirm('Are you sure you want to delete this request')">Cancel</a>
 							<?php
 							}else{
 							?>

@@ -1,7 +1,4 @@
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 <?php 
 if(!isset($_SESSION)) { session_start(); }
 
@@ -26,9 +23,7 @@ $activeArray[$fileIndex]="active";
 
 
 ?>
->>>>>>> Stashed changes
-=======
->>>>>>> 0fb3c5686131340c0d63ed3a5c21311012e39dd7
+
 
 <!DOCTYPE html>
 <html lang="en">
