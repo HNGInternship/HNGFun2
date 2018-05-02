@@ -54,6 +54,7 @@ if(isset($_POST['registration'])){
 
 			//check for response 
 			if($register_check==true){
+				$_SESSION['email'] = $row['email'];
 				die(true);
 			}
 			else{
