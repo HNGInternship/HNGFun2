@@ -305,7 +305,7 @@
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;padding-top:50;word-break:break-word;">
 
-                      <div style="font-family:Lato;font-size:32px;font-weight:bold;letter-spacing:30%;line-height:24px;text-align:center;color:#3D3D3D;">
+                      <div style="font-family:Lato;font-size:32px;font-weight:bold;letter-spacing:30%;line-height:24px;text-align:center;color:#3D3D3D;margin-top:-35px;">
                         Please Reset your Password
                       </div>
 
