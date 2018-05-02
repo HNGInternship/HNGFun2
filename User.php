@@ -9,7 +9,7 @@ class User
     public function __construct()
     {
         
-        $this->table = "interns_data";
+        $this->table = "slay";
         date_default_timezone_set('Africa/Lagos');
         
     }
@@ -44,7 +44,7 @@ class User
     public function check_email($email, $db)
     {
         
-         $query  = "SELECT * FROM interns_data WHERE email = '$email' LIMIT 1";
+         $query  = "SELECT * FROM ". $this->table." WHERE email = '$email' LIMIT 1";
         // $query  = "SELECT * FROM interns_data WHERE email = :email LIMIT 1";
         // $stmt = $db->prepare($query);
         // $stmt->bindParam(':email', $email);
@@ -72,33 +72,31 @@ class User
     //register construct function
     //
     
-    public function register($firstname, $lastname, $email, $username='', $country=null, $state=null, $phone, $password, $public_key, $secret_key, $db)
+    public function register($firstname, $lastname, $email, $password, $public_key, $secret_key, $token, $active, $created_at, $update_at, $db)
     {
         
         $image_filename = '';
-        $this->table = 'interns_data';
+        $this->table = 'slay';
         
         
         $password_hash = md5($password);
         $timee = date('Y-m-d H:i:s');
-        
-        
-        //$query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,phone,password) VALUES(?,?,?,?,?,?)"; 
-        
+         
         // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $sql = "insert into ".$this->table." (first_name, last_name, username, email, phone_number, password_hash, country, image_filename, public_key, private_key) values (:first_name, :last_name, :username, :email, :phone_number,
-                                                    :password_hash, :country, :image_filename, :public_key, :private_key)";
+        $sql = "insert into ".$this->table." (firstname, lastname, email, password, public_key, private_key, token, active, created_at, update_at) 
+        values (:first_name, :last_name, :email, :password_hash, :public_key, :private_key, :token, :active, :created_at, :update_at)";
+
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':first_name', $firstname);
         $stmt->bindParam(':last_name', $lastname);
-        $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':phone_number', $phone);
         $stmt->bindParam(':password_hash', $password_hash);
-        $stmt->bindParam(':country', $country);
-        $stmt->bindParam(':image_filename', $image_filename);
         $stmt->bindParam(':public_key', $public_key);
         $stmt->bindParam(':private_key', $secret_key);
+        $stmt->bindParam(':token', $token);
+        $stmt->bindParam(':active', $active);
+        $stmt->bindParam(':created_at', $created_at);
+        $stmt->bindParam(':update_at', $update_at);
         
         
         // $statement = $db->prepare($query);
