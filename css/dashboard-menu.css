@@ -2,7 +2,7 @@
 
 .acc {
 float: right;
-padding: 38px 16px 0 50px !important;
+padding: 30px 16px 0 50px !important;
 }
 
 .acc .dropdown-item {
@@ -90,4 +90,10 @@ ul.navbar-nav.collapse.ml-auto.dashmenu {
 
 .dash-b img.dashb-icons {
     width: 25px;
+}
+
+@media (max-width: 992px) {
+.acc {
+	padding: 5px 0 !important;
+}
 }
