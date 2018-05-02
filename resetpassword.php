@@ -77,17 +77,27 @@ include_once("header.php");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-  $("#form-change").on("submit", function(){
-    $("#pageloader").fadeIn();
+  $(".form-change").on("submit", function(){
+    $(".pageloader").fadeIn();
   });//submit
 });//document read
   
     $(document).ready(function(){
-  $("#form-reset").on("submit", function(){
-    $("#pageloader").fadeIn();
+  $(".form-reset").on("submit", function(){
+    $(".pageloader").fadeIn();
   });//submit
 });//document read 
     
+  $('form').submit(function(){
+    $('.loader').show();
+});
+  $('form').submit(function(){
+    $('.loader').show();
+});
+  
+  
+  
+  
 $('btn-reset').value = 'Processing . . .';
 $('btn-change').value = 'Processing . . .';
   
