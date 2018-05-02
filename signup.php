@@ -1,71 +1,13 @@
 <?php
 session_start();
 require_once 'User.php';
-
-$reg_user = new USER();
-
-if($reg_user ->is_logged_in()!=""){
-    $reg_user->redirect('home.php');
-}
-
-if(isset($_POST['btn-signup'])){
-
-    $firstname = trim($_POST['firstname']);
-    $lastname = trim($_POST['lastname']);
-    $email = trim($_POST['email']);
-    $upass = trim($_POST['password']);
-    $code = md5(uniqid(rand()));
-
-    $stmt = $reg_user->runQuery("SELECT * FROM users WHERE email=:email_id");
-    $stmt->execute(array(":email_id"=>$email));
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // $stmt = $reg_user->runQuery("SELECT * FROM users WHERE userEmail=:email_id");
-	// $stmt->execute(array(":email_id"=>$email));
-	// $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if($stmt->rowCount() > 0){
-        $msg = "
-		      <div class='alert alert-error'>
-				<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Sorry !</strong>  email allready exists , Please Try another one
-			  </div>
-			  ";
-    }else{
-        if($reg_user->register($firstname, $lastname, $email, $upass, $code)){
-            $id = $reg_user->lasdID();
-            $key = base64_encode($id);
-            $id = $key;
-
-            $message = "					
-						Hello $firstname $lastname,
-						<br /><br />
-						Welcome to Dragon Slayer!<br/>
-						To complete your registration  please , just click following link<br/>
-						<br /><br />
-						<a href='http://localhost/dragon/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
-						<br /><br />
-						Thanks,";
-						
-			$subject = "Confirm Registration";
-
-            // $reg_user->send_mail($email,$message,$subject);	
-			$msg = "
-					<div class='alert alert-success'>
-						<button class='close' data-dismiss='alert'>&times;</button>
-						<strong>Success!</strong>  We've sent an email to $email.
-                    Please click on the confirmation link in the email to create your account. 
-			  		</div>
-					";
-        }else{
-            echo "sorry , Query could no execute...";
-        }
-    }
-}
+include('header.php');
 ?>
-
-<?php include('header.php'); ?>
-
+<script>
+const pair = StellarSdk.Keypair.random();
+const secret_key = pair.secret();
+const public_key = pair.publicKey();
+</script>
 <style>
     body {
         font-size: inherit !important;
@@ -145,9 +87,7 @@ if(isset($_POST['btn-signup'])){
     </div>
 </div>
 </div>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.0/stellar-sdk.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script type="text/javascript">
@@ -215,9 +155,7 @@ if(isset($_POST['btn-signup'])){
             $("#message").html('Terms and conditions not accepted by you');
         }
         else{
-            const pair = StellarSdk.Keypair.random();
-            const secret_key = pair.secret();
-            const public_key = pair.publicKey();
+            
             $("#username").val(firstname);
             
             $("#register").html('Registering..');
@@ -280,9 +218,7 @@ if(isset($_POST['btn-signup'])){
 
     });
 </script>
->>>>>>> Stashed changes
-=======
->>>>>>> 0fb3c5686131340c0d63ed3a5c21311012e39dd7
+
 <?php
     include_once("footer.php");
 ?>
