@@ -20,8 +20,8 @@ include_once("header.php");
 
 <style>
     .btn {
-        border-radius: 8px; 
-        background-color: #2196F3; 
+        border-radius: 8px;
+        background-color: #2196F3;
         border-color: #2196F3;
     }
     .btn-primary:hover,
@@ -39,25 +39,24 @@ include_once("header.php");
     }
 </style>
 
-<div class="container container-fluid bg-transparent text-center" style="margin-bottom: 100px">
-    <h3 class="row justify-content-center">
-        Ready to get started? Register now
-    </h3>
-    <br />
-    <div class="row justify-content-center">
-         <form class="form-inline" method="POST" action="signup.php">
-             <div class="input-group mb-3" >
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
-                </div>
-                <input type="email" class="form-control" name="email" id="email" placeholder="example@email.com" aria-label="Username" aria-describedby="basic-addon1" required>
-                <div class="input-group-append">
-                    <button class="btn-signup btn-md" style="font-size: 16px;">Sign Up </button>
-                </div>
-              </div>
-         </form>
-          
-    </div>
+<div class="my-5 py-5">
+	<div class="container container-fluid bg-transparent my-5 py-5">
+		<h3 class="text-center">Ready to get started? register now</h3>
+		<div class="d-flex justify-content-center mt-3">
+		  <form class="w-75">
+		  	<label class="mb-0 pb-0">Email:</label>
+		  	<div class="input-group mb-4 mt-0">
+		  	  <div class="input-group-prepend ">
+		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
+		  	  </div>
+		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
+		  	  <a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="btn btn-blue btn-lg ml-3 rounded py-0">
+		  	  	<p class="font-weight-normal text-white f-4 mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
+		  	  </a>
+		  	</div>
+		  </form>
+		</div>
+	</div>
 </div>
 
 
@@ -66,4 +65,3 @@ include_once("footer.php");
 ?>
 
 
-   
