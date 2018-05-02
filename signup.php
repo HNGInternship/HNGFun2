@@ -153,7 +153,7 @@ const public_key = pair.publicKey();
                         window.location ="dashboard.php";
                         }  
                         else{
-                        // alert(data);
+                            console.log(data);
                             $("#message").html(data);
                             $("#register").html('Failed!');
                         } 
