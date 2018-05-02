@@ -76,35 +76,17 @@ include_once("header.php");
 <?php } ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-  $(".form-change").on("submit", function(){
-    $(".pageloader").fadeIn();
-  });//submit
-});//document read
-  
-    $(document).ready(function(){
-  $(".form-reset").on("submit", function(){
-    $(".pageloader").fadeIn();
-  });//submit
-});//document read 
+
     
-  $('form').submit(function(){
-    $('.loader').show();
-});
-  $('form').submit(function(){
-    $('.loader').show();
-});
+
   
-  
-  
-  
-$('btn-reset').value = 'Processing . . .';
-$('btn-change').value = 'Processing . . .';
-  
+
   
     $(document).ready(function(){
         //ajax for password reset
         $("#form-reset").submit(function(e){
+          $('btn-reset').value = 'Processing . . .';
+          $("#pageloader").fadeIn();
             e.preventDefault();
             var data = $("#form-reset").serialize();
             $.ajax('process.php',{
@@ -126,6 +108,8 @@ $('btn-change').value = 'Processing . . .';
         });
         //ajax for password change
         $("#form-change").submit(function(e){
+          $("#pageloader").fadeIn();
+          $('btn-change').value = 'Processing . . .';
             e.preventDefault();
             var data = $("#form-change").serialize();
             $.ajax('process.php',{
