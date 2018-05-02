@@ -80,13 +80,13 @@ class User
         // Check if email already exist
         $chk_stmt = $db->prepare("SELECT id FROM ".$this->table." WHERE email =:email LIMIT 1");
         $chk_stmt->bindParam(':email', $email);
-        if($chk_stmt->execute()) {
-            $result = $chk_stmt->fetchAll();  // Even fetch() will do
-            if(count($result)>0)
-            {
-                $response = 'exists';
-            }
+        $chk_stmt->execute();
+        $result = $chk_stmt->fetchAll();  // Even fetch() will do
+        if(count($result)>0)
+        {
+            $response = 'exists';
         }
+
         $password_hash = md5($password);
         $timee = date('Y-m-d H:i:s');
         $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
@@ -106,6 +106,7 @@ class User
         $stmt->bindParam(':active', $active);
         $stmt->bindParam(':created_at', $created_at);
         $stmt->bindParam(':update_at', $update_at);
+        
         if ($stmt->execute()) {
             $to = $email;
             $subject = 'Welcome to HNG Internship';
@@ -127,7 +128,8 @@ class User
             //mail($to, $subject, $from, $message); // sendMail true
             $response = true;
         }
-        else { 
+        else {
+            error_log($stmt->errorInfo(), 0);
             $response = false;
         }
         return $response;
