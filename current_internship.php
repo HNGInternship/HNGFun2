@@ -84,7 +84,7 @@
   	  	PARTICIPANTS
   	  </h5>
   	  <p class="mt-0">
-  	  	<a href="listing.php" style="color: #2196F3">View Interns List</a>
+  	  	<a href="listing" style="color: #2196F3">View Interns List</a>
   	  </p>
   	</span>
   </section>
