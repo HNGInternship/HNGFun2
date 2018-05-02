@@ -153,7 +153,7 @@ span {
     // redirect to homepage
     setTimeout(function() {
       window.location.href='index.php'
-    },7500);
+    },5000);
 
     //disable back button
     window.history.forward();
