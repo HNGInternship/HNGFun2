@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
-class User
+class Transaction
 {
     
     public $timee;
@@ -11,154 +11,69 @@ class User
         
         $this->buy_table = "buy_transactions";
         $this->sell_table = "sell_transactions";
+        $this->sell_requests_table = "sell_requests";
+        $this->buy_requests_table = "buy_requests";
         date_default_timezone_set('Africa/Lagos');
         
     }
     
     
-    //get data needed  from email
-    public function get_data($email_data, $db)
-    {
-        
-        $query     = "SELECT * FROM " . $this->table . " WHERE email=? LIMIT 1";
-        $statement = $db->prepare($query);
-        $statement->bind_param("s", $email_data);
-        if ($statement->execute()) {
-            $result = $statement->get_result();
-            $num    = $result->num_rows;
+
+    public function postSellRequest($intern_id, $amount, $trade_limit=2, $price_per_coin, $account, $preferred_buyer=0, $status="Open", $db)
+    {        
             
-            if ($num > 0) {
-                $row = $result->fetch_assoc();
-                
-                return $row;
-            } else {
-                
-                return false;
-            }
-        } else {
-            return false;
-        }
-        
-    }
+        $sql = "insert into ".$this->sell_table." (intern_id, amount, trade_limit, price_per_coin, account, status) values (:intern_id, :amount, :trade_limit, :price_per_coin, :account, :preferred_buyer, :status)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':intern_id', $intern_id);
+        $stmt->bindParam(':amount', $amount);
+        $stmt->bindParam(':trade_limit', $trade_limit);
+        $stmt->bindParam(':price_per_coin', $price_per_coin);
+        $stmt->bindParam(':account', $account);
+        $stmt->bindParam(':preferred_buyer', $preferred_buyer);
+        $stmt->bindParam(':status', $status);
     
-    //check if email exists already before registration to avoid double email
-    public function check_email($email, $db)
-    {
-        
-        // $query  = "SELECT * FROM interns_data WHERE email = '$email' LIMIT 1";
-        $query  = "SELECT * FROM interns_data WHERE email = :email LIMIT 1";
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $results = $stmt->fetchAll();
-        if(count($results) > 0){
+        if ($stmt->execute()) {
+            
             return true;
         }
-        return false;
+        
+        else {
+            
+            return false;
+            //echo $db->error;
+        }
     }
 
-    //login check
-    public function check($email, $password, $db)
-    {
-        $password_hash = md5($password);
-        $table         = 'interns_data';
-        // $query         = "SELECT * FROM interns_data WHERE email = '$email' AND password = '$password_hash' LIMIT 1";
-        // $result        = mysqli_query($db, $query);
-        // if (mysqli_num_rows($result) > 0) {
-        //     $row               = mysqli_fetch_array($result);
-        //     $_SESSION['id']    = $row['id'];
-        //     $_SESSION['email'] = $row['email'];
-        //     return true;
-            
-        // } else {
-        //     return false;
-        // }
 
-        $query  = "SELECT * FROM interns_data WHERE email = :email AND password_hash = :password_hash LIMIT 1";
+    public function cancelSellTransaction($id, $db)
+    {
+       
+        $query  = "UPDATE " . $this->sell_requests_table . " SET status = 'Closed' WHERE id = :id LIMIT 1";
         $stmt = $db->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password_hash', $password_hash);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $results = $stmt->fetchAll();
-        if(count($results) > 0){
-            $row               = $results[0];
-            $_SESSION['id']    = $row['id'];
-            $_SESSION['email'] = $row['email'];
+        $stmt->bindParam(':id', $id);
+        if($stmt->execute()){
             return true;
         }
+        else{
         return false;
     }
-
-    public function is_logged_in(){
-        if(isset($_SESSION['id'])){
-            header("Location: dashboard.php");
-        }
-    }
-    //get public key from id
-public function getPublicKey($id, $db){
     
-    if (empty($id)) {
-        return false;
+}
+  
+
+public function cancelBuyTransaction($id, $db)
+{
+    echo "Hahahaha";
+    $query  = "UPDATE " . $this->buy_requests_table . " SET status = 'Closed' WHERE id = :id LIMIT 1";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':id', $id);
+    if($stmt->execute()){
+        return true;
     }
-    $query     = "SELECT public_key FROM " . $this->table . " WHERE id=:id LIMIT 1";
-    $stmt = $db->prepare($query);
-    $stmt->bindParam(":id", $id);
-   
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $results = $stmt->fetchAll();
-        if(count($results) > 0){
-            $row = $results[0];
-            
-            return $row['public_key'];
-        } else {
-            
-            return false;
-        }
+    else{
+    return false;
 }
 
-//get public key from id
-public function getPrivateKey($id, $db){
-    $query     = "SELECT private_key FROM " . $this->table . " WHERE id=:id LIMIT 1";
-    $stmt = $db->prepare($query);
-    $stmt->bindParam(":id", $id);
-   
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $results = $stmt->fetchAll();
-        if(count($results) > 0){
-            $row = $results[0];
-            
-            return $row['private_key'];
-        } else {
-            
-            return false;
-        }
 }
 
-
-
-//get public key from id
-public function getAccounts($id, $db){
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query     = "SELECT accounts.id, banks.name FROM accounts inner join banks on accounts.bank_id = banks.id  WHERE Intern_id=:id ";
-    $stmt = $db->prepare($query);
-    $stmt->bindParam(":id", $id);
-   
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $results = $stmt->fetchAll();
-        if(count($results) > 0){
-            $row = $results;
-            
-            return $row;
-        } else {
-            
-            return false;
-        }
-}
-             
-    //member class ends here    
 }
