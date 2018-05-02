@@ -1,10 +1,6 @@
 <?php
-
-include "header.php";
-
 require_once 'User.php';
-
-$user = new User();
+$user = new USER();
 
 if(empty($_GET['id']) && empty($_GET['code']))
 {
@@ -19,22 +15,17 @@ if(isset($_GET['id']) && isset($_GET['code']))
 	$statusY = "Y";
     $statusN = "N";
     
-    $query = "SELECT id, userstatus FROM interns_data WHERE id=:uid AND token_code=:code LIMIT 1";
+    $stmt = $user->runQuery("SELECT id, userStatus FROM users WHERE id=:uid AND tokenCode=:code LIMIT 1");
 
-    // $stmt->execute(array(":uid"=>$id, ":code"=>$code));
-    $stmt=$db->prepare($query);
-    $stmt->bindParam(":uid", $id);
-    $stmt->bindParam(":code", $code);
-    $stmt->execute();
+    $stmt->execute(array(":uid"=>$id, ":code"=>$code));
     $row=$stmt->fetch(PDO::FETCH_ASSOC);
+
     if($stmt->rowCount() >0){
-        if($row['userstatus']== $statusN){
-            $query = "UPDATE users SET userstatus=:status WHERE id=:uID";
-            $stmt=$db->prepare($query);
+        if($row['userStatus']== $statusN){
+            $stmt = $user->runQuery("UPDATE users SET userStatus=:status WHERE id=:uID");
 			$stmt->bindparam(":status",$statusY);
 			$stmt->bindparam(":uID",$id);
             $stmt->execute();	
-
             
             $msg = "
 		           <div class='alert alert-success'>
@@ -61,7 +52,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 }
 ?>
 
-
+<?php include('header.php'); ?>
 
 <div class="container">
 		<?php if(isset($msg)) { echo $msg; } ?>
