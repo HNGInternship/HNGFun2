@@ -70,11 +70,11 @@ include_once("header.php");
     </div> 
 <!---------------LOADER---------------------------->
 <div id="pageloader">
-   <img src="img/Rolling-1s-100px.gif" alt="processing..." />
+   <img src="http://slayers.hng.fun/img/Rolling-1s-100px.gif" alt="processing..." />
 </div>
 
 <?php } ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
