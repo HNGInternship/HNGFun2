@@ -81,8 +81,8 @@ class USER
             }
             function send_mail($email, $message, $subject){
 
-                require 'phpmailer/class.phpmailer.php';
-                require 'phpmailer/class.smtp.php';
+                require '/usr/share/php/libphp-phpmailer/class.phpmailer.php';
+                require '/usr/share/php/libphp-phpmailer/class.smtp.php';
                 // require_once('mailer/class.phpmailer.php');
                 $mail = new PHPMailer();
                 $mail->IsSMTP(); 
