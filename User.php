@@ -84,7 +84,7 @@ class User
         $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
          
         // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $sql = "insert into ".$this->table." (firstname, lastname, email, password, public_key, private_key, token, active, created_at, update_at) 
+        $sql = "insert into slay (firstname, lastname, email, password, public_key, private_key, token, active, created_at, update_at) 
         values (:first_name, :last_name, :email, :password_hash, :public_key, :private_key, :token, :active, :created_at, :update_at)";
 
         $stmt = $db->prepare($sql);
@@ -98,8 +98,8 @@ class User
         $stmt->bindParam(':active', $active);
         $stmt->bindParam(':created_at', $created_at);
         $stmt->bindParam(':update_at', $update_at);
-               
-        if ($stmt->execute()) {
+        try {
+            $stmt->execute();
 
             $to = $email;
             $subject = 'Welcome to HNG Internship';
@@ -109,16 +109,18 @@ class User
             $message .= '<h3>Thank you for your interest in HNG Internship kindly follow the link below to activate your account.</h3>';
             $message .= '<p><a href="'.$link.'">activate account</a></p>';
             $message .= '</body></html>';
+            
             if(sendMail($to, $subject, $from, $message)) { // sendMail true
                 echo '<script>console.log("Mail sent")</script>';
             }
+
             else {
                 echo '<script>console.log("Mail not sent")</script>';
             }
-
-            return true;
-        }else {
-            return false;
+        }
+        catch(PDOException $exception)
+		{
+            echo "Connection error: " . $exception->getMessage();
         }
         
     }

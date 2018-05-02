@@ -66,7 +66,7 @@ if(isset($_POST['registration'])){
 				
 			}
 			else{
-				die("Registration failed");
+				die("Registration failed cos no record was inserted");
 			}
 
 	}
