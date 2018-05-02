@@ -1,19 +1,4 @@
-bodydd{
-	padding-bottom: 0px;
-	font-family: 'Open Sans', Arial, Tahoma;
-	color: #363636;
-	background: #ededed;
-	font-size: 14px;
-}
 
-h2{
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size:1.5em;
-	line-height: 1.4em;
-
-
-}
 
 .sect{
 	padding:50px;
@@ -23,21 +8,25 @@ h2{
 	margin-top: 80px;
 	padding:0 0px 50px 0px;
 	box-shadow: 5px 5px 15px #888888;
-	font-family: 'Open Sans', Arial, Tahoma;
 	width: 100%;
+	 font-size: 20px;
+  color: #212529;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
 }
 .img{
 	padding: 10px;
 }
-.hh{
+.hh {
 	color:#2196F3;
+	font-weight: 700;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .btn{
 	background:#2196F3;
 	color:#ffffff;
+	
 }
-
- 
 .dropdownBirth{
 	width: 100px;
 }

@@ -10,35 +10,33 @@ include_once("header.php");
 		<div id="navbar">
 			<nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #ffffff; padding: 0px 0px 0px 200px;">
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					
-					<li class="nav-item">
-						<a href="index.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/windows.png" alt="" class="navbar-icon">Dashboard</a>
-					</li>
-					
-					<li class="nav-item">
-						<a href="learn.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/hand.png" alt=""  class="navbar-icon">Trade</a>
-					</li> 
-					<li class="nav-item">
-						<a href="listing.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/perso.png" alt="" class="navbar-icon">Profile</a>
-					</li> 
-					<li class="nav-item">
-						<a href="testimonies.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/help.png" alt="" class="navbar-icon">Help & Feedback</a>
-					</li> 
-				</ul>
-				 
+					<ul class="navbar-nav ml-auto">
+						
+						<li class="nav-item">
+							<a href="index.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/windows.png" alt="" class="navbar-icon">Dashboard</a>
+						</li>
+						
+						<li class="nav-item">
+							<a href="learn.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/hand.png" alt=""  class="navbar-icon">Trade</a>
+						</li> 
+						<li class="nav-item">
+							<a href="listing.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/perso.png" alt="" class="navbar-icon">Profile</a>
+						</li> 
+						<li class="nav-item">
+							<a href="testimonies.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/help.png" alt="" class="navbar-icon">Help & Feedback</a>
+						</li> 
+					</ul>
+				</div> 
 			</nav>
-			</div>
+		</div>
 		
 		<section>
-		
-			
 			<div class="container container-main">
 				<img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/person1.jpg" class="profile-img img-circle" />
 			
 				
 				
-					<h3 class="hh">User Profile</h3>
+					<h4 class="hh">User Profile</h4>
 			
 				<hr>
 				
@@ -46,7 +44,7 @@ include_once("header.php");
 					<div class="col-md-6">
 						<form>
 							<div class="form-group">
-								<label for="inputFname">FirstName</label>
+								<label for="inputFname">First Name</label>
 								<input type="text" class="form-control" id="fName" placeholder="First Name">
 							</div>
 						
