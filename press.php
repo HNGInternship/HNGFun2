@@ -9,12 +9,13 @@
     .banner{
     	background-image:url('img/coffee.jpg') ;
     	background-repeat: no-repeat;
-    	background-size: 100% 550px;
+    	background-size: 100% 406px;
     	width: 100%;
-    	height: 500px;
+    	height: 406px;
+    	padding-bottom: 0;
     }
     .update-container{
-    	padding-top: 60px;
+    	margin-top: 60px;
     	width: 100%;
     	overflow: auto;
     	clear: both;
@@ -45,13 +46,13 @@
     	float: right;
     	width: 90%;
     	padding-left: 100px;
-    	padding-right: 40px;
+    	padding-right: 10px;
     }
 
     #boxes .box{
     	float: left;
-    	width: 48%;
-    	padding-right: 80px;
+    	width: 47%;
+    	padding-right: 60px;
     	margin-top: 43px;
     }
     #boxes hr{
@@ -67,8 +68,8 @@
 
     }
     .box img{
-    	height: 200px; 
-    	width: 100%;
+    	height: 180px; 
+    	width: 95%;
     }
 
     .box h3{
@@ -135,7 +136,7 @@
 				<p>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best. Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam.</p>
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
-
+			
 			<div class="box">
 				<img src="img/book.jpg">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
