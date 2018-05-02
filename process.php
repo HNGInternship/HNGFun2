@@ -1,4 +1,5 @@
 <?php 
+set_time_limit(0);
 if(!isset($_SESSION)) { session_start(); }
 //this file is for processsin requests  
 
@@ -8,6 +9,11 @@ if(!isset($_SESSION)) { session_start(); }
 //require_once('classes/User.php');
 require_once('User.php');
 require_once('db.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once "vendor/autoload.php";	
 
 //for registration 
 
@@ -125,19 +131,82 @@ if(isset($_POST['login'])){
 					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 					
 					// More headers
-					$headers .= 'From: <hng@email.com.com>' . "\r\n";
+					$headers .= 'From: <hng@email.com>' . "\r\n";
 					//$headers .= 'Cc: myboss@example.com' . "\r\n";
 					$subject = "Password Reset for HNG Account";
 					$message = "Your password Reset Pin is ".$reset_pin;
 					$message .= " use this link to reset your password";
-					$message .= " <a href='http://5serve.com/test/resetpassword.php?token=".$reset_pin."'>Here</a>";
-					if(mail($email, $subject, $message,$headers)){
-						echo 1;
-					}
+					$message .= " <a href='http://localhost:8000/resetpassword.php?token=".$reset_pin."'>Here</a>";
+					// if(mail($email, $subject, $message,$headers)){
+					// 	echo json_encode([
+					// 		'status' => 1,
+					// 		'message' => 'Email has been sent to you'	
+					// 	]);
+					// }
+					// else{
+					// 	echo json_encode([
+					// 		'status' => 0,
+					// 		'message' => 'An error occured while sending password reset email'	
+					// 	]);
+					// }				
+					
+					//PHPMailer Object
+					$mail = new PHPMailer;
+					                        
+					//Set PHPMailer to use SMTP.
+					$mail->isSMTP();            
+					//Set SMTP host name                          
+					$mail->Host = "smtp.gmail.com";
+					//Set this to true if SMTP host requires authentication to send email
+					$mail->SMTPAuth = true;                          
+					//Provide username and password     
+					$mail->Username = "email@gmail.com";                 
+					$mail->Password = "password";                           
+					//If SMTP requires TLS encryption then set it
+					$mail->SMTPSecure = "tls";                           
+					//Set TCP port to connect to 
+					$mail->Port = 587;             
 
+					//From email address and name
+					$mail->From = "noreply@hng.fun";
+					$mail->FromName = "HNG Team";
+					
+					//To address and name
+					$mail->addAddress($email);
+					
+					//Address to which recipient will reply
+					// $mail->addReplyTo("@yourdomain.com", "Reply");
+					
+					//Send HTML or Plain Text email
+					$mail->isHTML(true);
+					
+					$mail->Subject = $subject;
+					$mail->Body = $message;
+					// $mail->AltBody = "This is the plain text version of the email content";
+					
+					if(!$mail->send()) 
+					{
+						echo "Mailer Error: " . $mail->ErrorInfo;
+						echo json_encode([
+							'status' => 0,
+							'message' => "Mailer Error: " . $mail->ErrorInfo
+						]);
+					} 
+					else 
+					{
+						echo json_encode([
+							'status' => 1,
+							'message' => 'Email containing password reset token has been sent to you'	
+						]);
+					}
 				}
 			}
-
+			else{
+				echo json_encode([
+					'status' => 0,
+					'message' => 'Email not found in our records'	
+				]);
+			}
 
 
 	}
@@ -145,10 +214,21 @@ if(isset($_POST['login'])){
 
 	//for password change
 	if(isset($_POST['token'])){
-		$password = $_POST['pass'];
-		$password_confirm = $_POST['pass-confirm'];
+		$password = trim($_POST['pass']);
+		$password_confirm = trim($_POST['pass-confirm']);
+		if($password  == '' || $password_confirm == '' ){
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Passwords cannot be empty'	
+			]);
+			return;
+		}
 		if($password  != $password_confirm ){
-		echo 3;
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Passwords do not match'	
+			]);
+			return;
 		}
 		$token = $_POST['token'];
 	
@@ -158,16 +238,27 @@ if(isset($_POST['login'])){
 		if($confirm_token == true){
 			$update_password = $user->update_password($password,$token,$db);
 			if($update_password == true){
-				echo 1;
+				//remove token to prevent abuse
+				$user->remove_token($token, $db);
+				echo json_encode([
+					'status' => 1,
+					'message' => 'Passwords change successful'	
+				]);
 			}
 			else{
-				echo 2;
+				echo json_encode([
+					'status' => 0,
+					'message' => 'Passwords change unsuccessful'	
+				]);
 			}
 			
 		}
 
 		else{
-			echo 0;
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Invalid token entered'	
+			]);
 		}
 	}
 
