@@ -67,7 +67,7 @@ public function __construct(){
         $password_hash = md5($password);
         $timee=date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO ".$this->table."(firstname,lastname,email,username,phone,password,timee ) VALUES(?,?,?,?,?,?,?)";
+        $query = "INSERT INTO ".$this->table."(first_name,last_name,email,username,phone_number,password_hash,created_at ) VALUES(?,?,?,?,?,?,?)";
         
             $statement = $db->prepare($query);
 
@@ -211,7 +211,7 @@ public function __construct(){
   public function check($email,$password,$db){
   	$password_hash = md5($password);
   	$table = 'users';
-  	$query = "SELECT * FROM users WHERE email = '$email' AND password = '$password_hash' LIMIT 1";
+  	$query = "SELECT * FROM users WHERE email = '$email' AND password_hash = '$password_hash' LIMIT 1";
   	$result = mysqli_query($db,$query);
   	if(mysqli_num_rows($result) > 0){
   		$row = mysqli_fetch_array($result);
