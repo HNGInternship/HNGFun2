@@ -337,7 +337,7 @@ public function __construct(){
    //change password function
     public function update_password($password,$token,$db){
          $password_hash = md5($password);
-       $query="UPDATE ".$this->table." SET password=? WHERE token=? LIMIT 1";
+       $query="UPDATE ".$this->table." SET password_hash=? WHERE token=? LIMIT 1";
         $statement = $db->prepare($query);
         $statement->bind_param("ss",$password_hash,$token);
      
