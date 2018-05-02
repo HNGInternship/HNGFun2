@@ -1,0 +1,143 @@
+ .jumbotron.contact {
+     text-align: left;
+     padding-top: 3rem;
+     padding-bottom: 14rem;
+     border-radius: 0;
+     max-height: 120px;
+     margin-bottom: 6rem;
+ }
+
+ .bg-cover {
+     background-size: cover;
+     color: white;
+     background-position: center center;
+     position: relative;
+     z-index: -2;
+     background-image: url('../img/contact.png');
+ }
+
+ .overlay {
+     background-color: #000;
+     opacity: 0.5;
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     z-index: -1;
+ }
+
+ .jumbotron.contact-form {
+     background-color: #fff;
+     width: 1225px;
+     height: 550px;
+     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+     border-radius: 5px;
+     position: relative;
+ }
+
+ .sendmail {
+     position: absolute;
+     top: 0;
+     right: 48px;
+ }
+
+ #contact-message {
+     width: 100%;
+     height: 20%;
+     border: 2px solid #000;
+     display: block;
+ }
+
+ label {
+     color: #BDBDBD;
+ }
+
+ input[type=text] {
+     background: transparent;
+     border: none;
+     border-bottom: 1px solid #BDBDBD;
+ }
+
+ .contact-info {
+     margin-left: 6.4em;
+     color: #ffffff;
+     position: relative;
+ }
+
+ .col.col-sm-3.contact-info p {
+     font-weight: 100;
+     padding: 0;
+     margin: 0;
+     font-size: .9em;
+     padding-top: 2em;
+ }
+
+ .col.col-sm-3.contact-info h4 {
+     margin-left: -1.7em;
+     font-weight: 300;
+ }
+
+ .col.col-sm-7.contact-form h3.text-left {
+     margin-bottom: 1.3em;
+ }
+
+ #contact-half {
+     background: linear-gradient( to right, #ffffff 0%, #ffffff 50%, #ffffff 57%, #2196F3 57%, #2196F3 100%);
+ }
+
+ .social-media {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     margin-left: -0.9em;
+ }
+
+  .social-media  > i.fa {
+     color: #ffffff !important;
+     padding: 0 .6em;
+     cursor: pointer;
+     font-size: 1.7em;
+ }
+
+ .contact-icon {
+     position: absolute;
+     left: -70px;
+ }
+
+ .location {
+     top: 80px;
+ }
+
+ .phone {
+     top: 160px;
+ }
+
+ .mail {
+     top: 224px;
+ }
+
+ input:active,
+ input:focus,
+ textarea:focus {
+     outline: none;
+     border: transparent;
+     box-shadow: none;
+ }
+
+ .send-button {
+     position: absolute;
+     bottom: 48px;
+     right: 48px;
+     border-radius: 50%;
+     border: none;
+     height: 60px;
+     width: 60px;
+     background: #2196F3;
+ }
+
+ .send-button img {
+     width: 60%;
+ }
+
+ */

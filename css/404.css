@@ -1,5 +1,5 @@
 .page404 {
-    height: 80vh;
+    height: 103vh;
     border-radius: 0;
     margin-bottom: 0;
     background: #2196F3;
@@ -8,6 +8,7 @@
 .content404 {
     text-align: center;
     color: #fff;
+    position: relative;
 }
 
 section.content404 hr {
@@ -18,8 +19,9 @@ section.content404 hr {
 .bigtext {
     font-size: 8em;
     font-weight: 200;
+    padding-top: -10px;
+    margin-top: -19px;
 }
-
 
 .btn-404 {
     background: #fff;
@@ -34,4 +36,23 @@ footer {
     margin-top: 0 !important;
     padding-top: 5;
     padding-bottom: 20px;
+}
+
+.image404 {
+    margin: auto;
+    width: 80%;
+    margin-top: -80px;
+}
+
+
+
+@media screen and (max-width: 770px) {
+    .inner-login-container {
+        flex-direction: column;
+        width: 90vw;
+        padding: 0 10vw;
+    }
+    .form-container {
+        width: 100% !important;
+    }
 }

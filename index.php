@@ -22,8 +22,8 @@ include_once("header.php");
 	<div class="container container-fluid bg-transparent my-5 py-5">
 		<h3 class="text-center">Ready to get started?</h3>
 		<div class="d-flex justify-content-center mt-3">
-		  <form class="home-signup-form">
-		  	<label class="mb-0 pb-0">Email</label>
+		  <form class="w-75">
+		  	<label class="mb-0 pb-0">Email:</label>
 		  	<div class="input-group mb-4 mt-0">
 		  	  <div class="input-group-prepend ">
 		  	    <span class="home-signup-email input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
@@ -40,7 +40,7 @@ include_once("header.php");
 				</button>
 			</a> -->
 		</div>
-		
+
 	</div>
 </div>
 
@@ -49,4 +49,3 @@ include_once("footer.php");
 ?>
 
 
-   

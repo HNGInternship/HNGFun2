@@ -76,11 +76,12 @@ button.home-signup {
 }
 
 div#navbar {
-	padding-top: 10px;
+	padding-top: 0;
+	margin-left: 0 !important;
 }
 
 ul.navbar-nav {
-	height: 66px !important;
+	height: 100% !important;
 }
 
 li.nav-item {
@@ -92,7 +93,8 @@ li.nav-item {
 
 nav.navbar {
 	box-sizing: border-box !important;
-	padding: 0 16px !important;
+	padding: 0 16px 0 50px !important;
+	height: 100px;
 }
 
 form.home-signup-form {
@@ -126,3 +128,76 @@ a.home-signup-email-btn>p {
 	padding: 0 !important;
 	margin: 0 !important;
 }
+
+div.learn-container,
+div.resources-container {
+	width: 80vw;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+div.learn-item {
+	height: 350px;
+	width: 300px;
+	border-radius: 10px;
+	border: none;
+	background: white;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: 0 0 10px 1px grey;
+}
+
+div.learn-image {
+	height: 150px;
+	width: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 100px;
+}
+
+div.learn-description {
+	text-align: center;
+}
+
+div.resources-item {
+	height: 350px;
+	width: 380px;
+	border-radius: 10px;
+	border: none;
+	background: white;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: 0 0 10px 1px grey;
+	padding: 10px;
+}
+
+div.resources-head {
+	height: 150px;
+	width: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 100px;
+}
+
+div.resources-body {
+	text-align: center;
+	word-wrap: break-word;
+	font-size: 12px;
+}
+
+.resources-head>img {
+	height: 150px;
+	width: auto;
+} 
+

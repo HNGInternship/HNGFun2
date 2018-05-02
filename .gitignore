@@ -2,13 +2,7 @@
 .ssh/
 docker-compose.yml
 config.php
-<<<<<<< HEAD
+.idea/
 .phpintel/
 .vscode/
-.idea/
 phpmyadmin/
-=======
-.idea/
-.phpintel/
-.vscode/
->>>>>>> a8667a330dfdc4d84bf4deb0e69e71d87429e320
