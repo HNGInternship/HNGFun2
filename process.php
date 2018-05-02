@@ -7,8 +7,6 @@ if(!isset($_SESSION)) { session_start(); }
 
 //require_once('classes/User.php');
 require_once('User.php');
-//require_once('classes/Member.php');
-require_once('Member.php');
 
 
 //for registration 

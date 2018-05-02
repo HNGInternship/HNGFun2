@@ -14,7 +14,10 @@ require 'config_slayers.php';
 
 
 /* Instead of rediting this, just move your config.php a step outside the HNGFun folder */
+<<<<<<< HEAD
 require '../config.php';
+=======
+>>>>>>> c3da1c835a982ebc08ac9a82362607010a9eac63
  
 try {
     $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);

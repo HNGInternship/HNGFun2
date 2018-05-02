@@ -206,6 +206,30 @@ public function getPrivateKey($id, $db){
         }
 }
 
+<<<<<<< HEAD
+=======
+
+
+//get public key from id
+public function getAccounts($id, $db){
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $query     = "SELECT accounts.id, banks.name FROM accounts inner join banks on accounts.bank_id = banks.id  WHERE Intern_id=:id ";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":id", $id);
+   
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
+            $row = $results;
+            
+            return $row;
+        } else {
+            
+            return false;
+        }
+}
+>>>>>>> c3da1c835a982ebc08ac9a82362607010a9eac63
              
     //member class ends here    
 }
