@@ -1,7 +1,7 @@
 <?php include("header.php");?>
 
 
-<div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
+<div style="text-align: center; padding-top: 40px; padding-bottom: 10px">
     <h1 class="font-weight-bold">
         Privacy Policy
     </h1>
