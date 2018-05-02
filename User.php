@@ -100,7 +100,7 @@ class User
         $stmt->bindParam(':update_at', $update_at);
         try {
             $stmt->execute();
-            $res = false;
+
             $to = $email;
             $subject = 'Welcome to HNG Internship';
             $from='hello@hng.fun';
@@ -118,14 +118,9 @@ class User
             'Reply-To: '.$from."\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-            if(mail($to, $subject, $from, $message)) { // sendMail true
-                $res = true;// '<script>console.log("Mail sent")</script>';
-            }
-
-            else {
-                //echo '<script>console.log("Mail not sent")</script>';
-            }
-            return $res;
+            mail($to, $subject, $from, $message); // sendMail true
+            
+            return true;
         }
         catch(PDOException $exception)
 		{
