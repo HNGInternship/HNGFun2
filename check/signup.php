@@ -197,7 +197,7 @@ include_once("header.php");
              else{
                // alert(data);
                 $("#message").html(data);
-                 $("#register").html('Failed');
+                 $("#register").html('Failed!');
              } 
             
 
@@ -205,8 +205,12 @@ include_once("header.php");
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
                   //  alert('Request not completed');
+
+                  $("#message").addClass('alert alert-success');
+                $("#message").html(errorThrown);
+                $("#register").html('Failed!!');
                  }
-                $("#register").html('Failed');
+                
             },
             beforeSend :function(){
 
