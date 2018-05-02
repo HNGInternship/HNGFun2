@@ -47,7 +47,7 @@ if(isset($_POST['registration'])){
 
 			//try to register user
 			$register_check = $user->register($firstname, $lastname, $email, $password, 
-			$public_key, $secret_key, $token, $active, $created_at, $update_at, $db);
+			$public_key, $private_key, $token, $active, $created_at, $update_at, $db);
 
 			//check for response 
 			if($register_check==true){

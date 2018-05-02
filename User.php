@@ -72,7 +72,7 @@ class User
     //register construct function
     //
     
-    public function register($firstname, $lastname, $email, $password, $public_key, $secret_key, $token, $active, $created_at, $update_at, $db)
+    public function register($firstname, $lastname, $email, $password, $public_key, $private_key, $token, $active, $created_at, $update_at, $db)
     {
         
         $image_filename = '';
@@ -92,7 +92,7 @@ class User
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password_hash', $password_hash);
         $stmt->bindParam(':public_key', $public_key);
-        $stmt->bindParam(':private_key', $secret_key);
+        $stmt->bindParam(':private_key', $private_key);
         $stmt->bindParam(':token', $token);
         $stmt->bindParam(':active', $active);
         $stmt->bindParam(':created_at', $created_at);

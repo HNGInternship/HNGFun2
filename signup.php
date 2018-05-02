@@ -5,7 +5,7 @@ include('header.php');
 ?>
 <script>
 const pair = StellarSdk.Keypair.random();
-const secret_key = pair.secret();
+const private_key = pair.secret();
 const public_key = pair.publicKey();
 </script>
 
@@ -129,14 +129,14 @@ const public_key = pair.publicKey();
             var data = $("#register_form").serialize();
             
             const pair = StellarSdk.Keypair.random();
-            const secret_key = pair.secret();
+            const private_key = pair.secret();
             const public_key = pair.publicKey();
 
             // use public key to create account
             axios
                 .get('https://friendbot.stellar.org?addr='+public_key)
                 .then(function(response){
-                    data += "&private_key="+secret_key+"&public_key="+public_key;
+                    data += "&private_key="+private_key+"&public_key="+public_key;
                         
                    
                     $.ajax('process.php',{
