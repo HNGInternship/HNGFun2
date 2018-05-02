@@ -90,9 +90,7 @@
     @import url(https://fonts.googleapis.com/css?family=Lato:300,400,500,700);
   </style>
   <!--<![endif]-->
-<style>
-@import url('https://fonts.googleapis.com/css?family=Work+Sans');
-</style> 
+
 
 
   <style type="text/css">
@@ -112,7 +110,7 @@
 
 </head>
 
-<body style="background-color:#ffffff; font-family: 'Roboto', sans-serif;">
+<body style="background-color:#ffffff; font-family: Lato;">
 
   <div style="background-color:#ffffff;">
 
@@ -126,7 +124,7 @@
       <![endif]-->
 
 
-    <div style="background:#F4F4F4;Margin:0px auto; padding-top: 20px">
+    <div style="background:#FFFFFF;Margin:0px auto; padding-top: 20px">
 
       <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:transparent;width:100%;">
         <tbody>
