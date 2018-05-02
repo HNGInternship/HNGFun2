@@ -54,13 +54,15 @@ if(isset($_POST['registration'])){
 
 			//check for response 
 			if($register_check==true){
-				$_SESSION['email'] = $row['email'];
+				$_SESSION['email'] = $email;
 				die(true);
+			}
+			elseif($register_check == 'exists') {
+				die('exists');
 			}
 			else{
 				die("Registration failed cos no record was inserted");
 			}
-
 	}
 
 

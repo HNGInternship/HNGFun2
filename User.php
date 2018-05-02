@@ -74,11 +74,18 @@ class User
     
     public function register($firstname, $lastname, $email, $password, $public_key, $private_key, $token, $active, $created_at, $update_at, $db)
     {
-        
-        $image_filename = '';
         $this->table = 'slay';
         
-        
+        // Check if email already exist
+        $stmt = $db->prepare("SELECT id FROM ".$this->table." WHERE email =:email LIMIT 1");
+        $stmt->bindParam(':email', $email);
+        if($stmt->execute()) {
+            $result = $stmt->fetchAll();  // Even fetch() will do
+            if(count($result)>0)
+            {
+                return 'exists';
+            }
+        }
         $password_hash = md5($password);
         $timee = date('Y-m-d H:i:s');
         $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";

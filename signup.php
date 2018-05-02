@@ -151,6 +151,11 @@ const public_key = pair.publicKey();
                         $("#register").html('Registration successful');
 
                         window.location ="dashboard.php";
+                        }
+                        else if( data == 'exists') {
+                            console.log("Email already registered!");
+                            $("#message").html("Email already registered!");
+                            $("#register").html('Email already registered!');
                         }  
                         else{
                             console.log(data);
