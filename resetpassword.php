@@ -88,21 +88,21 @@ include_once("header.php");
             e.preventDefault();
             var data = $("#form-reset").serialize();
                     var form = $(this); 
-          $('#loader', form).html('<img src="http://slayers.hng.fun/img/Rolling-1s-100px.gif" /> Please Wait...');
+          $('#pageloader', form).html('<img src="http://slayers.hng.fun/img/Rolling-1s-100px.gif" /> Please Wait...');
             $.ajax('process.php',{
                 type: 'post',
                 data: data,
                 success: function(response){
                     response = JSON.parse(response);
                     if(response.status == 1){
-                        $('btn-reset').value = 'Processing . . .';
+                        $('#btn-reset').value = 'Processing . . .';
                         $("#pageloader").fadeIn();
                         $("#message").addClass('alert alert-success');
                         $("#message").html(response.message);
                         $('#form-reset').hide();
                     }
                     else{
-                        $('btn-reset').value = 'Processing . . .';
+                        $('#btn-reset').value = 'Processing . . .';
                         $("#pageloader").fadeIn();
                         $("#message").addClass('alert alert-danger');
                         $("#message").html(response.message);
@@ -115,7 +115,7 @@ include_once("header.php");
             e.preventDefault();
             var data = $("#form-change").serialize();
           var form = $(this); 
-          $('#loader', form).html('<img src="http://slayers.hng.fun/img/Rolling-1s-100px.gif" /> Please Wait...');
+          $('#pageloader', form).html('<img src="http://slayers.hng.fun/img/Rolling-1s-100px.gif" /> Please Wait...');
             $.ajax('process.php',{
                 type: 'post',
                 data: data,
