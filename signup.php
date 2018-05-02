@@ -152,7 +152,7 @@ const public_key = pair.publicKey();
 
                         window.location ="dashboard.php";
                         }
-                        elseif( data == 'exists') {
+                        else if( data == 'exists') {
                             console.log("Email already registered!");
                             $("#message").html("Email already registered!");
                             $("#register").html('Email already registered!');
