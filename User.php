@@ -75,15 +75,16 @@ class User
     public function register($firstname, $lastname, $email, $password, $public_key, $private_key, $token, $active, $created_at, $update_at, $db)
     {
         $this->table = 'slay';
+        $response = '';
         
         // Check if email already exist
-        $stmt = $db->prepare("SELECT id FROM ".$this->table." WHERE email =:email LIMIT 1");
-        $stmt->bindParam(':email', $email);
-        if($stmt->execute()) {
-            $result = $stmt->fetchAll();  // Even fetch() will do
+        $chk_stmt = $db->prepare("SELECT id FROM ".$this->table." WHERE email =:email LIMIT 1");
+        $chk_stmt->bindParam(':email', $email);
+        if($chk_stmt->execute()) {
+            $result = $chk_stmt->fetchAll();  // Even fetch() will do
             if(count($result)>0)
             {
-                return 'exists';
+                $response = 'exists';
             }
         }
         $password_hash = md5($password);
@@ -123,10 +124,13 @@ class User
             'Reply-To: '.$from."\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-            mail($to, $subject, $from, $message); // sendMail true
-            return true;
-        }else { return false; }
-
+            //mail($to, $subject, $from, $message); // sendMail true
+            $response = true;
+        }
+        else { 
+            $response = false;
+        }
+        return $response;
     }
     
     // send a welcome mail
