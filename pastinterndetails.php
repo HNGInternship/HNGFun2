@@ -23,7 +23,7 @@ include_once("header.php");
 h3 {
   padding: 30px 0 20px 0;
 }
-
+ 
 p {
   text-align: justify;
   font-size: 14px;
