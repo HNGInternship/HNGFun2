@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)) { session_start(); }
+// session_start();
 class User
 {
     
@@ -113,16 +113,19 @@ class User
             
             return true;
         }
-        
-        else {
+        return false;
+        // $result = mysqli_query($db, $query);
+        // if (mysqli_num_rows($result) > 0) {
             
-            return false;
-            //echo $db->error;
-        }
-        
+        //     return true;
+        // } else {
+        //     return false;
+        // }
         
     }
     
+    
+
     //get details of user
     
     public function get_profile($db)
@@ -257,7 +260,6 @@ class User
         // } else {
         //     return false;
         // }
-
         $query  = "SELECT * FROM interns_data WHERE email = :email AND password_hash = :password_hash LIMIT 1";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':email', $email);
@@ -380,7 +382,6 @@ class User
             return true;
         }
         return false;
-
         // $result = mysqli_query($db, $query);
         // if (mysqli_num_rows($result) > 0) {
             
