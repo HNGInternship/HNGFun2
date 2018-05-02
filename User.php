@@ -213,10 +213,10 @@ class User
     //password token update
     public function update_token($email, $token, $db)
     {
-        $query     = "UPDATE " . $this->table . " SET token=? WHERE email=? LIMIT 1";
+        $query     = "UPDATE " . $this->table . " SET token=:token WHERE email=:email LIMIT 1";
         $statement = $db->prepare($query);
-        $statement->bind_param("ss", $token, $email);
-        
+        $statement->bindParam(":token", $token);
+        $statement->bindParam(":email", $email);
         if ($statement->execute()) {
             return true;
         }
@@ -403,10 +403,10 @@ class User
     public function update_password($password, $token, $db)
     {
         $password_hash = md5($password);
-        $query         = "UPDATE " . $this->table . " SET password_hash=? WHERE token=? LIMIT 1";
+        $query         = "UPDATE " . $this->table . " SET password_hash=:password_hash WHERE token=:token LIMIT 1";
         $statement     = $db->prepare($query);
-        $statement->bind_param("ss", $password_hash, $token);
-        
+        $statement->bindParam(":password_hash", $password_hash);
+        $statement->bindParam(":token", $token);
         if ($statement->execute()) {
             return true;
         }
@@ -417,6 +417,20 @@ class User
         }
         
         
+    }
+
+    public function remove_token($token, $db){
+        $query         = "UPDATE " . $this->table . " SET token = null WHERE token=:token";
+        $statement     = $db->prepare($query);
+        $statement->bindParam(":token", $token);
+        if ($statement->execute()) {
+            return true;
+        }
+        
+        else {
+            return false;
+            
+        }
     }
     
 
