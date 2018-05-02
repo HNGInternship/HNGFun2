@@ -7,9 +7,11 @@
     }
 
     .banner{
-    	background-image:url('img/no-banner.jpg');
+    	background-image:url('img/coffee.jpg') ;
+    	background-repeat: no-repeat;
+    	background-size: 100% 550px;
     	width: 100%;
-    	height: 446px;
+    	height: 500px;
     }
     .update-container{
     	padding-top: 60px;
@@ -65,7 +67,7 @@
 
     }
     .box img{
-    	height: 130px; 
+    	height: 200px; 
     	width: 100%;
     }
 
@@ -80,9 +82,13 @@
 
     .box .btn{
     	width: 120px;
+    	margin-left: 120px;
     }
 
     @media screen and (max-width: 780px) {
+    	.banner{
+    		background-size: 100% 400px;
+    	}
  
   .sidebar{
     	float: none;
@@ -122,7 +128,7 @@
 	    	<h2 style="text-align: left;">Live Updates</h2>
 	    	<hr width="10%">
 			<div class="box">
-				<img src="img/add-image.jpg">
+				<img src="img/press.jpg">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -131,7 +137,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/add-image.jpg">
+				<img src="img/book.jpg">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -140,7 +146,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/add-image.jpg">
+				<img src="img/city.jpg">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -149,7 +155,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/add-image.jpg">
+				<img src="img/contact-bg.jpg">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -158,7 +164,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/add-image.jpg">
+				<img src="img/laptop.jpg">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -167,7 +173,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/add-image.jpg">
+				<img src="img/bicycle.jpg">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
