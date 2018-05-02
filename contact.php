@@ -34,7 +34,7 @@ function custom_styles() {
 
     <div class="container jumbotron contact-form" id="contact-half">
         <div class="row" style="height: 100%">
-            <div class="col col-sm-7 contact-form">
+            <div id="contact-left" class="col col-sm-7 contact-form">
                 <!-- <section class="row"> -->
                     <h3 class="text-left"> Send us a message</h3>
                     <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span> <!-- for the envelope icon on the right -->
@@ -77,7 +77,7 @@ function custom_styles() {
             <!-- </section> -->
             </div>
 
-            <div class="col col-sm-3 contact-info">
+            <div id="contact-right" class="col col-sm-3  contact-info">
                 <div class="row">
                     <h4>Contact Information</h4>
                 </div>
@@ -107,4 +107,23 @@ function custom_styles() {
 
 <?php
 include_once("footer.php");
+function custom_scripts() {
+    $script = "<script>jQuery(document).ready(function($) {
+  var alterClass = function() {
+    var ww = document.body.clientWidth;
+    if (ww > 768) {
+      $('#contact-half').addClass('jumbotron');
+    } else if (ww <= 767) {
+      $('#contact-half').removeClass('jumbotron');
+    };
+  };
+  $(window).resize(function(){
+    alterClass();
+  });
+  //Fire it when the page first loads:
+  alterClass();
+});</script>";
+
+echo $script;
+};
 ?>

@@ -65,7 +65,7 @@
      position: relative;
  }
 
- .col.col-sm-3.contact-info p {
+ #contact-right p {
      font-weight: 100;
      padding: 0;
      margin: 0;
@@ -73,12 +73,12 @@
      padding-top: 2em;
  }
 
- .col.col-sm-3.contact-info h4 {
+ #contact-right h4 {
      margin-left: -1.7em;
      font-weight: 300;
  }
 
- .col.col-sm-7.contact-form h3.text-left {
+ #contact-left h3.text-left {
      margin-bottom: 1.3em;
  }
 
@@ -93,7 +93,7 @@
      margin-left: -0.9em;
  }
 
-  .social-media  > i.fa {
+ .social-media>i.fa {
      color: #ffffff !important;
      padding: 0 .6em;
      cursor: pointer;
@@ -140,4 +140,10 @@
      width: 60%;
  }
 
- */
+ /* mobile first approach */
+
+ @media (max-width: 768px) {
+     #contact-half {
+         background: linear-gradient( to bottom, #ffffff 0%, #ffffff 50%, #2196F3 50%, #2196F3 100%);
+     }
+ }
