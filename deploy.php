@@ -12,7 +12,7 @@
 		'echo $PWD',
 		'whoami',
 		'git reset --hard HEAD',
-		'git pull origin slayers',
+		'git pull origin revenge',
 		'git status',
 		'git submodule sync',
 		'git submodule update',
