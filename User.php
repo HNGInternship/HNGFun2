@@ -98,9 +98,7 @@ class User
         $stmt->bindParam(':active', $active);
         $stmt->bindParam(':created_at', $created_at);
         $stmt->bindParam(':update_at', $update_at);
-        try {
-            $stmt->execute();
-
+        if ($stmt->execute()) {
             $to = $email;
             $subject = 'Welcome to HNG Internship';
             $from='hello@hng.fun';
@@ -119,13 +117,8 @@ class User
             'X-Mailer: PHP/' . phpversion();
 
             mail($to, $subject, $from, $message); // sendMail true
-            
         }
-        catch(PDOException $exception)
-		{
-            return "Connection error: " . $exception->getMessage();
-        }
-        
+
         return true;
     }
     
