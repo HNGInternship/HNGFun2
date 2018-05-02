@@ -3,7 +3,7 @@ include_once("header.php");
 function custom_styles() {
     $styles = '<style>
     body{
-        background:#e5e5e5!important;
+        background:#e5e5e5;
     }
     #contact-message{ 
         width: 68%;
@@ -14,6 +14,10 @@ function custom_styles() {
     .form-control {
         border-radius: none !important;
     }
+    footer {
+        padding-bottom: 0;
+    }
+
     </style>';
     echo $styles;
 };
