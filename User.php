@@ -413,5 +413,67 @@ class User
         
     }
     
+
+    //get public key from id
+public function getPublicKey($id, $db){
+    echo $id;
+    if (empty($id)) {
+        return false;
+    }
+    $query     = "SELECT public_key FROM " . $this->table . " WHERE id=:id LIMIT 1";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":id", $id);
+   
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
+            $row = $results[0];
+            
+            return $row['public_key'];
+        } else {
+            
+            return false;
+        }
+}
+
+//get public key from id
+public function getPrivateKey($id, $db){
+    $query     = "SELECT private_key FROM " . $this->table . " WHERE id=:id LIMIT 1";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":id", $id);
+   
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
+            $row = $results[0];
+            
+            return $row['private_key'];
+        } else {
+            
+            return false;
+        }
+}
+
+public function getAccounts($id, $db){
+    $query     = "SELECT * FROM accounts left join banks on banks.id = accounts.bank_id WHERE accounts.intern_id=:id LIMIT 1";
+    $statement = $db->prepare($query);
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":id", $id);
+   
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
+            $row = $results;
+            
+            return $row;
+        } else {
+            
+            return false;
+        }
+    
+}
     //member class ends here    
 }
