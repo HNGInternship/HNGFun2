@@ -2,19 +2,20 @@
 
 include_once("coin_header.php");
 include_once("db.php");
-
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if(!isset($_GET['request_id'])){
     echo "<script>alert('Request ID required');</script>";
 }
 $request_id = $_GET['request_id'];
 
-$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id where sell_requests.id = :request_id";
+$sql = "select sell_requests.id, amount, account, interns_data.public_key, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, banks.name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id inner join banks on sell_requests.account=banks.id where sell_requests.id = :request_id";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':request_id', $request_id);
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
 $sell_request = $stmt->fetch();
 
+var_dump($sell_request);
 ?>
 
 <style>
@@ -153,7 +154,7 @@ background: rgba(0, 0, 0, 0.8);
   </div>
   <div class="form-group col-xs-12 col-sm-5">
     <label class="label-for-form" for="wallet">Send HNGcoin to :*</label>
-    <input type="text" class="form-control form-control-lg input-for-form" id="wallet" placeholder="Your HNGcoin Wallet">
+    <input type="text" class="form-control form-control-lg input-for-form" id="wallet" value="<?php echo $sell_request['public_key'] ?>" placeholder="Your HNGcoin Wallet" readonly>
   </div>
 </form>
 
@@ -215,7 +216,7 @@ background: rgba(0, 0, 0, 0.8);
     </tr>
     <tr>
       <td>Payment Method</td>
-      <td>Bank transfer: GT Bank</td>
+      <td>Bank transfer: <?php echo $sell_request['name']; ?></td>
 
     </tr>
     <tr>

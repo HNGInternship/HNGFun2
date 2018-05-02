@@ -18,13 +18,13 @@ if(!empty($_SESSION["id"])){
 
 <?php
 
-	$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
+	$sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
 	$stmt = $db->prepare($sql);
 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	$stmt->execute();
 	$sell_requests = $stmt->fetchAll();
 
-	$sql = "select buy_requests.id, amount, trade_limit, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
+	$sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
 	$stmt = $db->prepare($sql);
 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	$stmt->execute();
@@ -43,13 +43,7 @@ if(!empty($_SESSION["id"])){
 	font-family: lato;
 	font-size: 24px;
 }
-.btn{
-	background-color: #2196F3;
-	color: #ffffff;
-	border-radius: 5px;
-	font-weight: bold;
-	font-family: lato;
-}
+
 
 .mod{
 	width: 50%;
@@ -199,7 +193,17 @@ h3{
 							</div>
 							
 							<div class="col-1">
-								<a href="buy_coins.php?request_id=<?php echo $r['id']; ?>" type="button" class="btn"> BUY</a>
+							<?php 
+							if($r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
+							?>
+							<a href="transaction_cancelled.php?buy=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger">Cancel</a>
+							<?php
+							}else{
+							?>
+								<a href="buy_coins_0.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> BUY</a>
+								<?php
+							}
+							?>
 							</div>
 							
 						</div>
@@ -285,7 +289,17 @@ h3{
 						</div>
 						
 						<div class="col-1">
-						<a href="" type="button" class="btn"> SELL</a>
+						<?php 
+							if($r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
+							?>
+							<a href="transaction_cancelled.php?sell=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger">Cancel</a>
+							<?php
+							}else{
+							?>
+								<a href="sell_coins.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> Sell</a>
+								<?php
+							}
+							?>
 						</div>
 						
 					</div>
