@@ -1,6 +1,22 @@
 <?php
 include_once("coin_header.php");
+include_once("db.php");
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+if(!isset($_GET['request_id'])){
+    echo "<script>alert('Request ID required');</script>";
+}
+$request_id = $_GET['request_id'];
+
+$sql = "select sell_requests.id, banks.name as bankName, accounts.name, accounts.number from sell_requests inner join accounts on sell_requests.intern_id=accounts.intern_id inner join banks on sell_requests.account=banks.id where sell_requests.id = :request_id";
+$stmt = $db->prepare($sql);
+$stmt->bindParam(':request_id', $request_id);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$sell_request = $stmt->fetch();
+
+var_dump($sell_request);
 ?>
+
 
 <style>
 body{
@@ -162,19 +178,19 @@ font-size: 1.25em;"> SEND PAYMENT</h1>
     </tr>
     <tr>
       <td>Bank Name</td>
-      <td>GT Bank</td>
+      <td><?php echo $sell_request['bankName'] ?></td>
 
     </tr>
     <tr>
       <td>Bank Account Name
       </td>
-      <td>Damilola S.O</td>
+      <td><?php echo $sell_request['name'] ?></td>
 
     </tr>
   
     <tr>
       <td>Bank Account Number</td>
-      <td>0113025549</td>
+      <td><?php echo $sell_request['number'] ?></td>
 
     </tr>
   </tbody>
