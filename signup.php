@@ -37,7 +37,7 @@ if(isset($_POST['btn-signup'])){
             $key = base64_encode($id);
             $id = $key;
 
-            $message = "					
+            $message = "
 						Hello $firstname $lastname,
 						<br /><br />
 						Welcome to Dragon Slayer!<br/>
@@ -46,15 +46,15 @@ if(isset($_POST['btn-signup'])){
 						<a href='http://localhost/dragon/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
 						<br /><br />
 						Thanks,";
-						
+
 			$subject = "Confirm Registration";
 
-            // $reg_user->send_mail($email,$message,$subject);	
+            // $reg_user->send_mail($email,$message,$subject);
 			$msg = "
 					<div class='alert alert-success'>
 						<button class='close' data-dismiss='alert'>&times;</button>
 						<strong>Success!</strong>  We've sent an email to $email.
-                    Please click on the confirmation link in the email to create your account. 
+                    Please click on the confirmation link in the email to create your account.
 			  		</div>
 					";
         }else{
@@ -83,7 +83,7 @@ if(isset($_POST['btn-signup'])){
     .link {
         font-size: 14px !important;
     }
-    
+
 </style>
 
 <div class="container">
@@ -95,7 +95,7 @@ if(isset($_POST['btn-signup'])){
             </span>
             <p style="font-size: 40px !important; text-align: center; color: #2196F3; font-family: 'Qwigley', cursive;">Mark Essien</p>
         </div>
-        
+
     </div>
     <div class="col-md-6  mx-auto">
         <div style='text-align: left'>
@@ -145,6 +145,138 @@ if(isset($_POST['btn-signup'])){
     </div>
 </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.0/stellar-sdk.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script type="text/javascript">
+       $( document ).ready(function() {
+    $("#register").click(function(e){
+        e.preventDefault();
+
+        var firstname = $("#firstname").val();
+         var lastname = $("#lastname").val();
+        var email = $("#email").val();
+        var phone = $("#phone").val();
+        var password = $("#password").val();
+        var password_confirm = $("#password_confirm").val();
+        // var state = $("#state").val();
+        var country = $("#country").val();
+
+        var terms = $('#terms').is(':checked');
+
+        if(firstname ==""){
+            //alert('please enter your firstname');
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Please enter your firstname');
+        }
+        else if(lastname ==""){
+            //alert('please enter your lastname');
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Please enter your lastname');
+        }
+       else if(email ==""){
+            //alert('please enter email');
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Please enter email');
+        }
+        // else if(country ==""){
+        //    // alert('Please enter your country');
+        //     $("#message").addClass('alert alert-danger');
+        //     $("#message").html('Please enter your country');
+        // }
+
+        // else if(state ==""){
+        //    // alert('Please enter state');
+        //     $("#message").addClass('alert alert-danger');
+        //     $("#message").html('Please enter state');
+        // }
+
+         else if(phone ==""){
+            //alert('Please enter Phone Number');
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Please enter Phone Number');
+        }
+        else if(password ==""){
+           // alert('Please enter password');
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Please enter password');
+        }
+
+        else if(password != password_confirm){
+           // alert('Passwords dont match');
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Passwords dont match');
+        }
+        else if(terms == false){
+           // alert('You must accept our terms and conditions to register');
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Terms and conditions not accepted by you');
+        }
+        else{
+            const pair = StellarSdk.Keypair.random();
+            const secret_key = pair.secret();
+            const public_key = pair.publicKey();
+            $("#username").val(firstname);
+
+            $("#register").html('Registering..');
+
+            var data = $("#register_form").serialize();
+            data += "&public_key=" + public_key +"&private_key=" + secret_key
+            console.log(data)
+
+
+            // use public key to create account
+            axios
+                .get('https://friendbot.stellar.org?addr='+public_key)
+                .then(function(response){
+                    data += "&private_key="+secret_key+"&public_key="+public_key;
+
+                    //alert('worked');
+                    $.ajax('process.php',{
+                    type : 'post',
+                    data : data,
+                    success: function(data){
+
+                        if(data==true){
+                            $("#message").addClass('alert alert-success');
+                        $("#message").html("Registration successful");
+
+                        $("#register").html('Registration successful');
+
+                        window.location ="dashboard.php";
+                        }
+                        else{
+                        // alert(data);
+                            $("#message").html(data);
+                            $("#register").html('Failed!');
+                        }
+                    },
+                    error : function(jqXHR,textStatus,errorThrown){
+                        if(textStatus ='error'){
+                        //  alert('Request not completed');
+                        }
+                        $("#register").html('Failed');
+                        },
+                    beforeSend :function(){
+
+                        $("#message").removeClass('alert alert-danger');
+                        $("#message").html('');
+
+                        $("#register").html('Registering..');
+                    },
+                }).catch(function(error){
+                    console.error(error);
+                });
+        });
+
+
+        }
+
+     });
+
+
+
+    });
+</script>
 <?php
     include_once("footer.php");
 ?>
