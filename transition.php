@@ -11,7 +11,7 @@
     overflow: hidden;
 }
 main {
-  top: 50%;
+  min-height: 50%;
   animation-name: anime;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -41,6 +41,7 @@ main {
   }
 }
 h3 {
+  margin-top: 2.5em;
     display:inline-block;
     padding: 0px;
     color: #0475ce;
@@ -130,9 +131,10 @@ span {
     border-radius: 0%;
   }
 }
+
   </style>
 </head>
-<body>
+<body onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
   <main>
   <h3 id="curly">}{</h3>
   <h3 id="tag"><strong>HNG</strong>
@@ -144,4 +146,20 @@ span {
     <span class="span three"></span>
     <span class="span four"></span>
   </div>
+
+
+  <!-- script -->
+  <script type="text/javascript">
+    // redirect to homepage
+    setTimeout(function() {
+      window.location.href='index.php'
+    },7500);
+
+    //disable back button
+    window.history.forward();
+        function noBack()
+        {
+            window.history.forward();
+        }
+  </script>
 </body>
