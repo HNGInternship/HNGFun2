@@ -69,6 +69,7 @@
 
         ul.navbar-nav {
             height: auto !important;
+            display: block;
         }
 
   <?php if (function_exists('custom_styles')) {
