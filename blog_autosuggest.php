@@ -30,8 +30,6 @@ function is_ajax_request() {
 }
 
 
-
-
 if(!is_ajax_request()) {
     exit;
 }
