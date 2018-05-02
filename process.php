@@ -62,12 +62,6 @@ if(isset($_POST['registration'])){
 
 			//check for response 
 			if($register_check==true){
-				?>
-				<script>
-					console.log($register_check);
-				</script>
-				
-				<?php
 				$login_check = $user->check($email,$password,$db);
 
 				if($login_check == true){
