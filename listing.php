@@ -29,14 +29,14 @@ $data = $q->fetchAll();
     width:100%;
     padding:5px;
     height:200px;
-    
-    
+
+
    }
    #contain{
      margin-left:auto;
      margin-right:auto;
-     
-    
+
+
    }
    #contain #border{
      margin-left:70px;
@@ -47,7 +47,7 @@ $data = $q->fetchAll();
    }
    #caption{
      text-align:center;
-     
+
    }*/
 </style>
 <main class="container mt-5 mb-5 px-5">
@@ -69,33 +69,34 @@ $data = $q->fetchAll();
       <button class="btn btn-outline-primary col-sm-1" type="submit" >Clear</button>
     </div>
   </form>
-  <?php $total = count($data); foreach($data as $index => $list){ ?>
-  <?php if($index%3 == 0) { 
-      $count = 0;
+  <?php $total = count($data);
+  foreach ($data as $index => $list) { ?>
+  <?php if ($index % 3 == 0) {
+    $count = 0;
     ?>
   <div class="row mx-0 mt-4 justify-space-between">
-  <?php 
-  
-    } 
-    $count++;
-  ?>
+  <?php
+
+}
+$count++;
+?>
     <div class="profile">
       <div class="card">
         <img class="card-img-top" src="<?= $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="Profile Image">
-        <div class="card-footer"> 
-          <a href="profile.php?id=<?=$list['username']?>" class="ml-3 my-0 py-0 btn btn-default">View Profile</a>
+        <div class="card-footer">
+          <a href="profile.php?id=<?= $list['username'] ?>" class="ml-3 my-0 py-0 btn btn-default">View Profile</a>
           <i class="fa fa-github fa-lg"></i>
         </div>
       </div>
-      <h4 class="text-center mt-3"><?=$list['username']?></h4>
+      <h4 class="text-center mt-3"><?= $list['username'] ?></h4>
       <p class="small text-center mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
     </div>
-  <?php if($count === 3 || $index == $total - 1) { ?>
+  <?php if ($count === 3 || $index == $total - 1) { ?>
   </div>
-  <?php 
-   }
-  } 
-  ?>
+  <?php
+}
+}
+?>
 </main>
 <?php
 include_once("footer.php");
