@@ -124,9 +124,9 @@ class User
             'X-Mailer: PHP/' . phpversion();
 
             mail($to, $subject, $from, $message); // sendMail true
-        }
+            return true;
+        }else { return false; }
 
-        return true;
     }
     
     // send a welcome mail
