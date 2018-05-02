@@ -21,13 +21,13 @@ if(!empty($_SESSION["id"])){
 
 <?php
 
-	$sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
+	$sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id WHERE sell_requests.status = 'Open'";
 	$stmt = $db->prepare($sql);
 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	$stmt->execute();
 	$sell_requests = $stmt->fetchAll();
 
-	$sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
+	$sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id WHERE buy_requests.status = 'Open'";
 	$stmt = $db->prepare($sql);
 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	$stmt->execute();
@@ -173,44 +173,44 @@ h3{
 				<?php
 					foreach($sell_requests as $r){
 				?>
-					<div class="listing">
-						<div class="row mx-auto">
-							<div class="col-1">
-								<img src="<?php echo $r['image_filename']; ?>" width="50">
-							</div>
-							
-							<div class="col-2">
-								<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
-							</div>
-							
-							<div class="col-3">
-								<span class="blue">National Bank Transfer </span><br/>Nigeria
-							</div>
-							
-							<div class="col-3">
-							<?php echo $r['price_per_coin']; ?> <br/>NGN
-							</div>
-							
-							<div class="col-2">
-							<?php echo $r['trade_limit']; ?> <br/> NGN
-							</div>
-							
-							<div class="col-1">
-							<?php 
+				<div class="listing">
+					<div class="row mx-auto">
+						<div class="col-1">
+							<img src="<?php echo $r['image_filename']; ?>" width="50">
+						</div>
+						
+						<div class="col-2">
+							<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
+						</div>
+						
+						<div class="col-3">
+							<span class="blue">National Bank Transfer </span><br/>Nigeria
+						</div>
+						
+						<div class="col-3">
+						<?php echo $r['price_per_coin']; ?> <br/>NGN
+						</div>
+						
+						<div class="col-2">
+						<?php echo $r['trade_limit']; ?> <br/> NGN
+						</div>
+						
+						<div class="col-1">
+						<?php 
 							if(!empty($_SESSION['id']) && $r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
 							?>
-							<a href="transaction_cancelled.php?buy=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger" onclick="return  confirm('Are you sure you want to delete this request')">Cancel</a>
+							<a href="transaction_cancelled.php?sell=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger" onclick="return  confirm('Are you sure you want to delete this request')">Cancel</a>
 							<?php
 							}else{
 							?>
-								<a href="buy_coins_0.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> BUY</a>
+								<a href="sell_coins.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> Sell</a>
 								<?php
 							}
 							?>
-							</div>
-							
 						</div>
+						
 					</div>
+				</div>
 				
 				<?php } ?>
 				
@@ -248,7 +248,7 @@ h3{
 				<div class="row mx-auto ">
 				
 					<div class="col mx-auto">
-						Seller
+						Buyer
 					</div>
 					<div class="col mx-auto">
 						Payment Methods
@@ -269,44 +269,45 @@ h3{
 			<?php
 				foreach($buy_requests as $r){
 			?>
+				
 				<div class="listing">
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="<?php echo $r['image_filename']; ?>" width="50">
-						</div>
-						
-						<div class="col-2">
-							<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-						<?php echo $r['bid_per_coin']; ?> <br/>NGN
-						</div>
-						
-						<div class="col-2">
-						<?php echo $r['trade_limit']; ?> <br/> NGN
-						</div>
-						
-						<div class="col-1">
-						<?php 
+						<div class="row mx-auto">
+							<div class="col-1">
+								<img src="<?php echo $r['image_filename']; ?>" width="50">
+							</div>
+							
+							<div class="col-2">
+								<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
+							</div>
+							
+							<div class="col-3">
+								<span class="blue">National Bank Transfer </span><br/>Nigeria
+							</div>
+							
+							<div class="col-3">
+							<?php echo $r['bid_per_coin']; ?> <br/>NGN
+							</div>
+							
+							<div class="col-2">
+							<?php echo $r['trade_limit']; ?> <br/> NGN
+							</div>
+							
+							<div class="col-1">
+							<?php 
 							if(!empty($_SESSION['id']) && $r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
 							?>
-							<a href="transaction_cancelled.php?sell=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger" onclick="return  confirm('Are you sure you want to delete this request')">Cancel</a>
+							<a href="transaction_cancelled.php?buy=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger" onclick="return  confirm('Are you sure you want to delete this request')">Cancel</a>
 							<?php
 							}else{
 							?>
-								<a href="sell_coins.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> Sell</a>
+								<a href="buy_coins_0.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> BUY</a>
 								<?php
 							}
 							?>
+							</div>
+							
 						</div>
-						
 					</div>
-				</div>
 			
 			<?php } ?>
 				
