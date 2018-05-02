@@ -49,7 +49,7 @@ if(isset($_POST['btn-signup'])){
 						
 			$subject = "Confirm Registration";
 
-            $reg_user->send_mail($email,$message,$subject);	
+            // $reg_user->send_mail($email,$message,$subject);	
 			$msg = "
 					<div class='alert alert-success'>
 						<button class='close' data-dismiss='alert'>&times;</button>
