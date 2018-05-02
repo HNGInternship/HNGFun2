@@ -91,8 +91,7 @@ class User
         $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
          
         // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $sql = "insert into slay (firstname, lastname, email, password, public_key, private_key, token, active, created_at, update_at) 
-        values (:first_name, :last_name, :email, :password_hash, :public_key, :private_key, :token, :active, :created_at, :update_at)";
+        $sql = "INSERT INTO ". $this->table." (firstname, lastname, email, password, public_key, private_key, token, active, created_at, update_at) VALUES (:first_name, :last_name, :email, :password_hash, :public_key, :private_key, :token, :active, :created_at, :update_at)";
 
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':first_name', $firstname);
