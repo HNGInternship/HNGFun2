@@ -81,6 +81,7 @@ class User
         
         $password_hash = md5($password);
         $timee = date('Y-m-d H:i:s');
+        $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
          
         // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         $sql = "insert into ".$this->table." (firstname, lastname, email, password, public_key, private_key, token, active, created_at, update_at) 
@@ -97,32 +98,39 @@ class User
         $stmt->bindParam(':active', $active);
         $stmt->bindParam(':created_at', $created_at);
         $stmt->bindParam(':update_at', $update_at);
-        
-        
-        // $statement = $db->prepare($query);
-        
-        // echo $db->error.$query;
-        
-        // $statement->bind_param('ssssssssssss', $firstname, $lastname, $email, $username, $country, $state, $phone, $password_hash, $public_key, $secret_hash, $created_at, $updated_at);
-        
-        // $result = $db->query($query);
-        
+               
         if ($stmt->execute()) {
-            
-            return true;
+
+            $to = $email;
+            $subject = 'Welcome to HNG Internship';
+            $from='hello@hng.fun';
+            $message = '<html><body>';
+            $message .= '<h1>Hi '. $firstname .'!</h1>';
+            $message .= '<h3>Thank you for your interest in HNG Internship kindly follow the link below to activate your account.</h3>';
+            $message .= '<p><a href="'.$link.'">activate account</a></p>';
+            $message .= '</body></html>';
+            if(sendMail($to, $subject, $from, $message)) { // sendMail true
+                return true;
+            }
+            echo "Unable to Send Mail";
         }
         return false;
-        // $result = mysqli_query($db, $query);
-        // if (mysqli_num_rows($result) > 0) {
-            
-        //     return true;
-        // } else {
-        //     return false;
-        // }
         
     }
     
-    
+    // send a welcome mail
+    public function sendMail( $to, $subject, $from, $message)
+    {        
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        // Create email headers
+        $headers .= 'From: '.$from."\r\n".
+            'Reply-To: '.$from."\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        if(mail($to, $subject, $message, $headers)) return true;
+        
+        return false;
+    }
 
     //get details of user
     
