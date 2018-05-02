@@ -74,7 +74,6 @@ include_once("header.php");
 </div>
 
 <?php } ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -89,6 +88,10 @@ include_once("header.php");
   });//submit
 });//document read 
     
+$('btn-reset').value = 'Processing . . .';
+$('btn-change').value = 'Processing . . .';
+  
+  
     $(document).ready(function(){
         //ajax for password reset
         $("#form-reset").submit(function(e){
