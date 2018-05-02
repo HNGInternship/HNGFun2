@@ -105,7 +105,7 @@ if(isset($_POST['login'])){
 				echo true;
 			}
 			else{
-				echo "Invalid email or password";
+				echo "Invalid email or password combination";
 			}
 	}
 
