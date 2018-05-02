@@ -16,16 +16,16 @@ include_once("header.php");
 		/*width: 100%;*/
 	}
 	.jumbotron-content h1{
-		font-size: 2.0rem;
+		font-size: 2.6rem;
 		width: 80%;
-		max-width: 400px;
+		max-width: 500px;
 		margin-left: auto;
 		margin-right: auto;
 	}
 	.jumbotron-content p{
-		font-size: 1.0rem;
+		font-size: 1.3rem;
 		width: 90%;
-		max-width: 600px;
+		max-width: 700px;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -33,7 +33,7 @@ include_once("header.php");
 		background-color: #00aeff;
 		text-transform: none;
 		font-family: inherit !important;
-		font-size: 1.1rem;
+		font-size: 1.3rem;
 		border-radius: 5px;
 	}
 	.paddedhr{
@@ -54,20 +54,17 @@ include_once("header.php");
 	}
 	.clip-bottom{
 		  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-		  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+		  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
 		  background-color: #dbf4ff;
-		padding-bottom: 60px !important;
+		  padding-top: 80px !important;
+		padding-bottom: 80px !important;
+		font-size: 1.4rem;
 	}
 	.clip-bottom h1.text-primary{
 		color: #00aeff; 
+		font-size: 2.6rem;
+		font-weight: 1000 !important;
 	}
-	*, ::before, ::after{
-		box-sizing: inherit !important;
-	}
-	/*.row{
-		margin-right: -10%;
-		margin-left: -10%;
-	}*/
 	.bg-footer-top{
 		background-color: #134f8e;
 	}
@@ -93,20 +90,20 @@ include_once("header.php");
 	</div>
 	<div class="container">
 		
-		<div class="logo my-5 d-flex justify-content-center">
-			<img src="icons/logo-blue-bg.png">
+		<div class="logo my-5 d-flex justify-content-center mw-75 ml-auto mr-auto">
+			<img src="icons/logo-blue-bg.png" style="max-width: 300px; max-height: 252px;">
 		</div>
 
 
 		<div class="content">
-			<p>Join the HNG movement and help ensure that while digital revolution might have started from Silicon Valley, its future will be written in Lagos, Nigeria. Join the HNG movement and help ensure that while digital revolution might have started from Silicon Valley, its future will be written in Lagos, Nigeria. Join the HNG movement and help ensure that while digital revolution might have started from Silicon Valley, its future will be written in Lagos, Nigeria. Join the HNG movement and help ensure that while digital revolution might have started from Silicon Valley, its future will be written in Lagos, Nigeria</p>
+			<p class="text-muted px-5">Join the HNG movement and help ensure that while digital revolution might have started from Silicon Valley, its future will be written in Lagos, Nigeria. Join the HNG movement and help ensure that while digital revolution might have started from Silicon Valley, its future will be written in Lagos, Nigeria. Join the HNG movement and help ensure that while digital revolution might have started from Silicon Valley, its future will be written in Lagos, Nigeria. Join the HNG movement and help ensure that while digital revolution might have started from Silicon Valley, its future will be written in Lagos, Nigeria</p>
 		</div>
 
 		
 		
 	</div>
 	<div class="row clip-bottom py-5 text-center d-flex justify-content-around">
-		<div class="col-sm-2 col-6">
+		<div class="col-sm-3 col-6">
 			<h1 class="text-primary">4200</h1>
 			Registered interns
 			<hr class="paddedhr2">
@@ -121,7 +118,7 @@ include_once("header.php");
 			Learning Paths
 			<hr class="paddedhr2">
 		</div>
-		<div class="col-sm-2 col-6">
+		<div class="col-sm-3 col-6">
 			<h1 class="text-primary">5</h1>
 			African Countries
 			<hr class="paddedhr2">
@@ -129,8 +126,8 @@ include_once("header.php");
 	</div>
 	<div class="container">
 		<h3 class="mt-5 text-center">What you will learn</h3>
-		<hr class="paddedhr2">
-		<div class="row d-flex justify-content-around text-center">
+		<hr class="paddedhr2 my-5">
+		<div class="row d-flex justify-content-around text-center mt-5">
 			<div class="col-sm-3">
 				<img src="icons/coding.png" class="d-block ml-auto mr-auto">
 				<h4 class="my-0">Programming</h4>
@@ -152,8 +149,7 @@ include_once("header.php");
 					Collaborate with passionate individuals to deliver on real-world projects and reasonable deadlines.
 				</p>
 			</div>
-			<div class="col-sm-4"></div>
-			<div class="col-sm-4"></div>
+			
 		</div>
 	</div>
 	<div class="row bg-footer-top py-4"></div>
