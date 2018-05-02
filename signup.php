@@ -195,7 +195,7 @@ const public_key = pair.publicKey();
                 .then(function(response){
                     data += "&private_key="+secret_key+"&public_key="+public_key;
                         
-                    //alert('worked');
+                   
                     $.ajax('process.php',{
                     type : 'post',
                     data : data,

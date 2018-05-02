@@ -63,18 +63,8 @@ global $db;
         `amount` float NOT NULL,
         `trade_limit` float DEFAULT NULL,
         `price_per_coin` float NOT NULL,
-<<<<<<< HEAD
-<<<<<<< Updated upstream
         `preferred_buyer` ENUM('0', '1') NOT NULL DEFAULT '0',
         `account_id` int(20) NOT NULL, 
-=======
-        `preferred_buyer` ENUM(0, 1) NOT NULL DEFAULT 0,
-        `account_id` int(10) NOT NULL, 
->>>>>>> Stashed changes
-=======
-        `preferred_buyer` ENUM('0', '1') NOT NULL DEFAULT '0',
-        `account_id` int(20) NOT NULL, 
->>>>>>> 0fb3c5686131340c0d63ed3a5c21311012e39dd7
         `status` ENUM('Completed', 'Pending', 'Closed', 'Open') NOT NULL,
         `created_at` DATETIME NOT NULL DEFAULT NOW(),
         PRIMARY KEY (id),
