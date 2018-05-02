@@ -2,7 +2,7 @@
 /*
 DO NOT MODIFY THIS FILE!!!
  */
-require 'config.php';
+require 'config_slayers.php';
 
 // try {
 //     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
