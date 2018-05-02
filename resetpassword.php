@@ -1,3 +1,23 @@
+<style>
+#pageloader
+{
+  background: rgba( 255, 255, 255, 0.8 );
+  display: none;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
+#pageloader img
+{
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  position: absolute;
+  top: 50%;
+}
+</style>
 <?php
 include_once("header.php");
 ?>
@@ -48,12 +68,21 @@ include_once("header.php");
             </div>
         </form>
     </div> 
+<!---------------LOADER---------------------------->
+<div id="pageloader">
+   <img src="img/Rolling-1s-100px.gif" alt="processing..." />
 </div>
 
 <?php } ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+    $(document).ready(function(){
+  $("#form-change").on("submit", function(){
+    $("#pageloader").fadeIn();
+  });//submit
+});//document read
+    
     $(document).ready(function(){
         //ajax for password reset
         $("#form-reset").submit(function(e){
