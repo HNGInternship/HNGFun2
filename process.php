@@ -29,7 +29,7 @@ if(isset($_POST['registration'])){
 	$public_key = $_POST['public_key'];
 	$created_at = date('m-d-Y h:i:s a');
 	$update_at = $created_at;
-	$token = bin2hex(random_bytes(60));
+	$token = base64_encode(bin2hex(random_bytes(60)));
 	$active =0;
 
 	if($firstname == ""){
