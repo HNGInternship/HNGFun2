@@ -1,3 +1,9 @@
+ .container,
+ #contact-half,
+ .jumbotron {
+     height: auto;
+ }
+
  .jumbotron.contact {
      text-align: left;
      padding-top: 3rem;
@@ -29,8 +35,6 @@
 
  .jumbotron.contact-form {
      background-color: #fff;
-     width: 1225px;
-     height: 550px;
      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
      border-radius: 5px;
      position: relative;
@@ -39,14 +43,16 @@
  .sendmail {
      position: absolute;
      top: 0;
-     right: 48px;
+     right: 0;
  }
 
  #contact-message {
-     width: 100%;
-     height: 20%;
-     border: 2px solid #000;
-     display: block;
+     width: 95%;
+     height: 140px;
+     border: 0;
+     border-bottom: 2px solid #bdbdbd;
+ 
+     
  }
 
  label {
@@ -60,22 +66,27 @@
  }
 
  .contact-info {
-     margin-left: 6.4em;
+     padding-left: 2em;
      color: #ffffff;
+ }
+
+ .contact-info h4 {
      position: relative;
  }
 
  #contact-right p {
      font-weight: 100;
-     padding: 0;
+     padding: 0 0 0 2em;
      margin: 0;
-     font-size: .9em;
+     font-size: .8em;
      padding-top: 2em;
  }
 
- #contact-right h4 {
-     margin-left: -1.7em;
+ #contact-right h3 {
+     margin-left: 0;
+     text-align: center;
      font-weight: 300;
+     color: #ffffff;
  }
 
  #contact-left h3.text-left {
@@ -89,7 +100,7 @@
  .social-media {
      position: absolute;
      bottom: 0;
-     left: 0;
+     right: 16%;
      margin-left: -0.9em;
  }
 
@@ -102,38 +113,32 @@
 
  .contact-icon {
      position: absolute;
-     left: -70px;
+     left: 100px;
  }
 
  .location {
-     top: 80px;
+     top: 40px;
  }
 
  .phone {
-     top: 160px;
+     top: 121px;
  }
 
  .mail {
-     top: 224px;
+     top: 200px;
  }
 
- input:active,
- input:focus,
- textarea:focus {
-     outline: none;
-     border: transparent;
-     box-shadow: none;
- }
 
  .send-button {
      position: absolute;
-     bottom: 48px;
-     right: 48px;
+     bottom: 0;
+     right: -28px;
      border-radius: 50%;
      border: none;
      height: 60px;
      width: 60px;
      background: #2196F3;
+     cursor: pointer;
  }
 
  .send-button img {
@@ -144,6 +149,80 @@
 
  @media (max-width: 768px) {
      #contact-half {
-         background: linear-gradient( to bottom, #ffffff 0%, #ffffff 50%, #2196F3 50%, #2196F3 100%);
+         background: linear-gradient( to bottom, #ffffff 0%, #ffffff 64%, #2196F3 64%, #2196F3 100%);
+     }
+     .contact-info {
+         padding-right: .2em;
+         padding-left: 3em;
+     }
+     #contact-form {
+         margin-bottom: 7em;
+     }
+     .contact-icon {
+         left: 60px;
+     }
+    
+     .phone {
+         top: 140px;
+     }
+     .mail {
+         top: 220px;
+     }
+     .send-button {
+         bottom: 120px;
+     }
+     .sendmail {
+         right: 15px;
+     }
+
+     .send-button {
+         right: 2px;
+     }
+ }
+
+ @media (min-width: 768px) {
+     .contact-info {
+         margin-left: 6.0em;
+     }
+     #contact-right p {
+         padding-left: 0;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .social-media {
+         display: none;
+     }
+     .contact-info {
+         max-width: 310px;
+         padding-left: 5em;
+         padding-top: 0;
+     }
+ }
+
+ @media (min-width: 768px) and (max-width: 990px) {
+     #contact-right h3 {
+         text-align: right;
+     }
+     .contact-info {
+         padding-left: 1em;
+         padding-top: 0;
+     }
+     .phone {
+         top: 145px;
+     }
+     .mail {
+         top: 225px;
+     }
+ }
+
+ @media (min-width: 1200px) {
+     .contact-info {
+         margin-left: 8.4em;
+         width: 70%;
+         max-width: 300px;
+     }
+     .contact-icon {
+         left: 152px;
      }
  }

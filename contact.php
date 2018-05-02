@@ -5,12 +5,7 @@ function custom_styles() {
     body{
         background:#e5e5e5;
     }
-    #contact-message{ 
-        width: 68%;
-        border: 0;
-        border-bottom: 1px solid #bdbdbd;
-        display: block;
-    }
+   
     .form-control {
         border-radius: none !important;
     }
@@ -32,76 +27,71 @@ function custom_styles() {
         </div>
     </div>
 
-    <div class="container jumbotron contact-form" id="contact-half">
-        <div class="row" style="height: 100%">
-            <div id="contact-left" class="col col-sm-7 contact-form">
-                <!-- <section class="row"> -->
-                    <h3 class="text-left"> Send us a message</h3>
-                    <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span> <!-- for the envelope icon on the right -->
-                
-                <form method="post">
-                        <div class="form-group row">
-                            <div class="col-5">
+    <div class="container jumbotron " id="contact-half">
+        <div class="row" >
+             <section id="contact-left" class="col-md-6  contact-form">
+                <h3 class="text-left"> Send us a message</h3>
+                <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span>
+                 <form method="post" id="contact-form">
+                        <div class="form-group">
+                            <div class="col">
                                 <label for="name" class="col-form-label-sm">Your Name</label>
                                 <input type="text" name="name" class="form-control"/>
                             </div>
-                            <div class="col-5">
+                            <div class="col">
                                 <label for="email" class="col-form-label-sm">Email Address</label>
                                 <input type="text" name="email" class="form-control"/>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-5">
+                        <div class="form-group"> 
+                            <div class="col">
                                 <label for="phone_number" class="col-form-label-sm">Phone Number</label>
                                 <input type="text" name="phone_number" class="form-control"/>
                             </div>
-                            <div class="col-5">
+                            <div class="col">
                                 <label for="subject" class="col-form-label-sm">Subject</label>
                                 <input type="text" name="subject" class="form-control" />
                             </div>
                         </div>
-                  
-                    <div class="row">
-                        <div class="col-10">
-                              <label for="message" class="col-form-label-sm">Message</label>
-                         
+                        <div class="form-group">
+                            <div class="col">
+                                <label for="message" class="col-form-label-sm">Message</label>
+                                <textarea id="contact-message" class="form-control"  name="message" placeholder="Type your message..."></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <textarea id="contact-message" class="form-control" name="message" placeholder="Type your message..."></textarea>
-                    </div>
-
                     <button class="send-button" type="submit"><img src="./img/send.png" alt="envelope" ></button>
-                      
                 </form>
-            <!-- </section> -->
-            </div>
+            </section>
+              <!-- <section class="col-md-6"> -->
+            <section id="contact-right" class="col-md-6">
+               
 
-            <div id="contact-right" class="col col-sm-3  contact-info">
-                <div class="row">
-                    <h4>Contact Information</h4>
-                </div>
-
-                <div class="row">
-                    <span class="contact-icon location"><img src="./img/location.png" alt="location"></span><!-- for address icon -->
+                 <!-- <div class="form-group"> -->
+                    <h3>Contact Information</h3>
+                <!-- </div> -->
+            <div class="contact-info">
+                <div class="form-group">
+                    <p class="contact-icon location"><img src="./img/location.png" alt="location"></p>
                     <p>3 Birrel Avenue, off Herbert Macaulay Way, Sabo, Yaba, Lagos.</p>
                 </div>
 
-                <div class="row">
-                    <span class="contact-icon phone"><img src="./img/phone.png" alt=""></span><!-- for phone icon -->
+                <div class="form-group">
+                    <p class="contact-icon phone"><img src="./img/phone.png" alt=""></p>
                     <p>+234 700 880 8800</p>
                 </div>
 
-                <div class="row">
-                    <span class="contact-icon mail"><img src="./img/envelope.png" alt=""></span><!-- for email icon -->
+                <div class="form-group">
+                    <p class="contact-icon mail"><img src="./img/envelope.png" alt=""></p>
                     <p>support@hng.fun</p>
                 </div>
+                
                   <div class="social-media">
                     <i class="fa fa-twitter"><a href="#"></a></i>
                     <i class="fa fa-facebook"><a href="#"></a></i>
                     <i class="fa fa-github"><a href="#"></a></i>
+                </div> 
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 
@@ -111,10 +101,10 @@ function custom_scripts() {
     $script = "<script>jQuery(document).ready(function($) {
   var alterClass = function() {
     var ww = document.body.clientWidth;
-    if (ww > 768) {
-      $('#contact-half').addClass('jumbotron');
-    } else if (ww <= 767) {
-      $('#contact-half').removeClass('jumbotron');
+    if (ww > 576) {
+      $('#contact-half').addClass('container-fluid');
+    } else if (ww <= 577) {
+      $('#contact-half').addClass('conatainer-fluid');
     };
   };
   $(window).resize(function(){
