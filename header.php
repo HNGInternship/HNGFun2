@@ -1,4 +1,31 @@
 
+<<<<<<< Updated upstream
+=======
+<?php 
+if(!isset($_SESSION)) { session_start(); }
+
+// for choosing active page on nav bar
+
+$fileName=basename($_SERVER['PHP_SELF']);
+
+$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
+$activeArray = array('','','','','','');
+
+$fileIndex=array_search($fileName,$files);
+
+
+// if page is unknown, dont mark any nav item
+
+if($fileIndex!==FALSE){
+
+$activeArray[$fileIndex]="active";
+}
+
+/////////////////////////////////////////////////////////
+
+
+?>
+>>>>>>> Stashed changes
 
 <!DOCTYPE html>
 <html lang="en">

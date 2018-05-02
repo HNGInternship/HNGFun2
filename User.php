@@ -1,6 +1,62 @@
 <?php
-
-require_once 'dbconfig.php';
+if(!isset($_SESSION)) { session_start(); }
+class User
+{
+    
+    public $timee;
+    public $table;
+    
+    public function __construct()
+    {
+        
+        $this->table = "interns_data";
+        date_default_timezone_set('Africa/Lagos');
+        
+    }
+    
+    
+    //get data needed  from email
+    public function get_data($email_data, $db)
+    {
+        
+        $query     = "SELECT * FROM " . $this->table . " WHERE email=? LIMIT 1";
+        $statement = $db->prepare($query);
+        $statement->bind_param("s", $email_data);
+        if ($statement->execute()) {
+            $result = $statement->get_result();
+            $num    = $result->num_rows;
+            
+            if ($num > 0) {
+                $row = $result->fetch_assoc();
+                
+                return $row;
+            } else {
+                
+                return false;
+            }
+        } else {
+            return false;
+        }
+        
+    }
+    
+    //check if email exists already before registration to avoid double email
+    public function check_email($email, $db)
+    {
+        
+        // $query  = "SELECT * FROM interns_data WHERE email = '$email' LIMIT 1";
+        $query  = "SELECT * FROM interns_data WHERE email = :email LIMIT 1";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
+            return true;
+        }
+        return false;
+    }
+/* require_once 'dbconfig.php';
 
 class USER
 {	
@@ -101,4 +157,71 @@ class USER
                 $mail->Send();
             }
         }
+        
+        
+    }
+     */
+    //get public key from id
+public function getPublicKey($id, $db){
     
+    if (empty($id)) {
+        return false;
+    }
+    $query     = "SELECT public_key FROM " . $this->table . " WHERE id=:id LIMIT 1";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":id", $id);
+   
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
+            $row = $results[0];
+            
+            return $row['public_key'];
+        } else {
+            
+            return false;
+        }
+}
+
+//get public key from id
+public function getPrivateKey($id, $db){
+    $query     = "SELECT private_key FROM " . $this->table . " WHERE id=:id LIMIT 1";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":id", $id);
+   
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
+            $row = $results[0];
+            
+            return $row['private_key'];
+        } else {
+            
+            return false;
+        }
+}
+
+public function getAccounts($id, $db){
+    $query     = "SELECT * FROM accounts left join banks on banks.id = accounts.bank_id WHERE accounts.intern_id=:id LIMIT 1";
+    $statement = $db->prepare($query);
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":id", $id);
+   
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
+            $row = $results;
+            
+            return $row;
+        } else {
+            
+            return false;
+        }
+    
+}
+
+    //member class ends here    
+}
