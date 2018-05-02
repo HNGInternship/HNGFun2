@@ -57,6 +57,9 @@ class User
         return false;
     }
 /* require_once 'dbconfig.php';
+   require '/usr/share/php/libphp-phpmailer/class.phpmailer.php';
+                require '/usr/share/php/libphp-phpmailer/class.smtp.php';
+                // require_once('mailer/class.phpmailer.php');
 
 class USER
 {	
@@ -203,25 +206,6 @@ public function getPrivateKey($id, $db){
         }
 }
 
-public function getAccounts($id, $db){
-    $query     = "SELECT * FROM accounts left join banks on banks.id = accounts.bank_id WHERE accounts.intern_id=:id LIMIT 1";
-    $statement = $db->prepare($query);
-    $stmt = $db->prepare($query);
-    $stmt->bindParam(":id", $id);
-   
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $results = $stmt->fetchAll();
-        if(count($results) > 0){
-            $row = $results;
-            
-            return $row;
-        } else {
-            
-            return false;
-        }
-    
-}
-
+             
     //member class ends here    
 }
