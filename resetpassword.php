@@ -85,8 +85,6 @@ include_once("header.php");
     $(document).ready(function(){
         //ajax for password reset
         $("#form-reset").submit(function(e){
-          $('btn-reset').value = 'Processing . . .';
-          $("#pageloader").fadeIn();
             e.preventDefault();
             var data = $("#form-reset").serialize();
             $.ajax('process.php',{
@@ -95,11 +93,15 @@ include_once("header.php");
                 success: function(response){
                     response = JSON.parse(response);
                     if(response.status == 1){
+                        $('btn-reset').value = 'Processing . . .';
+                        $("#pageloader").fadeIn();
                         $("#message").addClass('alert alert-success');
                         $("#message").html(response.message);
                         $('#form-reset').hide();
                     }
                     else{
+                        $('btn-reset').value = 'Processing . . .';
+                        $("#pageloader").fadeIn();
                         $("#message").addClass('alert alert-danger');
                         $("#message").html(response.message);
                     }
@@ -108,8 +110,6 @@ include_once("header.php");
         });
         //ajax for password change
         $("#form-change").submit(function(e){
-          $("#pageloader").fadeIn();
-          $('btn-change').value = 'Processing . . .';
             e.preventDefault();
             var data = $("#form-change").serialize();
             $.ajax('process.php',{
@@ -118,10 +118,14 @@ include_once("header.php");
                 success: function(response){
                     response = JSON.parse(response);
                     if(response.status == 1){
+                        $('btn-change').value = 'Processing . . .';
+                        $("#pageloader").fadeIn();
                         $("#message2").addClass('alert alert-success');
                         $("#message2").html(response.message);
                         window.location = "login.php";
                     }else if(response.status == 0){
+                        $('btn-change').value = 'Processing . . .';
+                        $("#pageloader").fadeIn();
                         $("#message2").addClass('alert alert-danger');
                         $("#message2").html(response.message);
                     }
