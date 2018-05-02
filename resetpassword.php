@@ -82,6 +82,12 @@ include_once("header.php");
     $("#pageloader").fadeIn();
   });//submit
 });//document read
+  
+    $(document).ready(function(){
+  $("#form-reset").on("submit", function(){
+    $("#pageloader").fadeIn();
+  });//submit
+});//document read 
     
     $(document).ready(function(){
         //ajax for password reset
