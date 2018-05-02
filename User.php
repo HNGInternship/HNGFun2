@@ -110,11 +110,16 @@ class User
             $message .= '<p><a href="'.$link.'">activate account</a></p>';
             $message .= '</body></html>';
             if(sendMail($to, $subject, $from, $message)) { // sendMail true
-                return true;
+                echo '<script>console.log("Mail sent")</script>';
             }
-            echo "Unable to Send Mail";
+            else {
+                echo '<script>console.log("Mail not sent")</script>';
+            }
+
+            return true;
+        }else {
+            return false;
         }
-        return false;
         
     }
     
