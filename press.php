@@ -36,10 +36,15 @@
     	color: #2196F3;
     	width: 170px;
     	height: 38px;
+    	border-radius:7px;
     }
 
     .btn:hover{
     	background-color: #D3D2DE;
+    }
+    .btn:focus{
+    	border: none;
+    	border-color: none;
     }
 
     #boxes {
