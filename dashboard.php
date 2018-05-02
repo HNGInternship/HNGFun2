@@ -5,10 +5,9 @@ echo $_SESSION['email'];
 <!DOCTYPE html>
 <html>
 <head>
-	<title>dashboard</title>
+	<title>Registeration</title>
 </head>
 <body>
-
-your now logged in 
+ check your email to activate your account.
 </body>
 </html>

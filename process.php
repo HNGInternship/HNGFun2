@@ -54,16 +54,7 @@ if(isset($_POST['registration'])){
 
 			//check for response 
 			if($register_check==true){
-				$login_check = $user->check($email,$password,$db);
-
-				if($login_check == true){
-
-				die(true);	
-				}
-				else{
-					die('Registration successful but login failed, please try and manually login');
-				}
-				
+				return true;
 			}
 			else{
 				die("Registration failed cos no record was inserted");
