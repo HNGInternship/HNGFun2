@@ -100,25 +100,6 @@
         
       
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a href="index.php" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="learn.php" class="nav-link">Learn</a>
-            </li> 
-            <li class="nav-item">
-                <a href="listing.php" class="nav-link">Intern</a>
-            </li> 
-            <li class="nav-item">
-                <a href="testimonies.php" class="nav-link">Testimonies</a>
-            </li> 
-            <li class="nav-item">
-                <a href="sponsors.php" class="nav-link">Sponsors</a>
-            </li> 
-            <li class="nav-item">
-                <a href="alumni.php" class="nav-link">Alumni</a>
-            </li> 
-           <li class="nav-item">
             <li class="nav-item <?= $activeArray[0] ?>">
                 <a href="index.php" class="nav-link">Home</a>
             </li>
