@@ -87,6 +87,8 @@ include_once("header.php");
         $("#form-reset").submit(function(e){
             e.preventDefault();
             var data = $("#form-reset").serialize();
+                    var form = $(this); 
+          $('#loader', form).html('<img src="http://slayers.hng.fun/img/Rolling-1s-100px.gif" /> Please Wait...');
             $.ajax('process.php',{
                 type: 'post',
                 data: data,
@@ -112,19 +114,21 @@ include_once("header.php");
         $("#form-change").submit(function(e){
             e.preventDefault();
             var data = $("#form-change").serialize();
+          var form = $(this); 
+          $('#loader', form).html('<img src="http://slayers.hng.fun/img/Rolling-1s-100px.gif" /> Please Wait...');
             $.ajax('process.php',{
                 type: 'post',
                 data: data,
                 success: function(response){
                     response = JSON.parse(response);
                     if(response.status == 1){
-                        $('btn-change').value = 'Processing . . .';
+                        $('#btn-change').value = 'Processing . . .';
                         $("#pageloader").fadeIn();
                         $("#message2").addClass('alert alert-success');
                         $("#message2").html(response.message);
                         window.location = "login.php";
                     }else if(response.status == 0){
-                        $('btn-change').value = 'Processing . . .';
+                        $('#btn-change').value = 'Processing . . .';
                         $("#pageloader").fadeIn();
                         $("#message2").addClass('alert alert-danger');
                         $("#message2").html(response.message);
