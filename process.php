@@ -54,7 +54,7 @@ if(isset($_POST['registration'])){
 
 			//check for response 
 			if($register_check==true){
-				return true;
+				die(true);
 			}
 			else{
 				die("Registration failed cos no record was inserted");
