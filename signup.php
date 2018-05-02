@@ -160,7 +160,7 @@ const public_key = pair.publicKey();
                     },
                     error : function(jqXHR,textStatus,errorThrown){
                         if(textStatus ='error'){
-                        //  alert('Request not completed');
+                            console.log(errorThrown);
                         }
                         $("#register").html('Failed!!');
                         },
