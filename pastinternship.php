@@ -6,10 +6,13 @@ include_once("header.php");
 		display: none;
 	}
 
-	button .btn:hover{
-		background-color: yellow
+	button:hover{
+		background-color: lightblue
 	}
 
+	button{
+		background-color: white;
+	}
 	.container{
 		text-align: justify;
 	}
@@ -23,10 +26,10 @@ include_once("header.php");
 	<div class="row">
 		<div class="col-lg-4" style="padding-top: 30px">
 			<p style="margin-bottom: 5px; margin-top: 0px; font-weight: bold;">Check Cycles</p>
-			<button id="1" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid; border-color: lightgrey; background-color: white; font-weight: lighter;">HNG 1.0(May ist - july 23rd 2016)</button>
-			<button id="2" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid;border-color: lightgrey; background-color: white; font-weight: lighter;">HNG 2.0(May ist - july 23rd 2017)</button>
-			<button id="3" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid; border-color: lightgrey; background-color: white; font-weight: lighter;">HNG 3.0(Sept 3rd - Nov 23rd 2017)</button>
-			<button id="4" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid; border-color: lightgrey; background-color: white; font-weight: lighter;">HNG 4.0(May ist - july 23rd 2018)</button>
+			<button id="1" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid; border-color: lightgrey; font-weight: lighter;">HNG 1.0(May ist - july 23rd 2016)</button>
+			<button id="2" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid;border-color: lightgrey; font-weight: lighter;">HNG 2.0(May ist - july 23rd 2017)</button>
+			<button id="3" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid; border-color: lightgrey; font-weight: lighter;">HNG 3.0(Sept 3rd - Nov 23rd 2017)</button>
+			<button id="4" class="btn" style="margin-bottom: 0px; width: 300px; height: 50px; border:1px solid; border-color: lightgrey; font-weight: lighter;">HNG 4.0(May ist - july 23rd 2018)</button>
 		</div>
 		<div class="col-lg-8" id="body1">
 			<img src="http://res.cloudinary.com/pajimo/image/upload/v1525159510/1.0.png" style="width: 100%; height: 350px;">
@@ -56,10 +59,19 @@ include_once("header.php");
 
 			<h4 style="font-weight: bold; font-size: 15px">PARTNERS</h4>
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155021/hotels.jpg">
-				</div>
+			<div class="col-lg-3">
+				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155021/hotels.jpg">
 			</div>
+			<div class="col-lg-3">
+				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525160286/figma.png">
+			</div>
+			<div class="col-lg-3">
+				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155021/blue.jpg">
+			</div>
+			<div class="col-lg-3">
+				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155212/oracle.png">
+			</div>
+		</div>
 		</div>
 		<div class="col-lg-8 hidden" id="body2">
 			<img src="http://res.cloudinary.com/pajimo/image/upload/v1525159511/2.0.jpg" style="width: 100%; height: 350px;">
@@ -89,11 +101,17 @@ include_once("header.php");
 
 		<h4 style="font-weight: bold; font-size: 15px">PARTNERS</h4>
 		<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-6">
+			<div class="col-lg-3">
 				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155021/hotels.jpg">
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6">
+			<div class="col-lg-3">
 				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525160286/figma.png">
+			</div>
+			<div class="col-lg-3">
+				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155021/blue.jpg">
+			</div>
+			<div class="col-lg-3">
+				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155212/oracle.png">
 			</div>
 		</div>
 		</div><div class="col-lg-8" id="body3">
@@ -124,13 +142,16 @@ include_once("header.php");
 
 		<h4 style="font-weight: bold; font-size: 15px">PARTNERS</h4>
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155021/hotels.jpg">
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525160286/figma.png">
 			</div>
-			<div class="col-lg-4 ">
+			<div class="col-lg-3">
+				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155021/blue.jpg">
+			</div>
+			<div class="col-lg-3">
 				<img src="http://res.cloudinary.com/pajimo/image/upload/v1525155212/oracle.png">
 			</div>
 		</div>

@@ -26,24 +26,42 @@ include_once("header.php");
 		</div>
 	</div>
 
-	<div style="text-align: center;">
-		<button style="background-color: #2196F3; color: white; height: 60px; width: 170px">TRENDIG</button>
+	<div style="text-align: center; margin-top: 50px">
+		<button style="background-color: #2196F3; color: white; height: 60px; width: 250px">TRENDIG</button>
 	</div>
 
 	<div>
 
-		<div class="slideshow" style="width: 100%; margin-top: 50px">
-			<div class="slide" id="first">
-				<div class="row">
-					<div class="col-lg-4" style="height: 200px;">
+
+		<div class="row">
+			<div class="row">
+					<div class="col-lg-4" style="height: 200px; border: 1px solid; padding-right: 50px; padding-right: 200px">
 						<img style="width: 300px; height: 100px; background-color: grey">
 						<p>The design team has juts created another hit which is now featured on dribble be sure to check it out</p>
 					</div>
-					<div class="col-lg-4" style="height: 200px">
+					<div class="col-lg-4" style="height: 200px; border: 1px solid">
 						<img src="" width="300px" height="100px">
 						<p>This week on Announcements: This week, more people are going to be disabled, if you are lower than stage 2, hurry up to avoid disabling this week</p>
 					</div>
-					<div class="col-lg-4" style="height: 200px">
+					<div class="col-lg-4" style="height: 200px; border: 1px solid">
+						<img src=""  width="300px" height="100px">
+						<p>ARE YOU READY!!!!!??? this weeks competiton is on cryptocurrencies does your team have what it takes to win? THEN PARTICIPATE!!!</p>
+					</div>
+				</div>
+		</div>
+
+		<div class="slideshow" style="width: 100%; margin-top: 100px;">
+			<div class="slide" id="first">
+				<div class="row">
+					<div class="col-lg-4" style="height: 200px; border: 1px solid; padding-right: 50px">
+						<img style="width: 300px; height: 100px; background-color: grey">
+						<p>The design team has juts created another hit which is now featured on dribble be sure to check it out</p>
+					</div>
+					<div class="col-lg-4" style="height: 200px; border: 1px solid">
+						<img src="" width="300px" height="100px">
+						<p>This week on Announcements: This week, more people are going to be disabled, if you are lower than stage 2, hurry up to avoid disabling this week</p>
+					</div>
+					<div class="col-lg-4" style="height: 200px; border: 1px solid">
 						<img src=""  width="300px" height="100px">
 						<p>ARE YOU READY!!!!!??? this weeks competiton is on cryptocurrencies does your team have what it takes to win? THEN PARTICIPATE!!!</p>
 					</div>
@@ -66,23 +84,23 @@ include_once("header.php");
 
 
 
-		<div class="slideshow" style="width: 100%; margin-top: 50px">
+		<div class="slideshow" style="width: 100%; margin-top:">
 			<div class="slide" id="first">
-				<div class="row">
-					<div class="col-lg-4" style="height: 200px;">
-						<img style="width: 300px; height: 100px; background-color: grey">
-						<p>Now we have a total of 10 sponsors as at friday evening with google and microsoft who joined frieday aftenoon. Also we now have 40 hubs across Nigeria.... </p>
-					</div>
-					<div class="col-lg-4" style="height: 200px">
-						<img src="" width="300px" height="100px">
-						<p>This week on Announcements: This week, more people are going to be disabled, if you are lower than stage 2, hurry up to avoid disabling this week</p>
-					</div>
-					<div class="col-lg-4" style="height: 200px">
-						<img src=""  width="300px" height="100px">
-						<p>ARE YOU READY!!!!!??? this weeks competiton is on cryptocurrencies does your team have what it takes to win? THEN PARTICIPATE!!!</p>
-					</div>
-				</div>
-			</div>
+                <div class="row">
+                    <div class="col-lg-4" style="height: 200px; border: 1px solid">
+                        <img style="width: 300px; height: 100px; background-color: grey">
+                        <p>Now we have a total of 10 sponsors as at friday evening with google and microsoft who joined frieday aftenoon. Also we now have 40 hubs across Nigeria.... </p>
+                    </div>
+                    <div class="col-lg-4" style="height: 200px; border: 1px solid; width: 0px">
+                        <img src="" width="300px" height="100px">
+                        <p>Today we will be inviting Mark CEO Facebook, Bill chairman Microsoft and chairman of Beakshire hathway to give you tips on what they did in their journey building their empires</p>
+                    </div>
+                    <div class="col-lg-4" style="height: 300px; border: 1px solid">
+                        <img src=""  width="300px" height="100px">
+                        <p>Javascript Lovers... guess what a new framework is out called HNGjs i heard its has new features that is incredible.. check it out</p>
+                    </div>
+                </div>
+            </div>
 			<div class="slide" id="second"  style="">
 				<div class="row">
 					<div class="col-lg-4" style="height: 200px">
