@@ -37,6 +37,9 @@
     	width: 170px;
     	height: 38px;
     	border-radius:7px;
+    	padding-top: 7px;
+    	font-weight: normal;
+    	text-transform: capitalize;
     }
 
     .btn:hover{
