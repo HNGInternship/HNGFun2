@@ -1,6 +1,19 @@
 <?php
+if(!isset($_SESSION)) { session_start(); }
 include_once("coin_header.php");
 include_once("db.php");
+if(!empty($_SESSION["id"])){
+	require_once('User.php');
+	$user = new User();
+	$public_key = $user->getPublicKey($_SESSION["id"], $db);
+	$accounts = $user->getAccounts($_SESSION["id"], $db);
+	
+}else{
+	$public_key = "45374903039388474 - User not logged in";
+}
+
+
+
 ?>
 
 <?php
@@ -39,8 +52,9 @@ include_once("db.php");
 }
 
 .mod{
-	width: 100%;
+	width: 50%;
 	height: 75px;
+	margin: 0 auto;
 }
 .body{
 	font-family: lato;
@@ -313,23 +327,38 @@ h3{
         <h5 class="modal-title" id="sellModalLabel">Sell MY Coin</h5>
       </div>
       <div class="modal-body">
+	  <form method="post" action="process.php">
         <div class="row">
 			<div class="col">
 				Wallet ID: <br/>
-				<input type="text" placeholder="Marvelous350" class="form-control" id="wallet-id"></input> <br/>
+				<input type="text" placeholder="Marvelous350" class="form-control" id="wallet-id" name="wallet" value="<?php echo $public_key ?>" readonly></input> <br/>
 				Amount of HNGcoin: <br/>
-				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin"></input><br/>
-				Send as notification <br/>
-				<input type="text" placeholder="Buyer Wallet ID" class="form-control" id="buyer-wallet-id"></input>
+				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin" name="amount"></input><br/>
+				Sell to HNG<br/>
+				<input type="checkbox" placeholder="Buyer Wallet ID"  id="buyer-wallet-id" name="HNG"></input>
 			</div>
 			<div class="col">
 				Payment Information <br/>
-				<input type="text" placeholder="Payment method" class="form-control" id="payment info"></input><br/>
+				<select id="payment_info" name="payment_info" class="form-control">
+				<?php
+				foreach($accounts as $account){
+					echo "<option value='" . $account['id']  ."'>". $account['name'] ."</option>";
+				}
+				?>
+				</select>
+				<br>
+				
 				Price/coin <br/>
-				<input type="text" placeholder="3,340,345.64" class="form-control" id="price"></input> <br/>
-				<button type="button" class="btn btn-primary mod">Sell</button>
+				<input type="text" placeholder="3,340,345.64" class="form-control" id="price" name="price"></input> <br/>
+				Trade Limit: <br/>
+				<input type="text" placeholder="1" class="form-control" id="trade_limit" name="trade_limit"></input><br/>
+				
+			</div>
+			<div class="col-md-12 offset-md-3">
+			<button type="submit" name="sellCoin" class="btn btn-primary mod">Sell</button>
 			</div>
 		</div>
+		</form>
       </div>
       <div class="modal-footer mx-auto text-center">
 		<div class="col mx-auto text-center">

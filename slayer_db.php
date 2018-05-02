@@ -34,15 +34,6 @@ $sql1 = "CREATE TABLE IF NOT EXISTS `interns_data` (
     PRIMARY KEY (id))";
 
 
-try {
-    $db = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-} catch (PDOException $pe) {
-    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-}
-
-global $db;
-
-
     $sql2 = "CREATE TABLE IF NOT EXISTS buy_requests (
         `id` int(20) NOT NULL AUTO_INCREMENT,
         `intern_id` int(20) NOT NULL,
@@ -53,18 +44,22 @@ global $db;
         `created_at` DATETIME NOT NULL DEFAULT NOW(),
         PRIMARY KEY (id),
         FOREIGN KEY (intern_id) REFERENCES interns_data (id) on delete cascade)";
+       
   
      
-     $sql3 = "CREATE TABLE IF NOT EXISTS sell_requests(
+     $sql3 = "CREATE TABLE sell_requests(
         `id` int(20) NOT NULL AUTO_INCREMENT,
         `intern_id` int(20) NOT NULL,
         `amount` float NOT NULL,
         `trade_limit` float DEFAULT NULL,
         `price_per_coin` float NOT NULL,
+        `preferred_buyer` ENUM(0, 1) NOT NULL DEFAULT 0,
+        `account_id` int(10) NOT NULL, 
         `status` ENUM('Completed', 'Pending', 'Closed', 'Open') NOT NULL,
         `created_at` DATETIME NOT NULL DEFAULT NOW(),
         PRIMARY KEY (id),
-        FOREIGN KEY (intern_id) REFERENCES interns_data (id) on delete cascade)";
+        FOREIGN KEY (intern_id) REFERENCES interns_data (id) on delete cascade),
+        FOREIGN KEY (account_id) REFERENCES account (id) on delete cascade)";
 
          
        $sql4 = "CREATE TABLE IF NOT EXISTS banks(

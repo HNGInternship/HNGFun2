@@ -1,7 +1,6 @@
 
 <?php 
-
-
+if(!isset($_SESSION)) { session_start(); }
 
 // for choosing active page on nav bar
 

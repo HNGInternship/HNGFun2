@@ -65,28 +65,14 @@ if(isset($_POST['registration'])){
 			//try to register user
 			$register_check = $user->register($firstname,$lastname,$email,$username,
 											$nationality,$state,$phone,$password,$public_key, $private_key, $db);
-	
-	elseif($password == ""){
-		echo "Please enter your Password";
-	}
-	
-	else{
-
-				//connect to database
-			require_once('db.php');
-
-			//instantiate the member class
-			$member = new Member();
-			//try to register user
-			$register_check = $member->register($firstname,$lastname,$email,$password,$conn);
+			
 
 			//check for response 
 			if($register_check==true){
 				$login_check = $user->check($email,$password,$db);
-				$login_check = $member->check($email,$password,$conn);
 
 				if($login_check == true){
-
+					
 				die(true);	
 				}
 				else{
@@ -348,6 +334,32 @@ if(isset($_POST['login'])){
      }
 
   }
+if(isset($_POST['sellCoin'])){
+	require_once('Sell.php');
+	//connect to database
+	require_once('db.php');
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+	$sell = new Sell();
+	
+	$id = $_SESSION['id'];
+	if($_POST['HNG'] == 'on'){
+		$preferred_buyer = "1";
+	}else{
+		$preferred_buyer = "0";
+	}
+	$amount = $_POST['amount'];
+	$account_id = $_POST['payment_info'];
+	$trade_limit = $_POST['trade_limit'];
+	$price_per_coin = $_POST['price'];
+	$status = "Open";
 
+	$result = $sell->postRequest($id, $amount, $trade_limit, $price_per_coin, $account_id, $preferred_buyer, $status, $db);
+	if($result){
+		header("Location: /buyandsell.php"); /* Redirect browser */
+		exit();
+	}else{
+		echo "Could not post request";
+	}
+}
 	
 ?>
