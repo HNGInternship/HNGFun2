@@ -144,7 +144,7 @@ const public_key = pair.publicKey();
                     data : data,
                     success: function(data){
 
-                        if(data==true){
+                        if(data=='true'){
                             $("#message").addClass('alert alert-success');
                         $("#message").html("Registration successful");
 
@@ -152,7 +152,7 @@ const public_key = pair.publicKey();
 
                         window.location ="dashboard.php";
                         }
-                        else if( data == 'exists') {
+                        elseif( data == 'exists') {
                             console.log("Email already registered!");
                             $("#message").html("Email already registered!");
                             $("#register").html('Email already registered!');

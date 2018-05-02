@@ -126,11 +126,11 @@ class User
             'X-Mailer: PHP/' . phpversion();
 
             //mail($to, $subject, $from, $message); // sendMail true
-            $response = true;
+            $response = 'true';
         }
         else {
             error_log($stmt->errorInfo(), 0);
-            $response = false;
+            $response = 'false';
         }
         return $response;
     }
