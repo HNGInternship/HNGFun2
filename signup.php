@@ -145,7 +145,6 @@ if(isset($_POST['btn-signup'])){
     </div>
 </div>
 </div>
-
 <?php
     include_once("footer.php");
 ?>
