@@ -5,16 +5,12 @@ if(!isset($_SESSION)) { session_start(); }
 
 // timexone
 date_default_timezone_set('Africa/Lagos');
+
 //class file required here 
 
 //require_once('classes/User.php');
 require_once('User.php');
 require_once('db.php');
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require_once "vendor/autoload.php";	
 
 //for registration 
 
