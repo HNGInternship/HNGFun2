@@ -92,7 +92,7 @@
                 $("#message").addClass('alert alert-danger');
             
                 $("#message").html(data);
-                 $("#login").html('Failed');
+                 $("#login").html('Failed!');
              } 
             
 
@@ -100,8 +100,11 @@
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
                     //alert('Request not completed');
+                    $("#message").addClass('alert alert-success');
+                    $("#message").html(errorThrown);
+                    $("#login").html('Failed!!');
                  }
-                $("#login").html('Failed');
+                
             },
             beforeSend :function(){
 
