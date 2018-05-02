@@ -120,13 +120,13 @@ class User
 
             mail($to, $subject, $from, $message); // sendMail true
             
-            return true;
         }
         catch(PDOException $exception)
 		{
             return "Connection error: " . $exception->getMessage();
         }
         
+        return true;
     }
     
     // send a welcome mail
