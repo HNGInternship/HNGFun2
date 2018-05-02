@@ -1,6 +1,10 @@
 <?php include("header.php");?>
 
-
+<style>
+    body {
+        background-color: white
+    }
+</style>
 <div style="text-align: center; padding-top: 40px; padding-bottom: 10px">
     <h1 class="font-weight-bold">
         Privacy Policy
