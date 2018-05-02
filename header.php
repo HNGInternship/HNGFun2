@@ -81,6 +81,15 @@
         font-weight: bold;
         display: inline-block;
         width: 100%;
+            padding: 10px 50px !important;
+    }
+
+    .navbar-logo {
+        width: auto !important;
+    }
+
+    .navbar-brand {
+    width: auto !important;
     }
 
     @media (min-width: 992px){
@@ -106,6 +115,10 @@
         width: auto !important;
         margin-top: 30px;
     }
+    }
+
+    .navbar-toggler {
+    float: right;
     }
 
     .nav-item.active {
