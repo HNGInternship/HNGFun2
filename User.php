@@ -74,7 +74,6 @@ class User
     
     public function register($firstname, $lastname, $email, $password, $public_key, $private_key, $token, $active, $created_at, $update_at, $db)
     {
-        $this->table = 'slay';
         $response = '';
         
         // Check if email already exist
@@ -125,7 +124,7 @@ class User
             'Reply-To: '.$from."\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-            //mail($to, $subject, $from, $message); // sendMail true
+            mail($to, $subject, $from, $message); // sendMail true
             $response = 'true';
         }
         else {
