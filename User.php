@@ -249,9 +249,8 @@ public function getPrivateKey($id, $db){
 
 
 
-//get public key from id
+//get public accounts from id
 public function getAccounts($id, $db){
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query     = "SELECT accounts.id, banks.name FROM accounts inner join banks on accounts.bank_id = banks.id  WHERE Intern_id=:id ";
     $stmt = $db->prepare($query);
     $stmt->bindParam(":id", $id);
