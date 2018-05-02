@@ -5,7 +5,7 @@ include('header.php');
 ?>
 <script>
 const pair = StellarSdk.Keypair.random();
-const secret_key = pair.secret();
+const private_key = pair.secret();
 const public_key = pair.publicKey();
 </script>
 
@@ -46,10 +46,7 @@ const public_key = pair.publicKey();
         </p>
         <p><span style='color: grey'>Already have an account?</span> <a class='link' href="login.php" style="color: #2196F3; text-decoration: none">Login</a></p>
         </div>
-                <div id="message">
-            
-               </div>
-               
+        <div id="message"></div>
             <form action="" method="post" class="text-center" name="register_form" id="register_form">
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
@@ -59,43 +56,16 @@ const public_key = pair.publicKey();
                     <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
                 </div>
             </div>
-
-            <input type="hidden" name="username" id="username" class="form-control" placeholder="User Name">
-
-             
+            <input type="hidden" name="username" id="username" class="form-control" placeholder="User Name">      
             <br />
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
                 </div>
                 <div class="form-group col-md-6" style="padding-right:50px">
-                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 </div>
-            </div>
-            <br />
-            <!--
-            <div class="form-row">
-                <div class="form-group col-md-6" style="padding-right:50px">
-                     <input type="text" name="country" id="country" class="form-control" placeholder="Enter your country ">
-                  </div>
-                    <div class="form-group col-md-6" style="padding-right:50px">
-                        <input type="text" name="state" id="state" class="form-control" placeholder="Enter your state ">
-                    </div>
-        </div>
-            -->
-            
-            <br />
-             <div class="form-row">
-                        <div class="form-group col-md-6" style="padding-right:50px">
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group col-md-6" style="padding-right:50px">
-                            <input type="password" name="password_confirm" id="password_confirm" class="form-control" placeholder="Confirm Password ">
-                        </div>
-                    </div>
-                <input type="hidden" name="registration" value="yes">
-
-            
+            </div> <input type="hidden" name="registration" value="yes">
             <br />
             <div class="form-group">
                 <div class="form-check">
@@ -123,10 +93,7 @@ const public_key = pair.publicKey();
         var firstname = $("#firstname").val();
          var lastname = $("#lastname").val();
         var email = $("#email").val();
-        var phone = $("#phone").val(); 
         var password = $("#password").val();
-        var password_confirm = $("#password_confirm").val();
-
         var terms = $('#terms').is(':checked'); 
         
         if(firstname ==""){
@@ -144,33 +111,10 @@ const public_key = pair.publicKey();
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
         }
-        // else if(country ==""){
-        //    // alert('Please enter your country');
-        //     $("#message").addClass('alert alert-danger');
-        //     $("#message").html('Please enter your country');
-        // }
-
-        // else if(state ==""){
-        //    // alert('Please enter state');
-        //     $("#message").addClass('alert alert-danger');
-        //     $("#message").html('Please enter state');
-        // }
-
-         else if(phone ==""){
-            //alert('Please enter Phone Number');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter Phone Number');
-        }
         else if(password ==""){
            // alert('Please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
-        }
-
-        else if(password != password_confirm){
-           // alert('Passwords dont match');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Passwords dont match');
         }
         else if(terms == false){
            // alert('You must accept our terms and conditions to register');
@@ -179,23 +123,22 @@ const public_key = pair.publicKey();
         }
         else{
             
-            $("#username").val(firstname);
-            
+            $("#username").val(firstname);            
             $("#register").html('Registering..');
 
             var data = $("#register_form").serialize();
             
             const pair = StellarSdk.Keypair.random();
-            const secret_key = pair.secret();
+            const private_key = pair.secret();
             const public_key = pair.publicKey();
 
             // use public key to create account
             axios
                 .get('https://friendbot.stellar.org?addr='+public_key)
                 .then(function(response){
-                    data += "&private_key="+secret_key+"&public_key="+public_key;
+                    data += "&private_key="+private_key+"&public_key="+public_key;
                         
-                    //alert('worked');
+                   
                     $.ajax('process.php',{
                     type : 'post',
                     data : data,
