@@ -120,6 +120,9 @@ h3{
 				<div class="col">
 					<button type="button" class="btn top" data-toggle="modal" data-target="#sellModal">Sell my coin</button>
 				</div>
+				<div class="col">
+					<button type="button" class="btn top" data-toggle="modal" data-target="#buyModal">Create Buy Request</button>
+				</div>
 				
 			</div>
 		</div>
@@ -131,6 +134,7 @@ h3{
 		<div class="row">
 			<div class="col-sm-10 col-md-6 col-lg-9 mx-auto">
 				<h3> Buy HNGcoin</h3><p>To buy coin: Simply click on the BUY icon respective to the seller, fill the details and complete transaction</p>
+				
 			</div>
 			<div class="col-sm-2 col-md-6 col-lg-3 mx-auto">
 				<div class="row mx-auto">
@@ -370,6 +374,43 @@ h3{
   </div>
 </div>
 
+
+<!---Buy Modal--->
+<div class="modal fade bd-example-modal-lg" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header mx-auto text-center">
+        <h5 class="modal-title" id="sellModalLabel">Buy Request</h5>
+      </div>
+      <div class="modal-body">
+	  <form method="post" action="process.php">
+        <div class="row">
+			<div class="col">
+				Amount of HNGcoin: <br/>
+				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin" name="amount"></input><br/>
+			</div>
+			<div class="col">
+				Price/coin <br/>
+				<input type="text" placeholder="3,340,345.64" class="form-control" id="price" name="price"></input> <br/>
+				Trade Limit: <br/>
+				<input type="text" placeholder="1" class="form-control" id="trade_limit" name="trade_limit"></input><br/>
+				
+			</div>
+			<div class="col-md-12 offset-md-3">
+			<button type="submit" name="buyCoin" class="btn btn-primary mod">Make a Buy Request</button>
+			</div>
+		</div>
+		</form>
+      </div>
+      <div class="modal-footer mx-auto text-center">
+		<div class="col mx-auto text-center">
+			
+		</div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 include_once("footer.php");
 ?>

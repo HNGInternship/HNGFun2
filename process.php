@@ -361,5 +361,29 @@ if(isset($_POST['sellCoin'])){
 		echo "Could not post request";
 	}
 }
+
+
+if(isset($_POST['buyCoin'])){
+	require_once('Buy.php');
+	//connect to database
+	require_once('db.php');
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+	$buy = new Buy();
+	
+	$id = $_SESSION['id'];
+
+	$amount = $_POST['amount'];
+	$trade_limit = $_POST['trade_limit'];
+	$price_per_coin = $_POST['price'];
+	$status = "Open";
+
+	$result = $buy->postRequest($id, $amount, $trade_limit, $price_per_coin, $status, $db);
+	if($result){
+		header("Location: /buyandsell.php"); /* Redirect browser */
+		exit();
+	}else{
+		echo "Could not post request";
+	}
+}
 	
 ?>
