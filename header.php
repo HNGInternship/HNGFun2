@@ -89,12 +89,12 @@
         padding-left: .5rem;
         padding-top: 20px;
         font-size: 15px !important;
-        float: right;
     }
 
     ul.navbar-nav.collapse.ml-auto {
         display: -webkit-inline-box;
         height: 100% !important;
+        float: right;
     }
 
     nav.navbar {
