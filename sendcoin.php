@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -5,6 +6,11 @@
    <?php
   include_once("header.php");
   ?>
+=======
+<?php
+include_once("header.php");
+?>
+>>>>>>> fd445099bc7956b132ed5e771c803270492301cc
 
 <style type="text/css">
 	#email, #phone, #lastname, #firstname{
@@ -17,13 +23,14 @@
 
     <div class="col-md-6  mx-auto">
 	<div style="text-align:center;">
-	<img src="images/coins.png" style="width: 42px; margin-top: -20px;margin-right: 3px; display: inline-block;">
+        <img src="images/coins.png" style="width: 42px; margin-top: -20px;margin-right: 3px; display: inline-block;">
         <h1 class="login-title text-center" style="font-weight: bold; font-size: 28px;display: inline;padding-top: 27px; margin-top: 40px;">Share HNG coins with friends</h1>
-        </div>
-		<p style="font-size: 14px;margin-bottom: 30px; margin-top: 10px; opacity: 0.7" class="text-center">Encourage your friends to start coding by offering them HNG coins today!
+    </div>
+        <p style="font-size: 14px;margin-bottom: 30px; margin-top: 10px; opacity: 0.7" class="text-center">Encourage your friends to start coding by offering them HNG coins today!
         </p>
-		<div class="form-row" style="margin:0 auto;">
+        <div class="form-row" style="margin:0 auto;">
 			<div class="form-group col-md-6">
+<<<<<<< HEAD
     <label for="username"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</label>
     <input type="text" class="form-control" id="username" placeholder="" style="border-color:#0475CE;">
   </div>
@@ -44,17 +51,16 @@
                 	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</p>
                     <input type="text" name="lastname" id="lastname" class="form-control" placeholder=""/>
                 </div>
+=======
+                <label for="username"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="" style="border-color:#0475CE;">
+>>>>>>> fd445099bc7956b132ed5e771c803270492301cc
             </div>
-            <div class="form-row" style="margin-left: 30px;">
-                <div class="form-group col-md-6" style="margin-left: 0px; ">
-                	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Email address</p>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Phone</p>
-                    <input type="text" name="phone" id="phone" class="form-control" placeholder="">
-                </div>
+            <div class="form-group col-md-6">
+                <label for="amount"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</label>
+                <input type="text" class="form-control" id="amount" placeholder="" style="border-color:#0475CE;">
             </div>
+<<<<<<< HEAD
 
         </form>-->
 
@@ -64,3 +70,14 @@
         <?php
         include_once("footer.php");
         ?>
+=======
+            <button style="margin-top: 45px; border:0px; margin-bottom: 50px; margin-left: auto; margin-right: auto; background-color: #2196F3; color: white; width: 400px; font-size: 15px; height: 40px; text-align:center;border-radius: 10px" id="submitbutton" class="">SEND COINS</button>
+        </div>
+
+    </div>
+</div>
+
+<?php
+include_once("footer.php");
+?>
+>>>>>>> fd445099bc7956b132ed5e771c803270492301cc
