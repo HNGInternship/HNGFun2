@@ -7,7 +7,9 @@ include_once("header.php");
 	.col-lg-4{
 		font-weight: bold;
 		color: black;
-		font-size: 23px
+		font-size: 23px;
+		position: relative;
+		margin-bottom: 150px;
 	}
 </style>
 
@@ -21,38 +23,39 @@ include_once("header.php");
 	</div>
 	<div align="center">
 		<div class="row">
-			<div class="col-lg-4" ">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-image: url(https://d.novoresume.com/images/doc/college-cv-template.png); background-position: center; background-size: cover; -webkit-background-size: cover;font-weight: bold; font-size: 22px">CV Designs</p>
+			<div class="col-lg-4" style="position: relative; margin-bottom: 60px; border:0px">
+				<div style="width: 300px; border:1px solid; height: 200px; background-image: url(https://d.novoresume.com/images/doc/college-cv-template.png); background-position: center; background-size: cover; -webkit-background-size: cover; position: absolute; opacity: 0.2; margin: 0; padding: 0; padding-left: 200px;"></div>
+				<div style="padding-top: 25%;text-align: left; font-weight: bold;margin-left: 10px">Cv Designs</div>
 			</div>
 			<div class="col-lg-4">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTttJw0TufJgVXy4WrDhbaPcZ31HrqL38eAMGuOHq-UFXNQETQl); background-position: center; background-size: cover; -webkit-background-size: cover; font-weight: bold; color: white">Transcribe app</p>
+				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTttJw0TufJgVXy4WrDhbaPcZ31HrqL38eAMGuOHq-UFXNQETQl); background-position: center; background-size: cover; -webkit-background-size: cover; font-weight: bold; color: white; position: absolute; opacity: 0.2; margin: 0; padding: 0"></p><div style="text-align: left;padding-top: 25%; font-weight: bold; margin-left: 10px"> Transcribe app</div>
 			</div>
 			<div class="col-lg-4">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFn-00QAOXZBeLhETx1HwDlHw5JHHyWDAyMBwEnlRGu3Ird9K9Eg); color: green">IG vendors</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2FIZQvP4PRirshrIqCK5XTd6W1zsExEefvT9m2xGtU9kNcbLlXA);">Wireframe</p>
-			</div>
-			<div class="col-lg-4">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUpu6fNbNOAeJpjSKJ9i9e9TdAVKxcBKaP7VwBmIhNDBxXi3WAqA);">Power Pack</p>
-			</div>
-			<div class="col-lg-4">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLyA34KEHTfPTraZruJjKYeIO2kBTiPKQzC6TEBa1hP3LYKfMq); color: white">Banner and bilboards design</p>
+				<p style="margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFn-00QAOXZBeLhETx1HwDlHw5JHHyWDAyMBwEnlRGu3Ird9K9Eg); position: absolute; opacity: 0.2;"></p><div style="text-align: left;padding-top: 25%; font-weight: bold; margin-left: 10px"> Ig Vendors</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-4">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: cener; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXBCsMzKv9WxEAkD72wajAu2OVYdcWs8H9LVBKrousmA8lhq88BQ);">Fast Pay</p>
+				<p style="margin-bottom: 60px; margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2FIZQvP4PRirshrIqCK5XTd6W1zsExEefvT9m2xGtU9kNcbLlXA); position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Wireframe</div>
 			</div>
 			<div class="col-lg-4">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR86NHWKQO3eMVzheK4Hd0q7QS3piRtAkhcBaIwr3-nCXpk2BXc);">Profile Pages</p>
+				<p style="margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUpu6fNbNOAeJpjSKJ9i9e9TdAVKxcBKaP7VwBmIhNDBxXi3WAqA); position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Power Pack</div>
+			</div>
+			<div class="col-lg-4">
+				<p style="margin: 0; padding: 0; width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLyA34KEHTfPTraZruJjKYeIO2kBTiPKQzC6TEBa1hP3LYKfMq); color: white; position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Banner and bilboards design</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<p style="margin: 0; padding: 0;margin-bottom: 60px;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: cener; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXBCsMzKv9WxEAkD72wajAu2OVYdcWs8H9LVBKrousmA8lhq88BQ); position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Fast Pay</div>
+			</div>
+			<div class="col-lg-4">
+				<p style="margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR86NHWKQO3eMVzheK4Hd0q7QS3piRtAkhcBaIwr3-nCXpk2BXc); position: absolute; opacity: 0.2;"></p> <div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Profile Pages</div>
 			</div>
 
 			<div class="col-lg-4">
-				<p id="emails" style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-image: url(http://res.cloudinary.com/pajimo/image/upload/v1525094886/download.png); background-position: center; background-size: cover; -webkit-background-size: cover;
-  font-size: 20px;"><span style="font-weight: bold; position: relativ;">Project Emails</span> </p>
+				<p id="emails" style="margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-image: url(http://res.cloudinary.com/pajimo/image/upload/v1525094886/download.png); background-position: center; background-size: cover; -webkit-background-size: cover;
+  font-size: 20px; position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px">Project Emails</div>
 			</div>
 		</div>
 
