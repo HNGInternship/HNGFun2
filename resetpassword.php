@@ -151,7 +151,7 @@ include_once("header.php");
                 success: function(response){
                     response = JSON.parse(response);
                     if(response.status == 1){
-                      $(".submit").addClass("loading");
+                      $("#btn-reset").addClass("loading");
     setTimeout(function() {
       $("#btn-reset").addClass("hide-loading");
       // For failed icon just replace ".done" with ".failed"
@@ -168,15 +168,15 @@ include_once("header.php");
                         $('#form-reset').hide();
                     }
                     else{
-                                           $("#form-reset").addClass("loading");
+                                           $("#btn-reset").addClass("loading");
     setTimeout(function() {
-      $("#form-reset").addClass("hide-loading");
+      $("#btn-reset").addClass("hide-loading");
       // For failed icon just replace ".done" with ".failed"
       $(".failed").addClass("finish");
     }, 3000);
     setTimeout(function() {
-      $("#form-reset").removeClass("loading");
-      $("#form-reset").removeClass("hide-loading");
+      $("#btn-reset").removeClass("loading");
+      $("#btn-reset").removeClass("hide-loading");
       $(".done").removeClass("finish");
       $(".failed").removeClass("finish");
     }, 5000);
