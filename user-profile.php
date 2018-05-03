@@ -116,7 +116,7 @@ include_once("header.php");
 						</form>
 					</div>
 					<div class="col-md-12 text-center"><br>
-						<button type="submit" class="btn btn-change">Cancle Changes</button><button type="submit" class="btn btn-change">Save Changes</button>
+						<button type="submit" class="btn btn-change">Cancel Changes</button><button type="submit" class="btn btn-change">Save Changes</button>
 					</div>
 				</div>
 				
