@@ -11,6 +11,9 @@ date_default_timezone_set('Africa/Lagos');
 //require_once('classes/User.php');
 require_once('User.php');
 require_once('db.php');
+if(isset($conn)) {
+	$db = $conn;
+}
 require_once('smtp_credentials.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -59,6 +62,60 @@ if(isset($_POST['registration'])){
 
 			//check for response 
 			if($register_check==true){
+				$subject = 'Welcome to HNG Internship';
+				$message = '<html><body>';
+                $message .= '<h1>Hi '. $firstname .'!</h1>';
+                $message .= '<h3>Thank you for your interest in HNG Internship';
+                $message .= '<p>You may now login to your account <a href="https://hng.fun/login.php">here</a></p>';
+				$message .= '</body></html>';
+				
+				$mail = new PHPMailer;
+				
+				//Set PHPMailer to use SMTP.
+				$mail->isSMTP();            
+				//Set SMTP host name                          
+				$mail->Host = SMTP_HOST;
+				//Set this to true if SMTP host requires authentication to send email
+				$mail->SMTPAuth = true;                          
+				//Provide username and password     
+				$mail->Username = SMTP_USER;                 
+				$mail->Password = SMTP_PASSWORD;                           
+				//If SMTP requires TLS encryption then set it
+				$mail->SMTPSecure = SMTP_PROTOCOL;                           
+				//Set TCP port to connect to 
+				$mail->Port = SMTP_PORT;             
+
+				//From email address and name
+				$mail->From = "hello@hng.fun";
+				$mail->FromName = "HNG Team";
+
+				//To address and name
+				$mail->addAddress($email);
+
+				//Send HTML or Plain Text email
+				$mail->isHTML(true);
+
+				$mail->Subject = $subject;
+				$mail->Body = $message;
+				// $mail->AltBody = "This is the plain text version of the email content";
+				
+				$sent = $mail->send();
+				// if(!sent) 
+				// {
+				// echo "Mailer Error: " . $mail->ErrorInfo;
+				// echo json_encode([
+				// 'status' => 0,
+				// 'message' => "Mailer Error: " . $mail->ErrorInfo
+				// ]);
+				// } 
+				// else 
+				// {
+				// echo json_encode([
+				// 'status' => 1,
+				// 'message' => 'An Email containing password reset token has been sent to you'	
+				// ]);
+				// }
+
 				$_SESSION['email'] = $email;
 				die('true');
 			}
