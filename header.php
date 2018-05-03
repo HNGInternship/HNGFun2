@@ -92,6 +92,19 @@
     width: auto !important;
     }
 
+    .navbar-toggler {
+    float: right;
+    }
+
+    .nav-item.active {
+        background-color: rgba(199, 196, 196, 0.1);
+        border-bottom: 3px solid rgb(90, 145, 247);
+    }
+
+    .navbar-fixed {
+      background: #f4f4f4 !important;
+    }
+
     @media (min-width: 992px){
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: .5rem;
@@ -115,19 +128,6 @@
         width: auto !important;
         margin-top: 30px;
     }
-    }
-
-    .navbar-toggler {
-    float: right;
-    }
-
-    .nav-item.active {
-        background-color: rgba(199, 196, 196, 0.1);
-        border-bottom: 3px solid rgb(90, 145, 247);
-    }
-
-    .navbar-fixed {
-      background: #f4f4f4 !important;
     }
   <?php if (function_exists('custom_styles')) {
         custom_styles();
