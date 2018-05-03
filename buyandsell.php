@@ -343,7 +343,7 @@ h3{
 	</div>
 </section>
 
-<!---Modal--->
+<!---Modal-->
 <div class="modal fade bd-example-modal-lg" id="sellModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -358,7 +358,19 @@ h3{
 				<input type="text" placeholder="Marvelous350" class="form-control" id="wallet-id" name="wallet" value="<?php echo $public_key ?>" readonly></input> <br/>
 				Amount of HNGcoin: <br/>
 				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin" name="amount"></input><br/>
-				Sell to HNG<br/>
+
+				Bank ID: <br/>
+				<input type="text" placeholder="4039" class="form-control" id="bankId" name="bankId"></input><br/>
+
+				Bank Name: <br/>
+				<input type="text" placeholder="First Bank" class="form-control" id="bankName" name="bankName"></input><br/>
+
+				Bank Number: <br/>
+				<input type="text" placeholder="1234567890" class="form-control" id="bankNumber" name="bankNumber"></input><br/>
+
+
+
+				Sell to HNG &nbsp;&nbsp;
 				<input type="checkbox" placeholder="Buyer Wallet ID"  id="buyer-wallet-id" name="HNG"></input>
 			</div>
 			<div class="col">
@@ -376,6 +388,14 @@ h3{
 				<input type="text" placeholder="3,340,345.64" class="form-control" id="price" name="price"></input> <br/>
 				Trade Limit: <br/>
 				<input type="text" placeholder="1" class="form-control" id="trade_limit" name="trade_limit"></input><br/>
+
+				Account Name: <br/>
+				<input type="text" placeholder="Marvelous Peter John" class="form-control" id="acctName" name="acctName"></input><br/>
+				
+
+				Account Number: <br/>
+				<input type="text" placeholder="1234567890" class="form-control" id="acctNumber" name="acctNumber"></input><br/>
+
 				
 			</div>
 			<div class="col-md-12 offset-md-3">
@@ -383,6 +403,8 @@ h3{
 			</div>
 		</div>
 		</form>
+
+
       </div>
       <div class="modal-footer mx-auto text-center">
 		<div class="col mx-auto text-center">
@@ -395,7 +417,7 @@ h3{
 </div>
 
 
-<!---Buy Modal--->
+<!---Buy Modal-->
 <div class="modal fade bd-example-modal-lg" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">

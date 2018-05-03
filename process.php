@@ -17,9 +17,15 @@ if(isset($conn)) {
 }
 require_once('smtp_credentials.php');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
+
 require_once "vendor/autoload.php";
+
+// using SendGrid's PHP Library
+// https://github.com/sendgrid/sendgrid-php
+
+
 
 //for registration 
 
@@ -71,8 +77,23 @@ if(isset($_POST['registration'])){
                 $message .= '<h3>Thank you for your interest in HNG Internship';
                 $message .= '<p>You may now login to your account <a href="https://hng.fun/login.php">here</a></p>';
 				$message .= '</body></html>';
+
+				$from = new SendGrid\Email("HNG TEAM", "hello@hng.fun");
+				$subject = "Welcome to HNG Internship";
+				$to = new SendGrid\Email($firstname, $email);
+				$content = new SendGrid\Content("text/html", $message);
+				$mail = new SendGrid\Mail($from, $subject, $to, $content);
+				$apiKey = getenv('SENDGRID_API_KEY');
+				$sg = new \SendGrid($apiKey);
+				$response = $sg->client->mail()->send()->post($mail);
+				//$response->statusCode();
+
+				echo json_encode([
+					'status' => 1,
+					'message' => 'Status code: '. $response->statusCode()
+					]);
 				
-				$mail = new PHPMailer;
+				/*$mail = new PHPMailer;
 				
 				//Set PHPMailer to use SMTP.
 				$mail->isSMTP();            
@@ -102,8 +123,8 @@ if(isset($_POST['registration'])){
 				$mail->Body = $message;
 				// $mail->AltBody = "This is the plain text version of the email content";
 				
-				$sent = $mail->send();
-				if(!$sent) 
+				$sent = $mail->send();*/
+				/*if(!$sent) 
 				{
 					// echo "Mailer Error: " . $mail->ErrorInfo;
 					echo json_encode([
@@ -117,7 +138,7 @@ if(isset($_POST['registration'])){
 					'status' => 1,
 					'message' => 'Registration successful'	
 					]);
-				}
+				}*/
 			}
 			elseif($register_check == 'exists') {
 				echo json_encode([
