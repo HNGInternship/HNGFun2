@@ -329,6 +329,7 @@ if(isset($_POST['login'])){
 				echo "Could not post request";
 			}
 		}
+		
 		if(isset($_POST['buyCoin'])){
 			require_once('Buy.php');
 			//connect to database
