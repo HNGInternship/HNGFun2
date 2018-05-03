@@ -1,7 +1,6 @@
 
 <!doctype html>
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -16,6 +15,7 @@
     		margin: 0;
     		font-family: 'Lato';
     		font-size: 20px;
+            text-align: center !important;
     	}
     	h2 {
     		font-weight: bolder;
