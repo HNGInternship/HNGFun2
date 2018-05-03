@@ -155,39 +155,44 @@ include_once("header.php");
                 $.ajax('process.php', {
                     type: 'post',
                     data: data,
-                    success: function(response) {
-                        response = JSON.parse(response);
-                        if (response.status == 1) {
-                            // $("#btn-reset").addClass("loading");
-                            // setTimeout(function() {
-                            //     $("#btn-reset").addClass("hide-loading");
-                            //     // For failed icon just replace ".done" with ".failed"
-                            //     $(".done").addClass("finish");
-                            // }, 3000);
-                            // setTimeout(function() {
-                            //     $("#btn-reset").removeClass("loading");
-                            //     $("#btn-reset").removeClass("hide-loading");
-                            //     $(".done").removeClass("finish");
-                            //     $(".failed").removeClass("finish");
-                            // }, 5000);
-                            $("#message").addClass('alert alert-success');
-                            $("#message").html(response.message);
-                            $('#form-reset').hide();
-                        } else {
-                            // $("#btn-reset").addClass("loading");
-                            // setTimeout(function() {
-                            //     $("#btn-reset").addClass("hide-loading");
-                            //     // For failed icon just replace ".done" with ".failed"
-                            //     $(".failed").addClass("finish");
-                            // }, 3000);
-                            // setTimeout(function() {
-                            //     $("#btn-reset").removeClass("loading");
-                            //     $("#btn-reset").removeClass("hide-loading");
-                            //     $(".done").removeClass("finish");
-                            //     $(".failed").removeClass("finish");
-                            // }, 5000);
+                    success: function(response2) {
+                        try{
+                            response = JSON.parse(response2);
+                            if (response.status == 1) {
+                                // $("#btn-reset").addClass("loading");
+                                // setTimeout(function() {
+                                //     $("#btn-reset").addClass("hide-loading");
+                                //     // For failed icon just replace ".done" with ".failed"
+                                //     $(".done").addClass("finish");
+                                // }, 3000);
+                                // setTimeout(function() {
+                                //     $("#btn-reset").removeClass("loading");
+                                //     $("#btn-reset").removeClass("hide-loading");
+                                //     $(".done").removeClass("finish");
+                                //     $(".failed").removeClass("finish");
+                                // }, 5000);
+                                $("#message").addClass('alert alert-success');
+                                $("#message").html(response.message);
+                                $('#form-reset').hide();
+                            } else {
+                                // $("#btn-reset").addClass("loading");
+                                // setTimeout(function() {
+                                //     $("#btn-reset").addClass("hide-loading");
+                                //     // For failed icon just replace ".done" with ".failed"
+                                //     $(".failed").addClass("finish");
+                                // }, 3000);
+                                // setTimeout(function() {
+                                //     $("#btn-reset").removeClass("loading");
+                                //     $("#btn-reset").removeClass("hide-loading");
+                                //     $(".done").removeClass("finish");
+                                //     $(".failed").removeClass("finish");
+                                // }, 5000);
+                                $("#message").addClass('alert alert-danger');
+                                $("#message").html(response.message);
+                            }
+                        }catch(err){
                             $("#message").addClass('alert alert-danger');
-                            $("#message").html(response.message);
+                            $("#message").html(response2);
                         }
                         $('#btn-reset').html("Reset Password");
                         $('#btn-reset').removeAttr('disabled');
