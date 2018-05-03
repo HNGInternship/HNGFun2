@@ -15,7 +15,7 @@
 		'git status',
 		'git submodule sync',
 		'git submodule update',
-		'git submodule status',
+		'composer install',
 	);
 	// Run the commands for output
 	$output = '';
