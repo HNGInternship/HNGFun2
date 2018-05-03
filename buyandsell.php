@@ -1,19 +1,19 @@
 <?php
-// if(!isset($_SESSION)) { session_start(); }
-// if(empty($_SESSION)){
-// 	header("Location: login.php");
-// }
+if(!isset($_SESSION)) { session_start(); }
+if(empty($_SESSION)){
+	header("Location: login.php");
+}
 include_once("coin_header.php");
-// include_once("db.php");
-// if(!empty($_SESSION["id"])){
-// 	require_once('User.php');
-// 	$user = new User();
-// 	$public_key = $user->getPublicKey($_SESSION["id"], $db);
-// 	$accounts = $user->getAccounts($_SESSION["id"], $db);
+include_once("db.php");
+if(!empty($_SESSION["id"])){
+	require_once('User.php');
+	$user = new User();
+	$public_key = $user->getPublicKey($_SESSION["id"], $db);
+	$accounts = $user->getAccounts($_SESSION["id"], $db);
 	
-// }else{
-// 	$public_key = "45374903039388474 - User not logged in";
-// }
+}else{
+	$public_key = "45374903039388474 - User not logged in";
+}
 
 
 
@@ -21,17 +21,17 @@ include_once("coin_header.php");
 
 <?php
 
-	// $sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id WHERE sell_requests.status = 'Open'";
-	// $stmt = $db->prepare($sql);
-	// $stmt->setFetchMode(PDO::FETCH_ASSOC);
-	// $stmt->execute();
-	// $sell_requests = $stmt->fetchAll();
+	$sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id WHERE sell_requests.status = 'Open'";
+	$stmt = $db->prepare($sql);
+	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	$stmt->execute();
+	$sell_requests = $stmt->fetchAll();
 
-	// $sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id WHERE buy_requests.status = 'Open'";
-	// $stmt = $db->prepare($sql);
-	// $stmt->setFetchMode(PDO::FETCH_ASSOC);
-	// $stmt->execute();
-	// $buy_requests = $stmt->fetchAll();
+	$sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id WHERE buy_requests.status = 'Open'";
+	$stmt = $db->prepare($sql);
+	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	$stmt->execute();
+	$buy_requests = $stmt->fetchAll();
 	
 ?>
 
