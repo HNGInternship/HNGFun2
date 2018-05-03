@@ -11,12 +11,11 @@
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -36,8 +35,7 @@
       <link rel="stylesheet" href="css/signout.css">
       <link href="css/landing-page.min.css" rel="stylesheet">
       <link href="css/shield-invite.css" rel="stylesheet">
-      <link href="css/404.css" rel="stylesheet">
-      <link href="css/contact.css" rel="stylesheet">
+        <link href="css/404.css" rel="stylesheet">
       <!-- <link href="css/carousel.css" rel="stylesheet"> -->
       
 
@@ -69,7 +67,6 @@
 
         ul.navbar-nav {
             height: auto !important;
-            display: block;
         }
 
   <?php if (function_exists('custom_styles')) {
@@ -135,6 +132,7 @@
 
     </style>
 
+    <link href="css/dashboard-menu.css" rel="stylesheet">
 
   </head>
 
@@ -143,33 +141,45 @@
     <div id="navbar-fixed" class="navbar-fixed">
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-            <ul class="navbar-nav collapse ml-auto">
-                <li class="nav-item">
-                    <a href="index.php" class="nav-link">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a href="learn.php" class="nav-link">LEARN</a>
-                </li> <li class="nav-item">
-                    <a href="listing.php" class="nav-link">INTERN</a>
-                </li> <li class="nav-item">
-                    <a href="testimonies.php" class="nav-link">TESTIMONIES</a>
-                </li> <li class="nav-item">
-                    <a href="sponsors.php" class="nav-link">SPONSORS</a>
-                </li> <li class="nav-item">
-                    <a href="#" class="nav-link">ALUMNI</a>
-                </li> 
-                <!-- Fix if(signed_in) display "login" else display "logout" -->
-                <!-- </li> <li class="nav-item">
-                    <a href="login.php" class="nav-link">LOGIN</a>
-                </li>  -->
-                <!-- <li class="nav-item"> -->
-                    <!-- <a href="logout.php" class="nav-link">LOGOUT</a> -->
-                <!-- </li> -->
+
+        <div class="navbar-right acc"> 
         
-            </ul>
+        <div class="dropdown" id="home-language-switch">
+        <img class="acc-img" src="img/dashboard/amy.png">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Amy Xandra<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+                <a href="" class="dropdown-item">
+                <img class="dashb-icons" src="img/dashboard/profile.png">Your Profile</a>
+
+                <a href="" class="dropdown-item">
+                <img class="dashb-icons" src="img/dashboard/invite.png">Invite to HNG</a>
+
+                <a href="" class="dropdown-item">
+                <img class="dashb-icons" src="img/dashboard/settings.png">Settings</a>
+
+                <a href="" class="dropdown-item">
+                <img class="dashb-icons" src="img/dashboard/logout.png">Logout</a>
+            
+        </div>
+    </div>
+
+        </div>
             
         </nav>
+    </div>
+
+    <div class="dash-b container">
+        <ul class="navbar-nav collapse ml-auto dashmenu">
+            <li class="nav-item active">
+                <a href="index.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="learn.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
+            </li> <li class="nav-item">
+                <a href="listing.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
+            </li> <li class="nav-item">
+                <a href="testimonies.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/help.png">Help & Feedback</a>
+            </li>
+        </ul>
     </div>
