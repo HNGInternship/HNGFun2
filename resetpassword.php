@@ -7,12 +7,12 @@
 .button-holder{
   padding-top:100px;
 }
-.btn-reset {
+#btn-reset {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background-color:#111111;
-  border:2px solid #FFFFFF;
+  border:2px solid #000000;
   border-radius:10px;
   color:#FFFFFF;
   font-size:17px;
@@ -20,7 +20,7 @@
   outline:none;
 }
 
-.btn-reset:hover{
+#btn-reset:hover{
   background-color:#222222;
 }
 .loading{
@@ -54,11 +54,9 @@
 }
 
 .fa{
-  color:#ffffff;
+  color:#000000;
   font-size:18px !important;
   position:absolute;
-  left:50%;
-  top:50%;
   margin-left:-9px;
   margin-top:-9px;
   -webkit-transform:scaleX(0) !important;
