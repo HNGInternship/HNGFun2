@@ -107,7 +107,7 @@ include_once("dashboard-header.php");
               padding-right: .5rem;
               padding-left: .5rem;
               padding-top: 20px;
-              font-size: 15px !important;
+              font-size: 40px !important;
           }
         }
 
