@@ -50,7 +50,7 @@
 					<h2>Please Reset Your Password</h2>
 					<p>We heard that you lost your HNGInternship password. Sorry about that!</p>
 					<p>But don't worry! You can use the link to reset your password:</p>
-					<p>To get a new password reset link, visit <a href="http://revenge.hng.fun/resetpassword.php">here</a></p>
+					<p>To get a new password reset link, visit <a href="http://revenge.hng.fun/passwordreset.php?token=urltoken">here</a></p>
 				</div>
 			</div>
 
