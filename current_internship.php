@@ -7,15 +7,9 @@
 	  font-family: 'work sans';
 	}
 
-	#img-title {
-		display: flex;
-		background-color: #C4C4C4;
-	}
-
-	#img-title i {
-		margin: auto;
-		font-size: 15rem;
-		color: #A6A6A6;
+	#img-resize {
+		width: 100%;
+    height: auto;
 	}
 
 	section p {
@@ -55,36 +49,30 @@
 <main class="col-md-9 mx-auto pt-5 mb-5 pb-5">
   <h2 class="mt-5">HNG 4.0 Internship</h2>
   <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto" />
-  <div class="py-5 my-5 col-md-10 mx-auto" id="img-title">
-  	<i class="fa fa-image my-5"></i>
+  <div class="py-5 my-5 col-md-10 mx-auto">
+		<img src="img/bg-masthead.jpg" alt="interns" id="img-resize" />
   </div>
 
   <section class="mt-5 pt-5 col-md-10 mx-auto">
-  	<h4>
-  		About HNG 4.0 Internship
-  	</h4>
+  	<h4>About HNG 4.0 Internship</h4>
 
   	<p>
-  	  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur
+  	  The HNG Internship 4.0 is a 3-month remote internship program designed to locate the most talented and smart software developers in Nigeria and Africa as a whole. Everyone is welcome to participate. There are lots of fun and exciting challenges every week on our slack channel, and those who cannot solve them within a given timeframe are exempted from the program. Everyone gets to learn important concepts quickly and make connections with people they can work with in the future. The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalists are connected to the best companies in the tech ecosystem and get full-time jobs and contracts immediately.
   	</p>
 
   	<p>
-  	  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+  	  Why HNG Internship? We realised that there are so many talented programmers in Africa who do not have the platform or exposure to showcase their skills. And so we created this platform as an avenue for interns to showcase their skills and learn hands-on. The initial idea was to simply do a remote internship to find coders. We did not expect 1,000+ people would apply to the internship. But we saw how strongly people wanted to develop their skills and it became a mission for us to make this happen. So if you are that person who loves to code or who would love to learn how to code, Hotels.ng internship is the right place for you.
   	</p>
   </section>
   <section class="row mt-5 pt-5 col-md-10 mx-auto px-0">
   	<span class="col-sm-4">
-  	  <h5>
-  	  	DURATION
-  	  </h5>
-  	  <p class="mt-0">May 1st - July 27th</p>
+  	  <h5>DURATION</h5>
+  	  <p class="mt-0">May 1st - July 27th, 2018</p>
   	</span>
   	<span class="col-sm-4">
-  	  <h5>
-  	  	PARTICIPANTS
-  	  </h5>
+  	  <h5>PARTICIPANTS</h5>
   	  <p class="mt-0">
-  	  	<a href="listing" style="color: #2196F3">View Interns List</a>
+  	  	<a href="listing" style="color: #2196F3">View Current Interns</a>
   	  </p>
   	</span>
   </section>
@@ -93,10 +81,10 @@
   <section class="mt-5">
 
   	<div class="profile-box ">
-  	  <span class="fa-stack">
+  	  <!-- <span class="fa-stack">
   	  	<i class="fa fa-circle fa-stack-2x fa-inverse"></i>
   	    <i class="fa fa-chevron-left fa-stack-1x "></i>
-  	  </span>
+  	  </span> -->
       <div class="mx-auto col-md-10">
       <h5 class="mb-4">PARTNERS &amp; TECHNOLOGIES USED</h5>
       <span class="my-deck">
@@ -114,10 +102,10 @@
 	    </div>
       </span>
       </div>
-      <span class="fa-stack">
+      <!-- <span class="fa-stack">
       	<i class="fa fa-circle fa-stack-2x fa-inverse"></i>
         <i class="fa fa-chevron-right fa-stack-1x "></i>
-      </span>
+      </span> -->
   	</div>
   </section>
 
