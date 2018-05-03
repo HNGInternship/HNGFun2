@@ -107,9 +107,11 @@ include_once("header.php");
                 <input type="text" name="email" class="form-control form-control-lg rounded-right" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
                 <br />
                 <input type="hidden" name="pword-reset" value="yes">
-                <button id="btn-reset" name="pword-reset" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;" onclick="ButtonClicked1()">Reset Password</button>
+              <div class="ajax-button">
                 <div class="fa fa-check done"></div>
             <div class="fa fa-close failed"></div>
+                <button id="btn-reset" name="pword-reset" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;" onclick="ButtonClicked1()">Reset Password</button>
+ </div>
                      Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
                 </p>
             </div>
@@ -162,7 +164,7 @@ include_once("header.php");
                 success: function(response){
                     response = JSON.parse(response);
                     if(response.status == 1){
-    $(".btn-reset").addClass("loading");
+                      $(".btn-reset").addClass("loading");
     setTimeout(function() {
       $(".btn-reset").addClass("hide-loading");
       // For failed icon just replace ".done" with ".failed"
@@ -179,8 +181,7 @@ include_once("header.php");
                         $('#form-reset').hide();
                     }
                     else{
-                                           
-    $(".btn-reset").addClass("loading");
+                                            $(".btn-reset").addClass("loading");
     setTimeout(function() {
       $(".btn-reset").addClass("hide-loading");
       // For failed icon just replace ".done" with ".failed"
