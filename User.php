@@ -109,24 +109,24 @@ class User
             $stmt->bindParam(':updated_at', $updated_at);
             
             if ($stmt->execute()) {
-                $to = $email;
-                $subject = 'Welcome to HNG Internship';
-                $from='hello@hng.fun';
+                // $to = $email;
+                // $subject = 'Welcome to HNG Internship';
+                // $from='hello@hng.fun';
 
-                $message = '<html><body>';
-                $message .= '<h1>Hi '. $firstname .'!</h1>';
-                $message .= '<h3>Thank you for your interest in HNG Internship kindly follow the link below to activate your account.</h3>';
-                $message .= '<p><a href="'.$link.'">activate account</a></p>';
-                $message .= '</body></html>';
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                // $message = '<html><body>';
+                // $message .= '<h1>Hi '. $firstname .'!</h1>';
+                // $message .= '<h3>Thank you for your interest in HNG Internship kindly follow the link below to activate your account.</h3>';
+                // $message .= '<p><a href="'.$link.'">activate account</a></p>';
+                // $message .= '</body></html>';
+                // $headers  = 'MIME-Version: 1.0' . "\r\n";
 
-                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-                // Create email headers
-                $headers .= 'From: '.$from."\r\n".
-                'Reply-To: '.$from."\r\n" .
-                'X-Mailer: PHP/' . phpversion();
+                // $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                // // Create email headers
+                // $headers .= 'From: '.$from."\r\n".
+                // 'Reply-To: '.$from."\r\n" .
+                // 'X-Mailer: PHP/' . phpversion();
 
-                mail($to, $subject, $from, $message); // sendMail true
+                // mail($to, $subject, $from, $message); // sendMail true
                 $response = 'true';
             }
             else {
