@@ -11,7 +11,6 @@
         }
     ],
     "require": {
-        "phpmailer/phpmailer": "^6.0"
         "phpmailer/phpmailer": "^6.0",
         "sendgrid/sendgrid": "~6.0"
     },
