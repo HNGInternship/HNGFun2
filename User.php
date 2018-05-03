@@ -44,25 +44,25 @@ class User
     public function check_email($email, $db)
     {
         
-         $query  = "SELECT * FROM ". $this->table." WHERE email = '$email' LIMIT 1";
-        // $query  = "SELECT * FROM interns_data WHERE email = :email LIMIT 1";
-        // $stmt = $db->prepare($query);
-        // $stmt->bindParam(':email', $email);
-        // $stmt->execute();
-        // $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        // $results = $stmt->fetchAll();
-        // if(count($results) > 0){
-        //     return true;
-        // }
-        // return false;
-
-         $result = mysqli_query($db, $query);
-         if (mysqli_num_rows($result) > 0) {
-            
+        //  $query  = "SELECT * FROM ". $this->table." WHERE email = :email LIMIT 1";
+        $query  = "SELECT * FROM ".$this->table." WHERE email = :email LIMIT 1";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
+        if(count($results) > 0){
             return true;
-         } else {
-             return false;
-         }
+        }
+        return false;
+
+        //  $result = mysqli_query($db, $query);
+        //  if (mysqli_num_rows($result) > 0) {
+            
+        //     return true;
+        //  } else {
+        //      return false;
+        //  }
         
     }
     
@@ -273,7 +273,6 @@ class User
     public function check($email, $password, $db)
     {
         $password_hash = md5($password);
-        $table         = 'interns_data';
         // $query         = "SELECT * FROM interns_data WHERE email = '$email' AND password = '$password_hash' LIMIT 1";
         // $result        = mysqli_query($db, $query);
         // if (mysqli_num_rows($result) > 0) {
@@ -285,7 +284,7 @@ class User
         // } else {
         //     return false;
         // }
-        $query  = "SELECT * FROM interns_data WHERE email = :email AND password_hash = :password_hash LIMIT 1";
+        $query  = "SELECT * FROM ".$this->table." WHERE email = :email AND password = :password_hash LIMIT 1";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password_hash', $password_hash);
@@ -397,7 +396,7 @@ class User
     public function check_token($token, $db)
     {
         // $query  = "SELECT * FROM interns_data WHERE token = '$token' LIMIT 1";
-        $query  = "SELECT * FROM interns_data WHERE token = :token LIMIT 1";
+        $query  = "SELECT * FROM ".$this->table." WHERE token = :token LIMIT 1";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':token', $token);
         $stmt->execute();
@@ -422,7 +421,7 @@ class User
     public function update_password($password, $token, $db)
     {
         $password_hash = md5($password);
-        $query         = "UPDATE " . $this->table . " SET password_hash=:password_hash WHERE token=:token LIMIT 1";
+        $query         = "UPDATE " . $this->table . " SET password=:password_hash WHERE token=:token LIMIT 1";
         $statement     = $db->prepare($query);
         $statement->bindParam(":password_hash", $password_hash);
         $statement->bindParam(":token", $token);

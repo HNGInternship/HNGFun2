@@ -12,6 +12,10 @@ date_default_timezone_set('Africa/Lagos');
 require_once('User.php');
 require_once('db.php');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require_once "vendor/autoload.php";
+
 //for registration 
 
 if(isset($_POST['registration'])){
@@ -116,7 +120,7 @@ if(isset($_POST['login'])){
 					$subject = "Password Reset for HNG Account";
 					$message = "Your password Reset Pin is ".$reset_pin;
 					$message .= " use this link to reset your password";
-					$message .= " <a href='http://localhost:8000/resetpassword.php?token=".$reset_pin."'>Here</a>";
+					$message .= " <a href='https://hng.fun/resetpassword.php?token=".$reset_pin."'>Here</a>";
 					// if(mail($email, $subject, $message,$headers)){
 					// 	echo json_encode([
 					// 		'status' => 1,
@@ -176,7 +180,7 @@ if(isset($_POST['login'])){
 					{
 						echo json_encode([
 							'status' => 1,
-							'message' => 'Email containing password reset token has been sent to you'	
+							'message' => 'An Email containing password reset token has been sent to you'	
 						]);
 					}
 				}
