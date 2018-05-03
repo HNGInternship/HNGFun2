@@ -44,15 +44,18 @@ a.back{
 
 }
 
+
 main{
 
-    /*margin-bottom: 7.4%;*/
+    margin-bottom: 7.4%;
+    margin-top: 7%;
     /*margin-right: 10%;
     margin-left: 10%;*/
-    padding-bottom: 3.1%;
+    /*padding: 20% 0%;*/
  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
  
 }
+
 
 .input-form{
     padding-top: 11%;
@@ -196,9 +199,38 @@ font-weight: bold;
 line-height: normal;
 font-size: 1.25em;"> TRANSACTION CANCELLED</h1>
 
+<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%; margin-bottom: 0.5%"> You cancelled your transaction with <span id="personName">Kunle</span></p>
+
+
 <a class="back" href="buyandsell.php">Go Back</a>
 
+<main class="container">
 
+
+    <!-- Button trigger modal -->
+
+
+
+
+<div class="row justify-content-md-center">
+
+<h2 style="text-align: left;color: #3D3D3D;line-height: 1.571em; margin-top: 14.5%;margin-bottom:4.9%;
+font-style: normal;
+line-height: normal;
+font-size: 2.4em;"> Transaction Cancelled</h2>
+
+</div>
+
+
+
+<div id="checkMark" style="text-align: center">
+    <img src="img/icons/cancel_white.svg" style="background:#EB5757;padding: 2%;border-radius: 100%;margin-bottom: 18.7%;height: 150px;width: 150px">
+</div>
+   
+</main>    
+
+
+</div>
 <!-- Footer -->
 <?php
 include_once("footer.php");
