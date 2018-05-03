@@ -192,7 +192,7 @@ h3{
 						</div>
 						
 						<div class="col-2">
-						<?php echo $r['trade_limit']; ?> <br/> NGN
+						<?php echo $r['trade_limit']; ?> <br/> 
 						</div>
 						
 						<div class="col-1">
@@ -289,7 +289,7 @@ h3{
 							</div>
 							
 							<div class="col-2">
-							<?php echo $r['trade_limit']; ?> <br/> NGN
+							<?php echo $r['trade_limit']; ?> <br/> 
 							</div>
 							
 							<div class="col-1">
