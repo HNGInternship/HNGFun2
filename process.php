@@ -1,13 +1,20 @@
 <?php 
+set_time_limit(0);
 if(!isset($_SESSION)) { session_start(); }
 //this file is for processsin requests  
 
+// timexone
+date_default_timezone_set('Africa/Lagos');
 
 //class file required here 
 
 //require_once('classes/User.php');
 require_once('User.php');
+require_once('db.php');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require_once "vendor/autoload.php";
 
 //for registration 
 
@@ -16,72 +23,50 @@ if(isset($_POST['registration'])){
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
-	$phone = $_POST['phone'];
-	$nationality = null;
-	$state = null;
 	$username =  '';
 	$password = $_POST['password'];
-	$password_confirm = $_POST['password_confirm'];
 	$private_key = $_POST['private_key'];
 	$public_key = $_POST['public_key'];
-	
-	$password = $_POST['password'];
-	
-
+	$created_at = date('Y-m-d h:i:s');
+	$updated_at = $created_at;
+	$token = base64_encode(bin2hex(random_bytes(60)));
+	$active =0;
 
 	if($firstname == ""){
-
 		echo "Please enter your Firstname";
 	}
 	elseif($lastname == ""){
-
 		echo "Please enter your Lastname";
 	}
 	
 	elseif($email == ""){
 		echo "Please enter your email";
 	}
-	// elseif($username == ""){
-	// 	echo "Please enter your Username";
-	// }
 	elseif($password == ""){
 		echo "Please enter your Password";
 	}
-	// elseif($nationality == ""){
-	// 	echo "Please enter your Nationality";
-	// }
-	elseif($password != $password_confirm){
-		echo "Passwords do not match";
-	}
 	else{
-
 			//connect to database
-			require_once('db.php');
+			global $db;
 
 			//instantiate the user class
 			$user = new User();
+
 			//try to register user
-			$register_check = $user->register($firstname,$lastname,$email,$username,
-											$nationality,$state,$phone,$password,$public_key, $private_key, $db);
-			
+			$register_check = $user->register($firstname, $lastname, $email, $password, 
+			$public_key, $private_key, $token, $active, $created_at, $updated_at, $db);
 
 			//check for response 
 			if($register_check==true){
-				$login_check = $user->check($email,$password,$db);
-
-				if($login_check == true){
-					
-				die(true);	
-				}
-				else{
-					die('Registration successful but login failed, please try and manually login');
-				}
-				
+				$_SESSION['email'] = $email;
+				die('true');
+			}
+			elseif($register_check == 'exists') {
+				die('exists');
 			}
 			else{
-				die("Registration failed");
+				die("Registration failed cos no record was inserted");
 			}
-
 	}
 
 
@@ -91,6 +76,7 @@ if(isset($_POST['registration'])){
 if(isset($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	
 	if($email ==""){
 		echo "Please enter your email";
 	}
@@ -98,9 +84,6 @@ if(isset($_POST['login'])){
 		echo "Please enter your password";
 	}
 	else{
-
-		//connect to database
-		require_once('db.php');
 
 		//instantiate the user class
 		$user = new User();
@@ -112,26 +95,15 @@ if(isset($_POST['login'])){
 		else{
 			echo "Invalid email or password";
 		}
-			require_once('db.php');
-
-			//instantiate the member class
-			$member = new Member();
-
-			$login_check = $member->check($email,$password,$conn);
-			if($login_check == true){
-				echo true;
-			}
-			else{
-				echo "Invalid email or password";
-			}
 	}
 
 }
 
+
 //for password reset
 	if(isset($_POST['pword-reset'])){
 			$email = $_POST['email'];
-			require_once('db.php');
+		
 			$user = new User();
 			$email_check = $user->check_email($email, $db);
 
@@ -143,19 +115,82 @@ if(isset($_POST['login'])){
 					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 					
 					// More headers
-					$headers .= 'From: <hng@email.com.com>' . "\r\n";
+					$headers .= 'From: <hng@email.com>' . "\r\n";
 					//$headers .= 'Cc: myboss@example.com' . "\r\n";
 					$subject = "Password Reset for HNG Account";
 					$message = "Your password Reset Pin is ".$reset_pin;
 					$message .= " use this link to reset your password";
-					$message .= " <a href='http://5serve.com/test/resetpassword.php?token=".$reset_pin."'>Here</a>";
-					if(mail($email, $subject, $message,$headers)){
-						echo 1;
-					}
+					$message .= " <a href='https://hng.fun/resetpassword.php?token=".$reset_pin."'>Here</a>";
+					// if(mail($email, $subject, $message,$headers)){
+					// 	echo json_encode([
+					// 		'status' => 1,
+					// 		'message' => 'Email has been sent to you'	
+					// 	]);
+					// }
+					// else{
+					// 	echo json_encode([
+					// 		'status' => 0,
+					// 		'message' => 'An error occured while sending password reset email'	
+					// 	]);
+					// }				
+					
+					//PHPMailer Object
+					$mail = new PHPMailer;
+					                        
+					//Set PHPMailer to use SMTP.
+					$mail->isSMTP();            
+					//Set SMTP host name                          
+					$mail->Host = "smtp.gmail.com";
+					//Set this to true if SMTP host requires authentication to send email
+					$mail->SMTPAuth = true;                          
+					//Provide username and password     
+					$mail->Username = "email@gmail.com";                 
+					$mail->Password = "password";                           
+					//If SMTP requires TLS encryption then set it
+					$mail->SMTPSecure = "tls";                           
+					//Set TCP port to connect to 
+					$mail->Port = 587;             
 
+					//From email address and name
+					$mail->From = "noreply@hng.fun";
+					$mail->FromName = "HNG Team";
+					
+					//To address and name
+					$mail->addAddress($email);
+					
+					//Address to which recipient will reply
+					// $mail->addReplyTo("@yourdomain.com", "Reply");
+					
+					//Send HTML or Plain Text email
+					$mail->isHTML(true);
+					
+					$mail->Subject = $subject;
+					$mail->Body = $message;
+					// $mail->AltBody = "This is the plain text version of the email content";
+					
+					if(!$mail->send()) 
+					{
+						echo "Mailer Error: " . $mail->ErrorInfo;
+						echo json_encode([
+							'status' => 0,
+							'message' => "Mailer Error: " . $mail->ErrorInfo
+						]);
+					} 
+					else 
+					{
+						echo json_encode([
+							'status' => 1,
+							'message' => 'An Email containing password reset token has been sent to you'	
+						]);
+					}
 				}
 			}
-
+			else{
+				echo json_encode([
+					'status' => 0,
+					'message' => 'Email not found in our records'	
+				]);
+			}
 
 
 	}
@@ -163,86 +198,104 @@ if(isset($_POST['login'])){
 
 	//for password change
 	if(isset($_POST['token'])){
-		$password = $_POST['pass'];
-		$password_confirm = $_POST['pass-confirm'];
+		$password = trim($_POST['pass']);
+		$password_confirm = trim($_POST['pass-confirm']);
+		if($password  == '' || $password_confirm == '' ){
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Passwords cannot be empty'	
+			]);
+			return;
+		}
 		if($password  != $password_confirm ){
-		echo 3;
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Passwords do not match'	
+			]);
+			return;
 		}
 		$token = $_POST['token'];
-		require_once('db.php');
+	
 		$user = new User();
 
 		$confirm_token = $user->check_token($token, $db);
 		if($confirm_token == true){
 			$update_password = $user->update_password($password,$token,$db);
 			if($update_password == true){
-				echo 1;
+				//remove token to prevent abuse
+				$user->remove_token($token, $db);
+				echo json_encode([
+					'status' => 1,
+					'message' => 'Passwords change successful'	
+				]);
 			}
 			else{
-				echo 2;
+				echo json_encode([
+					'status' => 0,
+					'message' => 'Passwords change unsuccessful'	
+				]);
 			}
 			
 		}
 
 		else{
-			echo 0;
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Invalid token entered'	
+			]);
+		}
+
+		if(isset($_POST['sellCoin'])){
+			require_once('Sell.php');
+			//connect to database
+			require_once('db.php');
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+			$sell = new Sell();
+			
+			$id = $_SESSION['id'];
+			if($_POST['HNG'] == 'on'){
+				$preferred_buyer = "1";
+			}else{
+				$preferred_buyer = "0";
+			}
+			$amount = $_POST['amount'];
+			$account_id = $_POST['payment_info'];
+			$trade_limit = $_POST['trade_limit'];
+			$price_per_coin = $_POST['price'];
+			$status = "Open";
+			$result = $sell->postRequest($id, $amount, $trade_limit, $price_per_coin, $account_id, $preferred_buyer, $status, $db);
+			if($result){
+				header("Location: /buyandsell.php"); /* Redirect browser */
+				exit();
+			}else{
+				echo "Could not post request";
+			}
+		}
+		if(isset($_POST['buyCoin'])){
+			require_once('Buy.php');
+			//connect to database
+			require_once('db.php');
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+			$buy = new Buy();
+			
+			$id = $_SESSION['id'];
+			$amount = $_POST['amount'];
+			$trade_limit = $_POST['trade_limit'];
+			$price_per_coin = $_POST['price'];
+			$status = "Open";
+			$result = $buy->postRequest($id, $amount, $trade_limit, $price_per_coin, $status, $db);
+			if($result){
+				header("Location: /buyandsell.php"); /* Redirect browser */
+				exit();
+			}else{
+				echo "Could not post request";
+			}
 		}
 	}
 
 
 	
 		
-if(isset($_POST['sellCoin'])){
 
-	require_once('Sell.php');
-	//connect to database
-	require_once('db.php');
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-	$sell = new Sell();
-	
-	$id = $_SESSION['id'];
-	if($_POST['HNG'] == 'on'){
-		$preferred_buyer = "1";
-	}else{
-		$preferred_buyer = "0";
-	}
-	$amount = $_POST['amount'];
-	$account_id = $_POST['payment_info'];
-	$trade_limit = $_POST['trade_limit'];
-	$price_per_coin = $_POST['price'];
-	$status = "Open";
-
-	$result = $sell->postRequest($id, $amount, $trade_limit, $price_per_coin, $account_id, $preferred_buyer, $status, $db);
-	if($result){
-		header("Location: /buyandsell.php"); /* Redirect browser */
-		exit();
-	}else{
-		echo "Could not post request";
-	}
-}
-
-
-if(isset($_POST['buyCoin'])){
-	require_once('Buy.php');
-	//connect to database
-	require_once('db.php');
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-	$buy = new Buy();
-	
-	$id = $_SESSION['id'];
-
-	$amount = $_POST['amount'];
-	$trade_limit = $_POST['trade_limit'];
-	$price_per_coin = $_POST['price'];
-	$status = "Open";
-
-	$result = $buy->postRequest($id, $amount, $trade_limit, $price_per_coin, $status, $db);
-	if($result){
-		header("Location: /buyandsell.php"); /* Redirect browser */
-		exit();
-	}else{
-		echo "Could not post request";
-	}
-}
 	
 ?>
