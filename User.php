@@ -72,7 +72,7 @@ class User
     //register construct function
     //
     
-    public function register($firstname, $lastname, $email, $password, $public_key, $private_key, $token, $active, $created_at, $update_at, $db)
+    public function register($firstname, $lastname, $email, $password, $public_key, $private_key, $token, $active, $created_at, $updated_at, $db)
     {
         $response = '';
         
@@ -80,55 +80,59 @@ class User
         $chk_stmt = $db->prepare("SELECT id FROM ".$this->table." WHERE email =:email LIMIT 1");
         $chk_stmt->bindParam(':email', $email);
         $chk_stmt->execute();
+        $chk_stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $chk_stmt->fetchAll();  // Even fetch() will do
         if(count($result)>0)
         {
             $response = 'exists';
-        }
+        }else{
 
-        $password_hash = md5($password);
-        $timee = date('Y-m-d H:i:s');
-        $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
-         
-        // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $sql = "INSERT INTO ". $this->table." (firstname, lastname, email, password, public_key, private_key, token, active, created_at, update_at) VALUES (:first_name, :last_name, :email, :password_hash, :public_key, :private_key, :token, :active, :created_at, :update_at)";
+            $password_hash = md5($password);
+            $timee = date('Y-m-d H:i:s');
+            $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
+            
+            // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO ". $this->table." (firstname, lastname, email, password, public_key, private_key, token, active, 
+                                                created_at, update_at) VALUES (:first_name, :last_name, :email, :password_hash, 
+                                                :public_key, :private_key, :token, :active, :created_at, :updated_at)";
 
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(':first_name', $firstname);
-        $stmt->bindParam(':last_name', $lastname);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password_hash', $password_hash);
-        $stmt->bindParam(':public_key', $public_key);
-        $stmt->bindParam(':private_key', $private_key);
-        $stmt->bindParam(':token', $token);
-        $stmt->bindParam(':active', $active);
-        $stmt->bindParam(':created_at', $created_at);
-        $stmt->bindParam(':update_at', $update_at);
-        
-        if ($stmt->execute()) {
-            $to = $email;
-            $subject = 'Welcome to HNG Internship';
-            $from='hello@hng.fun';
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':first_name', $firstname);
+            $stmt->bindParam(':last_name', $lastname);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password_hash', $password_hash);
+            $stmt->bindParam(':public_key', $public_key);
+            $stmt->bindParam(':private_key', $private_key);
+            $stmt->bindParam(':token', $token);
+            $stmt->bindParam(':active', $active);
+            $stmt->bindParam(':created_at', $created_at);
+            $stmt->bindParam(':updated_at', $updated_at);
+            
+            if ($stmt->execute()) {
+                $to = $email;
+                $subject = 'Welcome to HNG Internship';
+                $from='hello@hng.fun';
 
-            $message = '<html><body>';
-            $message .= '<h1>Hi '. $firstname .'!</h1>';
-            $message .= '<h3>Thank you for your interest in HNG Internship kindly follow the link below to activate your account.</h3>';
-            $message .= '<p><a href="'.$link.'">activate account</a></p>';
-            $message .= '</body></html>';
-            $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $message = '<html><body>';
+                $message .= '<h1>Hi '. $firstname .'!</h1>';
+                $message .= '<h3>Thank you for your interest in HNG Internship kindly follow the link below to activate your account.</h3>';
+                $message .= '<p><a href="'.$link.'">activate account</a></p>';
+                $message .= '</body></html>';
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
 
-            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            // Create email headers
-            $headers .= 'From: '.$from."\r\n".
-            'Reply-To: '.$from."\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                // Create email headers
+                $headers .= 'From: '.$from."\r\n".
+                'Reply-To: '.$from."\r\n" .
+                'X-Mailer: PHP/' . phpversion();
 
-            mail($to, $subject, $from, $message); // sendMail true
-            $response = 'true';
-        }
-        else {
-            error_log($stmt->errorInfo(), 0);
-            $response = 'false';
+                mail($to, $subject, $from, $message); // sendMail true
+                $response = 'true';
+            }
+            else {
+                // error_log($stmt->errorInfo(), 0);
+                $response = 'false';
+            }
         }
         return $response;
     }
