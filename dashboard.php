@@ -103,7 +103,7 @@ include_once("dashboard-header.php");
 
 
           @media (min-width: 992px){
-          .container2 .coinvalue {
+          .container2 .coinvalue .text {
               padding-right: .5rem;
               padding-left: .5rem;
               padding-top: 20px;
