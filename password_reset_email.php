@@ -16,15 +16,18 @@
     		font-family: 'Lato';
     		font-size: 20px;
             text-align: center !important;
+            background: #fff;
     	}
     	h2 {
     		font-weight: bolder;
+            color: #000;
     	}
     	section {
     		margin: 4em auto auto;
     	}
     	p {
     		margin: 0px;
+            color: #4f4f4f;
     	}
     	.foot {
     		margin-top: 1.5em;
