@@ -2,7 +2,7 @@
 
 include_once("coin_header.php");
 include_once('db.php');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 require_once('Transaction.php');
 $transaction = new Transaction();
 $request_id = $_GET['request_id'];
@@ -199,7 +199,7 @@ font-weight: bold;
 line-height: normal;
 font-size: 1.25em;"> TRANSACTION CANCELLED</h1>
 
-<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%; margin-bottom: 0.5%"> You cancelled your transaction with <span id="personName">Kunle</span></p>
+<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%; margin-bottom: 0.5%"> Your transaction with <span id="personName">Kunle</span> has been cancelled</p>
 
 
 <a class="back" href="buyandsell.php">Go Back</a>
