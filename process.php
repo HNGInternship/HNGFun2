@@ -11,6 +11,7 @@ date_default_timezone_set('Africa/Lagos');
 //require_once('classes/User.php');
 require_once('User.php');
 require_once('db.php');
+require_once('smtp_credentials.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -139,17 +140,17 @@ if(isset($_POST['login'])){
 					                        
 					//Set PHPMailer to use SMTP.
 					$mail->isSMTP();            
-					//Set SMTP host name                          
-					$mail->Host = "smtp.gmail.com";
+					//Set SMTP host name  
+					$mail->Host = SMTP_HOST;
 					//Set this to true if SMTP host requires authentication to send email
 					$mail->SMTPAuth = true;                          
 					//Provide username and password     
-					$mail->Username = "email@gmail.com";                 
-					$mail->Password = "password";                           
+					$mail->Username = SMTP_USER;                 
+					$mail->Password = SMTP_PASSWORD;                           
 					//If SMTP requires TLS encryption then set it
-					$mail->SMTPSecure = "tls";                           
+					$mail->SMTPSecure = SMTP_PROTOCOL;                           
 					//Set TCP port to connect to 
-					$mail->Port = 587;             
+					$mail->Port = SMTP_PORT;             
 
 					//From email address and name
 					$mail->From = "noreply@hng.fun";

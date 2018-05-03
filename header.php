@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 if(!isset($_SESSION)) { session_start(); }
 
 // for choosing active page on nav bar
@@ -23,7 +22,6 @@ $activeArray[$fileIndex]="active";
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,13 +71,13 @@ $activeArray[$fileIndex]="active";
           font-weight: bold;
           background-color: #F4F4F4;
           padding: 0 10em;
-        } 
-  
+        }
+
         .nav-item{
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
-        .nav-item:hover, .active { 
+        .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
         }
         footer {
@@ -92,8 +90,8 @@ $activeArray[$fileIndex]="active";
           flex-wrap: wrap;
         }
           .btn-primary {
-        border-radius: 8px; 
-        background-color: #2196F3; 
+        border-radius: 8px;
+        background-color: #2196F3;
         border-color: #2196F3;
     }
     .btn-primary:hover,
@@ -109,43 +107,43 @@ $activeArray[$fileIndex]="active";
 
   <body>
     <!-- Navigation -->
-    
+
     <nav class="navbar navbar-expand-lg navbar-light"  >
-      
+
       <a class="navbar-brand" href="../index.php">
         <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
-      
+
+
         <ul class="navbar-nav ml-auto">
             <li class="nav-item <?= $activeArray[0] ?>">
                 <a href="index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn.php" class="nav-link">Learn</a>
-            </li> 
+            </li>
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing.php" class="nav-link">Intern</a>
-            </li> 
+            </li>
             <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="testimonies.php" class="nav-link">Testimonies</a>
-            </li> 
+            </li>
             <li class="nav-item <?= $activeArray[4] ?>">
                 <a href="sponsors.php" class="nav-link">Sponsors</a>
-            </li> 
+            </li>
             <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni.php" class="nav-link">Alumni</a>
-            </li> 
+            </li>
            <li class="nav-item <?= $activeArray[6] ?>">
-          
+
                 <a href="partners.php" class="nav-link">Partners</a>
-            </li> 
+            </li>
     </ul>
   </div>
-         
+
     </nav>

@@ -50,7 +50,6 @@ include_once("header.php");
     .brief {
         font-size: 0.6em;
     }
-
     /* media queries */
     @media (min-width: 900px) { 
         .learn-card {

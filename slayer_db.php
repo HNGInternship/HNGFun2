@@ -55,8 +55,8 @@ global $db;
         PRIMARY KEY (id),
         FOREIGN KEY (intern_id) REFERENCES interns_data (id) on delete cascade)";
 
-  
-     
+
+
      $sql3 = "CREATE TABLE IF NOT EXISTS sell_requests(
         `id` int(20) NOT NULL AUTO_INCREMENT,
         `intern_id` int(20) NOT NULL,
@@ -72,14 +72,14 @@ global $db;
         FOREIGN KEY (account_id) REFERENCES account (id) on delete cascade)";
 
 
-         
+
        $sql4 = "CREATE TABLE IF NOT EXISTS banks(
              `id` int(20) NOT NULL AUTO_INCREMENT,
             `name` varchar(100) NOT NULL,
             PRIMARY KEY (id))";
 
-     
-    
+
+
        $sql5 = "CREATE TABLE IF NOT EXISTS accounts(
         `id` int(20) NOT NULL AUTO_INCREMENT,
         `intern_id` int(20) NOT NULL,
@@ -145,8 +145,8 @@ global $db;
         } catch (PDOException $pe) {
             die("Could not create table  ". $pe->getMessage());
         }
-       
-    } 
+
+    }
 
     if ($exec) {
         echo  count($sqls). " tables successfully created";
