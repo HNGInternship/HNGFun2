@@ -38,6 +38,7 @@
     	height: 38px;
     	border-radius:7px;
     	padding-top: 7px;
+    	padding-left: 5px;
     	font-weight: normal;
     	text-transform: capitalize;
     }
@@ -91,7 +92,6 @@
 
     .box .btn{
     	width: 120px;
-    	margin-left: 120px;
     }
 
     @media screen and (max-width: 780px) {

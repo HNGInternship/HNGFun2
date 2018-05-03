@@ -1,20 +1,20 @@
 
-  
+
 
 
    <?php
-include_once("header.php");
-?>
- 
+  include_once("header.php");
+  ?>
+
 <style type="text/css">
 	#email, #phone, #lastname, #firstname{
 		width: 350px;
 		border-radius: 7px;
 	}
- 
+
 </style>
-<div class="" style="padding-top: 7%">    
- 
+<div class="" style="padding-top: 7%">
+
     <div class="col-md-6  mx-auto">
 	<div style="text-align:center;">
 	<img src="images/coins.png" style="width: 42px; margin-top: -20px;margin-right: 3px; display: inline-block;">
@@ -31,7 +31,7 @@ include_once("header.php");
     <label for="amount"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</label>
     <input type="text" class="form-control" id="amount" placeholder="" style="border-color:#0475CE;">
   </div>
-  
+
   <button style="margin-top: 45px; border:0px; margin-bottom: 50px; margin-left: auto; margin-right: auto; background-color: #2196F3; color: white; width: 400px; font-size: 15px; height: 40px; text-align:center;border-radius: 10px" id="submitbutton" class="">SEND COINS</button>
   </div>
        <!-- <form action="" class="text-center" style="margin-top:">
@@ -55,12 +55,12 @@ include_once("header.php");
                     <input type="text" name="phone" id="phone" class="form-control" placeholder="">
                 </div>
             </div>
-                 
+
         </form>-->
- 
+
         </div>
         </div>
- 
+
         <?php
         include_once("footer.php");
         ?>
