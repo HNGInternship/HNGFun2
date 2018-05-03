@@ -11,6 +11,9 @@ date_default_timezone_set('Africa/Lagos');
 //require_once('classes/User.php');
 require_once('User.php');
 require_once('db.php');
+if(isset($conn)) {
+	$db = $conn;
+}
 require_once('smtp_credentials.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
