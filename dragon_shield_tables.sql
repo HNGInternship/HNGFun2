@@ -22,6 +22,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transaction_history`
+--
+CREATE TABLE IF NOT EXISTS transaction_history (
+`id` int(20) NOT NULL AUTO_INCREMENT,
+`sender_id` int(20) NOT NULL,
+`receiver_id` int(20) NOT NULL,
+`amount` float NOT NULL,
+`status` ENUM('In Progress', 'Pending', 'Completed') NOT NULL,
+`created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+--
 -- Table structure for table `users_data`
 --
 
