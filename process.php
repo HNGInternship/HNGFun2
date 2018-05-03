@@ -23,8 +23,8 @@ if(isset($_POST['registration'])){
 	$password = $_POST['password'];
 	$private_key = $_POST['private_key'];
 	$public_key = $_POST['public_key'];
-	$created_at = date('m-d-Y h:i:s a');
-	$update_at = $created_at;
+	$created_at = date('Y-m-d h:i:s');
+	$updated_at = $created_at;
 	$token = base64_encode(bin2hex(random_bytes(60)));
 	$active =0;
 
@@ -50,7 +50,7 @@ if(isset($_POST['registration'])){
 
 			//try to register user
 			$register_check = $user->register($firstname, $lastname, $email, $password, 
-			$public_key, $private_key, $token, $active, $created_at, $update_at, $db);
+			$public_key, $private_key, $token, $active, $created_at, $updated_at, $db);
 
 			//check for response 
 			if($register_check==true){
