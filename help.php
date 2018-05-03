@@ -88,6 +88,7 @@ include_once("header.php");
     }
 
     .faq-container {
+        position: relative;
         background: #2196F3;
         padding-left: 2.7em;
         padding-right: 2em;
@@ -126,42 +127,46 @@ include_once("header.php");
         padding-left: 24px;
     }
 
-    i.fa.fa-chevron-down:nth-of-type(3n) {
-        padding-left: 36px;
-    }
-
-    .contact-container {
-        text-align: center;
-    }
 
     .contact-container > h4{
+        margin-bottom: 1em;
         color: #2196F3;
+        text-align: center;
         
+    }
+
+    .closing {
+        display: none;
+        transition: transform 80000ms ease-in-out 10ms;
+    }
+
+    .collapse.closing {
+        translateY: -10%
+ transition: transform 80000ms ease-in-out 10ms;
     }
     
 
     .faq-container img {
-     
-        padding-left: 30px;
+        
         display: inline-block;
-        margin-right: 5em;
-        max-width: 280px;
+         max-width: 165px;
+       
     }
 
     button.btn.btn-link {
         font-weight: 300;
         font-size: .9em;
+       
     }
 
     .form-wrapper {
-       display: inline-block;
-       width: 30em;
-        padding: 1.8em;
-        padding-top: 4em;
-        margin: 0;
+       display: block;
+        max-width: 30em;
+        padding: 4em 1.8em 4.2em;
+        margin: 0 auto;
         border: 1px solid #48BBFC;
         border-radius: .25em;
-        text-align: left;
+        
     }
 
     .form-wrapper  label {
@@ -174,7 +179,7 @@ include_once("header.php");
         margin-bottom: 2em;
     }
 
-    button.btn.btn-lg {
+    .contact-container button.btn.btn-lg {
         margin: 0;
         display: inline-block;
         margin-top: 1.2em;
@@ -182,13 +187,38 @@ include_once("header.php");
         background: #2196F3;
         padding: .35em 1.75em;
         border-radius: .25em;
-        text-align: right;
         font-weight: 300;
-
+        text-align: right !important;
     }
 
-   
 
+      #help-send {
+     
+       text-align: right !important;
+       float: right;
+      
+   
+  }
+
+  button#help-send:after {
+     
+      display: table;
+      clear: both;
+   
+  }
+
+    @media (max-width: 670px) {
+        .faq-container img {
+            display: none;
+        }
+    }
+
+    @media (min-width: 740px) {
+        .faq-container img {
+            padding-left: 30px;
+       max-width: 230px;
+        } 
+    }
 
 </style>
 <main>
@@ -209,7 +239,7 @@ include_once("header.php");
     </section>
     <section class="container-fluid faq-container">
         <div class="row">
-            <div class="col text-left">
+              <div class="col text-left">
                 <h2 class="text-left">FAQ</h2>
                 <div id="accordion">
                   <div class="card">
@@ -222,9 +252,11 @@ include_once("header.php");
                     </div>
 
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                      </div>
+                        <div class="card-body">
+                            <div id="#collapseOne">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                        </div>
                     </div>
                   </div>
                   <div class="card">
@@ -244,7 +276,7 @@ include_once("header.php");
                   <div class="card">
                     <div class="card-header" id="headingThree">
                       <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <button  class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                           Why do I need a private key ? <i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </button>
                       </h5>
@@ -271,7 +303,8 @@ include_once("header.php");
 
                 <label class="text-left" for="email">Description</label>
                 <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
-                <button id="#help-send" class="btn btn-lg">send</button>
+                <button id="help-send" class="btn btn-lg">send</button>
+            
             </form>
         </div>
      
@@ -280,6 +313,23 @@ include_once("header.php");
 </main>
 
 
+
 <?php
 include_once("footer.php");
+function custom_scripts() {
+
+       $script = "<script> 
+       (function(){
+           var check = 0;
+          //  $('.panel-title').click(function(){
+           
+              //  $('.collapse').collapse('toggle');
+               
+            })
+   
+       })();
+        </script>";
+
+        echo $script;
+};
 ?>
