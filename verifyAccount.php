@@ -2,29 +2,26 @@
 require_once 'User.php';
 $user = new USER();
 
-if(empty($_GET['id']) && empty($_GET['code']))
+if(empty($_GET['S']) && empty($_GET['q']))
 {
 	$user->redirect('index.php');
 }
 
-if(isset($_GET['id']) && isset($_GET['code']))
+if(isset($_GET['S']) && isset($_GET['q']))
 {
-	$id = base64_decode($_GET['id']);
-	$code = $_GET['code'];
-	
-	$statusY = "Y";
-    $statusN = "N";
+	$token = base64_decode($_GET['S']);
     
-    $stmt = $user->runQuery("SELECT id, userStatus FROM users WHERE id=:uid AND tokenCode=:code LIMIT 1");
-
-    $stmt->execute(array(":uid"=>$id, ":code"=>$code));
+    $stmt = $user->runQuery("SELECT id, active FROM slay WHERE token=:token LIMIT 1");
+    $stmt->bindParam(":token", $token);
+    $stmt->execute();
     $row=$stmt->fetch(PDO::FETCH_ASSOC);
 
-    if($stmt->rowCount() >0){
-        if($row['userStatus']== $statusN){
-            $stmt = $user->runQuery("UPDATE users SET userStatus=:status WHERE id=:uID");
-			$stmt->bindparam(":status",$statusY);
-			$stmt->bindparam(":uID",$id);
+    if($stmt->rowCount() > 0){
+        if($row['active']== 0){
+            $status = 1;
+            $stmt = $user->runQuery("UPDATE slay SET active=:status WHERE id=:uID");
+			$stmt->bindparam(":status",$status);
+			$stmt->bindparam(":uID",$row['id']);
             $stmt->execute();	
             
             $msg = "
@@ -41,7 +38,8 @@ if(isset($_GET['id']) && isset($_GET['code']))
             </div>
             ";
         }
-    }else{
+    }
+    else{
         $msg = "
 		       <div class='alert alert-error'>
 			   <button class='close' data-dismiss='alert'>&times;</button>
