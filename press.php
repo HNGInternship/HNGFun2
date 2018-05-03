@@ -19,7 +19,7 @@
     	width: 100%;
     	overflow: auto;
     	clear: both;
-    	padding-left: 4%;
+    	/*padding-left: 4%;*/
     }
 
     .sidebar{
@@ -36,10 +36,11 @@
     	color: #2196F3;
     	width: 170px;
     	height: 38px;
-    	border-radius:7px;
+    	border-radius:5px;
     	padding-top: 7px;
     	padding-left: 5px;
     	font-weight: normal;
+        font-family: Lato;
     	text-transform: capitalize;
     }
 
@@ -77,7 +78,7 @@
 
     }
     .box img{
-    	height: 180px; 
+    	height: 250px; 
     	width: 95%;
     }
 
@@ -127,7 +128,7 @@
 
 <section>
 	<div class="update-container">
-		<div class="sidebar">
+		<div class="sidebar" style="padding:20px;">
 			<a href="" class="btn btn-default">Press Release</a>
 			<br><a href="#" class="btn btn-default">Headlines</a>
 			<br><a href="#" class="btn btn-default">Press Release</a>
@@ -137,7 +138,7 @@
 	    	<h2 style="text-align: left;">Live Updates</h2>
 	    	<hr width="10%">
 			<div class="box">
-				<img src="img/press.jpg">
+				<img src="img/press.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -146,7 +147,7 @@
 			</div>
 			
 			<div class="box">
-				<img src="img/book.jpg">
+				<img src="img/book.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -155,7 +156,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/city.jpg">
+				<img src="img/city.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -164,7 +165,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/contact-bg.jpg">
+				<img src="img/contact-bg.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -173,7 +174,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/laptop.jpg">
+				<img src="img/laptop.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
@@ -182,7 +183,7 @@
 			</div>
 
 			<div class="box">
-				<img src="img/bicycle.jpg">
+				<img src="img/bicycle.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
