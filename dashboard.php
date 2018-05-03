@@ -58,6 +58,7 @@ include_once("dashboard-header.php");
           box-sizing: border-box !important;
           padding: 0px 10px !important;
           margin-left: 60px;
+          margin-top: 50px;
           font-size: 15px;
           font-weight: bold;
           display: inline-block;
