@@ -2,7 +2,6 @@
 /*
 DO NOT MODIFY THIS FILE!!!
  */
-/* Instead of rediting this, just move your config.php a step outside the HNGFun folder */
 require '../config.php';
 
 try {
