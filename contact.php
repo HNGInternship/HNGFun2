@@ -1,11 +1,28 @@
 <?php
+
+if(isset($_POST['send'])) {
+    $name = $_POST['name'];
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $message = $_POST['message'];
+
+    if ($email) {
+
+        $content = "Name: $name\n";
+        $content .= "Email: $name\n";
+        $content .= "Message: $message\n";
+
+        $headers = "From: webmaster@example.com\r\nReply-to: $email";
+        mail('info@exmaple.com', 'Contact Form', $message, $headers);
+    }
+}
+
 include_once("header.php");
 function custom_styles() {
     $styles = '<style>
     body{
         background:#e5e5e5;
     }
-   
+
     .form-control {
         border-radius: none !important;
     }
@@ -33,7 +50,7 @@ function custom_styles() {
                 <h3 class="text-left"> Send us a message</h3>
                 <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span>
                  <form method="post" id="contact-form">
-                        <div class="form-group">
+                        <div class="form-group row">
                             <div class="col">
                                 <label for="name" class="col-form-label-sm">Your Name</label>
                                 <input type="text" name="name" class="form-control"/>
@@ -43,7 +60,7 @@ function custom_styles() {
                                 <input type="text" name="email" class="form-control"/>
                             </div>
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group row">
                             <div class="col">
                                 <label for="phone_number" class="col-form-label-sm">Phone Number</label>
                                 <input type="text" name="phone_number" class="form-control"/>
@@ -53,7 +70,7 @@ function custom_styles() {
                                 <input type="text" name="subject" class="form-control" />
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group row">
                             <div class="col">
                                 <label for="message" class="col-form-label-sm">Message</label>
                                 <textarea id="contact-message" class="form-control"  name="message" placeholder="Type your message..."></textarea>
@@ -64,7 +81,7 @@ function custom_styles() {
             </section>
               <!-- <section class="col-md-6"> -->
             <section id="contact-right" class="col-md-6">
-               
+
 
                  <!-- <div class="form-group"> -->
                     <h3>Contact Information</h3>
@@ -84,12 +101,12 @@ function custom_styles() {
                     <p class="contact-icon mail"><img src="./img/envelope.png" alt=""></p>
                     <p>support@hng.fun</p>
                 </div>
-                
+
                   <div class="social-media">
                     <i class="fa fa-twitter"><a href="#"></a></i>
                     <i class="fa fa-facebook"><a href="#"></a></i>
                     <i class="fa fa-github"><a href="#"></a></i>
-                </div> 
+                </div>
                 </div>
             </section>
         </div>
@@ -116,4 +133,21 @@ function custom_scripts() {
 
 echo $script;
 };
+
+if(isset($_POST['send'])) {
+    $name = $_POST['name'];
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $message = $_POST['message'];
+
+    if ($email) {
+
+        $content = "Name: $name\n";
+        $content .= "Email: $name\n";
+        $content .= "Message: $message\n";
+
+        $headers = "From: webmaster@example.com\r\nReply-to: $email";
+        mail('info@exmaple.com', 'Contact Form', $message, $headers);
+    }
+}
+
 ?>

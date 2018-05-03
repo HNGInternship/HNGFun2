@@ -29,7 +29,7 @@ CREATE TABLE `users_data` (
 `user_id` int(10) NOT NULL AUTO_INCREMENT,
 `fullname` varchar(255) NOT NULL,
 `username` varchar (255) NOT NULL,
-`phonenumber` int (11) NOT NULL,
+`phonenumber` varchar (50) NOT NULL,
 `email` varchar (50) NOT NULL,
 `nationality` varchar (50) NOT NULL,
 `city` varchar (50) NOT NULL,

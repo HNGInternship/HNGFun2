@@ -33,7 +33,7 @@ include_once("header.php");
     }
 
     .form-control {
-        
+
         border: 1px solid #48BBFC !important;
         color: #48BBFC;
         text-align: center;
@@ -60,7 +60,7 @@ include_once("header.php");
         width: 100%;
         justify-content: center;
     }
-  
+
     input[type="text"]#help-search::-webkit-input-placeholder { /* Chrome */
         color: #48BBFC !important;
     }
@@ -132,7 +132,7 @@ include_once("header.php");
         margin-bottom: 1em;
         color: #2196F3;
         text-align: center;
-        
+
     }
 
     .closing {
@@ -144,19 +144,19 @@ include_once("header.php");
         translateY: -10%
  transition: transform 80000ms ease-in-out 10ms;
     }
-    
+
 
     .faq-container img {
-        
+
         display: inline-block;
          max-width: 165px;
-       
+
     }
 
     button.btn.btn-link {
         font-weight: 300;
         font-size: .9em;
-       
+
     }
 
     .form-wrapper {
@@ -166,7 +166,7 @@ include_once("header.php");
         margin: 0 auto;
         border: 1px solid #48BBFC;
         border-radius: .25em;
-        
+
     }
 
     .form-wrapper  label {
@@ -193,18 +193,18 @@ include_once("header.php");
 
 
       #help-send {
-     
+
        text-align: right !important;
        float: right;
-      
-   
+
+
   }
 
   button#help-send:after {
-     
+
       display: table;
       clear: both;
-   
+
   }
 
     @media (max-width: 670px) {
@@ -217,7 +217,7 @@ include_once("header.php");
         .faq-container img {
             padding-left: 30px;
        max-width: 230px;
-        } 
+        }
     }
 
 </style>
@@ -246,7 +246,8 @@ include_once("header.php");
                     <div class="card-header" id="headingOne">
                       <h5 class="mb-0">
                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          How do I change my password ? <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                          Would I be awarded a certificate after this internship?
+                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </button>
                       </h5>
                     </div>
@@ -254,7 +255,8 @@ include_once("header.php");
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <div id="#collapseOne">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                              We do not currently issue certificates to participants but we hope to do that in the future.
+
                             </div>
                         </div>
                     </div>
@@ -263,13 +265,15 @@ include_once("header.php");
                     <div class="card-header" id="headingTwo">
                       <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          How do I transfer my Accolade ? <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                          Is this internship program open for only Nigerians?
+                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </button>
                       </h5>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                       <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        No, no at all. The HNG internship program is open for residents of African countries. We believe by creating an equal opportunity, we not only create human resource value by equipping our interns with the proper technical skills, we also make them employable thereby creating an adequately skilled, qualified workforce in Africa.
+
                       </div>
                     </div>
                   </div>
@@ -277,13 +281,15 @@ include_once("header.php");
                     <div class="card-header" id="headingThree">
                       <h5 class="mb-0">
                         <button  class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          Why do I need a private key ? <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                          Do I need any prior programming experience to join?
+                          <i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </button>
                       </h5>
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                       <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        The HNG internship is open for beginners with little or no experience in design, programming or DevOps. Once you are self driven and motivated to learn, you are good to go!
+
                       </div>
                     </div>
                   </div>
@@ -304,10 +310,10 @@ include_once("header.php");
                 <label class="text-left" for="email">Description</label>
                 <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
                 <button id="help-send" class="btn btn-lg">send</button>
-            
+
             </form>
         </div>
-     
+
     </section>
 
 </main>
@@ -318,15 +324,15 @@ include_once("header.php");
 include_once("footer.php");
 function custom_scripts() {
 
-       $script = "<script> 
+       $script = "<script>
        (function(){
            var check = 0;
           //  $('.panel-title').click(function(){
-           
+
               //  $('.collapse').collapse('toggle');
-               
+
             })
-   
+
        })();
         </script>";
 
