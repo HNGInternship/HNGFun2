@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>HNG FUN</title>
+    <title>HNG FUN Dashboard</title>
 
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -149,10 +149,10 @@
         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Amy Xandra<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-                <a href="" class="dropdown-item">
+                <a href="profile.php" class="dropdown-item">
                 <img class="dashb-icons" src="img/dashboard/profile.png">Your Profile</a>
 
-                <a href="" class="dropdown-item">
+                <a href="invite2.php" class="dropdown-item">
                 <img class="dashb-icons" src="img/dashboard/invite.png">Invite to HNG</a>
 
                 <a href="" class="dropdown-item">
@@ -175,11 +175,11 @@
                 <a href="index.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="learn.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
+                <a href="buyandsell.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
             </li> <li class="nav-item">
-                <a href="listing.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
+                <a href="profile.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
             </li> <li class="nav-item">
-                <a href="testimonies.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/help.png">Help & Feedback</a>
+                <a href="help.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/help.png">Help & Feedback</a>
             </li>
         </ul>
     </div>

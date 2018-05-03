@@ -2,7 +2,12 @@
 .ssh/
 docker-compose.yml
 config.php
-.idea/
 .phpintel/
 .vscode/
+.idea/
+phpmyadmin/
+bower_components/
+vendor/
+db.php
+config_slayers.php
 .DS_Store
