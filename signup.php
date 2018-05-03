@@ -160,14 +160,14 @@ const public_key = pair.publicKey();
                         else{
                             console.log(data);
                             $("#message").html(data);
-                            $("#register").html('Failed!');
+                            $("#register").html("Failed! Can't  Email already exist");
                         } 
                     },
                     error : function(jqXHR,textStatus,errorThrown){
                         if(textStatus ='error'){
                             console.log(errorThrown);
                         }
-                        $("#register").html('Failed!!');
+                        $("#register").html('Failed! User already exists');
                         },
                     beforeSend :function(){
 
