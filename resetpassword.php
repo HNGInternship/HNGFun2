@@ -1,21 +1,93 @@
 <style>
-#pageloader
-{
-  background: rgba( 255, 255, 255, 0.8 );
-  display: none;
-  height: 100%;
-  position: fixed;
-  width: 100%;
-  z-index: 9999;
+.text-holder{
+  color:#aaaaaa;
+  text-align:center;
+  padding-top:40px;
+}
+.button-holder{
+  padding-top:100px;
+}
+.ajax-button{
+  position:relative;
+  display:inline-block;
+  width:100px;
+  height:40px;
+  left:50%;
+  top:50%;
+  margin-left:-50px;
+  margin-top:-20px;
+  text-align:center;
+}
+.submit{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width:100px;
+  height:40px;
+  background-color:#111111;
+  border:2px solid #FFFFFF;
+  border-radius:10px;
+  color:#FFFFFF;
+  font-size:17px;
+  cursor:pointer !important;
+  outline:none;
 }
 
-#pageloader img
-{
-  left: 50%;
-  margin-left: -32px;
-  margin-top: -32px;
-  position: absolute;
-  top: 50%;
+.submit:hover{
+  background-color:#222222;
+}
+.loading{
+  font-size:0;
+  width:30px;
+  height:30px;
+  margin-top:5px;
+  border-radius:15px;
+  padding:0;
+  border:3px solid #FFFFFF;
+  border-bottom:3px solid rgba(255,255,255,0.0);
+  border-left:3px solid rgba(255,255,255,0.0);
+  background-color:transparent !important;
+  animation-name: rotateAnimation;
+  -webkit-animation-name: wk-rotateAnimation;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes rotateAnimation {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@-webkit-keyframes wk-rotateAnimation {
+    0%   {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+
+.fa{
+  color:#ffffff;
+  font-size:18px !important;
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-left:-9px;
+  margin-top:-9px;
+  -webkit-transform:scaleX(0) !important;
+  transform:scaleX(0) !important;
+}
+
+.finish{
+  -webkit-transform:scaleX(1) !important;
+  transform:scaleX(1) !important;
+}
+.hide-loading{
+  opacity:0;
+  -webkit-transform: rotate(0deg) !important;
+  transform: rotate(0deg) !important;
+  -webkit-transform:scale(0) !important;
+  transform:scale(0) !important;
 }
 </style>
 <?php
@@ -38,8 +110,8 @@ include_once("header.php");
                 <br />
                 <input type="hidden" name="pword-reset" value="yes">
                 <button id="btn-reset" name="pword-reset" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;" onclick="ButtonClicked1()">Reset Password</button>
-                <div id="buttonreplacement1" style="margin-left:30px; display:none;"><img src="../img/Rolling-1s-100px.gif" alt="loading..."></div>
-              <p style='color: #ADADAD '>
+                <div class="fa fa-check done"></div>
+            <div class="fa fa-close failed"></div>
                      Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
                 </p>
             </div>
@@ -63,8 +135,8 @@ include_once("header.php");
                 <br />
                 <input type="hidden" name="token" value="<?php $token = $_GET['token']; echo $token;   ?>">
                 <button id="btn-change" name="pword-change" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;" onclick="ButtonClicked()">Change Password</button>
-                <div id="buttonreplacement" style="margin-left:30px; display:none;"><img src="../img/Rolling-1s-100px.gif" alt="loading..."></div>
-                <p style='color: #ADADAD '>
+                <div class="fa fa-check done"></div>
+            <div class="fa fa-close failed"></div>
                      Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
                 </p>
             </div>
@@ -72,6 +144,7 @@ include_once("header.php");
     </div> 
 
  <?php } ?>
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -91,11 +164,35 @@ include_once("header.php");
                 success: function(response){
                     response = JSON.parse(response);
                     if(response.status == 1){
+                      $(".submit").addClass("loading");
+    setTimeout(function() {
+      $("#form-reset").addClass("hide-loading");
+      // For failed icon just replace ".done" with ".failed"
+      $(".done").addClass("finish");
+    }, 3000);
+    setTimeout(function() {
+      $("#form-reset").removeClass("loading");
+      $("#form-reset").removeClass("hide-loading");
+      $(".done").removeClass("finish");
+      $(".failed").removeClass("finish");
+    }, 5000);
                         $("#message").addClass('alert alert-success');
                         $("#message").html(response.message);
                         $('#form-reset').hide();
                     }
                     else{
+                                           $("#form-reset").addClass("loading");
+    setTimeout(function() {
+      $("#form-reset").addClass("hide-loading");
+      // For failed icon just replace ".done" with ".failed"
+      $(".failed").addClass("finish");
+    }, 3000);
+    setTimeout(function() {
+      $("#form-reset").removeClass("loading");
+      $("#form-reset").removeClass("hide-loading");
+      $(".done").removeClass("finish");
+      $(".failed").removeClass("finish");
+    }, 5000);
                         $("#message").addClass('alert alert-danger');
                         $("#message").html(response.message);
                     }
@@ -124,60 +221,11 @@ include_once("header.php");
         });
     })
   
-  <div id="formsubmitbutton">
-<input type="submit" name="submitter" value="Submit Button" onclick="ButtonClicked()">
-</div>
-<div id="buttonreplacement" style="margin-left:30px; display:none;">
-<img src="//www.willmaster.com/images/preload.gif" alt="loading...">
-</div>
 
 
 </script>
-  <script type="text/javascript">
 
-function ButtonClicked()
-{
-   document.getElementById("btn-change").style.display = "none"; // to undisplay
-   document.getElementById("buttonreplacement").style.display = ""; // to display
-   return true;
-}
-var FirstLoading = true;
-function RestoreSubmitButton()
-{
-   if( FirstLoading )
-   {
-      FirstLoading = false;
-      return;
-   }
-   document.getElementById("btn-change").style.display = ""; // to display
-   document.getElementById("buttonreplacement").style.display = "none"; // to undisplay
-}
-// To disable restoring submit button, disable or delete next line.
-document.onfocus = RestoreSubmitButton;
-</script>
-</script>
-  <script type="text/javascript">
 
-function ButtonClicked1()
-{
-   document.getElementById("btn-reset").style.display = "none"; // to undisplay
-   document.getElementById("buttonreplacement1").style.display = ""; // to display
-   return true;
-}
-var FirstLoading = true;
-function RestoreSubmitButton()
-{
-   if( FirstLoading )
-   {
-      FirstLoading = false;
-      return;
-   }
-   document.getElementById("btn-reset").style.display = ""; // to display
-   document.getElementById("buttonreplacement1").style.display = "none"; // to undisplay
-}
-// To disable restoring submit button, disable or delete next line.
-document.onfocus = RestoreSubmitButton;
-</script>
 
 <?php
 include_once("footer.php");
