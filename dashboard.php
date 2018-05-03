@@ -126,7 +126,7 @@ include_once("dashboard-header.php");
       <div class="coin">Hng Coin wallet</div>
       <div class="container2">
       <div class="coinvalue">9.0000 </div>
-      <div class="text">HNG</div>
+      <div class="text">Hng</div>
     </div>
       <div class="coincode"><p>HNG Wallet Address: 1Nhghg5758bhjgjf</p></div>
     </div>
