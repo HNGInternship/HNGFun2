@@ -1,5 +1,6 @@
 <?php 
 set_time_limit(0);
+
 if(!isset($_SESSION)) { session_start(); }
 //this file is for processsin requests  
 
