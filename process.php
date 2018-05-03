@@ -1,5 +1,6 @@
 <?php 
 set_time_limit(0);
+
 if(!isset($_SESSION)) { session_start(); }
 //this file is for processsin requests  
 
@@ -61,7 +62,9 @@ if(isset($_POST['registration'])){
 			$public_key, $private_key, $token, $active, $created_at, $updated_at, $db);
 
 			//check for response 
-			if($register_check==true){
+			if($register_check=='true'){
+				$_SESSION['email'] = $email;
+
 				$subject = 'Welcome to HNG Internship';
 				$message = '<html><body>';
                 $message .= '<h1>Hi '. $firstname .'!</h1>';
@@ -100,30 +103,34 @@ if(isset($_POST['registration'])){
 				// $mail->AltBody = "This is the plain text version of the email content";
 				
 				$sent = $mail->send();
-				// if(!sent) 
-				// {
-				// echo "Mailer Error: " . $mail->ErrorInfo;
-				// echo json_encode([
-				// 'status' => 0,
-				// 'message' => "Mailer Error: " . $mail->ErrorInfo
-				// ]);
-				// } 
-				// else 
-				// {
-				// echo json_encode([
-				// 'status' => 1,
-				// 'message' => 'An Email containing password reset token has been sent to you'	
-				// ]);
-				// }
-
-				$_SESSION['email'] = $email;
-				die('true');
+				if(!$sent) 
+				{
+					// echo "Mailer Error: " . $mail->ErrorInfo;
+					echo json_encode([
+					'status' => 0,
+					'message' => "Mailer Error: " . $mail->ErrorInfo
+					]);
+				} 
+				else 
+				{
+					echo json_encode([
+					'status' => 1,
+					'message' => 'Registration successful'	
+					]);
+				}
 			}
 			elseif($register_check == 'exists') {
-				die('exists');
+				echo json_encode([
+				'status' => 0,
+				'message' => 'Email already registered!'
+				]);
 			}
 			else{
-				die("Registration failed cos no record was inserted");
+				echo json_encode([
+				'status' => 0,
+				'message' => 'Registration failed. No record was inserted.'
+				]);
+				// die("Registration failed cos no record was inserted");
 			}
 	}
 

@@ -142,26 +142,19 @@ const public_key = pair.publicKey();
                     $.ajax('process.php',{
                     type : 'post',
                     data : data,
-                    success: function(data){
-
-                        if(data=='true'){
+                    success: function(data2){
+                        var data = JSON.parse(data2);
+                        if(data.status == 1){
                             $("#message").addClass('alert alert-success');
-                        $("#message").html("Registration successful");
-
-                        $("#register").html('Registration successful');
-
-                        window.location ="dashboard.php";
+                            $("#message").html(data.message);
+                            $("#register").html(data.message);
+                            window.location ="dashboard.php";
                         }
-                        else if( data == 'exists') {
-                            console.log("Email already registered!");
-                            $("#message").html("Email already registered!");
-                            $("#register").html('Email already registered!');
+                        else {
+                            $("#message").addClass('alert alert-danger');
+                            $("#message").html(data.message);
+                            $("#register").html(data.message);
                         }  
-                        else{
-                            console.log(data);
-                            $("#message").html(data);
-                            $("#register").html("Failed! Can't  Email already exist");
-                        } 
                     },
                     error : function(jqXHR,textStatus,errorThrown){
                         if(textStatus ='error'){
@@ -173,7 +166,6 @@ const public_key = pair.publicKey();
 
                         $("#message").removeClass('alert alert-danger');
                         $("#message").html('');
-
                         $("#register").html('Registering..');
                     },
                 }).catch(function(error){
