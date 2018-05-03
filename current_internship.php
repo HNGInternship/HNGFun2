@@ -91,7 +91,7 @@
 
 
   <section class="mt-5">
-  	
+
   	<div class="profile-box ">
   	  <span class="fa-stack">
   	  	<i class="fa fa-circle fa-stack-2x fa-inverse"></i>
@@ -117,10 +117,10 @@
       <span class="fa-stack">
       	<i class="fa fa-circle fa-stack-2x fa-inverse"></i>
         <i class="fa fa-chevron-right fa-stack-1x "></i>
-      </span>	
+      </span>
   	</div>
   </section>
-  
+
 </main>
 <?php
   include('footer.php');

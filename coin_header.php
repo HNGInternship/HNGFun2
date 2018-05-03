@@ -1,14 +1,15 @@
 
 <?php 
+if(!isset($_SESSION)) { session_start(); }
 
 
-require_once("db.php");
+// require_once("db.php");
 // for choosing active page on nav bar
 
 $fileName=basename($_SERVER['PHP_SELF']);
 
-$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
-$activeArray = array('','','','','','');
+$files = array('buy_coins.php','buyandsell.php','help.php');
+$activeArray = array('','','','');
 
 $fileIndex=array_search($fileName,$files);
 
@@ -110,7 +111,7 @@ $activeArray[$fileIndex]="active";
 			padding-right: 10px;
 		}
 		
-		a{
+		span>a{
 			color: #2196F3;
 		}
          /* media queries */
@@ -140,11 +141,11 @@ $activeArray[$fileIndex]="active";
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Buy HNGcoin <span class="sr-only">(current)</span></a>
+          <li class="nav-item <?= $activeArray[0] ?>">
+            <a class="nav-link" href="#">Buy HNGcoin <span class="sr-only"></span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sell HNGcoin</a>
+          <li class="nav-item <?= $activeArray[1] ?>">
+            <a class="nav-link" href="buyandsell.php">Sell HNGcoin</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Help</a>
@@ -156,6 +157,7 @@ $activeArray[$fileIndex]="active";
         </form> -->
 
             <ul class="navbar-nav ml-auto navbar-row upper-navbar py-0 mt-2 mt-lg-0">
+
             
             <li class="nav-item dropdown py-0 mt-3 mb-0 ">
                 <a class="nav-link dropdown-toggle mr-3 remove-after notification" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -168,17 +170,17 @@ $activeArray[$fileIndex]="active";
 						
 						
 						
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>2 hours ago</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>2 hours ago</span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>29 April</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>29 April</span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>26 April </span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>26 April </span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>25 April</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#buynote">buy</a> 0.321 coins<br/>25 April</span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>24 April</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>24 April</span>
 						<div class="dropdown-divider"></div>
-						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>20 April</span>
+						<span class="dropdown-item hover-text" href="#"><img src="img/gimage.png" width="10%"> &nbsp; <a href="">Marvelous350</a> wants to <a href="#" data-toggle="modal" data-target="#sellnote">sell</a> 0.321 coins<br/>20 April</span>
 						<div class="dropdown-divider"></div>
 						
 										

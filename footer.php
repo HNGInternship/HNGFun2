@@ -27,7 +27,7 @@
     
             </ul>
             <div style="text-align: center">
-                <p class="copyright text-muted">Copyright &copy; HNG FUN <?php echo date("Y")?></p> 
+                <p class="copyright text-muted">Copyright &copy; HNG FUN 2018</p> 
             </div>
          </div>
       </div>
@@ -35,13 +35,12 @@
 </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+   <!-- <script src="vendor/jquery/jquery.min.js"></script>-->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.0/stellar-sdk.min.js"></script>
     <script src="js/hng.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -60,18 +59,5 @@ footer{
 }
 </style>
 
-<!-- <script type="text/javascript">
-
-  $( document ).ready(function() {
-    console.log( "ready!" );
-});
-
-  window.onload=function(){
-      console.log("loaded");
-      var pageName=['index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php'];
-      var path=window.location.pathname;
-      console.log("hjgfhg "+path);
-    }
-    </script> -->
 
 </html>

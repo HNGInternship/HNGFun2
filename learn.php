@@ -50,7 +50,6 @@ include_once("header.php");
     .brief {
         font-size: 0.6em;
     }
-
     /* media queries */
     @media (min-width: 900px) { 
         .learn-card {
@@ -61,7 +60,6 @@ include_once("header.php");
 
 <div class="container">
     <div class="row justify-content-md-center text-center">
-        <div class="col"></div>
         <div class="col-8" style="margin-top: 1em;">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">What Interns Learn</h1>
             <hr class="under-line">
@@ -71,8 +69,11 @@ include_once("header.php");
             </span>
 
         </div>
-        <div class="col"></div>
     </div>
+
+<!-- <hr> -->
+<!-- courses -->
+
     <div class="row justify-content-md-center">
         <div class="col"></div>
         <div class="col-8">

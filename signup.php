@@ -1,6 +1,13 @@
 <?php
-include_once("header.php");
+session_start();
+require_once 'User.php';
+include('header.php');
 ?>
+<script>
+const pair = StellarSdk.Keypair.random();
+const private_key = pair.secret();
+const public_key = pair.publicKey();
+</script>
 
 <style>
     body {
@@ -39,11 +46,8 @@ include_once("header.php");
         </p>
         <p><span style='color: grey'>Already have an account?</span> <a class='link' href="login.php" style="color: #2196F3; text-decoration: none">Login</a></p>
         </div>
-                <div id="message">
-            
-               </div>
-               
-            <form action="" class="text-center" name="register_form" id="register_form">
+        <div id="message"></div>
+            <form action="" method="post" class="text-center" name="register_form" id="register_form">
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
@@ -52,43 +56,16 @@ include_once("header.php");
                     <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
                 </div>
             </div>
-
-            <input type="hidden" name="username" id="username" class="form-control" placeholder="User Name">
-
-             
+            <input type="hidden" name="username" id="username" class="form-control" placeholder="User Name">      
             <br />
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
                 </div>
                 <div class="form-group col-md-6" style="padding-right:50px">
-                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 </div>
-            </div>
-            <br />
-           
-            <div class="form-row">
-                <div class="form-group col-md-6" style="padding-right:50px">
-                     <input type="text" name="country" id="country" class="form-control" placeholder="Enter your country ">
-                  </div>
-                    <div class="form-group col-md-6" style="padding-right:50px">
-                        <input type="text" name="state" id="state" class="form-control" placeholder="Enter your state ">
-                    </div>
-        </div>
-            
-            
-            <br />
-             <div class="form-row">
-                        <div class="form-group col-md-6" style="padding-right:50px">
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group col-md-6" style="padding-right:50px">
-                            <input type="password" name="password_confirm" id="password_confirm" class="form-control" placeholder="Confirm Password ">
-                        </div>
-                    </div>
-                <input type="hidden" name="registration" value="yes">
-
-            
+            </div> <input type="hidden" name="registration" value="yes">
             <br />
             <div class="form-group">
                 <div class="form-check">
@@ -106,128 +83,97 @@ include_once("header.php");
     </div>
 </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.0/stellar-sdk.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script type="text/javascript">
        $( document ).ready(function() {
     $("#register").click(function(e){
-        console.log("fhdfdhdhghg")
         e.preventDefault();
-
-        const pair = StellarSdk.Keypair.random();
-
-        const secret_key = pair.secret();
-        // SAV76USXIJOBMEQXPANUOQM6F5LIOTLPDIDVRJBFFE2MDJXG24TAPUU7
-        const public_key = pair.publicKey();
-        // GCFXHS4GXL6BVUCXBWXGTITROWLVYXQKQLF4YH5O5JT3YZXCYPAFBJZB
-
-
 
         var firstname = $("#firstname").val();
          var lastname = $("#lastname").val();
         var email = $("#email").val();
-        var phone = $("#phone").val(); 
         var password = $("#password").val();
-        var password_confirm = $("#password_confirm").val();
-        var state = $("#state").val();
-        var country = $("#country").val();
-
         var terms = $('#terms').is(':checked'); 
         
         if(firstname ==""){
-            alert('please enter your firstname');
+            //alert('please enter your firstname');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter your firstname');
         }
         else if(lastname ==""){
-            alert('please enter your lastname');
+            //alert('please enter your lastname');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter your lastname');
         }
        else if(email ==""){
-            alert('please enter email');
+            //alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
         }
-        else if(country ==""){
-            alert('Please enter your country');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter your country');
-        }
-
-        else if(state ==""){
-            alert('Please enter state');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter state');
-        }
-
-         else if(phone ==""){
-            alert('Please enter Phone Number');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter Phone Number');
-        }
         else if(password ==""){
-            alert('Please enter password');
+           // alert('Please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
         }
-
-        else if(password != password_confirm){
-            alert('Passwords dont match');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Passwords dont match');
-        }
         else if(terms == false){
-            alert('You must accept our terms and conditions to register');
+           // alert('You must accept our terms and conditions to register');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Terms and conditions not accepted by you');
         }
         else{
             
-            $("#username").val(firstname);
-            
+            $("#username").val(firstname);            
             $("#register").html('Registering..');
 
-             var data = $("#register_form").serialize();
-             data += "&public_key=" + public_key + "&secret_key=" + secret_key;
-
-            console.log(data)
-
-            $.ajax('process.php',{
-            type : 'post',
-            data : data,
-            success: function(data){
-
-             if(data==true){
-                $("#message").addClass('alert alert-success');
-            $("#message").html("Registration successful");
-
-            $("#register").html('Registration successful');
-
-            window.location ="dashboard.php";
-             }  
-             else{
-                alert(data);
-                $("#message").html(data);
-                 $("#register").html('Failed');
-             } 
+            var data = $("#register_form").serialize();
             
+            const pair = StellarSdk.Keypair.random();
+            const private_key = pair.secret();
+            const public_key = pair.publicKey();
 
-            },
-           error : function(jqXHR,textStatus,errorThrown){
-                 if(textStatus ='error'){
-                    alert('Request not completed');
-                 }
-                $("#register").html('Failed');
-            },
-            beforeSend :function(){
+            // use public key to create account
+            axios
+                .get('https://friendbot.stellar.org?addr='+public_key)
+                .then(function(response){
+                    data += "&private_key="+private_key+"&public_key="+public_key;
+                        
+                   
+                    $.ajax('process.php',{
+                    type : 'post',
+                    data : data,
+                    success: function(data2){
+                        var data = JSON.parse(data2);
+                        if(data.status == 1){
+                            $("#message").addClass('alert alert-success');
+                            $("#message").html(data.message);
+                            $("#register").html(data.message);
+                            window.location ="dashboard.php";
+                        }
+                        else {
+                            $("#message").addClass('alert alert-danger');
+                            $("#message").html(data.message);
+                            $("#register").html(data.message);
+                        }  
+                    },
+                    error : function(jqXHR,textStatus,errorThrown){
+                        if(textStatus ='error'){
+                            console.log(errorThrown);
+                        }
+                        $("#register").html('Failed! User already exists');
+                        },
+                    beforeSend :function(){
 
-            $("#message").removeClass('alert alert-danger');
-            $("#message").html('');
-
-            $("#register").html('Registering..');
-            },
+                        $("#message").removeClass('alert alert-danger');
+                        $("#message").html('');
+                        $("#register").html('Registering..');
+                    },
+                }).catch(function(error){
+                    console.error(error);
+                });
         });
-     
+    
+
         }
         
      });
