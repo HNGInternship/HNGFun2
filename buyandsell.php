@@ -10,6 +10,9 @@ if(!empty($_SESSION["id"])){
 	$user = new User();
 	$public_key = $user->getPublicKey($_SESSION["id"], $db);
 	$accounts = $user->getAccounts($_SESSION["id"], $db);
+	if(empty($accounts)){
+		$accounts = [];
+	}
 	
 }else{
 	$public_key = "45374903039388474 - User not logged in";
@@ -287,7 +290,7 @@ h3{
 							<div class="col-3">
 							<?php echo $r['bid_per_coin']; ?> <br/>NGN
 
-							
+
 							</div>
 							
 							<div class="col-2">
@@ -359,17 +362,6 @@ h3{
 				Amount of HNGcoin: <br/>
 				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin" name="amount"></input><br/>
 
-				Bank ID: <br/>
-				<input type="text" placeholder="4039" class="form-control" id="bankId" name="bankId"></input><br/>
-
-				Bank Name: <br/>
-				<input type="text" placeholder="First Bank" class="form-control" id="bankName" name="bankName"></input><br/>
-
-				Bank Number: <br/>
-				<input type="text" placeholder="1234567890" class="form-control" id="bankNumber" name="bankNumber"></input><br/>
-
-
-
 				Sell to HNG &nbsp;&nbsp;
 				<input type="checkbox" placeholder="Buyer Wallet ID"  id="buyer-wallet-id" name="HNG"></input>
 			</div>
@@ -388,15 +380,7 @@ h3{
 				<input type="text" placeholder="3,340,345.64" class="form-control" id="price" name="price"></input> <br/>
 				Trade Limit: <br/>
 				<input type="text" placeholder="1" class="form-control" id="trade_limit" name="trade_limit"></input><br/>
-
-				Account Name: <br/>
-				<input type="text" placeholder="Marvelous Peter John" class="form-control" id="acctName" name="acctName"></input><br/>
-				
-
-				Account Number: <br/>
-				<input type="text" placeholder="1234567890" class="form-control" id="acctNumber" name="acctNumber"></input><br/>
-
-				
+	
 			</div>
 			<div class="col-md-12 offset-md-3">
 			<button type="submit" name="sellCoin" class="btn btn-primary mod">Sell</button>
