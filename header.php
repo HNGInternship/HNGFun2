@@ -51,6 +51,14 @@
             font-weight: bold;
         }
 
+        .navbar{
+          font-size: 15px;
+          font-weight: bold;
+          padding-right: 100px;
+          padding-left: 100px;
+          background-color: #FFFFFF;
+        }
+
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
@@ -61,8 +69,6 @@
             border-bottom: 3px solid rgb(90, 145, 247);
         }
 
-
-
         li.nav-item {
             padding-bottom: 0px;
         }
@@ -72,7 +78,9 @@
             display: block;
         }
 
-    ?>
+        footer {
+          background: #FFFFFF;
+        }
 
     nav.navbar {
         box-sizing: border-box !important;

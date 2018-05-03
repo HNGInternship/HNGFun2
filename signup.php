@@ -61,8 +61,8 @@ const public_key = pair.publicKey();
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="<?php if (isset($_POST['email'])) {
-                                                                                                                            echo $_POST['email'];
-                                                                                                                        } ?>">
+																																																																																																																								echo $_POST['email'];
+																																																																																																																							} ?>">
                 </div>
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
@@ -145,8 +145,7 @@ const public_key = pair.publicKey();
                     type : 'post',
                     data : data,
                     success: function(data){
-
-                        if(data=='true'){
+                        if(data==true){
                             $("#message").addClass('alert alert-success');
                         $("#message").html("Registration successful");
 
@@ -154,6 +153,7 @@ const public_key = pair.publicKey();
 
                         window.location ="dashboard.php";
                         }
+
                         else if( data == 'exists') {
                             console.log("Email already registered!");
                             $("#message").html("Email already registered!");

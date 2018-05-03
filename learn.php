@@ -63,11 +63,11 @@ include_once("header.php");
     <div class="row justify-content-md-center text-center">
         <div class="col"></div>
         <div class="col-8">
-            <h3>What Interns Learn</h3>
+            <h1>What Interns Learn</h1>
             <hr class="under-line">
             <span>
                 HNG 4.0 has been a life-transforming journey for interns across Africa.
-                Don’t take our word for it...take theirs. Sample text.
+                Don’t take our word for it... take theirs.
             </span>
         </div>
         <div class="col"></div>
