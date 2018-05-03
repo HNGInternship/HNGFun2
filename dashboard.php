@@ -44,78 +44,76 @@ include_once("dashboard-header.php");
 
 
       <style>
-        body{
-            background-color: #f4f4f4;
-            font-family: 'Lato', sans-serif;
-        }
-        .text{
-            color: rgb(90, 145, 247);
-            font-weight: bold;
-            font-size: 40px;
-            float:right;
-            margin-right: 350px;
-            margin-top: 0px;
-        }
+          body{
+              background-color: #f4f4f4;
+              font-family: 'Lato', sans-serif;
+          }
 
+    <?php if (function_exists('custom_styles')) {
+        custom_styles();
+      }
+      ?>
 
+      .container {
+          box-sizing: border-box !important;
+          padding: 0px 10px !important;
+          margin-left: 60px;
+          font-size: 15px;
+          font-weight: bold;
+          display: inline-block;
+          width: 100%;
+          border: 2px solid #fafafa;
+          background: #fafafa !important;
+              padding: 10px 30px !important;
+      }
 
-  <?php if (function_exists('custom_styles')) {
-      custom_styles();
-    }
-    ?>
-
-    .container {
-        box-sizing: border-box !important;
-        padding: 0px 30px !important;
+      .coin {
         font-size: 15px;
+        font-weight: lighter;
+        padding-left: 20px;
+        padding-top: 5px;
+        text-align: center;
+
+      }
+
+      .coinvalue {
+
+        font-size: 40px;
         font-weight: bold;
-        display: inline-block;
-        width: 100%;
-        background: #fafafa !important;
-            padding: 10px 50px !important;
-    }
+        float: left;
+        margin-left: 40%;
+        padding-right: 10px;
+      }
 
-    .container2 {
-      text-align: center;
-      margin-right: 3px;
-    }
+      .coincode {
+        text-align:center;
+        font-size: 15px;
+        margin-top:5px;
+      }
 
-    .coin {
-      font-size: 15px;
-      font-weight: lighter;
-      padding-left: 50px;
-      padding-top: 5px;
-      text-align: center;
-
-    }
-
-    .coinvalue {
-      text-align: center;
-      font-size: 40px;
-      font-weight: bold;
-      float: left;
-      margin-left: 475px;
-    }
-
-    .coincode {
-      text-align:center;
-      font-size: 15px;
-      margin-top:50px;
-    }
-
-
-        @media (min-width: 992px){
-        .container2 .coinvalue .text {
-            padding-right: .5rem;
-            padding-left: .5rem;
-            padding-top: 20px;
-            font-size: 15px !important;
-        }
+      .text{
+          color: rgb(90, 145, 247);
+          font-weight: bold;
+          font-size: 40px;
+          float:center;
+          margin-right: 30%;
+          margin-top: 0px;
+          padding-left: 10px;
       }
 
 
+          @media (min-width: 992px){
+          .container2 .coinvalue {
+              padding-right: .5rem;
+              padding-left: .5rem;
+              padding-top: 20px;
+              font-size: 15px !important;
+          }
+        }
 
-    </style>
+
+
+      </style>
 
     <link href="css/dashboard-menu.css" rel="stylesheet">
 
@@ -126,7 +124,7 @@ include_once("dashboard-header.php");
       <div class="coin">Hng Coin wallet</div>
       <div class="container2">
       <div class="coinvalue">9.0000 </div>
-      <div class="text">Hng</div>
+      <div class="text">HNG</div>
     </div>
       <div class="coincode"><p>HNG Wallet Address: 1Nhghg5758bhjgjf</p></div>
     </div>
