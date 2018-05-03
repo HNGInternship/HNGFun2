@@ -1,19 +1,19 @@
 <?php
-if(!isset($_SESSION)) { session_start(); }
-if(empty($_SESSION)){
-	header("Location: login.php");
-}
+// if(!isset($_SESSION)) { session_start(); }
+// if(empty($_SESSION)){
+// 	header("Location: login.php");
+// }
 include_once("coin_header.php");
-include_once("db.php");
-if(!empty($_SESSION["id"])){
-	require_once('User.php');
-	$user = new User();
-	$public_key = $user->getPublicKey($_SESSION["id"], $db);
-	$accounts = $user->getAccounts($_SESSION["id"], $db);
+// include_once("db.php");
+// if(!empty($_SESSION["id"])){
+// 	require_once('User.php');
+// 	$user = new User();
+// 	$public_key = $user->getPublicKey($_SESSION["id"], $db);
+// 	$accounts = $user->getAccounts($_SESSION["id"], $db);
 	
-}else{
-	$public_key = "45374903039388474 - User not logged in";
-}
+// }else{
+// 	$public_key = "45374903039388474 - User not logged in";
+// }
 
 
 
@@ -21,17 +21,17 @@ if(!empty($_SESSION["id"])){
 
 <?php
 
-	$sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id WHERE sell_requests.status = 'Open'";
-	$stmt = $db->prepare($sql);
-	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-	$stmt->execute();
-	$sell_requests = $stmt->fetchAll();
+	// $sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id WHERE sell_requests.status = 'Open'";
+	// $stmt = $db->prepare($sql);
+	// $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	// $stmt->execute();
+	// $sell_requests = $stmt->fetchAll();
 
-	$sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id WHERE buy_requests.status = 'Open'";
-	$stmt = $db->prepare($sql);
-	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-	$stmt->execute();
-	$buy_requests = $stmt->fetchAll();
+	// $sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id WHERE buy_requests.status = 'Open'";
+	// $stmt = $db->prepare($sql);
+	// $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	// $stmt->execute();
+	// $buy_requests = $stmt->fetchAll();
 	
 ?>
 
@@ -341,7 +341,7 @@ h3{
 	</div>
 </section>
 
-<!---Modal--->
+<!---Modal-->
 <div class="modal fade bd-example-modal-lg" id="sellModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -356,7 +356,19 @@ h3{
 				<input type="text" placeholder="Marvelous350" class="form-control" id="wallet-id" name="wallet" value="<?php echo $public_key ?>" readonly></input> <br/>
 				Amount of HNGcoin: <br/>
 				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin" name="amount"></input><br/>
-				Sell to HNG<br/>
+
+				Bank ID: <br/>
+				<input type="text" placeholder="4039" class="form-control" id="bankId" name="bankId"></input><br/>
+
+				Bank Name: <br/>
+				<input type="text" placeholder="First Bank" class="form-control" id="bankName" name="bankName"></input><br/>
+
+				Bank Number: <br/>
+				<input type="text" placeholder="1234567890" class="form-control" id="bankNumber" name="bankNumber"></input><br/>
+
+
+
+				Sell to HNG &nbsp;&nbsp;
 				<input type="checkbox" placeholder="Buyer Wallet ID"  id="buyer-wallet-id" name="HNG"></input>
 			</div>
 			<div class="col">
@@ -374,6 +386,14 @@ h3{
 				<input type="text" placeholder="3,340,345.64" class="form-control" id="price" name="price"></input> <br/>
 				Trade Limit: <br/>
 				<input type="text" placeholder="1" class="form-control" id="trade_limit" name="trade_limit"></input><br/>
+
+				Account Name: <br/>
+				<input type="text" placeholder="Marvelous Peter John" class="form-control" id="acctName" name="acctName"></input><br/>
+				
+
+				Account Number: <br/>
+				<input type="text" placeholder="1234567890" class="form-control" id="acctNumber" name="acctNumber"></input><br/>
+
 				
 			</div>
 			<div class="col-md-12 offset-md-3">
@@ -381,6 +401,8 @@ h3{
 			</div>
 		</div>
 		</form>
+
+
       </div>
       <div class="modal-footer mx-auto text-center">
 		<div class="col mx-auto text-center">
@@ -393,7 +415,7 @@ h3{
 </div>
 
 
-<!---Buy Modal--->
+<!---Buy Modal-->
 <div class="modal fade bd-example-modal-lg" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
