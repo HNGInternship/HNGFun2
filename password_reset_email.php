@@ -11,6 +11,7 @@
   <!--<![endif]-->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <style type="text/css">
   
     #outlook a {
@@ -32,6 +33,7 @@
     body {
       margin: 0;
       padding: 0;
+      font-family: 'Lato', sans-serif;
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
     }
