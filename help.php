@@ -278,12 +278,10 @@ include_once("header.php");
                     </div>
                   </div>
                   <div class="card">
-                    <div class="card-header" id="headingTwo">
+                    <div class="card-header" id="headingThree">
                       <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Do I need any prior programming experience to join?
-
-                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                          Do I need any prior programming experience to join?<i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </button>
                       </h5>
                     </div>
@@ -294,7 +292,7 @@ include_once("header.php");
                     </div>
                   </div>
                   <div class="card">
-                    <div class="card-header" id="headingThree">
+                    <div class="card-header" id="headingfour">
                       <h5 class="mb-0">
                         <button  class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                           What are the basic requirements for this program?
@@ -302,7 +300,7 @@ include_once("header.php");
                         </button>
                       </h5>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
                       <div class="card-body">
                         These are some basic prerequisites for this program: <br><br>1. You are self driven and motivated to learn. Participation in this program requires consistently meeting the deadlines.<br><br>
 2. You have access to a computer with broadband connection, on which you will install a professional code/text editor.<br><br>
