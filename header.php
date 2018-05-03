@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
     <link rel="shortcut icon" href="images/favicon.png">
-   
+
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
@@ -39,7 +39,7 @@
       <link href="css/404.css" rel="stylesheet">
       <link href="css/contact.css" rel="stylesheet">
       <!-- <link href="css/carousel.css" rel="stylesheet"> -->
-      
+
 
       <style>
         body{
@@ -49,14 +49,14 @@
         #navbar{
             font-size: 15px;
             font-weight: bold;
-        } 
-        
+        }
+
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
         }
 
-        .nav-item:hover { 
+        .nav-item:hover {
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
         }
@@ -72,9 +72,6 @@
             display: block;
         }
 
-  <?php if (function_exists('custom_styles')) {
-      custom_styles();
-    }
     ?>
 
     nav.navbar {
@@ -132,7 +129,9 @@
     .navbar-fixed {
       background: #f4f4f4 !important;
     }
-
+  <?php if (function_exists('custom_styles')) {
+        custom_styles();
+    } ?>
     </style>
 
 
@@ -160,7 +159,7 @@
                     <a href="sponsors.php" class="nav-link">SPONSORS</a>
                 </li> <li class="nav-item">
                     <a href="#" class="nav-link">ALUMNI</a>
-                </li> 
+                </li>
                 <!-- Fix if(signed_in) display "login" else display "logout" -->
                 <!-- </li> <li class="nav-item">
                     <a href="login.php" class="nav-link">LOGIN</a>
@@ -168,8 +167,9 @@
                 <!-- <li class="nav-item"> -->
                     <!-- <a href="logout.php" class="nav-link">LOGOUT</a> -->
                 <!-- </li> -->
-        
+
             </ul>
-            
+          <!-- </div> -->
+
         </nav>
     </div>
