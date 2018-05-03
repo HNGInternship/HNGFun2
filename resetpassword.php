@@ -7,17 +7,6 @@
 .button-holder{
   padding-top:100px;
 }
-.ajax-button{
-  position:relative;
-  display:inline-block;
-  width:100px;
-  height:40px;
-  left:50%;
-  top:50%;
-  margin-left:-50px;
-  margin-top:-20px;
-  text-align:center;
-}
 .btn-reset {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -107,11 +96,9 @@ include_once("header.php");
                 <input type="text" name="email" class="form-control form-control-lg rounded-right" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
                 <br />
                 <input type="hidden" name="pword-reset" value="yes">
-              <div class="ajax-button">
                 <div class="fa fa-check done"></div>
             <div class="fa fa-close failed"></div>
-                <button id="btn-reset" name="pword-reset" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;" onclick="ButtonClicked1()">Reset Password</button>
- </div>
+                <button id="btn-reset" name="pword-reset" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;">Reset Password</button>
                      Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
                 </p>
             </div>
@@ -134,7 +121,7 @@ include_once("header.php");
                 <input type="password" name="pass-confirm" class="form-control form-control-lg rounded-right" placeholder="Confirm Password" aria-label="Username" aria-describedby="basic-addon1">
                 <br />
                 <input type="hidden" name="token" value="<?php $token = $_GET['token']; echo $token;   ?>">
-                <button id="btn-change" name="pword-change" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;" onclick="ButtonClicked()">Change Password</button>
+                <button id="btn-change" name="pword-change" class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;">Change Password</button>
                 <div class="fa fa-check done"></div>
             <div class="fa fa-close failed"></div>
                      Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
@@ -164,15 +151,15 @@ include_once("header.php");
                 success: function(response){
                     response = JSON.parse(response);
                     if(response.status == 1){
-                      $(".btn-reset").addClass("loading");
+                      $(".submit").addClass("loading");
     setTimeout(function() {
-      $(".btn-reset").addClass("hide-loading");
+      $("#btn-reset").addClass("hide-loading");
       // For failed icon just replace ".done" with ".failed"
       $(".done").addClass("finish");
     }, 3000);
     setTimeout(function() {
-      $(".btn-reset").removeClass("loading");
-      $(".btn-reset").removeClass("hide-loading");
+      $("#btn-reset").removeClass("loading");
+      $("#btn-reset").removeClass("hide-loading");
       $(".done").removeClass("finish");
       $(".failed").removeClass("finish");
     }, 5000);
@@ -181,15 +168,15 @@ include_once("header.php");
                         $('#form-reset').hide();
                     }
                     else{
-                                            $(".btn-reset").addClass("loading");
+                                           $("#form-reset").addClass("loading");
     setTimeout(function() {
-      $(".btn-reset").addClass("hide-loading");
+      $("#form-reset").addClass("hide-loading");
       // For failed icon just replace ".done" with ".failed"
       $(".failed").addClass("finish");
     }, 3000);
     setTimeout(function() {
-      $(".btn-reset").removeClass("loading");
-      $(".btn-reset").removeClass("hide-loading");
+      $("#form-reset").removeClass("loading");
+      $("#form-reset").removeClass("hide-loading");
       $(".done").removeClass("finish");
       $(".failed").removeClass("finish");
     }, 5000);
@@ -220,7 +207,6 @@ include_once("header.php");
             });
         });
     })
-  
 
 
 </script>
