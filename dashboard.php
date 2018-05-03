@@ -57,13 +57,6 @@ include_once("dashboard-header.php");
             margin-top: 0px;
         }
 
-
-
-  <?php if (function_exists('custom_styles')) {
-      custom_styles();
-    }
-    ?>
-
     .container {
         box-sizing: border-box !important;
         padding: 0px 30px !important;
@@ -113,7 +106,10 @@ include_once("dashboard-header.php");
         }
       }
 
-
+    <?php if (function_exists('custom_styles')) {
+      custom_styles();
+    }
+    ?>
 
     </style>
 
