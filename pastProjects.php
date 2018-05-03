@@ -11,6 +11,9 @@ include_once("header.php");
 		position: relative;
 		margin-bottom: 150px;
 	}
+	p{
+		border-radius: 20px;
+	}
 </style>
 
 
@@ -18,44 +21,44 @@ include_once("header.php");
 	<div class="text-center">
 		<h2 style="font-weight: bold; font-size: 40px;">Things Built</h2>
 		<span style="font-weight: bold; font-size: 10px;"><hr style="width: 100px; border: 1px solid"></span>
-		<p style="font-size: 17px; padding-left: 150px; padding-right: 150px; margin-bottom: 25px">HNG has been a life transforming journey for both new and experienced developer across the whole world expecially africa.
+		<p style="font-size: 17px; margin-bottom: 25px">HNG has been a life transforming journey for both new and experienced developer across the whole<br/> world expecially africa.
 		Check all project made by participants when grouped into teams.</p>
 	</div>
 	<div align="center">
 		<div class="row">
-			<div class="col-lg-4" style="position: relative; margin-bottom: 60px; border:0px">
-				<div style="width: 300px; border:1px solid; height: 200px; background-image: url(https://d.novoresume.com/images/doc/college-cv-template.png); background-position: center; background-size: cover; -webkit-background-size: cover; position: absolute; opacity: 0.2; margin: 0; padding: 0; padding-left: 200px;"></div>
-				<div style="padding-top: 25%;text-align: left; font-weight: bold;margin-left: 10px">Cv Designs</div>
+			<div class="col-lg-4" style="position: relative;">
+				<p style="width: 300px; height: 200px; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://d.novoresume.com/images/doc/college-cv-template.png);position: absolute; background-position: center; opacity: ; background-size: cover; -webkit-background-size: cover; margin: 0; padding: 0; padding-left: 200px;"></p>
+				<div style="position: relative;padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px; color: white; font-size: 30px">Cv Designs<br/><span style="font-size: 18px">1700 Interns</span></div>
 			</div>
 			<div class="col-lg-4">
-				<p style="width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTttJw0TufJgVXy4WrDhbaPcZ31HrqL38eAMGuOHq-UFXNQETQl); background-position: center; background-size: cover; -webkit-background-size: cover; font-weight: bold; color: white; position: absolute; opacity: 0.2; margin: 0; padding: 0"></p><div style="text-align: left;padding-top: 25%; font-weight: bold; margin-left: 10px"> Transcribe app</div>
+				<p style="width: 300px; height: 200px; text-align: center; padding-top: 25%; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTttJw0TufJgVXy4WrDhbaPcZ31HrqL38eAMGuOHq-UFXNQETQl); background-position: center; background-size: cover; -webkit-background-size: cover; font-weight: bold; position: absolute;; margin: 0; padding: 0"></p><div style="position: relative; padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px;; color: white; font-size: 30px"> Transcribe app<br/><span style="font-size: 18px">200 Interns</span></div>
 			</div>
 			<div class="col-lg-4">
-				<p style="margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFn-00QAOXZBeLhETx1HwDlHw5JHHyWDAyMBwEnlRGu3Ird9K9Eg); position: absolute; opacity: 0.2;"></p><div style="text-align: left;padding-top: 25%; font-weight: bold; margin-left: 10px"> Ig Vendors</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4">
-				<p style="margin-bottom: 60px; margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2FIZQvP4PRirshrIqCK5XTd6W1zsExEefvT9m2xGtU9kNcbLlXA); position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Wireframe</div>
-			</div>
-			<div class="col-lg-4">
-				<p style="margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUpu6fNbNOAeJpjSKJ9i9e9TdAVKxcBKaP7VwBmIhNDBxXi3WAqA); position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Power Pack</div>
-			</div>
-			<div class="col-lg-4">
-				<p style="margin: 0; padding: 0; width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLyA34KEHTfPTraZruJjKYeIO2kBTiPKQzC6TEBa1hP3LYKfMq); color: white; position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Banner and bilboards design</div>
+				<p style="margin: 0; padding: 0;width: 300px; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFn-00QAOXZBeLhETx1HwDlHw5JHHyWDAyMBwEnlRGu3Ird9K9Eg); position: absolute;"></p><div style="position: relative;color: white; font-size: 30px;padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px;"> Ig Vendors<br/><span style="font-size: 18px">27 Interns</span></div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-4">
-				<p style="margin: 0; padding: 0;margin-bottom: 60px;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: cener; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXBCsMzKv9WxEAkD72wajAu2OVYdcWs8H9LVBKrousmA8lhq88BQ); position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Fast Pay</div>
+				<p style=" margin: 0; padding: 0;width: 300px; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2FIZQvP4PRirshrIqCK5XTd6W1zsExEefvT9m2xGtU9kNcbLlXA); position: absolute;"></p><div style="position: relative; font-size: 30px; color: white; text-align: center;padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px;"> Wireframe<br/><span style="font-size: 18px">10 Interns</span></div>
 			</div>
 			<div class="col-lg-4">
-				<p style="margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR86NHWKQO3eMVzheK4Hd0q7QS3piRtAkhcBaIwr3-nCXpk2BXc); position: absolute; opacity: 0.2;"></p> <div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px"> Profile Pages</div>
+				<p style="margin: 0; padding: 0;width: 300px; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUpu6fNbNOAeJpjSKJ9i9e9TdAVKxcBKaP7VwBmIhNDBxXi3WAqA); position: absolute;"></p><div style="position: relative; font-size: 30px; color: white; text-align: center;padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px;"> Power Pack<br/><span style="font-size: 18px">24 Interns</span></div>
+			</div>
+			<div class="col-lg-4">
+				<p style="margin: 0; padding: 0; width: 300px; height: 200px; text-align: center; padding-top: 25%; background-position: center; background-size: cover; -webkit-background-size: cover; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLyA34KEHTfPTraZruJjKYeIO2kBTiPKQzC6TEBa1hP3LYKfMq); color: white; position: absolute;"></p><div style="padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px; position: relative; font-size: 30px; color: white;"> Banner design<br/><span style="font-size: 18px">400 Interns</span></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<p style="margin: 0; padding: 0;margin-bottom: 60px;width: 300px; height: 200px; text-align: center; background-position: center; background-size: cover; -webkit-background-size: cover; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXBCsMzKv9WxEAkD72wajAu2OVYdcWs8H9LVBKrousmA8lhq88BQ); position: absolute;"></p><div style="padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px; position: relative; color: white; font-size: 30px"> Fast Pay<br/><span style="font-size: 18px">68 Interns</span></div>
+			</div>
+			<div class="col-lg-4">
+				<p style="margin: 0; padding: 0;width: 300px;  height: 200px; text-align: center; background-position: center; background-size: cover; -webkit-background-size: cover; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR86NHWKQO3eMVzheK4Hd0q7QS3piRtAkhcBaIwr3-nCXpk2BXc); position: absolute;"></p> <div style="position: relative; color: white; font-size: 30px; padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px;"> Profile Pages<br/><span style="font-size: 18px">4000 Interns</span></div>
 			</div>
 
 			<div class="col-lg-4">
-				<p id="emails" style="margin: 0; padding: 0;width: 300px; border:1px solid; height: 200px; text-align: center; padding-top: 25%; background-image: url(http://res.cloudinary.com/pajimo/image/upload/v1525094886/download.png); background-position: center; background-size: cover; -webkit-background-size: cover;
-  font-size: 20px; position: absolute; opacity: 0.2;"></p><div style="text-align: center;padding-top: 25%; text-align: left; font-weight: bold;margin-left: 10px">Project Emails</div>
+				<p id="emails" style="margin: 0; padding: 0;width: 300px; height: 200px; text-align: center; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(http://res.cloudinary.com/pajimo/image/upload/v1525094886/download.png); background-position: center; background-size: cover; -webkit-background-size: cover;
+ position: absolute;"></p><div style="font-size: 30px; color: white; position: relative;padding-top: 15%;text-align: center; font-weight: bold;padding-right: 60px;">Project Emails<br/><span style="font-size: 18px">70 Interns</span></div>
 			</div>
 		</div>
 
