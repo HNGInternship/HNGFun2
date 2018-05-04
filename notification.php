@@ -10,7 +10,7 @@ include_once("coin_header.php");
 
 }
 
-a{
+.blueLink{
 	color: #2196F3;
 }
 
@@ -37,7 +37,7 @@ a{
 			<img src="img/gimage.png">
 		</div>
 		<div class="col-sm-8 colm-md-6 col-lg-8 mx-auto">
-			<span><a href="">Marvelous350</a> wants to <a href="">buy</a> 0.321 coins</span>
+			<span><a class="blueLink" href="">Marvelous350</a> wants to <a class="blueLink" href="">buy</a> 0.321 coins</span>
 		</div>
 		<div class="col-sm-3 colm-md-4 col-lg-3 mx-auto">
 			<span> 29 April at 5:51PM</span>
