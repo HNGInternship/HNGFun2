@@ -11,6 +11,8 @@ class User
         
         $this->table = "interns_data";
         date_default_timezone_set('Africa/Lagos');
+        $this->key = "hvhghgjbjbjbcjkscsucgucg";
+        $this->iv = "hhjhjdjjshhkhksjksjkdsjjksdjk";
         
     }
     
@@ -88,12 +90,12 @@ class User
         }else{
 
             $password_hash = md5($password);
-            $private_key_hash = $this->encrypt($private_key);
+            $private_key_hash = $this->encrypt_decrypt("en", $private_key, $this->key, $this->iv);
             $timee = date('Y-m-d H:i:s');
             $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
             
             // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-            $sql = "INSERT INTO ". $this->table." (firstname, lastname, email, passwordhash, public_key, private_key, token, active, 
+            $sql = "INSERT INTO ". $this->table." (firstname, lastname, email, password, public_key, private_key, token, active, 
                                                 created_at, updated_at) VALUES (:first_name, :last_name, :email, :password_hash, 
                                                 :public_key, :private_key, :token, :active, :created_at, :updated_at)";
 
@@ -513,12 +515,22 @@ public function getAccounts($id, $db){
     
 }
 
-private function encrypt($string, $key){
- return rtrim(base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $string, MCRYPT_MODE_ECB)));
-}
-
-private function decrypt($string, $key){
-  return rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, base64_decode($string),  MCRYPT_MODE_ECB));
+function encrypt_decrypt($action, $string, $secret_key, $secret_iv) {
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+   
+    // hash
+    $key = hash('sha256', $secret_key);
+    
+    // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
+    $iv = substr(hash('sha256', $secret_iv), 0, 16);
+    if ( $action == 'en' ) {
+        $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
+        $output = base64_encode($output);
+    } else if( $action == 'de' ) {
+        $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+    }
+    return $output;
 }
     //member class ends here    
 }
