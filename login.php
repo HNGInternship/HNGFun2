@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 
-define ('DB_USER', "root");
+define ('DB_USER', "admin");
 define ('DB_PASSWORD', "29gE9t*dJ2#2f-BS");
 define ('DB_DATABASE', "dragons_shield");
 define ('DB_HOST', "localhost");
