@@ -165,8 +165,6 @@ include_once("dashboard-header.php");
 
 	function createAccount(){
 		var pair = StellarSdk.Keypair.random();
-		//console.log(pair.secret());
-		//console.log(pair.publicKey());
 		pkey = pair.publicKey();
 		skey = pair.secret();
 		activateAccount(pkey);
@@ -187,9 +185,6 @@ include_once("dashboard-header.php");
 			type: "POST",
 			data: { addr: newAddress },
 			success: function(error, resp, body){
-				//var response = jQuery.parseJSON(resp);
-				//console.log(body.status);
-				//console.log(body.readyState);
 				if(body.status == 200){
 					console.log("Account activation Successful\n");
 					return true;
@@ -213,7 +208,6 @@ include_once("dashboard-header.php");
 			console.log("Balance for account: "+ walletAddress);
 			account.balances.forEach(function(balance){
 				console.log('Type:', balance.asset_type, ', Balance:', balance.balance, ', Asset Code:', balance.asset_code);
-				//bal = balance.balance;
 				if(balance.asset_type == 'credit_alphanum4'){
 					bal[balance.asset_code.toString()] = balance.balance;
 					document.getElementById('balance').innerHTML = balance.balance
@@ -242,7 +236,6 @@ include_once("dashboard-header.php");
 		  .then(function(receiver) {
 			var transaction = new StellarSdk.TransactionBuilder(receiver)
 			  // The `changeTrust` operation creates (or alters) a trustline
-			  // The `limit` parameter below is optional
 			  .addOperation(StellarSdk.Operation.changeTrust({
 				asset: HNGCoin
 			  }))
