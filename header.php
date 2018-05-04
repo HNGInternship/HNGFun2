@@ -80,9 +80,7 @@ $activeArray[$fileIndex]="active";
         .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
         }
-        footer {
-          background: #FAFAFA;
-        }
+
         .justify-space-between {
           justify-content: space-between;
         }
@@ -100,6 +98,19 @@ $activeArray[$fileIndex]="active";
     .btn-primary:focus {
         background-color: #0475CE !important;
     }
+
+
+      /*for footer*/
+    .contact-icon{
+      margin: 0px !important;
+      padding: 0% 2%;
+    }
+
+    footer{
+      background: #FAFAFA !important;
+      color: #3D3D3D;
+    }
+
     </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript">
 </script>
