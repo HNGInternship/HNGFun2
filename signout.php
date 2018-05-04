@@ -26,7 +26,7 @@ include_once("header.php");
     
     
     .footer {
-        background: none;
+        background: none !important;
     }
     
     @media only screen and (max-width: 1000px){
