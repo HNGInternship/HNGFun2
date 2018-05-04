@@ -1,8 +1,6 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
-if(empty($_SESSION)){
-	header("Location: login.php");
-}
+
 include_once("coin_header.php");
 include_once("db.php");
 if(!empty($_SESSION["id"])){
