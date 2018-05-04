@@ -63,23 +63,8 @@ global $db;
         `amount` float NOT NULL,
         `trade_limit` float DEFAULT NULL,
         `price_per_coin` float NOT NULL,
-<<<<<<< HEAD
         `preferred_buyer` ENUM('0', '1') NOT NULL DEFAULT '0',
-        `account_id` int(20) NOT NULL,
-=======
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-        `preferred_buyer` ENUM('0', '1') NOT NULL DEFAULT '0',
-        `account_id` int(20) NOT NULL,
-=======
-        `preferred_buyer` ENUM(0, 1) NOT NULL DEFAULT 0,
-        `account_id` int(10) NOT NULL,
->>>>>>> Stashed changes
-=======
-        `preferred_buyer` ENUM('0', '1') NOT NULL DEFAULT '0',
-        `account_id` int(20) NOT NULL,
->>>>>>> 0fb3c5686131340c0d63ed3a5c21311012e39dd7
->>>>>>> slayers
+        `account_id` int(20) NOT NULL, 
         `status` ENUM('Completed', 'Pending', 'Closed', 'Open') NOT NULL,
         `created_at` DATETIME NOT NULL DEFAULT NOW(),
         PRIMARY KEY (id),
@@ -136,8 +121,22 @@ global $db;
             FOREIGN KEY (buy_request_id) REFERENCES buy_requests (id) on delete cascade,
             FOREIGN KEY (seller_id) REFERENCES interns_data (id) on delete cascade)";
 
+    $sql9 = "CREATE TABLE IF NOT EXISTS `slay` (
+        `id` int(20) NOT NULL AUTO_INCREMENT,
+        `firstname` varchar(100) NOT NULL,
+        `lastname` varchar(100) NOT NULL,
+        `email` varchar(100) NOT NULL,
+        `password_hash` varchar(255) NOT NULL,
+        `public_key` text NOT NULL,
+        `private_key` text NOT NULL,
+        `token` TEXT NULL,
+        `active` TINYINT DEFAULT 0,
+        `created_at` DATETIME NOT NULL DEFAULT NOW(),
+        `updated_at` DATETIME DEFAULT NULL,
+        PRIMARY KEY (id))";
 
-    $sqls = [$sql1, $sql2, $sql3, $sql4, $sql5,$sql6, $sql7, $sql8];
+
+    $sqls = [$sql1, $sql2, $sql3, $sql4, $sql5,$sql6, $sql7, $sql8, $sql9];
 
     foreach ($sqls as $sql) {
         try {

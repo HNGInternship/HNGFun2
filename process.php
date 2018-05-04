@@ -1,5 +1,6 @@
 <?php 
 set_time_limit(0);
+
 if(!isset($_SESSION)) { session_start(); }
 //this file is for processsin requests  
 
@@ -16,9 +17,15 @@ if(isset($conn)) {
 }
 require_once('smtp_credentials.php');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
+
 require_once "vendor/autoload.php";
+
+// using SendGrid's PHP Library
+// https://github.com/sendgrid/sendgrid-php
+
+
 
 //for registration 
 
@@ -70,8 +77,23 @@ if(isset($_POST['registration'])){
                 $message .= '<h3>Thank you for your interest in HNG Internship';
                 $message .= '<p>You may now login to your account <a href="https://hng.fun/login.php">here</a></p>';
 				$message .= '</body></html>';
+
+				$from = new SendGrid\Email("HNG TEAM", "hello@hng.fun");
+				$subject = "Welcome to HNG Internship";
+				$to = new SendGrid\Email($firstname, $email);
+				$content = new SendGrid\Content("text/html", $message);
+				$mail = new SendGrid\Mail($from, $subject, $to, $content);
+				$apiKey = getenv('SENDGRID_API_KEY');
+				$sg = new \SendGrid($apiKey);
+				$response = $sg->client->mail()->send()->post($mail);
+				//$response->statusCode();
+
+				echo json_encode([
+					'status' => 1,
+					'message' => 'Status code: '. $response->statusCode()
+					]);
 				
-				$mail = new PHPMailer;
+				/*$mail = new PHPMailer;
 				
 				//Set PHPMailer to use SMTP.
 				$mail->isSMTP();            
@@ -101,8 +123,8 @@ if(isset($_POST['registration'])){
 				$mail->Body = $message;
 				// $mail->AltBody = "This is the plain text version of the email content";
 				
-				$sent = $mail->send();
-				if(!$sent) 
+				$sent = $mail->send();*/
+				/*if(!$sent) 
 				{
 					// echo "Mailer Error: " . $mail->ErrorInfo;
 					echo json_encode([
@@ -116,7 +138,7 @@ if(isset($_POST['registration'])){
 					'status' => 1,
 					'message' => 'Registration successful'	
 					]);
-				}
+				}*/
 			}
 			elseif($register_check == 'exists') {
 				echo json_encode([
@@ -203,7 +225,7 @@ if(isset($_POST['login'])){
 					                        
 					//Set PHPMailer to use SMTP.
 					$mail->isSMTP();            
-					//Set SMTP host name                          
+					//Set SMTP host name  
 					$mail->Host = SMTP_HOST;
 					//Set this to true if SMTP host requires authentication to send email
 					$mail->SMTPAuth = true;                          
@@ -309,56 +331,57 @@ if(isset($_POST['login'])){
 			]);
 		}
 
-		if(isset($_POST['sellCoin'])){
-			require_once('Sell.php');
-			//connect to database
-			require_once('db.php');
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-			$sell = new Sell();
-			
-			$id = $_SESSION['id'];
-			if($_POST['HNG'] == 'on'){
-				$preferred_buyer = "1";
-			}else{
-				$preferred_buyer = "0";
-			}
-			$amount = $_POST['amount'];
-			$account_id = $_POST['payment_info'];
-			$trade_limit = $_POST['trade_limit'];
-			$price_per_coin = $_POST['price'];
-			$status = "Open";
-			$result = $sell->postRequest($id, $amount, $trade_limit, $price_per_coin, $account_id, $preferred_buyer, $status, $db);
-			if($result){
-				header("Location: /buyandsell.php"); /* Redirect browser */
-				exit();
-			}else{
-				echo "Could not post request";
-			}
-		}
-		if(isset($_POST['buyCoin'])){
-			require_once('Buy.php');
-			//connect to database
-			require_once('db.php');
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-			$buy = new Buy();
-			
-			$id = $_SESSION['id'];
-			$amount = $_POST['amount'];
-			$trade_limit = $_POST['trade_limit'];
-			$price_per_coin = $_POST['price'];
-			$status = "Open";
-			$result = $buy->postRequest($id, $amount, $trade_limit, $price_per_coin, $status, $db);
-			if($result){
-				header("Location: /buyandsell.php"); /* Redirect browser */
-				exit();
-			}else{
-				echo "Could not post request";
-			}
-		}
 	}
 
 
 	
+	if(isset($_POST['sellCoin'])){
+		require_once('Sell.php');
+		//connect to database
+		require_once('db.php');
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+		$sell = new Sell();
+		
+		$id = $_SESSION['id'];
+		if($_POST['HNG'] == 'on'){
+			$preferred_buyer = "1";
+		}else{
+			$preferred_buyer = "0";
+		}
+		$amount = $_POST['amount'];
+		$account_id = $_POST['payment_info'];
+		$trade_limit = $_POST['trade_limit'];
+		$price_per_coin = $_POST['price'];
+		$status = "Open";
+		$result = $sell->postRequest($id, $amount, $trade_limit, $price_per_coin, $account_id, $preferred_buyer, $status, $db);
+		if($result){
+			header("Location: /buyandsell.php"); /* Redirect browser */
+			exit();
+		}else{
+			echo "Could not post request";
+		}
+	}
+	
+	if(isset($_POST['buyCoin'])){
+		require_once('Buy.php');
+		//connect to database
+		require_once('db.php');
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+		$buy = new Buy();
+		
+		$id = $_SESSION['id'];
+		$amount = $_POST['amount'];
+		$trade_limit = $_POST['trade_limit'];
+		$price_per_coin = $_POST['price'];
+		$status = "Open";
+		$result = $buy->postRequest($id, $amount, $trade_limit, $price_per_coin, $status, $db);
+		if($result){
+			header("Location: /buyandsell.php"); /* Redirect browser */
+			exit();
+		}else{
+			echo "Could not post request";
+		}
+	}
 		
 
 	
