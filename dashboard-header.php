@@ -24,20 +24,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
     <link rel="shortcut icon" href="images/favicon.png">
-   
+
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
       <link href="css/style.css" rel="stylesheet">
-      <link href="css/learn.css" rel="stylesheet">
+      <!--<link href="css/learn.css" rel="stylesheet"> -->
       <link href="css/custom.css" rel="stylesheet">
       <link rel="stylesheet" href="css/login.css">
       <link rel="stylesheet" href="css/signout.css">
       <link href="css/landing-page.min.css" rel="stylesheet">
       <link href="css/shield-invite.css" rel="stylesheet">
-        <link href="css/404.css" rel="stylesheet">
+      <link href="css/404.css" rel="stylesheet">
+
+      <!-- Javascript section by Umar -->
+    <script src="js/stellar-sdk.js"></script>
+	<script src="js/jquery.min.js"></script>
       <!-- <link href="css/carousel.css" rel="stylesheet"> -->
-      
+
 
       <style>
         body{
@@ -47,14 +51,14 @@
         #navbar{
             font-size: 15px;
             font-weight: bold;
-        } 
-        
+        }
+
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
         }
 
-        .nav-item:hover { 
+        .nav-item:hover {
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
         }
@@ -142,8 +146,8 @@
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
-        <div class="navbar-right acc"> 
-        
+        <div class="navbar-right acc">
+
         <div class="dropdown" id="home-language-switch">
         <img class="acc-img" src="img/dashboard/amy.png">
         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Amy Xandra<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
@@ -160,12 +164,12 @@
 
                 <a href="" class="dropdown-item">
                 <img class="dashb-icons" src="img/dashboard/logout.png">Logout</a>
-            
+
         </div>
     </div>
 
         </div>
-            
+
         </nav>
     </div>
 
