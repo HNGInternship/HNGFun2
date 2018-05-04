@@ -1,26 +1,19 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
-
 // for choosing active page on nav bar
-
 $fileName=basename($_SERVER['PHP_SELF']);
-
 $files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
 $activeArray = array('','','','','','', '');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 $fileIndex=array_search($fileName,$files);
-
-
 // if page is unknown, dont mark any nav item
-
 if($fileIndex!==FALSE){
-
 $activeArray[$fileIndex]="active";
 }
-
 /////////////////////////////////////////////////////////
-
-
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +65,6 @@ $activeArray[$fileIndex]="active";
           background-color: #F4F4F4;
           padding: 0 10em;
         }
-
         .nav-item{
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
@@ -80,7 +72,10 @@ $activeArray[$fileIndex]="active";
         .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
         .justify-space-between {
           justify-content: space-between;
         }
@@ -98,19 +93,28 @@ $activeArray[$fileIndex]="active";
     .btn-primary:focus {
         background-color: #0475CE !important;
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
       /*for footer*/
     .contact-icon{
       margin: 0px !important;
       padding: 0% 2%;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
     footer{
       background: #FAFAFA !important;
       color: #3D3D3D;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
     </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript">
 </script>

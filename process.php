@@ -1,26 +1,26 @@
+<<<<<<< HEAD
 <?php 
 set_time_limit(0);
 
 if(!isset($_SESSION)) { session_start(); }
+=======
+<?php session_start();
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 //this file is for processsin requests  
 
-// timexone
-date_default_timezone_set('Africa/Lagos');
 
 //class file required here 
 
-//require_once('classes/User.php');
-require_once('User.php');
-require_once('db.php');
-if(isset($conn)) {
-	$db = $conn;
-}
-require_once('smtp_credentials.php');
+//require_once('classes/Member.php');
+require_once('Member.php');
 
+<<<<<<< HEAD
 //use PHPMailer\PHPMailer\PHPMailer;
 //use PHPMailer\PHPMailer\Exception;
 
 require_once "vendor/autoload.php";
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 
 // using SendGrid's PHP Library
 // https://github.com/sendgrid/sendgrid-php
@@ -34,40 +34,41 @@ if(isset($_POST['registration'])){
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
-	$username =  '';
+	
 	$password = $_POST['password'];
-	$private_key = $_POST['private_key'];
-	$public_key = $_POST['public_key'];
-	$created_at = date('Y-m-d h:i:s');
-	$updated_at = $created_at;
-	$token = base64_encode(bin2hex(random_bytes(60)));
-	$active =0;
+	
+
+	
 
 	if($firstname == ""){
+
 		echo "Please enter your Firstname";
 	}
 	elseif($lastname == ""){
+
 		echo "Please enter your Lastname";
 	}
 	
 	elseif($email == ""){
 		echo "Please enter your email";
 	}
+	
 	elseif($password == ""){
 		echo "Please enter your Password";
 	}
+	
 	else{
-			//connect to database
-			global $db;
 
-			//instantiate the user class
-			$user = new User();
+				//connect to database
+			require_once('db.php');
 
+			//instantiate the member class
+			$member = new Member();
 			//try to register user
-			$register_check = $user->register($firstname, $lastname, $email, $password, 
-			$public_key, $private_key, $token, $active, $created_at, $updated_at, $db);
+			$register_check = $member->register($firstname,$lastname,$email,$password,$conn);
 
 			//check for response 
+<<<<<<< HEAD
 			if($register_check=='true'){
 				$_SESSION['email'] = $email;
 
@@ -145,14 +146,25 @@ if(isset($_POST['registration'])){
 				'status' => 0,
 				'message' => 'Email already registered!'
 				]);
+=======
+			if($register_check==true){
+				
+				$login_check = $member->check($email,$password,$conn);
+
+				if($login_check == true){
+
+				die(true);	
+				}
+				else{
+					die('Registration successful but login failed, please try and manually login');
+				}
+				
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 			}
 			else{
-				echo json_encode([
-				'status' => 0,
-				'message' => 'Registration failed. No record was inserted.'
-				]);
-				// die("Registration failed cos no record was inserted");
+				die("Registration failed");
 			}
+
 	}
 
 
@@ -162,7 +174,8 @@ if(isset($_POST['registration'])){
 if(isset($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	
+
+
 	if($email ==""){
 		echo "Please enter your email";
 	}
@@ -171,9 +184,13 @@ if(isset($_POST['login'])){
 	}
 	else{
 
-		//instantiate the user class
-		$user = new User();
+		//connect to database
+			require_once('db.php');
 
+			//instantiate the member class
+			$member = new Member();
+
+<<<<<<< HEAD
 		$login_check = $user->check($email,$password,$db);
 		
 		if($login_check == true){
@@ -182,11 +199,110 @@ if(isset($_POST['login'])){
 		else{
 			echo "Invalid email or password";
 		}
+=======
+			$login_check = $member->check($email,$password,$conn);
+			if($login_check == true){
+				echo true;
+			}
+			else{
+				echo "Invalid email or password";
+			}
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 	}
 
 }
 
+	
+	
+	if(isset ($_POST['reset_password_token'])){
 
+		$email = $_POST['email'];
+
+		//set reset password token 
+      $hash = md5( rand(0,1000) );
+
+      $token = "reset".$hash;
+
+      //check if email exists 
+      require_once('db.php');
+      $member = new Member();
+      $member_response = $member->check_email($email,$conn);
+
+      if($member_response==false){
+
+      die("Email doesnt exist..check the email you typed well"); 
+
+      }
+      else{
+      	//update password reset token
+      	
+      	$reset_token_check =  $member->update_token($email,$token,$conn);
+
+      	if($reset_token_check ==true){
+
+      		//sending email starts here 
+      		require_once ('phpmailer/PHPMailerAutoload.php');
+
+				//Create a new PHPMailer instance
+				$mail = new PHPMailer;
+				// Set PHPMailer to use the sendmail transport
+				//$mail->isSendmail();
+				//Tell PHPMailer to use SMTP
+					$mail->isSMTP();
+					//Enable SMTP debugging
+					// 0 = off (for production use)
+					// 1 = client messages
+					// 2 = client and server messages
+					$mail->SMTPDebug = 0;
+					//Set the hostname of the mail server
+					$mail->Host = 'smtp.gmail.com';
+					// use
+					// $mail->Host = gethostbyname('smtp.gmail.com');
+					// if your network does not support SMTP over IPv6
+					//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+					$mail->Port = 587;
+					//Set the encryption system to use - ssl (deprecated) or tls
+					$mail->SMTPSecure = 'tls';
+					//Whether to use SMTP authentication
+					$mail->SMTPAuth = true;
+					//Username to use for SMTP authentication - use full email address for gmail
+					$mail->Username = "teamdragonrevenge@gmail.com";
+					//Password to use for SMTP authentication
+					$mail->Password = "dragonrevenge2018";
+
+				//Set who the message is to be sent from
+				$mail->setFrom('internship@hngfun.com', 'Hng');
+				//Set an alternative reply-to address
+				$mail->addReplyTo('mark@hotels.ng', 'Mark');
+				//Set who the message is to be sent to
+				$mail->addAddress($email, 'Intern');
+				//Set the subject line
+				$mail->Subject = 'Password Reset ';
+				//Read an HTML message body from an external file, convert referenced images to embedded,
+				//convert HTML into a basic plain-text alternative body
+				//$htmlContent = $member->render_email($token);
+				$_SESSION['token'] = $token;
+
+				$Body = file_get_contents('password_reset_email.php');
+				$Body = str_replace('urltoken', $token, $Body);
+				
+				$mail->IsHTML(true);
+				$mail->Body    = $Body;
+				 
+				//Replace the plain text body with one created manually
+				$mail->AltBody = 'Your Password reset  link is http://revenge.hng.fun/passwordreset.php?token='.$token;
+				//Attach an image file
+				//$mail->addAttachment('images/phpmailer_mini.png');
+
+				//send the message, check for errors
+				
+				if (!$mail->send()) {
+				    //echo "Mailer Error: " . $mail->ErrorInfo;
+				    "Error occured while sending mail";
+				} else {
+				    echo "Message sent";
+
+<<<<<<< HEAD
 //for password reset
 	if(isset($_POST['pword-reset'])){
 			$email = $_POST['email'];
@@ -270,19 +386,23 @@ if(isset($_POST['login'])){
 							'message' => 'An Email containing password reset token has been sent to you'	
 						]);
 					}
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 				}
-			}
-			else{
-				echo json_encode([
-					'status' => 0,
-					'message' => 'Email not found in our records'	
-				]);
-			}
+      		
+      	}
+      	else{
+      		//error while updating reset token 
+      		
+      		die('Error occured while setting reset token');
+      	}
+
+      }
 
 
-	}
+	}	
 
-
+<<<<<<< HEAD
 	//for password change
 	if(isset($_POST['token'])){
 		$password = trim($_POST['pass']);
@@ -334,5 +454,45 @@ if(isset($_POST['login'])){
 
 	}
 
+=======
+
+	if(isset ($_POST['reset_password'])){
+		 require_once('db.php');
+     
+      //get data from post array
+      $id = $_POST['id'];
+
+      $password= $_POST['password'];
+
+      $password2=$_POST['password_confirm'];
+
+      if($password !== $password2){
+
+      die("Passwords do not match");
+
+      }
+
+      else if($password==""){
+
+      die("Fill in your password");
+
+      }
+        
+       else{
+     //instantiate the member class
+      $member_class = new Member();
+
+      $reset_response=$member_class->update_password($id,$password,$conn);
+          if($reset_response==true){
+           die(true); 
+          }
+          else{
+          die("Error occured while reseting password");  
+          }
+     }
+
+  }
+
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 	
 ?>
