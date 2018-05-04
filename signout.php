@@ -25,7 +25,7 @@ include_once("header.php");
     }
     
     
-    .footer {
+    footer {
         background-color: blue !important;
     }
     
