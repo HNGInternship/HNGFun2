@@ -46,18 +46,5 @@
 
 </body>
 
-<style>
-  /*for footer*/
-.contact-icon{
-  margin: 0px !important;
-  padding: 0% 2%;
-}
-
-footer{
-  background: #fafafa !important;
-  color: #3D3D3D;
-}
-</style>
-
 
 </html>

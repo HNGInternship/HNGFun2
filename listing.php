@@ -1,7 +1,9 @@
 <?php
 include_once("header.php");
 require 'db.php';
-
+if(isset($db)){
+  $conn = $db;
+}
 
 $sql = 'SELECT * FROM interns_data';
 $q = $conn->query($sql);

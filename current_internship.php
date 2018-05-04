@@ -25,6 +25,7 @@
 	  text-align: justify;
 	}
 
+
 	.profile-box {
 		display: flex;
 		justify-content: space-between;
@@ -41,12 +42,12 @@
 	  width: 22%;
 	  background-color: #F2F2F2;
 	  display: flex;
-
 	}
 
 	.my-deck .card img {
 	  margin: auto;
 	}
+
 
 	#figma {
 	  background-color: #222222;
@@ -98,7 +99,9 @@
   	    <i class="fa fa-chevron-left fa-stack-1x "></i>
   	  </span>
       <div class="mx-auto col-md-10">
+
       <h5 class="mb-4">PARTNERS &amp; TECHNOLOGIES USED</h5>
+
       <span class="my-deck">
 	    <div class="card">
 	      <img class="card-img-top" src="img/oracle_jet.png" alt="Oracle Jet logo">
@@ -117,9 +120,10 @@
       <span class="fa-stack">
       	<i class="fa fa-circle fa-stack-2x fa-inverse"></i>
         <i class="fa fa-chevron-right fa-stack-1x "></i>
-      </span>
+      </span>	
   	</div>
   </section>
+  
 
 </main>
 <?php
