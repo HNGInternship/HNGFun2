@@ -27,7 +27,7 @@ include_once("../../header.php");
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    line-height: 44px;
+    line-height: 30px;
     font-size: 14px;
     color: #000000;
     /* margin-top: 0; */
@@ -74,13 +74,61 @@ padding: 20px;
                 <span>Image source: The WEB</span>
             </div>
             <h1>Breaking News: Cat does not give a damn</h1>
-                        <p><strong>Author:</strong> Bill Clinton, <strong>Published:</strong> Yesterday</p>
-            <p>
-                This paragraph will include the photo of a random cat that the author of this tutorial has found online. You can replace this text with any random text. The sole purpose of this copy is to fill the space and make sure that the image to the left has enough text to low around it. I even decided to copy the previous paragraph. This paragraph will include the photo of a random cat that the author of this tutorial has found online. You can replace this text with any random text. The sole purpose of this copy is to fill the space and make sure that the image to the left has enough text to low around it.
-            </p>
-            <p>This paragraph will include the photo of a random cat that the author of this tutorial has found online. You can replace this text with any random text. The sole purpose of this copy is to fill the space and make sure that the image to the left has enough text fo low around it.</p>
+<p>You're all clear, kid. Let's blow this thing and go home! You mean it controls your actions? I care. So, what do you think of her, Han? Leave that to me. Send a distress signal, and inform the Senate that all on board were killed.</p>
+<p>You don't believe in the Force, do you? Partially, but it also obeys your commands. <strong> I care.</strong> <em> So, what do you think of her, Han?</em> Hokey religions and ancient weapons are no match for a good blaster at your side, kid.</p>
+<h2>In my experience, there is no such thing as luck.</h2>
+<p>Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going. As you wish. Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense.</p>
+<ol>
+<li>Escape is not his plan. I must face him, alone.</li><li>Dantooine. They're on Dantooine.</li><li>The Force is strong with this one. I have you now.</li>
+</ol>
 
-        </article>
+<h3>Alderaan? I'm not going to Alderaan. I've got to go home. It's late, I'm in for it as it is.</h3>
+<p>Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going. Alderaan? I'm not going to Alderaan. I've got to go home. It's late, I'm in for it as it is.</p>
+<ul>
+<li>Hokey religions and ancient weapons are no match for a good blaster at your side, kid.</li><li>I find your lack of faith disturbing.</li><li>I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan--</li>
+</ul>
+
+<p>Ye-ha! He is here. She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time! Partially, but it also obeys your commands.</p>
+<p>Dantooine. They're on Dantooine. I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. You mean it controls your actions? Alderaan? I'm not going to Alderaan. I've got to go home. It's late, I'm in for it as it is.</p>
+<p>Dantooine. They're on Dantooine. I have traced the Rebel spies to her. Now she is my only link to finding their secret base. I'm trying not to, kid. Oh God, my uncle. How am I ever gonna explain this? Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
+<p>I can't get involved! I've got work to do! It's not that I like the Empire, I hate it, but there's nothing I can do about it right now. It's such a long way from here. Obi-Wan is here. The Force is with him.</p>
+<p>I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan-- You are a part of the Rebel Alliance and a traitor! Take her away! Dantooine. They're on Dantooine.</p>
+<p>I have traced the Rebel spies to her. Now she is my only link to finding their secret base. Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money.</p>
+<p>A tremor in the Force. The last time I felt it was in the presence of my old master. You don't believe in the Force, do you? Don't underestimate the Force. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
+<p>I can't get involved! I've got work to do! It's not that I like the Empire, I hate it, but there's nothing I can do about it right now. It's such a long way from here. Dantooine. They're on Dantooine. All right. Well, take care of yourself, Han. I guess that's what you're best at, ain't it?</p>
+<p>Your eyes can deceive you. Don't trust them. In my experience, there is no such thing as luck. You mean it controls your actions? Oh God, my uncle. How am I ever gonna explain this? She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time!</p>
+<p>No! Alderaan is peaceful. We have no weapons. You can't possibly… Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money.</p>
+<p>Still, she's got a lot of spirit. I don't know, what do you think? I can't get involved! I've got work to do! It's not that I like the Empire, I hate it, but there's nothing I can do about it right now. It's such a long way from here.</p>
+        
+		<p>Finding a needle in a haystack isn't hard when every straw is computerized. Tonight's the night. And it's going to happen again and again. It has to happen. I've lived in darkness a long time. Over the years my eyes adjusted until the dark became my world and I could see.</p>
+<p>Under normal circumstances, I'd take that as a compliment. <strong> I am not a killer.</strong> <em> I'm going to tell you something that I've never told anyone before.</em> I'm going to tell you something that I've never told anyone before.</p>
+<h2>Finding a needle in a haystack isn't hard when every straw is computerized.</h2>
+<p>I think he's got a crush on you, Dex! I'm really more an apartment person. I will not kill my sister. I will not kill my sister. I will not kill my sister. I'm doing mental jumping jacks. I think he's got a crush on you, Dex!</p>
+<ol>
+<li>Somehow, I doubt that. You have a good heart, Dexter.</li><li>I'm thinking two circus clowns dancing. You?</li><li>I'm doing mental jumping jacks.</li>
+</ol>
+
+<h3>Hello, Dexter Morgan.</h3>
+<p>Somehow, I doubt that. You have a good heart, Dexter. I love Halloween. The one time of year when everyone wears a mask … not just me. You all right, Dexter? I'm generally confused most of the time.</p>
+<ul>
+<li>I'm Dexter, and I'm not sure what I am.</li><li>Oh I beg to differ, I think we have a lot to discuss. After all, you are a client.</li><li>Finding a needle in a haystack isn't hard when every straw is computerized.</li>
+</ul>
+
+<p>I'm a sociopath; there's not much he can do for me. I'm thinking two circus clowns dancing. You? I'm a sociopath; there's not much he can do for me. I'm Dexter, and I'm not sure what I am. God created pudding, and then he rested.</p>
+<p>He taught me a code. To survive. Hello, Dexter Morgan. He taught me a code. To survive. I've lived in darkness a long time. Over the years my eyes adjusted until the dark became my world and I could see.</p>
+<p>Cops, another community I'm not part of. Under normal circumstances, I'd take that as a compliment. You look…perfect. Only you could make those words cute.</p>
+<p>I think he's got a crush on you, Dex! I am not a killer. I'm really more an apartment person. I'm really more an apartment person. You're a killer. I catch killers.</p>
+<p>I'm doing mental jumping jacks. Keep your mind limber. I'm real proud of you for coming, bro. I know you hate funerals. I'm Dexter, and I'm not sure what I am.</p>
+<p>Somehow, I doubt that. You have a good heart, Dexter. Finding a needle in a haystack isn't hard when every straw is computerized. Pretend. You pretend the feelings are there, for the world, for the people around you. Who knows? Maybe one day they will be.</p>
+<p>I'm going to tell you something that I've never told anyone before. I will not kill my sister. I will not kill my sister. I will not kill my sister. Only you could make those words cute. I'm Dexter, and I'm not sure what I am.</p>
+<p>Like a sloth. I can do that. I'm going to tell you something that I've never told anyone before. I'm a sociopath; there's not much he can do for me. I love Halloween. The one time of year when everyone wears a mask … not just me.</p>
+<p>Only you could make those words cute. Watching ice melt. This is fun. Tonight's the night. And it's going to happen again and again. It has to happen. I'm a sociopath; there's not much he can do for me.</p>
+<p>Under normal circumstances, I'd take that as a compliment. I'm partial to air conditioning. I'm real proud of you for coming, bro. I know you hate funerals. I'm generally confused most of the time. I'm partial to air conditioning.</p>
+<p>Watching ice melt. This is fun. I'm Dexter, and I'm not sure what I am. Somehow, I doubt that. You have a good heart, Dexter. You all right, Dexter? I'm really more an apartment person. Rorschach would say you have a hard time relating to others.</p>
+			</article>
+			<related>
+				
+				</related>
 		</div>
 	</div>
 </div>
