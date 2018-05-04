@@ -2,8 +2,7 @@
 
 include_once("coin_header.php");
 include_once('db.php');
-// $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 require_once('Transaction.php');
 $transaction = new Transaction();
 $request_id = $_GET['request_id'];
