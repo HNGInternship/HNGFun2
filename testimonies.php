@@ -10,8 +10,8 @@ include_once("header.php");
 <!--Section: Testimonials v.4-->
 <section class="pb-4 container">
     <div class="header text-center">
-        <h1>Testimonies</h1>
-        <hr class="head-hr" width="6%">
+        <h1 class="sponsorsbg-text pt-5 text-center hero-text">Testimonies</h1>
+        <hr class="under-line">
         <p>HNG 4.0 has been a life-transforming journey for interns across Africa. <br/> Don’t take our word for it...take theirs.</p>
     </div>
     <!--Section heading-->

@@ -80,7 +80,11 @@ $activeArray[$fileIndex]="active";
         .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
         }
-
+        /* horizontal line learn page */
+        hr.under-line {
+            width: 10%;
+            border-top: 3px solid #000;
+        }
         .justify-space-between {
           justify-content: space-between;
         }
@@ -132,10 +136,6 @@ $activeArray[$fileIndex]="active";
 
 
         <ul class="navbar-nav ml-auto">
-<<<<<<< HEAD
-
-=======
->>>>>>> a4bfe94174182f5ca11c19711fca7885fd24fba2
             <li class="nav-item <?= $activeArray[0] ?>">
                 <a href="index.php" class="nav-link">Home</a>
             </li>

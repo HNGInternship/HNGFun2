@@ -5,11 +5,7 @@ include_once("header.php");
 <!-- head ends -->
 
 <style>
-    /* horizontal line learn page */
-    hr.under-line {
-        width: 10%;
-        border-top: 3px solid #000;
-    }
+    
     /* card */
     .learn-card {
         display: flex;
