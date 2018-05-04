@@ -11,9 +11,6 @@ include_once("../../header.php");
         </title>
         <style type="text/css">
 .featured-image {
-    position: absolute;
-    width: 100%
-        
             }
             .h1, h1 {
     font-family: Lato;
@@ -36,12 +33,37 @@ include_once("../../header.php");
     /* margin-bottom: 1rem; */
 }
             article {
-                border: 0.75px solid #3D3D3D;
+                border-bottom: 0.75px solid #3D3D3D;
 transform: matrix(1, 0, 0, 1, 0, 0);
             }
+            #xouter{
+	height:100%;
+	width:100%;
+	display:table;
+	vertical-align:middle;
+                background: #ffffff;
+}
+#xcontainer {
+    padding-bottom: 50px;
+	text-align: center;
+	position:relative;
+	vertical-align:middle;
+	display:table-cell;
+}	
+#xinner {
+padding: 20px;
+	width: 90%;
+     
+	text-align: left;
+	margin-left:auto;
+	margin-right:auto;
+}
         </style>
     </head>
     <body>
+<div id="xouter">
+	<div id="xcontainer">
+		<div id="xinner">
         <article>
             
 
@@ -58,6 +80,9 @@ transform: matrix(1, 0, 0, 1, 0, 0);
             <p>This paragraph will include the photo of a random cat that the author of this tutorial has found online. You can replace this text with any random text. The sole purpose of this copy is to fill the space and make sure that the image to the left has enough text fo low around it.</p>
 
         </article>
+		</div>
+	</div>
+</div>
     </body>
 </html>
     <?php
