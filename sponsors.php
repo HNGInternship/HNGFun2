@@ -26,8 +26,8 @@ include_once("header.php");
                       <img src="img/oracle-red.png" alt="figma" srcset="" class="img-fluid ">
                   </div>
                   <div class="col-9 pt-4 ">
-                      <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
-                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Introducing you to a world of interface design with real-time collaboration using figma. First of it's kind, Figma enables teams carry outprojects in one page, while keeping all feedback changes and updates constantly in sync.</p>
+                      <h5 class="sponsorbg-text font-weight-bold">Oracle Incoporated</h5>
+                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Oracle offers a comprehensive and fully integrated stack of cloud applications and platform services.</p>
                   </div>
               </div><br>
 
@@ -36,8 +36,8 @@ include_once("header.php");
                       <img src="img/bluechips.png" alt="figma" srcset="" class="img-fluid ">
                   </div>
                   <div class="col-9 pt-4 ">
-                      <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
-                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Introducing you to a world of interface design with real-time collaboration using figma. First of it's kind, Figma enables teams carry outprojects in one page, while keeping all feedback changes and updates constantly in sync.</p>
+                      <h5 class="sponsorbg-text font-weight-bold">BlueChip Technologies Ltd.</h5>
+                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">BLUECHIP TECHNOLOGIES Ltd. is a full-service business applications firm dedicated to providing vendor-neutral solutions that bring industry best practices to bear in developing client data management solutions.</p>
                   </div>
               </div><br>
 
@@ -46,8 +46,9 @@ include_once("header.php");
                       <img src="img/hng-square.png" alt="figma" srcset="" class="img-fluid ">
                   </div>
                   <div class="col-9 pt-4 ">
-                      <h5 class="sponsorbg-text font-weight-bold">Figma Design</h5>
-                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Introducing you to a world of interface design with real-time collaboration using figma. First of it's kind, Figma enables teams carry outprojects in one page, while keeping all feedback changes and updates constantly in sync.</p>
+                      <h5 class="sponsorbg-text font-weight-bold">Hotels.ng</h5>
+                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Explore Over 8000 Nigerian Hotels And Get The Best Rates On All Your Bookings!
+                      Special Discounts, Easy Check-In, Genuine Photos and Reviews</p>
                   </div>
               </div><br>
            </div>
