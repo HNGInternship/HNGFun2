@@ -1,6 +1,20 @@
 <?php
 include_once("coin_header.php");
+include_once("db.php");
+if(!isset($_GET['request_id'])){
+    echo "<script>alert('Request ID required');</script>";
+}
+$request_id = $_GET['request_id'];
+
+$sql = "select sell_requests.id, sell_requests.intern_id, amount, account, interns_data.public_key, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, banks.name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id inner join banks on sell_requests.account=banks.id where sell_requests.id = :request_id";
+$stmt = $db->prepare($sql);
+$stmt->bindParam(':request_id', $request_id);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$sell_request = $stmt->fetch();
+
 ?>
+
 
 <style>
 body{
@@ -289,23 +303,22 @@ font-size: 1.25em;"> INPUT DETAILS</h1>
 <div class="row justify-content-md-center">
 <div class="col-xs-12- col-sm-10" id="sellerDetails" style="text-align: center;background: #f2f2f2; padding: 1% 0%; ">Seller Details</div>
 </div>
-
 <div class="row justify-content-md-center table-div">
 <table class="table table-bordered col-xs-12 col-sm-10">
   <thead>
     <tr>
-      <th class="w-50" scope="col">Buying From</th>
-      <th class="w-50" scope="col">Dammy</th>
+      <th scope="col">Buying From</th>
+      <th scope="col"><?php echo $sell_request['full_name']; ?></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Price</td>
-      <td>3,395,925 NGN/HNGcoin</td>
+      <td><?php echo $sell_request['price_per_coin']; ?> NGN/HNGcoin</td>
     </tr>
     <tr>
       <td>Payment Method</td>
-      <td>Bank transfer: GT Bank</td>
+      <td>Bank transfer: <?php echo $sell_request['name']; ?></td>
 
     </tr>
     <tr>
@@ -336,13 +349,24 @@ font-size: 1.25em;"> INPUT DETAILS</h1>
    
 
     $('#buyButton').on('click', function () {
-        moveToPage("buy_coins_1.php");
+     var requestid = "<?php echo $request_id ?>"
+
+        processTransaction();
+        moveToPage("buy_coins_1.php?request_id=" + requestid);
       
     });
     
   
   function moveToPage(page){
   window.location.href = page;
+  }
+
+  function processTransaction(){
+    var buyerId ='<?php echo $_SESSION["id"] ?>'
+    var coinAmount = $('#coinAmount').val();
+    var sellerId = '<?php echo $sell_request["intern_id"] ?>'
+    
+    
   }
 }
 </script>
