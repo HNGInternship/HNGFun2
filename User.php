@@ -88,6 +88,7 @@ class User
         }else{
 
             $password_hash = md5($password);
+            $private_key_hash = $this->encrypt($private_key);
             $timee = date('Y-m-d H:i:s');
             $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
             
@@ -102,7 +103,7 @@ class User
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password_hash', $password_hash);
             $stmt->bindParam(':public_key', $public_key);
-            $stmt->bindParam(':private_key', $private_key);
+            $stmt->bindParam(':private_key', $private_key_hash);
             $stmt->bindParam(':token', $token);
             $stmt->bindParam(':active', $active);
             $stmt->bindParam(':created_at', $created_at);
@@ -510,6 +511,14 @@ public function getAccounts($id, $db){
             return false;
         }
     
+}
+
+private function encrypt($string, $key){
+ return rtrim(base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $string, MCRYPT_MODE_ECB)));
+}
+
+private function decrypt($string, $key){
+  return rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, base64_decode($string),  MCRYPT_MODE_ECB));
 }
     //member class ends here    
 }

@@ -65,6 +65,7 @@ if(!empty($_SESSION["id"])){
 	
 }else{
 	$public_key = "45374903039388474 - User not logged in";
+	$accounts = [];
 }
 
 
