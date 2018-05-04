@@ -4,9 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Password Reset Email</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/password_reset_email.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/password_reset.css" />
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans" rel="stylesheet">
-    
+
 </head>
 
 <body>
