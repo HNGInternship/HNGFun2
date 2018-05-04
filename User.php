@@ -133,7 +133,7 @@ class User
                 $response = 'true';
             }
             else {
-                var_dump($stmt->errorInfo(), 0);
+                //var_dump($stmt->errorInfo(), 0);
                 $response = 'false';
             }
         }

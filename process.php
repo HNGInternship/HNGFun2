@@ -175,6 +175,7 @@ if(isset($_POST['login'])){
 		$user = new User();
 
 		$login_check = $user->check($email,$password,$db);
+		
 		if($login_check == true){
 			echo true;
 		}
@@ -332,57 +333,6 @@ if(isset($_POST['login'])){
 		}
 
 	}
-
-
-	
-	if(isset($_POST['sellCoin'])){
-		require_once('Sell.php');
-		//connect to database
-		require_once('db.php');
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-		$sell = new Sell();
-		
-		$id = $_SESSION['id'];
-		if($_POST['HNG'] == 'on'){
-			$preferred_buyer = "1";
-		}else{
-			$preferred_buyer = "0";
-		}
-		$amount = $_POST['amount'];
-		$account_id = $_POST['payment_info'];
-		$trade_limit = $_POST['trade_limit'];
-		$price_per_coin = $_POST['price'];
-		$status = "Open";
-		$result = $sell->postRequest($id, $amount, $trade_limit, $price_per_coin, $account_id, $preferred_buyer, $status, $db);
-		if($result){
-			header("Location: /buyandsell.php"); /* Redirect browser */
-			exit();
-		}else{
-			echo "Could not post request";
-		}
-	}
-	
-	if(isset($_POST['buyCoin'])){
-		require_once('Buy.php');
-		//connect to database
-		require_once('db.php');
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-		$buy = new Buy();
-		
-		$id = $_SESSION['id'];
-		$amount = $_POST['amount'];
-		$trade_limit = $_POST['trade_limit'];
-		$price_per_coin = $_POST['price'];
-		$status = "Open";
-		$result = $buy->postRequest($id, $amount, $trade_limit, $price_per_coin, $status, $db);
-		if($result){
-			header("Location: /buyandsell.php"); /* Redirect browser */
-			exit();
-		}else{
-			echo "Could not post request";
-		}
-	}
-		
 
 	
 ?>
