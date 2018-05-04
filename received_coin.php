@@ -5,6 +5,7 @@
     <title> Received Coin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/sent_coin.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans" rel="stylesheet">
 </head>
 
 <body>
@@ -18,9 +19,9 @@
     <div class="right-column">
          <div class="div1">
              <h3 class ="head1"> COIN TRANSFER NOTIFICATION </h3>
-                <p > <span class="blue"><strong>Hi, KingDavid,</strong></span>  <br />
+                <p > <span class="blue"><strong>Hi, KingDavid</strong></span>  <br />
                  You just received 20 HNG coin from the HNG Internship 4
-                 workspace <a href="" style="color: #000000;">(hnginternship4.slack.com)</a> <br><span class="grey"><br>10:04 PM, May 2nd</span></p>
+                 workspace <a href="" style="color: #000000;">(hnginternship4.slack.com)</a> <br><span class="grey"><br><?php echo $today = date("g:i a, F j, Y ") ?></span></p>
 
                  <div class="circle">
                      <img src="img/dashboard/amy.png">
