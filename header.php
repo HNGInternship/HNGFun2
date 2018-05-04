@@ -1,26 +1,15 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
-
 // for choosing active page on nav bar
-
 $fileName=basename($_SERVER['PHP_SELF']);
-
 $files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
-$activeArray = array('','','','','','');
-
+$activeArray = array('','','','','','', '');
 $fileIndex=array_search($fileName,$files);
-
-
 // if page is unknown, dont mark any nav item
-
 if($fileIndex!==FALSE){
-
 $activeArray[$fileIndex]="active";
 }
-
 /////////////////////////////////////////////////////////
-
-
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +37,9 @@ $activeArray[$fileIndex]="active";
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
      <link rel="stylesheet" href="css/custom.css" type="text/css">
-
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.0/stellar-sdk.min.js">
+       
+     </script>
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
@@ -70,16 +61,12 @@ $activeArray[$fileIndex]="active";
           background-color: #F4F4F4;
           padding: 0 10em;
         }
-
         .nav-item{
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
         .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
-        }
-        footer {
-          background: #FAFAFA;
         }
         .justify-space-between {
           justify-content: space-between;
@@ -97,6 +84,15 @@ $activeArray[$fileIndex]="active";
     .btn-primary:visited,
     .btn-primary:focus {
         background-color: #0475CE !important;
+    }
+      /*for footer*/
+    .contact-icon{
+      margin: 0px !important;
+      padding: 0% 2%;
+    }
+    footer{
+      background: #FAFAFA !important;
+      color: #3D3D3D;
     }
     </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript">
