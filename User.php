@@ -9,7 +9,7 @@ class User
     public function __construct()
     {
         
-        $this->table = "slay";
+        $this->table = "interns_data";
         date_default_timezone_set('Africa/Lagos');
         
     }
@@ -92,8 +92,8 @@ class User
             $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
             
             // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-            $sql = "INSERT INTO ". $this->table." (firstname, lastname, email, password, public_key, private_key, token, active, 
-                                                created_at, update_at) VALUES (:first_name, :last_name, :email, :password_hash, 
+            $sql = "INSERT INTO ". $this->table." (firstname, lastname, email, passwordhash, public_key, private_key, token, active, 
+                                                created_at, updated_at) VALUES (:first_name, :last_name, :email, :password_hash, 
                                                 :public_key, :private_key, :token, :active, :created_at, :updated_at)";
 
             $stmt = $db->prepare($sql);
@@ -130,7 +130,7 @@ class User
                 $response = 'true';
             }
             else {
-                // error_log($stmt->errorInfo(), 0);
+                var_dump($stmt->errorInfo(), 0);
                 $response = 'false';
             }
         }
@@ -454,7 +454,7 @@ class User
 
     //get public key from id
 public function getPublicKey($id, $db){
-    echo $id;
+   
     if (empty($id)) {
         return false;
     }
@@ -495,7 +495,7 @@ public function getPrivateKey($id, $db){
 }
 
 public function getAccounts($id, $db){
-    $query     = "SELECT * FROM accounts left join banks on banks.id = accounts.bank_id WHERE accounts.intern_id=:id LIMIT 1";
+    $query     = "SELECT * FROM accounts inner join banks on banks.id = accounts.bank_id WHERE accounts.intern_id=:id";
     $statement = $db->prepare($query);
     $stmt = $db->prepare($query);
     $stmt->bindParam(":id", $id);
@@ -503,10 +503,8 @@ public function getAccounts($id, $db){
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $results = $stmt->fetchAll();
-        if(count($results) > 0){
-            $row = $results;
-            
-            return $row;
+        if(count($results) > 0){            
+            return $results;
         } else {
             
             return false;
