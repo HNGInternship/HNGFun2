@@ -26,7 +26,7 @@ include_once("header.php");
     
     
     footer {
-        background-color: blue !important;
+        opacity: 0 !important;
     }
     
     @media only screen and (max-width: 1000px){
