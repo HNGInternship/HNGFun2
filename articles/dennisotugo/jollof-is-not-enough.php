@@ -47,7 +47,7 @@ transform: matrix(1, 0, 0, 1, 0, 0);
 
 
             <div class="featured-image">
-                <img src="http://slayers.hng.fun/articles/dennisotugo/jollof-is-not-enough.php/Rectangle%203-2.png">
+                <img src="http://slayers.hng.fun/articles/dennisotugo/Rectangle%203-2.png">
                 <span>Image source: The WEB</span>
             </div>
             <h1>Breaking News: Cat does not give a damn</h1>
