@@ -108,7 +108,6 @@ include_once("header.php");
                         User Experience Design Resources - Prototype blog.prototypr.io/user...
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>
                 </div>
             </div>
             <div class="learn-card">
@@ -126,7 +125,6 @@ include_once("header.php");
                         while keeping all feedback changes and updates constantly in sync.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>
                 </div>
             </div>
             <div class="learn-card">
@@ -144,7 +142,6 @@ include_once("header.php");
                         while keeping all feedback changes and updates constantly in sync.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>
                 </div>
             </div>
             <div class="learn-card">
@@ -162,7 +159,6 @@ include_once("header.php");
                         while keeping all feedback changes and updates constantly in sync.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>
                 </div>
             </div>
             <div class="learn-card">
@@ -180,7 +176,6 @@ include_once("header.php");
                         while keeping all feedback changes and updates constantly in sync.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>
                 </div>
             </div>
             <div class="learn-card">
@@ -198,7 +193,6 @@ include_once("header.php");
                         while keeping all feedback changes and updates constantly in sync.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>

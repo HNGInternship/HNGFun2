@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-
-
-
-
-   <?php
-  include_once("header.php");
-  ?>
-=======
 <?php
 include_once("header.php");
 ?>
->>>>>>> fd445099bc7956b132ed5e771c803270492301cc
 
 <style type="text/css">
 	#email, #phone, #lastname, #firstname{
@@ -30,7 +20,6 @@ include_once("header.php");
         </p>
         <div class="form-row" style="margin:0 auto;">
 			<div class="form-group col-md-6">
-<<<<<<< HEAD
     <label for="username"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</label>
     <input type="text" class="form-control" id="username" placeholder="" style="border-color:#0475CE;">
   </div>
@@ -51,33 +40,17 @@ include_once("header.php");
                 	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</p>
                     <input type="text" name="lastname" id="lastname" class="form-control" placeholder=""/>
                 </div>
-=======
-                <label for="username"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="" style="border-color:#0475CE;">
->>>>>>> fd445099bc7956b132ed5e771c803270492301cc
             </div>
             <div class="form-group col-md-6">
                 <label for="amount"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</label>
                 <input type="text" class="form-control" id="amount" placeholder="" style="border-color:#0475CE;">
             </div>
-<<<<<<< HEAD
 
         </form>-->
 
         </div>
         </div>
 
-        <?php
-        include_once("footer.php");
-        ?>
-=======
-            <button style="margin-top: 45px; border:0px; margin-bottom: 50px; margin-left: auto; margin-right: auto; background-color: #2196F3; color: white; width: 400px; font-size: 15px; height: 40px; text-align:center;border-radius: 10px" id="submitbutton" class="">SEND COINS</button>
-        </div>
-
-    </div>
-</div>
-
 <?php
 include_once("footer.php");
 ?>
->>>>>>> fd445099bc7956b132ed5e771c803270492301cc

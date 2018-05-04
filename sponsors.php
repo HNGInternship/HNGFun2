@@ -1,14 +1,14 @@
 <?php
 include_once("header.php");
 ?>
-    <div class="container sponsor-container">        
+    <div class="container sponsor-container">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Sponsors</h1>
             <div class="d-flex justify-content-center">
               <div class="bd-top"></div>
             </div>
             <p class="sponsors-text text-center pb-4 pt-3 text-center">HNG 4.0 has been a life-transforming journey for interns across Africa.<br/>
         Here you get to see those who have made it possible.<br/>Meet our sponsors...</p>
-        
+
         <div class="d-flex justify-content-center">
            <div class="d-block w-80">
               <div class="row border rounded ">

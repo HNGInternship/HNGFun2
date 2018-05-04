@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
     <link rel="shortcut icon" href="images/favicon.png">
-   
+
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
@@ -37,7 +37,7 @@
       <link href="css/shield-invite.css" rel="stylesheet">
         <link href="css/404.css" rel="stylesheet">
       <!-- <link href="css/carousel.css" rel="stylesheet"> -->
-      
+
 
       <style>
         body{
@@ -47,33 +47,26 @@
         #navbar{
             font-size: 15px;
             font-weight: bold;
-        } 
-        
+        }
+
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
         }
-
-        .nav-item:hover { 
+        .nav-item:hover {
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
         }
-
-
-
         li.nav-item {
             padding-bottom: 0px;
         }
-
         ul.navbar-nav {
             height: auto !important;
         }
-
   <?php if (function_exists('custom_styles')) {
       custom_styles();
     }
     ?>
-
     nav.navbar {
         box-sizing: border-box !important;
         padding: 0px 50px !important;
@@ -83,15 +76,12 @@
         width: 100%;
             padding: 10px 50px !important;
     }
-
     .navbar-logo {
         width: auto !important;
     }
-
     .navbar-brand {
     width: auto !important;
     }
-
     @media (min-width: 992px){
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: .5rem;
@@ -99,37 +89,30 @@
         padding-top: 20px;
         font-size: 15px !important;
     }
-
     ul.navbar-nav.collapse.ml-auto {
         display: -webkit-inline-box;
         height: 100% !important;
         float: right;
     }
-
     nav.navbar {
         padding: 0 16px 0 50px !important;
         height: 100px;
     }
-
     .navbar-logo {
         width: auto !important;
         margin-top: 30px;
     }
     }
-
     .navbar-toggler {
     float: right;
     }
-
     .nav-item.active {
         background-color: rgba(199, 196, 196, 0.1);
         border-bottom: 3px solid rgb(90, 145, 247);
     }
-
     .navbar-fixed {
       background: #f4f4f4 !important;
     }
-
     </style>
 
     <link href="css/dashboard-menu.css" rel="stylesheet">
@@ -142,11 +125,12 @@
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
-        <div class="navbar-right acc"> 
-        
+        <div class="navbar-right acc">
+
         <div class="dropdown" id="home-language-switch">
         <img class="acc-img" src="img/dashboard/amy.png">
-        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Amy Xandra<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
+        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><?php require_once "dashboard.php";
+        echo $records ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
                 <a href="profile.php" class="dropdown-item">
@@ -158,14 +142,14 @@
                 <a href="" class="dropdown-item">
                 <img class="dashb-icons" src="img/dashboard/settings.png">Settings</a>
 
-                <a href="" class="dropdown-item">
+                <a href="logout.php" class="dropdown-item">
                 <img class="dashb-icons" src="img/dashboard/logout.png">Logout</a>
-            
+
         </div>
     </div>
 
         </div>
-            
+
         </nav>
     </div>
 
@@ -182,4 +166,4 @@
                 <a href="help.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/help.png">Help & Feedback</a>
             </li>
         </ul>
-    </div>
+</div>

@@ -272,7 +272,7 @@ include_once("header.php");
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                       <div class="card-body">
-                        No, no at all. The HNG internship program is open for residents of African countries. We believe by creating an equal opportunity, we not only create human resource value by equipping our interns with the proper technical skills, we also make them employable thereby creating an adequately skilled, qualified workforce in Africa.
+                        No, not at all. The HNG internship program is open for residents of African countries. We believe by creating an equal opportunity, we not only create human resource value by equipping our interns with the proper technical skills, we also make them employable thereby creating an adequately skilled, qualified workforce in Africa.
 
                       </div>
                     </div>
