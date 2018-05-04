@@ -43,7 +43,7 @@
 	  background-color: #F2F2F2;
 	  display: flex;
 	}
-	
+
 	.my-deck .card img {
 	  margin: auto;
 	}
@@ -92,22 +92,16 @@
 
 
   <section class="mt-5">
-<<<<<<< HEAD
-  	
-=======
 
->>>>>>> 4fcec259b40f25c8147f4cd2f3624bb0658e8552
   	<div class="profile-box ">
   	  <span class="fa-stack">
   	  	<i class="fa fa-circle fa-stack-2x fa-inverse"></i>
   	    <i class="fa fa-chevron-left fa-stack-1x "></i>
   	  </span>
       <div class="mx-auto col-md-10">
-<<<<<<< HEAD
-      <h5>PARTNERS &amp; TECHNOLOGIES USED</h5>
-=======
+
       <h5 class="mb-4">PARTNERS &amp; TECHNOLOGIES USED</h5>
->>>>>>> 4fcec259b40f25c8147f4cd2f3624bb0658e8552
+
       <span class="my-deck">
 	    <div class="card">
 	      <img class="card-img-top" src="img/oracle_jet.png" alt="Oracle Jet logo">
@@ -126,22 +120,12 @@
       <span class="fa-stack">
       	<i class="fa fa-circle fa-stack-2x fa-inverse"></i>
         <i class="fa fa-chevron-right fa-stack-1x "></i>
-<<<<<<< HEAD
       </span>	
   	</div>
   </section>
   
-</main>
-<?php
-  include('footer.php');
-?>
-=======
-      </span>
-  	</div>
-  </section>
 
 </main>
 <?php
   include('footer.php');
 ?>
->>>>>>> 4fcec259b40f25c8147f4cd2f3624bb0658e8552
