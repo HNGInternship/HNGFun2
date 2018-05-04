@@ -3,9 +3,11 @@ include_once("header.php");
 ?>
 
 <style>
-    body {
+    body :not(.contact-icon>a>span>i){
         font-size: inherit !important;
     }
+
+
     .btn-signup {
         background-color: #2196F3;
         border-color: #2196F3;
@@ -78,15 +80,15 @@ include_once("header.php");
                 <input type="hidden" name="registration" value="yes">
 
             
-            <div class="form-group">
-                <div class="form-check">
+                <div class="form-check d-flex align-items-start" style="padding-left:30%">
                     <input class="form-check-input" type="checkbox" id="terms" name="terms">
                     <label class="form-check-label" for="terms">
-                    I agree to the <a class='link' href="terms-and-conditions.php" style="color: #2196F3; text-decoration: none">Terms and Conditions</a>
+                    I agree to the <a class='link' href="terms-and-conditions.php" style="color: #2196F3; text-decoration: none;">Terms and Conditions</a>
                     </label>
                 </div>
-            </div>
-            <br>
+
+             
+            <br/>
            
             <button type="submit" name="register" class="btn btn-signup" id="register">Sign Up </button>
         </form>
@@ -94,6 +96,7 @@ include_once("header.php");
     </div>
 </div>
 </div>
+
 <!--
 <div class="container">
 <div class="row h-100">
@@ -346,6 +349,7 @@ include_once("header.php");
     });
     
 </script>
+
 <?php
     include_once("footer.php");
 ?>
