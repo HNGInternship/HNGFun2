@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-<?php 
-	require 'db.php';
-	require_once( ROOT_PATH . '/blog/public_functions.php') ?>
+<?php require( ROOT_PATH . 'db.php'); ?>
+<?php require_once( ROOT_PATH . '/blog/public_functions.php'); ?>
 <?php $posts = getPublishedPosts(); ?>
 <?php
 include_once("header.php");
