@@ -10,7 +10,8 @@ include_once("../../header.php");
             Breaking News: Cat does not give a damn
         </title>
         <style type="text/css">
-.featured-image {
+.featured-image img {
+	    width: 100%;
             }
             .h1, h1 {
     font-family: Lato;
