@@ -49,6 +49,8 @@ $activeArray[$fileIndex]="active";
       <link href="https://fonts.googleapis.com/css?family=Qwigley" rel="stylesheet">
       <style>
         body {
+		font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 1.00rem;
           background-color: #FAFAFA;
             color: #3d3d3d
         }
