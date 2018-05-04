@@ -89,21 +89,21 @@ nav.navbar.navbar-expand-lg.navbar-light {
 }
 
 .user-image {
-    height: 150px;
-    width: 150px;
+    height: 140px;
+    width: 140px;
     border-radius: 50%;
     text-align: center;
     background: #5f5f5f;
     z-index: 100;
-    margin: 2.4em 0 0.7em 1.2em;
+    margin: 1.6em 0 0.7em 1.1em;
 }
 
 .profile h5 {
     color: #2196f3;
     font-weight: 500;
     font-size: 22px;
-    margin-bottom: 1.8em;
-    margin-top: 1.2em;
+    margin-bottom: 1.4em;
+    margin-top: .9em;
     text-align: center;
 }
 
@@ -135,6 +135,19 @@ nav {
     text-transform: uppercase;
 }
 
+.profile-nav a:hover {
+    color: #fff;
+    background: #2196f3;
+
+    /* transition: all 0.8s ease-in; */
+}
+
+a.btn.help-btn-blue:hover {
+     color: #2196f3;
+    background: #fff;
+    /* border: 0; */
+} 
+
 a.btn.help-btn-blue {
     color: #ffffff;
     background: #2196f3;
@@ -143,6 +156,7 @@ a.btn.help-btn-blue {
 .help-blue-btn {
     color: #fff;
     background: #2196f3;
+    border: 1px solid #2196f3;
 }
 
 .help-white-btn {
@@ -264,6 +278,20 @@ a.btn.help-btn-blue {
     text-align: center;
 
 }
+
+.tabs a.help-blue-btn:hover {
+    text-decoration: none;
+    color: #2196f3;
+    background: #fff;
+    
+}
+
+.tabs a.help-white-btn:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #2196f3;
+}
+
 
 .btn-q {
     background: #f2f2f2;
