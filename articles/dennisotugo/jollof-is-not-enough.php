@@ -101,14 +101,13 @@ $activeArray[$fileIndex]="active";
     /* font-size: 2.5rem; */
 }
             p {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 14px;
-    color: #000000;
-    /* margin-top: 0; */
-    /* margin-bottom: 1rem; */
+font-weight: 400;
+    color: #222;
+margin-bottom: 1em;
+		    font-family:
+"Source Sans Pro", Arial, sans-serif
+
+		    
 }
             article {
                 border-bottom: 0.75px solid #3D3D3D;
