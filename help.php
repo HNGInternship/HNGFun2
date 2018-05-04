@@ -303,9 +303,9 @@ include_once("header.php");
                     <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
                       <div class="card-body">
                         These are some basic prerequisites for this program: <br><br>1. You are self driven and motivated to learn. Participation in this program requires consistently meeting the deadlines.<br><br>
-2. You have access to a computer with broadband connection, on which you will install a professional code/text editor.<br><br>
-3. You are willing to contribute to the success of the program, including collaborating with fellow interns. <br><br>
-4. You approach problem solving strategically and can clearly communicate your strategy.
+                                2. You have access to a computer with broadband connection, on which you will install a professional code/text editor.<br><br>
+                                3. You are willing to contribute to the success of the program, including collaborating with fellow interns. <br><br>
+                        4. You approach problem solving strategically and can clearly communicate your strategy.
 
                       </div>
                     </div>
