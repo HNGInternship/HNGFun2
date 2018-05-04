@@ -1,6 +1,57 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
 
+	
+if(isset($_POST['sellCoin'])){
+	require_once('Sell.php');
+	//connect to database
+	require_once('db.php');
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+	$sell = new Sell();
+	
+	$id = $_SESSION['id'];
+	if($_POST['HNG'] == 'on'){
+		$preferred_buyer = "1";
+	}else{
+		$preferred_buyer = "0";
+	}
+	$amount = $_POST['amount'];
+	$account_id = $_POST['payment_info'];
+	$trade_limit = $_POST['trade_limit'];
+	$price_per_coin = $_POST['price'];
+	$status = "Open";
+	$result = $sell->postRequest($id, $amount, $trade_limit, $price_per_coin, $account_id, $preferred_buyer, $status, $db);
+	if($result){
+		header("Location: /buyandsell.php"); /* Redirect browser */
+		exit();
+	}else{
+		echo "Could not post request";
+	}
+}
+
+if(isset($_POST['buyCoin'])){
+	require_once('Buy.php');
+	//connect to database
+	require_once('db.php');
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+	$buy = new Buy();
+	
+	$id = $_SESSION['id'];
+	$amount = $_POST['amount'];
+	$trade_limit = $_POST['trade_limit'];
+	$price_per_coin = $_POST['price'];
+	$status = "Open";
+	$result = $buy->postRequest($id, $amount, $trade_limit, $price_per_coin, $status, $db);
+	if($result){
+		header("Location: /buyandsell.php"); /* Redirect browser */
+		exit();
+	}else{
+		echo "Could not post request";
+	}
+}
+	
+
+
 include_once("coin_header.php");
 include_once("db.php");
 if(!empty($_SESSION["id"])){
@@ -14,6 +65,7 @@ if(!empty($_SESSION["id"])){
 	
 }else{
 	$public_key = "45374903039388474 - User not logged in";
+	$accounts = [];
 }
 
 
@@ -352,7 +404,7 @@ h3{
         <h5 class="modal-title" id="sellModalLabel">Sell MY Coin</h5>
       </div>
       <div class="modal-body">
-	  <form method="post" action="process.php">
+	  <form method="post" action="buyandsell.php">
         <div class="row">
 			<div class="col">
 				Wallet ID: <br/>
@@ -407,7 +459,7 @@ h3{
         <h5 class="modal-title" id="sellModalLabel">Buy Request</h5>
       </div>
       <div class="modal-body">
-	  <form method="post" action="process.php">
+	  <form method="post" action="buyandsell.php">
         <div class="row">
 			<div class="col">
 				Amount of HNGcoin: <br/>

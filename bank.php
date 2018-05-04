@@ -1,9 +1,31 @@
 <?php
-include_once("coin_header.php");
-include_once("db.php");
+include_once("coin_header.php");	
+if(isset($_POST['addBank'])){
+	require_once('Transaction.php');
+	//connect to database
+	require_once('db.php');
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    $transaction = new Transaction();
+	$bank_name = $_POST['bankName'];
+	$account_name = $_POST['acctName'];
+	$account_number = $_POST['acctNumber'];
+	
+    $result =  $transaction->createAccount($bank_name, $account_name, $account_number, $db);
+	if($result){
+		?>
+        <script>
+          window.location.href = "buyandsell.php";
+        </script>
+        <?php
+		exit;
+	}else{
+		echo "Could not create account";
+	}
+}
+
 ?>
      
-	  <form method="post" action="process.php">
+	  <form method="post" action="bank.php">
         <div class="row">
 			<div class="col">
 
@@ -23,7 +45,7 @@ include_once("db.php");
 				
 			</div>
 			<div class="col-md-12 offset-md-3">
-			<button type="submit" name="sellCoin" class="btn btn-primary mod">Sell</button>
+			<button type="submit" name="addBank" class="btn btn-primary">Create Account</button>
 			</div>
 		</div>
 		</form>

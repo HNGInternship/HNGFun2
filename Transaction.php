@@ -63,7 +63,7 @@ class Transaction
 
 public function cancelBuyTransaction($id, $db)
 {
-    echo "Hahahaha";
+    
     $query  = "UPDATE " . $this->buy_requests_table . " SET status = 'Closed' WHERE id = :id LIMIT 1";
     $stmt = $db->prepare($query);
     $stmt->bindParam(':id', $id);
@@ -74,6 +74,41 @@ public function cancelBuyTransaction($id, $db)
     return false;
 }
 
+}
+
+public function createAccount($bank_name, $account_name, $account_number, $db){
+    $intern_id = $_SESSION['id'];
+    $nRows = $db->query('select count(*) from banks where name = "' . $bank_name . '"')->fetchColumn();
+    
+    if($nRows > 0){
+        $statement = $db->prepare("select * from banks where name = :name");
+        $statement->execute(array(':name' => $bank_name));
+        $row = $statement->fetch();
+        $id = $row['id'];
+        
+        } else {
+
+    $sql = "insert into banks (name) values (:bank_name)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':bank_name', $bank_name);    
+        if ($stmt->execute()) {
+            $stmt = $db->query("SELECT LAST_INSERT_ID()");
+            $id = $stmt->fetchColumn(); 
+        }
+    }      
+            $sql = "insert into accounts (intern_id, bank_id, name, number) values (:intern_id, :bank_id, :name, :number)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':intern_id', $intern_id);
+            $stmt->bindParam(':bank_id', $id);  
+            $stmt->bindParam(':name', $account_name);  
+            $stmt->bindParam(':number', $account_number);      
+        if ($stmt->execute()) {
+           
+            return True;
+        }else{
+            return False;
+        }
+        
 }
 
 }
