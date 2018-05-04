@@ -4,7 +4,7 @@ session_start();
 
 define ('DB_USER', "root");
 define ('DB_PASSWORD', "29gE9t*dJ2#2f-BS");
-define ('DB_DATABASE', "interns_data");
+define ('DB_DATABASE', "users");
 define ('DB_HOST', "localhost");
 $servername = DB_HOST;
 $username = DB_USER;
