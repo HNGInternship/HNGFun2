@@ -13,7 +13,9 @@ include("../header.php");
         </section>
     
     </div>
-
+     <!--sidebar starts-->
+	<?php include("sidebar.php"); ?>    
+    <!--sidebar ends-->
 </div>
 <?php
 include("../footer.php");
