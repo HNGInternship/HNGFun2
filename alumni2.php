@@ -197,10 +197,11 @@ $data = $q->fetchAll();
               <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
             </td>
           </tr>
-		  <?php } ?>
-      </div>
+	  
           </tbody>
         </table>
+		 <?php } ?>
+		  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
