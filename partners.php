@@ -78,7 +78,7 @@ include_once("header.php");
 			<div class="row">
 				<div class="col-sm-3 col-md-6 col-lg-4 mx-auto">
 					<img src="img/overlay.jpg">
-					<a target='_blank' href="https://hotels.ng" type="button" class="btn">VISIT WEBSITE</a>
+					<a href="https://hotels.ng" type="button" class="btn">VISIT WEBSITE</a>
 				</div>
 				<div class="col head">
 					<h3>Hotels.ng <img src="img/value.png" width="67px" height="87px"> <span class="circle"></span> </img></h3>
