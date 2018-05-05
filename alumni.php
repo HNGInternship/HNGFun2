@@ -148,10 +148,10 @@ include_once("header.php");
     <div class="container-fluid">
       <h1 class="heading">We've Come A Long Way</h1>
       <hr style="width:5%;border:1px solid #555;margin-top:0px;">
-      <p class="heading">HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
+      <p class="heading">HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
       <div class="top">
         <p id="p">HNG Alumni</p>
-        <p>HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
+        <p>HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
       <p><strong>TOOLS BUILT</strong>:&nbsp;CHATBOTS, CRYPTOCURRENCY</p>
       </div>
 <!-- first page -->
@@ -522,7 +522,6 @@ include_once("header.php");
               <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
             </td>
         </tr>
-      
           </tbody>
         </table>
       </div>
