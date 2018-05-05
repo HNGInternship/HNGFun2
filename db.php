@@ -3,29 +3,18 @@
 DO NOT MODIFY THIS FILE!!!
  */
 require '../config-slayers.php';
-// display all error except deprecated and notice  
-error_reporting( E_ALL & ~E_DEPRECATED & ~E_NOTICE );
-// turn on output buffering 
-ob_start();
-
 /*
 if you make login section for admin 
 use session here otherwise no need
 session_start();
 */
 
-require_once("blog/public_functions.php");
+require_once("blog/libs/common_functions.php");
 // display all error except deprecated and notice  
 error_reporting( E_ALL & ~E_DEPRECATED & ~E_NOTICE );
 // turn on output buffering 
 ob_start();
 
-/*
-if you make login section for admin 
-use session here otherwise no need
-session_start();
-*/
-require_once("public_functions.php");
 
 /*
  * turn off magic-quotes support, for runtime e, as it will cause problems if enabled
