@@ -37,6 +37,7 @@ $activeArray[$fileIndex]="active";
 
     <link rel="icon" href="https://res.cloudinary.com/nedy123/image/upload/v1525534693/Approved_HNG_Logo_xswasd.png" type="image/gif" sizes="16x16">
     <!-- Bootstrap core CSS -->
+    
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       
 
