@@ -82,7 +82,7 @@ $count++;
         </div>
       
       </div>
-      <h4 class="text-center mt-3"><?php echo  $list['firstname'] . " " . $list['lastname'] ?></h4>
+      <h4 class="text-center mt-3"><?php echo  $list['name'] ?></h4>
      
     </div>
   <?php if ($count === 3 || $index == $total - 1) { ?>
