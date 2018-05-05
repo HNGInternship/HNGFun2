@@ -25,7 +25,7 @@ if(!isset($_SESSION['user_id']) || (trim($_SESSION['user_id']) == '')) {
 		<section>
 			<div class="container container-main profile-form">
 				<div class="text-center">
-				<img src="<?php if(isset($row['filename'])) echo 	$filename; else echo "img/dashboard/help-large.png" ?>" class="profile-img img-circle" />
+				<img src="<?php if(isset($row['filename'])) echo 	$filename; else echo "img/dashboard/amy.png" ?>" class="profile-img img-circle" />
 				</div>
 			
 				

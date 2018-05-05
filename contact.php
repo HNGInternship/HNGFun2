@@ -102,10 +102,10 @@ function custom_styles() {
                     <p>support@hng.fun</p>
                 </div>
 
-                  <div class="social-media">
-                    <i class="fa fa-twitter"><a href="#"></a></i>
-                    <i class="fa fa-facebook"><a href="#"></a></i>
-                    <i class="fa fa-github"><a href="#"></a></i>
+                <div class="social-media">
+                    <a href="https://twitter.com/hnginternship?lang=en"><i class="fa fa-twitter"></i></a>
+                    <a href="https://web.facebook.com/hotelsng/"><i class="fa fa-facebook"></i></a>
+                    <a href="https://github.com/HNGInternship/"><i class="fa fa-github"></i></a>
                 </div>
                 </div>
             </section>
