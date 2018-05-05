@@ -7,11 +7,11 @@ include_once("header.php");
 		width: 350px;
 		border-radius: 7px;
 	}
-	
+
 	#submitbutton{
-		margin-top: 45px; 
-		border: 1px solid #2196f3; 
-		margin-bottom: 50px; margin-left: auto; margin-right: auto; 
+		margin-top: 45px;
+		border: 1px solid #2196f3;
+		margin-bottom: 50px; margin-left: auto; margin-right: auto;
 		background-color: #2196F3;
 		width: 400px; font-size: 15px; height: 40px; text-align:center;
 		border-radius: 10px;
@@ -24,6 +24,7 @@ include_once("header.php");
 	}
 
 </style>
+
 <div class="" style="padding-top: 7%">
 
     <div class="col-md-6  mx-auto">
@@ -33,41 +34,20 @@ include_once("header.php");
     </div>
         <p style="font-size: 14px;margin-bottom: 30px; margin-top: 10px; opacity: 0.7" class="text-center">Encourage your friends to start coding by offering them HNG coins today!
         </p>
-
-<form>
-<div class="form-row" style="margin:0 auto;">
-  <div class="form-group col-md-6">
-    <label for="username"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</label>
-    <input type="text" class="form-control" id="username" placeholder="" style="border-color:#0475CE;">
-  </div>
-  <div class="form-group col-md-6">
-    <label for="amount"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</label>
-    <input type="text" class="form-control" id="amount" placeholder="" style="border-color:#0475CE;">
-  </div>
-
-  <button style="" type="submit" id="submitbutton" class="">SEND COINS</button>
-</div>
-</form>
-       <!-- <form action="" class="text-center" style="margin-top:">
-            <div class="form-row" style="margin-left: 30px;">
-                <div class="form-group col-md-6">
-                	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</p>
-                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder=""/>
-                </div>
-                <div class="form-group col-md-6">
-                	<p align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</p>
-                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder=""/>
-                </div>
+        <div class="form-row" style="margin:0 auto;">
+			<div class="form-group col-md-6">
+                <label for="username"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="" style="border-color:#0475CE;">
             </div>
             <div class="form-group col-md-6">
                 <label for="amount"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Amount</label>
                 <input type="text" class="form-control" id="amount" placeholder="" style="border-color:#0475CE;">
             </div>
-
-        </form>-->
-
+            <button style="margin-top: 45px; border:0px; margin-bottom: 50px; margin-left: auto; margin-right: auto; background-color: #2196F3; color: white; width: 400px; font-size: 15px; height: 40px; text-align:center;border-radius: 10px" id="submitbutton" class="">SEND COINS</button>
         </div>
-        </div>
+
+    </div>
+</div>
 
 <?php
 include_once("footer.php");
