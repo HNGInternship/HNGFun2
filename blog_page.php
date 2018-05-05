@@ -78,7 +78,8 @@
         <span><input type="checkbox" name=""> Articles</span>
       </spam>
       <spam class="col-sm-2">
-        Search
+        <i class="fa fa-search"></i>
+        <input type="text" placeholder="Search for anything here..." name="">
       </spam>
   </section>
   <section class="post-container mt-5">
