@@ -48,7 +48,7 @@ include_once("header.php");
   	  </span>
       <div class="my-deck mx-auto mt-4">
   	  <div class="card">
-  	    <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+  	    <img class="card-img-top" src="images/Didicodes.png" alt="Profile Image">
           <div class="card-footer">
             
         	  <a href="#" class="ml-3">View Profile</a>
@@ -56,14 +56,14 @@ include_once("header.php");
       	</div>
   	  </div>
       <div class="card">
-        <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+        <img class="card-img-top" src="images/Dtechtor.PNG" alt="Profile Image">
         <div class="card-footer">
   	  <a href="#" class="ml-3">View Profile</a>
   	  <i class="fa fa-github fa-lg"></i>
       </div>
       </div>
         <div class="card">
-          <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+          <img class="card-img-top" src="images/Fotes.PNG" alt="Profile Image">
   	    <div class="card-footer">
   	      
   	  	  <a href="#" class="ml-3">View Profile</a>
@@ -86,7 +86,7 @@ include_once("header.php");
   	  </span>
       <div class="my-deck mx-auto mt-4">
   	  <div class="card">
-  	    <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+  	    <img class="card-img-top" src="images/Osawaru.PNG" alt="Profile Image">
           <div class="card-footer">
             
         	  <a href="#" class="ml-3">View Profile</a>
@@ -94,14 +94,14 @@ include_once("header.php");
       	</div>
   	  </div>
       <div class="card">
-        <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+        <img class="card-img-top" src="images/TechHajiya.PNG" alt="Profile Image">
         <div class="card-footer">
   	  <a href="#" class="ml-3">View Profile</a>
   	  <i class="fa fa-github fa-lg"></i>
       </div>
       </div>
         <div class="card">
-          <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+          <img class="card-img-top" src="images/charlek.jpg" alt="Profile Image">
   	    <div class="card-footer">
   	      
   	  	  <a href="#" class="ml-3">View Profile</a>
@@ -124,7 +124,7 @@ include_once("header.php");
   	  </span>
       <div class="my-deck mx-auto mt-4">
   	  <div class="card">
-  	    <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+  	    <img class="card-img-top" src="images/dav.jpg" alt="Profile Image">
           <div class="card-footer">
             
         	  <a href="#" class="ml-3">View Profile</a>
@@ -132,14 +132,14 @@ include_once("header.php");
       	</div>
   	  </div>
       <div class="card">
-        <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+        <img class="card-img-top" src="images/iam__dharmy.PNG" alt="Profile Image">
         <div class="card-footer">
   	  <a href="#" class="ml-3">View Profile</a>
   	  <i class="fa fa-github fa-lg"></i>
       </div>
       </div>
         <div class="card">
-          <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+          <img class="card-img-top" src="images/john.jpg" alt="Profile Image">
   	    <div class="card-footer">
   	      
   	  	  <a href="#" class="ml-3">View Profile</a>
