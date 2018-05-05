@@ -11,8 +11,8 @@
   }
   global $conn;
 
-  
-	 $select = mysqli_query($conn, "SELECT * FROM gallery")  or  die(mysqli_error($db));
+  	$query = $conn->query("SELECT * FROM gallery");
+	$select = $query->fetch(PDO::FETCH_ASSOC);
 	 $rows = $select->num_rows;
 	 echo $rows;
 ?>
