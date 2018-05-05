@@ -1,8 +1,4 @@
-<?php
-include_once("header.php");
-?>
-
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -140,7 +136,9 @@ include_once("header.php");
     <title>Alumni</title>
   </head>
   <body>
-
+<?php
+include_once("header.php");
+?>
     <div class="container-fluid">
       <h1 class="heading">Our Alumni</h1>
       <hr style="width:5%;border:1px solid #555;margin-top:0px;">
