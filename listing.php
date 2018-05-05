@@ -9,6 +9,8 @@ $sql = 'SELECT * FROM interns_data';
 $q = $conn->query($sql);
 $q->setFetchMode(PDO::FETCH_ASSOC);
 $data = $q->fetchAll();
+
+var_dump($data);
 ?>
 
 <style>
