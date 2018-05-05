@@ -6,8 +6,9 @@ if(!isset($_SESSION['user_id']) || (trim($_SESSION['user_id']) == '')) {
     header("location: login.php");
     exit();
 }else
-    define ('DB_USER', "admin");
-define ('DB_PASSWORD', "29gE9t*dJ2#2f-BS");
+define ('DB_USER', "root");
+//define ('DB_PASSWORD', "29gE9t*dJ2#2f-BS");
+define ('DB_PASSWORD', "");
 define ('DB_DATABASE', "dragons_shield");
 define ('DB_HOST', "localhost");
 $servername = DB_HOST;
@@ -24,9 +25,12 @@ catch(PDOException $e)
     echo "Connection failed: " . $e->getMessage();
 }
     $id = $_SESSION['user_id'];
-    $query = "SELECT username from users_data where user_id ={$id}";
+    $query = "SELECT * from users_data where user_id ={$id}";
     $result = $conn->query($query);
-    $records = $result->fetchColumn();
+    $rec = $result->fetchAll();
+    $username = $rec[0]['username'];
+    $private = $rec[0]['private_key'];
+    $public = $rec[0]['public_key'];
 ?>
 <?php
 include_once("dashboard-header.php");
@@ -35,8 +39,8 @@ include_once("dashboard-header.php");
 <div class="row wallet">
     <div class="col-md-12">
         <p>HNG Coin Wallet</p>
-        <h2>9.0000<span> HNG</span></h2>
-        <p>HNG Wallet Address: 1NBpecSgZ86hAPje2Rc7oFz</p>
+        <h2><span id='balnce'>0</span> HNG</h2>
+        <p>Wallet Address: <span id="wadd"><?php echo $public ?></span></p>
     </div>
 </div>
 
@@ -178,6 +182,131 @@ include_once("dashboard-header.php");
         </div>
     </div>
 </div>
+
+		<script>
+			var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+			StellarSdk.Network.useTestNetwork();
+			var pkey;
+			var skey;
+			
+			/**
+				Function to create a Stellar Account(Wallet).
+				@return Array of the publickey and privatekey
+			**/
+			
+			function createAccount(){
+				var pair = StellarSdk.Keypair.random();
+				//console.log(pair.secret());
+				//console.log(pair.publicKey());
+				pkey = pair.publicKey();
+				skey = pair.secret();
+				activateAccount(pkey);
+				return [pkey, skey];
+			}
+			
+			/**
+				Account Activation
+				@return Boolean
+				@params account public key
+				@description This will be used to activate a newly generated wallet address as per STELLAR requirement
+				
+			**/
+			
+			function activateAccount(newAddress){
+				$.ajax({
+					url: 'https://friendbot.stellar.org',
+					type: "POST",
+					data: { addr: newAddress },
+					success: function(error, resp, body){
+						if(body.status == 200){
+							console.log("Account activation Successful\n");
+							return true;
+						}
+					},
+					error: function(error){
+						console.log(error);
+						return false;
+					}
+				});
+			}
+			
+			/**
+				Function to get account balance of a wallet address
+				@params wallet public addres
+				@return Object array ['bal']
+			**/
+			function getAccountBalance(walletAddress){
+				var bal = {};
+				server.loadAccount(walletAddress).then(function(account){
+					console.log("Balance for account: "+ walletAddress);
+					account.balances.forEach(function(balance){
+						console.log('Type:', balance.asset_type, ', Balance:', balance.balance, ', Asset Code:', balance.asset_code);
+						//bal = balance.balance;
+						if(balance.asset_type == 'credit_alphanum4'){
+							bal[balance.asset_code.toString()] = balance.balance;
+							//document.getElementById('balance').innerHTML = (balance.balance).split('.')[0];
+                            document.getElementById('balnce').innerHTML = balance.balance
+						}else{
+							bal[balance.asset_code] = balance.balance;
+						}
+					});
+				});
+			}
+			
+			/**** 
+				This function is for Sending HNG coin
+				@params sender private key, receiver private key and Amount
+			***/
+			function sendHNG(topriv, frompriv, amnt){
+				var issuingKeys = StellarSdk.Keypair.fromSecret(frompriv);
+				var receivingKeys = StellarSdk.Keypair.fromSecret(topriv);
+				var iss = "GAVNY6CI7L6YA2ZGSTP235DL3RHAHQMABXIF26H6EX5IOZ2HIK4JRSDS";
+
+				// Create an object to represent the new asset
+				var HNGCoin = new StellarSdk.Asset('HNG', iss);
+
+				// First, the receiving account must trust the asset
+				server.loadAccount(receivingKeys.publicKey())
+				  .then(function(receiver) {
+					var transaction = new StellarSdk.TransactionBuilder(receiver)
+					  // The `changeTrust` operation creates (or alters) a trustline
+					  .addOperation(StellarSdk.Operation.changeTrust({
+						asset: HNGCoin
+					  }))
+					  .build();
+					transaction.sign(receivingKeys);
+					return server.submitTransaction(transaction);
+				  })
+
+				  // Second, the issuing account actually sends a payment using the asset
+				  .then(function() {
+					return server.loadAccount(issuingKeys.publicKey())
+				  })
+				  .then(function(issuer) {
+					var transaction = new StellarSdk.TransactionBuilder(issuer)
+					  .addOperation(StellarSdk.Operation.payment({
+						destination: receivingKeys.publicKey(),
+						asset: HNGCoin,
+						amount: amnt.toString()
+					  }))
+					  .build();
+					transaction.sign(issuingKeys);
+					return server.submitTransaction(transaction);
+				  })
+				  .then(function(result){
+					console.log('\nSuccess! View the transaction at: ');
+					console.log(result._links.transaction.href);
+				  })
+				  .catch(function(error) {
+					console.error('Error!', error);
+				  });
+			}
+			
+			//console.log(StellarSdk);
+            var wallet = document.getElementById('wadd').textContent;
+            getAccountBalance(wallet);
+			
+		</script>
 
 
 <?php
