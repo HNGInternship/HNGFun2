@@ -34,6 +34,10 @@ include_once("header.php");
 		justify-content: space-between;
 		align-items: center;
 	}
+	.card-img-top {
+    height: 250px;
+    width: 251px;
+}
 </style>
 
 <main class="mx-auto col-md-10 mt-5 mb-5">
