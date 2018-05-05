@@ -9,7 +9,7 @@ $(document).ready(function () {
         $response.find('p').remove();
 
         if (!testmail.test($mail.val())) {
-            $response.html('<p class="error">Please enter a valid email</p>');
+            alert('Please enter a valid email');
             hasError = true;
         }
 
@@ -26,10 +26,10 @@ $(document).ready(function () {
                 data: $this.serialize()
             }).done(function (data) {
                 $response.removeClass('loading');
-                $response.html('<p>'+data.message+'</p>');
+                alert(data.message);
             }).fail(function() {
                 $response.removeClass('loading');
-                $response.html('<p>An error occurred, please try again</p>');
+                alert('An error occurred, please try again');
             })
         }
 
