@@ -36,7 +36,7 @@ $activeArray[$fileIndex]="active";
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
 
 
       <!-- Custom fonts for this template -->
