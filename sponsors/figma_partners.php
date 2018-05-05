@@ -30,6 +30,8 @@
 							<p class="text-center">In essence, Figma is a browser-based Photoshop, but rather than overload on redundant tools, it encourages interaction design. Every change is tracked and recorded to the cloud (which is how we do things today) and version control ensures we can rewind a project to previous states</p>
 							<p class="text-center">So the solo software experience that UI work was touted and nurtured to be is rapidly becoming a thing of the past, time is being saved and creativity is on the rise.</p>
 							
+							
+
 							<div class="row mx-auto">
 								<div class="col">
 									<a href="https://twitter.com/figmadesign" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
@@ -38,7 +40,13 @@
 									<a href="https://web.facebook.com/figmadesign" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
 								</div>
 								<div class="col">
-									<a href="" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+									<a href="https://www.instagram.com/figmadesign/" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
+								</div>
+								<div class="col">
+									<a href="https://ng.linkedin.com/company/figma" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+								</div>
+								<div class="col">
+									<a href="https://www.youtube.com/channel/UCQsVmhSa4X-G3lHlUtejzLA" target="_blank"><i class="fa fa-youtube fa-lg"></i></a>
 								</div>
 							</div>
 							
