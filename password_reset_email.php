@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -12,7 +13,7 @@
 <body>
     <div class="left-column">
          <div class="head">
-            <span class="logo1">}{</span> <span class="logo2" ><strong>HNG</strong> </span> 
+            <span class="logo1">}{</span> <span class="logo2" ><strong>HNG</strong> </span>
             <span class="logo2 custom"><br>INTERNSHIP</span>
          </div>
     </div>
@@ -24,7 +25,7 @@
                  click the button below to reset your password</p>
 
                 <button> RESET PASSWORD</button> <br />
-            
+
              <h4 class = "bottom"> Getting a lot of Password Reset Emails?</h4>
                 <p class = "bottom1"> You could change your <a href="#">Account Settings</a> to require personal information to reset your password <br />
                                    We sent this mail to interactivebee@gmail.com because you have requested for a <br />

@@ -16,13 +16,13 @@ header {
 .hero {
     max-width: 640px;
     margin: 0 auto;
-  
+
 }
 
 /*FAQ styles */
 
 .jumbotron {
-  
+
     background: #;
     text-align: center;
     color: #3D3D3D;
@@ -75,8 +75,8 @@ header {
 
 .answers {
     margin-bottom: 2em;
-   
-   
+
+
 }
 
 .faq-wrapper h5 {
@@ -85,14 +85,14 @@ header {
      text-align: center;
      font-size: 2em;
      font-weight: 700;
-   
+
 }
 
 .faq-h5 {
     text-align: center;
     font-weight: 200;
     padding-bottom: .7em;
-    
+
 }
 
 .btn-q {
@@ -168,7 +168,7 @@ header {
 .answers #accordion .card-body {
     height: 330px;
     font-size: 16px;
-    
+
 }
 
 i.fa.fa-bars {
@@ -190,7 +190,7 @@ i.fa.fa-bars {
     }
 }
 
-      
+
 </style>
 
 
@@ -200,7 +200,7 @@ i.fa.fa-bars {
  <h1>Help Center</h1>
     <p>What Can we help you with ?</p>
 </div>
-</header>  
+</header>
 <main class="">
     <section class="container">
         <div class="faq-wrapper">
@@ -217,7 +217,7 @@ i.fa.fa-bars {
                     </div>
                     <div class="col">
                         <div class="card-header" id="headingOne">
-                    
+
                         <h5 class="mb-0">
                             <button class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                              Will I be awarded a certificate after this internship?
@@ -259,10 +259,10 @@ i.fa.fa-bars {
                                 </div>
                             </div>
                         </div><!-- end of col-->
-                      
+
                       </div>
                   </div><!-- end of card-->
-                  
+
                   <div class="card">
                   <div class="row">
                         <div class="col-sm-2">
@@ -283,7 +283,7 @@ i.fa.fa-bars {
                             </div>
                       </div><!-- end of col -->
                   </div>
-                  
+
                   </div><!-- end of card-->
                   <div class="card">
                     <div class="row">

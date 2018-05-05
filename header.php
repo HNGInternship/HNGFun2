@@ -39,6 +39,7 @@ $activeArray[$fileIndex]="active";
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
+
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
@@ -46,6 +47,7 @@ $activeArray[$fileIndex]="active";
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
+
     <link rel="shortcut icon" href="images/favicon.png">
     <link rel="stylesheet" href="css/custom.css" type="text/css">
 
@@ -83,8 +85,10 @@ $activeArray[$fileIndex]="active";
         .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
         }
-        footer {
-          background: #FAFAFA;
+        /* horizontal line learn page */
+        hr.under-line {
+            width: 10%;
+            border-top: 3px solid #000;
         }
         .justify-space-between {
           justify-content: space-between;
@@ -103,7 +107,18 @@ $activeArray[$fileIndex]="active";
     .btn-primary:focus {
         background-color: #0475CE !important;
     }
-      
+
+      /*for footer*/
+    .contact-icon{
+      margin: 0px !important;
+      padding: 0% 2%;
+    }
+
+    footer{
+      background: #FAFAFA !important;
+      color: #3D3D3D;
+    }
+
       .footer-li .fa-stack-1x:hover{
             color: #0465be !important;
       }
@@ -121,9 +136,15 @@ $activeArray[$fileIndex]="active";
 
     <nav class="navbar navbar-expand-lg navbar-light"  >
 
+
+      <!-- <a class="navbar-brand" href="../index.php">
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid">
+        </a> -->
+
       <a class="navbar-brand" href="../">
         <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -139,7 +160,7 @@ $activeArray[$fileIndex]="active";
                 <a href="learn" class="nav-link">Learn</a>
             </li>
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="listing" class="nav-link">Intern</a>
+                <a href="listing" class="nav-link">Current Intern</a>
             </li>
             <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>

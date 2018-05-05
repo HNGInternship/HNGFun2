@@ -1,17 +1,5 @@
-RewriteEngine on
-
-# Rewrite the search page
-
-RewriteRule ^searchresults/([^/]+)/([^/]+)/?$ searchresults.php?a=$1&b=$2 [QSA,L]
-
-# Allow requests without php/html extensions
-
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^\.]+)$ $1.php [L]
-
-RewriteCond %{REQUEST_FILENAME}.html -f
-<<<<<<< HEAD
-RewriteRule ^([^\.]+)$ $1.html [L]
-=======
-RewriteRule ^([^\.]+)$ $1.html [L]
->>>>>>> 2caae604ea0274df1adb9cdd206410738ec274ec
+Options +MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]

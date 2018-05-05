@@ -1,20 +1,29 @@
 <?php
-
-
+if (isset($_POST['send'])) {
+    $name = $_POST['name'];
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $message = $_POST['message'];
+    if ($email) {
+        $content = "Name: $name\n";
+        $content .= "Email: $name\n";
+        $content .= "Message: $message\n";
+        $headers = "From: webmaster@example.com\r\nReply-to: $email";
+        mail('info@exmaple.com', 'Contact Form', $message, $headers);
+    }
+}
 include_once("header.php");
-function custom_styles() {
+function custom_styles()
+{
     $styles = '<style>
     body{
         background:#e5e5e5;
     }
-
     .form-control {
         border-radius: none !important;
     }
     footer {
         padding-bottom: 0;
     }
-
     </style>';
     echo $styles;
 };
@@ -34,13 +43,8 @@ function custom_styles() {
              <section id="contact-left" class="col-md-6  contact-form">
                 <h3 class="text-left"> Send us a message</h3>
                 <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span>
-                <div class="widget-contact-form pb-0">
-            <!-- contact-form-->
-            <div class="email_server_responce"></div>
-            <form action="contacts-process.php" method="post" class="form contact-form alt clearfix">
-              
-
-              <div class="form-group row">
+                 <form method="post" id="contact-form">
+                        <div class="form-group row">
                             <div class="col">
                                 <label for="name" class="col-form-label-sm">Your Name</label>
                                 <input type="text" name="name" class="form-control"/>
@@ -52,8 +56,8 @@ function custom_styles() {
                         </div>
                         <div class="form-group row">
                             <div class="col">
-                                <label for="phone" class="col-form-label-sm">Phone Number</label>
-                                <input type="text" name="phone" class="form-control"/>
+                                <label for="phone_number" class="col-form-label-sm">Phone Number</label>
+                                <input type="text" name="phone_number" class="form-control"/>
                             </div>
                             <div class="col">
                                 <label for="subject" class="col-form-label-sm">Subject</label>
@@ -67,9 +71,7 @@ function custom_styles() {
                             </div>
                         </div>
                     <button class="send-button" type="submit"><img src="./img/send.png" alt="envelope" ></button>
-            </form>
-            <!-- /contact-form-->
-          </div>
+                </form>
             </section>
               <!-- <section class="col-md-6"> -->
             <section id="contact-right" class="col-md-6">
@@ -93,6 +95,12 @@ function custom_styles() {
                     <p class="contact-icon mail"><img src="./img/envelope.png" alt=""></p>
                     <p>support@hng.fun</p>
                 </div>
+
+                  <div class="social-media">
+                    <i class="fa fa-twitter"><a href="#"></a></i>
+                    <i class="fa fa-facebook"><a href="#"></a></i>
+                    <i class="fa fa-github"><a href="#"></a></i>
+                </div>
                 </div>
             </section>
         </div>
@@ -100,7 +108,8 @@ function custom_styles() {
 
 <?php
 include_once("footer.php");
-function custom_scripts() {
+function custom_scripts()
+{
     $script = "<script>jQuery(document).ready(function($) {
   var alterClass = function() {
     var ww = document.body.clientWidth;
@@ -116,8 +125,18 @@ function custom_scripts() {
   //Fire it when the page first loads:
   alterClass();
 });</script>";
-
-echo $script;
+    echo $script;
 };
-
-
+if (isset($_POST['send'])) {
+    $name = $_POST['name'];
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $message = $_POST['message'];
+    if ($email) {
+        $content = "Name: $name\n";
+        $content .= "Email: $name\n";
+        $content .= "Message: $message\n";
+        $headers = "From: webmaster@example.com\r\nReply-to: $email";
+        mail('info@exmaple.com', 'Contact Form', $message, $headers);
+    }
+}
+?>
