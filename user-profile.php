@@ -1,5 +1,5 @@
 <?php
-include_once("header.php");
+include_once("dashboard-header-other.php");
 
 if(!isset($_SESSION['user_id']) || (trim($_SESSION['user_id']) == '')) {
     header("location: login.php");
@@ -7,33 +7,9 @@ if(!isset($_SESSION['user_id']) || (trim($_SESSION['user_id']) == '')) {
 }
 ?>
 
-		<link href="css/user-profile.css" rel="stylesheet">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- <link href="css/user-profile.css" rel="stylesheet"> -->
+		<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 		
-		
-		
-		<div id="navbar">
-			<nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #ffffff; padding: 0px 0px 0px 200px;">
-			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						
-						<li class="nav-item">
-							<a href="index.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/windows.png" alt="" class="navbar-icon">Dashboard</a>
-						</li>
-						
-						<li class="nav-item">
-							<a href="learn.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/hand.png" alt=""  class="navbar-icon">Trade</a>
-						</li> 
-						<li class="nav-item">
-							<a href="listing.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/perso.png" alt="" class="navbar-icon">Profile</a>
-						</li> 
-						<li class="nav-item">
-							<a href="testimonies.php" class="nav-link"><img src="https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/help.png" alt="" class="navbar-icon">Help & Feedback</a>
-						</li> 
-					</ul>
-				</div> 
-			</nav>
-		</div>
 		<?php 
 		include 'config.example.php';
 		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
@@ -47,8 +23,10 @@ if(!isset($_SESSION['user_id']) || (trim($_SESSION['user_id']) == '')) {
 		
 		?>
 		<section>
-			<div class="container container-main">
-				<img src="<?php if(isset($row['filename'])) echo 	$filename; else echo "https://res.cloudinary.com/dzwrncue8/image/upload/v1525188272/help.png" ?>" class="profile-img img-circle" />
+			<div class="container container-main profile-form">
+				<div class="text-center">
+				<img src="<?php if(isset($row['filename'])) echo 	$filename; else echo "img/dashboard/help-large.png" ?>" class="profile-img img-circle" />
+				</div>
 			
 				
 				
@@ -220,65 +198,3 @@ $public_key = isset($_POST['public_key']) && !empty($_POST['public_key']);
 <?php
 include_once("footer.php");
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
