@@ -12,14 +12,13 @@ include_once("header.php");
 		margin-top: 45px; 
 		border: 1px solid #2196f3; 
 		margin-bottom: 50px; margin-left: auto; margin-right: auto; 
-		color: #2196F3;
+		background-color: #2196F3;
 		width: 400px; font-size: 15px; height: 40px; text-align:center;
 		border-radius: 10px;
-		background-color: #fff;
+		color: #fff;
 	}
 	#submitbutton:hover{
-		background-color: #2196f3;
-		color: #fff;
+		cursor: pointer;
 		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     		transition: 0.3s;
 	}
