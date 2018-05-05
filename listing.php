@@ -3,6 +3,7 @@ include_once("header.php");
 require 'db.php';
 if(isset($db)){
   $conn = $db;
+  $boo = "I am boo";
 }
 
 $sql = 'SELECT * FROM interns_data';
@@ -11,7 +12,7 @@ $q->setFetchMode(PDO::FETCH_ASSOC);
 $data = $q->fetchAll();
 ?>
 <script>
-  alert("here");
+  alert("<?php echo $boo ?>");
 </script>
 <style>
   h2 {
