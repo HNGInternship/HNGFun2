@@ -4,7 +4,7 @@ include_once("db.php");
 
 if(isset($db)){
   $conn = $db;
-  $boo = "I am boo";
+ 
 }
 
 $sql = 'SELECT * FROM interns_data';
@@ -12,9 +12,7 @@ $q = $conn->query($sql);
 $q->setFetchMode(PDO::FETCH_ASSOC);
 $data = $q->fetchAll();
 ?>
-<script>
-  alert("<?php echo $boo ?>");
-</script>
+
 <style>
   h2 {
     font-family: 'work sans';
