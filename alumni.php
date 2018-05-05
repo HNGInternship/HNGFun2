@@ -172,9 +172,9 @@ include_once("header.php");
       <div class="article-loop">
        <tbody>
           <tr>
-            <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+            <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/chuks.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
             <td><a href="#">Opia Chuks</a></td>
-            <td>@Sadiq</td>
+            <td>@chuks</td>
             <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -186,9 +186,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/orobolucky.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Ozoka Lucky Orobo</a></td>
-          <td>@Sadiq</td>
+          <td>@orobolucky</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -200,9 +200,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/valentine.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Valentine Ike Oleka</a></td>
-          <td>@Sadiq</td>
+          <td>@valentine</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -214,9 +214,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/kehinde_emmanuel.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Emmanuel Kehinde</a></td>
-          <td>@Sadiq</td>
+          <td>@kehinde_emmanuel</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -228,9 +228,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/xyluz.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Seyi Onifade</a></td>
-          <td>@Sadiq</td>
+          <td>@xyluz</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -242,9 +242,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/adetona.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Abiodun Adetona</a></td>
-          <td>@Sadiq</td>
+          <td>@adetona</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -256,9 +256,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/digitalmarija.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Marija Dubrovska</a></td>
-          <td>@Sadiq</td>
+          <td>@digitallarija</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -270,9 +270,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/aniekan.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Offiong Aniekanabasi</a></td>
-          <td>@Sadiq</td>
+          <td>@aniekan</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -284,9 +284,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/okoye.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Okoye Chidi Bartholomew</a></td>
-          <td>@Sadiq</td>
+          <td>@okoyecb</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -298,9 +298,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/chiamaka.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Obieri Chiamaka Grace</a></td>
-          <td>@Sadiq</td>
+          <td>@chiamaka</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -312,9 +312,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/namsoukpanah.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Namnso Ukpanah</a></td>
-          <td>@Sadiq</td>
+          <td>@namsoukpanah</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -326,9 +326,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/mozartted.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Chibuike Emmanuel Osita</a></td>
-          <td>@Sadiq</td>
+          <td>@mozartted</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -340,9 +340,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/daniel.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Onuchukwu Daniel</a></td>
-          <td>@Sadiq</td>
+          <td>@Daniel</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -354,9 +354,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/dejoe.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Adeyemo Adeola Joseph</a></td>
-          <td>@Sadiq</td>
+          <td>@dejoe</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -368,9 +368,9 @@ include_once("header.php");
 
       <div class="article-loop">
             <tr>
-              <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+              <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/faradayy.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
               <td><a href="#">Friday God'swill</a></td>
-              <td>@Sadiq</td>
+              <td>@faradayy</td>
               <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -400,9 +400,9 @@ include_once("header.php");
       <div class="article-loop">
        <tbody>
           <tr>
-            <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+            <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/sarahchima.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
             <td><a href="#">Sarah Chima</a></td>
-            <td>@Sadiq</td>
+            <td>@sarahchima</td>
             <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -414,9 +414,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/odusanya.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Odusanya Tomi</a></td>
-          <td>@Sadiq</td>
+          <td>@odusanya</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -428,9 +428,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/jaykay.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Kayode Sholanke</a></td>
-          <td>@Sadiq</td>
+          <td>@jaykay</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -442,9 +442,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/codebyomar.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Umar Abdullahi</a></td>
-          <td>@Sadiq</td>
+          <td>@codebyomar</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -456,9 +456,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/dinyangetoh.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">David Inyang-Etoh</a></td>
-          <td>@Sadiq</td>
+          <td>@dinyangetoh</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -470,9 +470,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/marimazi.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Mary Mazi</a></td>
-          <td>@Sadiq</td>
+          <td>@marimazi</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -484,9 +484,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/promise.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Promise Udenkwor</a></td>
-          <td>@Sadiq</td>
+          <td>@promise</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -498,9 +498,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/reginarex.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Regina Rex</a></td>
-          <td>@Sadiq</td>
+          <td>@reginarex</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -512,9 +512,9 @@ include_once("header.php");
 
       <div class="article-loop">
         <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
+          <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/yusuf.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Yusuf Yinka</a></td>
-          <td>@Sadiq</td>
+          <td>@yusuf</td>
           <td></td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
@@ -522,90 +522,7 @@ include_once("header.php");
               <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
             </td>
         </tr>
-      </div>
-
-      <div class="article-loop">
-        <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
-          <td>@Sadiq</td>
-          <td></td>
-            <td>
-              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
-            </td>
-        </tr>
-      </div>
-
-      <div class="article-loop">
-        <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
-          <td>@Sadiq</td>
-          <td></td>
-            <td>
-              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
-            </td>
-        </tr>
-      </div>
-
-      <div class="article-loop">
-        <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
-          <td>@Sadiq</td>
-          <td></td>
-            <td>
-              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
-            </td>
-        </tr>
-      </div>                        
-
-      <div class="article-loop">
-        <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
-          <td>@Sadiq</td>
-          <td></td>
-            <td>
-              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
-            </td>
-        </tr>
-      </div>
-
-      <div class="article-loop">
-        <tr>
-          <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
-          <td>@Sadiq</td>
-          <td></td>
-            <td>
-              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
-            </td>
-        </tr>
-      </div>
-
-      <div class="article-loop">
-            <tr>
-              <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-              <td><a href="#">Sambo Abubakar</a></td>
-              <td>@Sadiq</td>
-              <td></td>
-            <td>
-              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
-            </td>
-            </tr>
+      
           </tbody>
         </table>
       </div>
