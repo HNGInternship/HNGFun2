@@ -39,12 +39,12 @@ include_once("header.php");
 	}
 	.paddedhr{
 		width: 100px;
-		background-color: #2f70ed;
+		background-color: #00AEFF;
 		padding: 2px 0;
 	}
 	.paddedhr2{
 		width: 60px;
-		background-color: #00aeff;
+		background-color: #00AEFF;
 		padding: 2.5px 0;
 	}
 	.bg-grey{
@@ -74,13 +74,21 @@ include_once("header.php");
 	}
     .img-bg {
         position: relative; 
-        width: 100%
+        width: 100%;
+        height: 100px;
+        margin: auto
     }
-    h1 { 
+    .mb-2 { 
         position: absolute; 
-        top: 200px; 
-        left: 0; 
-        width: 100%; 
+        bottom: 250px; 
+        right: 50; 
+        width: 70%; 
+    }
+    .head { 
+        position: absolute; 
+        bottom: 150px; 
+        right: 50; 
+        width: 70%; 
     }
 </style>
 
@@ -88,7 +96,7 @@ include_once("header.php");
 	<div class="text-white img-bg">
         <img src="/img-light.jpeg" alt="">
 			<h1 class="mb-2">What is HNG all about?</h1>
-			<p>The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
+			<p class="head" >The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
 	</div>
 	<div class="row">
 		<p class="text-center w-100 mb-0">About Us</p>
