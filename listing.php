@@ -1,9 +1,10 @@
 <?php
 include_once("header.php");
-require 'db.php';
+include_once("db.php");
+
 if(isset($db)){
   $conn = $db;
-  $boo = "I am boo";
+ 
 }
 
 $sql = 'SELECT * FROM interns_data';
@@ -11,9 +12,7 @@ $q = $conn->query($sql);
 $q->setFetchMode(PDO::FETCH_ASSOC);
 $data = $q->fetchAll();
 ?>
-<script>
-  alert("<?php echo $boo ?>");
-</script>
+
 <style>
   h2 {
     font-family: 'work sans';
@@ -22,8 +21,8 @@ $data = $q->fetchAll();
   .profile {
     width: 250px;
   }
-  .profile .card > .card-img-top {
-    height: 250px;
+  .card-img-top {
+    height: 250px !important;
   }
 
   .card-footer {
@@ -74,14 +73,14 @@ $count++;
 ?>
     <div class="profile">
       <div class="card">
-        <img class="card-img-top" src="<?php echo $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="Profile Image">
+      <a href="profile.php?id=<?php echo $list['username'] ?>">  <img class="card-img-top" src="<?php echo $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
         <div class="card-footer">
           <a href="profile.php?id=<?php echo $list['username'] ?>" class="ml-3 my-0 py-0 btn btn-default">View Profile</a>
           <i class="fa fa-github fa-lg"></i>
         </div>
       
       </div>
-      <h4 class="text-center mt-3"><?php echo  $list['firstname'] . " " . $list['lastname'] ?></h4>
+      <h4 class="text-center mt-3"><?php echo  $list['name'] ?></h4>
      
     </div>
   <?php if ($count === 3 || $index == $total - 1) { ?>
