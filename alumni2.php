@@ -197,10 +197,10 @@ $data = $q->fetchAll();
               <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
             </td>
           </tr>
-	  
+	   <?php } ?>
           </tbody>
         </table>
-		 <?php } ?>
+		
 		  </div>
 
     <!-- Optional JavaScript -->
