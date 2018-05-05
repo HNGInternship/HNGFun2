@@ -7,3 +7,4 @@ if (!empty($_POST)) {
 
     Newsletter::register($email);
 }
+?>
