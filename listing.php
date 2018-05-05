@@ -1,6 +1,6 @@
 <?php
 include_once("header.php");
-require 'db.php';
+
 if(isset($db)){
   $conn = $db;
   $boo = "I am boo";

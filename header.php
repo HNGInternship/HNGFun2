@@ -158,3 +158,12 @@ $activeArray[$fileIndex]="active";
   </div>
 
     </nav>
+
+<?php
+
+require 'db.php';
+if(isset($db)){
+  $conn = $db;
+  $boo = "I am boo";
+}
+?>
