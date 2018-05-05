@@ -139,26 +139,26 @@ $activeArray[$fileIndex]="active";
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item <?= $activeArray[0] ?>">
-                <a href="index.php" class="nav-link">Home</a>
+                <a href="index" class="nav-link">Home</a>
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
-                <a href="learn.php" class="nav-link">Learn</a>
+                <a href="learn" class="nav-link">Learn</a>
             </li>
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="listing.php" class="nav-link">Current Intern</a>
+                <a href="listing" class="nav-link">Current Intern</a>
             </li>
             <li class="nav-item <?= $activeArray[3] ?>">
-                <a href="testimonies.php" class="nav-link">Testimonies</a>
+                <a href="testimonies" class="nav-link">Testimonies</a>
             </li>
             <li class="nav-item <?= $activeArray[4] ?>">
-                <a href="sponsors.php" class="nav-link">Sponsors</a>
+                <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
             <li class="nav-item <?= $activeArray[5] ?>">
-                <a href="alumni.php" class="nav-link">Alumni</a>
+                <a href="alumni" class="nav-link">Alumni</a>
             </li>
            <li class="nav-item <?= $activeArray[6] ?>">
 
-                <a href="partners.php" class="nav-link">Partners</a>
+                <a href="partners" class="nav-link">Partners</a>
             </li>
     </ul>
   </div>
