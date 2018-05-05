@@ -183,7 +183,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/orobolucky.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Ozoka Lucky Orobo</a></td>
           <td>@orobolucky</td>
-          <td></td>
+          <td>Full Stack Developer</td>
             <td>
               <a href="https://www.twitter.com/orobogenius" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://facebook.com/orobogenius" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -197,7 +197,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/valentine.png" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Valentine Ike Oleka</a></td>
           <td>@valentine</td>
-          <td></td>
+          <td>Back End Developer</td>
             <td>
               <a href="https://twitter.com/chiefoleka" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/olekavalentine" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -211,7 +211,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/kehinde_emmanuel.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Emmanuel Kehinde</a></td>
           <td>@kehinde_emmanuel</td>
-          <td></td>
+          <td>Full Stack Developer</td>
             <td>
               <a href="https://twitter.com/emmakoko96" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -224,7 +224,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/xyluz.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Seyi Onifade</a></td>
           <td>@xyluz</td>
-          <td></td>
+          <td>Back End Developer</td>
             <td>
               <a href="https://twitter.com/xyluz" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/onifade.xeyi" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -237,7 +237,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/adetona.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Abiodun Adetona</a></td>
           <td>@adetona</td>
-          <td></td>
+          <td>Back End Developer</td>
             <td>
               <a href="https://twitter.com/Adetona77" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/abiodun.adetona.351" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -250,7 +250,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/digitalmarija.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Marija Dubrovska</a></td>
           <td>@digitallarija</td>
-          <td></td>
+          <td>UI/UX Designer</td>
             <td>
               <a href="https://twitter.com/digitalmarija" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/digitalmarija" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -264,7 +264,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/aniekan.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Offiong Aniekanabasi</a></td>
           <td>@aniekan</td>
-          <td></td>
+          <td>Back End Developer</td>
             <td>
               <a href="https://twitter.com/aniekanoffiong" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -278,7 +278,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/okoye.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Okoye Chidi Bartholomew</a></td>
           <td>@okoyecb</td>
-          <td></td>
+          <td>Front End Developer</td>
             <td>
               <a href="https://twitter.com/Okoyecb" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/okoyecb" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -292,7 +292,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/chiamaka.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Obieri Chiamaka Grace</a></td>
           <td>@chiamaka</td>
-          <td></td>
+          <td>Front End Developer</td>
             <td>
               <a href="https://twitter.com/amries_grace" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/grace.chiamaka.16" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -306,7 +306,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/namsoukpanah.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Namnso Ukpanah</a></td>
           <td>@namsoukpanah</td>
-          <td></td>
+          <td>UI/UX Designer</td>
             <td>
               <a href="https://twitter.com/i_am_marshal" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/marshal.ukpanah" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -320,7 +320,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/mozartted.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Chibuike Emmanuel Osita</a></td>
           <td>@mozartted</td>
-          <td></td>
+          <td>Full Stack Developer</td>
             <td>
               <a href="https://twitter.com/mozartted" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/mozart.osita" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -334,7 +334,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/daniel.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Onuchukwu Daniel</a></td>
           <td>@Daniel</td>
-          <td></td>
+          <td>UI/UX Designer</td>
             <td>
               <a href="https://twitter.com/Tochi_ihcot_501" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/tochukwu.onuchukwu" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -348,7 +348,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/dejoe.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Adeyemo Adeola Joseph</a></td>
           <td>@dejoe</td>
-          <td></td>
+          <td>Front End Developer</td>
             <td>
               <a href="https://twitter.com/deo_joe" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/adeyemo.j.adeola" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -362,11 +362,11 @@ include_once("header.php");
               <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/faradayy.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
               <td><a href="#">Friday God'swill</a></td>
               <td>@faradayy</td>
-              <td></td>
+              <td>Full Stack Developer</td>
             <td>
               <a href="https://twitter.com/faradayyg" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/godswillf" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
+             
             </td>
             </tr>
           </tbody>
@@ -394,7 +394,7 @@ include_once("header.php");
             <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/sarahchima.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
             <td><a href="#">Sarah Chima</a></td>
             <td>@sarahchima</td>
-            <td></td>
+            <td>Front End Developer</td>
             <td>
               <a href="https://twitter.com/sarah_chima" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="https://www.facebook.com/sarah.chima" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -408,7 +408,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/odusanya.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Odusanya Tomi</a></td>
           <td>@odusanya</td>
-          <td></td>
+          <td>Front End Developer</td>
             <td>
               <a href="https://twitter.com/OdusanyaTomi" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -422,7 +422,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/jaykay.jpg" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Kayode Sholanke</a></td>
           <td>@jaykay</td>
-          <td></td>
+          <td>UI/UX Designer</td>
             <td>
               <a href="https://twitter.com/iam_JayKay" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -436,7 +436,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/codebyomar.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Umar Abdullahi</a></td>
           <td>@codebyomar</td>
-          <td></td>
+          <td>Back End Developer</td>
             <td>
               <a href="https://twitter.com/codebyomar" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -449,7 +449,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/dinyangetoh.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">David Inyang-Etoh</a></td>
           <td>@dinyangetoh</td>
-          <td></td>
+          <td>Full Stack Developer</td>
             <td>
               <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -463,7 +463,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/marimazi.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Mary Mazi</a></td>
           <td>@marimazi</td>
-          <td></td>
+          <td>Front End Developer</td>
             <td>
               <a href="https://twitter.com/sheiladadiva" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -477,7 +477,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/promise.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Promise Udenkwor</a></td>
           <td>@promise</td>
-          <td></td>
+          <td>Front End Developer</td>
             <td>
               <a href="https://twitter.com/promhize" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -491,7 +491,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/reginarex.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Regina Rex</a></td>
           <td>@reginarex</td>
-          <td></td>
+          <td>Front End Developer</td>
             <td>
               <a href="https://twitter.com/reginarrex" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
@@ -505,7 +505,7 @@ include_once("header.php");
           <th scope="row"><img src="https://hng-intern.herokuapp.com/assets/img/yusuf.JPG" alt="profile_pic" class="img-responsive" width="30px"></th>
           <td><a href="#">Yusuf Yinka</a></td>
           <td>@yusuf</td>
-          <td></td>
+          <td>UI/UX Designer</td>
             <td>
               <a href="https://twitter.com/yusfyinka" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
