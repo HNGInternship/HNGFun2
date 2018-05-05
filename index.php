@@ -6,11 +6,11 @@ include_once("header.php");
 	.hero-sub-text-2{
 		color: #2196F3 !important;
 	}
-	
+
 	.text-primary{
 		color: #2196F3 !important;
 	}
-	
+
 	.btn-blue{
 		background-color: #2196F3 !important;
 	}
@@ -30,24 +30,32 @@ include_once("header.php");
 <div class="container container-fluid bg-transparent text-center my-5 px-5 py-5">
   <h2>Why the HNG Internship ?</h2>
   <p class="text-secondary mx-5 px-5">We needed developers in Nigeria, and there were just not enough. We found that telent was hiding in different small locations all over the country - but they needed training and exposure to best practices. The initial idea was to simply do a remote internship to find coders. We did not expect 1000+ people would apply to the internship. But we saw strongly people wanted to develop their skills, and it became a mission for us to make this happen.</p>
-</div> 
+</div>
 
 <div class="my-5 py-5">
 	<div class="container container-fluid bg-transparent my-5 py-5">
-		<h3 class="text-center">Ready to get started? register now</h3>
+		<h3 class="text-center">Ready to get started?</h3>
 		<div class="d-flex justify-content-center mt-3">
                 <form action="send.php" method="post" id="newsletter" name="newsletter" class="w-75">
 		<label class="mb-0 pb-0">Email:</label>
 		  	<div class="input-group mb-4 mt-0">
 		  	  <div class="input-group-prepend ">
-		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
+		  	    <span class="home-signup-email input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
 		  	  </div>
-                    <input type="email" name="signup-email" id="signup-email" value="" placeholder="Insert email here" class="form-control  rounded-right bg-transparent" aria-label="Username" aria-describedby="basic-addon1"/>
-                    <input type="submit" value="Subscribe" name="signup-button" id="signup-button" class="btn btn-blue btn-lg ml-3 rounded py-0">
-</div>
-                </form>
-                <div id="response"></div>
+
+		  	  <input type="text" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
+		  	  <a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">
+		  	  	<p class="font-weight-normal text-white mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
+		  	  </a>
+		  	</div>
+			</form>
+			<!-- <a href="./signup.php">
+				<button class="home-signup">
+					SIGN UP
+				</button>
+			</a> -->
 		</div>
+
 	</div>
 </div>
 <script src="js/lib.js"></script>
