@@ -116,6 +116,10 @@ margin-left: -5px;
       margin: 0.5em;
       color: #000;
     }
+    a:hover{
+      color: black;
+      text-decoration: none;
+    }
     .hl{
       background:#3D3D3D; margin-top: -20px;
     }
@@ -156,10 +160,12 @@ margin-left: -5px;
           </div>
           <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto">
+              <a href="buy-sell-hngcoin.php">
               <i class=""><img src="icon/transaction.png" style="height: 80px; height: 80px;"></i>
               <h3 class="mb-3">Sell/Buy HNG Coins</h3>
               <p class="mb-0">Let’s help you get started on
 how to sell and buy HNGCoin</p>
+</a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 text-center">
