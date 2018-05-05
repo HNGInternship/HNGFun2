@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 <?php 
 set_time_limit(0);
 
 if(!isset($_SESSION)) { session_start(); }
-=======
-<?php session_start();
->>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
+
 //this file is for processsin requests  
 
 
@@ -14,13 +11,10 @@ if(!isset($_SESSION)) { session_start(); }
 //require_once('classes/Member.php');
 require_once('Member.php');
 
-<<<<<<< HEAD
 //use PHPMailer\PHPMailer\PHPMailer;
 //use PHPMailer\PHPMailer\Exception;
 
 require_once "vendor/autoload.php";
-=======
->>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 
 // using SendGrid's PHP Library
 // https://github.com/sendgrid/sendgrid-php
@@ -68,7 +62,7 @@ if(isset($_POST['registration'])){
 			$register_check = $member->register($firstname,$lastname,$email,$password,$conn);
 
 			//check for response 
-<<<<<<< HEAD
+
 			if($register_check=='true'){
 				$_SESSION['email'] = $email;
 
@@ -146,7 +140,6 @@ if(isset($_POST['registration'])){
 				'status' => 0,
 				'message' => 'Email already registered!'
 				]);
-=======
 			if($register_check==true){
 				
 				$login_check = $member->check($email,$password,$conn);
@@ -159,7 +152,6 @@ if(isset($_POST['registration'])){
 					die('Registration successful but login failed, please try and manually login');
 				}
 				
->>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 			}
 			else{
 				die("Registration failed");
@@ -189,17 +181,6 @@ if(isset($_POST['login'])){
 
 			//instantiate the member class
 			$member = new Member();
-
-<<<<<<< HEAD
-		$login_check = $user->check($email,$password,$db);
-		
-		if($login_check == true){
-			echo true;
-		}
-		else{
-			echo "Invalid email or password";
-		}
-=======
 			$login_check = $member->check($email,$password,$conn);
 			if($login_check == true){
 				echo true;
@@ -207,7 +188,6 @@ if(isset($_POST['login'])){
 			else{
 				echo "Invalid email or password";
 			}
->>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 	}
 
 }
@@ -302,7 +282,7 @@ if(isset($_POST['login'])){
 				} else {
 				    echo "Message sent";
 
-<<<<<<< HEAD
+
 //for password reset
 	if(isset($_POST['pword-reset'])){
 			$email = $_POST['email'];

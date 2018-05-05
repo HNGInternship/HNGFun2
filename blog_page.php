@@ -62,6 +62,26 @@
     line-height: 17px;
   }
 
+  #search-box {
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(152, 152, 152, 0.5);
+  }
+
+  .filter {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .filter.active {
+    background-color: #2196F3 !important;
+    color: white;
+  }
+
+  .filter-check:checked {
+   outline: 1px solid white;
+  }
+
 </style>
 <header>
   <div>
@@ -70,17 +90,25 @@
 </header>
 <main class="container">
   <section class="d-flex justify-content-between pt-5">
-      <spam class="col-sm-8 d-flex justify-content-between">
-        Filter Posts
-        <span><input type="checkbox" name=""> All Posts</span>
-        <span><input type="checkbox" name=""> Featured</span>
-        <span><input type="checkbox" name=""> Polls &amp; Questions</span>
-        <span><input type="checkbox" name=""> Articles</span>
-      </spam>
-      <spam class="col-sm-2">
-        <i class="fa fa-search"></i>
-        <input type="text" placeholder="Search for anything here..." name="">
-      </spam>
+      <span class="col-sm-8 d-flex justify-content-between px-0">
+        <span style="font-size: 28px; line-height: 34px;">Filter Posts</span>
+        <span class="filter d-flex align-items-center bg-white border pl-1 pr-5">
+          <input type="checkbox" class="filter-check mr-2" onchange="filter(this, 'all')"> All Posts
+        </span>
+        <span class="active filter d-flex align-items-center bg-white border pl-1 pr-5">
+          <input type="checkbox" checked="checked" onchange="filter(this, 'featured')" class="filter-check mr-2"> Featured
+        </span>
+        <span class="filter d-flex align-items-center bg-white border pl-1 pr-5">
+          <input type="checkbox" onchange="filter(this, 'polls')" class="filter-check mr-2"> Polls &amp; Questions
+        </span>
+        <span class="filter d-flex align-items-center bg-white border pl-1 pr-5">
+          <input type="checkbox" onchange="filter(this, 'articles')" class="filter-check mr-2"> Articles
+        </span>
+      </span>
+      <span class="col-sm-3 d-flex align-items-center bg-white justify-content-between px-0">
+        <i class="fa fa-search col-sm-1 px-0"></i>
+        <input type="text" placeholder="Search for anything here..." id="search-box" class="border-0 col-sm-9">
+      </span>
   </section>
   <section class="post-container mt-5">
     <?php 
@@ -112,6 +140,21 @@
   </section>
   
 </main>
+<script type="text/javascript">
+  function filter(el, condition){
+    //get's the parent of the elemnet
+    let parent = el.parentElement;
+
+    //Add active to parent if checkbox is checked on, and remove if it is checked off
+    if(el.checked)
+      parent.classList.add('active');
+    else
+      parent.classList.remove('active');
+
+    //Implement function to filter, using the parameter - condition 
+    //here
+  }
+</script>
 <?php
   include('footer.php');
 ?>
