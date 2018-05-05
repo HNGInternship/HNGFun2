@@ -88,7 +88,7 @@ if(isset($_POST["login"])){
                     <br/>
                     <div class="checkbox mb-3" style="text-align: left">
                         <label>
-                            <input type="checkbox" value="remember-me" name="remember">&nbsp; <span style="font-size: 16px;">Remember me</span>
+                            <input type="checkbox" value="remember-me" name="remember">&nbsp; <span style="font-size: 16px;text-align:center;">Remember me</span>
                         </label>
                     </div>
                     <div>
