@@ -50,6 +50,9 @@ include_once("header.php");
       margin: 0.5em;
       color: #000;
     }
+    a:hover{
+      text-decoration: none;
+    }
     .hl{
       background:#3D3D3D; margin-top: -20px;
     }
@@ -87,13 +90,13 @@ include_once("header.php");
     <div class="container">
       <div class="row">
          <ul class="breadcrumb">
-          <li><a href="#">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><i class="fa fa-angle-right"></i></li>
-          <li><a href="#">Help</a></li>
+          <li><a href="help.php">Help</a></li>
           <li><i class="fa fa-angle-right"></i></li>
-          <li><a href="#">Buying and Selling HNGCoin</a></li>
+          <li><a href="buy-sell-hngcoin.php">Buying and Selling HNGCoin</a></li>
          </ul>
-       </div>
+      </div>
         <div class="row" style="margin-left: 10px;">
           <div class="helpcont">
           <div class="panel-body">
@@ -102,8 +105,7 @@ include_once("header.php");
             <p>Register an account with HNGinternship. You get a free and secure online HNGcoin wallet. If you already have an account, skip to the next step.</p>
 
             <h5>Step 2. See available sellers</h5>
-            <p>Go to the main page the site will list HNGcoin sellers available.</p>
-
+            <p>Go to the main page the site will list HNGcoin sellers available.<
             <h5>Step 3. Select a post</h5>
             <p>From the list choose  a seller. You can click the 'Buy' button to view more information about the post.</p>
 
