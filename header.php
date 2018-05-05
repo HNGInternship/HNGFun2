@@ -129,7 +129,6 @@ $activeArray[$fileIndex]="active";
 
       <a class="navbar-brand" href="../learn">
         <img src="img/logo.png" alt="HNG logo" class="img-fluid">
-
         </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
