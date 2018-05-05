@@ -74,13 +74,14 @@ include_once("header.php");
 	}
     .img-bg {
         position: relative; 
-        width: 100%
+        width: 100%;
+        margin: 0
     }
-    h1 { 
+    h1,p { 
         position: absolute; 
-        top: 200px; 
+        bottom: 200px; 
         left: 0; 
-        width: 100%; 
+        width: 70%; 
     }
 </style>
 
