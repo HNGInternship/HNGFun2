@@ -67,10 +67,10 @@ include_once("header.php");
 		font-weight: 1000 !important;
 	}
 	.bg-footer-top{
-		background-color: #134f8e;
+		background-color: #00AEFF;
 	}
 	.bg-footer-lower{
-		background-color: #084482;
+		background-color: #00AEFF;
 	}
     .img-bg {
         position: relative; 
@@ -80,13 +80,13 @@ include_once("header.php");
     .mb-2 { 
         position: absolute; 
         bottom: 250px; 
-        right: 10px; 
+        left: 5px; 
         width: 70%; 
     }
     .head { 
         position: absolute; 
         bottom: 150px; 
-        right: 10px; 
+        left: 5px; 
         width: 70%; 
     }
 </style>
@@ -166,7 +166,7 @@ include_once("header.php");
 			
 		</div>
 	</div>
-	<div class="row bg-footer-top py-4"></div>
+
 	<div class="row bg-footer-lower py-2 justify-content-center text-white">
 		<div class="col-sm-3 d-flex align-items-center" style=" border-right: 2px solid #fff; max-width: 200px;">
 			<div class="rounded-circle bg-white d-flex justify-content-center align-items-center mr-1" style="min-width: 50px; height: 50px;"><span class="fa fa-envelope float-left"></span></div>
