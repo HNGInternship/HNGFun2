@@ -24,11 +24,45 @@
                      </span>
                   </a>
                </li>
+            </ul>
+
+            <ul class="list-inline text-center" style="padding-top:20px;">
+               <li class="list-inline-item footer-li">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="contact.php">
+                     Contact Us
+                  </a>
+               </li>
+               <li class="list-inline-item footer-li">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="about.php">
+                     About Us
+                  </a>
+               </li>
+               <li class="list-inline-item footer-li">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="press.php">
+                    Press
+                  </a>
+               </li>
+               <li class="list-inline-item footer-li">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="help.php">
+                    Help
+                  </a>
+               </li>
+               <li class="list-inline-item footer-li">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="core_values.php">
+                    Our Core Values
+                  </a>
+               </li>
+               <li class="list-inline-item footer-li">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="index.php">
+                    Current Internship
+                  </a>
+               </li>
 
             </ul>
             <div style="text-align: center">
                 <p class="copyright text-muted">Copyright &copy; HNG FUN <?= date("Y")?></p>
             </div>
+            
          </div>
       </div>
    </div>

@@ -93,12 +93,6 @@ function custom_styles() {
                     <p class="contact-icon mail"><img src="./img/envelope.png" alt=""></p>
                     <p>support@hng.fun</p>
                 </div>
-
-                <div class="social-media">
-                    <a href="https://twitter.com/hnginternship?lang=en"><i class="fa fa-twitter"></i></a>
-                    <a href="https://web.facebook.com/hotelsng/"><i class="fa fa-facebook"></i></a>
-                    <a href="https://github.com/HNGInternship/"><i class="fa fa-github"></i></a>
-                </div>
                 </div>
             </section>
         </div>
