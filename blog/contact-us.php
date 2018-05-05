@@ -1,7 +1,13 @@
 <?php
+/*
+ * @author Shahrukh Khan
+ * @website http://www.thesoftwareguy.in
+ * @facebook https://www.facebook.com/Thesoftwareguy7
+ * @twitter https://twitter.com/thesoftwareguy7
+ * @googleplus https://plus.google.com/+thesoftwareguyIn
+ */
 
-
-require("../db.php");
+require("libs/config.php");
 $pageDetails = getPageDetailsByName($currentPage);
 
 if (isset($_POST["sbtn"])) {
@@ -25,7 +31,7 @@ if (isset($_POST["sbtn"])) {
 		simple_redirect("contact-us.php?msg=error");
 	}
 }
-include("../header.php");
+include("header.php");
 ?>
 
 <style>
@@ -132,8 +138,12 @@ function validateForm() {
       </form>
     </section>
   </div>
-
+  <!--sidebar starts-->
+  <?php
+	include("sidebar.php");
+	?>
+  <!--sidebar ends-->
 </div>
 <?php
-include("../footer.php");
+include("footer.php");
 ?>
