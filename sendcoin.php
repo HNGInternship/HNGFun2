@@ -20,7 +20,7 @@ include_once("header.php");
 	#submitbutton:hover{
 		background-color: #2196f3;
 		color: #fff;
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     		transition: 0.3s;
 	}
 
