@@ -9,8 +9,10 @@ class User
     public function __construct()
     {
         
-        $this->table = "slay";
+        $this->table = "interns_data";
         date_default_timezone_set('Africa/Lagos');
+        $this->key = "hvhghgjbjbjbcjkscsucgucg";
+        $this->iv = "hhjhjdjjshhkhksjksjkdsjjksdjk";
         
     }
     
@@ -88,12 +90,13 @@ class User
         }else{
 
             $password_hash = md5($password);
+            $private_key_hash = $this->encrypt_decrypt("en", $private_key, $this->key, $this->iv);
             $timee = date('Y-m-d H:i:s');
             $link = "http://www.slayers.hng.fun/verifyAccount.php?S={$token}&q={$timee}";
             
             // $query = "INSERT INTO " . $this->table . "(first_name,last_name,email,username,country,state, phone, password, public_key, private_key, created_at, updated_at ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             $sql = "INSERT INTO ". $this->table." (firstname, lastname, email, password, public_key, private_key, token, active, 
-                                                created_at, update_at) VALUES (:first_name, :last_name, :email, :password_hash, 
+                                                created_at, updated_at) VALUES (:first_name, :last_name, :email, :password_hash, 
                                                 :public_key, :private_key, :token, :active, :created_at, :updated_at)";
 
             $stmt = $db->prepare($sql);
@@ -102,7 +105,7 @@ class User
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password_hash', $password_hash);
             $stmt->bindParam(':public_key', $public_key);
-            $stmt->bindParam(':private_key', $private_key);
+            $stmt->bindParam(':private_key', $private_key_hash);
             $stmt->bindParam(':token', $token);
             $stmt->bindParam(':active', $active);
             $stmt->bindParam(':created_at', $created_at);
@@ -130,7 +133,7 @@ class User
                 $response = 'true';
             }
             else {
-                // error_log($stmt->errorInfo(), 0);
+                //var_dump($stmt->errorInfo(), 0);
                 $response = 'false';
             }
         }
@@ -454,7 +457,7 @@ class User
 
     //get public key from id
 public function getPublicKey($id, $db){
-    echo $id;
+   
     if (empty($id)) {
         return false;
     }
@@ -495,7 +498,7 @@ public function getPrivateKey($id, $db){
 }
 
 public function getAccounts($id, $db){
-    $query     = "SELECT * FROM accounts left join banks on banks.id = accounts.bank_id WHERE accounts.intern_id=:id LIMIT 1";
+    $query     = "SELECT * FROM accounts inner join banks on banks.id = accounts.bank_id WHERE accounts.intern_id=:id";
     $statement = $db->prepare($query);
     $stmt = $db->prepare($query);
     $stmt->bindParam(":id", $id);
@@ -503,15 +506,31 @@ public function getAccounts($id, $db){
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $results = $stmt->fetchAll();
-        if(count($results) > 0){
-            $row = $results;
-            
-            return $row;
+        if(count($results) > 0){            
+            return $results;
         } else {
             
             return false;
         }
     
+}
+
+function encrypt_decrypt($action, $string, $secret_key, $secret_iv) {
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+   
+    // hash
+    $key = hash('sha256', $secret_key);
+    
+    // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
+    $iv = substr(hash('sha256', $secret_iv), 0, 16);
+    if ( $action == 'en' ) {
+        $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
+        $output = base64_encode($output);
+    } else if( $action == 'de' ) {
+        $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+    }
+    return $output;
 }
     //member class ends here    
 }

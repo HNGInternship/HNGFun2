@@ -39,7 +39,7 @@ include_once("header.php");
         <h1 class="login-title" style="padding-top: 20px; color: #3D3D3D;">Sign Up</h1>
         <p style="font-size: 16px">Just a few clicks away from joining the biggest software development internship in Africa
         </p>
-        <p><span style='color: grey'>Already have an account?</span> <a class='link' href="login.php" style="color: #2196F3; text-decoration: none">Login</a></p>
+        <p><span style='color: grey'>Already have an account?</span> <a class='link' href="login" style="color: #2196F3; text-decoration: none">Login</a></p>
         </div>
                 <div id="message">
             
@@ -83,7 +83,7 @@ include_once("header.php");
                 <div class="form-check d-flex align-items-start" style="padding-left:30%">
                     <input class="form-check-input" type="checkbox" id="terms" name="terms">
                     <label class="form-check-label" for="terms">
-                    I agree to the <a class='link' href="terms-and-conditions.php" style="color: #2196F3; text-decoration: none;">Terms and Conditions</a>
+                    I agree to the <a class='link' href="terms-and-conditions" style="color: #2196F3; text-decoration: none;">Terms and Conditions</a>
                     </label>
                 </div>
 
