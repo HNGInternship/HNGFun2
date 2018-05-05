@@ -1,26 +1,12 @@
 <?php
 include_once("header.php");
 ?>
-
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- styles link -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- font-awesome -->
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- custom style -->
     <style>
-    body {
-      font-family: 'work sans', Lato;
-      background: #ffffff;
-    }
+
     h1 {
       font-weight: bolder;
+      font-family: 'work sans';
     }
     .pagination {
       display: block;
@@ -127,7 +113,7 @@ include_once("header.php");
     		width: 70%;
     	}
     }
-    a {
+    .article-loop a {
       margin: 0.5em;
       color: #000;
     }
@@ -136,12 +122,7 @@ include_once("header.php");
       float: left;
     }
     </style>
-
-    <title>Alumni</title>
-  </head>
-  <body>
-
-    <div class="container-fluid">
+  <div class="container-fluid">
       <h1 class="heading">Our Alumni</h1>
       <hr style="width:5%;border:1px solid #555;margin-top:0px;">
       <p class="heading">HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
@@ -637,8 +618,6 @@ include_once("header.php");
     $('.article-loop').paginate(15);
     </script>
 
-
-  </body>
 
 <?php
 include_once("footer.php");
