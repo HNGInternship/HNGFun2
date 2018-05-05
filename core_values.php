@@ -9,7 +9,7 @@ include_once("header.php");
   <body style="font-family:lato;">
     <div class="container-fluid" style="background-color:#2196F3; padding:150px 0px 150px 0px;">
       <h1 style="color:#fff; text-align:center; font-family:lato; font-size:50px;"><b>Our Core Values</b></h1>
-      <p style="color:#fff; text-align:center; padding:0px 150px;">We provide a fun environment where our inters work together to hone their innovative problem solving skills all while working hard to attain personal excellence</p>
+      <p style="color:#fff; text-align:center; padding:0px 150px;">We provide a fun environment where our interns work together to hone their innovative problem solving skills while working hard to attain personal excellence</p>
     </div>
   </body>
   <div class="container">
@@ -39,7 +39,7 @@ include_once("header.php");
         <center>
           <img src="img/game-controller.png" class="img-responsive">
           <h2 style="font-size:20px">FUN</h2>
-          <p>We believe humor is essential for exceptional creativity, outstandind service and thriving team members</p>
+          <p>We believe humor is essential for exceptional creativity, outstanding service and thriving team members</p>
         </center>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12">
