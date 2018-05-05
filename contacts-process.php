@@ -6,7 +6,7 @@ error_reporting(0);
 
 if (isset($_REQUEST['action'])) {
     if ($_REQUEST['action'] == "email_server_responce") {
-        $ourMail = "simeondgenius@gmail.com";
+        $ourMail = "mark@hotels.ng";
         $pre_messagebody_info = "";
         $errors = array();
         $data = array();
