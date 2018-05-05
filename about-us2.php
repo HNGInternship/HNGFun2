@@ -2,14 +2,100 @@
 include_once("header.php");
 ?>
 
-<main>
-	<div class="jumbotron text-white mb-0">
-        <img src="" alt="">
-		<div class="jumbotron-content">
-			<h1 class="mb-2">What is HNG all about?</h1>
-			<p>The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
-		</div>
+<style>
+	body{
+		overflow-x: hidden;
+		100%;
+	}
+	main{
+		background-color: #fff;
+	}
+	.jumbotron{
+		background-color: #2f70ed;
+	}
+	.jumbotron-content{
+		/*width: 100%;*/
+	}
+	.jumbotron-content h1{
+		font-size: 2.6rem;
+		width: 80%;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.jumbotron-content p{
+		font-size: 1.3rem;
+		width: 90%;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.btn-custom-primary{
+		background-color: #00aeff;
+		text-transform: none;
+		font-family: inherit !important;
+		font-size: 1.3rem;
+		border-radius: 5px;
+	}
+	.paddedhr{
+		width: 100px;
+		background-color: #00AEFF;
+		padding: 2px 0;
+	}
+	.paddedhr2{
+		width: 60px;
+		background-color: #00AEFF;
+		padding: 2.5px 0;
+	}
+	.bg-grey{
+		background-color: #eee;
+	}
+	.text-center{
+		text-align: center !important;
+	}
+	.clip-bottom{
+		  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+		  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+		  background-color: #dbf4ff;
+		  padding-top: 80px !important;
+		padding-bottom: 80px !important;
+		font-size: 1.4rem;
+	}
+	.clip-bottom h1.text-primary{
+		color: #00aeff; 
+		font-size: 2.6rem;
+		font-weight: 1000 !important;
+	}
+	.bg-footer-top{
+		background-color: #00AEFF;
+	}
+	.bg-footer-lower{
+		background-color: #00AEFF;
+	}
+    .img-bg {
+        position: relative; 
+        width: 100%;
+        margin: auto
+    }
+    .head1 { 
+        position: absolute; 
+        bottom: 200px; 
+        left: 50px; 
+        width: 70%; 
+    }
+    .head { 
+        position: absolute; 
+        bottom: 100px; 
+        left: 50px; 
+        width: 70%; 
+    }
+</style>
 
+<main>
+	<div class="text-white img-bg">
+        <img src="/img-light.jpeg" alt="">
+			<h1 class="mb-2 head1">What is HNG all about?</h1>
+			<p class="head" >The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
 	</div>
 	<div class="row">
 		<p class="text-center w-100 mb-0">About Us</p>
@@ -80,7 +166,7 @@ include_once("header.php");
 			
 		</div>
 	</div>
-	<div class="row bg-footer-top py-4"></div>
+    <div class="row bg-footer-top py-2" ></div>
 	<div class="row bg-footer-lower py-2 justify-content-center text-white">
 		<div class="col-sm-3 d-flex align-items-center" style=" border-right: 2px solid #fff; max-width: 200px;">
 			<div class="rounded-circle bg-primary d-flex justify-content-center align-items-center mr-1" style="min-width: 50px; height: 50px;"><span class="fa fa-envelope float-left"></span></div>
@@ -90,13 +176,16 @@ include_once("header.php");
 			<h4 class="text-center mb-2">Ready to get started? Register Now!</h4>
 			<form class="form-inline row d-flex justify-content-center">
 				<div class="col-7 form-group pr-0 mr-0">
-					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2 style=" border-top-right-radius: 0; border-bottom-right-radius: 0 >
+					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
 				</div>
 				<div class="col-4 form-group">
-					<button class="btn btn-custom-primary text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%;">Sign Up </button>
+					<button class="btn btn-custom text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #181818">Sign Up </button>
 				</div>
 			</form>
 		</div> 
 		
 	</div>
 </main>
+<?php
+include_once("footer.php");
+?>
