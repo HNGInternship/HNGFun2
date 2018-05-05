@@ -48,10 +48,8 @@ include_once("header.php");
                 </form>
                 <div id="response"></div>
 		</div>
-		</div>
 	</div>
 </div>
-
 <script src="js/lib.js"></script>
 <?php
 include_once("footer.php");
