@@ -57,7 +57,7 @@
   <h2 class="mt-5">HNG 4.0 Internship</h2>
   <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto" />
   <div class="py-5 my-5 col-md-10 mx-auto" id="img-title">
-  	<i class="fa fa-image my-5"><img class="card-img-top" src="http://res.cloudinary.com/devgeaks/image/upload/v1525544789/IMG_20180504_204524.jpg" alt="logo"></i>
+  	<img class="card-img-top" src="http://res.cloudinary.com/devgeaks/image/upload/v1525544789/IMG_20180504_204524.jpg" alt="logo">
   </div>
 
   <section class="mt-5 pt-5 col-md-10 mx-auto">
