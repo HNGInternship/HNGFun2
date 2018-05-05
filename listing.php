@@ -24,11 +24,6 @@ $data = $q->fetchAll();
   .card-img-top {
     height: 250px !important;
   }
-
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-  }
   /* #contain img{
     width:100%;
     padding:5px;
@@ -75,8 +70,8 @@ $count++;
       <div class="card">
       <a href="profile.php?id=<?php echo $list['username'] ?>">  <img class="card-img-top" src="<?php echo $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
         <div class="card-footer">
-          <a href="profile.php?id=<?php echo $list['username'] ?>" class="ml-3 my-0 py-0 btn btn-default">View Profile</a>
-          <i class="fa fa-github fa-lg"></i>
+          <a href="profile.php?id=<?php echo $list['username'] ?>" class="my-0 py-0 btn btn-default">View Profile</a>
+          <!--<i class="fa fa-github fa-lg"></i>--> <!--No github link for now -->
         </div>
       
       </div>
