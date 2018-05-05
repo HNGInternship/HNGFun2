@@ -55,7 +55,6 @@
 </style>
 <main class="col-md-9 mx-auto pt-5 mb-5 pb-5">
   <h2 class="mt-5">HNG 4.0 Internship</h2>
-  <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto" />
   
   	<img class="py-5 my-5 col-md-10 mx-auto" id="img-title" src="http://res.cloudinary.com/devgeaks/image/upload/v1525544789/IMG_20180504_204524.jpg" alt="logo">
  
