@@ -46,7 +46,7 @@ include_once("header.php");
         <center>
           <img src="img/gold-medal.png" class="img-responsive">
           <h2 style="font-size:20px">EXCELLENCE</h2>
-          <p>We are committed to winning with integrity by giving attention to every detail.</p>
+          <p>We are committed to winning with integrity by giving attention to every detail. </p>
         </center>
       </div>
       <div class="col-lg-1 col-md-0 col-sm-0"></div>
