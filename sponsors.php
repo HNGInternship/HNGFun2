@@ -28,7 +28,7 @@ include_once("header.php");
                   <div class="col-9 pt-4 ">
                       <h5 class="sponsorbg-text font-weight-bold">Oracle Incoporated</h5>
 
-                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Oracle offers a comprehensive and fully integrated stack of cloud applications and 
+                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Oracle offers a comprehensive and fully integrated stack of cloud applications and platform services. 
                   </div>
               </div><br>
 
