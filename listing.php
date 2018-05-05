@@ -1,5 +1,6 @@
 <?php
 include_once("header.php");
+include_once("db.php");
 
 if(isset($db)){
   $conn = $db;
@@ -22,8 +23,8 @@ $data = $q->fetchAll();
   .profile {
     width: 250px;
   }
-  .profile .card > .card-img-top {
-    height: 250px;
+  .card-img-top {
+    height: 250px !important;
   }
 
   .card-footer {
@@ -74,7 +75,7 @@ $count++;
 ?>
     <div class="profile">
       <div class="card">
-        <img class="card-img-top" src="<?php echo $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="Profile Image">
+      <a href="profile.php?id=<?php echo $list['username'] ?>">  <img class="card-img-top" src="<?php echo $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
         <div class="card-footer">
           <a href="profile.php?id=<?php echo $list['username'] ?>" class="ml-3 my-0 py-0 btn btn-default">View Profile</a>
           <i class="fa fa-github fa-lg"></i>

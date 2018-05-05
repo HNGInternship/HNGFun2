@@ -36,7 +36,8 @@ $activeArray[$fileIndex]="active";
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
 
 
       <!-- Custom fonts for this template -->
@@ -143,7 +144,7 @@ $activeArray[$fileIndex]="active";
                 <a href="learn.php" class="nav-link">Learn</a>
             </li>
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="listing.php" class="nav-link">Intern</a>
+                <a href="listing.php" class="nav-link">Current Intern</a>
             </li>
             <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="testimonies.php" class="nav-link">Testimonies</a>
@@ -162,12 +163,3 @@ $activeArray[$fileIndex]="active";
   </div>
 
     </nav>
-
-<?php
-
-require 'db.php';
-if(isset($db)){
-  $conn = $db;
-  $boo = "I am boo";
-}
-?>

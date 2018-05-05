@@ -8,5 +8,4 @@ config.php
 phpmyadmin/
 bower_components/
 vendor/
-db.php
 config_slayers.php
