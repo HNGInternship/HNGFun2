@@ -243,7 +243,7 @@ include_once("header.php");
 
   <!-- The slideshow -->
      <div class="carousel-inner">
-
+    
           <div class="carousel-item active">
              <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
@@ -310,4 +310,3 @@ include_once("header.php");
 <?php
 include_once("footer.php");
 ?>
-

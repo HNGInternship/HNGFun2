@@ -1,15 +1,26 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
+
 // for choosing active page on nav bar
+
 $fileName=basename($_SERVER['PHP_SELF']);
+
 $files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
 $activeArray = array('','','','','','', '');
+
 $fileIndex=array_search($fileName,$files);
+
+
 // if page is unknown, dont mark any nav item
+
 if($fileIndex!==FALSE){
+
 $activeArray[$fileIndex]="active";
 }
+
 /////////////////////////////////////////////////////////
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +37,7 @@ $activeArray[$fileIndex]="active";
 
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
 
 
       <!-- Custom fonts for this template -->
@@ -48,7 +60,7 @@ $activeArray[$fileIndex]="active";
      <!-- <link href="css/learn.css" rel="stylesheet"> -->
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
       <link href="css/landing-page.min.css" rel="stylesheet">
-      <link href="css/learn2.css" rel="stylesheet">
+      
       <link href="https://fonts.googleapis.com/css?family=Qwigley" rel="stylesheet">
       <style>
         body {
@@ -61,6 +73,7 @@ $activeArray[$fileIndex]="active";
           background-color: #F4F4F4;
           padding: 0 10em;
         }
+
         .nav-item{
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
@@ -68,6 +81,7 @@ $activeArray[$fileIndex]="active";
         .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
         }
+
         .justify-space-between {
           justify-content: space-between;
         }
@@ -85,15 +99,19 @@ $activeArray[$fileIndex]="active";
     .btn-primary:focus {
         background-color: #0475CE !important;
     }
+
+
       /*for footer*/
     .contact-icon{
       margin: 0px !important;
       padding: 0% 2%;
     }
+
     footer{
       background: #FAFAFA !important;
       color: #3D3D3D;
     }
+
     </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript">
 </script>
@@ -122,7 +140,7 @@ $activeArray[$fileIndex]="active";
                 <a href="learn.php" class="nav-link">Learn</a>
             </li>
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="listing.php" class="nav-link">Intern</a>
+                <a href="listing.php" class="nav-link">Current Intern</a>
             </li>
             <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="testimonies.php" class="nav-link">Testimonies</a>
