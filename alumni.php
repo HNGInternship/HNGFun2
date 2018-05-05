@@ -3,9 +3,12 @@ include_once("header.php");
 ?>
 
 <style type="text/css">
-	h2 {
-	  font-family: 'work sans';
-	}
+h2 {
+    text-transform: capitalize;
+    font-family: 'work sans';
+    font-size: 40px;
+    text-align: center;
+}
 
 	section h4 {
       font-weight: 400;
