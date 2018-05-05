@@ -4,9 +4,13 @@ DO NOT MODIFY THIS FILE!!!
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 require '../config-slayers.php';
 =======
 require 'config_slayers.php';
+=======
+require '../config_slayers.php';
+>>>>>>> fc35223e88c2ac5ad024363fa66291e05b47fa3d
 
 >>>>>>> 91a0eb0e7afa0977886c43edc1c2c1dbeb02674b
 =======
