@@ -1,7 +1,7 @@
 <?php
 
 // dont add a trailing / at the end
-define('HTTP_SERVER', 'http://slayers.hng.fun');
+define('HTTP_SERVER', 'http://localhost');
 // add slash / at the end
 define('SITE_DIR', '/blog/');
 
