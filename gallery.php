@@ -1,12 +1,30 @@
 <?php
 	include('header.php');
 
-	
 
-  	$query = $conn->query("SELECT * FROM gallery");
-	$select = $query->fetch(PDO::FETCH_ASSOC);
-	 $rows = $select->num_rows;
-	 echo $rows;
+define ('DB_USER', "root");
+define ('DB_PASSWORD', "29gE9t*dJ2#2f-BS");
+define ('DB_DATABASE', "slayers_db");
+define ('DB_HOST', "localhost");
+
+$servername = DB_HOST;
+$username = DB_USER;
+$password = DB_PASSWORD;
+$database = DB_DATABASE;
+try {
+    $conn = new PDO("mysql:host=$servername; dbname=$database", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
+
+    $data = $conn->query("SELECT * FROM  gallery");
+	$select = $data->fetch(PDO::FETCH_BOTH);
+	 $rows = $data->rowCount();
+	 
 ?>
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/work-sans" type="text/css"/>
 <style type="text/css">
@@ -54,7 +72,7 @@
 		
 		$row_class = 'row';    // Row class name
 		$col_class = 'col-sm-4 col-md-6 col-lg-4 gutter'; 
-			while ($item = $select->fetch_array()) {
+			while ($item = $data->fetch(PDO::FETCH_BOTH)) {
 			if(($counter % $cols) == 1) {    // Check if it's new row
 				echo '<div class="'.$row_class.'">';	// Start a new row
 			}
