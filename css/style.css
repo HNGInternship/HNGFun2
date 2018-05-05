@@ -19,10 +19,6 @@ h2 {
 	color: rgb(34, 33, 33);
 }
 
-.card-body {
-	height: 500px;
-}
-
 .rounded-circle {
 	object-fit: cover;
 }
