@@ -98,6 +98,12 @@ ul.navbar-nav.collapse.ml-auto.dashmenu {
 	padding: 5px 0 !important;
 }
 }
+
+@media (max-width: 512px) {
+.navbar-right.acc {
+    margin: -3px -30px;
+}
+}
 /*  End Dashboard Menu  */
 
 /*  Dashboard Page  */
@@ -226,7 +232,7 @@ table.your-coins .ngn-price {
 /*  Transaction History Block*/
 
 table.transaction-history td.text-left {
-    padding: 10px 40px;
+    padding: 10px 30px;
     font-weight: 600;
 }
 
@@ -372,4 +378,19 @@ table.tops tr td img{
     font-weight: 600;
     letter-spacing: 0.5px;
     padding: 20px 50px 5px 0px;
+}
+
+@media (max-width: 512px) {
+    .invite-friends a {
+    padding: 20px 75px 5px 0px;
+    }
+
+    .dash-block h3.thead {
+    text-align: center !important;
+    padding: 10px 0 15px !important;
+    }
+
+    table.tops tr td:first-child {
+    padding-left: 10px;
+    }
 }
