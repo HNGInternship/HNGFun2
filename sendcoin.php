@@ -7,6 +7,21 @@ include_once("header.php");
 		width: 350px;
 		border-radius: 7px;
 	}
+	
+	#submitbutton{
+		margin-top: 45px; 
+		border: 1px solid #2196f3; 
+		margin-bottom: 50px; margin-left: auto; margin-right: auto; 
+		color: #2196F3;
+		width: 400px; font-size: 15px; height: 40px; text-align:center;
+		border-radius: 10px;
+	}
+	#submitbutton:hover{
+		background-color: #2196f3;
+		color: #fff;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    		transition: 0.3s;
+	}
 
 </style>
 <div class="" style="padding-top: 7%">
@@ -18,8 +33,10 @@ include_once("header.php");
     </div>
         <p style="font-size: 14px;margin-bottom: 30px; margin-top: 10px; opacity: 0.7" class="text-center">Encourage your friends to start coding by offering them HNG coins today!
         </p>
-        <div class="form-row" style="margin:0 auto;">
-			<div class="form-group col-md-6">
+
+<form>
+<div class="form-row" style="margin:0 auto;">
+  <div class="form-group col-md-6">
     <label for="username"align="left" style="font-size: 12px; margin-bottom: 0px; margin-left: 10px; opacity: 0.7">Username</label>
     <input type="text" class="form-control" id="username" placeholder="" style="border-color:#0475CE;">
   </div>
@@ -28,8 +45,9 @@ include_once("header.php");
     <input type="text" class="form-control" id="amount" placeholder="" style="border-color:#0475CE;">
   </div>
 
-  <button style="margin-top: 45px; border:0px; margin-bottom: 50px; margin-left: auto; margin-right: auto; background-color: #2196F3; color: white; width: 400px; font-size: 15px; height: 40px; text-align:center;border-radius: 10px" id="submitbutton" class="">SEND COINS</button>
-  </div>
+  <button style="" type="submit" id="submitbutton" class="">SEND COINS</button>
+</div>
+</form>
        <!-- <form action="" class="text-center" style="margin-top:">
             <div class="form-row" style="margin-left: 30px;">
                 <div class="form-group col-md-6">
