@@ -103,6 +103,10 @@ $activeArray[$fileIndex]="active";
     .btn-primary:focus {
         background-color: #0475CE !important;
     }
+      
+      .footer-li .fa-stack-1x:hover{
+            color: #0465be !important;
+      }
 
     <?php if (function_exists('custom_styles')) {
         custom_styles();
