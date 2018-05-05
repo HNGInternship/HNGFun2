@@ -67,38 +67,36 @@ include_once("header.php");
 		font-weight: 1000 !important;
 	}
 	.bg-footer-top{
-		background-color: #134f8e;
+		background-color: #00AEFF;
 	}
 	.bg-footer-lower{
-		background-color: #084482;
+		background-color: #00AEFF;
 	}
     .img-bg {
         position: relative; 
         width: 100%;
         margin: auto
     }
-    .mb-2 { 
+    .head1 { 
         position: absolute; 
-        bottom: 250px; 
-        right: 50px; 
+        bottom: 200px; 
+        left: 50px; 
         width: 70%; 
     }
     .head { 
         position: absolute; 
-        bottom: 150px; 
-        right: 50px; 
+        bottom: 100px; 
+        left: 50px; 
         width: 70%; 
     }
 </style>
 
-<div class="jumbotron contact bg-cover" style="margin-bottom: 3rem;">
-        <div class="overlay"></div>
-        <div class="container contact">
-            <h1>What is HNG all about?</h1>
-            <p>The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
-        </div>
-    </div>
 <main>
+	<div class="text-white img-bg">
+        <img src="/img-light.jpeg" alt="" style= "height:200px">
+			<h1 class="mb-2 head1">What is HNG all about?</h1>
+			<p class="head" >The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
+	</div>
 	<div class="row">
 		<p class="text-center w-100 mb-0">About Us</p>
 		<hr class="paddedhr">
@@ -168,20 +166,20 @@ include_once("header.php");
 			
 		</div>
 	</div>
-	<div class="row bg-footer-top py-4"></div>
+    <div class="row bg-footer-top py-2" ></div>
 	<div class="row bg-footer-lower py-2 justify-content-center text-white">
 		<div class="col-sm-3 d-flex align-items-center" style=" border-right: 2px solid #fff; max-width: 200px;">
 			<div class="rounded-circle bg-primary d-flex justify-content-center align-items-center mr-1" style="min-width: 50px; height: 50px;"><span class="fa fa-envelope float-left"></span></div>
 			<h4 class="text-right">Start Learning Now</h4>
 		</div>
 		<div class="col-sm-7">
-			<h4 class="text-center mb-2">Ready to get started? Register Now!</h4>
+			<h4 class="text-center mb-2">Ready to get started? Register Now! </h4>
 			<form class="form-inline row d-flex justify-content-center">
 				<div class="col-7 form-group pr-0 mr-0">
-					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2 style=" border-top-right-radius: 0; border-bottom-right-radius: 0 >
+					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
 				</div>
 				<div class="col-4 form-group">
-					<button class="btn btn-custom-primary text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%;">Sign Up </button>
+					<button class="btn btn-custom text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #000000">Sign Up </button>
 				</div>
 			</form>
 		</div> 
