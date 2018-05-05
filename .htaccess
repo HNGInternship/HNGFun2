@@ -1,0 +1,13 @@
+RewriteEngine on
+
+# Rewrite the search page
+
+RewriteRule ^searchresults/([^/]+)/([^/]+)/?$ searchresults.php?a=$1&b=$2 [QSA,L]
+
+# Allow requests without php/html extensions
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [L]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [L]
