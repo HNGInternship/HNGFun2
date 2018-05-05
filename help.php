@@ -23,7 +23,7 @@ header {
 
 .jumbotron {
   
-    background: #f4f4f4;
+    background: #;
     text-align: center;
     color: #3D3D3D;
     border: 0;
@@ -32,6 +32,26 @@ header {
     margin-bottom: 0;
 
 }
+
+ .bg-cover {
+     background-size: cover;
+     color: white;
+     background-position: 0px -200px;
+     position: relative;
+     z-index: -2;
+     background-image: url('./img/ask.jpg');
+ }
+
+ .overlay {
+     background-color: #000;
+     opacity: 0.5;
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     z-index: -1;
+ }
 
 .faq-wrapper {
     /* border: 1px solid #4f4f4f; */
@@ -81,7 +101,7 @@ header {
     text-align: left;
     border: 0;
     padding-right: 0;
-    padding-bottom: 4em;
+    padding-bottom: 2em;
 }
 
 
@@ -161,9 +181,12 @@ i.fa.fa-bars {
     border: 1px solid #3d3d3d;
 }
 
+
+
 @media(max-width: 568px) {
     .btn-q {
         padding-left: 0;
+        width: 370px;
     }
 }
 
@@ -171,7 +194,8 @@ i.fa.fa-bars {
 </style>
 
 
-<header class="jumbotron">
+<header class="jumbotron bg-cover">
+<div class="overlay"></div>
 <div class="hero">
  <h1>Help Center</h1>
     <p>What Can we help you with ?</p>
@@ -196,7 +220,7 @@ i.fa.fa-bars {
                     
                         <h5 class="mb-0">
                             <button class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What is a private key?
+                             Will I be awarded a certificate after this internship?
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </button>
                         </h5>

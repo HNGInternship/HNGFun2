@@ -173,7 +173,7 @@ include_once("header.php");
 			<h4 class="text-right">Start Learning Now</h4>
 		</div>
 		<div class="col-sm-7">
-			<h4 class="text-center mb-2">Ready to get started? Register Now!</h4>
+			<h4 class="text-center mb-2">Ready to get started? Register Now! </h4>
 			<form class="form-inline row d-flex justify-content-center">
 				<div class="col-7 form-group pr-0 mr-0">
 					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
