@@ -57,7 +57,7 @@
   <h2 class="mt-5">HNG 4.0 Internship</h2>
   <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto" />
   <div class="py-5 my-5 col-md-10 mx-auto" id="img-title">
-  	<i class="fa fa-image my-5"></i>
+  	<i class="fa fa-image my-5"><img class="card-img-top" src="http://http://res.cloudinary.com/devgeaks/image/upload/v1525544789/IMG_20180504_204524.jpg" alt="logo"></i>
   </div>
 
   <section class="mt-5 pt-5 col-md-10 mx-auto">
@@ -66,12 +66,10 @@
   	</h4>
 
   	<p>
-  	  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur
+  	The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa. Everyone is welcome to participate (there is no entrance exam). We create fun challenges every week on our slack channel. THose who solve them stay on. Everyone gets to learn important concepts quickly, and make connections with people they can work with in the future. The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalist are connected to the best companies in the tech ecosystem and get full time jobs and contracts immediately.
   	</p>
 
-  	<p>
-  	  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-  	</p>
+
   </section>
   <section class="row mt-5 pt-5 col-md-10 mx-auto px-0">
   	<span class="col-sm-4">
