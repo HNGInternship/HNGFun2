@@ -76,6 +76,12 @@ include_once("header.php");
         position: relative; 
         width: 100%
     }
+    h1 { 
+        position: absolute; 
+        top: 200px; 
+        left: 0; 
+        width: 100%; 
+    }
 </style>
 
 <main>
