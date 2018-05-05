@@ -15,6 +15,7 @@ include_once("header.php");
 		color: #2196F3;
 		width: 400px; font-size: 15px; height: 40px; text-align:center;
 		border-radius: 10px;
+		background-color: #fff;
 	}
 	#submitbutton:hover{
 		background-color: #2196f3;
