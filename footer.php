@@ -3,27 +3,7 @@
       <div class="row">
          <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
-
-               <li class="list-inline-item contact-icon">
-                  <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">
-                     <span>
-                        <i class="fa fa-twitter fa-lg"></i>
-                     </span>
-                  </a>
-               </li>
-               <li class="list-inline-item contact-icon" style="border: 1px solid black;border-top-style: none;border-bottom-style: none; ">
-                  <a id="facebook" href="https://web.facebook.com/hotelsng/" target="_blank">
-                     <span>
-                        <i class="fa fa-facebook fa-lg"></i>
-                     </span>
-                  </a>
-               </li>
-               <li class="list-inline-item contact-icon">
-                  <a id="github" href="https://github.com/HNGInternship/" target="_blank">
-                     <span>
-                        <i class="fa fa-github fa-lg"></i>
-
-               <!-- <li class="list-inline-item footer-li">
+               <li class="list-inline-item footer-li">
                   <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">
                      <span class="fa-stack fa-lg">
                         <i class="fa fa-twitter fa-stack-1x"></i>
@@ -40,11 +20,11 @@
                <li class="list-inline-item footer-li">
                   <a id="github" href="https://github.com/HNGInternship/" target="_blank">
                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-github fa-stack-1x"></i> -->
-
+                        <i class="fa fa-github fa-stack-1x"></i>
                      </span>
                   </a>
                </li>
+
             </ul>
 
             <ul class="list-inline text-center" style="padding-top:20px;">
