@@ -154,7 +154,6 @@ include_once("header.php");
         <p>HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
       <p><strong>TOOLS BUILT</strong>:&nbsp;CHATBOTS, CRYPTOCURRENCY</p>
       </div>
-
 <!-- first page -->
 
     <div class="article-loop">
