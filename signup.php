@@ -3,11 +3,9 @@ include_once("header.php");
 ?>
 
 <style>
-    body :not(.contact-icon>a>span>i){
+    body {
         font-size: inherit !important;
     }
-
-
     .btn-signup {
         background-color: #2196F3;
         border-color: #2196F3;
@@ -39,7 +37,7 @@ include_once("header.php");
         <h1 class="login-title" style="padding-top: 20px; color: #3D3D3D;">Sign Up</h1>
         <p style="font-size: 16px">Just a few clicks away from joining the biggest software development internship in Africa
         </p>
-        <p><span style='color: grey'>Already have an account?</span> <a class='link' href="login" style="color: #2196F3; text-decoration: none">Login</a></p>
+        <p><span style='color: grey'>Already have an account?</span> <a class='link' href="login.php" style="color: #2196F3; text-decoration: none">Login</a></p>
         </div>
                 <div id="message">
             
@@ -80,15 +78,15 @@ include_once("header.php");
                 <input type="hidden" name="registration" value="yes">
 
             
-                <div class="form-check d-flex align-items-start" style="padding-left:30%">
+            <div class="form-group">
+                <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms" name="terms">
                     <label class="form-check-label" for="terms">
-                    I agree to the <a class='link' href="terms-and-conditions" style="color: #2196F3; text-decoration: none;">Terms and Conditions</a>
+                    I agree to the <a class='link' href="terms-and-conditions.php" style="color: #2196F3; text-decoration: none">Terms and Conditions</a>
                     </label>
                 </div>
-
-             
-            <br/>
+            </div>
+            <br>
            
             <button type="submit" name="register" class="btn btn-signup" id="register">Sign Up </button>
         </form>
@@ -96,7 +94,6 @@ include_once("header.php");
     </div>
 </div>
 </div>
-
 <!--
 <div class="container">
 <div class="row h-100">
@@ -349,7 +346,6 @@ include_once("header.php");
     });
     
 </script>
-
 <?php
     include_once("footer.php");
 ?>
