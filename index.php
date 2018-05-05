@@ -47,6 +47,7 @@ include_once("header.php");
 </div>
                 </form>
                 <div id="response"></div>
+		
 		</div>
 	</div>
 </div>
