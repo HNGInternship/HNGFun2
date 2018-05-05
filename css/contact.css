@@ -226,3 +226,18 @@
          left: 152px;
      }
  }
+
+  .social-media i.fa {
+     color: #ffffff !important;
+     padding: 0 .6em;
+     cursor: pointer;
+     font-size: 1.7em;
+ }
+
+ .social-media {
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    margin-left: -0.9em;
+    margin-bottom: 50px;
+}

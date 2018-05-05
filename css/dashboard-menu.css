@@ -98,6 +98,12 @@ ul.navbar-nav.collapse.ml-auto.dashmenu {
 	padding: 5px 0 !important;
 }
 }
+
+@media (max-width: 512px) {
+.navbar-right.acc {
+    margin: -3px -30px;
+}
+}
 /*  End Dashboard Menu  */
 
 /*  Dashboard Page  */
@@ -226,7 +232,7 @@ table.your-coins .ngn-price {
 /*  Transaction History Block*/
 
 table.transaction-history td.text-left {
-    padding: 10px 40px;
+    padding: 10px 30px;
     font-weight: 600;
 }
 
@@ -372,4 +378,52 @@ table.tops tr td img{
     font-weight: 600;
     letter-spacing: 0.5px;
     padding: 20px 50px 5px 0px;
+}
+
+@media (max-width: 512px) {
+    .invite-friends a {
+    padding: 20px 75px 5px 0px;
+    }
+
+    .dash-block h3.thead {
+    text-align: center !important;
+    padding: 10px 0 15px !important;
+    }
+
+    table.tops tr td:first-child {
+    padding-left: 10px;
+    }
+}
+
+.profile-form {
+    background: #fff;
+    padding: 0 50px;
+    margin-top: 60px;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    -ms-border-radius: 5px !important;
+    -o-border-radius: 5px !important;
+    border-radius: 5px !important;
+    -webkit-box-shadow: 1px 3px 9px 2px rgba(157, 157, 157, 0.2);
+    -moz-box-shadow: 1px 3px 9px 2px rgba(157, 157, 157, 0.2);
+    box-shadow: 1px 3px 9px 2px rgba(157, 157, 157, 0.2);
+}
+
+img.profile-img.img-circle {
+    max-width: 200px;
+    top: -40px;
+    position: relative;
+    border-radius: 100px;
+}
+
+.profile-form button.btn {
+    text-transform: inherit;
+    background: #2196f3;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 6px;
+    width: 100px;
+    margin: 10px;
 }

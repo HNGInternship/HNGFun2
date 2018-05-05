@@ -38,6 +38,9 @@
         <link href="css/404.css" rel="stylesheet">
       <!-- <link href="css/carousel.css" rel="stylesheet"> -->
 
+      <script src="js/jquery.min.js" ></script>
+      <script src="js/stellar-sdk.js"></script> 
+
 
       <style>
         body{
@@ -130,7 +133,7 @@
         <div class="dropdown" id="home-language-switch">
         <img class="acc-img" src="img/dashboard/amy.png">
         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><?php require_once "dashboard.php";
-        echo $records ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
+        echo $username; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
                 <a href="profile.php" class="dropdown-item">

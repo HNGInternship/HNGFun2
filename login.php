@@ -4,14 +4,14 @@ session_start();
 
 define ('DB_USER', "root");
 define ('DB_PASSWORD', "29gE9t*dJ2#2f-BS");
-define ('DB_DATABASE', "hng_fun");
+define ('DB_DATABASE', "slayers_db");
 define ('DB_HOST', "localhost");
 $servername = DB_HOST;
 $username = DB_USER;
 $password = DB_PASSWORD;
 $database = DB_DATABASE;
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+    $conn = new PDO("mysql:host=$servername; dbname=$database", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
