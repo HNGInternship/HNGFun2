@@ -9,10 +9,10 @@ $sql = 'SELECT * FROM interns_data';
 $q = $conn->query($sql);
 $q->setFetchMode(PDO::FETCH_ASSOC);
 $data = $q->fetchAll();
-
-
 ?>
-
+<script>
+  alert("here");
+</script>
 <style>
   h2 {
     font-family: 'work sans';
