@@ -39,12 +39,12 @@ include_once("header.php");
 	}
 	.paddedhr{
 		width: 100px;
-		background-color: #2f70ed;
+		background-color: #00AEFF;
 		padding: 2px 0;
 	}
 	.paddedhr2{
 		width: 60px;
-		background-color: #00aeff;
+		background-color: #00AEFF;
 		padding: 2.5px 0;
 	}
 	.bg-grey{
@@ -79,7 +79,7 @@ include_once("header.php");
     }
     h1 { 
         position: absolute; 
-        bottom: 150px; 
+        bottom: 250px; 
         left: 0; 
         width: 70%; 
     }
