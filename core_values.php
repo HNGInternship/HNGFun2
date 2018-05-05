@@ -1,140 +1,71 @@
 <?php
-include_once("header.php");
-function custom_styles() {
-    $styles = 'body{
-            background-color: #fff !important;
-        }
-        .hero-section {
-            background-color: #56CCF2 !important;
-          background: url("img/core-value.png") 50% no-repeat;
-          background-size: cover;
-          height: 60vh;
-          text-align: center;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-align-items: center;
-          -ms-flex-align: center;
-          align-items: center;
-          -webkit-justify-content: center;
-          -ms-flex-pack: center;
-          justify-content: center;
-        }
-        
-
-        .hero-section .hero-section-text {
-          text-shadow: 1px 1px 2px #0a0a0a;
-        }
-        .hero-section .hero-section-text h3{
-            color: white;
-            font-size: 28px;
-        }
-        .hero-section .hero-section-text h1{
-            color: black;
-            font-size: 90px;
-        }
-        .hero-section .hero-section-text h2{
-            color: black;
-            font-size: 48px;
-        }
-        .page-heading{
-            color: #56CCF2 !important;
-            font-size: 25px !important;
-        }
-        .content{
-             margin-top: 100px !important;
-        }
-        .under-line{
-             background-color: #56CCF2; height: 2px; border: 0;
-        } 
-        .brief{
-            font-size: 20px;
-
-        }
-        p  {margin-left: 50px !important;
-        }';
-    echo $styles;
-};
+include_once("header.php");   
 ?>
 <!-- head ends -->
-<div class="hero-section">
-  <div class="hero-section-text">
-  <h1 class="font-weight-bolder"> OUR</h1>
-  <h2 class="font-weight-bold"> Core Values</h2>
-  <h3 class=" text-white"> Become a better Software Developer</h3>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body style="font-family:lato;">
+    <div class="container-fluid" style="background-color:#2196F3; padding:150px 0px 150px 0px;">
+      <h1 style="color:#fff; text-align:center; font-family:lato; font-size:50px;"><b>Our Core Values</b></h1>
+      <p style="color:#fff; text-align:center; padding:0px 150px;">We provide a fun environment where our interns work together to hone their innovative problem solving skills while working hard to attain personal excellence</p>
+    </div>
+  </body>
+  <div class="container">
+    <br><br>
+    <div class="row">
+      <div class="col-lg-1 col-md-0 col-sm-0"></div>
+      <div class="col-lg-5 col-md-6 col-sm-12">
+        <center>
+          <img src="img/teamwork1.png" class="img-responsive">
+          <h2 style="font-size:20px">TEAM WORK</h2>
+          <p>We help each other, we collaborate, we celebrate our achievements – and we have fun doing it!</p>
+        </center>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12">
+        <center>
+          <img src="img/team.png" class="img-responsive">
+          <h2 style="font-size:20px">COMMUNITY</h2>
+          <p>We share an infectious sense of mission to make an impact on society, empowering youths in ways never before possible.</p>
+        </center>
+      </div>
+      <div class="col-lg-1 col-md-0 col-sm-0"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-1 col-md-0 col-sm-0"></div>
+      <div class="col-lg-5 col-md-6 col-sm-12">
+        <center>
+          <img src="img/game-controller.png" class="img-responsive">
+          <h2 style="font-size:20px">FUN</h2>
+          <p>We believe humor is essential for exceptional creativity, outstanding service and thriving team members</p>
+        </center>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12">
+        <center>
+          <img src="img/gold-medal.png" class="img-responsive">
+          <h2 style="font-size:20px">EXCELLENCE</h2>
+          <p>We are committed to winning with integrity by giving attention to every detail. </p>
+        </center>
+      </div>
+      <div class="col-lg-1 col-md-0 col-sm-0"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-0"></div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <center>
+          <img src="img/idea.png" class="img-responsive">
+          <h2 style="font-size:20px">INNOVATION</h2>
+          <p>We thrive on creativity and ingenuity.</p>
+        </center>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-0"></div>
+    </div>
+
   </div>
-</div>
-
-<div class="container content">
-    <div class="row">
-        <div class="col-lg-10 col-md-10 mx-auto">
-            <h3 class="page-heading">DIVERSITY</h3>
-                <hr class="under-line">
-			 <div class="container-fluid">
-                    <p>
-                        <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
-                        </span>
-                    </p>
-        	</div>
-		</div>
-	</div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-md-10 mx-auto">
-            <h3 class="page-heading">INNOVATION</h3>
-            <hr class="under-line">
-            <div class=" container-fluid">
-                    <p>
-                        <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
-                        </span>
-                    </p>
-        	</div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-md-10 mx-auto">
-            <h3 class="page-heading">QUALITY</h3>
-            <hr class="under-line">
-             <div class="container-fluid">
-                    <p>
-                        <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
-                        </span>
-                    </p>
-        	</div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-md-10 mx-auto">
-            <h3 class="page-heading">SUSTAINABILITY</h3>
-            <hr class="under-line">
-             <div class=" container-fluid">
-                    <p>
-                        <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
-                        </span>
-                    </p>
-        	</div>
-        </div>
-    </div>
-</div>
-
-		
+  </html>	
 <?php
 include_once("footer.php");
 ?>

@@ -8,6 +8,21 @@ include_once("header.php");
 		border-radius: 7px;
 	}
 
+	#submitbutton{
+		margin-top: 45px;
+		border: 1px solid #2196f3;
+		margin-bottom: 50px; margin-left: auto; margin-right: auto;
+		background-color: #2196F3;
+		width: 400px; font-size: 15px; height: 40px; text-align:center;
+		border-radius: 10px;
+		color: #fff;
+	}
+	#submitbutton:hover{
+		cursor: pointer;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    		transition: 0.3s;
+	}
+
 </style>
 
 <div class="" style="padding-top: 7%">
