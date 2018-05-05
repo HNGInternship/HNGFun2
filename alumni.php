@@ -142,7 +142,7 @@ include_once("header.php");
   <body>
 
     <div class="container-fluid">
-      <h1 class="heading">Our Alumnis</h1>
+      <h1 class="heading">Our Alumni</h1>
       <hr style="width:5%;border:1px solid #555;margin-top:0px;">
       <p class="heading">HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
 <!-- first page -->
