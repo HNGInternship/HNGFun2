@@ -25,12 +25,12 @@ $activeArray[$fileIndex]="active";
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="../vendor/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://hng.fun/vendor/css/bootstrap.min.css" rel="stylesheet">
 
 
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://hng.fun/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -41,14 +41,14 @@ $activeArray[$fileIndex]="active";
        
      </script>
     <!-- Custom styles for this template -->
-      <link href="../css/style2.css" rel="stylesheet">
-      <link href="../css/style1.css" rel="stylesheet">
-      <link href="../css/style.css" rel="stylesheet">
-      <link href="../css/custom.css" rel="stylesheet">
+      <link href="https://hng.fun/css/style2.css" rel="stylesheet">
+      <link href="https://hng.fun/css/style1.css" rel="stylesheet">
+      <link href="https://hng.fun/css/style.css" rel="stylesheet">
+      <link href="https://hng.fun/css/custom.css" rel="stylesheet">
      <!-- <link href="css/learn.css" rel="stylesheet"> -->
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
-      <link href="../css/landing-page.min.css" rel="stylesheet">
-      <link href="../css/learn2.css" rel="stylesheet">
+      <link href="https://hng.fun/css/landing-page.min.css" rel="stylesheet">
+      <link href="https://hng.fun/css/learn2.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Qwigley" rel="stylesheet">
       <style>
         body {
