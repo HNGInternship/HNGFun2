@@ -7,12 +7,12 @@ require_once('Transaction.php');
 $transaction = new Transaction();
 $request_id = $_GET['request_id'];
 if(!empty($_GET['sell'])){
-    
+    $request = " sell ";
     $transaction->cancelSellTransaction($request_id, $db);
 }
 
 if(!empty($_GET['buy'])){
-    
+    $request = " buy ";
     $transaction->cancelBuyTransaction($request_id, $db);
 }
 
@@ -199,7 +199,7 @@ font-weight: bold;
 line-height: normal;
 font-size: 1.25em;"> TRANSACTION CANCELLED</h1>
 
-<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%; margin-bottom: 0.5%"> Your transaction with <span id="personName">Kunle</span> has been cancelled</p>
+<p class="heavy-text" style="text-align: left;color: #3D3D3D;font-size:1.125em;line-height: 1.571em; margin: 1.4% 0%; margin-bottom: 0.5%"> Your <?php echo $request; ?> request has been cancelled</p>
 
 
 <a class="back" href="buyandsell.php">Go Back</a>

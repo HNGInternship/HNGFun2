@@ -36,7 +36,7 @@ $activeArray[$fileIndex]="active";
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
       <!-- Custom fonts for this template -->
@@ -59,7 +59,7 @@ $activeArray[$fileIndex]="active";
      <!-- <link href="css/learn.css" rel="stylesheet"> -->
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
       <link href="css/landing-page.min.css" rel="stylesheet">
-      <link href="css/learn2.css" rel="stylesheet">
+      
       <link href="https://fonts.googleapis.com/css?family=Qwigley" rel="stylesheet">
       <style>
         body {
