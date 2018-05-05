@@ -26,7 +26,7 @@ include_once("header.php");
     
     
     footer {
-        background: none;
+        background-color: rgba(0, 0, 255, 0) !important;
     }
     
     @media only screen and (max-width: 1000px){
@@ -64,5 +64,7 @@ include_once("header.php");
 </div>
 
 <?php
+
 include_once("footer.php");
+
 ?>
