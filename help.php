@@ -23,7 +23,7 @@ header {
 
 .jumbotron {
   
-    background: #f4f4f4;
+    background: #f2f2f2;
     text-align: center;
     color: #3D3D3D;
     border: 0;
