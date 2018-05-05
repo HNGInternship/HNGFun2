@@ -79,14 +79,14 @@ include_once("header.php");
     }
     .mb-2 { 
         position: absolute; 
-        bottom: 250px; 
-        left: 20px; 
+        bottom: 150px; 
+        left: 50px; 
         width: 70%; 
     }
     .head { 
         position: absolute; 
-        bottom: 150px; 
-        left: 20px; 
+        bottom: 100px; 
+        left: 50px; 
         width: 70%; 
     }
 </style>
@@ -179,7 +179,7 @@ include_once("header.php");
 					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
 				</div>
 				<div class="col-4 form-group">
-					<button class="btn btn-custom text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #A9A9A9">Sign Up </button>
+					<button class="btn btn-custom text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #808080">Sign Up </button>
 				</div>
 			</form>
 		</div> 
