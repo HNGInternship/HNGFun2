@@ -1,289 +1,335 @@
 <?php
 include_once("header.php");
 ?>
+
 <style>
+    body {
+        /* background-color: firebrick; */
+        font-family: 'Fruktur';
+        background: #ffffff !important;
+    }
 
-/* General styles */
-main {
-    position: relative;
-}
+    .whole-background {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-header {
+    .container-fluid {
+        padding: 20px;
+        color: #fff;
+    }
 
-    padding-bottom: 0;
-}
+    .header-font-one {
+        font-size: large;
+        font-family: "serif";
+        color: white;
+    }
 
-.hero {
-    max-width: 640px;
-    margin: 0 auto;
-  
-}
+    .header-font-one h2{
+        padding-top: 38px;
+        color: #ffffff;
+    }
 
-.hero input[type="text"]{
-    padding: 10px;
-    padding-left: 50px;
-    margin-left: 10px;
-    border: 1px solid #3d3d3d;
-}
+    .form-control {
+
+        border: 1px solid #48BBFC !important;
+        color: #48BBFC;
+        text-align: center;
+        margin: 0 auto;
+        padding: .9rem 0;
+        font-size: 16px;
+    }
 
 
-.hero input[type="submit"] {
-    border-radius: 5px;
-    padding: 11.9px 25px;
-    background: #2196f3;
-    color: #fff;
-}
+    .search-container > form {
+        margin-top: 1em;
+        margin-bottom: 3em;
+    }
 
-.container {
-    padding-left: 200px;
-}
+    .header-font-two {
+        font-size: small;
+        font-family: "Apple Color Emoji";
+        text-align: center;
 
-  
+    }
+
+    .search-container {
+        height: 165px;
+        width: 100%;
+        justify-content: center;
+    }
+
     input[type="text"]#help-search::-webkit-input-placeholder { /* Chrome */
-        color: #3d3d3d !important;
+        color: #48BBFC !important;
     }
     input[type="text"]#help-search:-ms-input-placeholder { /* IE 10+ */
-        color: #3d3d3d !important;
+        color: #48BBFC !important;
     }
     input[type="text"]#help-search::-moz-placeholder { /* Firefox 19+ */
-        color: #3d3d3d !important;
+        color: #48BBFC !important;
         opacity: 1;
     }
     input[type="text"]#help-search:-moz-placeholder { /* Firefox 4 - 18 */
-        color: #3d3d3d !important;
+        color: #48BBFC !important;
         opacity: 1;
     }
 
-
-/* Profile styles */
-.sidebar {
-    position: fixed;
-    z-index: 99;
-    background: #fff;
-    top: 99.5px;
-    left: 0;
-    bottom: 0;
-    width: 200px;
-  
-  
-}
-
-.profile h5 {
-    color: #2196f3;
-    font-weight: 500;
-}
-
-#navbar-fixed {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 999;
-}
-
-nav {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-}
-
-.profile-nav a {
-    border: 1px solid #2196f3;
-    width: 140px;
-    margin-bottom: 2em;
-    padding: 9px 10px;
-    font-size: 10px;
-    border-radius: 5px;
-    color: #2196f3;
-}
-
-#blue-btn {
-    color: #fff;
-    background: #2196f3;
-}
-
-/*FAQ styles */
-
-.jumbotron {
-  
-    background: #f2f2f2;
-    text-align: center;
-    color: #3D3D3D;
-    border: 0;
-    border-radius: 0;
-    margin: 0 0 0 200px;
-    margin-bottom: 0;
-    padding-top:  150px;
-     /* position: fixed; */
-}
-
-
-
-.faq-wrapper {
-    border: 1px solid #4f4f4f;
-    margin: 6em 0 3em;
-    padding: 0.8em;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    text-align: right;
-
-}
-
-/* FORM styles */
-
- .form-wrapper {
-      
-        display: block;
-        max-width: 30em;
-        padding: 3em 1.8em 4.2em;
-        margin: 0 auto;
-        border: 1px solid #3d3d3d;
-        border-radius: .25em;
-        
+    #help-search{
+        width: 47%;
     }
 
-.form-wrapper h5 {
-   
-    text-align: center;
-}
+    .header-container {
+        height: 200px;
+        width: 100%;
+        background-color: #3fb3fa;
+        justify-content: center;
+    }
 
-.answers {
-    margin-bottom: 4em;
-}
+    .faq-container {
+        position: relative;
+        background: #2196F3;
+        padding-left: 2.7em;
+        padding-right: 2em;
+        margin-bottom: 2em;
+    }
 
-#tab2, #tab1 {
-    margin: 0 !important;
-    padding: 0 !important;
-}
+    .faq-container .col.text-left > h2 {
+        color: #ffffff;
+        padding-left: 18px;
+    }
 
-h5 {
-    text-align: center;
-    font-weight: 200;
-    padding-bottom: .7em;
-}
+    .card {
+        background: #2196F3;
+        border: none;
+        border-radius: 0;
+
+    }
+
+    .card-header{
+        background-color: #2196F3;
+        color: #ffffff;
+        border: none;
+    }
+
+    .card-header button {
+        color: #ffffff;
+        text-transform: none;
+    }
+
+    .btn {
+        padding: 0;
+    }
+
+    i.fa.fa-chevron-down {
+        color: #ffffff !important;
+        padding-left: 24px;
+    }
 
 
-.form-wrapper {
-    padding-right: 5em;
-    padding-left: 5em;
-}
+    .contact-container > h4{
+        margin-bottom: 1em;
+        color: #2196F3;
+        text-align: center;
 
-.form-wrapper input[type="submit"] {
-    text-transform: uppercase;
-    color: #fff;
-    background: #2196f3;
-    padding: 15px 45px;
-    border-radius: .25em;
-    border: none;
-    font-size: 12px;
-     text-align: right !important;
+    }
+
+    .closing {
+        display: none;
+        transition: transform 80000ms ease-in-out 10ms;
+    }
+
+    .collapse.closing {
+        translateY: -10%
+ transition: transform 80000ms ease-in-out 10ms;
+    }
+
+
+    .faq-container img {
+
+        display: inline-block;
+         max-width: 165px;
+
+    }
+
+    button.btn.btn-link {
+        font-weight: 300;
+        font-size: .9em;
+
+    }
+
+    .form-wrapper {
+       display: block;
+        max-width: 30em;
+        padding: 4em 1.8em 4.2em;
+        margin: 0 auto;
+        border: 1px solid #48BBFC;
+        border-radius: .25em;
+
+    }
+
+    .form-wrapper  label {
+        text-align: left;
+         color: #5F5F5F;
+         font-size: 0.9em;
+    }
+
+    .form-wrapper input[type="email"] {
+        margin-bottom: 2em;
+    }
+
+    .contact-container button.btn.btn-lg {
+        margin: 0;
+        display: inline-block;
+        margin-top: 1.2em;
+        color: #ffffff;
+        background: #2196F3;
+        padding: .35em 1.75em;
+        border-radius: .25em;
+        font-weight: 300;
+        text-align: right !important;
+    }
+
+
+      #help-send {
+
+       text-align: right !important;
        float: right;
-}
 
 
-.form-wrapper input[type="submit"]:after {
-     
-      display: table;
-      clear: both;
-   
   }
 
-.form-control {
-    border: 1px solid #5f5f5f;
-    margin-bottom: 2em;
-}
+  button#help-send:after {
 
-.tabs {
-    margin-right: 0;
-    padding-right: 0;
-}
+      display: table;
+      clear: both;
 
-.tabs a {
-    display: inline-block;
-    padding: 5px 28px 5px 7px
-}
-
-.card {
-    border: none;
-    background: #f2f2f2;
-}
+  }
 
     @media (max-width: 670px) {
-  
+        .faq-container img {
+            display: none;
+        }
     }
+
+    @media (min-width: 740px) {
+        .faq-container img {
+            padding-left: 30px;
+       max-width: 230px;
+        }
+    }
+
 </style>
+<main>
+    <div>	
+        <section class="header-container text-center">
+            <div class="header-font-one">
+                <h2>Help Lab</h2>
+                <p>What Can we help you with</p>
+            </div>
+        </section>
 
-<header class="jumbotron">
-<div class="hero">
- <h1>Help Center</h1>
-    <p>What Can we help you with ?</p>
-    <div class="form-row">
-        <div class="col-9">
-            <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search term here">
-        </div>
-        <div class="col">
-            <input type="submit" value="search" class="btn ">
-        </div>
     </div>
-</div>
-</header>  
-<main class="">
-
-    <aside class="col sidebar">
-        <article class="profile">
-            <img src="" alt="">
-            <h5>rock_zion</h5>
-        </article>
-   
-        <nav class="profile-nav">
-            <a href="#" class="btn" >Profile</a>
-            <a href="#" class="btn" >Trade</a>
-            <a href="#" class="btn" >Accolade Balance</a>
-            <a href="#" id="blue-btn" class="btn " >Help &mp; Feedback</a>
-        </nav>
-    </aside>
-
-    <section class="container">
-        <div class="faq-wrapper">
-            <h5>faq's</h5>
-            <section>
-                <div class="key">
-                    <a href=""></a>
-                    <a href=""></a>
-                </div>
-                <div class="faqs">
-                    <div class="accordion">
-                    
+    <section class="container-fluid search-container">
+          <form action="">
+            <input id="help-search" type="text" placeholder="...Search for a problem" class="form-control">
+        </form>
+    </section>
+    <section class="container-fluid faq-container">
+        <div class="row">
+              <div class="col text-left">
+                <h2 class="text-left">FAQ</h2>
+                <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Would I be awarded a certificate after this internship?
+                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                      </h5>
                     </div>
-                </div>
-            </section>
-        </div>
-        <div class="answers">
-            <div class="row">
-                <div class="col-2" id="tab1">
-                <div class="tabs">
-                    <a href="#" class="btn-blue">Private Key</a>
-                    <a href="#" class="btn">Accolades</a>
-                </div>
-                  
-                </div>
-                <div class="col" id="tab2">
-                <div class="card">
-                    <div class="card-header">What is a private key</div>
-                    <div class="card-body"></div>
-                </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="#collapseOne">
+                              We do not currently issue certificates to participants but we hope to do that in the future.
+
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Is this internship program open for only Nigerians?
+                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                      <div class="card-body">
+                        No, not at all. The HNG internship program is open for residents of African countries. We believe by creating an equal opportunity, we not only create human resource value by equipping our interns with the proper technical skills, we also make them employable thereby creating an adequately skilled, qualified workforce in Africa.
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Do I need any prior programming experience to join?<i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                      <div class="card-body">
+                        The HNG internship is open for beginners with little or no experience in design, programming or DevOps. Once you are self driven and motivated to learn, you are good to go!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingfour">
+                      <h5 class="mb-0">
+                        <button  class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                          What are the basic requirements for this program?
+                          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
+                      <div class="card-body">
+                        These are some basic prerequisites for this program: <br><br>1. You are self driven and motivated to learn. Participation in this program requires consistently meeting the deadlines.<br><br>
+                                2. You have access to a computer with broadband connection, on which you will install a professional code/text editor.<br><br>
+                                3. You are willing to contribute to the success of the program, including collaborating with fellow interns. <br><br>
+                        4. You approach problem solving strategically and can clearly communicate your strategy.
+
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
+            <div class="col text-right">
+                <img src="img/conversation(1).png" alt="speech bubbles">
+            </div>
         </div>
-        
-        <h5>We would like to here from you</h5>
+    </section>
+    <section class="container-fluid  contact-container">
+        <h4>We would like to hear from you</h4>
         <div class="form-wrapper">
-            <form action="POST">
-                <input type="email" name="" id="" class="form-control" placeholder="Email Adress">
-                <textarea name="" id="" cols="20" rows="5" class="form-control" placeholder="Message"></textarea>
-                <input type="submit" value="Send" class=" btn-blue"> 
+            <form action="">
+                <label class="text-left" for="email">Email address</label>
+                <input type="email" name="email" class="form-control">
+
+                <label class="text-left" for="email">Description</label>
+                <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                <button id="help-send" class="btn btn-lg">send</button>
+
             </form>
         </div>
+
     </section>
 
 </main>
@@ -294,10 +340,15 @@ h5 {
 include_once("footer.php");
 function custom_scripts() {
 
-       $script = "<script> 
+       $script = "<script>
        (function(){
-      
-   
+           var check = 0;
+          //  $('.panel-title').click(function(){
+
+              //  $('.collapse').collapse('toggle');
+
+            })
+
        })();
         </script>";
 
