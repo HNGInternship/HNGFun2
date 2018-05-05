@@ -5,6 +5,8 @@ include_once("header.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <!-- styles link -->
@@ -15,9 +17,11 @@ include_once("header.php");
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
+
     body {
       font-family: lato, sans-serif;
     }
+
     main {
       margin-top: 50px;
     }
