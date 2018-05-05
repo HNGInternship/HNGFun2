@@ -72,16 +72,17 @@ include_once("header.php");
 	.bg-footer-lower{
 		background-color: #084482;
 	}
+    .img-bg {
+        position: relative; 
+        width: 100%
+    }
 </style>
 
 <main>
-	<div class="jumbotron text-white mb-0">
+	<div class="text-white img-bg">
         <img src="/img-light.jpeg" alt="">
-		<div class="jumbotron-content">
 			<h1 class="mb-2">What is HNG all about?</h1>
 			<p>The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
-		</div>
-
 	</div>
 	<div class="row">
 		<p class="text-center w-100 mb-0">About Us</p>
