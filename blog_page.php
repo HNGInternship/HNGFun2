@@ -1,5 +1,4 @@
 <?php
-
   include('header.php');
 
   $titles = ["Hotels.ng Internship 4.0", "Designing a simple profile", "Git: Getting started", "Hotels.ng Internship 4.0", "Designing a simple profile", "Git: Getting started", "Icons, Font and more...", "HTML, CSS and Javascript", "Git: Getting started", "Full Stack Development", "Accolades", "Open source career"];
@@ -286,7 +285,7 @@
 
   function filter(el, condition){
 
-    //get's the parent of the elemnet
+    //gets the parent of the elemnet
 
     let parent = el.parentElement;
 
@@ -317,3 +316,4 @@
   include('footer.php');
 
 ?>
+
