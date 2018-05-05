@@ -1,7 +1,7 @@
 <?php
 class Database
 {
-    private static $dbName = 'slayers_db';
+    private static $dbName = 'hng_fun';
     private static $dbHost = 'localhost';
     private static $dbUsername = 'root';
     private static $dbUserPassword = '29gE9t*dJ2#2f-BS';
