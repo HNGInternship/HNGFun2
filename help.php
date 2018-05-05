@@ -66,7 +66,7 @@ nav.navbar.navbar-expand-lg.navbar-light {
 
 
 /* Profile styles */
-.sidebar {
+/* .sidebar {
     position: fixed;
     z-index: 99;
     background: #fff;
@@ -86,9 +86,9 @@ nav.navbar.navbar-expand-lg.navbar-light {
     transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
   
   
-}
+} */
 
-.user-image {
+/* .user-image {
     height: 140px;
     width: 140px;
     border-radius: 50%;
@@ -139,13 +139,12 @@ nav {
     color: #fff;
     background: #2196f3;
 
-    /* transition: all 0.8s ease-in; */
-}
+} */
 
 a.btn.help-btn-blue:hover {
      color: #2196f3;
     background: #fff;
-    /* border: 0; */
+
 } 
 
 a.btn.help-btn-blue {
@@ -330,7 +329,7 @@ a.btn.help-btn-blue {
     font-size: 16px;
 }
 
-    @media (min-width: 1002px) {
+    /* @media (min-width: 1002px) {
         .form-wrapper input[type="submit"] {
             
             display: inline-block;
@@ -372,7 +371,7 @@ a.btn.help-btn-blue {
             transform: translateX(0);
         }
 
-    }
+    } */
         i.fa.fa-bars {
             color: #3d3d3d !important;
         }
@@ -401,9 +400,9 @@ a.btn.help-btn-blue {
 </div>
 </header>  
 <main class="">
-<span class="menu-toggle">
+<!-- <span class="menu-toggle">
 				<span class="nav-btn rounded-right"><i class="fa fa-bars"></i></span>
-			</span>
+			</span> -->
     <aside class="col sidebar">
   
         <article class="profile">
