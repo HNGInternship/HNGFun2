@@ -74,7 +74,7 @@ include_once("header.php");
 	}
     .img-bg {
         position: relative; 
-        width: 400px;
+        width: 100%;
         height: 300px;
         margin: auto
     }
