@@ -79,13 +79,13 @@ include_once("header.php");
     }
     .head1 { 
         position: absolute; 
-        bottom: 200px; 
+        bottom: 150px; 
         left: 50px; 
         width: 70%; 
     }
     .head { 
         position: absolute; 
-        bottom: 100px; 
+        bottom: 50px; 
         left: 50px; 
         width: 70%; 
     }
