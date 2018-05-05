@@ -1,158 +1,193 @@
 <?php
 include_once("header.php");
 ?>
-    <style>
-        body {
-            font-size: inherit !important;
-        }
-        
-        p,
-        label {
-            font-size: 14px !important;
-        }
-    </style>
 
-    <body>
-        <!-- About Section -->
-        <section id="aboutus" class="aboutus margin-top-120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="head_title text-center margin-top-80">
-                            <h1>About Us</h1>
-                            <br>
-                            <br>
-                            <br>
-                            <h3>We are <br> Hng Internship 4</h3>
-                        </div>
-                        <!-- End of head title -->
+<style>
+	body{
+		overflow-x: hidden;
+		100%;
+	}
+	main{
+		background-color: #fff;
+	}
+	.jumbotron{
+		background-color: #2f70ed;
+	}
+	.jumbotron-content{
+		/*width: 100%;*/
+	}
+	.jumbotron-content h1{
+		font-size: 2.6rem;
+		width: 80%;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.jumbotron-content p{
+		font-size: 1.3rem;
+		width: 90%;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.btn-custom-primary{
+		background-color: #00aeff;
+		text-transform: none;
+		font-family: inherit !important;
+		font-size: 1.3rem;
+		border-radius: 5px;
+	}
+	.paddedhr{
+		width: 100px;
+		background-color: #00AEFF;
+		padding: 2px 0;
+	}
+	.paddedhr2{
+		width: 60px;
+		background-color: #00AEFF;
+		padding: 2.5px 0;
+	}
+	.bg-grey{
+		background-color: #eee;
+	}
+	.text-center{
+		text-align: center !important;
+	}
+	.clip-bottom{
+		  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+		  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+		  background-color: #dbf4ff;
+		  padding-top: 80px !important;
+		padding-bottom: 80px !important;
+		font-size: 1.4rem;
+	}
+	.clip-bottom h1.text-primary{
+		color: #00aeff; 
+		font-size: 2.6rem;
+		font-weight: 1000 !important;
+	}
+	.bg-footer-top{
+		background-color: #134f8e;
+	}
+	.bg-footer-lower{
+		background-color: #084482;
+	}
+    .img-bg {
+        position: relative; 
+        width: 100%;
+        margin: auto
+    }
+    .mb-2 { 
+        position: absolute; 
+        bottom: 250px; 
+        right: 50px; 
+        width: 70%; 
+    }
+    .head { 
+        position: absolute; 
+        bottom: 150px; 
+        right: 50px; 
+        width: 70%; 
+    }
+</style>
 
-                        <div class="main_about_area">
-                            <div class="row">
+<div class="jumbotron contact bg-cover" style="margin-bottom: 3rem;">
+        <div class="overlay"></div>
+        <div class="container contact">
+            <h1>What is HNG all about?</h1>
+            <p>The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
+        </div>
+    </div>
+<main>
+	<div class="row">
+		<p class="text-center w-100 mb-0">About Us</p>
+		<hr class="paddedhr">
+	</div>
 
-                                <div class="col-sm-6">
-                                    <div class="signle_about_left">
-                                        <img src="https://cdn.pbrd.co/images/Hj5XZMo.jpg" alt="" />
-                                        <div class="single_bout_left_text">
-                                            <div class="separator2"></div>
-                                            <h4>we are here to learn how to use the best technologies and programming methodology to create innovative solutions.</h4>
-                                        </div>
-                                    </div>
-                                </div>
+	<div class="container">
+		
+		<!-- <div class="logo my-5 d-flex justify-content-center mw-75 ml-auto mr-auto">
+			<img src="icons/logo-blue-bg.png" style="max-width: 300px; max-height: 252px;">
+		</div> -->
+		<div class="content">
+			<p class="text-muted px-5">The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria 
+            and the whole of Africa. Everyone is welcome to participate (there is no entrance exam). We create fun challenges every week on our slack channel. 
+            Those who solve them stay on. Everyone gets to learn important concepts quickly, and make connections with people they can work with in the future. 
+            The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalist are connected to 
+            the best companies in the tech ecosystem and get full time jobs and contracts immediately</p>
+		</div>
+	</div>
 
-                                <div class="col-sm-5 col-sm-push-1 ">
-                                    <div class="about">
-                                        <div class="separator2"></div>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-
-                                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-
-                                        <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-
-                                        <a href="invite.php" class="btn btn-default" style="background-color: dodgerblue; border-radius: 6px; color: white;">get in touch</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of col-sm-12 -->
-                </div>
-                <!-- End of row -->
-            </div>
-            <!-- End of Container -->
-            <br>
-            <br>
-        </section>
-        <!-- End of about Section -->
-
-        <!-- counter Seection -->
-        <section id="counter" class="counter jumbotron" style="background-color: dodgerblue;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="main_counter sections text-center">
-                            <div class="row">
-                                <div class="col-sm-4 col-xs-12">
-                                    <div class="single_counter_right">
-                                        <h4 class="statistic-counter">3,800</h4>
-                                        <div class="separator"></div>
-                                        <p>project complete</p>
-                                    </div>
-                                </div>
-                                <!-- End of col-sm-4 -->
-
-                                <div class="col-sm-4 col-xs-12">
-                                    <div class="single_counter_right">
-                                        <h4 class="statistic-counter">4510</h4>
-                                        <div class="separator"></div>
-                                        <p>Figma Designs</p>
-                                    </div>
-                                </div>
-                                <!-- End of col-sm-4 -->
-
-                                <div class="col-sm-4 col-xs-12">
-                                    <div class="single_counter_right">
-                                        <h4 class="statistic-counter">2,800</h4>
-                                        <div class="separator"></div>
-                                        <p>In-house competitins</p>
-                                    </div>
-                                </div>
-                                <!-- End of col-sm-4 -->
-
-                            </div>
-                            <!-- End of row -->
-                        </div>
-                    </div>
-                    <!-- End of col-sm-12 -->
-                </div>
-                <!-- End of row -->
-            </div>
-            <!-- End of Container -->
-        </section>
-        <!-- End of counter Section -->
-
-        <section class="showcase">
-            <div class="container">
-                <div class="row no-gutters">
-
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://cdn.pbrd.co/images/Hj622ZD.jpg');"></div>
-                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Web Design</h2>
-                        <p class="lead mb-0">we are here to learn how to use the best technologies and programming methodology to create innovative solutions.</p>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('https://cdn.pbrd.co/images/Hj622ZD.jpg');"></div>
-                    <div class="col-lg-6 my-auto showcase-text">
-                        <h2>Web Development</h2>
-                        <p class="lead mb-0">we are here to learn how to use the best technologies and programming methodology to create innovative solutions.</p>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://cdn.pbrd.co/images/Hj622ZD.jpg');"></div>
-                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Devops &amp; Customize</h2>
-                        <p class="lead mb-0"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="jumbotron">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <h2 class="mb-4" style="color: white;">Ready to get started? Sign up now!</h2>
-                        <button type="submit" href="signup.php" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-            </div>
-        </section>
-    </body>
-    <?php
+	<div class="row clip-bottom py-5 text-center d-flex justify-content-around">
+		<div class="col-sm-3 col-6">
+			<h1 class="text-primary">4200</h1>
+			Registered interns
+			<hr class="paddedhr2">
+		</div>
+		<div class="col-sm-3 col-6">
+			<h1 class="text-primary">30</h1>
+			Motivated Mentors
+			<hr class="paddedhr2">
+		</div>
+		<div class="col-sm-3 col-6">
+			<h1 class="text-primary">6</h1>
+			Learning Paths
+			<hr class="paddedhr2">
+		</div>
+		<div class="col-sm-3 col-6">
+			<h1 class="text-primary">5</h1>
+			African Countries
+			<hr class="paddedhr2">
+		</div>	
+	</div>
+	<div class="container">
+		<h3 class="mt-5 text-center">What you will learn</h3>
+		<hr class="paddedhr2 my-5">
+		<div class="row d-flex justify-content-around text-center mt-5">
+			<div class="col-sm-3">
+				<img src="icons/coding.png" class="d-block ml-auto mr-auto">
+				<h4 class="my-0">Programming</h4>
+				<p class="text-muted">
+					Collaborate with passionate individuals to deliver on real-world projects and reasonable deadlines.
+				</p>
+			</div>
+			<div class="col-sm-3">
+				<img src="icons/painting-palette.png" class="d-block ml-auto mr-auto">
+				<h4 class="my-0">Design</h4>
+				<p class="text-muted">
+					Collaborate with passionate individuals to deliver on real-world projects and reasonable deadlines.
+				</p>
+			</div>
+			<div class="col-sm-3">
+				<img src="icons/team.png" class="d-block ml-auto mr-auto">
+				<h4 class="my-0">Collaboration</h4>
+				<p class="text-muted">
+					Collaborate with passionate individuals to deliver on real-world projects and reasonable deadlines.
+				</p>
+			</div>
+			
+		</div>
+	</div>
+	<div class="row bg-footer-top py-4"></div>
+	<div class="row bg-footer-lower py-2 justify-content-center text-white">
+		<div class="col-sm-3 d-flex align-items-center" style=" border-right: 2px solid #fff; max-width: 200px;">
+			<div class="rounded-circle bg-primary d-flex justify-content-center align-items-center mr-1" style="min-width: 50px; height: 50px;"><span class="fa fa-envelope float-left"></span></div>
+			<h4 class="text-right">Start Learning Now</h4>
+		</div>
+		<div class="col-sm-7">
+			<h4 class="text-center mb-2">Ready to get started? Register Now!</h4>
+			<form class="form-inline row d-flex justify-content-center">
+				<div class="col-7 form-group pr-0 mr-0">
+					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2 style=" border-top-right-radius: 0; border-bottom-right-radius: 0 >
+				</div>
+				<div class="col-4 form-group">
+					<button class="btn btn-custom-primary text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%;">Sign Up </button>
+				</div>
+			</form>
+		</div> 
+		
+	</div>
+</main>
+<?php
 include_once("footer.php");
 ?>

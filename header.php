@@ -150,10 +150,6 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
-           <li class="nav-item <?= $activeArray[6] ?>">
-
-                <a href="partners" class="nav-link">Partners</a>
-            </li>
     </ul>
   </div>
 
