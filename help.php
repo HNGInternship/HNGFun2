@@ -11,14 +11,12 @@ include_once("header.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- font-awesome -->
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+   <!--  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- custom style -->
     <style>
-    body{
-      background: #EBF2F7;
-    }
-    .heading{
+   
+    /*.heading{
       position: absolute;
       width: 445px;
       height: 50px;
@@ -46,133 +44,172 @@ include_once("header.php");
       text-align: justify;
 
       color: #3D3D3D;
+    }*/    .search{
+        width: 516px;
+        margin: auto;
+        height: 48px;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #f0f0f0;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
-    .search{
-      position: absolute;
-width: 644px;
-height: 65px;
-left: 403px;
-top: 231px;
+      .searchform{
+        width: 400px;
+        height: 42px;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #f0f0f0;
+        background-clip: padding-box;
+        border: 1px solid #f0f0f0;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
-    body {
-    @media (min-width: 768px) and (max-width: 991px) {
-      .top {
-        width: 70%;
-      }
+    
+.searchbtn{
+  position:relative;
+  width: 113px;
+  min-height: 45px;
+  color: #ffffff;
+height: 38px;
+background: #2196F3;
+border: 1px solid #FFFFFF;
+border-radius: 6px;
+margin-left: -5px;
+
+}
+#vr{
+ border-right: 1px solid #3D3D3D; 
+ height: 300px;
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 941px) {
+.hl{
+      display: none;
+      visibility: hidden;
     }
+#vr{
+      border-right: 0px;
+    }
+.search{
+        width: 400px;
+        
+    }
+      .searchform{
+        width: 290px;
+    
+    }
+    
+.searchbtn{
+ 
+  width: 113px;
+ 
+
+}
+  }
+ 
     a {
       margin: 0.5em;
       color: #000;
     }
+    a:hover{
+      color: black;
+      text-decoration: none;
+    }
+    .hl{
+      background:#3D3D3D; margin-top: -20px;
+    }
+    
     #p {
       font-weight: bold;
       float: left;
     }
-   input.empty {
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-}
     </style>
-
-    <title>Help</title>
   </head>
   <body>
 
     <div class="container">
       <div class="row">
-        <div class="heading" class="text-center">HELP DESK</div>
-        <div class="sub_head">Welcome, How Can We Help You?</div>
-        <div class="search">
-          <form role="form">
-  <div class="form-group">
-    <input type="text" class="form-control input-groub-lg empty" id="iconified" placeholder="<i class=''></>"/>
-  </div></div>
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">HELP DESK</h2>
+            <h6>Welcome How can We Help You?</h6>
+          </div>
+           <div class="col-lg-12 text-center">
+            <form role="form">
+            <div class="form-group">
+              <div class="search text-center">
+                <input type="text" class="searchform" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" /><button class="searchbtn">SEARCH</button>
+              </div>
+              
+            </div>
+          </form>
+          </div>
       </div>
-      <div style="margin-top: 200px;"></div>
+
       <div class="row">
-        <div class="col-lg-4 col-md-6 text-center" style="border-right: 1px solid #3D3D3D; height: 300px;">
+        <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto" id="vl">
-              <i class="fa fa-4x fa-cubes text-primary mb-3 sr-icons"></i>
+              <i class=""><img src="icon/agenda.png" style="height: 80px; height: 80px;"></i>
               <h3 class="mb-3">Getting Started</h3>
               <p class="mb-0">Welcome to Hng! We're so glad to have you here. Let's started!</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 text-center" style="border-right: 1px solid #3D3D3D;">
+          <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-money text-primary mb-3 sr-icons"></i>
+              <a href="buy-sell-hngcoin.php">
+              <i class=""><img src="icon/transaction.png" style="height: 80px; height: 80px;"></i>
               <h3 class="mb-3">Sell/Buy HNG Coins</h3>
-              <p class="mb-0">Make Bitcoin transactions on HNG.</p>
+              <p class="mb-0">Let’s help you get started on
+how to sell and buy HNGCoin</p>
+</a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-users text-primary mb-3 sr-icons"></i>
+              <i><img src="icon/users.png" style="height: 80px; height: 80px;" ></i>
               <h3 class="mb-3">Your Profile &amp; Preferences.</h3>
-              <p class="mb-0">Adjust your profile and preferences
- to be visible to members of HNG.</p>
+              <p class="mb-0">Learn how to adjust your profile and 
+preferences.</p>
             </div>
           </div>
        
       </div>
-      <hr style="background:#3D3D3D; margin-top: -20px">
+      <hr class="hl">
       <div class="row">
-        <div class="col-lg-4 col-md-6 text-center" style="border-right: 1px solid #3D3D3D; height: 300px;">
+
+        <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-graduation-cap text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">HNG Internship Eligibility 
-</h3>
-              <p class="mb-0">Welcome to Hng! We're so
-glad you're here. Let's get started!</p>
+              <i><img src="icon/agenda.png" style="height: 80px; height: 80px;" ></i>
+              <h3 class="mb-3">HNG Internship Eligibility</h3>
+              <p class="mb-0">Learn me and get help on how to be elible for the next internship</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 text-center" style="border-right: 1px solid #3D3D3D;">
+
+          <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-key text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">How to Reset your  Password</h3>
-              <p class="mb-0">See tips on how to secure your account.</p>
+              <i><img src="icon/lock-and-key-icon-silhouette.png" style="height: 80px; height: 80px;" ></i>
+              <h4 class="mb-4">How to Reset your  Password</h4>
+              <p class="mb-0">Did you forget your password?  we can help you to get it back and ecure your account.</p>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="service-box mt-5 mx-money">
-              <i class="fa fa-4x fa-key text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">How to Manage your Coins</h3>
-              <p class="mb-0">Be in charge of your Bitcoin wallet
- and manage all your transactions.</p>
-            </div>
-          </div>
-       
-      </div>
-      <hr style="background:#3D3D3D; margin-top: -20px">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 text-center" style="border-right: 1px solid #3D3D3D; height: 400px ">
+          </div>  
+
+           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-award text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Be Inspired</h3>
-              <p class="mb-0">Read the success stories from 
-interns and gain your inspirations 
-from there.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 text-center" style="border-right: 1px solid #3D3D3D;">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-money text-primary mb-3 sr-icons"></i>
+             <i><img src="icon/agenda.png" style="height: 80px; height: 80px;" ></i>
               <h3 class="mb-3">FAQ</h3>
-              <p class="mb-0">Check frequently  asked questions 
-to get understand how everything works</p>
+              <p class="mb-0">Check frequently  asked questions to get understand how everything works</p>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-fax text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Contact Us</h3>
-              <p class="mb-0">Let us know what we can do 
-to improve HNG.</p>
-            </div>
-          </div>
-       
+          </div>   
       </div>
+     
+  
+        
+         
+      
      <div style="margin-bottom: 60px;"></div>
     </div>
 
@@ -185,16 +222,7 @@ to improve HNG.</p>
  
 
 
-<script type="text/javascript">
-  $('#iconified').on('keyup', function() {
-    var input = $(this);
-    if(input.val().length === 0) {
-        input.addClass('empty');
-    } else {
-        input.removeClass('empty');
-    }
-});
-</script>  
+
 </body>
 
 <?php
