@@ -1,6 +1,6 @@
 <?php
 
-require("blog/config.php");
+require("db.php");
 $pageDetails = getPageDetailsByName($currentPage);
 
 include("header.php");
