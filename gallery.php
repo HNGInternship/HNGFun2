@@ -1,19 +1,17 @@
 <?php
 	include('header.php');
 
+	if(!defined('DB_USER')){
+    require "../../config.php";		
+    try {
+        $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+    } catch (PDOException $pe) {
+        die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+    }
+  }
+  global $conn;
 
-		define ('DB_USER', "root");
-	define ('DB_PASSWORD', "4getmen0t");
-	define ('DB_DATABASE', "hng_fun");
-	define ('DB_HOST', "localhost");
-
-$host = "localhost";
-$username = "root";
-$password = "4getmen0t";
-$db_name = "hng_fun";
-	
-
-$conn = mysqli_connect($host, $username, $password, $db_name) or die(mysqli_error($db));
+  
 	 $select = mysqli_query($conn, "SELECT * FROM gallery")  or  die(mysqli_error($db));
 	 $rows = $select->num_rows;
 	 echo $rows;
