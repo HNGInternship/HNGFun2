@@ -36,10 +36,10 @@ header {
  .bg-cover {
      background-size: cover;
      color: white;
-     background-position: center center;
+     background-position: 0px -200px;
      position: relative;
      z-index: -2;
-     background-image: url('img/ask.jpg');
+     background-image: url('./img/ask.jpg');
  }
 
  .overlay {
@@ -159,7 +159,7 @@ header {
 
 .answers #accordion .card-header {
     background: #f2f2f2;
-    height: 5.8em;
+    height: 6.1em;
     border: 1px solid #3d3d3d;
     padding-left: .25em;
     border-radius: 0;
@@ -181,9 +181,12 @@ i.fa.fa-bars {
     border: 1px solid #3d3d3d;
 }
 
+
+
 @media(max-width: 568px) {
     .btn-q {
         padding-left: 0;
+        width: 370px;
     }
 }
 
