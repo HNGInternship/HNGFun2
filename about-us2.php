@@ -75,11 +75,19 @@ include_once("header.php");
     .img-bg {
         position: relative; 
         width: 100%;
-        margin: 0
+        height: 0;
+        padding: 0 0 15%;
+        margin: auto
+    }
+    h1 { 
+        position: absolute; 
+        bottom: 150px; 
+        left: 0; 
+        width: 70%; 
     }
     .head { 
         position: absolute; 
-        bottom: 200px; 
+        bottom: 150px; 
         left: 0; 
         width: 70%; 
     }
@@ -88,7 +96,7 @@ include_once("header.php");
 <main>
 	<div class="text-white img-bg">
         <img src="/img-light.jpeg" alt="">
-			<h1 class="mb-2 head">What is HNG all about?</h1>
+			<h1 class="mb-2">What is HNG all about?</h1>
 			<p class="head" >The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
 	</div>
 	<div class="row">
