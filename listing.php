@@ -23,8 +23,8 @@ $data = $q->fetchAll();
   .profile {
     width: 250px;
   }
-  .profile .card > .card-img-top {
-    height: 250px;
+  .card-img-top {
+    height: 250px !important;
   }
 
   .card-footer {
