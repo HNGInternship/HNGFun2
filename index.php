@@ -59,7 +59,7 @@ include_once("header.php");
 	</div>
 </div>
 
-
+<script src="js/lib.js"></script>
 <?php
 include_once("footer.php");
 ?>
