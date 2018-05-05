@@ -6,8 +6,7 @@ include_once("header.php");
             <div class="d-flex justify-content-center">
               <div class="bd-top"></div>
             </div>
-            <p class="sponsors-text text-center pb-4 pt-3 text-center">HNG 4.0 has been a life-transforming journey for interns across Africa.<br/>
-        Don’t take our word for it...take theirs.</p>
+            <p class="sponsors-text text-center pb-4 pt-3 text-center">HNG 4.0 is made possible by the following sponsors.</p>
         
         <div class="d-flex justify-content-center">
            <div class="d-block w-80">
