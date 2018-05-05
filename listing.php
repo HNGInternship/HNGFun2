@@ -4,7 +4,7 @@ include_once("db.php");
 
 if(isset($db)){
   $conn = $db;
-  $boo = "I am boo";
+ 
 }
 
 $sql = 'SELECT * FROM interns_data';
@@ -12,9 +12,7 @@ $q = $conn->query($sql);
 $q->setFetchMode(PDO::FETCH_ASSOC);
 $data = $q->fetchAll();
 ?>
-<script>
-  alert("<?php echo $boo ?>");
-</script>
+
 <style>
   h2 {
     font-family: 'work sans';
@@ -82,7 +80,7 @@ $count++;
         </div>
       
       </div>
-      <h4 class="text-center mt-3"><?php echo  $list['firstname'] . " " . $list['lastname'] ?></h4>
+      <h4 class="text-center mt-3"><?php echo  $list['name'] ?></h4>
      
     </div>
   <?php if ($count === 3 || $index == $total - 1) { ?>

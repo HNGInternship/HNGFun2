@@ -1,57 +1,5 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
-
-	
-if(isset($_POST['sellCoin'])){
-	require_once('Sell.php');
-	//connect to database
-	require_once('db.php');
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-	$sell = new Sell();
-	
-	$id = $_SESSION['id'];
-	if($_POST['HNG'] == 'on'){
-		$preferred_buyer = "1";
-	}else{
-		$preferred_buyer = "0";
-	}
-	$amount = $_POST['amount'];
-	$account_id = $_POST['payment_info'];
-	$trade_limit = $_POST['trade_limit'];
-	$price_per_coin = $_POST['price'];
-	$status = "Open";
-	$result = $sell->postRequest($id, $amount, $trade_limit, $price_per_coin, $account_id, $preferred_buyer, $status, $db);
-	if($result){
-		header("Location: /buyandsell.php"); /* Redirect browser */
-		exit();
-	}else{
-		echo "Could not post request";
-	}
-}
-
-if(isset($_POST['buyCoin'])){
-	require_once('Buy.php');
-	//connect to database
-	require_once('db.php');
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-	$buy = new Buy();
-	
-	$id = $_SESSION['id'];
-	$amount = $_POST['amount'];
-	$trade_limit = $_POST['trade_limit'];
-	$price_per_coin = $_POST['price'];
-	$status = "Open";
-	$result = $buy->postRequest($id, $amount, $trade_limit, $price_per_coin, $status, $db);
-	if($result){
-		header("Location: /buyandsell.php"); /* Redirect browser */
-		exit();
-	}else{
-		echo "Could not post request";
-	}
-}
-	
-
-
 include_once("coin_header.php");
 include_once("db.php");
 if(!empty($_SESSION["id"])){
@@ -59,13 +7,9 @@ if(!empty($_SESSION["id"])){
 	$user = new User();
 	$public_key = $user->getPublicKey($_SESSION["id"], $db);
 	$accounts = $user->getAccounts($_SESSION["id"], $db);
-	if(empty($accounts)){
-		$accounts = [];
-	}
 	
 }else{
 	$public_key = "45374903039388474 - User not logged in";
-	$accounts = [];
 }
 
 
@@ -74,13 +18,13 @@ if(!empty($_SESSION["id"])){
 
 <?php
 
-	$sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id WHERE sell_requests.status = 'Open'";
+	$sql = "select sell_requests.id, amount, intern_id, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
 	$stmt = $db->prepare($sql);
 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	$stmt->execute();
 	$sell_requests = $stmt->fetchAll();
 
-	$sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id WHERE buy_requests.status = 'Open'";
+	$sql = "select buy_requests.id, amount, trade_limit, intern_id, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
 	$stmt = $db->prepare($sql);
 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	$stmt->execute();
@@ -226,44 +170,44 @@ h3{
 				<?php
 					foreach($sell_requests as $r){
 				?>
-				<div class="listing">
-					<div class="row mx-auto">
-						<div class="col-1">
-							<img src="<?php echo $r['image_filename']; ?>" width="50">
-						</div>
-						
-						<div class="col-2">
-							<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
-						</div>
-						
-						<div class="col-3">
-							<span class="blue">National Bank Transfer </span><br/>Nigeria
-						</div>
-						
-						<div class="col-3">
-						<?php echo $r['price_per_coin']; ?> <br/>NGN
-						</div>
-						
-						<div class="col-2">
-						<?php echo $r['trade_limit']; ?> <br/> 
-						</div>
-						
-						<div class="col-1">
-						<?php 
-							if(!empty($_SESSION['id']) && $r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
+					<div class="listing">
+						<div class="row mx-auto">
+							<div class="col-1">
+								<img src="<?php echo $r['image_filename']; ?>" width="50">
+							</div>
+							
+							<div class="col-2">
+								<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
+							</div>
+							
+							<div class="col-3">
+								<span class="blue">National Bank Transfer </span><br/>Nigeria
+							</div>
+							
+							<div class="col-3">
+							<?php echo $r['price_per_coin']; ?> <br/>NGN
+							</div>
+							
+							<div class="col-2">
+							<?php echo $r['trade_limit']; ?> <br/> NGN
+							</div>
+							
+							<div class="col-1">
+							<?php 
+							if($r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
 							?>
-							<a href="transaction_cancelled.php?sell=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger" onclick="return  confirm('Are you sure you want to delete this request')">Cancel</a>
+							<a href="transaction_cancelled.php?buy=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger">Cancel</a>
 							<?php
 							}else{
 							?>
-								<a href="sell_coins.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> Sell</a>
+								<a href="buy_coins_0.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> BUY</a>
 								<?php
 							}
 							?>
+							</div>
+							
 						</div>
-						
 					</div>
-				</div>
 				
 				<?php } ?>
 				
@@ -301,7 +245,7 @@ h3{
 				<div class="row mx-auto ">
 				
 					<div class="col mx-auto">
-						Buyer
+						Seller
 					</div>
 					<div class="col mx-auto">
 						Payment Methods
@@ -322,47 +266,44 @@ h3{
 			<?php
 				foreach($buy_requests as $r){
 			?>
-				
 				<div class="listing">
-						<div class="row mx-auto">
-							<div class="col-1">
-								<img src="<?php echo $r['image_filename']; ?>" width="50">
-							</div>
-							
-							<div class="col-2">
-								<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
-							</div>
-							
-							<div class="col-3">
-								<span class="blue">National Bank Transfer </span><br/>Nigeria
-							</div>
-							
-							<div class="col-3">
-							<?php echo $r['bid_per_coin']; ?> <br/>NGN
-
-
-							</div>
-							
-							<div class="col-2">
-							<?php echo $r['trade_limit']; ?> <br/> 
-							</div>
-							
-							<div class="col-1">
-							<?php 
-							if(!empty($_SESSION['id']) && $r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
+					<div class="row mx-auto">
+						<div class="col-1">
+							<img src="<?php echo $r['image_filename']; ?>" width="50">
+						</div>
+						
+						<div class="col-2">
+							<span class="blue"><?php echo $r['full_name']; ?> </span><br/>(500+;98%)
+						</div>
+						
+						<div class="col-3">
+							<span class="blue">National Bank Transfer </span><br/>Nigeria
+						</div>
+						
+						<div class="col-3">
+						<?php echo $r['bid_per_coin']; ?> <br/>NGN
+						</div>
+						
+						<div class="col-2">
+						<?php echo $r['trade_limit']; ?> <br/> NGN
+						</div>
+						
+						<div class="col-1">
+						<?php 
+							if($r['intern_id'] == $_SESSION['id'] && $r['status'] == 'Open'){
 							?>
-							<a href="transaction_cancelled.php?buy=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger" onclick="return  confirm('Are you sure you want to delete this request')">Cancel</a>
+							<a href="transaction_cancelled.php?sell=1&request_id=<?php echo $r['id']; ?>" class="btn btn-danger">Cancel</a>
 							<?php
 							}else{
 							?>
-								<a href="buy_coins_0.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> BUY</a>
+								<a href="sell_coins.php?request_id=<?php echo $r['id']; ?>" class="btn btn-primary"> Sell</a>
 								<?php
 							}
 							?>
-							</div>
-							
 						</div>
+						
 					</div>
+				</div>
 			
 			<?php } ?>
 				
@@ -396,7 +337,7 @@ h3{
 	</div>
 </section>
 
-<!---Modal-->
+<!---Modal--->
 <div class="modal fade bd-example-modal-lg" id="sellModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -404,15 +345,14 @@ h3{
         <h5 class="modal-title" id="sellModalLabel">Sell MY Coin</h5>
       </div>
       <div class="modal-body">
-	  <form method="post" action="buyandsell.php">
+	  <form method="post" action="process.php">
         <div class="row">
 			<div class="col">
 				Wallet ID: <br/>
 				<input type="text" placeholder="Marvelous350" class="form-control" id="wallet-id" name="wallet" value="<?php echo $public_key ?>" readonly></input> <br/>
 				Amount of HNGcoin: <br/>
 				<input type="text" placeholder="0.00118811" class="form-control" id="HNGcoin" name="amount"></input><br/>
-
-				Sell to HNG &nbsp;&nbsp;
+				Sell to HNG<br/>
 				<input type="checkbox" placeholder="Buyer Wallet ID"  id="buyer-wallet-id" name="HNG"></input>
 			</div>
 			<div class="col">
@@ -430,15 +370,13 @@ h3{
 				<input type="text" placeholder="3,340,345.64" class="form-control" id="price" name="price"></input> <br/>
 				Trade Limit: <br/>
 				<input type="text" placeholder="1" class="form-control" id="trade_limit" name="trade_limit"></input><br/>
-	
+				
 			</div>
 			<div class="col-md-12 offset-md-3">
 			<button type="submit" name="sellCoin" class="btn btn-primary mod">Sell</button>
 			</div>
 		</div>
 		</form>
-
-
       </div>
       <div class="modal-footer mx-auto text-center">
 		<div class="col mx-auto text-center">
@@ -451,7 +389,7 @@ h3{
 </div>
 
 
-<!---Buy Modal-->
+<!---Buy Modal--->
 <div class="modal fade bd-example-modal-lg" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -459,7 +397,7 @@ h3{
         <h5 class="modal-title" id="sellModalLabel">Buy Request</h5>
       </div>
       <div class="modal-body">
-	  <form method="post" action="buyandsell.php">
+	  <form method="post" action="process.php">
         <div class="row">
 			<div class="col">
 				Amount of HNGcoin: <br/>

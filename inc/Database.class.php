@@ -1,6 +1,7 @@
 <?php
 class Database
 {
+
     private static $dbName = 'hng_fun';
     private static $dbHost = 'localhost';
     private static $dbUsername = 'root';

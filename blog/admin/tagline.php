@@ -35,7 +35,7 @@ if (isset($_POST["sub"])) {
         $msg = errorMessage("All fields are mandatory");
     }
 }
-include("header.php");
+include("../header.php");
 try {
     $stmt = $DB->prepare("SELECT * FROM " . TABLE_TAGLINE . " WHERE 1 LIMIT 1");
     $stmt->execute();
@@ -67,5 +67,5 @@ try {
 </div>
 
 <?php
-include("footer.php");
+include("../footer.php");
 ?>
