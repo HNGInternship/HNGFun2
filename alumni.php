@@ -153,13 +153,6 @@ include_once("header.php");
         <p id="p">HNG Alumni</p>
         <p>HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
       <p><strong>TOOLS BUILT</strong>:&nbsp;CHATBOTS, CRYPTOCURRENCY</p>
-      <input type="text" placeholder="Search Interns" class="form-control in" />
-      <select class="form-control in">
-        <option>1.0</option>
-        <option>2.0</option>
-        <option>3.0</option>
-        <option selected="true">4.0</option>
-      </select>
       </div>
 
 <!-- first page -->
