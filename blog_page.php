@@ -88,7 +88,7 @@
       foreach ($titles as $title) {
       if($count > 2) $count = 0;
     ?>
-      <section class="card">
+      <section class="card mb-5">
         <img class="card-img-top mb-5" src="img/post1.jpeg" width="385" height="200" alt="Image for Post">
         <div class="card-body mb-5">
           <h6 class="card-subtitle mb-4"><?= $dates[$count] ?></h6>

@@ -147,8 +147,8 @@ $activeArray[$fileIndex]="active";
           <li class="nav-item <?= $activeArray[1] ?>">
             <a class="nav-link" href="buyandsell.php">Sell HNGcoin</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
+          <li class="nav-item" <?= $activeArray[2] ?>
+            <a class="nav-link" href="help.php">Help</a>
           </li>
         </ul>
         <!-- <form class="form-inline my-2 my-lg-0">
