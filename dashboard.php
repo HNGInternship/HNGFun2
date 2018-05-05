@@ -188,12 +188,12 @@ include_once("dashboard-header.php");
 			StellarSdk.Network.useTestNetwork();
 			var pkey;
 			var skey;
-			
+
 			/**
 				Function to create a Stellar Account(Wallet).
 				@return Array of the publickey and privatekey
 			**/
-			
+
 			function createAccount(){
 				var pair = StellarSdk.Keypair.random();
 				//console.log(pair.secret());
@@ -203,15 +203,15 @@ include_once("dashboard-header.php");
 				activateAccount(pkey);
 				return [pkey, skey];
 			}
-			
+
 			/**
 				Account Activation
 				@return Boolean
 				@params account public key
 				@description This will be used to activate a newly generated wallet address as per STELLAR requirement
-				
+
 			**/
-			
+
 			function activateAccount(newAddress){
 				$.ajax({
 					url: 'https://friendbot.stellar.org',
@@ -229,7 +229,7 @@ include_once("dashboard-header.php");
 					}
 				});
 			}
-			
+
 			/**
 				Function to get account balance of a wallet address
 				@params wallet public addres
@@ -252,8 +252,8 @@ include_once("dashboard-header.php");
 					});
 				});
 			}
-			
-			/**** 
+
+			/****
 				This function is for Sending HNG coin
 				@params sender private key, receiver private key and Amount
 			***/
@@ -301,11 +301,11 @@ include_once("dashboard-header.php");
 					console.error('Error!', error);
 				  });
 			}
-			
+
 			//console.log(StellarSdk);
             var wallet = document.getElementById('wadd').textContent;
             getAccountBalance(wallet);
-			
+
 		</script>
 
 

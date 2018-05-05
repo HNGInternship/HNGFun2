@@ -4,7 +4,7 @@
 <style>
 	body {
         font-size: inherit !important;
-    }
+	}
 
     .banner{
     	background-image:url('img/coffee.jpg') ;
@@ -74,16 +74,15 @@
     #boxes .box hr{
     border: none;
     height: 2px;
-    background-color: #8D8C90; 
-
+    background-color: #8D8C90;
     }
     .box img{
-    	height: 250px; 
+    	height: 250px;
     	width: 95%;
     }
 
     .box h3{
-    	font-size: 23px; 
+    	font-size: 23px;
     	padding-top: 14px;
     }
 
@@ -99,7 +98,7 @@
     	.banner{
     		background-size: 100% 400px;
     	}
- 
+
   .sidebar{
     	float: none;
     	width: 50%;
@@ -117,7 +116,6 @@
    	padding-right: 10px;
    }
 }
-    
 
 </style>
 
@@ -145,7 +143,7 @@
 				<p>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best. Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam.</p>
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
-			
+
 			<div class="box">
 				<img src="img/book.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
