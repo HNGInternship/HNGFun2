@@ -11,13 +11,12 @@
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      
-      <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+      <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
 
       <!-- Custom fonts for this template -->
-  <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
    	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -28,7 +27,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
     <link rel="shortcut icon" href="../images/favicon.png">
-   
+
     <!-- Custom styles for this template -->
       <link href="../css/style2.css" rel="stylesheet">
       <link href="../css/style1.css" rel="stylesheet">
@@ -42,24 +41,25 @@
       <link href="../css/404.css" rel="stylesheet">
       <link href="../css/contact.css" rel="stylesheet">
       <!-- <link href="css/carousel.css" rel="stylesheet"> -->
-      
+
 
       <style>
         body{
             background-color: #fafafa;
+            color: #3d3d3d;
             font-family: 'Lato', sans-serif;
         }
         #navbar{
             font-size: 15px;
             font-weight: bold;
-        } 
-        
+        }
+
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
         }
 
-        .nav-item:hover { 
+        .nav-item:hover {
             background-color: rgba(199, 196, 196, 0.1);
             border-bottom: 3px solid rgb(90, 145, 247);
         }
@@ -136,42 +136,42 @@
       background: #f4f4f4 !important;
     }
      p {
-       font-size: 14px; 
+       font-size: 14px;
     }
-    
+
     .rightColumn {
         padding: 50px 5px 5px 20px;
-		
+
     }
     ul {
     list-style-type: circle;
     }
-	
-    
-	
+
+
+
 	.voffset {
-	margin-top: 330px; 
-	
+	margin-top: 330px;
+
 	}
-	
+
 	span{
-	  font-size: 14px; 
+	  font-size: 14px;
     }
-	
+
 	.listing{
-		
-		font-size: 14px; 
+
+		font-size: 14px;
 	}
 	.cont{
-		
+
 		padding-top: 20px;
 		padding-left: 10px;
 		padding-bottom: 10px;
 		background-color: #ffffff;
 		width: 100%;
-		
+
 	}
-	
+
 	.head{
 		margin-top: 40px;
 		margin-left: 40px;
@@ -211,7 +211,7 @@
   }
   @media (min-width: 575px) {
   #img-fixed {
-    width: 235px; 
+    width: 235px;
   }
   .img-partner{
   	margin-top: 300px;
@@ -221,7 +221,7 @@
 }
 @media (min-width: 768px) {
   #img-fixed {
-    width: 235px; 
+    width: 235px;
   }
   .img-partner{
   	margin-top: 50px;
@@ -231,7 +231,7 @@
 }
 @media (min-width: 992px) {
   #img-fixed {
-    width: 309px; 
+    width: 309px;
   }
   .img-partner{
   	 position: relative;
@@ -240,13 +240,13 @@
 }
 @media (min-width: 1200px) {
   #img-fixed {
-    width: 375px; 
+    width: 375px;
   }
   .img-partner{
   	 position: relative;
     display: inline-block;
   }
-} 
+}
     </style>
 
 
@@ -260,30 +260,27 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
             <ul class="navbar-nav collapse ml-auto">
                 <li class="nav-item">
-                    <a href="../index.php" class="nav-link">HOME</a>
+                    <a href="index" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../learn.php" class="nav-link">LEARN</a>
-                </li> <li class="nav-item">
-                    <a href="../listing.php" class="nav-link">INTERN</a>
-                </li> <li class="nav-item">
-                    <a href="../testimonies.php" class="nav-link">TESTIMONIES</a>
-                </li> <li class="nav-item">
-                    <a href="../sponsors.php" class="nav-link">SPONSORS</a>
-                </li> <li class="nav-item">
-                    <a href="#" class="nav-link">ALUMNI</a>
-                </li> 
-                <!-- Fix if(signed_in) display "login" else display "logout" -->
-                <!-- </li> <li class="nav-item">
-                    <a href="login.php" class="nav-link">LOGIN</a>
-                </li>  -->
-                <!-- <li class="nav-item"> -->
-                    <!-- <a href="logout.php" class="nav-link">LOGOUT</a> -->
-                <!-- </li> -->
-        
+                    <a href="learn" class="nav-link">Learn</a>
+                </li>
+                <li class="nav-item">
+                    <a href="listing" class="nav-link">Intern</a>
+                </li>
+                <li class="nav-item">
+                    <a href="testimonies" class="nav-link">Testimonies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="sponsors" class="nav-link">Sponsors</a>
+                </li>
+                <li class="nav-item">
+                    <a href="alumni" class="nav-link">Alumni</a>
+                </li>
             </ul>
-            
+
         </nav>
     </div>
