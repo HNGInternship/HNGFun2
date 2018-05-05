@@ -1,5 +1,10 @@
 <?php
 include_once("header.php");
+
+if(!isset($_SESSION['user_id']) || (trim($_SESSION['user_id']) == '')) {
+    header("location: login.php");
+    exit();
+}
 ?>
 
 		<link href="css/user-profile.css" rel="stylesheet">
@@ -30,9 +35,10 @@ include_once("header.php");
 			</nav>
 		</div>
 		<?php 
-		include '../config.php';
+		include 'config.example.php';
 		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
-				$sql2 = "SELECT * FROM users_data WHERE username ='admin'";
+		$user_id = $_SESSION['user_id'];
+				$sql2 = "SELECT * FROM users_data WHERE user_id ='$user_id'";
 				$result = mysqli_query($conn, $sql2);
 				$row = mysqli_fetch_assoc($result);
 				if(isset($row['filename'])){
@@ -61,43 +67,12 @@ function sqli($con,$str1)
 	$sqli_filter=mysqli_real_escape_string($con,$str1);
 	return $sqli_filter;
 }
-	function CheckSimilaremail($email){
-	 
-	 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
-	 $email=Filter($email);
-	 $query1 = "SELECT * FROM users_data WHERE email ='$email'";
-	 $result = mysqli_query($conn, $query1);
-	if (mysqli_num_rows($result) > 1)
-	{
-		echo "<p style='color:rgb(177, 59, 59);font-size:14px' >Email Exists</p>";
-	} else 
-	return "OK";
 
-
-	//  $row = mysqli_fetch_assoc($result);
-	// if(strtolower($row['email']) == strtolower($email)){
-	// 	return "OK";
-	// }else
-	// 	$query  = "select user_id,email from users_data";
-	// 	$result=mysqli_query($conn,$query);
-	// 	$count=0;
-	// 	while($row = mysqli_fetch_assoc($result)) {
-	// 		$count++;
-	// 	if($count>1){
-	// 		echo "<p style='color:rgb(177, 59, 59);font-size:14px' >Email Exists</p>";
-	// 	}
-		
-	// }
-			
-				
- 			 
-
- }
 
 $fullname = isset($_POST['fullname']) && !empty($_POST['fullname']);
+$username = isset($_POST['username']) && !empty($_POST['username']);
 $email = isset($_POST['email']) && !empty($_POST['email']);
 $phonenumber = isset($_POST['phonenumber']) && !empty($_POST['phonenumber']);
-$username = isset($_POST['username']) && !empty($_POST['username']);
 $filename = isset($_POST['filename']) && !empty($_POST['filename']);
 $nationality = isset($_POST['nationality']) && !empty($_POST['nationality']);
 $city = isset($_POST['city']) && !empty($_POST['city']);
@@ -105,9 +80,7 @@ $private_key = isset($_POST['private_key']) && !empty($_POST['private_key']);
 $public_key = isset($_POST['public_key']) && !empty($_POST['public_key']);
  if($fullname && $email && $phonenumber && $username && $filename && $nationality && $city && $private_key && $public_key){
 	//Setting cookies
-		 	
-	$val=CheckSimilaremail($_POST['email']);
-		if($val=="OK"){
+		
 		 $conn1 = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 		 $fullname=sqli($conn1,Filter($_POST['fullname']));
 		 $email=sqli($conn1,Filter($_POST['email']));
@@ -119,11 +92,11 @@ $public_key = isset($_POST['public_key']) && !empty($_POST['public_key']);
 		 $private_key=sqli($conn1, $_POST['private_key']);
 		 $public_key=sqli($conn1, $_POST['public_key']);
 		 $date_updated= date('Y-m-d H:i:s');
-
+		 $user_id = $_SESSION['user_id'];
 		 $sql="UPDATE users_data SET fullname = '$fullname',
 		 username = '$username', email ='$email', phonenumber = '$phonenumber', nationality ='$nationality', city = '$city',
 		 filename ='$filename', public_key ='$public_key', private_key = '$private_key',
-		 date_updated = '$date_updated' WHERE user_id='1'";
+		 date_updated = '$date_updated' WHERE user_id='$user_id'";
 		 if (mysqli_query($conn1, $sql)) { 
 				echo '
 				<p><div class="alert alert-success" role="alert">
@@ -135,7 +108,6 @@ $public_key = isset($_POST['public_key']) && !empty($_POST['public_key']);
 				 echo "error: ". mysqli_error($conn1);
 				}
 				
-		}
 	
 	
  
@@ -143,7 +115,8 @@ $public_key = isset($_POST['public_key']) && !empty($_POST['public_key']);
  
 } 
 				$conn2 = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
-				$sql2 = "SELECT * FROM users_data WHERE user_id ='1'";
+				$user_id = $_SESSION['user_id'];
+				$sql2 = "SELECT * FROM users_data WHERE user_id ='$user_id'";
 				$result = mysqli_query($conn2, $sql2);
 				$row = mysqli_fetch_assoc($result);
 			
