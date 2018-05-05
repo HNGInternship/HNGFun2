@@ -11,7 +11,7 @@ include_once("header.php");
 
     
     .rightColumn {
-        padding: 40px 5px 5px 40px;
+        padding: 40px 5px 5px 35px
 		
     }
 

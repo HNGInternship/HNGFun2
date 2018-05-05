@@ -1,15 +1,26 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
+
 // for choosing active page on nav bar
+
 $fileName=basename($_SERVER['PHP_SELF']);
+
 $files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
 $activeArray = array('','','','','','', '');
+
 $fileIndex=array_search($fileName,$files);
+
+
 // if page is unknown, dont mark any nav item
+
 if($fileIndex!==FALSE){
+
 $activeArray[$fileIndex]="active";
 }
+
 /////////////////////////////////////////////////////////
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +37,7 @@ $activeArray[$fileIndex]="active";
 
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
 
 
       <!-- Custom fonts for this template -->
@@ -48,7 +60,7 @@ $activeArray[$fileIndex]="active";
      <!-- <link href="css/learn.css" rel="stylesheet"> -->
 <!--	  <link href="css/carousel.css" rel="stylesheet">-->
       <link href="css/landing-page.min.css" rel="stylesheet">
-      <link href="css/learn2.css" rel="stylesheet">
+      
       <link href="https://fonts.googleapis.com/css?family=Qwigley" rel="stylesheet">
       <style>
         body {
@@ -61,12 +73,18 @@ $activeArray[$fileIndex]="active";
           background-color: #F4F4F4;
           padding: 0 10em;
         }
+
         .nav-item{
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
         .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
+        }
+        /* horizontal line learn page */
+        hr.under-line {
+            width: 10%;
+            border-top: 3px solid #000;
         }
         .justify-space-between {
           justify-content: space-between;
@@ -85,15 +103,19 @@ $activeArray[$fileIndex]="active";
     .btn-primary:focus {
         background-color: #0475CE !important;
     }
+
+
       /*for footer*/
     .contact-icon{
       margin: 0px !important;
       padding: 0% 2%;
     }
+
     footer{
       background: #FAFAFA !important;
       color: #3D3D3D;
     }
+
     </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript">
 </script>
@@ -105,8 +127,8 @@ $activeArray[$fileIndex]="active";
     <nav class="navbar navbar-expand-lg navbar-light"  >
 
       <a class="navbar-brand" href="../index.php">
-        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
-      </a>
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid">
+        </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
