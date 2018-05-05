@@ -79,13 +79,13 @@ include_once("header.php");
     }
     .head1 { 
         position: absolute; 
-        bottom: 200px; 
+        bottom: 150px; 
         left: 50px; 
         width: 70%; 
     }
     .head { 
         position: absolute; 
-        bottom: 100px; 
+        bottom: 50px; 
         left: 50px; 
         width: 70%; 
     }
@@ -93,7 +93,7 @@ include_once("header.php");
 
 <main>
 	<div class="text-white img-bg">
-        <img src="/img-light.jpeg" alt="" style= "height: 500px; width: 1000px">
+        <img src="./img.png" alt="" style= "width: 100%">
 			<h1 class="mb-2 head1">What is HNG all about?</h1>
 			<p class="head" >The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
 	</div>
@@ -108,11 +108,11 @@ include_once("header.php");
 			<img src="icons/logo-blue-bg.png" style="max-width: 300px; max-height: 252px;">
 		</div> -->
 		<div class="content">
-			<p class="text-muted px-5">The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria 
+			<p class="text-muted px-5"> The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria 
             and the whole of Africa. Everyone is welcome to participate (there is no entrance exam). We create fun challenges every week on our slack channel. 
             Those who solve them stay on. Everyone gets to learn important concepts quickly, and make connections with people they can work with in the future. 
             The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalist are connected to 
-            the best companies in the tech ecosystem and get full time jobs and contracts immediately</p>
+            the best companies in the tech ecosystem and get full time jobs and contracts immediately </p>
 		</div>
 	</div>
 
