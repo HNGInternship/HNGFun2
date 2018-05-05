@@ -59,9 +59,9 @@ include_once("header.php");
         <div class="col-8" style="margin-top: 1em;">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">What Interns Learn</h1>
             <hr class="under-line">
-            <span>
-                HNG 4.0 has been a life-transforming journey for interns across Africa.
-                Don’t take our word for it...take theirs. Sample text.
+            <span>              
+                In HNG 4.0, interns get to learn important concepts quickly, they are introduced to 
+                complex programming frameworks alongside important collaborative tools. 
             </span>
 
         </div>
@@ -88,25 +88,16 @@ include_once("header.php");
                         while keeping all feedback changes and updates constantly in sync.
                         </span>
                     </p>
-                    <p>
-                        <span class="title">
-                        Learning Resources
-                        </span><br>
-                        <span class="brief">
-                        Curriculum for UI/UX Beginners paper.dropbox.com/doc...
-                        </span>
-                        
-                    </p>
+                   
                     <p>
                         <span class="title">
                         An Introduction to User Experience Design
                         </span><br>
                         <span class="brief">
-                        hackdesign.org
-                        User Experience Design Resources - Prototype blog.prototypr.io/user...
+                        <a href="https://hackdesign.org/">See Learning Resources <i class="fa fa-chevron-right"></i></a>                        User Experience Design Resources - Prototype blog.prototypr.io/user...
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
+                    <a href="https://www.figma.com/">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
                 </div>
             </div>
             <div class="learn-card">
@@ -119,12 +110,12 @@ include_once("header.php");
                         Front-End Development (HTML/CSS/SASS/Vue)
                         </span><br>
                         <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
+                        Front-end web development is the practice of converting data to graphical 
+                            interface for user to view and interact with data through digital interaction using HTML, 
+                            CSS and Javascript.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
+                    <a href="https://www.w3schools.com/">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
                 </div>
             </div>
             <div class="learn-card">
@@ -137,12 +128,13 @@ include_once("header.php");
                         Back-End Development (PHP/Laravel)
                         </span><br>
                         <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
+                        The backend of a web application is an enabler for a frontend experience. ...
+                        Backend code is run on the server, as opposed to the client. 
+                            This means that backend developers not only need to understand programming languages 
+                            and databases, but they must have an understanding of server architecture as well.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
+                    <a href="https://laracasts.com/">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
                 </div>
             </div>
             <div class="learn-card">
@@ -155,12 +147,13 @@ include_once("header.php");
                         Dev-Ops (Ubuntu, Nginx, Docker)
                         </span><br>
                         <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
+                        Apply DevOps in your team; Understand Continuous Delivery; Automate the Software Development 
+                            Lifecycle (SDLC); Automate the deployment process; Reduce release time; Release better software; 
+                            Build a highly available and fully scalable application; Deploy microservices using Docker and 
+                            Kubernetes.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
+                    <a href="https://www.udacity.com/course/intro-to-devops--ud611">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
                 </div>
             </div>
             <div class="learn-card">
@@ -173,12 +166,15 @@ include_once("header.php");
                         Databases(MySQL)
                         </span><br>
                         <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
+                         MySQL is a database system used on the web.
+                        MySQL is a database system that runs on a server.
+                        MySQL is ideal for both small and large applications.
+                        MySQL is very fast, reliable, and easy to use.
+                        MySQL uses standard SQL.
+                        MySQL compiles on a number of platforms.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
+                    <a href="https://www.mysql.com/">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
                 </div>
             </div>
             <div class="learn-card">
@@ -191,12 +187,12 @@ include_once("header.php");
                         Version Control (GIT)
                         </span><br>
                         <span class="brief">
-                        Introducing you to a world of interface design with real-time collaboration using figma. 
-                        First of it's kind, Figma enables teams carry outprojects in one page, 
-                        while keeping all feedback changes and updates constantly in sync.
+                        GitHub is a development platform inspired by the way you work. 
+                            From open source to business, you can host and review code, manage projects, 
+                            and build software alongside millions of other developers.
                         </span>
                     </p>
-                    <a href="#">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
+                    <a href="https://github.com/">See Learning Resources <i class="fa fa-chevron-right"></i></a>   
                 </div>
             </div>
         </div>
