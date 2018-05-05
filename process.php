@@ -4,7 +4,7 @@ set_time_limit(0);
 
 if(!isset($_SESSION)) { session_start(); }
 
-<?php session_start();
+session_start();
 //this file is for processsin requests  
 
 
