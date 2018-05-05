@@ -10,4 +10,8 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^\.]+)$ $1.php [L]
 
 RewriteCond %{REQUEST_FILENAME}.html -f
+<<<<<<< HEAD
 RewriteRule ^([^\.]+)$ $1.html [L]
+=======
+RewriteRule ^([^\.]+)$ $1.html [L]
+>>>>>>> 2caae604ea0274df1adb9cdd206410738ec274ec
