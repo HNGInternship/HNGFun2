@@ -81,7 +81,11 @@ $activeArray[$fileIndex]="active";
         .nav-item:hover, .active {
             border-bottom: 3px solid #2196F3;
         }
-
+        /* horizontal line learn page */
+        hr.under-line {
+            width: 10%;
+            border-top: 3px solid #000;
+        }
         .justify-space-between {
           justify-content: space-between;
         }
@@ -123,8 +127,8 @@ $activeArray[$fileIndex]="active";
     <nav class="navbar navbar-expand-lg navbar-light"  >
 
       <a class="navbar-brand" href="../index.php">
-        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
-      </a>
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid">
+        </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
