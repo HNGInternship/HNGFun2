@@ -37,6 +37,7 @@ $activeArray[$fileIndex]="active";
 
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
 
 
       <!-- Custom fonts for this template -->
@@ -158,12 +159,3 @@ $activeArray[$fileIndex]="active";
   </div>
 
     </nav>
-
-<?php
-
-require 'db.php';
-if(isset($db)){
-  $conn = $db;
-  $boo = "I am boo";
-}
-?>
