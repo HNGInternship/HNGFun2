@@ -77,7 +77,7 @@ include_once("header.php");
         width: 100%;
         margin: auto
     }
-    .mb-2 { 
+    .head1 { 
         position: absolute; 
         bottom: 200px; 
         left: 50px; 
@@ -94,7 +94,7 @@ include_once("header.php");
 <main>
 	<div class="text-white img-bg">
         <img src="/img-light.jpeg" alt="">
-			<h1 class="mb-2">What is HNG all about?</h1>
+			<h1 class="mb-2 head1">What is HNG all about?</h1>
 			<p class="head" >The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
 	</div>
 	<div class="row">
@@ -179,7 +179,7 @@ include_once("header.php");
 					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
 				</div>
 				<div class="col-4 form-group">
-					<button class="btn btn-custom text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #383838">Sign Up </button>
+					<button class="btn btn-custom text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #000000">Sign Up </button>
 				</div>
 			</form>
 		</div> 
