@@ -4,7 +4,6 @@ set_time_limit(0);
 
 if(!isset($_SESSION)) { session_start(); }
 
-session_start();
 //this file is for processsin requests  
 
 
@@ -166,6 +165,7 @@ if(isset($_POST['registration'])){
 
 
 }
+}
 
 //for login
 if(isset($_POST['login'])){
@@ -297,7 +297,8 @@ if(isset($_POST['login'])){
 				} else {
 				    echo "Message sent";
 
-
+				}
+			}
 //for password reset
 	if(isset($_POST['pword-reset'])){
 			$email = $_POST['email'];
@@ -486,6 +487,7 @@ if(isset($_POST['login'])){
 
   }
 
+}
 
 	
 ?>
