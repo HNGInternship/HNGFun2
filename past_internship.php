@@ -76,11 +76,11 @@ include_once("header.php");
               width="100%" style="margin-bottom:20px;">
 
             <h3 style='padding: 40px 0px 30px 0px'>About HNG 3.0</h3>
-            <p style="text-align: justify; font-size: 1rem; line-height: 170%" class="text-muted">Sept 1, 2017, the third edition of the prestigious hotels.ng remote internship started with over 2000 remote interns. This time the Akwa Ibom State Government supported the internship and promised that the Ibom e-library in Akwa Ibom state would be available for all interns within the region to use. This move ameliorated the issues of lack of power and internet for interns in that region and led to an increase in the levels of productivity of interns in that region. Of the over 2000 remote interns that signed up, only 50 actually made it to the finals. A lot of tools were built during the internship (e.g. Hotels.ng Android App, an Internal Financial tool for Hotels.ng, etc.) and a lot of lessons were learnt. The third edition of the hotels.ng internship consolidated the hng internship as the best remote software internship in the world, and as a favourite for all junior developers and designers.</p>
+            <p style="text-align: justify; font-size: 1rem; line-height: 170%" class="text-muted">Sept 1, 2017, the third edition of the prestigious hotels.ng remote internship started with over 1000 remote interns. This time the Akwa Ibom State Government supported the internship and promised that the Ibom e-library in Akwa Ibom state would be available for all interns within the region to use. This move ameliorated the issues of lack of power and internet for interns in that region and led to an increase in the levels of productivity of interns in that region. Of the over 1000 remote interns that signed up, only 100 actually made it to the finals. A lot of tools were built during the internship (e.g. Hotels.ng Android App, an Internal Financial tool for Hotels.ng, etc.) and a lot of lessons were learnt. The third edition of the hotels.ng internship consolidated the hng internship as the best remote software internship in the world, and as a favourite for all junior developers and designers.</p>
             <div class="row" style='padding: 40px 0px 30px 0px'>
               <div class="col-6">
                 <h4 style="padding-bottom: 20px">Duration</h4>
-                <p class="text-muted">September 1 - November 14, 2017</p>
+                <p class="text-muted">August - November 2017</p>
               </div>
               <div class="col-6">
                 <h4 style="padding-bottom: 20px">Final participants</h4>
@@ -98,11 +98,11 @@ include_once("header.php");
           <div class="tab-pane fade" id="v-pills-tab-2-label" role="tabpanel" aria-labelledby="v-pills-tab-2">
             <img class="img-fluid" src="https://res.cloudinary.com/somiari/image/upload/v1525526412/2.0_real_gkkbzs.jpg" width="100%" style="margin-bottom:20px;">
             <h3 style='padding: 40px 0px 30px 0px'>About HNG 2.0</h3>
-            <p style="text-align: justify; font-size: 1rem; line-height: 170%" class="text-muted">January 3, 2017, Mark Essien (CEO, Hotels.ng) hinted the commencement of Hotels.ng remote internship programme in a tweet. That tweet fulfilled the promise of continuity and growth, and the pledge to help develop the Nigerian tech community, it opened up doors once more to people eager to learn and develop themselves, and set up the remote internship as a hotels.ng tradition. Not look after that tweet, the second edition of Hotels.ng Internship started, this time with over 1700 remote interns on the Slack Workspace. It was as exciting and educative as the first edition and people that did not make it to the end of the first edition had another chance to prove themselves. Following the same strategy used in the previous one, interns were dropped weekly until they finally arrived at the final 25 (who are all doing wonders in their various fields now). As part of their projects during the internship, they built a Project Management Tool (Factory).</p>
+            <p style="text-align: justify; font-size: 1rem; line-height: 170%" class="text-muted">January 3, 2017, Mark Essien (CEO, Hotels.ng) hinted the commencement of Hotels.ng remote internship programme in a tweet. That tweet fulfilled the promise of continuity and growth, and the pledge to help develop the Nigerian tech community, it opened up doors once more to people eager to learn and develop themselves, and set up the remote internship as a hotels.ng tradition. Not look after that tweet, the second edition of Hotels.ng Internship started, this time with over 800 remote interns on the Slack Workspace. It was as exciting and educative as the first edition and people that did not make it to the end of the first edition had another chance to prove themselves. Following the same strategy used in the previous one, interns were dropped weekly until they finally arrived at the final 25 (who are all doing wonders in their various fields now). As part of their projects during the internship, they built a Project Management Tool (Factory).</p>
             <div class="row" style='padding: 40px 0px 30px 0px'>
               <div class="col-6">
                 <h4 style="padding-bottom: 20px">Duration</h4>
-                <p class="text-muted">January 3 - April 8, 2017</p>
+                <p class="text-muted">January - March 2017</p>
               </div>
               <div class="col-6">
                 <h4 style="padding-bottom: 20px">Final participants</h4>
@@ -134,7 +134,7 @@ include_once("header.php");
             <div class="row" style='padding: 40px 0px 30px 0px'>
               <div class="col-6">
                 <h4 style="padding-bottom: 20px">Duration</h4>
-                <p class="text-muted">Febuary 23rd - April 27th 2016</p>
+                <p class="text-muted">August - October 2016</p>
               </div>
               <div class="col-6">
                 <h4 style="padding-bottom: 20px">Final participants</h4>
