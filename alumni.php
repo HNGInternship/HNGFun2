@@ -173,7 +173,7 @@ include_once("header.php");
        <tbody>
           <tr>
             <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-            <td><a href="#">Sambo Abubakar</a></td>
+            <td><a href="#">Opia Chuks</a></td>
             <td>@Sadiq</td>
             <td></td>
             <td>
@@ -187,7 +187,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Ozoka Lucky Orobo</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -201,7 +201,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Valentine Ike Oleka</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -215,7 +215,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Emmanuel Kehinde</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -229,7 +229,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Seyi Onifade</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -243,7 +243,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Abiodun Adetona</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -257,7 +257,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Marija Dubrovska</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -271,7 +271,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Offiong Aniekanabasi</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -285,7 +285,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Okoye Chidi Bartholomew</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -299,7 +299,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Obieri Chiamaka Grace</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -313,7 +313,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Namnso Ukpanah</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -327,7 +327,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Chibuike Emmanuel Osita</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -341,7 +341,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Onuchukwu Daniel</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -355,7 +355,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Adeyemo Adeola Joseph</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -369,7 +369,7 @@ include_once("header.php");
       <div class="article-loop">
             <tr>
               <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-              <td><a href="#">Sambo Abubakar</a></td>
+              <td><a href="#">Friday God'swill</a></td>
               <td>@Sadiq</td>
               <td></td>
             <td>
@@ -401,7 +401,7 @@ include_once("header.php");
        <tbody>
           <tr>
             <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-            <td><a href="#">Sambo Abubakar</a></td>
+            <td><a href="#">Sarah Chima</a></td>
             <td>@Sadiq</td>
             <td></td>
             <td>
@@ -415,7 +415,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Odusanya Tomi</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -429,7 +429,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Kayode Sholanke</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -443,7 +443,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Umar Abdullahi</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -457,7 +457,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">David Inyang-Etoh</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -471,7 +471,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Mary Mazi</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -485,7 +485,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Promise Udenkwor</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -499,7 +499,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Regina Rex</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
@@ -513,7 +513,7 @@ include_once("header.php");
       <div class="article-loop">
         <tr>
           <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-          <td><a href="#">Sambo Abubakar</a></td>
+          <td><a href="#">Yusuf Yinka</a></td>
           <td>@Sadiq</td>
           <td></td>
             <td>
