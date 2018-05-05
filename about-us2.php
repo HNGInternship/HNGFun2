@@ -80,13 +80,13 @@ include_once("header.php");
     .mb-2 { 
         position: absolute; 
         bottom: 250px; 
-        right: 50px; 
+        right: 10px; 
         width: 70%; 
     }
     .head { 
         position: absolute; 
         bottom: 150px; 
-        right: 50px; 
+        right: 10px; 
         width: 70%; 
     }
 </style>
@@ -169,14 +169,14 @@ include_once("header.php");
 	<div class="row bg-footer-top py-4"></div>
 	<div class="row bg-footer-lower py-2 justify-content-center text-white">
 		<div class="col-sm-3 d-flex align-items-center" style=" border-right: 2px solid #fff; max-width: 200px;">
-			<div class="rounded-circle bg-primary d-flex justify-content-center align-items-center mr-1" style="min-width: 50px; height: 50px;"><span class="fa fa-envelope float-left"></span></div>
+			<div class="rounded-circle bg-white d-flex justify-content-center align-items-center mr-1" style="min-width: 50px; height: 50px;"><span class="fa fa-envelope float-left"></span></div>
 			<h4 class="text-right">Start Learning Now</h4>
 		</div>
 		<div class="col-sm-7">
 			<h4 class="text-center mb-2">Ready to get started? Register Now!</h4>
 			<form class="form-inline row d-flex justify-content-center">
 				<div class="col-7 form-group pr-0 mr-0">
-					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2 style=" border-top-right-radius: 0; border-bottom-right-radius: 0 >
+					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
 				</div>
 				<div class="col-4 form-group">
 					<button class="btn btn-custom-primary text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%;">Sign Up </button>
