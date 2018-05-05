@@ -75,19 +75,18 @@ include_once("header.php");
     .img-bg {
         position: relative; 
         width: 100%;
-        height: 100px;
         margin: auto
     }
     .mb-2 { 
         position: absolute; 
         bottom: 250px; 
-        right: 50; 
+        right: 50px; 
         width: 70%; 
     }
     .head { 
         position: absolute; 
         bottom: 150px; 
-        right: 50; 
+        right: 50px; 
         width: 70%; 
     }
 </style>
