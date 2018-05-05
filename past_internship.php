@@ -1,7 +1,3 @@
-<?php
-include_once("header.php");
-?>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,6 +48,10 @@ include_once("header.php");
     }
   </style>
 </head>
+<?php
+include_once("header.php");
+?>
+
 <main>
   <div class="container" style="padding-top: 20px">
     <div class="row">
@@ -159,7 +159,7 @@ include_once("header.php");
             </div>
             <h4 style="padding-bottom: 20px">Partners</h4>
             <img class="img-fluid rounded" src="img/hng-square.png" width="100" style="margin-right: 50px;">
-            <!-- 
+            <!--
             <img class="img-fluid rounded" src="img/oracle-red.png" width="100" style="margin-right: 50px;">
           <img class="img-fluid rounded" src="img/figma-dark.png" width="100" style="margin-right: 50px;">
           <img class="img-fluid rounded" src="img/bluechips.png" width="100" style="margin-right: 20px;">
