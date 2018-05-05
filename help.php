@@ -152,7 +152,7 @@ margin-left: -5px;
       <div class="row">
         <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto" id="vl">
-              <i class=""><img src="img/icon/agenda.png" style="height: 80px; height: 80px;"></i>
+              <i class=""><img src="images/icon/agenda.png" style="height: 80px; height: 80px;"></i>
               <h3 class="mb-3">Getting Started</h3>
               <p class="mb-0">Welcome to Hng! We're so glad to have you here. Let's started!</p>
             </div>
@@ -160,7 +160,7 @@ margin-left: -5px;
           <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto">
               <a href="buy-sell-hngcoin.php">
-              <i class=""><img src="img/icon/transaction.png" style="height: 80px; height: 80px;"></i>
+              <i class=""><img src="images/icon/transaction.png" style="height: 80px; height: 80px;"></i>
               <h3 class="mb-3">Sell/Buy HNG Coins</h3>
               <p class="mb-0">Let’s help you get started on how to sell and buy HNGCoin</p>
             </a>
@@ -168,7 +168,7 @@ margin-left: -5px;
           </div>
           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <i><img src="img/icon/users.png" style="height: 80px; height: 80px;" ></i>
+              <i><img src="images/icon/users.png" style="height: 80px; height: 80px;" ></i>
               <h3 class="mb-3">Your Profile &amp; Preferences.</h3>
               <p class="mb-0">Learn how to adjust your profile and preferences.</p>
             </div>
@@ -179,7 +179,7 @@ margin-left: -5px;
 
         <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto">
-              <i><img src="img/icon/agenda.png" style="height: 80px; height: 80px;" ></i>
+              <i><img src="images/icon/agenda.png" style="height: 80px; height: 80px;" ></i>
               <h3 class="mb-3">HNG Internship Eligibility</h3>
               <p class="mb-0">Learn me and get help on how to be elible for the next internship</p>
             </div>
@@ -187,7 +187,7 @@ margin-left: -5px;
 
           <div class="col-lg-4 col-md-6 text-center" id="vr">
             <div class="service-box mt-5 mx-auto">
-              <i><img src="img/icon/lock-and-key-icon-silhouette.png" style="height: 80px; height: 80px;" ></i>
+              <i><img src="images/icon/lock-and-key-icon-silhouette.png" style="height: 80px; height: 80px;" ></i>
               <h4 class="mb-4">How to Reset your  Password</h4>
               <p class="mb-0">Did you forget your password?  we can help you to get it back and ecure your account.</p>
             </div>
@@ -195,7 +195,7 @@ margin-left: -5px;
 
            <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-             <i><img src="img/icon/agenda.png" style="height: 80px; height: 80px;" ></i>
+             <i><img src="images/icon/agenda.png" style="height: 80px; height: 80px;" ></i>
               <h3 class="mb-3">FAQ</h3>
               <p class="mb-0">Check frequently  asked questions to get understand how everything works</p>
             </div>
