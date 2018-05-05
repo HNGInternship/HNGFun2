@@ -1,19 +1,12 @@
-<?php
-include_once("header.php");
-?>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <!-- styles link -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-
   <!-- font-awesome -->
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <style>
     body {
       font-family: lato, sans-serif;
@@ -52,6 +45,9 @@ include_once("header.php");
     }
   </style>
 </head>
+<?php
+include_once("header.php");
+?>
 <main>
   <div class="container" style="padding-top: 20px">
     <div class="row">
@@ -70,7 +66,6 @@ include_once("header.php");
           <!-- hng 3.0 -->
           <div class="tab-pane fade show active" id="v-pills-tab-1-label" role="tabpanel" aria-labelledby="v-pills-tab-1">
             <img class="img-fluid" src="http://res.cloudinary.com/somiari/image/upload/v1525520338/3_zqwis4.jpg" width="100%" style="margin-bottom:20px;">
-
             <h3 style='padding: 40px 0px 30px 0px'>About HNG 3.0</h3>
             <p style="text-align: justify; font-size: 1rem; line-height: 170%" class="text-muted">Sept 1, 2017, the third edition of the prestigious hotels.ng remote internship started with over 1000 remote
               interns. This time the Akwa Ibom State Government supported the internship and promised that the Ibom e-library
@@ -159,7 +154,7 @@ include_once("header.php");
             </div>
             <h4 style="padding-bottom: 20px">Partners</h4>
             <img class="img-fluid rounded" src="img/hng-square.png" width="100" style="margin-right: 50px;">
-            <!-- 
+            <!--
             <img class="img-fluid rounded" src="img/oracle-red.png" width="100" style="margin-right: 50px;">
           <img class="img-fluid rounded" src="img/figma-dark.png" width="100" style="margin-right: 50px;">
           <img class="img-fluid rounded" src="img/bluechips.png" width="100" style="margin-right: 20px;">
@@ -171,10 +166,7 @@ include_once("header.php");
   </div>
 </main>
 <div style='color: #3D3D3D; padding-bottom: 80px'>
-
 </div>
-
-
 <?php
     include_once("footer.php");
 ?>
