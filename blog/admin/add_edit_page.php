@@ -1,11 +1,5 @@
 <?php
-/*
- * @author Shahrukh Khan
- * @website http://www.thesoftwareguy.in
- * @facebook https://www.facebook.com/Thesoftwareguy7
- * @twitter https://twitter.com/thesoftwareguy7
- * @googleplus https://plus.google.com/+thesoftwareguyIn
- */
+
 
 require("../libs/config.php");
 
@@ -112,7 +106,7 @@ if (isset($_GET["edit"]) && $_GET["edit"] != "") {
     $pageTitle = "Add Page";
 }
 
-include("header.php");
+include("../../header.php");
 
 $sql = "SELECT * FROM " . TABLE_PAGES . " WHERE status = 'A' AND parent = -1 ORDER BY page_title ASC";
 try {
@@ -207,5 +201,5 @@ try {
 </div>
 
 <?php
-include("footer.php");
+include("../../footer.php");
 ?>

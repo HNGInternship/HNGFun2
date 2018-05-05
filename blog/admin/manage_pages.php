@@ -1,11 +1,5 @@
 <?php
-/*
- * @author Shahrukh Khan
- * @website http://www.thesoftwareguy.in
- * @facebook https://www.facebook.com/Thesoftwareguy7
- * @twitter https://twitter.com/thesoftwareguy7
- * @googleplus https://plus.google.com/+thesoftwareguyIn
- */
+
 
 require("../libs/config.php");
 $pageTitle = "Manage Pages";
@@ -26,7 +20,7 @@ if (isset($_GET["del"]) && $_GET["del"] != "") {
         $msg = errorMessage(mysql_error());
     }
 }
-include("header.php");
+include("../../header.php");
 ?>   
 <?php echo $msg; ?>
 <div class="title" style="text-align:right;"><a href="add_edit_page.php">Add Page</a></div>
@@ -62,5 +56,5 @@ include("header.php");
     ?>
 </table>
 <?php
-include("footer.php");
+include("../../footer.php");
 ?>
