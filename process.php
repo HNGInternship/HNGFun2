@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 77a7e5ee5916cc8d05b36bb9dc64d4d3a946addb
 <?php 
 set_time_limit(0);
 
 if(!isset($_SESSION)) { session_start(); }
 
+<<<<<<< HEAD
+=======
+session_start();
+>>>>>>> 77a7e5ee5916cc8d05b36bb9dc64d4d3a946addb
 //this file is for processsin requests  
 
 
@@ -11,6 +19,10 @@ if(!isset($_SESSION)) { session_start(); }
 //require_once('classes/Member.php');
 require_once('Member.php');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 77a7e5ee5916cc8d05b36bb9dc64d4d3a946addb
 //use PHPMailer\PHPMailer\PHPMailer;
 //use PHPMailer\PHPMailer\Exception;
 
@@ -140,6 +152,10 @@ if(isset($_POST['registration'])){
 				'status' => 0,
 				'message' => 'Email already registered!'
 				]);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 77a7e5ee5916cc8d05b36bb9dc64d4d3a946addb
 			if($register_check==true){
 				
 				$login_check = $member->check($email,$password,$conn);
@@ -152,6 +168,10 @@ if(isset($_POST['registration'])){
 					die('Registration successful but login failed, please try and manually login');
 				}
 				
+<<<<<<< HEAD
+=======
+
+>>>>>>> 77a7e5ee5916cc8d05b36bb9dc64d4d3a946addb
 			}
 			else{
 				die("Registration failed");
@@ -181,6 +201,18 @@ if(isset($_POST['login'])){
 
 			//instantiate the member class
 			$member = new Member();
+<<<<<<< HEAD
+=======
+
+		$login_check = $user->check($email,$password,$db);
+		
+		if($login_check == true){
+			echo true;
+		}
+		else{
+			echo "Invalid email or password";
+		}
+>>>>>>> 77a7e5ee5916cc8d05b36bb9dc64d4d3a946addb
 			$login_check = $member->check($email,$password,$conn);
 			if($login_check == true){
 				echo true;
@@ -188,6 +220,10 @@ if(isset($_POST['login'])){
 			else{
 				echo "Invalid email or password";
 			}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 77a7e5ee5916cc8d05b36bb9dc64d4d3a946addb
 	}
 
 }
@@ -366,8 +402,6 @@ if(isset($_POST['login'])){
 							'message' => 'An Email containing password reset token has been sent to you'	
 						]);
 					}
-=======
->>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 				}
       		
       	}
@@ -382,7 +416,7 @@ if(isset($_POST['login'])){
 
 	}	
 
-<<<<<<< HEAD
+
 	//for password change
 	if(isset($_POST['token'])){
 		$password = trim($_POST['pass']);
@@ -434,7 +468,7 @@ if(isset($_POST['login'])){
 
 	}
 
-=======
+
 
 	if(isset ($_POST['reset_password'])){
 		 require_once('db.php');
@@ -473,6 +507,6 @@ if(isset($_POST['login'])){
 
   }
 
->>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
+
 	
 ?>

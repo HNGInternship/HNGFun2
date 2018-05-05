@@ -3,9 +3,12 @@ include_once("header.php");
 ?>
 
 <style type="text/css">
-	h2 {
-	  font-family: 'work sans';
-	}
+h2 {
+    text-transform: capitalize;
+    font-family: 'work sans';
+    font-size: 40px;
+    text-align: center;
+}
 
 	section h4 {
       font-weight: 400;
@@ -34,6 +37,10 @@ include_once("header.php");
 		justify-content: space-between;
 		align-items: center;
 	}
+	.card-img-top {
+    height: 250px;
+    width: 251px;
+}
 </style>
 
 <main class="mx-auto col-md-10 mt-5 mb-5">
@@ -48,7 +55,7 @@ include_once("header.php");
   	  </span>
       <div class="my-deck mx-auto mt-4">
   	  <div class="card">
-  	    <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+  	    <img class="card-img-top" src="images/Didicodes.png" alt="Profile Image">
           <div class="card-footer">
             
         	  <a href="#" class="ml-3">View Profile</a>
@@ -56,14 +63,14 @@ include_once("header.php");
       	</div>
   	  </div>
       <div class="card">
-        <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+        <img class="card-img-top" src="images/Dtechtor.PNG" alt="Profile Image">
         <div class="card-footer">
   	  <a href="#" class="ml-3">View Profile</a>
   	  <i class="fa fa-github fa-lg"></i>
       </div>
       </div>
         <div class="card">
-          <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+          <img class="card-img-top" src="images/Fotes.PNG" alt="Profile Image">
   	    <div class="card-footer">
   	      
   	  	  <a href="#" class="ml-3">View Profile</a>
@@ -86,7 +93,7 @@ include_once("header.php");
   	  </span>
       <div class="my-deck mx-auto mt-4">
   	  <div class="card">
-  	    <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+  	    <img class="card-img-top" src="images/Osawaru.PNG" alt="Profile Image">
           <div class="card-footer">
             
         	  <a href="#" class="ml-3">View Profile</a>
@@ -94,14 +101,14 @@ include_once("header.php");
       	</div>
   	  </div>
       <div class="card">
-        <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+        <img class="card-img-top" src="images/TechHajiya.PNG" alt="Profile Image">
         <div class="card-footer">
   	  <a href="#" class="ml-3">View Profile</a>
   	  <i class="fa fa-github fa-lg"></i>
       </div>
       </div>
         <div class="card">
-          <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+          <img class="card-img-top" src="images/charlek.jpg" alt="Profile Image">
   	    <div class="card-footer">
   	      
   	  	  <a href="#" class="ml-3">View Profile</a>
@@ -124,7 +131,7 @@ include_once("header.php");
   	  </span>
       <div class="my-deck mx-auto mt-4">
   	  <div class="card">
-  	    <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+  	    <img class="card-img-top" src="images/dav.jpg" alt="Profile Image">
           <div class="card-footer">
             
         	  <a href="#" class="ml-3">View Profile</a>
@@ -132,14 +139,14 @@ include_once("header.php");
       	</div>
   	  </div>
       <div class="card">
-        <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+        <img class="card-img-top" src="images/iam__dharmy.PNG" alt="Profile Image">
         <div class="card-footer">
   	  <a href="#" class="ml-3">View Profile</a>
   	  <i class="fa fa-github fa-lg"></i>
       </div>
       </div>
         <div class="card">
-          <img class="card-img-top" src="img/profile.png" alt="Profile Image">
+          <img class="card-img-top" src="images/john.jpg" alt="Profile Image">
   	    <div class="card-footer">
   	      
   	  	  <a href="#" class="ml-3">View Profile</a>
