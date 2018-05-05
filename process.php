@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+<?php 
+set_time_limit(0);
+
+if(!isset($_SESSION)) { session_start(); }
+=======
 <?php session_start();
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 //this file is for processsin requests  
 
 
@@ -6,6 +13,18 @@
 
 //require_once('classes/Member.php');
 require_once('Member.php');
+
+<<<<<<< HEAD
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
+
+require_once "vendor/autoload.php";
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
+
+// using SendGrid's PHP Library
+// https://github.com/sendgrid/sendgrid-php
+
 
 
 //for registration 
@@ -49,6 +68,85 @@ if(isset($_POST['registration'])){
 			$register_check = $member->register($firstname,$lastname,$email,$password,$conn);
 
 			//check for response 
+<<<<<<< HEAD
+			if($register_check=='true'){
+				$_SESSION['email'] = $email;
+
+				$subject = 'Welcome to HNG Internship';
+				$message = '<html><body>';
+                $message .= '<h1>Hi '. $firstname .'!</h1>';
+                $message .= '<h3>Thank you for your interest in HNG Internship';
+                $message .= '<p>You may now login to your account <a href="https://hng.fun/login.php">here</a></p>';
+				$message .= '</body></html>';
+
+				$from = new SendGrid\Email("HNG TEAM", "hello@hng.fun");
+				$subject = "Welcome to HNG Internship";
+				$to = new SendGrid\Email($firstname, $email);
+				$content = new SendGrid\Content("text/html", $message);
+				$mail = new SendGrid\Mail($from, $subject, $to, $content);
+				$apiKey = getenv('SENDGRID_API_KEY');
+				$sg = new \SendGrid($apiKey);
+				$response = $sg->client->mail()->send()->post($mail);
+				//$response->statusCode();
+
+				echo json_encode([
+					'status' => 1,
+					'message' => 'Status code: '. $response->statusCode()
+					]);
+				
+				/*$mail = new PHPMailer;
+				
+				//Set PHPMailer to use SMTP.
+				$mail->isSMTP();            
+				//Set SMTP host name                          
+				$mail->Host = SMTP_HOST;
+				//Set this to true if SMTP host requires authentication to send email
+				$mail->SMTPAuth = true;                          
+				//Provide username and password     
+				$mail->Username = SMTP_USER;                 
+				$mail->Password = SMTP_PASSWORD;                           
+				//If SMTP requires TLS encryption then set it
+				$mail->SMTPSecure = SMTP_PROTOCOL;                           
+				//Set TCP port to connect to 
+				$mail->Port = SMTP_PORT;             
+
+				//From email address and name
+				$mail->From = "hello@hng.fun";
+				$mail->FromName = "HNG Team";
+
+				//To address and name
+				$mail->addAddress($email);
+
+				//Send HTML or Plain Text email
+				$mail->isHTML(true);
+
+				$mail->Subject = $subject;
+				$mail->Body = $message;
+				// $mail->AltBody = "This is the plain text version of the email content";
+				
+				$sent = $mail->send();*/
+				/*if(!$sent) 
+				{
+					// echo "Mailer Error: " . $mail->ErrorInfo;
+					echo json_encode([
+					'status' => 0,
+					'message' => "Mailer Error: " . $mail->ErrorInfo
+					]);
+				} 
+				else 
+				{
+					echo json_encode([
+					'status' => 1,
+					'message' => 'Registration successful'	
+					]);
+				}*/
+			}
+			elseif($register_check == 'exists') {
+				echo json_encode([
+				'status' => 0,
+				'message' => 'Email already registered!'
+				]);
+=======
 			if($register_check==true){
 				
 				$login_check = $member->check($email,$password,$conn);
@@ -61,6 +159,7 @@ if(isset($_POST['registration'])){
 					die('Registration successful but login failed, please try and manually login');
 				}
 				
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 			}
 			else{
 				die("Registration failed");
@@ -91,6 +190,16 @@ if(isset($_POST['login'])){
 			//instantiate the member class
 			$member = new Member();
 
+<<<<<<< HEAD
+		$login_check = $user->check($email,$password,$db);
+		
+		if($login_check == true){
+			echo true;
+		}
+		else{
+			echo "Invalid email or password";
+		}
+=======
 			$login_check = $member->check($email,$password,$conn);
 			if($login_check == true){
 				echo true;
@@ -98,6 +207,7 @@ if(isset($_POST['login'])){
 			else{
 				echo "Invalid email or password";
 			}
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 	}
 
 }
@@ -192,6 +302,92 @@ if(isset($_POST['login'])){
 				} else {
 				    echo "Message sent";
 
+<<<<<<< HEAD
+//for password reset
+	if(isset($_POST['pword-reset'])){
+			$email = $_POST['email'];
+		
+			$user = new User();
+			$email_check = $user->check_email($email, $db);
+
+			if($email_check == true){
+				$reset_pin = rand(10000,99999);
+				$user_update_token = $user->update_token($email,$reset_pin, $db);
+				if($user_update_token = true){
+					$headers = "MIME-Version: 1.0" . "\r\n";
+					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+					
+					// More headers
+					$headers .= 'From: <hng@email.com>' . "\r\n";
+					//$headers .= 'Cc: myboss@example.com' . "\r\n";
+					$subject = "Password Reset for HNG Account";
+					$message = "Your password Reset Pin is ".$reset_pin;
+					$message .= " use this link to reset your password";
+					$message .= " <a href='https://hng.fun/resetpassword.php?token=".$reset_pin."'>Here</a>";
+					// if(mail($email, $subject, $message,$headers)){
+					// 	echo json_encode([
+					// 		'status' => 1,
+					// 		'message' => 'Email has been sent to you'	
+					// 	]);
+					// }
+					// else{
+					// 	echo json_encode([
+					// 		'status' => 0,
+					// 		'message' => 'An error occured while sending password reset email'	
+					// 	]);
+					// }				
+					
+					//PHPMailer Object
+					$mail = new PHPMailer;
+					                        
+					//Set PHPMailer to use SMTP.
+					$mail->isSMTP();            
+					//Set SMTP host name  
+					$mail->Host = SMTP_HOST;
+					//Set this to true if SMTP host requires authentication to send email
+					$mail->SMTPAuth = true;                          
+					//Provide username and password     
+					$mail->Username = SMTP_USER;                 
+					$mail->Password = SMTP_PASSWORD;                           
+					//If SMTP requires TLS encryption then set it
+					$mail->SMTPSecure = SMTP_PROTOCOL;                           
+					//Set TCP port to connect to 
+					$mail->Port = SMTP_PORT;             
+
+					//From email address and name
+					$mail->From = "noreply@hng.fun";
+					$mail->FromName = "HNG Team";
+					
+					//To address and name
+					$mail->addAddress($email);
+					
+					//Address to which recipient will reply
+					// $mail->addReplyTo("@yourdomain.com", "Reply");
+					
+					//Send HTML or Plain Text email
+					$mail->isHTML(true);
+					
+					$mail->Subject = $subject;
+					$mail->Body = $message;
+					// $mail->AltBody = "This is the plain text version of the email content";
+					
+					if(!$mail->send()) 
+					{
+						echo "Mailer Error: " . $mail->ErrorInfo;
+						echo json_encode([
+							'status' => 0,
+							'message' => "Mailer Error: " . $mail->ErrorInfo
+						]);
+					} 
+					else 
+					{
+						echo json_encode([
+							'status' => 1,
+							'message' => 'An Email containing password reset token has been sent to you'	
+						]);
+					}
+=======
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 				}
       		
       	}
@@ -206,6 +402,59 @@ if(isset($_POST['login'])){
 
 	}	
 
+<<<<<<< HEAD
+	//for password change
+	if(isset($_POST['token'])){
+		$password = trim($_POST['pass']);
+		$password_confirm = trim($_POST['pass-confirm']);
+		if($password  == '' || $password_confirm == '' ){
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Passwords cannot be empty'	
+			]);
+			return;
+		}
+		if($password  != $password_confirm ){
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Passwords do not match'	
+			]);
+			return;
+		}
+		$token = $_POST['token'];
+	
+		$user = new User();
+
+		$confirm_token = $user->check_token($token, $db);
+		if($confirm_token == true){
+			$update_password = $user->update_password($password,$token,$db);
+			if($update_password == true){
+				//remove token to prevent abuse
+				$user->remove_token($token, $db);
+				echo json_encode([
+					'status' => 1,
+					'message' => 'Passwords change successful'	
+				]);
+			}
+			else{
+				echo json_encode([
+					'status' => 0,
+					'message' => 'Passwords change unsuccessful'	
+				]);
+			}
+			
+		}
+
+		else{
+			echo json_encode([
+				'status' => 0,
+				'message' => 'Invalid token entered'	
+			]);
+		}
+
+	}
+
+=======
 
 	if(isset ($_POST['reset_password'])){
 		 require_once('db.php');
@@ -244,5 +493,6 @@ if(isset($_POST['login'])){
 
   }
 
+>>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
 	
 ?>
