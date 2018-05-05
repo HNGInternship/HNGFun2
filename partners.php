@@ -11,7 +11,7 @@ include_once("header.php");
 
     
     .rightColumn {
-        padding: 40px 5px 5px 35px
+        padding: 40px 5px 5px 35px;
 		
     }
 
@@ -59,20 +59,12 @@ include_once("header.php");
 	}
 	.btn{
 		margin-top: -130px;
-		font-weight: bold;
-		z-index: 10;
 		background-color: #ffffff;
 		border-radius: 50px;
 		color: #48BBFC;
 		margin-left: 100px;
 		width: 181px;
 		height: 39px;
-	}
-	
-	.my-deck .card {
-		margin-left: 50px;
-		width: 250px !important;
-		height: 502px;
 	}
 
 </style>
@@ -86,7 +78,7 @@ include_once("header.php");
 			<div class="row">
 				<div class="col-sm-3 col-md-6 col-lg-4 mx-auto">
 					<img src="img/overlay.jpg">
-					<button type="button" class="btn">VISIT WEBSITE</button>
+					<a href="https://hotels.ng" type="button" class="btn">VISIT WEBSITE</a>
 				</div>
 				<div class="col head">
 					<h3>Hotels.ng <img src="img/value.png" width="67px" height="87px"> <span class="circle"></span> </img></h3>
@@ -137,8 +129,8 @@ include_once("header.php");
 							
 							<div class="col">
 								
-								<div class="listing"><h6>Phone:</h6>0806 621 2033</div>
-								<div class="listing"><h6>Founded:</h6>1972</div> 
+								<div class="listing"><h6>Phone:</h6>+234 700 880 8800</div>
+								<div class="listing"><h6>Founded:</h6>2012</div> 
 							</div> 
 						</div>
 						</div>
@@ -146,16 +138,14 @@ include_once("header.php");
 							<h3 style="border-bottom: 2px solid #2196F3; display: inline block; "> Contributions</h3>
 
 							
-							<p>The Primary constraints with the interns: <br/> Interns in Nigeria may be passionate about coding, but they often lack the basic infrastructure to even start -access to steady power, to internet and some do not even have laptops (a few interns have completed the entire programme on their mobile phones. <br/></p>
-							
-							<p> We solve these in three ways:</p>
+							<p>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</p>
 
 							<ul>
-							<li><span>We generally pay the interns, because without pay, they simply would not be able to afford to continue</span>
+							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 							</li>
-							<li><span> The interns use the pay to get their own infrastructure(power, internet). in the last internship, the Akwa Ibom state Government provided the infrastructure for us.</span>
+							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 							</li>
-							<li><span>We have a 'laptop fund' where people without devices can borrow money to buy a laptop, so long their peers vouch for them.</span>
+							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 							</li>
 							</ul>  
 
@@ -166,6 +156,7 @@ include_once("header.php");
 	</div>
 </div>
 </section>
+
 <?php
 include_once("footer.php");
 ?>
