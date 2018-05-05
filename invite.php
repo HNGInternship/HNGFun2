@@ -36,42 +36,6 @@ include_once("header.php");
         <p style="font-size: 16px; margin-bottom: 0px; margin-top: 0px; opacity: 0.7" class="text-center">Wouldn't you love to collaborate with your friends and earn HNG Coins for yourself while at it? It's fun, you get to form alliances, deliver projects and win competitions.<br/>Quick! Invite your friends to join the biggest remote software internship in Africa.<br/><br/>
         </p>
 
-<<<<<<< HEAD
-    <div class="wrapper">
-
-        <div class="container d-flex flex-column justify-content-center mt-5">
-            <h3 class="mb-5 text-center">Invite Your Friends</h3>
-		  <form class="w-50 mx-auto mt-5">
-		  	
-		  	<div class="input-group mb-4 mt-0">
-		  	  <div class="input-group-prepend ">
-		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
-		  	  </div>
-		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="joemark@example.com" aria-label="Username" aria-describedby="basic-addon1">
-		  	</div>
-
-              <div class="input-group mb-4 mt-0">
-		  	  <div class="input-group-prepend ">
-		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
-		  	  </div>
-		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="joemark@example.com" aria-label="Username" aria-describedby="basic-addon1">
-		  	</div>
-
-              <div class="input-group mb-4 mt-0">
-		  	  <div class="input-group-prepend ">
-		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
-		  	  </div>
-		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="joemark@example.com" aria-label="Username" aria-describedby="basic-addon1">
-		  	</div>
-            
-             <a href="invitesentmessage.php"> <input type="submit" value="Send" name="submit-invites" class="btn btn-primary sendInvitesButton"></a>
-          </form>
-		</div>
-    </div>
-<?php
-include_once("footer.php");
-?>
-=======
         <?php
 				$showform = false;
 				$error = false;
@@ -85,18 +49,18 @@ include_once("footer.php");
 				} else {
 					$showform = true;
 				}
-			
+
 			if ($showform){
 				if ($error){
 			?>
-			
+
 			<small style="font-family: 'Roboto', sans-serif; color: #9d3d3d">
 				Please fill in all fields
 			</small>
-			
+
 			<?php
 					}
-					
+
 				showForm();
 				}
 			?>
@@ -110,12 +74,12 @@ include_once("footer.php");
 
 
         <?php
-	
+
 	function sendForm(){
 		$email = $_POST['email'];
 		$first = $_POST['firstname'];
 		$last = $_POST['lastname'];
-		
+
      $slackInviteUrl='https://'.SUBDOMAIN.'.slack.com/api/users.admin.invite?t='.time();
        //var_dump(SUBDOMAIN);
 	    $fields = array(
@@ -126,21 +90,21 @@ include_once("footer.php");
 	            'set_active' => urlencode('true'),
 	            '_attempts' => '1'
 	    );
-	
+
 	    // url-ify the data for the POST
 	            $fields_string='';
 	            foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
 	            rtrim($fields_string, '&');
-	
+
 	    // open connection
 	            $ch = curl_init();
-	
+
 	    // set the url, number of POST vars, POST data
 	            curl_setopt($ch,CURLOPT_URL, $slackInviteUrl);
 	            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	            curl_setopt($ch,CURLOPT_POST, count($fields));
 	            curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
-	
+
 	    // exec
 	            $replyRaw = curl_exec($ch);
 	            $reply=json_decode($replyRaw,true);
@@ -175,14 +139,14 @@ include_once("footer.php");
 	                    echo '</p>';
 	            }
 
-	            
-	
+
+
 	    // close connection
-	            curl_close($ch);		
+	            curl_close($ch);
 	}
-	
+
 	function showForm(){
-		
+
 		?>
 
 		     <form method="POST" class="text-center" style="margin-top: 5px;">
@@ -206,16 +170,15 @@ include_once("footer.php");
 		                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Optional" value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>">
 		                </div>
 		            </div>
-		                 
+
 		                    <button style="margin-top: 30px; border:0px; margin-bottom: 7px; background-color: #2196F3; color: white; width: 400px; font-size: 18px; cursor: pointer; height: 40px; border-radius: 10px" id="submitbutton" class="">Send Invite</button>
         </form>
 
-		
-			
-			
-		<?php		
-		
+
+
+
+		<?php
+
 	}
 
 	?>
->>>>>>> 4de0117eee336590e3b98ce0c4858555c7549437
