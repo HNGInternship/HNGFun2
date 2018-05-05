@@ -1,145 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans" rel="stylesheet">
-    <title>Partners</title>
+<?php
+include_once("header.php");
+?>
 
 <style>
-    body, html {
-    height: 100%;
-    }
+   
 
     p {
        font-size: 14px; 
     }
 
-    .banner {
-    /* The image used */
-    background-image: url("img/Rectangle.jpg");
-    height: 300px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
+    
     .rightColumn {
-        padding: 100px 5px 5px 80px;
+        padding: 40px 5px 5px 40px;
+		
     }
 
     ul {
     list-style-type: circle;
     }
+	
 
-    .flex-container {
-      display: flex;
-      flex-wrap: wrap;
-      background-color: DodgerBlue;
+    
+	
+	.voffset {
+	margin-top: 300px; 
+	
+	}
+	
+	span{
+	  font-size: 14px; 
     }
-
-    .flex-container > div {
-      background-color: #f1f1f1;
-      width: 100px;
-      margin: 10px;
-      text-align: center;
-      line-height: 75px;
-      font-size: 30px;
-      flex-flow: row wrap;
-      justify-content: space-around;
-    }
+	
+	.listing{
+		
+		font-size: 14px; 
+	}
+	.cont{
+		
+		padding-top: 20px;
+		padding-left: 10px;
+		padding-bottom: 10px;
+		background-color: #ffffff;
+		width: 100%;
+		
+	}
+	
+	.head{
+		margin-top: 40px;
+		margin-left: 40px;
+		color: #ffffff;
+		}
+	.circle{
+		width: 43px;
+		height: 43px;
+		border-radius: 50%;
+		background-color: #48BBFC;
+		z-index: 100;
+	}
+	.btn{
+		margin-top: -130px;
+		background-color: #ffffff;
+		border-radius: 50px;
+		color: #48BBFC;
+		margin-left: 100px;
+		width: 181px;
+		height: 39px;
+	}
 
 </style>
 
-</head>
 
-<body>
-    <div class="container-fluid">        
-      
-      <div class="container-fluid banner">
-          <h1> Hotels.ng</h1>
-      </div>
+<section>
 
+<header class="masthead" style="background-image: url('img/head-part.png'); height: 406px;">
+	<div class="overlay" style="background-color: #2A3135"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 col-md-6 col-lg-4 mx-auto">
+					<img src="img/overlay.jpg">
+					<button type="button" class="btn">VISIT WEBSITE</button>
+				</div>
+				<div class="col head">
+					<h3>Hotels.ng <img src="img/value.png" width="67px" height="87px"> <span class="circle"></span> </img></h3>
+					<h5>Yaba, Lagos, Nigeria</h5>
+				</div>
+		</div>
+</header>
+</section>
+<section class="mx-auto col-md-10 mt-5 mb-5">
 <div class="row">
- 
-<div class="container"> 
+	<div class="col-sm-3 col-md-6 col-lg-4">
+		<div class="cont voffset">
+				<h3 style="border-bottom: 2px solid #2196F3; display: inline block; ">About</h3>
 
-    <div class="row">
-      <div class="col-sm-3 col-md-6 col-lg-4">
-        <img src="img/overlay.jpg">
-            <button>Visit Website</button>
-            
-            <h3>About</h3>
-            
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
+				<p class="text-center"> An online travel agency specialising in hotel bookings withing Nigeria. 
+					The HNG Internship program was started by Hotels.ng CEO Mark Essien and was designed to 
+					locate the most talented software developers in Nigeria and Africa as a whole. Creating an 
+					interactive platform for software development leanrning that is both fun and rewarding.</p>
+				
+				<div class="row mx-auto">
+					<div class="col">
+						<i class="fa fa-twitter fa-lg"></i>
+					</div>
+					<div class="col">
+						<i class="fa fa-facebook fa-lg"></i>
+					</div>
+					<div class="col">
+						<i class="fa fa-github fa-lg"></i>
+					</div>
+				</div>
+				
+		</div>
+	</div>
+						
+	<div class="col-sm-9 col-md-6 col-lg-8 rightColumn">
+					<div class="cont">
+						<div class="row">
+							<div class="col-sm-3 col-md-6 col-lg-4">
 
-    <div class="col-sm-9 col-md-6 col-lg-8 rightColumn">
+									<img src="img/hng-square.png" width="204px" height="204px">
+							</div> 
 
-    <div class="col">
+							<div class="col">
+								<span class="listing"><h6>Headquarters:</h6>Yaba, Lagos</span>
+								<span class="listing"><h6>Address:</h6> No 3, Birrel Avenue</span>  
+								<span class="listing"><h6>Industry:</h6>Hotel Booking Services</span>
+							</div>
+							
+							<div class="col">
+								
+								<div class="listing"><h6>Phone:</h6>0806 621 2033</div>
+								<div class="listing"><h6>Founded:</h6>1972</div> 
+							</div> 
+						</div>
+						</div>
+						<div class="cont mt-5">
+							<h3 style="border-bottom: 2px solid #2196F3; display: inline block; "> Contributions</h3>
 
-            <img src="img/Rectangle 2.png">
-    </div> 
+							
+							<p>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</p>
 
-    <div class="col">
-            
-        <div class="flex-container">
-          <div><h6>Headquarters:</h6><p>Yaba, Lagos</p></div>
-          <div><h6>Industry:</h6><p>Hotel Booking Services</p></div>
-          <div><h6>Address:</h6><p> No 3, Birrel Avenue</p></div>  
-          <div><h6>Phone:</h6><p>0806 621 2033</p></div>
-          <div><h6>Founded:</h6><p>1972</p></div> 
-        </div>
+							<ul>
+							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+							</li>
+							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+							</li>
+							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+							</li>
+							</ul>  
 
-    </div> 
-
-
-    <div>
-        <h3> Contributions</h3>
-
-        
-        <p>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</p>
-
-        <ul>
-        <li><span class="glyphicon glyphicon-menu-right"></span>
-            Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials
-        </li>
-        <li><span class="glyphicon glyphicon-menu-right"></span>
-            Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials
-        </li>
-        <li><span class="glyphicon glyphicon-menu-right"></span>
-            Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials
-        </li>
-        </ul>  
-
-          
-
-        </div>
-
-    </div>
-
-
-
-    </div>
-
-  </div>
-
+						
+						</div>
+					</div>
+				
+	</div>
 </div>
+</section>
 
-
-
-
-
-
-
-
-
-
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
+<?php
+include_once("footer.php");
+?>
