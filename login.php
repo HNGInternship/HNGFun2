@@ -100,10 +100,12 @@ if(isset($_POST["login"])){
             </div>
         <div style="padding-top: 30px; padding-bottom: 30px">
             <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="15px" width="auto"/>
-            <span style="font-size: 14px; color: grey">Forgot Password?<a href="resetpassword" style="color: #008DDD"> Click here</a></span>
+            <span style="font-size: 14px; color: grey">Forgot Password?<a href="resetpassword.php" style="color: #008DDD"> Click here</a></span>
         </div>
 
-        <div style="padding-bottom: 20px; font-size: 14px; color: #ADADAD">Don't have an account?&nbsp; <a href="signup" style="color: #008DDD">Get Started</a></div>
+        
+        <div style="padding-bottom: 20px; font-size: 14px; color: #ADADAD">Don't have an account?&nbsp; <a href="signup.php" style="color: #008DDD">Get Started</a></div>
+
         </div>
     </div>
 </div>
