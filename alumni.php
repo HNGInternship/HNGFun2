@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 565357149f0154290aa62db0aae9745136d2fd82
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -29,6 +34,7 @@
         clear: both;
       }
     }
+
     .pagination-button {
       display: inline-block;
       padding: 5px 10px;
@@ -54,12 +60,15 @@
       &:first-of-type {
         border-radius: $border-radius 0 0 $border-radius;
       }
+
       &:last-of-type {
         border-radius: 0 $border-radius $border-radius 0;
       }
     }
+
     /* arbitrary styles */
     .heading { text-align: center; max-width: 500px; margin: 20px auto; }
+
     .article-loop {
       display: block;
       width: 80%;
@@ -140,7 +149,11 @@
 include_once("header.php");
 ?>
     <div class="container-fluid">
+<<<<<<< HEAD
       <h1 class="heading">Our Interns</h1>
+=======
+      <h1 class="heading">We've Come A Long Way</h1>
+>>>>>>> 565357149f0154290aa62db0aae9745136d2fd82
       <hr style="width:5%;border:1px solid #555;margin-top:0px;">
       <p class="heading">HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
 <!-- first page -->
@@ -527,25 +540,33 @@ include_once("header.php");
                 // based on current page and # per page
                 return pageNumber * perPage;
             },
+
             getPage: function(items, startPos, perPage) {
                 // declare an empty array to hold our page items
                 var page = [];
+
                 // only get items after the starting position
                 items = items.slice(startPos, items.length);
+
                 // loop remaining items until max per page
                 for (var i=0; i < perPage; i++) {
                     page.push(items[i]); }
+
                 return page;
             },
+
             totalPages: function(items, perPage) {
                 // determine total number of pages
                 return Math.ceil(items.length / perPage);
             },
+
             createBtns: function(totalPages, currentPage) {
                 // create buttons to manipulate current page
                 var pagination = $('<div class="pagination" />');
+
                 // add a "first" button
                 pagination.append('<span class="pagination-button">&laquo;</span>');
+
                 // add pages inbetween
                 for (var i=1; i <= totalPages; i++) {
                     // truncate list when too large
@@ -564,23 +585,31 @@ include_once("header.php");
                                 continue; }
                         }
                     }
+
                     // markup for page button
                     var pageBtn = $('<span class="pagination-button page-num" />');
+
                     // add active class for current page
                     if (i == currentPage) {
                         pageBtn.addClass('active'); }
+
                     // set text to the page number
                     pageBtn.text(i);
+
                     // add button to the container
                     pagination.append(pageBtn);
                 }
+
                 // add a "last" button
                 pagination.append($('<span class="pagination-button">&raquo;</span>'));
+
                 return pagination;
             },
+
             createPage: function(items, currentPage, perPage) {
                 // remove pagination from the page
                 $('.pagination').remove();
+
                 // set context for the items
                 var container = items.parent(),
                     // detach items from the page and cast as array
@@ -588,33 +617,42 @@ include_once("header.php");
                     // get start position and select items for page
                     startPos = this.startPos(currentPage - 1, perPage),
                     page = this.getPage(items, startPos, perPage);
+
                 // loop items and readd to page
                 $.each(page, function(){
                     // prevent empty items that return as Window
                     if (this.window === undefined) {
                         container.append($(this)); }
                 });
+
                 // prep pagination buttons and add to page
                 var totalPages = this.totalPages(items, perPage),
                     pageButtons = this.createBtns(totalPages, currentPage);
+
                 container.after(pageButtons);
             }
         };
+
         // stuff it all into a jQuery method!
         $.fn.paginate = function(perPage) {
             var items = $(this);
+
             // default perPage to 5
             if (isNaN(perPage) || perPage === undefined) {
                 perPage = 5; }
+
             // don't fire if fewer items than perPage
             if (items.length <= perPage) {
                 return true; }
+
             // ensure items stay in the same DOM position
             if (items.length !== items.parent()[0].children.length) {
                 items.wrapAll('<div class="pagination-items" />');
             }
+
             // paginate the items starting at page 1
             paginate.createPage(items, 1, perPage);
+
             // handle click events on the buttons
             $(document).on('click', '.pagination-button', function(e) {
                 // get current page from active button
@@ -622,16 +660,20 @@ include_once("header.php");
                     newPage = currentPage,
                     totalPages = paginate.totalPages(items, perPage),
                     target = $(e.target);
+
                 // get numbered page
                 newPage = parseInt(target.text(), 10);
                 if (target.text() == '«') newPage = 1;
                 if (target.text() == '»') newPage = totalPages;
+
                 // ensure newPage is in available range
                 if (newPage > 0 && newPage <= totalPages) {
                     paginate.createPage(items, newPage, perPage); }
             });
         };
+
     })(jQuery);
+
     $('.article-loop').paginate(15);
     </script>
 
