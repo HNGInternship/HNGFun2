@@ -199,20 +199,6 @@ $data = $q->fetchAll();
           </tr>
 		  <?php } ?>
       </div>
-
-      <div class="article-loop">
-            <tr>
-              <th scope="row"><img src="./img/profile.png" alt="profile_pic" class="img-responsive" width="30px"></th>
-              <td><a href="#">Sambo Abubakar</a></td>
-              <td>@Sadiq</td>
-              <td></td>
-            <td>
-              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              <a href="#" target="_blank"><i class="fa fa-github fa-1px"></i></a>
-            </td>
-            </tr>
-			</div>
           </tbody>
         </table>
 
