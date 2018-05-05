@@ -7,17 +7,17 @@ include_once("header.php");
     color:black;
   }
 </style>
-    <div class="container sponsor-container">        
+    <div class="container sponsor-container">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Sponsors</h1>
             <div class="d-flex justify-content-center">
               <div class="bd-top"></div>
             </div>
             <p class="sponsors-text text-center pb-4 pt-3 text-center">HNG 4.0 has been a life-transforming journey for interns across Africa.<br/>
         Here you get to see those who have made it possible.<br/>Meet our sponsors...</p>
-        
+
         <div class="d-flex justify-content-center">
            <div class="d-block w-80 partner-link">
-              <a href="sponsors/figma_partners.php"><div class="row border rounded ">
+              <a href="our-partners/figma.php"><div class="row border rounded ">
                   <div class="col-3 pl-0">
                       <img src="img/figma-dark.png" alt="figma" srcset="" class="img-fluid ">
                   </div>
@@ -27,7 +27,7 @@ include_once("header.php");
                   </div>
               </div></a><br>
 
-              <a href="sponsors/oracle_partners.php"><div class="row border rounded ">
+              <a href="our-partners/oracle.php"><div class="row border rounded ">
                   <div class="col-3 pl-0">
                       <img src="img/oracle-red.png" alt="oracle" srcset="" class="img-fluid ">
                   </div>
@@ -37,7 +37,7 @@ include_once("header.php");
                   </div>
               </div></a><br>
 
-              <a href="sponsors/bluechip_partners.php"><div class="row border rounded ">
+              <a href="our-partners/bluechip_technologies.php"><div class="row border rounded ">
                   <div class="col-3 pl-0">
                       <img src="img/bluechips.png" alt="blue chip technologies" srcset="" class="img-fluid ">
                   </div>
@@ -47,7 +47,7 @@ include_once("header.php");
                   </div>
               </div></a><br>
 
-              <a href="sponsors/hng_partners.php"><div class="row border rounded ">
+              <a href="our-partners/hotelsng.php"><div class="row border rounded ">
                   <div class="col-3 pl-0">
                       <img src="img/hng-square.png" alt="hotels.ng" srcset="" class="img-fluid ">
                   </div>
