@@ -57,7 +57,7 @@
   <h2 class="mt-5">HNG 4.0 Internship</h2>
   <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto" />
   <div class="py-5 my-5 col-md-10 mx-auto" id="img-title">
-  	<i class="fa fa-image my-5"><img class="card-img-top" src="http://http://res.cloudinary.com/devgeaks/image/upload/v1525544789/IMG_20180504_204524.jpg" alt="logo"></i>
+  	<img class="card-img-top" src="http://http://res.cloudinary.com/devgeaks/image/upload/v1525544789/IMG_20180504_204524.jpg" alt="logo">
   </div>
 
   <section class="mt-5 pt-5 col-md-10 mx-auto">
@@ -66,7 +66,9 @@
   	</h4>
 
   	<p>
-  	The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa. Everyone is welcome to participate (there is no entrance exam). We create fun challenges every week on our slack channel. THose who solve them stay on. Everyone gets to learn important concepts quickly, and make connections with people they can work with in the future. The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalist are connected to the best companies in the tech ecosystem and get full time jobs and contracts immediately.
+  	The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa. Everyone is welcome to participate (there is no entrance exam). We create fun challenges every week on our slack channel. 
+    </p>
+  	<p>Those who solve them stay on. Everyone gets to learn important concepts quickly, and make connections with people they can work with in the future. The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalist are connected to the best companies in the tech ecosystem and get full time jobs and contracts immediately.
   	</p>
 
 
