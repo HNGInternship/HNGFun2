@@ -35,6 +35,7 @@ $activeArray[$fileIndex]="active";
 
     <title>HNG FUN</title>
 
+    <link rel="icon" href="https://res.cloudinary.com/nedy123/image/upload/v1525534693/Approved_HNG_Logo_xswasd.png" type="image/gif" sizes="16x16">
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       
@@ -126,10 +127,9 @@ $activeArray[$fileIndex]="active";
 
     <nav class="navbar navbar-expand-lg navbar-light"  >
 
-      <a class="navbar-brand" href="../index.php">
-        <!-- <img src="img/logo.png" alt="HNG logo" class="img-fluid"> -->
-        <img src="https://res.cloudinary.com/nedy123/image/upload/v1525534693/Approved_HNG_Logo_xswasd.png" alt="HNG logo" class="img-fluid">
-        
+      <a class="navbar-brand" href="../learn">
+        <img src="img/logo.png" alt="HNG logo" class="img-fluid">
+
         </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
