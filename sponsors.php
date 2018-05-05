@@ -27,7 +27,8 @@ include_once("header.php");
                   </div>
                   <div class="col-9 pt-4 ">
                       <h5 class="sponsorbg-text font-weight-bold">Oracle Incoporated</h5>
-                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Oracle offers a comprehensive and fully integrated stack of cloud applications and platform services</p>
+
+                      <p class="sponsor-subbg-text mt-0 pt-0 f-1">Oracle offers a comprehensive and fully integrated stack of cloud applications and 
                   </div>
               </div><br>
 
@@ -47,7 +48,9 @@ include_once("header.php");
                   </div>
                   <div class="col-9 pt-4 ">
                       <h5 class="sponsorbg-text font-weight-bold">Hotels.ng</h5>
+
                       <p class="sponsor-subbg-text mt-0 pt-0 f-1">Explore Over 8000 Nigerian Hotels And Get The Best Rates On All Your Bookings! Special Discounts, Easy Check-In, Genuine Photos and Reviews</p>
+
                   </div>
               </div><br>
            </div>
