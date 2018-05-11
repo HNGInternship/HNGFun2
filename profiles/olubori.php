@@ -271,11 +271,11 @@
 	  el: '#app',
 	  data: {
 	    commands: [
-	               {key: 'train', description: 'This command is to train the bot', format: '[question] [answer] [password]'}, 
-	               {key: 'currenttime', description: 'This command is to get the current time in any of the location of the world', format: '[location]'},
-	               {key: 'dayofweek', description: 'This command is get the day of the weeks a date falls on', format: '[yyyy-mm-dd]'},
-	               {key: 'aboutbot', description: 'This command is tells you about me', format: ''},
-	               {key: 'popularcities', description: 'Show all popular city that starts with an alphabet', format: '[a], or [b],... [z]'}
+	               {key: 'train', description: 'You can train me with this', format: '[question] [answer] [password]'}, 
+	               {key: 'currenttime', description: 'I will get the current time in any location in this world', format: '[location]'},
+	               {key: 'dayofweek', description: 'I will tell you the day of the week a date falls on', format: '[yyyy-mm-dd]'},
+	               {key: 'aboutbot', description: 'I will tell you about me', format: ''},
+	               {key: 'popularcities', description: 'I will show you all popular city that starts with an alphabet', format: '[a], or [b],... [z]'}
 	              ],
         humanMessage: '',
         zoneList: null,
