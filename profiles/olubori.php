@@ -383,7 +383,7 @@
 	  	    }
 	  	    let output = '<h4>Time for ' + location + '</h4>';
 	  	    for (zone of zones) {
-	  	      const response = await fetch(`http://api.timezonedb.com/v2/get-time-zone?key=DXHGYWUAFA3S&format=json&by=zone&zone=${zone.zoneName}`);
+	  	      const response = await fetch(`https://api.timezonedb.com/v2/get-time-zone?key=DXHGYWUAFA3S&format=json&by=zone&zone=${zone.zoneName}`);
 	  	      const json = await response.json();
 
 	  	      const formatted = json.formatted;
@@ -475,7 +475,7 @@
 	  },
 	  created: async function(){
 	  	try{
-	  	  const response = await fetch('http://api.timezonedb.com/v2/list-time-zone?key=DXHGYWUAFA3S&format=json');
+	  	  const response = await fetch('https://api.timezonedb.com/v2/list-time-zone?key=DXHGYWUAFA3S&format=json');
 	  	  const json = await response.json();
 	  	  this.zoneList = json.zones;
 	  	}catch(ex){
