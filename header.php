@@ -5,8 +5,6 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF'], ".php");
 
-echo $fileName;
-
 $files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'signup', 'login');
 
 $activeArray = array_fill(0, count($files), '');
