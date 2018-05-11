@@ -3,7 +3,7 @@
       <div class="row">
          <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
-
+              <!--
                <li class="list-inline-item contact-icon">
                   <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">
                      <span>
@@ -22,7 +22,7 @@
                   <a id="github" href="https://github.com/HNGInternship/" target="_blank">
                      <span>
                         <i class="fa fa-github fa-lg"></i>
-
+              -->
                <!-- <li class="list-inline-item footer-li">
                   <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">
                      <span class="fa-stack fa-lg">
