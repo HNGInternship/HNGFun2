@@ -679,8 +679,8 @@
             thinkingDiv.show();
             //send question to server
             $.ajax({
-                url: "/profiles/chigozie.php",
-                method: "post",
+                url: "/profiles/chigozie",
+                method: "POST",
                 data: { question: question },
                 dataType: "json",
                 success: function(response) {
