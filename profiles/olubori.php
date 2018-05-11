@@ -35,8 +35,8 @@
 		    throw $e;
 		}
         return;
-
 	}else if(isset($_GET['question'])){
+
 	   require_once '../../config.php';
 
 	   	$question = safeInput($_GET['question']);
