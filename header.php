@@ -159,9 +159,6 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li> 
-            <li class="nav-item <?= $activeArray[7] ?>">
-                <a href="admin" class="nav-link">Register</a>
             </li>
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Current Intern</a>
