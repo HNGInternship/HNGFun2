@@ -5,8 +5,9 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF']);
 
-$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
-$activeArray = array('','','','','','','');
+$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', signup, login);
+
+$activeArray = array('','','','','','','','','');
 
 $fileIndex=array_search($fileName,$files);
 
@@ -158,7 +159,10 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li>
+            </li><?php if($_SERVER['REQUEST_URI'] === "listing"){ echo 
+            '<li class="nav-item <?= $activeArray[6] ?>">
+                <a href="admin" class="nav-link">Register</a>
+            </li>';}?>
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Current Intern</a>
             </li>
@@ -170,6 +174,12 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
+            </li>
+             <li class="nav-item <?= $activeArray[6] ?>">
+                <a href="signup" class="nav-link">SignUp</a>
+            </li>
+            <li class="nav-item <?= $activeArray[7] ?>">
+                <a href="login" class="nav-link">LogIn</a>
             </li>
     </ul>
   </div>
