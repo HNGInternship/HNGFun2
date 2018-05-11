@@ -59,10 +59,11 @@ catch(PDOException $pe)
 
 try {
     
-    $sql = "INSERT INTO chatbot (id, question, answer)
-VALUES ('', '$question', '$answer')";
-    // use exec() because no results are returned
-    $conn->exec($sql);
+    $sql = "insert into chatbot (question, answer) values (:question, :answer)";
+				$stmt = $conn->prepare($sql);
+				$stmt->bindParam(':question', $question);
+				$stmt->bindParam(':answer', $answer);
+				$stmt->execute();
     
     echo "Thank you! i just learnt something new, my master would be proud of me.";
 	
