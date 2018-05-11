@@ -5,7 +5,7 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF']);
 
-$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php');
+$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php','signup.php','login.php');
 $activeArray = array('','','','','','','');
 
 $fileIndex=array_search($fileName,$files);
@@ -170,6 +170,12 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
+            </li>
+             <li class="nav-item <?= $activeArray[6] ?>">
+                <a href="signup" class="nav-link">SignUp</a>
+            </li>
+            <li class="nav-item <?= $activeArray[7] ?>">
+                <a href="login" class="nav-link">LogIn</a>
             </li>
     </ul>
   </div>
