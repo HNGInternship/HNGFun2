@@ -75,16 +75,16 @@ $activeArray[$fileIndex]="active";
         .navbar{
           font-size: 15px;
           font-weight: bold;
-          background-color: #F4F4F4;
+          background-color: #bbbbbb;
           padding: 0 10em;
         }
-
+        .navbar-expand-lg{}
         .nav-item{
-            padding: 24px 15px;
-            border-bottom: 3px solid #f4f4f4;
+            padding: 10px 15px;
+            border-bottom: 3px solid #fffff;
         }
         .nav-item:hover, .active {
-            border-bottom: 3px solid #2196F3;
+            border-bottom: 3px solid  #495af5;
         }
         /* horizontal line learn page */
         hr.under-line {
