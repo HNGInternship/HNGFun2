@@ -8,6 +8,7 @@
                 } catch (PDOException $pe) {
                     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
                 }
+
             }
               
         $profile = 'SELECT * FROM interns_data WHERE username="woleo"';
