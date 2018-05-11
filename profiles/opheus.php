@@ -59,10 +59,11 @@ catch(PDOException $pe)
 
 try {
     
-    $sql = "INSERT INTO chatbot (id, question, answer)
-VALUES ('', '$question', '$answer')";
-    // use exec() because no results are returned
-    $conn->exec($sql);
+    $sql = "insert into chatbot (question, answer) values (:question, :answer)";
+				$stmt = $conn->prepare($sql);
+				$stmt->bindParam(':question', $question);
+				$stmt->bindParam(':answer', $answer);
+				$stmt->execute();
     
     echo "Thank you! i just learnt something new, my master would be proud of me.";
 	
@@ -212,7 +213,7 @@ elseif(isset($_POST['weather'])) {
 
 
 
-	$url2 = "https://www.amdoren.com/api/weather.php?api_key=u3YfnHN8xmibFPbxAjRhtWYGXhAiKy&lat=$latitude&lon=$longitude";
+	$url2 = "https://www.amdoren.com/api/weather.php?api_key=WBz93BfsWrk5yjUtmc3tVpnUWnEV46&lat=$latitude&lon=$longitude";
 		
 		$ch = curl_init();  
 		curl_setopt($ch, CURLOPT_URL, $url2);
@@ -251,7 +252,21 @@ elseif(isset($_POST['weather'])) {
 if($_SERVER['REQUEST_METHOD'] === "GET"){
 	//if($_SERVER['REQUEST_METHOD'] === "GET"){
 //include "../config.php";
+if (!defined('DB_USER'))
+	{
+	require "../config.php";
 
+	}
+
+try
+	{
+	$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
+	}
+
+catch(PDOException $pe)
+	{
+	die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+	}
     try {
         $sql = 'SELECT intern_id, name, username, image_filename FROM interns_data WHERE username=\'opheus\'';
         $q = $conn->query($sql);
