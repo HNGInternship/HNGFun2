@@ -3,7 +3,9 @@ if(!isset($_SESSION)) { session_start(); }
 
 // for choosing active page on nav bar
 
-$fileName=basename($_SERVER['PHP_SELF']);
+$fileName=basename($_SERVER['PHP_SELF'], ".php");
+
+echo $fileName;
 
 $files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'signup', 'login');
 
@@ -159,10 +161,10 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li><?php if($_SERVER['REQUEST_URI'] === "/listing/"){ echo 
-            '<li class="nav-item <?= $activeArray[6] ?>">
+            </li> 
+            <li class="nav-item <?= $activeArray[6] ?>">
                 <a href="admin" class="nav-link">Register</a>
-            </li>';}?>
+            </li>
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Current Intern</a>
             </li>
