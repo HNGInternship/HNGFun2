@@ -1,3 +1,28 @@
+<?php
+if(!isset($_SESSION)) { session_start(); }
+
+// for choosing active page on nav bar
+
+$fileName=basename($_SERVER['PHP_SELF'], ".php");
+
+$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'signup', 'login');
+
+$activeArray = array_fill(0, count($files), '');
+
+$fileIndex=array_search($fileName,$files);
+
+
+// if page is unknown, dont mark any nav item
+
+if($fileIndex!==FALSE){
+
+$activeArray[$fileIndex]="active";
+}
+
+/////////////////////////////////////////////////////////
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,36 +69,62 @@
 
 
       <style>
-        body{
-            background-color: #fafafa;
+       body {
+            background-color: #FAFAFA;
             color: #3d3d3d;
             font-family: 'Lato', sans-serif;
         }
-        #navbar{
-            font-size: 15px;
-            font-weight: bold;
+        .navbar{
+          font-size: 15px;
+          font-weight: bold;
+          background-color: #F4F4F4;
+          padding: 0 10em;
         }
 
         .nav-item{
-            padding-right: 15px;
-            padding-left: 15px;
+            padding: 24px 15px;
+            border-bottom: 3px solid #f4f4f4;
         }
-
-        .nav-item:hover {
-            background-color: rgba(199, 196, 196, 0.1);
-            border-bottom: 3px solid rgb(90, 145, 247);
+        .nav-item:hover, .active {
+            border-bottom: 3px solid #2196F3;
         }
-
-
-
-        li.nav-item {
-            padding-bottom: 0px;
+        /* horizontal line learn page */
+        hr.under-line {
+            width: 10%;
+            border-top: 3px solid #000;
         }
-
-        ul.navbar-nav {
-            height: auto !important;
-            display: block;
+        .justify-space-between {
+          justify-content: space-between;
         }
+        .wrap {
+          flex-wrap: wrap;
+        }
+          .btn-primary {
+        border-radius: 8px;
+        background-color: #2196F3;
+        border-color: #2196F3;
+    }
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:visited,
+    .btn-primary:focus {
+        background-color: #0475CE !important;
+    }
+
+      /*for footer*/
+    .contact-icon{
+      margin: 0px !important;
+      padding: 0% 2%;
+    }
+
+    footer{
+      background: #FAFAFA !important;
+      color: #3D3D3D;
+    }
+
+      .footer-li .fa-stack-1x:hover{
+            color: #0465be !important;
+      }
 
   <?php if (function_exists('custom_styles')) {
       custom_styles();
@@ -267,24 +318,30 @@
         </button>
 
             <ul class="navbar-nav collapse ml-auto">
-                <li class="nav-item">
-                    <a href="index" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="learn" class="nav-link">Learn</a>
-                </li>
-                <li class="nav-item">
-                    <a href="listing" class="nav-link">Intern</a>
-                </li>
-                <li class="nav-item">
-                    <a href="testimonies" class="nav-link">Testimonies</a>
-                </li>
-                <li class="nav-item">
-                    <a href="sponsors" class="nav-link">Sponsors</a>
-                </li>
-                <li class="nav-item">
-                    <a href="alumni" class="nav-link">Alumni</a>
-                </li>
+               <li class="nav-item <?= $activeArray[0] ?>">
+                <a href="../index" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item <?= $activeArray[1] ?>">
+                <a href="../learn" class="nav-link">Learn</a>
+            </li>
+            <li class="nav-item <?= $activeArray[2] ?>">
+                <a href="../listing" class="nav-link">Current Intern</a>
+            </li>
+            <li class="nav-item <?= $activeArray[3] ?>">
+                <a href="../testimonies" class="nav-link">Testimonies</a>
+            </li>
+            <li class="nav-item <?= $activeArray[4] ?>">
+                <a href="../sponsors" class="nav-link">Sponsors</a>
+            </li>
+            <li class="nav-item <?= $activeArray[5] ?>">
+                <a href="../alumni" class="nav-link">Alumni</a>
+            </li>
+             <li class="nav-item <?= $activeArray[8] ?>">
+                <a href="../signup" class="nav-link">SignUp</a>
+            </li>
+            <li class="nav-item <?= $activeArray[9] ?>">
+                <a href="../login" class="nav-link">LogIn</a>
+            </li>
             </ul>
 
         </nav>
