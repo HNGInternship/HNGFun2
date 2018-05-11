@@ -3,11 +3,11 @@ if(!isset($_SESSION)) { session_start(); }
 
 // for choosing active page on nav bar
 
-$fileName=basename($_SERVER['PHP_SELF']);
+$fileName=basename($_SERVER['PHP_SELF'], ".php");
 
-$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', signup, login);
+$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'signup', 'login');
 
-$activeArray = array('','','','','','','','','');
+$activeArray = array_fill(0, count($files), '');
 
 $fileIndex=array_search($fileName,$files);
 
@@ -159,10 +159,10 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li><?php if($_SERVER['REQUEST_URI'] === "/listing/"){ echo 
-            '<li class="nav-item <?= $activeArray[6] ?>">
+            </li> 
+            <li class="nav-item <?= $activeArray[7] ?>">
                 <a href="admin" class="nav-link">Register</a>
-            </li>';}?>
+            </li>
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Current Intern</a>
             </li>
@@ -175,10 +175,10 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
-             <li class="nav-item <?= $activeArray[6] ?>">
+             <li class="nav-item <?= $activeArray[8] ?>">
                 <a href="signup" class="nav-link">SignUp</a>
             </li>
-            <li class="nav-item <?= $activeArray[7] ?>">
+            <li class="nav-item <?= $activeArray[9] ?>">
                 <a href="login" class="nav-link">LogIn</a>
             </li>
     </ul>
