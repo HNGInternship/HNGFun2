@@ -680,7 +680,7 @@
             //send question to server
             $.ajax({
                 url: "/profiles/chigozie.php",
-                type: "post",
+                method: "post",
                 data: { question: question },
                 dataType: "json",
                 success: function(response) {
