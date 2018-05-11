@@ -5,7 +5,7 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF']);
 
-$files = array('index.php','learn.php','listing.php','testimonies.php','sponsors.php','alumni.php','partners.php', 'admin');
+$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin');
 $activeArray = array('','','','','','','');
 
 $fileIndex=array_search($fileName,$files);
