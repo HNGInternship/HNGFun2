@@ -254,7 +254,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
 //include "../config.php";
 if (!defined('DB_USER'))
 	{
-	require "../config.php";
+	require "../../config.php";
 
 	}
 
