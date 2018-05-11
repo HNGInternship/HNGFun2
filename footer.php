@@ -5,7 +5,7 @@
             <ul class="list-inline text-center">
 
                <li class="list-inline-item contact-icon">
-                  <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">
+                  <!-- <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">
                      <span>
                         <i class="fa fa-twitter fa-lg"></i>
                      </span>
@@ -21,7 +21,7 @@
                <li class="list-inline-item contact-icon">
                   <a id="github" href="https://github.com/HNGInternship/" target="_blank">
                      <span>
-                        <i class="fa fa-github fa-lg"></i>
+                        <i class="fa fa-github fa-lg"></i> -->
 
                <!-- <li class="list-inline-item footer-li">
                   <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">

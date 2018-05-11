@@ -94,7 +94,7 @@ include_once("header.php");
                         An Introduction to User Experience Design
                         </span><br>
                         <span class="brief">
-                        <a href="https://hackdesign.org/">See Learning Resources <i class="fa fa-chevron-right"></i></a>                        User Experience Design Resources - Prototype blog.prototypr.io/user...
+                        <a href="https://hackdesign.org/" style="font-size:1em;">See Learning Resources <i class="fa fa-chevron-right"></i></a>                        User Experience Design Resources - Prototype blog.prototypr.io/user...
                         </span>
                     </p>
                 </div>
