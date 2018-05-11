@@ -250,11 +250,9 @@ elseif(isset($_POST['weather'])) {
 <?php
 
 if($_SERVER['REQUEST_METHOD'] === "GET"){
-	//if($_SERVER['REQUEST_METHOD'] === "GET"){
-//include "../config.php";
 if (!defined('DB_USER'))
 	{
-	require "../../config.php";
+	require "../config.php";
 
 	}
 
@@ -267,6 +265,7 @@ catch(PDOException $pe)
 	{
 	die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
 	}
+
     try {
         $sql = 'SELECT intern_id, name, username, image_filename FROM interns_data WHERE username=\'opheus\'';
         $q = $conn->query($sql);
