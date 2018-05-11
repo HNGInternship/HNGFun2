@@ -16,10 +16,8 @@
                 <form class="form-signin" id="login_form">
             <label for="email" class="sr-only">Email</label>
             <input type="email" id="email" class="form-control" placeholder="Email" name="email" required="" autofocus="">
-            <br/>
             <label for="password" class="sr-only">Password</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
-            <br/>
             <input type="hidden" name="login" value="yes">
             <div class="checkbox mb-3" style="text-align: left">
                 <label>
