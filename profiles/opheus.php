@@ -404,7 +404,7 @@ button:hover, a:hover {
 	  margin-top: 15px;
 }
 .portlet .portlet-body {
-	  
+	  width: 350px;
 	  margin: 0 auto;
 	  background-color: white;
 	  border: 0.1px solid #333;
@@ -715,7 +715,6 @@ function send_message(message){
         }
       $('#opheuscont').html(prevSms + '<span class="cureent_sms">' + '<span class="bot">opheusbot: </span>' + message + '</span>');
 	  $('.portlet-body').scrollTop($('.portlet-body').prop('scrollHeight'));
-
       $('.cureent_sms').hide();
       $('.cureent_sms').delay(50).fadeIn();
       $('.cureent_sms').removeClass("current_sms");
@@ -846,7 +845,7 @@ $(function() {
         //show the sms to the opheuscont div
         $('#opheuscont').html(prevSms + username + sms);
 
-        //$('.portlet-body').scrollTop($('.portlet-body').prop('scrollHeight'));
+        $('.portlet-body').scrollTop($('.portlet-body').prop('scrollHeight'));
 
 
         ai(sms);
