@@ -180,11 +180,14 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         .progress-bar {
             background-color: #E9ECEF;
             border-radius: 5px;
+            width: 100%;
+            height: 3px;
         }
 
         .progress {
             background-color: #007BFF;
             height: 3px;
+            margin-bottom: 0px;
         }
 
         .progress.html {
