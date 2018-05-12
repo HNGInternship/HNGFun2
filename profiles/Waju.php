@@ -9,15 +9,7 @@ if(!array_key_exists('ajax', $_POST)){
     // 'not ajax'
     require_once ('answers.php');
     require_once ('../config.php');
-    if(isset($db)){
-        $conn = $db;
-    } else {
-        try {
-            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-        } catch (PDOException $pe) {
-            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-        }
-    }
+
 } else {
     // ajax mode, need our own db and calling answers
     require_once ('../answers.php');
@@ -704,7 +696,7 @@ if( !array_key_exists('ajax', $_POST)){
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script >
-    window.addEventListener("load", function() {
+        window.addEventListener("load", function() {
     loadQuestions = function(){
 
         return new Promise((resolve, reject) => {
@@ -737,18 +729,15 @@ if( !array_key_exists('ajax', $_POST)){
         
                 let posting = $.ajax({
                     type: "GET",
-                    url: `http://api.timezonedb.com/v2/list-time-zone?key=YJ6D5BKBWI4V&format=json&&zone=*${location}*&fields=zoneName,timestamp`
+                    url: `https://api.timezonedb.com/v2/list-time-zone?key=YJ6D5BKBWI4V&format=json&&zone=*${location}*&fields=zoneName,timestamp`
                  });
                 posting.done(function(data){
                     if('FAILED' == data.status){
                         self.appendMessage('Oops! that didn\'t work, dont forget to ask for a city(not country) ', 'bot');
                         //scroll the chat interface up/ down
                         self.$wrapper.animate(
-                            {scrollTop: '+=2500',},
-                            {duration: 700,
-                            easing: 'swing',
-                            duration: 600
-                            });
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
 
                     } else{
                         var dt = new Date(data.timestamp);
@@ -759,11 +748,8 @@ if( !array_key_exists('ajax', $_POST)){
                         
                         // scroll the chat interface up/ down
                         self.$wrapper.animate(
-                            {scrollTop: '+=2500',},
-                            {duration: 700,
-                            easing: 'swing',
-                            duration: 600
-                            });
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
                     }
                         
                 });  
@@ -775,8 +761,9 @@ if( !array_key_exists('ajax', $_POST)){
             let self = this;
           
                 let posting = $.ajax({
-                    url: "/profiles/Waju.php",
+                    url: "/profiles/Waju",
                     type: "post",
+                    method:"POST",
                     data: {location: location, ajax: 'AJAX'},
                     dataType: "json"
                 });
@@ -843,8 +830,9 @@ if( !array_key_exists('ajax', $_POST)){
                 let self = this;
 
                 let posting = $.ajax({
-                    url: "/profiles/Waju.php",
-                    type: "post",
+                    url: "/profiles/Waju", //remove.php later
+                    type: "POST",
+                    method: "POST",
                     data: {question: message, ajax: 'AJAX'},
                     dataType: "json"
                 });
@@ -874,11 +862,9 @@ if( !array_key_exists('ajax', $_POST)){
 
             //scroll the chat interface up/ down
             this.$wrapper.animate(
-                            {scrollTop: '+=4500',},
-                            {duration: 700,
-                            easing: 'swing',
-                            duration: 600
-                            });
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
+                           
         },
         toggleView: function(e){
             // if height is ,170.. increase it and point down 
@@ -950,12 +936,8 @@ if( !array_key_exists('ajax', $_POST)){
                         self.appendMessage(self._questions[self.current_index].question, 'bot');        
                     
                     self.$wrapper.animate(
-                        {scrollTop: '+=2000',},
-                        {duration: 700,
-                        easing: 'swing',
-                        duration: 600
-                        }
-                    );
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
                 })
            
         },
@@ -975,12 +957,8 @@ if( !array_key_exists('ajax', $_POST)){
                 this.$el.data('state','');
             }
             this.$wrapper.animate(
-                {scrollTop: '+=1000',},
-                {duration: 700,
-                easing: 'swing',
-                duration: 600
-                }
-            );
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
         },
         gameOver: function(){
             this.appendMessage(`Thanks for playing you scored ${this._score} points type #game to play again or type a message to chat`, 'bot');

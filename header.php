@@ -1,27 +1,5 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
-
-// for choosing active page on nav bar
-
-$fileName=basename($_SERVER['PHP_SELF'], ".php");
-
-$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
-
-$activeArray = array_fill(0, count($files), '');
-
-$fileIndex=array_search($fileName,$files);
-
-
-// if page is unknown, dont mark any nav item
-
-if($fileIndex!==FALSE){
-
-$activeArray[$fileIndex]="active";
-}
-
-/////////////////////////////////////////////////////////
-
-
 ?>
 
 <!DOCTYPE html>
@@ -154,31 +132,37 @@ $activeArray[$fileIndex]="active";
 
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item <?= $activeArray[0] ?>">
+            <li id="index" class="nav-item">
                 <a href="index" class="nav-link">Home</a>
             </li>
-            <li class="nav-item <?= $activeArray[1] ?>">
+            <li id="learn" class="nav-item">
                 <a href="learn" class="nav-link">Learn</a>
             </li>
-            <li class="nav-item <?= $activeArray[2] ?>">
+            <li id="listing" class="nav-item">
                 <a href="listing" class="nav-link">Current Intern</a>
             </li>
-            <li class="nav-item <?= $activeArray[3] ?>">
+            <li id="testimonies" class="nav-item">
                 <a href="testimonies" class="nav-link">Testimonies</a>
             </li>
-            <li class="nav-item <?= $activeArray[4] ?>">
+            <li id="sponsors" class="nav-item">
                 <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
-            <li class="nav-item <?= $activeArray[5] ?>">
+            <li id="alumni" class="nav-item">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
-             <li class="nav-item <?= $activeArray[8] ?>">
+             <li id="sign-up" class="nav-item">
                 <a href="sign-up" class="nav-link">SignUp</a>
             </li>
-            <li class="nav-item <?= $activeArray[9] ?>">
+            <li id="login" class="nav-item">
                 <a href="login" class="nav-link">LogIn</a>
             </li>
     </ul>
   </div>
 
     </nav>
+<script type="text/javascript"> 
+  let fileName = window.location.pathname.split('/')[1];
+  fileName = fileName || 'index';
+  let ele = document.getElementById(fileName)
+  ele && ele.classList.add('active');
+</script>
