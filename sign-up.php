@@ -60,7 +60,7 @@ include_once("header.php");
 
           <div class="col-md-6 pt-0">
             <h2 class="text-justify">Sign Up</h2>
-            <p class="text-justify mt-2" style="color:#ADADAD;">Already have an account? <span><a href="" style="text-decoration:none; color:#008DDD;">Log In</a></span></p>
+            <p class="text-justify mt-2" style="color:#ADADAD;">Already have an account? <span><a href="login.php" style="text-decoration:none; color:#008DDD;">Log In</a></span></p>
 
             <form class="form-signin signup ">
             <div class="input-block mr-9 pb-2 pt-2">
