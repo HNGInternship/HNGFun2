@@ -60,7 +60,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
     <style>
         body {
             font-family: "Josefin Sans","Montserrat","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif";
-            color: #4A4646;
+            color: #ab0b4b;
             overflow-x: hidden;
         }
         .btn {
@@ -81,7 +81,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         .skills {
             height: auto;
             padding: <?=$padding;?>;
-            background: #FFFFFF;
+            background: #ab0b4b;
         }
         footer {
             display: none;
@@ -102,8 +102,9 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             margin-left: auto;
             margin-right: auto;
             display: block;
-            width: 300px;
-            border-radius: 150px;
+            width: 250px;
+            border-radius: 100px;
+		border: 10px solid gainsboro;
         }
         .profile-name {
             font-size: 25px;
@@ -137,7 +138,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             margin-bottom: 25px;
         }
         .skill-list h4 {
-            font-family: "Josefin Sans","Montserrat","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif";
+            font-family: "Roboto","Montserrat","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif";
             font-size: 30px;
             border-bottom: 2px solid;
             display: inline-block;
@@ -524,12 +525,12 @@ $(document).on('click', '.chatbot-send', function(e){
     // Use AJAX to query DB and look for matches to user's query
     if(message_string !== '' && message_string.trim() !== 'help' && password && !aboutbot) {
         $.ajax({
-            url: '/profiles/christoph',
+            url: '/profiles/boldtechs',
             data: bot_query+'='+payload.message,
             type: 'POST',
             dataType: 'JSON',
             beforeSend: function() {
-                $('.chatbot-menu-content').append('<div class="chatbot-message-bot" id="last-message"><p>Give me some time, it takes some time for me to process...</p></div>');
+                $('.chatbot-menu-content').append('<div class="chatbot-message-bot" id="last-message"><p>working...</p></div>');
                 content_height = $('.chatbot-menu-content').prop('scrollHeight');
                 $('.chatbot-menu-content').scrollTop(content_height);
                 $('.chatbot-send').attr('disable');
