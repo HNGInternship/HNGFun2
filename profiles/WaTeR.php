@@ -64,8 +64,9 @@
 		
 		
 	}
-	.text-primar{
-		font-size: 40px;
+	.text-primary{
+		font-size: 20px;
+		float: center;
 	}
 	</style>
 	<!-- Latest compiled and minified CSS -->
@@ -89,8 +90,8 @@
 </div>
 <div class="col-lg-6">
           <!--<img class="img-circle " src="<?php echo $data['image_filename']; ?>" alt="Generic placeholder image" width="200" height="200" style="border:solid 5px #fff;">-->
-          <h2 style="color: #fff;"><?php echo $user->name ?>
-          	<br/><small style="color: red;"><?php echo $user->name ?></small></h2>
+          <h2 style="color: #fff; font-size: 40px; float: center;"><?php echo $user->name ?>
+          	<!--<br/><small style="color: red; float: center;"><?php echo $user->name ?></small>--></h2>
 
           <p class="text-primary" style="color: #F0F8FF;">FULL-STACK DEVELOPER | GRAPHICS DESIGNER | LEARNER</p>
           <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->

@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HNG FUN</title>
     <!-- Bootstrap core CSS -->
-    <!-- <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"-->
     <!-- Custom fonts for this template -->
-    <!-- <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!-- Custom styles for this template -->
+    Custom styles for this template  -->
     <style>
             body{
                 margin: 0;
                 padding: 0;
                 background-color: #fff;
-                font-family:'open sans', 'sans-serif';
             }
 
             .heading{
@@ -54,7 +53,6 @@
 
             a{
                 text-decoration: none;
-                font-size: 20px;
                 padding: 10px 20px;
                 color: #ffffff;
                 border-radius: 5px;
@@ -74,7 +72,8 @@
             }
 
             .warning{
-                background-color: #ffd54f;
+                background-color: #ffd54f;                
+                font-size: 1em;
             }
 
             .content{
