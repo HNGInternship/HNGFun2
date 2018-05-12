@@ -43,7 +43,7 @@
             }
 
             .big{
-                font-size: 1.3em;    
+                font-size: ;    
             }
 
             .small{
