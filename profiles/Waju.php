@@ -751,7 +751,7 @@ if( !array_key_exists('ajax', $_POST)){
                         
                         // scroll the chat interface up/ down
                         self.$wrapper.animate(
-                            {scrollTop: '+=2500',},
+                            {scrollTop: '+=4500',},
                             {duration: 700,
                             easing: 'swing',
                             duration: 600
@@ -969,7 +969,7 @@ if( !array_key_exists('ajax', $_POST)){
                 this.$el.data('state','');
             }
             this.$wrapper.animate(
-                {scrollTop: '+=1000',},
+                {scrollTop: '+=2000',},
                 {duration: 700,
                 easing: 'swing',
                 duration: 600
