@@ -287,7 +287,8 @@
                     	text: `Hi, I am Bori Bot, I can do many things. To get list of commands you can use on me just type / in the textbox`
                     }
                   ],
-        info: '<h4 class="text-center">Bot is currently preparing data</h4><p class="text-center">Please wait...</p>'
+        info: '<h4 class="text-center">Bot is currently preparing data</h4><p class="text-center">Please wait...</p>',
+        googlekey: 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts'
       },
 	  computed: {
 	  	suggestedCommands: function(){
@@ -368,38 +369,65 @@
 
 
 	  	},
-	  	getCurrentTime: async function(){
-	  		var location;
-	  		try{
-              location = this.choice['message'].match(/\[(.*?)\]/)[1];
+	  	getLocationFromAddress: async function(address){
+	  		
+	  		let url  = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + this.googlekey;
+	  		try {
+	  		  const response = await fetch(url);
+	  		  
+	  		  const json = await response.json();
+	  		  switch(json.status){
+	  		    case "OK":
+                  return json.results[0].geometry.location;
+                default:
+                  return {status: "Address not found"};
+	  		  }
 	  		}catch(ex){
-	  		  return "Follow the correct syntax /currenttime [location]";
+	  		  return {status: 'Sorry something went wrong in getting your address'};
 	  		}
+	  	},
+	  	getTimeFromLocation: async function(location){
+	  	  	let targetDate = new Date() // Current date/time of user computer
+	  	  	let timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60 // Current UTC date/time expressed as seconds since midnight, January 1, 1970 UTC
+	  	  	let url = `https://maps.googleapis.com/maps/api/timezone/json?location=${location.lat}, ${location.lng}&timestamp=${timestamp}&key=${this.googlekey}`;
 
-	  		let apikey = 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts'
-            let url  = "https://maps.googleapis.com/maps/api/geocode/json?address=Tokyo&key=" + apikey;
-
-            try {
-              const response = await fetch(url);
-              
-              const json = await response.json();
-              console.log(json);
-            }catch(ex){
-              return 'Sorry something went wrong';
-            }
-            /*
-	  		let loc = '35.731252, 139.730291' // Tokyo expressed as lat,lng tuple
-	  		let targetDate = new Date() // Current date/time of user computer
-	  		let timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60 // Current UTC date/time expressed as seconds since midnight, January 1, 1970 UTC
-	  		let apikey = 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts'
-	  		let apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp + '&key=' + apikey
-	  	    const response = await fetch(apicall);
+	  	  	try{
+	  	  	  const response = await fetch(url);
+	  	  	    
+	  	  	  const json = await response.json();
+	  	  	  let offsets = json.dstOffset * 1000 + json.rawOffset * 1000 // get DST and time zone offsets in milliseconds
+	  	  	  let localdate = new Date(timestamp * 1000 + offsets) // Date object containing current time of Tokyo (timestamp + dstOffset + rawOffset)
+	  	  	   return localdate;
+	  	  	}catch(ex){
+	  	  	  return {error: true};
+	  	  	}
 	  	    
-	  	    const json = await response.json();
-	  	    let offsets = json.dstOffset * 1000 + json.rawOffset * 1000 // get DST and time zone offsets in milliseconds
-	  	    let localdate = new Date(timestamp * 1000 + offsets) // Date object containing current time of Tokyo (timestamp + dstOffset + rawOffset)
-	  	    console.log(localdate.toLocaleString())
-	  	    //console.log(json);*/
+	  	},
+	  	getCurrentTime: async function(){
+			let address, time;
+			try{
+	          address = this.choice['message'].match(/\[(.*?)\]/)[1];
+			}catch(ex){
+			  return "Follow the correct syntax /currenttime [location]";
+			}
+
+	  		let output = await this.getLocationFromAddress(address);
+            if(output.lat && output.lng){
+              output = await this.getTimeFromLocation(output);
+              if(output.error){
+              	return "Something went wrong while trying to get the time";
+              }
+              time = output;
+            }else{
+              return output.status;
+            }
+
+            
+            return `<h4>Current Time in ${address}</h4><p><strong>${time}</strong>`;
+            
+            
+	  		
+	  	    //console.log(json);
 
             
 	  	    /*let zones = this.zoneList.filter(function(zone){
