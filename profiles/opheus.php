@@ -1,8 +1,9 @@
 
 
 <?php
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
+   // error_reporting(E_ALL);
+  //  ini_set("display_errors", 1);
+//header('Access-Control-Allow-Origin: *'); 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 
 
@@ -59,10 +60,11 @@ catch(PDOException $pe)
 
 try {
     
-    $sql = "INSERT INTO chatbot (id, question, answer)
-VALUES ('', '$question', '$answer')";
-    // use exec() because no results are returned
-    $conn->exec($sql);
+    $sql = "insert into chatbot (question, answer) values (:question, :answer)";
+				$stmt = $conn->prepare($sql);
+				$stmt->bindParam(':question', $question);
+				$stmt->bindParam(':answer', $answer);
+				$stmt->execute();
     
     echo "Thank you! i just learnt something new, my master would be proud of me.";
 	
@@ -107,7 +109,7 @@ catch(PDOException $pe)
 
 $check = $_POST['opheuscheck'];
 
-$stmt = $conn->prepare("SELECT answer FROM chatbot WHERE question='$check' ORDER BY rand() LIMIT 1");
+$stmt = $conn->prepare("SELECT * FROM chatbot WHERE question='$check' ORDER BY rand() LIMIT 1");
 $stmt->execute();
 if($stmt->rowCount() > 0)
 {
@@ -163,6 +165,82 @@ if($stmt->rowCount() > 0)
 
 //}
 
+elseif(isset($_POST['timing'])) {
+	
+	$string = $_POST['timing'];
+	$keyworded = 'in';
+	$finder    = strpos($string, $keyworded) + strlen($keyworded);
+	$cityplace = substr($string, $finder);
+	$city = rawurlencode(trim($cityplace));
+	//$map_address = "new york";
+	$url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=$city";
+	$lat_long = get_object_vars(json_decode(file_get_contents($url)));
+	// pick out what we need (lat,lng)
+	//$lat_long = $lat_long['results'][0]->geometry->location->lat . "," . $lat_long['results'][0]->geometry->location->lng;
+	$latitude = $lat_long['results'][0]->geometry->location->lat;
+	$longitude = $lat_long['results'][0]->geometry->location->lng;
+
+	
+	
+	$url2 = 'https://maps.googleapis.com/maps/api/timezone/json?location='.$latitude.','.$longitude.'&timestamp='.time().'&sensor=false';
+	$ch = curl_init();  
+	curl_setopt($ch, CURLOPT_URL, $url2);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15); 
+	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+	$json_string = curl_exec($ch);
+	$parsed_json = json_decode($json_string);
+	$timezoneid = $parsed_json->timeZoneId;
+	
+	date_default_timezone_set("$timezoneid");
+	$datenew = date('h:i:s A d-m-Y') ;
+	
+	echo "The current time and date in $cityplace is $datenew";
+
+}
+
+elseif(isset($_POST['weather'])) {
+	
+	
+	$string = $_POST['weather'];
+	$keyworded = 'in';
+	$finder    = strpos($string, $keyworded) + strlen($keyworded);
+	$cityplace = substr($string, $finder);
+	$city = rawurlencode(trim($cityplace));
+ 
+	#Find latitude and longitude
+	 
+	//$map_address = "new york";
+	$url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=$city";
+	$lat_long = get_object_vars(json_decode(file_get_contents($url)));
+	// pick out what we need (lat,lng)
+	//$lat_long = $lat_long['results'][0]->geometry->location->lat . "," . $lat_long['results'][0]->geometry->location->lng;
+	$latitude = $lat_long['results'][0]->geometry->location->lat;
+	$longitude = $lat_long['results'][0]->geometry->location->lng;
+
+
+
+
+	$url2 = "https://www.amdoren.com/api/weather.php?api_key=N5ePG6a2yFTcT4bABY83xuGfSnbd7v&lat=$latitude&lon=$longitude";
+		
+		$ch = curl_init();  
+		curl_setopt($ch, CURLOPT_URL, $url2);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15); 
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		$json_string = curl_exec($ch);
+		$parsed_json = json_decode($json_string);
+		$forecasts = $parsed_json->forecast;
+		
+		foreach ($forecasts as $forecast) {
+			$summary = $forecast->summary;
+			$date = $forecast->date;
+			$icon = $forecast->icon;
+			echo "<br><img src='https://www.amdoren.com/media/$icon' title='$summary'></img><br/><strong>$date is going to be $summary  </strong>";
+
+		}
+}
 
 
 
@@ -177,12 +255,10 @@ if($stmt->rowCount() > 0)
 //else {
 
 
-?> 
-<?php
+
 
 if($_SERVER['REQUEST_METHOD'] === "GET"){
-	//if($_SERVER['REQUEST_METHOD'] === "GET"){
-//include "../config.php";
+
 
     try {
         $sql = 'SELECT intern_id, name, username, image_filename FROM interns_data WHERE username=\'opheus\'';
@@ -202,6 +278,10 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
 <html>
 <head>
 <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
 <style>
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -236,8 +316,13 @@ a {
   color: black;
 }
 
+
 button:hover, a:hover {
   opacity: 0.7;
+}
+
+#i {
+    color: #28da5f !important;
 }
 </style>
 <style type="text/css">
@@ -424,7 +509,9 @@ button:hover, a:hover {
   color: green;
   font-weight: bold;
 }
-
+.i {
+	color: #ffffff !important;
+}
   
      
     </style>
@@ -457,7 +544,7 @@ button:hover, a:hover {
             <div class="portlet portlet-blue">
                 <div class="portlet-heading">
                     <div class="portlet-title">
-                        <h4><i class="fa fa-circle text-green"></i> Opheus Bot- Customer Service</h4>
+                        <h4><i class="fa fa-circle text-green"></i>&nbsp;OPHEUS BOT - Customer Service</h4>
                     </div><br>
                     <div class="portlet-widgets">
                         <div class="btn-group">
@@ -565,53 +652,7 @@ function get_device_name($user_agent)
 //$sha1     = sha1($date); 
 
 
-function get_time($city)
-{
 
-	
-	$url = "https://www.amdoren.com/api/timezone.php?api_key=u3YfnHN8xmibFPbxAjRhtWYGXhAiKy&loc=$city";
-	$ch = curl_init();  
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15); 
-	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-	$json_string = curl_exec($ch);
-	$parsed_json = json_decode($json_string);
-	$newtime = $parsed_json->time;
-	echo $newtime;
-}
-
-function get_weather($city) {
- 
-#Find latitude and longitude
- 
-$url = "http://maps.googleapis.com/maps/api/geocode/json?address=Lagos";
-$json_data = file_get_contents($url);
-$result = json_decode($json_data, TRUE);
-$latitude = $result['results'][0]['geometry']['location']['lat'];
-$longitude = $result['results'][0]['geometry']['location']['lng'];
-
-
-
-
-$url2 = "https://www.amdoren.com/api/weather.php?api_key=u3YfnHN8xmibFPbxAjRhtWYGXhAiKy&lat=$latitude&lon=$longitude";
-	
-	$ch = curl_init();  
-	curl_setopt($ch, CURLOPT_URL, $url2);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15); 
-	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-	$json_string = curl_exec($ch);
-	$parsed_json = json_decode($json_string);
-	$forecasts = $parsed_json->forecast;
-	
-	foreach ($forecasts as $forecast) {
-		$summary = $forecast->summary;
-		$icon = $forecast->icon;
-		echo "<img src=".$icon."></img> $summary";
-
-	}
-}
 
 // Usage:
 
@@ -666,7 +707,7 @@ function send_message(message){
 // get the username
 function get_username(){
     send_message('Hi, friend what should i call you....?');
-	responsiveVoice.speak('Welcome, i am online if you need me. Click the chat and enter your name only to begin.','UK English Male');
+	responsiveVoice.speak('Welcome, i am online if you need me. Click the chat and enter your first name only to begin.','UK English Male');
 }
 
 
@@ -678,7 +719,7 @@ function ai(message){
 		  responsiveVoice.speak('Hi, nice to meet you ' + username + '. Would you like to train me? If yes please use the format. train: this is a question | this is an answer.','UK English Male');
         }
 
-        else if ((message.indexOf('what is the time') >= 0) || (message.indexOf('what is my time') >= 0) || (message.indexOf('what time is it') >= 0)){
+        else if ((message.indexOf('what is the time now') >= 0) || (message.indexOf('what is my time') >= 0) || (message.indexOf('what time is it') >= 0)){
         var date = new Date();
         var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
         var am_pm = date.getHours() >= 12 ? "PM" : "AM";
@@ -693,6 +734,10 @@ function ai(message){
           send_message('you are currently in '+ state +','+ country + '.');
           responsiveVoice.speak('you are currently in '+ state +','+ country + '.','UK English Male');
         }
+		 else if ((message.indexOf('who am i') >= 0)|| (message.indexOf('what am i') >= 0)){
+          send_message('A human from '+ state +','+ country + '&nbsp;currently using a '+ browser +'&nbsp;on a '+ device + '&nbsp;Device with ip address '+ ip +'.' );
+          responsiveVoice.speak('You are human from '+ state +','+ country + 'currently using a '+ browser +'on a '+ device + 'Device with ip address '+ ip +'.','UK English Male');
+        }
 		 else if ((message.indexOf('what browser am i using') >= 0) || (message.indexOf('what device am i using') >= 0) || (message.indexOf('what is my device') >= 0) || (message.indexOf('what is my browser') >= 0)){
 			send_message('you are currently using a&nbsp;'+ browser +'&nbsp;on a '+ device + '&nbsp;Device');
           responsiveVoice.speak('you are currently using a '+ browser +'on a '+ device + 'Device','UK English Male');
@@ -703,13 +748,13 @@ function ai(message){
 		  }
 		  else if ((message.indexOf('aboutbot') >= 0) || (message.indexOf('aboutBot') >= 0) || (message.indexOf('About Bot') >= 0) || (message.indexOf('botAbout') >= 0)){
 			send_message('Opheus-B0t v1.0');
-          responsiveVoice.speak('i am an opheus bot and i am currently version 1.0.');
+          responsiveVoice.speak('i am an opheus bot and i am currently at version 1.0.','UK English Male');
 		  }
 		else if (message.indexOf('train:') >= 0){
 		trainer = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {opheustrain: trainer },
 			success: function(data){
 				send_message(data);
@@ -717,11 +762,35 @@ function ai(message){
 				
 			}
 		 });}
+		else if (message.indexOf('time in') >= 0){
+		citytime = message;
+		$.ajax({
+			method: "POST",
+			url: 'profiles/opheus.php/',
+			data: {timing: citytime },
+			success: function(data){
+				send_message(data);
+				responsiveVoice.speak(data ,'UK English Male');
+				
+			}
+		 });}
+		else if (message.indexOf('weather in') >= 0){
+		forecast = message;
+		$.ajax({
+			method: "POST",
+			url: 'profiles/opheus.php/',
+			data: {weather: forecast },
+			success: function(data){
+				send_message(data);
+				responsiveVoice.speak('Here are the current weather conditions for five days including today' ,'UK English Male');
+				
+			}
+		 });}
 		else{
 		elses = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {opheuscheck: elses },
 			success: function(data){
 				send_message(data);
@@ -765,6 +834,7 @@ $(function() {
         ai(sms);
       });
 });
+
 
 
 </script>

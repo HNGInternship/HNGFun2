@@ -10,7 +10,6 @@
 //define('DB_DATABASE', "hng_fun");
 //define('DB_USER', "root");
 //define('DB_PASSWORD', "");
-
     try {
   $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 } catch (PDOException $pe) {
@@ -18,7 +17,6 @@
 }
  global $conn;
     
-
         $result = $conn->query("Select * from secret_word LIMIT 1");
         $result = $result->fetch(PDO::FETCH_OBJ);
         $secret_word = $result->secret_word;
@@ -171,7 +169,6 @@ function test_input($data) {
 }#intro-span #main span{
     font-size: 16px;
 }
-
 .main{
     background-color: rgba(255, 255, 255, .9);
     width: 100%;
@@ -378,15 +375,12 @@ button{
     .get-started{
         padding: 10px;
     }
-
 }
 @media only screen and (min-width: 850px) {
     .img{
         height: 500px;
     }
-
 }
-
 </style>
 </head>
 <body cz-shortcut-listen="true">
@@ -463,7 +457,6 @@ button{
         chatbot.style.display="none";
             chat.style.display="block";
         });
-
       
     </script>
     <script>
@@ -473,12 +466,10 @@ button{
         
         var message = $("#chat_message").val();
         var messageContainer = $("#chatMessages");
-
         if (message == "") {
             $("#chat_message").focus();
         } else {
             $("#chatMessages").append('<div id="messageSent">' + message + '</div>');
-
             $.ajax({
                 url: "/profiles/pearl.php",
                 type: "POST",
@@ -520,9 +511,6 @@ button{
     });
     
 });
-
-
-
     </script> 
 </div>
 </body>

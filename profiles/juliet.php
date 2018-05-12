@@ -1,6 +1,6 @@
 <?php
 
- include_once("../answers.php"); 
+//include_once("../answers.php"); 
 
 if (!defined('DB_USER')){
             
@@ -113,20 +113,21 @@ function assistant($string)
 
 $existError =false;
 $reply = "";//process starts
-if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
+//echo "This is the POST message " + $_POST['msg'];
+if(isset($_GET['msg'])){ 
 
-  if ($_POST['msg'] == 'commands') {
+  if ($_GET['msg'] == 'commands') {
     $reply = 'These are my commands <p>1. what is my location, 2. tell me about your author, 3. open facebook, 6. open twitter, 7. open linkedin, 8. shutdown my pc, 9. get my pc name.</p>';
     echo $reply;
   } 
       if($reply==""){
-       $reply = assistant($_POST['msg']);
+       $reply = assistant($_GET['msg']);
        echo $reply;
        
      }
   if($reply =="") {
 
-    $post= $_POST['msg'];
+    $post= $_GET['msg'];
     $result = decider($post);
     if($result){
       $question=$result[0]; 
@@ -205,9 +206,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
       }       
   
  
-
+return;
 }
-else{
+
   
 ?>
 
@@ -703,7 +704,7 @@ a:focus {
                     jQuery.ajax({
                         url: "/profiles/juliet.php",
                         data: dataString,
-                        type: "POST",
+                        type: "GET",
                          cache: false,
                              success: function(response) {
             setTimeout(function(){
@@ -782,6 +783,3 @@ a:focus {
   </body>
 
 </html>
-
-<?php 
-}?>
