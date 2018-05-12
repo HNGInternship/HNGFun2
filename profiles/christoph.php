@@ -4,16 +4,6 @@ if (empty($_SESSION)) {
     session_start();
 }
 
-// if (file_exists('config.php')) {
-//     include 'config.php';
-// }
-// else if (file_exists('../config.php')) {
-//     include '../config.php';
-// }
-// else if (file_exists('../../config.php')) {
-//     include '../../config.php';
-// }
-
 if(!defined('DB_USER')){
     require "../../config.php";		
     try {
@@ -54,7 +44,7 @@ $name = $intern_detail['name'];
 $username = $intern_detail['username'];
 $filename = $intern_detail['image_filename'];
 
-$padding = '50px 80px';
+$padding = '0px 80px';
 $home_url = '';
 
 if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
@@ -73,8 +63,8 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?=$name;?></title>
-    <link rel="stylesheet" href="<?=$home_url;?>vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?=$home_url;?>vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Josefin%20Sans:400,500,600,700" rel='stylesheet' type='text/css' />
     <link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css' />
@@ -88,6 +78,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
 
         .btn {
             font-family: "Josefin Sans","Montserrat","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif";
+            border-radius: 5px !important;
         }
 
         .container.profile-body {
@@ -95,7 +86,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         }
 
         .profile-details, .skills {
-            padding-top: 110px;
+            padding-top: 80px;
         }
 
         .profile-details {
@@ -167,7 +158,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         }
 
         .skill-list {
-            margin-bottom: 50px;
+            margin-bottom: 25px;
         }
 
         .skill-list h4 {
@@ -283,6 +274,10 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             overflow-y: scroll;
         }
 
+        input[type=text] {
+            border: 1px solid #BDBDBD !important;
+        }
+
         .chatbot-message-bot, .chatbot-message-sender {
             float: left;
             padding: 7px 10px;
@@ -290,6 +285,14 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             width: 85%;
             font-size: 15px;
             word-wrap: break-word;
+        }
+
+        .chatbot-message-bot > div > p, .chatbot-sender-bot > div > p {
+            margin-top: 10px !important;
+        }
+
+        .nav.navbar {
+            height: 80px !important;
         }
 
         #last-message > p {
@@ -513,7 +516,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         </div>
     </div>
 </body>
-<script src="<?=$home_url;?>vendor/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="<?=$home_url;?>/js/jquery.min.js" type="text/javascript"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="<?=$home_url;?>vendor/bootstrap/js/bootstrap.min.js"></script>
 <script>
@@ -595,16 +598,11 @@ $(document).on('click', '.chatbot-send', function(e){
 
     content_height = $('.chatbot-menu-content').prop('scrollHeight');
     $('.chatbot-menu-content').scrollTop(content_height);
-
-    url = './profiles/christoph.php';
-    if (location.pathname.includes('christoph.php')) {
-        url = '../profiles/christoph.php'
-    }
     
     // Use AJAX to query DB and look for matches to user's query
     if(message_string !== '' && message_string.trim() !== 'help' && password && !aboutbot) {
         $.ajax({
-            url: '/profiles/christoph.php',
+            url: './profiles/christoph.php',
             data: bot_query+'='+payload.message,
             type: 'POST',
             dataType: 'JSON',
