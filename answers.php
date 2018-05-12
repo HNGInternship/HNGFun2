@@ -387,6 +387,9 @@ function get_bot_version(){
     $bot_version=1.9;
    return "Merlin Version : ".$bot_version;
 }
+
+
+
 //****************************************************************************************************************************************************************
 //****************************************************************************************************************************************************************
 //****************************************************************************************************************************************************************
@@ -420,6 +423,8 @@ function getBotMenu(){
 function getTime(){
   return date("h:i:s");
 }
+
+
 function simpleMaths($operation, $expression){
     switch ($operation) {
       case 'factor':
@@ -462,6 +467,7 @@ function simpleMaths($operation, $expression){
         'answer' =>"Your answer is: ".$response['result']
     ]);
 }
+
 /******** End Adroit Bot Funct ********/
 /*
 // end of functions by johnayeni

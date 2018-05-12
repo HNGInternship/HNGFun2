@@ -438,7 +438,7 @@ function getPinkyCommands(){
 
 function getBotInfo() {
     $bot_version = 1.01;
-    return: "This is Vector, version " .$bot_version;
+    return "This is Vector, version " .$bot_version;
 }
 function getBotManual() {
         return  "Send 'location' to get your location. \n
@@ -451,11 +451,8 @@ function getBotManual() {
           'train: question # answer # password'";
 }
 function getAge() {
-        return: "Vectormike is 20 years old. \n
+        return "Vectormike is 20 years old. \n
         Vector is " .$bot_version;
-}
-function getTime() {
-    return: date(h:i:sA);
 }
 
 ///////////////////// THE END /////////////////////////////
