@@ -179,7 +179,7 @@ $activeArray[$fileIndex]="active";
                 <a href="login" class="nav-link">LogIn</a>
             </li>
             <li>
-                <a href="login" class="nav-link"><?= $fileName ?></a>
+                <a href="login" class="nav-link">Test <?= $fileName ?> end</a>
             </li>
     </ul>
   </div>
