@@ -1,5 +1,25 @@
 <?php
-		require_once '../db.php';
+
+		if(!defined('DB_USER')){
+			require_once "../../config.php";
+			try {
+					define('DB_CHARSET', 'utf8mb4');
+					$dsn = 'mysql:host='.DB_HOST.';dbname='.DB_DATABASE.';charset='.DB_CHARSET;
+
+					$opt = [
+							PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+							PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+							PDO::ATTR_EMULATE_PREPARES => false
+					];
+
+					$conn = new PDO($dsn, DB_USER, DB_PASSWORD, $opt);
+			} catch (PDOException $pe) {
+					die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+			}
+	}
+// 		require_once '../db.php';
+		
+
 		$result = $conn->query("Select * from secret_word LIMIT 1");
 		$result = $result->fetch(PDO::FETCH_OBJ);
 		$secret_word = $result->secret_word;
@@ -33,7 +53,7 @@
 	// function to train bot
 	// pass message as arguement
 	function trainAlan($newmessage){
-		require 'db.php';
+		require '../db.php';
 		$message = explode('#', $newmessage);
 		$question = explode(':', $message[0]);
 		$answer = $message[1];
@@ -77,7 +97,7 @@
 	// Returns 1 if question is not found in database
 	function checkDatabase($question){
 		try{
-			require 'db.php';
+			require '../db.php';
 			$stmt = $conn->prepare('select answer FROM chatbot WHERE (question LIKE "%'.$question.'%") LIMIT 1');
 			$stmt->execute();
 
