@@ -75,7 +75,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         }
         .profile-details {
             padding-right: 0;
-            background-image: linear-gradient(120deg, #fdfbfb 0%, #e74c3c 100%);
+            background: #a51304;
             height: auto;
         }
         .skills {
