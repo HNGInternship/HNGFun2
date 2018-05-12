@@ -359,7 +359,7 @@
 
 	  		date = new Date(date);
 	      
-	      	return `${date} - <strong>${this.getDayOfWeek(date.getDay())}</strong>`;
+	      	return `<h4>${this.getDayOfWeek(date.getDay())}</h4><p class="my-0">${this.getMonthOfYear(date.getMonth())} ${date.getDate()},  ${date.getFullYear()}</p>`;
 	  	},
 	  	getDayOfWeek: function(index){
 	  	  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday'];
