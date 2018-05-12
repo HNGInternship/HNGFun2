@@ -1,7 +1,7 @@
 
 <?php
    
-require '../db.php'; 
+//require '../db.php'; 
 
 //query to select intern data
     $userrow = "SELECT * FROM interns_data WHERE username='Rex'" ; 
@@ -119,5 +119,5 @@ require '../db.php';
 </body>
 
 
-</html
+</html>
 
