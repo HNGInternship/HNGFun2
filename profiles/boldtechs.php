@@ -75,7 +75,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         }
         .profile-details {
             padding-right: 0;
-            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            background-image: linear-gradient(120deg, #fdfbfb 0%, #e74c3c 100%);
             height: auto;
         }
         .skills {
@@ -102,7 +102,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             margin-left: auto;
             margin-right: auto;
             display: block;
-            width: 200px;
+            width: 250px;
             border-radius: 100%;
 		border: 7px solid gainsboro;
         }
@@ -110,6 +110,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             font-size: 25px;
             font-weight: 600;
             margin-top: 20px;
+		color:#000000;
         }
         .social-links a {
             margin-right: 20px;
@@ -363,8 +364,8 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
                 </div>
             </div>
             <div class="col-sm-6 skills" style="">
-                <p class="hello-text text-center">Hello World!</p>
-                <span>I am a Full-Stack Developer and an aspiring UI/UX Designer. Feel free to engage me in any of your projects.</span>
+                <p class="hello-text text-center">Hi Guys !</p>
+                <span>I am a FWeb Designer & Developer, UI/UX Designer</span>
                 <div class="skill-list">
                     <h4>Skills</h4>
                     <div class="skill-progress">
@@ -421,10 +422,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
                                 <p>2) Complex Mode: You can train me further to answer specific questions giving me variables and specific functions. To train me for complex mode: Type <span class="bot-command">train: question [preposition] {{parameter_1}} [delimiter] {{parameter_2}} # answer {{parameter1}} [delimiter] {{parameter}} (method_name) # [password]</span> where : </p>
                                 <p><span class="bot-command">[preposition]</span> can either be <span class="bot-command">between</span> or <span class="bot-command">from</span> and <span class="bot-command">[delimiter]</span> can either be <span class="bot-command">and</span> or <span class="bot-command">to</span></p>
                                 <p>eg 1) <span class="bot-command">train: What is the distance <span class="bot-command highlight">between</span> {{Yaba}} <span class="bot-command highlight">and</span> {{Surulere}} # The distance between {{Yaba}} <span class="bot-command highlight">and</span> {{Surulere}} ((calculate_distance)) # password</span></p>
-                                <p>eg 2) <span class="bot-command">train: Can you calculate the distance <span class="bot-command highlight">between</span> {{Lagos Airport}} <span class="bot-command highlight">to</span> {{Sheraton Hotels}} # Yes, I can. The distance between {{Lagos Airport}} <span class="bot-command highlight">to</span> {{Sheraton Hotels}} ((calculate_distance)) # password</span></p>
-                                <p>eg 3) <span class="bot-command">train: How long is it <span class="bot-command highlight">from</span> {{UNILAG}} <span class="bot-command highlight">to</span> {{LASU}} # The distance from {{UNILAG}} <span class="bot-command highlight">to</span> {{LASU}} ((calculate_distance)) # password</span></p>
-                                <p>Use the <span class="bot-command">get duration : mode</span> Command to show you the approximate duration it would take you to get from one location to the other (The last two locations) where <span class="bot-command">mode</span> can either be <span class="bot-command">driving</span> or <span class="bot-command">walking</span> eg <span class="bot-command">get duration : walking</span></p>
-                                <p>Use the <span class="bot-command">show direction : mode</span> Command to show you the direction between the last two locations on map where <span class="bot-command">mode</span> can either be <span class="bot-command">driving</span> or <span class="bot-command">walking</span> eg <span class="bot-command">show direction : driving</span></p>
+                               
                                 <p>To get the current version of Locato, type <span class="bot-command">aboutbot</span></p>
                                 <!-- <p>Use the <i class="bot-command fa fa-arrow-up"></i> and <i class="bot-command fa fa-arrow-down"></i> keys on your keyboard to navigate between previous commands.</p> -->
                                 <p>To see this help menu again, simply type <span class="bot-command">help</span> or click the <i class="fa fa-question-circle"></i> above</p>
@@ -559,7 +557,7 @@ $(document).on('click', '.chatbot-send', function(e){
 // Check if there's a POST REQUEST from the bot
 if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST['bot_command'])) {
     if (empty($conn)) {
-        $response = ['response'=>'connection_error', 'message'=>"Sorry, I could not connect to the database, someone must have crashed it again."];
+        $response = ['response'=>'connection_error', 'message'=>"Sorry, Error in connection To the Database"];
         echo json_encode($response);
         exit;
     }
@@ -570,8 +568,7 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
         $parsed_location_string = trim($parsed_location_string, '+');
         return $parsed_location_string;
     }
-    $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=";
-    $key = "AIzaSyCFtpq466EjoP-RImHD66upJV_OwjWL93k";
+    
     if ($_POST['bot_query']) {
         $query_input = $_POST['bot_query'];
         // Check if query matches a distance request pattern
