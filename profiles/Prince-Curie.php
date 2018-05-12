@@ -123,7 +123,7 @@ foreach ($result2 as $row) {
 			 			?>
 			 		</p>
 					<img class="myimage" src="<?php echo $image_filename; ?>" alt="a picture of chibuike"
-					srcset="http://res.cloudinary.com/prince-curie/image/upload/c_scale,q_100,w_200/v1522472475/chibuike_msblqx.jpg 1x,
+					srcset="http://res.cloudinary.com/prince-curie/image/upload/v1522472475/chibuike_msblqx.jpg 1x,
 					http://res.cloudinary.com/prince-curie/image/upload/v1522472475/chibuike_msblqx.jpg 2x,
 					http://res.cloudinary.com/prince-curie/image/upload/v1522472475/chibuike_msblqx.jpg 3x">
 				</div>
