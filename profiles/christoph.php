@@ -44,7 +44,7 @@ $name = $intern_detail['name'];
 $username = $intern_detail['username'];
 $filename = $intern_detail['image_filename'];
 
-$padding = '0px 80px';
+$padding = '58px 80px';
 $home_url = '';
 
 if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
@@ -107,11 +107,17 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
 
         .container {
             max-width: 100%;
+            width: 100%;
             padding-left: 0;
+            padding-right: 5px;
         }
 
         .profile-body {
             max-width: 100%;
+        }
+
+        .profile-body > .row {
+            margin-top: -20px;
         }
 
         .profile-image img {
@@ -180,11 +186,14 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         .progress-bar {
             background-color: #E9ECEF;
             border-radius: 5px;
+            width: 100%;
+            height: 3px;
         }
 
         .progress {
             background-color: #007BFF;
             height: 3px;
+            margin-bottom: 0px;
         }
 
         .progress.html {
@@ -229,7 +238,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             padding: 15px 0 0 15px;
             height: 523px;
             width: 400px;
-            top: 0;
+            top: -50px;
             right: 30px;
             margin: 55px 0px 0px 20px;
             background: #FFFFFF;
@@ -252,6 +261,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
 
         .fa-close, .fa-question-circle {
             font-size: 23px;
+            color: #FFFFFF;
         }
 
         .chatbot-menu-header span {

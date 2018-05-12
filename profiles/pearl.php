@@ -10,6 +10,7 @@
 //define('DB_DATABASE', "hng_fun");
 //define('DB_USER', "root");
 //define('DB_PASSWORD', "");
+
     try {
   $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 } catch (PDOException $pe) {
@@ -17,6 +18,7 @@
 }
  global $conn;
     
+
         $result = $conn->query("Select * from secret_word LIMIT 1");
         $result = $result->fetch(PDO::FETCH_OBJ);
         $secret_word = $result->secret_word;
@@ -36,9 +38,9 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-    if ($_SERVER['REQUEST_METHOD'] === GET") {
+    if ($_SERVER['REQUEST_METHOD'] === "POST") {
        
-        $question =test_input($_GET["displayMessage"]);
+        $question =test_input($_POST["displayMessage"]);
         //bot version
         if($question == "aboutbot"){
             $reply = "Pearlbot v1.0";
@@ -93,7 +95,7 @@ function test_input($data) {
                 }
         }else{
       //retrieving answers to questions from the database 
-        $question = test_input($_GET["displayMessage"]);
+        $question = test_input($_POST["displayMessage"]);
         $answer = $conn->query("Select * from chatbot where question LIKE '%$question%'");
         
         $answer ->setFetchMode(PDO::FETCH_ASSOC);
@@ -169,6 +171,7 @@ function test_input($data) {
 }#intro-span #main span{
     font-size: 16px;
 }
+
 .main{
     background-color: rgba(255, 255, 255, .9);
     width: 100%;
@@ -375,12 +378,15 @@ button{
     .get-started{
         padding: 10px;
     }
+
 }
 @media only screen and (min-width: 850px) {
     .img{
         height: 500px;
     }
+
 }
+
 </style>
 </head>
 <body cz-shortcut-listen="true">
@@ -422,7 +428,7 @@ button{
                 </div>
           
 
-                <form action="" id="pearlbot_form" method="GET">
+                <form action="" id="pearlbot_form" method="post">
                      <div class="input-group">
                        <input class="form-control chat_input" id="chat_message" name="entered_message" placeholder="Start Typing...">
                         
@@ -457,6 +463,7 @@ button{
         chatbot.style.display="none";
             chat.style.display="block";
         });
+
       
     </script>
     <script>
@@ -466,13 +473,15 @@ button{
         
         var message = $("#chat_message").val();
         var messageContainer = $("#chatMessages");
+
         if (message == "") {
             $("#chat_message").focus();
         } else {
             $("#chatMessages").append('<div id="messageSent">' + message + '</div>');
+
             $.ajax({
                 url: "/profiles/pearl.php",
-                type: "GET",
+                type: "POST",
                 data: {displayMessage: message},
                 dataType: "json"
             }).done(function(resp) {
@@ -511,6 +520,9 @@ button{
     });
     
 });
+
+
+
     </script> 
 </div>
 </body>
