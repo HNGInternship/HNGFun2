@@ -81,7 +81,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         .skills {
             height: auto;
             padding: <?=$padding;?>;
-            background: #ab0b4b;
+            background: #ab0000;
         }
         footer {
             display: none;
