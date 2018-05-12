@@ -221,7 +221,7 @@ elseif(isset($_POST['weather'])) {
 
 
 
-	$url2 = "https://www.amdoren.com/api/weather.php?api_key=WBz93BfsWrk5yjUtmc3tVpnUWnEV46&lat=$latitude&lon=$longitude";
+	$url2 = "https://www.amdoren.com/api/weather.php?api_key=N5ePG6a2yFTcT4bABY83xuGfSnbd7v&lat=$latitude&lon=$longitude";
 		
 		$ch = curl_init();  
 		curl_setopt($ch, CURLOPT_URL, $url2);
