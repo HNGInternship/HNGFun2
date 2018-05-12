@@ -767,7 +767,7 @@ if( !array_key_exists('ajax', $_POST)){
             let self = this;
           
                 let posting = $.ajax({
-                    url: "/profiles/Waju.php",
+                    url: "/profiles/Waju",
                     type: "post",
                     method:"POST",
                     data: {location: location, ajax: 'AJAX'},
@@ -836,7 +836,7 @@ if( !array_key_exists('ajax', $_POST)){
                 let self = this;
 
                 let posting = $.ajax({
-                    url: "/profiles/Waju.php",
+                    url: "/profiles/Waju",
                     type: "POST",
                     method: "POST",
                     data: {question: message, ajax: 'AJAX'},
