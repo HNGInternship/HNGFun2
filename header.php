@@ -75,7 +75,7 @@ $activeArray[$fileIndex]="active";
         .navbar{
           font-size: 15px;
           font-weight: bold;
-          background-color: #bbbbbb;
+          background-color: #F4F4F4;
           padding: 0 10em;
         }
         .navbar-expand-lg{}
