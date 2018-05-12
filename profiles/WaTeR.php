@@ -65,7 +65,8 @@
 		
 	}
 	.text-primary{
-		font-size: 40px;
+		font-size: 20px;
+		float: center;
 	}
 	</style>
 	<!-- Latest compiled and minified CSS -->
