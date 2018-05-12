@@ -80,9 +80,11 @@
 </div>
 
 <div class="content">
-<div class="col-lg-3">
-	</div>
+	<div class="col-lg-3">
 		<?php echo $user->name ?>
+	</div>
+</div>
+
 
 
 <div class="col-lg-6">
@@ -94,9 +96,6 @@
           <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
         </div><!-- /.col-lg-4 -->
 </div>
-
-	
-	<?php } ?>
 <div class="col-lg-3">
 	</div>
 <div style="background: #6A5ACD; height: 200px;max-width: 90%">
