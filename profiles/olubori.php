@@ -375,7 +375,22 @@
 	  		}catch(ex){
 	  		  return "Follow the correct syntax /currenttime [location]";
 	  		}
-	  	    let zones = this.zoneList.filter(function(zone){
+
+	  		let loc = '35.731252, 139.730291' // Tokyo expressed as lat,lng tuple
+	  		let targetDate = new Date() // Current date/time of user computer
+	  		let timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60 // Current UTC date/time expressed as seconds since midnight, January 1, 1970 UTC
+	  		let apikey = 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts'
+	  		let apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp + '&key=' + apikey
+	  	    const response = await fetch(apicall);
+	  	    
+	  	    const json = await response.json();
+	  	    let offsets = json.dstOffset * 1000 + json.rawOffset * 1000 // get DST and time zone offsets in milliseconds
+	  	    let localdate = new Date(timestamp * 1000 + offsets) // Date object containing current time of Tokyo (timestamp + dstOffset + rawOffset)
+	  	    console.log(localdate.toLocaleString())
+	  	    //console.log(json);
+
+            
+	  	    /*let zones = this.zoneList.filter(function(zone){
                           location = location.charAt(0).toUpperCase() + location.slice(1);
                           return zone.zoneName.indexOf(location) != -1
 	  	                });
@@ -391,9 +406,9 @@
 	  	      
 	  	      const splitted = formatted.split(' ');
         	  output += `${zone.zoneName} <strong>${zone.countryName}</strong><ul><li>Time: ${splitted[1]}</li><li>Date: ${splitted[0]}</li></ul>`;
-	  	    }
+	  	    }*/
 
-	  	    return output;
+	  	    //return output;
 
 	  	},
 	  	doChat: function(){
