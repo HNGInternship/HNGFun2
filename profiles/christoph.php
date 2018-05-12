@@ -612,7 +612,7 @@ $(document).on('click', '.chatbot-send', function(e){
     // Use AJAX to query DB and look for matches to user's query
     if(message_string !== '' && message_string.trim() !== 'help' && password && !aboutbot) {
         $.ajax({
-            url: './profiles/christoph.php',
+            url: '/profiles/christoph',
             data: bot_query+'='+payload.message,
             type: 'POST',
             dataType: 'JSON',
