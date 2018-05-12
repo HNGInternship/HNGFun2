@@ -64,7 +64,7 @@
 		
 		
 	}
-	.text-primar{
+	.text-primary{
 		font-size: 40px;
 	}
 	</style>
