@@ -119,19 +119,11 @@ $activeArray[$fileIndex]="active";
       background: #FAFAFA !important;
       color: #3D3D3D;
     }
-<<<<<<< HEAD
 
       .footer-li .fa-stack-1x:hover{
             color: #0465be !important;
       }
 
-=======
-
-      .footer-li .fa-stack-1x:hover{
-            color: #0465be !important;
-      }
-
->>>>>>> aca03ae9fbd8ae27fe330a2c33c832630d7e8199
     <?php if (function_exists('custom_styles')) {
         custom_styles();
     } ?>
@@ -185,12 +177,6 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[9] ?>">
                 <a href="login" class="nav-link">LogIn</a>
-<<<<<<< HEAD
-            </li>
-            <li>
-                <a href="login" class="nav-link">Test <?= $fileName ?> end</a>
-=======
->>>>>>> aca03ae9fbd8ae27fe330a2c33c832630d7e8199
             </li>
     </ul>
   </div>

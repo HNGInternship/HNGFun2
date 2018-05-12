@@ -586,26 +586,31 @@ if( !array_key_exists('ajax', $_POST)){
         left:0;
         width:100%;
     }
-    .input-field{
+    .waju-input-field{
         width:75%;
         margin:0;
         outline:none;
         text-indent: 10px;
         height:30px;
+        border-bottom: 2px solid rgba(0,0,0,0.345);
     }
-    .form-group{
+    input[type="text"]{
+        border: none;
+    }
+    .waju-form-group{
         padding:0;
-        margin:0;
+        margin-top:10px;
+        box-shadow: 2px -3px 3px rgba(0,0,0,0.145);
     }
-    .send-button{
-        width:15%;
+    .waju-send-button{
+        width:20%;
         margin:0;
         background: #92BF8F;
         padding: 2px 5px;
         font-weight: bold;
         color:rgba(255,255,255,0.789);
     }
-    .chat-header{
+    .chat-area .chat-header{
         background: linear-gradient(96deg, #373A98 0, #226AE6 58%);
         height: 40px;
         padding: 10px 10px 0 10px;
@@ -683,9 +688,9 @@ if( !array_key_exists('ajax', $_POST)){
             </ul>
         </div>
         <form action="<?php echo $_SERVER['SCRIPT_NAME'] . "?id=" . $_GET['id']; ?>" class="chat-form" id="chatForm" method="POST">
-            <div class="form-group">
-                <input type="text" name="question" id="questionField" class="input-field" autofocus>
-                <input type="submit" name="submit" value="Submit" class="fa chevron-circle-right send-button">
+            <div class="form-group waju-form-group">
+                <input type="text" name="question" id="questionField" class="waju-input-field" autofocus>
+                <input type="submit" name="submit" value="Send" class="waju-send-button">
             </div>
         </form>
     </div>
