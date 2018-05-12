@@ -21,7 +21,7 @@ if(!array_key_exists('ajax', $_POST)){
 } else {
     // ajax mode, need our own db and calling answers
     require_once ('../answers.php');
-    require_once ('../config.php');
+    require_once ('../../config.php');
     
 try {
     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
@@ -775,7 +775,7 @@ if( !array_key_exists('ajax', $_POST)){
             let self = this;
           
                 let posting = $.ajax({
-                    url: "/profiles/Waju",
+                    url: "/profiles/Waju.php",
                     type: "post",
                     data: {location: location, ajax: 'AJAX'},
                     dataType: "json"
@@ -843,7 +843,7 @@ if( !array_key_exists('ajax', $_POST)){
                 let self = this;
 
                 let posting = $.ajax({
-                    url: "/profiles/Waju",
+                    url: "/profiles/Waju.php",
                     type: "post",
                     data: {question: message, ajax: 'AJAX'},
                     dataType: "json"
