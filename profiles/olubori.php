@@ -253,14 +253,12 @@
   		</header>
   		<main ref="chat-msgs" id="chat-msgs">
   			<p v-for="msg in messages" :class="msg.human ? 'human-msg': 'bot-msg'" v-html="msg.text"></p>
-
-  			<div class="mx-auto bg-info w-50 text-white rounded" v-show="zoneList == null" v-html="info"></div>
   		</main>
   		<ul class="suggestion" v-show="suggestedCommands" ref="list">
   			<p class="my-0">Available commands <small>Click on any to choose</small></p>
   			<command-item v-for="(command, index) in suggestedCommands" :command="command" :key="command.key" :on-item-click="handleCommandClick"></command-item>
   		</ul>
-  		<input type="text" v-model="humanMessage" :disabled="zoneList == null" placeholder="Type / followed by command you want to give e.g. /train" id="human-text" @keyup.enter="handleSubmit" />
+  		<input type="text" v-model="humanMessage" placeholder="Type / followed by command you want to give e.g. /train" id="human-text" @keyup.enter="handleSubmit" />
   	</div>
   </div>
   
@@ -279,7 +277,6 @@
 	               {key: 'popularcities', description: 'I will show you all popular city that starts with an alphabet', format: '[a], or [b],... [z]'}
 	              ],
         humanMessage: '',
-        zoneList: null,
         choice: {command: '', message:''},
         messages: [
                     {
@@ -288,7 +285,8 @@
                     }
                   ],
         info: '<h4 class="text-center">Bot is currently preparing data</h4><p class="text-center">Please wait...</p>',
-        googlekey: 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts'
+        googlekey: 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts',
+        zoneList: null
       },
 	  computed: {
 	  	suggestedCommands: function(){
@@ -528,16 +526,6 @@
 	  		  }
 	  		}
 	  	}
-	  },
-	  created: async function(){
-	  	try{
-	  	  const response = await fetch('https://api.timezonedb.com/v2/list-time-zone?key=DXHGYWUAFA3S&format=json');
-	  	  const json = await response.json();
-	  	  this.zoneList = json.zones;
-	  	}catch(ex){
-	  	  this.info = '<h4 class="text-center text-danger">OOPS!!! APOLOGY</h4><p class="text-center">Something went wrong while I was trying to get data, Please reload your page and check your internet connection and firewall.</p>'
-	  	}
-	  	
 	  }
 	})
 
