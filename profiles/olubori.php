@@ -258,7 +258,7 @@
   			<p class="my-0">Available commands <small>Click on any to choose</small></p>
   			<command-item v-for="(command, index) in suggestedCommands" :command="command" :key="command.key" :on-item-click="handleCommandClick"></command-item>
   		</ul>
-  		<input type="text" v-model="humanMessage" placeholder="Type / followed by command you want to give e.g. /train" id="human-text" @keyup.enter="handleSubmit" />
+  		<input type="text" v-model="humanMessage" class="border" placeholder="Type / followed by command you want to give e.g. /train" id="human-text" @keyup.enter="handleSubmit" />
   	</div>
   </div>
   
@@ -273,8 +273,7 @@
 	               {key: 'train', description: 'You can train me with this', format: '[question] [answer] [password]'}, 
 	               {key: 'currenttime', description: 'I will get the current time in any location in this world', format: '[location]'},
 	               {key: 'dayofweek', description: 'I will tell you the day of the week a date falls on', format: '[yyyy-mm-dd]'},
-	               {key: 'aboutbot', description: 'I will tell you about me', format: ''},
-	               {key: 'popularcities', description: 'I will show you all popular city that starts with an alphabet', format: '[a], or [b],... [z]'}
+	               {key: 'aboutbot', description: 'I will tell you about me', format: ''}
 	              ],
         humanMessage: '',
         choice: {command: '', message:''},
@@ -286,7 +285,6 @@
                   ],
         info: '<h4 class="text-center">Bot is currently preparing data</h4><p class="text-center">Please wait...</p>',
         googlekey: 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts',
-        zoneList: null
       },
 	  computed: {
 	  	suggestedCommands: function(){
@@ -339,13 +337,11 @@
 			  case 'aboutbot':
 			    return 'Bori Bot Version 1.0, I tell day of the week from date, and I can tell time in any location too.';
 			  case 'dayofweek':
-			    return this.getDayOfWeek();
+			    return this.getDayFromDate();
 			  case 'currenttime':
 			    return this.getCurrentTime();
 			  case 'train':
 			    return this.doTrainBot();
-			  case 'popularcities':
-			    return this.getAllCities();
 			  default:
 			    return this.doChat();
 			}
@@ -353,7 +349,7 @@
 
             
 	  	},
-	  	getDayOfWeek: function(){
+	  	getDayFromDate: function(){
 	  		var date;
 	  		try{
 	          date = this.choice['message'].match(/\[(\d{4}-\d{2}-\d{2})\]/)[1];
@@ -362,10 +358,26 @@
 	  		}
 
 	  		date = new Date(date);
-            let days = ['Sunday', 'Monday', 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday'];
-            return `${date} - <strong>${days[date.getDay()]}</strong>`;
-
-
+	      
+	      	return `<h4>${this.getDayOfWeek(date.getDay())}</h4><p class="my-0">${this.getMonthOfYear(date.getMonth())} ${date.getDate()},  ${date.getFullYear()}</p>`;
+	  	},
+	  	getDayOfWeek: function(index){
+	  	  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday'];
+	  	  return days[index];
+	  	},
+	  	getMonthOfYear: function(index){
+          let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          return months[index];
+	  	},
+	  	formatAMPM: function(date) {
+	  	  let hours = date.getHours();
+	  	  let minutes = date.getMinutes();
+	  	  let ampm = hours >= 12 ? 'PM' : 'AM';
+	  	  hours %= 12;
+	  	  hours = hours ? hours : 12; // the hour '0' should be '12'
+	  	  minutes = minutes < 10 ? '0'+minutes : minutes;
+	  	  var strTime = hours + ':' + minutes + ' ' + ampm;
+	  	  return strTime;
 	  	},
 	  	getLocationFromAddress: async function(address){
 	  		
@@ -376,12 +388,12 @@
 	  		  const json = await response.json();
 	  		  switch(json.status){
 	  		    case "OK":
-                  return json.results[0].geometry.location;
+                  return json.results[0];
                 default:
-                  return {status: "Address not found"};
+                  return {error: "Address not found"};
 	  		  }
 	  		}catch(ex){
-	  		  return {status: 'Sorry something went wrong in getting your address'};
+	  		  return {error: 'Sorry something went wrong in getting your address'};
 	  		}
 	  	},
 	  	getTimeFromLocation: async function(location){
@@ -394,68 +406,37 @@
 	  	  	    
 	  	  	  const json = await response.json();
 	  	  	  let offsets = json.dstOffset * 1000 + json.rawOffset * 1000 // get DST and time zone offsets in milliseconds
-	  	  	  let localdate = new Date(timestamp * 1000 + offsets) // Date object containing current time of Tokyo (timestamp + dstOffset + rawOffset)
-	  	  	   return localdate;
+	  	  	  return new Date(timestamp * 1000 + offsets) // Date object containing current time of location (timestamp + dstOffset + rawOffset)
 	  	  	}catch(ex){
 	  	  	  return {error: true};
 	  	  	}
 	  	    
 	  	},
 	  	getCurrentTime: async function(){
-			let address, time;
+			let address, time, output;
 			try{
 	          address = this.choice['message'].match(/\[(.*?)\]/)[1];
 			}catch(ex){
 			  return "Follow the correct syntax /currenttime [location]";
 			}
 
-	  		let output = await this.getLocationFromAddress(address);
-            if(output.lat && output.lng){
-              output = await this.getTimeFromLocation(output);
-              if(output.error){
-              	return "Something went wrong while trying to get the time";
-              }
-              time = output;
-            }else{
-              return output.status;
+	  		output = await this.getLocationFromAddress(address);
+	  		if(output.error){
+	  		  return output.status;	
+	  		}
+
+            let { formatted_address } = output;
+            output = await this.getTimeFromLocation(output.geometry.location);
+
+            if(output.error){
+              return "Something went wrong while trying to get the time";
             }
-
-            
-            return `<h4>Current Time in ${address}</h4><p><strong>${time}</strong>`;
-            
-            
-	  		
-	  	    //console.log(json);
-
-            
-	  	    /*let zones = this.zoneList.filter(function(zone){
-                          location = location.charAt(0).toUpperCase() + location.slice(1);
-                          return zone.zoneName.indexOf(location) != -1
-	  	                });
-	  	    if(zones.length < 1){
-	  	      return `Time can not be found for your location can you use a popular city around that location. For example for Nigeria use /timeofday [Lagos]<br /><span class="text-success">Tip: Use <strong>/popularcities [${location.charAt(0)}]</strong> to check correct spelling for ${location}</span>`;
-	  	    }
-	  	    let output = '<h4>Time for ' + location + '</h4>';
-	  	    for (zone of zones) {
-	  	      const response = await fetch(`https://api.timezonedb.com/v2/get-time-zone?key=DXHGYWUAFA3S&format=json&by=zone&zone=${zone.zoneName}`);
-	  	      const json = await response.json();
-
-	  	      const formatted = json.formatted;
-	  	      
-	  	      const splitted = formatted.split(' ');
-        	  output += `${zone.zoneName} <strong>${zone.countryName}</strong><ul><li>Time: ${splitted[1]}</li><li>Date: ${splitted[0]}</li></ul>`;
-	  	    }*/
-
-	  	    //return output;
+            time = output;
+            return `<h4>${this.formatAMPM(time)}</h4><p class="my-0">${this.getDayOfWeek(time.getDay())}, ${time.getDate()} ${this.getMonthOfYear(time.getMonth())} ${time.getFullYear()}</p><p class="my-0">Time in ${formatted_address}</p>`;
 
 	  	},
 	  	doChat: function(){
-          let question = this.choice['message']; /*.match(/\[(.*?)\]/)[1];
-	  	  }catch(ex){
-            return "Follow the correct syntax /chitchat [question]";
-	  	  } */
-	  	  
-
+          let question = this.choice['message'];
 	  	  return axios.get('profiles/olubori.php?question='+ question)
 	  	    .then(function (response) {
 
@@ -493,31 +474,8 @@
 	  	  
 	  	  
 	  	},
-	  	getAllCities: function(){
-	  		let char;
-	  	  try{
-            char = this.choice['message'].match(/\[[a-zA-Z]{1}\]/)[0];
-            
-	  	  }catch(ex){
-            return "Follow the correct syntax /popularcities [a], or /popularcities [b], ... popularcities [z]";
-	  	  }
-	  		char = char.charAt(1).toUpperCase();
-	  		let cities = [];
-            
-            val = `<p>Cities that starts with <strong>${char}</strong></p><ul>`;
-	  	    for (zone of this.zoneList) {
-	  	      const arr = zone.zoneName.split('/');
-	  		  city = arr[arr.length-1];
-              if(city.indexOf(char) === 0)
-              	val += `<li><strong>${city}</strong> - ${zone.countryName}</li>`;
-	  	    }
-
-	  		val += `</ul>`;
-
-	  		return val;
-	  	},
 	  	processUnexpectedInput: function(){
-	  		commands = ['aboutbot', 'currenttime', 'dayofweek', 'train', 'popularcities'];
+	  		commands = ['aboutbot', 'currenttime', 'dayofweek', 'train'];
 	  		mycommand = this.choice.message.split(' ')[0];
 	  		mycommand = mycommand.substring(1);
 	  		for(cmd of commands){

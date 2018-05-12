@@ -178,9 +178,6 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item <?= $activeArray[9] ?>">
                 <a href="login" class="nav-link">LogIn</a>
             </li>
-            <li>
-                <a href="login" class="nav-link">Test <?= $fileName ?> end</a>
-            </li>
     </ul>
   </div>
 
