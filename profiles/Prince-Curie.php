@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="utf-8">
@@ -8,7 +8,7 @@
       rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 
-		<style>
+<style>
 *{
 box-sizing: border-box !important;
 }		
@@ -85,9 +85,9 @@ width: 30%;
 		<main>
  <?php 
  try { 
- //$pdo = new PDO('mysql:host=127.0.0.1:3306;dbname=hng_fun;
- //charset=utf8', 'root', ''); 
-// $pdo->setAttribute(PDO::ATTR_ERRMODE, 
+ $pdo = new PDO('mysql:host=127.0.0.1:3306;dbname=hng_fun;
+ charset=utf8', 'root', ''); 
+$pdo->setAttribute(PDO::ATTR_ERRMODE, 
  PDO::ERRMODE_EXCEPTION); 
  $sql = "SELECT * FROM interns_data WHERE username = 'Prince-Curie' LIMIT 1"; 
  $result = $pdo->query($sql);
@@ -124,11 +124,7 @@ foreach ($result2 as $row) {
 			 			echo $username;
 			 			?>
 			 		</p>
-					<img class="myimage" 
-					src="<?php
-							echo $image_filename;
-							?>
-					" alt="a picture of chibuike"
+					<img class="myimage" src="<?php echo $image_filename; ?>" alt="a picture of chibuike"
 					srcset="http://res.cloudinary.com/prince-curie/image/upload/c_scale,q_100,w_200/v1522472475/chibuike_msblqx.jpg 1x,
 					http://res.cloudinary.com/prince-curie/image/upload/v1522472475/chibuike_msblqx.jpg 2x,
 					http://res.cloudinary.com/prince-curie/image/upload/v1522472475/chibuike_msblqx.jpg 3x">
