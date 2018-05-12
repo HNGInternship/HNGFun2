@@ -754,7 +754,7 @@ function ai(message){
 		trainer = message;
 		$.ajax({
 			type: "POST",
-			url: 'http://slayers.hng.fun/profiles/opheus.php',
+			url: 'https://slayers.hng.fun/profiles/opheus.php',
 			data: {opheustrain: trainer },
 			success: function(data){
 				send_message(data);
@@ -766,7 +766,7 @@ function ai(message){
 		citytime = message;
 		$.ajax({
 			type: "POST",
-			url: 'http://slayers.hng.fun/profiles/opheus.php',
+			url: 'https://slayers.hng.fun/profiles/opheus.php',
 			data: {timing: citytime },
 			success: function(data){
 				send_message(data);
@@ -778,7 +778,7 @@ function ai(message){
 		forecast = message;
 		$.ajax({
 			type: "POST",
-			url: 'http://slayers.hng.fun/profiles/opheus.php',
+			url: 'https://slayers.hng.fun/profiles/opheus.php',
 			data: {weather: forecast },
 			success: function(data){
 				send_message(data);
@@ -790,7 +790,7 @@ function ai(message){
 		elses = message;
 		$.ajax({
 			type: "POST",
-			url: 'http://slayers.hng.fun/profiles/opheus.php',
+			url: 'https://slayers.hng.fun/profiles/opheus.php',
 			data: {opheuscheck: elses },
 			success: function(data){
 				send_message(data);
