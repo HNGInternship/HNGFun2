@@ -736,11 +736,8 @@ if( !array_key_exists('ajax', $_POST)){
                         self.appendMessage('Oops! that didn\'t work, dont forget to ask for a city(not country) ', 'bot');
                         //scroll the chat interface up/ down
                         self.$wrapper.animate(
-                            {scrollTop: '+=2500',},
-                            {duration: 700,
-                            easing: 'swing',
-                            duration: 600
-                            });
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
 
                     } else{
                         var dt = new Date(data.timestamp);
@@ -751,11 +748,8 @@ if( !array_key_exists('ajax', $_POST)){
                         
                         // scroll the chat interface up/ down
                         self.$wrapper.animate(
-                            {scrollTop: '+=4500',},
-                            {duration: 700,
-                            easing: 'swing',
-                            duration: 600
-                            });
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
                     }
                         
                 });  
@@ -836,7 +830,7 @@ if( !array_key_exists('ajax', $_POST)){
                 let self = this;
 
                 let posting = $.ajax({
-                    url: "/profiles/Waju",
+                    url: "/profiles/Waju", //remove.php later
                     type: "POST",
                     method: "POST",
                     data: {question: message, ajax: 'AJAX'},
@@ -868,11 +862,9 @@ if( !array_key_exists('ajax', $_POST)){
 
             //scroll the chat interface up/ down
             this.$wrapper.animate(
-                            {scrollTop: '+=4500',},
-                            {duration: 700,
-                            easing: 'swing',
-                            duration: 600
-                            });
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
+                           
         },
         toggleView: function(e){
             // if height is ,170.. increase it and point down 
@@ -944,12 +936,8 @@ if( !array_key_exists('ajax', $_POST)){
                         self.appendMessage(self._questions[self.current_index].question, 'bot');        
                     
                     self.$wrapper.animate(
-                        {scrollTop: '+=2000',},
-                        {duration: 700,
-                        easing: 'swing',
-                        duration: 600
-                        }
-                    );
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
                 })
            
         },
@@ -969,12 +957,8 @@ if( !array_key_exists('ajax', $_POST)){
                 this.$el.data('state','');
             }
             this.$wrapper.animate(
-                {scrollTop: '+=2000',},
-                {duration: 700,
-                easing: 'swing',
-                duration: 600
-                }
-            );
+                    {scrollTop: $('.chat-list__item').last().offset().top+900 },
+                     1000);
         },
         gameOver: function(){
             this.appendMessage(`Thanks for playing you scored ${this._score} points type #game to play again or type a message to chat`, 'bot');
