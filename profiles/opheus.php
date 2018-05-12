@@ -3,7 +3,7 @@
 <?php
    // error_reporting(E_ALL);
   //  ini_set("display_errors", 1);
-header('Access-Control-Allow-Origin: *'); 
+//header('Access-Control-Allow-Origin: *'); 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 
 
@@ -707,7 +707,7 @@ function send_message(message){
 // get the username
 function get_username(){
     send_message('Hi, friend what should i call you....?');
-	responsiveVoice.speak('Welcome, i am online if you need me. Click the chat and enter your name only to begin.','UK English Male');
+	responsiveVoice.speak('Welcome, i am online if you need me. Click the chat and enter your first name only to begin.','UK English Male');
 }
 
 
@@ -753,8 +753,8 @@ function ai(message){
 		else if (message.indexOf('train:') >= 0){
 		trainer = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {opheustrain: trainer },
 			success: function(data){
 				send_message(data);
@@ -765,8 +765,8 @@ function ai(message){
 		else if (message.indexOf('time in') >= 0){
 		citytime = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {timing: citytime },
 			success: function(data){
 				send_message(data);
@@ -777,8 +777,8 @@ function ai(message){
 		else if (message.indexOf('weather in') >= 0){
 		forecast = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {weather: forecast },
 			success: function(data){
 				send_message(data);
@@ -789,8 +789,8 @@ function ai(message){
 		else{
 		elses = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {opheuscheck: elses },
 			success: function(data){
 				send_message(data);
