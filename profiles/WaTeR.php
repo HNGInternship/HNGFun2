@@ -14,77 +14,59 @@
 	$result2 = $conn->query("Select * from interns_data where username = 'WaTeR'");
 	$user = $result2->fetch(PDO::FETCH_OBJ);  
 ?>
-<?php 
- /*require 'db.php';
-  $result = $conn->query("Select * from secret_word LIMIT 1");
-    $result = $result->fetch(PDO::FETCH_OBJ);
-    $secret_word = $result->secret_word;
-
-$query1 = "SELECT * FROM interns_data WHERE username='WaTeR'";
-
-$stmt = $conn->query($query1);
-
-$stmt->execute(); */   
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>HNG INternship Task 3</title>
 	<style type="text/css">
-		*{
-	padding: 0px;
-	margin:0px auto;
-	max-width: 100%;
-	font-size: 100%;
-}
+	{
+		padding: 0px;
+		margin:0px auto;
+		max-width: 100%;
+		font-size: 100%;
+	}
 
-.head{
-	margin-top: 30px;
-	padding: 20px;
-	max-width: 90%;
-	background: #F0F8FF;
-	color: #002610;
+	.head{
+		margin-top: 30px;
+		padding: 20px;
+		max-width: 90%;
+		background: #F0F8FF;
+		color: #002610;
 
-}
+	}
 
-.head h1{
-	font-size: 40pt;
-	text-align: center;
-}
-.compliment{
-	padding: 20px;
-	background: #6A5ACD;
-	max-width: 90%;
-	font-size: 20pt;
-	color: #FDFDF8;
-	text-align: center;
-}
+	.head h1{
+		font-size: 40pt;
+		text-align: center;
+	}
+	.compliment{
+		padding: 20px;
+		background: #6A5ACD;
+		max-width: 90%;
+		font-size: 20pt;
+		color: #FDFDF8;
+		text-align: center;
+	}
+			
+	.content{
+		margin-top:  5px;
+		padding: 20px;
+		background:#DC143C;
+		max-width: 90%;
 		
-.content{
-	margin-top:  5px;
-	padding: 20px;
-	background:#DC143C;
-	max-width: 90%;
-	
-	color: #FDFDF8;height: 150px;
-	text-align: center;
-}
-.content .header{
-	color: #4D0909;
-	font-size: 30pt;
-	text-align: left;
-	
-	
-}
-
-
-
+		color: #FDFDF8;height: 150px;
+		text-align: center;
+	}
+	.content .header{
+		color: #4D0909;
+		font-size: 30pt;
+		text-align: left;
+		
+		
+	}
 	</style>
-}
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
@@ -124,3 +106,7 @@ $stmt->execute(); */
 <!-- /.row -->
 </body>
 </html> 
+
+<?php
+
+?>
