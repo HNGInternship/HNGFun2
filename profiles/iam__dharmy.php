@@ -248,7 +248,7 @@
 		}
 
 		.circle {
-			width: 80%;
+			width: 60%;
 			margin-left: 20%;
 			border-radius: 50%;
 		}
