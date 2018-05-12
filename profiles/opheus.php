@@ -1,8 +1,8 @@
 
 
 <?php
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
+   // error_reporting(E_ALL);
+  //  ini_set("display_errors", 1);
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 
 
@@ -171,21 +171,29 @@ elseif(isset($_POST['timing'])) {
 	$finder    = strpos($string, $keyworded) + strlen($keyworded);
 	$cityplace = substr($string, $finder);
 	$city = rawurlencode(trim($cityplace));
+	//$map_address = "new york";
+	$url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=$city";
+	$lat_long = get_object_vars(json_decode(file_get_contents($url)));
+	// pick out what we need (lat,lng)
+	//$lat_long = $lat_long['results'][0]->geometry->location->lat . "," . $lat_long['results'][0]->geometry->location->lng;
+	$latitude = $lat_long['results'][0]->geometry->location->lat;
+	$longitude = $lat_long['results'][0]->geometry->location->lng;
+
 	
-	$url = "https://www.amdoren.com/api/timezone.php?api_key=WBz93BfsWrk5yjUtmc3tVpnUWnEV46&loc=$city";
+	
+	$url2 = 'https://maps.googleapis.com/maps/api/timezone/json?location='.$latitude.','.$longitude.'&timestamp='.time().'&sensor=false';
 	$ch = curl_init();  
-	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_URL, $url2);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15); 
 	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 	$json_string = curl_exec($ch);
 	$parsed_json = json_decode($json_string);
-	$time = $parsed_json->time;
-	$timex = explode(" ",$time);
-	$realdate = trim($timex[0]);
-	$realtime = trim($timex[1]);
-	$dateold = "$realtime $realdate"; 
-	$datenew = date('h:i:s A  m/d/Y', strtotime($dateold));
+	$timezoneid = $parsed_json->timeZoneId;
+	
+	date_default_timezone_set("$timezoneid");
+	$datenew = date('h:i:s A d-m-Y') ;
 	
 	echo "The current time and date in $cityplace is $datenew";
 
@@ -213,7 +221,7 @@ elseif(isset($_POST['weather'])) {
 
 
 
-	$url2 = "https://www.amdoren.com/api/weather.php?api_key=WBz93BfsWrk5yjUtmc3tVpnUWnEV46&lat=$latitude&lon=$longitude";
+	$url2 = "https://www.amdoren.com/api/weather.php?api_key=N5ePG6a2yFTcT4bABY83xuGfSnbd7v&lat=$latitude&lon=$longitude";
 		
 		$ch = curl_init();  
 		curl_setopt($ch, CURLOPT_URL, $url2);
@@ -246,25 +254,10 @@ elseif(isset($_POST['weather'])) {
 //else {
 
 
-?> 
-<?php
+
 
 if($_SERVER['REQUEST_METHOD'] === "GET"){
-if (!defined('DB_USER'))
-	{
-	require "../config.php";
 
-	}
-
-try
-	{
-	$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-	}
-
-catch(PDOException $pe)
-	{
-	die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-	}
 
     try {
         $sql = 'SELECT intern_id, name, username, image_filename FROM interns_data WHERE username=\'opheus\'';
@@ -725,7 +718,7 @@ function ai(message){
 		  responsiveVoice.speak('Hi, nice to meet you ' + username + '. Would you like to train me? If yes please use the format. train: this is a question | this is an answer.','UK English Male');
         }
 
-        else if ((message.indexOf('what is the time here') >= 0) || (message.indexOf('what is my time') >= 0) || (message.indexOf('what time is it') >= 0)){
+        else if ((message.indexOf('what is the time now') >= 0) || (message.indexOf('what is my time') >= 0) || (message.indexOf('what time is it') >= 0)){
         var date = new Date();
         var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
         var am_pm = date.getHours() >= 12 ? "PM" : "AM";
