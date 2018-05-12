@@ -61,7 +61,7 @@ $image_filename = $user['image_filename'];
 
         /* Image */
 
-        img {
+        .dimg {
 
             width: 200px;
             height: 200px;
@@ -157,7 +157,7 @@ $image_filename = $user['image_filename'];
     <header class="header">
             <h1 class="logo">DAST</h1>
         </header>
-        <img src="<?php echo $image_filename;?>" alt="Me">
+        <img src="<?php echo $image_filename;?>" alt="Me" class="dimg">
         
         
         <h1 class="name"><?php echo $name;?></h1>
