@@ -64,6 +64,9 @@
 		
 		
 	}
+	.text-primary{
+		font-size: 40px;
+	}
 	</style>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -84,23 +87,14 @@
 		<?php echo $user->name ?>
 	</div>
 </div>
-
-
-
 <div class="col-lg-6">
-          <img class="img-circle " src="<?php echo $data['image_filename']; ?>" alt="Generic placeholder image" width="200" height="200" style="border:solid 5px #fff;">
+          <!--<img class="img-circle " src="<?php echo $data['image_filename']; ?>" alt="Generic placeholder image" width="200" height="200" style="border:solid 5px #fff;">-->
           <h2 style="color: #fff;"><?php echo $user->name ?>
-          	<br/><small style="color: #FFFFCC;"><?php echo $user->name ?></small></h2>
+          	<br/><small style="color: red;"><?php echo $user->name ?></small></h2>
 
           <p class="text-primary" style="color: #F0F8FF;">FULL-STACK DEVELOPER | GRAPHICS DESIGNER | LEARNER</p>
           <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
         </div><!-- /.col-lg-4 -->
-</div>
-<div class="col-lg-3">
-	</div>
-<div style="background: #6A5ACD; height: 200px;max-width: 90%">
-
-</div>
 </div>
 <!-- /.row -->
 </body>

@@ -487,13 +487,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		   
 			xhttp.onreadystatechange = function() {
 	          if(this.readyState == 4 && this.status == 200) {
-	          	console.log(this.response);
-	          	 // userChat(question.value, this.response);
+	          	// console.log(this.response);
+	          	 userChat(question.value, this.response);
      			e.preventDefault();
 	            question.value = '';
 	          }
       	    }
-        xhttp.open('POST', 'profiles/Abigail.php', true);
+        xhttp.open('POST', 'profiles/Abigail', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('question='+ question.value);
         e.preventDefault();
