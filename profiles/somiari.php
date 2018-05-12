@@ -164,6 +164,10 @@
 						echo respondTime();
 					}else if ($message == "today's date"){
 						echo respondDate();
+					}else if ($message == "about bot"){
+						echo "version 1.0";
+					}else if ($message == "aboutbot"){
+						echo "version 1.0";
 					}else{
 						echo "I didn't quite get that but I'm a fast learner.
 						To teach me something, just type and send:
@@ -497,7 +501,7 @@
 			</section>
 
 			<form class="chat-box" id="ajax-contact" method="post" action="">
-				<span class="chat-box-header">Alan is not a bot</span>
+				<span class="chat-box-header">Alan is <del>not</del> a bot</span>
 				<div class="chat-msgs">
 					<p class="alan">Hello! I am Alan, and I am
 						<del>not</del> a bot.</p>
