@@ -721,14 +721,15 @@ if( !array_key_exists('ajax', $_POST)){
         sendApiRequest: function(location){
             let self = this;
         
-                let posting = $.get({
+                let posting = $.ajax({
+                    method: "GET",
                     url: `http://api.timezonedb.com/v2/list-time-zone?key=YJ6D5BKBWI4V&format=json&&zone=*${location}*&fields=zoneName,timestamp`
                  });
                 posting.done(function(data){
                     if('FAILED' == data.status){
                         self.appendMessage('Oops! that didn\'t work, dont forget to ask for a city(not country) ', 'bot');
                         //scroll the chat interface up/ down
-                        this.$wrapper.animate(
+                        self.$wrapper.animate(
                             {scrollTop: '+=2500',},
                             {duration: 700,
                             easing: 'swing',
@@ -743,7 +744,7 @@ if( !array_key_exists('ajax', $_POST)){
                         self.appendMessage(`The time in ${location} is ${time} `, 'bot');
                         
                         // scroll the chat interface up/ down
-                        this.$wrapper.animate(
+                        self.$wrapper.animate(
                             {scrollTop: '+=2500',},
                             {duration: 700,
                             easing: 'swing',
@@ -759,7 +760,8 @@ if( !array_key_exists('ajax', $_POST)){
         sendLocation: function(location){
             let self = this;
           
-                let posting = $.post({
+                let posting = $.ajax({
+                    method: "POST",
                     url: 'profiles/Waju.php',
                     data: {location: location, ajax: 'AJAX'},
                     dataType: 'json'
@@ -825,7 +827,9 @@ if( !array_key_exists('ajax', $_POST)){
             //send a request to the serve and append it to the bot
             sendRequest: function(message) {
                 let self = this;
-                let posting = $.post({
+
+                let posting = $.ajax({
+                    method: "POST",
                     url: 'profiles/Waju.php',
                     data: {question: message, ajax: 'AJAX'},
                     dataType: 'json'
@@ -856,8 +860,11 @@ if( !array_key_exists('ajax', $_POST)){
 
             //scroll the chat interface up/ down
             this.$wrapper.animate(
-                {scrollTop: $('.chat-list__item').get(0).scrollHeight+1000}, 1000
-            );
+                            {scrollTop: '+=4500',},
+                            {duration: 700,
+                            easing: 'swing',
+                            duration: 600
+                            });
         },
         toggleView: function(e){
             // if height is ,170.. increase it and point down 
