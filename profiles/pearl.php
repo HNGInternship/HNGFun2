@@ -36,9 +36,9 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-    if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    if ($_SERVER['REQUEST_METHOD'] === GET") {
        
-        $question =test_input($_POST["displayMessage"]);
+        $question =test_input($_GET["displayMessage"]);
         //bot version
         if($question == "aboutbot"){
             $reply = "Pearlbot v1.0";
@@ -93,7 +93,7 @@ function test_input($data) {
                 }
         }else{
       //retrieving answers to questions from the database 
-        $question = test_input($_POST["displayMessage"]);
+        $question = test_input($_GET["displayMessage"]);
         $answer = $conn->query("Select * from chatbot where question LIKE '%$question%'");
         
         $answer ->setFetchMode(PDO::FETCH_ASSOC);
@@ -422,7 +422,7 @@ button{
                 </div>
           
 
-                <form action="" id="pearlbot_form" method="post">
+                <form action="" id="pearlbot_form" method="GET">
                      <div class="input-group">
                        <input class="form-control chat_input" id="chat_message" name="entered_message" placeholder="Start Typing...">
                         
@@ -472,7 +472,7 @@ button{
             $("#chatMessages").append('<div id="messageSent">' + message + '</div>');
             $.ajax({
                 url: "/profiles/pearl.php",
-                type: "POST",
+                type: "GET",
                 data: {displayMessage: message},
                 dataType: "json"
             }).done(function(resp) {
