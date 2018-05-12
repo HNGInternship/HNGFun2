@@ -8,7 +8,6 @@
 			    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
 			}
 		}
-
     try {
         $q = 'SELECT * FROM secret_word';
         $sql = $conn->query($q);
@@ -16,20 +15,15 @@
         $data = $sql->fetch();
         $secret_word = $data["secret_word"];
     } catch (PDOException $err) {
-
         throw $err;
     }?>
 	
 <?php
-
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		
 		require "../answers.php";
-
 		date_default_timezone_set("Africa/Lagos");
-
 		// header('Content-Type: application/json');
-
 		if(!isset($_POST['question'])){
 			echo json_encode([
 				'status' => 1,
@@ -37,29 +31,24 @@
 			]);
 			return;
 		}
-
 		$question = $_POST['question']; //get the entry into the chatbot text field
-
 		//check if in training mode
 		$index_of_train = stripos($question, "train:");
 		if($index_of_train === false){//then in question mode
 			$question = preg_replace('([\s]+)', ' ', trim($question)); //remove extra white space from question
 			$question = preg_replace("([?.])", "", $question); //remove ? and .
-
 			//check if answer already exists in database
 			$question = "%$question%";
 			$sql = "select * from chatbot where question like :question";
 			$stmt = $conn->prepare($sql);
 			$stmt->bindParam(':question', $question);
 			$stmt->execute();
-
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			$rows = $stmt->fetchAll();
 			if(count($rows)>0){
 				$index = rand(0, count($rows)-1);
 				$row = $rows[$index];
 				$answer = $row['answer'];	
-
 				//check if the answer is to call a function
 				$index_of_parentheses = stripos($answer, "((");
 				if($index_of_parentheses === false){ //then the answer is not to call a function
@@ -118,7 +107,6 @@
 			}
 			$que = trim($split_string[0]);
 			$ans = trim($split_string[1]);
-
 			if(count($split_string) < 3){
 				echo json_encode([
 					'status' => 0,
@@ -126,7 +114,6 @@
 				]);
 				return;
 			}
-
 			$password = trim($split_string[2]);
 			//verify if training password is correct
 			define('TRAINING_PASSWORD', 'password');
@@ -137,8 +124,6 @@
 				]);
 				return;
 			}
-
-
 			//insert into database
 			$sql = "insert into chatbot (question, answer) values (:question, :answer)";
 			$stmt = $conn->prepare($sql);
@@ -152,7 +137,6 @@
 			]);
 			return;
 		}
-
 		echo json_encode([
 			'status' => 0,
 			'answer' => "Sorry I cannot answer that question, please train me"
@@ -161,6 +145,7 @@
 	}
 	else{
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -362,10 +347,8 @@
 						'</div>'+
 					'</div>';
 			
-
 			messageFrame.html(messageFrame.html()+chatToBeDisplayed);
 			$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
-
 			//send question to server
 			$.ajax({
 				url: "/profiles/iam__dharmy.php",
@@ -379,7 +362,6 @@
 										'<h5>'+response.answer+'</h5>'+
 									'</div>'+
 								'</div>';
-
 						messageFrame.html(messageFrame.html()+chatToBeDisplayed);
 						questionBox.val("");	
 						$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
@@ -389,7 +371,6 @@
 										'<h5>'+response.answer+'</h5>'+
 									'</div>'+
 								'</div>';
-
 						messageFrame.html(messageFrame.html()+chatToBeDisplayed);
 						$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
 					}
@@ -398,7 +379,6 @@
 					console.log(error);
 				}
 			})
-
 		});
 	});
 </script>	
