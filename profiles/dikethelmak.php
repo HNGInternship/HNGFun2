@@ -53,7 +53,6 @@
 
             a{
                 text-decoration: none;
-                font-size: 20px;
                 padding: 10px 20px;
                 color: #ffffff;
                 border-radius: 5px;
@@ -73,7 +72,8 @@
             }
 
             .warning{
-                background-color: #ffd54f;
+                background-color: #ffd54f;                
+                font-size: 1em;
             }
 
             .content{
