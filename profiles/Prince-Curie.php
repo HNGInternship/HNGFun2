@@ -23,6 +23,7 @@ color: rgba(0,0,0,1);
 border-radius: 50%;
 display: block;
 margin: auto;
+width: 100%;
 }
 main{
 margin: 0 !important;
