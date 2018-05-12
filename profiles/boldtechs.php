@@ -75,13 +75,13 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         }
         .profile-details {
             padding-right: 0;
-            background: #a51304;
+            background:  #3498db ;
             height: auto;
         }
         .skills {
             height: auto;
             padding: <?=$padding;?>;
-            background:  #e74c3c;
+            background:    #424949 ;
         }
         footer {
             display: none;
@@ -101,7 +101,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         .profile-image img {
             margin-left: auto;
             margin-right: auto;
-            display: block;
+        
             width: 250px;
             border-radius: 100%;
 		border: 7px solid gainsboro;
