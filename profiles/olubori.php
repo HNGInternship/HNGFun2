@@ -422,40 +422,10 @@
 
             
             return `<h4>Current Time in ${address}</h4><p><strong>${time}</strong>`;
-            
-            
-	  		
-	  	    //console.log(json);
-
-            
-	  	    /*let zones = this.zoneList.filter(function(zone){
-                          location = location.charAt(0).toUpperCase() + location.slice(1);
-                          return zone.zoneName.indexOf(location) != -1
-	  	                });
-	  	    if(zones.length < 1){
-	  	      return `Time can not be found for your location can you use a popular city around that location. For example for Nigeria use /timeofday [Lagos]<br /><span class="text-success">Tip: Use <strong>/popularcities [${location.charAt(0)}]</strong> to check correct spelling for ${location}</span>`;
-	  	    }
-	  	    let output = '<h4>Time for ' + location + '</h4>';
-	  	    for (zone of zones) {
-	  	      const response = await fetch(`https://api.timezonedb.com/v2/get-time-zone?key=DXHGYWUAFA3S&format=json&by=zone&zone=${zone.zoneName}`);
-	  	      const json = await response.json();
-
-	  	      const formatted = json.formatted;
-	  	      
-	  	      const splitted = formatted.split(' ');
-        	  output += `${zone.zoneName} <strong>${zone.countryName}</strong><ul><li>Time: ${splitted[1]}</li><li>Date: ${splitted[0]}</li></ul>`;
-	  	    }*/
-
-	  	    //return output;
 
 	  	},
 	  	doChat: function(){
-          let question = this.choice['message']; /*.match(/\[(.*?)\]/)[1];
-	  	  }catch(ex){
-            return "Follow the correct syntax /chitchat [question]";
-	  	  } */
-	  	  
-
+          let question = this.choice['message'];
 	  	  return axios.get('profiles/olubori.php?question='+ question)
 	  	    .then(function (response) {
 
