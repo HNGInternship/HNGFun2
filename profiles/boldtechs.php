@@ -81,7 +81,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         .skills {
             height: auto;
             padding: <?=$padding;?>;
-            background: #ab0000;
+            background:  #e74c3c;
         }
         footer {
             display: none;
@@ -102,7 +102,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             margin-left: auto;
             margin-right: auto;
             display: block;
-            width: 250px;
+            width: 300px;
             border-radius: 100px;
 		border: 10px solid gainsboro;
         }
@@ -162,19 +162,19 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             margin-bottom: 0px;
         }
         .progress.html {
-            width: 75%;
+            width: 80%;
         }
         .progress.js {
-            width: 72%;
+            width: 60%;
         }
         .progress.php {
-            width: 70%;
+            width: 60%;
         }
         .progress.mysql {
-            width: 70%;
+            width: 75%;
         }
         .progress.figma {
-            width: 35%;
+            width: 50%;
         }
         .chat-btn {
             float: right;
