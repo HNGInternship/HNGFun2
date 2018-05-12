@@ -60,7 +60,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
     <style>
         body {
             font-family: "Josefin Sans","Montserrat","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif";
-            color: #ab0b4b;
+            color: #fffff;
             overflow-x: hidden;
         }
         .btn {
