@@ -253,9 +253,9 @@ elseif(isset($_POST['weather'])) {
 }
 
 //else {
+?>
 
-
-
+<?php
 
 if($_SERVER['REQUEST_METHOD'] === "GET"){
 
