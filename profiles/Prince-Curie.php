@@ -85,13 +85,11 @@ width: 30%;
 		<main>
  <?php 
  try { 
- $pdo = new PDO('mysql:host=127.0.0.1:3306;dbname=hng_fun;
- charset=utf8', 'root', ''); 
-$pdo->setAttribute(PDO::ATTR_ERRMODE, 
- PDO::ERRMODE_EXCEPTION); 
- $sql = "SELECT * FROM interns_data WHERE username = 'Prince-Curie' LIMIT 1"; 
- $result = $pdo->query($sql);
- foreach ($result as $row) {
+ $pdo = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD); 
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+$sql = "SELECT * FROM interns_data WHERE username = 'Prince-Curie' LIMIT 1"; 
+$result = $pdo->query($sql);
+foreach ($result as $row) {
  # code...
  $name = $row['name'];
  $username = $row['username'];
