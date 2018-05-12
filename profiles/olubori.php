@@ -376,6 +376,18 @@
 	  		  return "Follow the correct syntax /currenttime [location]";
 	  		}
 
+	  		let apikey = 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts'
+            let url  = "https://maps.googleapis.com/maps/api/geocode/json?address=Tokyo&key=" + apikey;
+
+            try {
+              const response = await fetch(url);
+              
+              const json = await response.json();
+              console.log(json);
+            }catch(ex){
+              return 'Sorry something went wrong';
+            }
+            /*
 	  		let loc = '35.731252, 139.730291' // Tokyo expressed as lat,lng tuple
 	  		let targetDate = new Date() // Current date/time of user computer
 	  		let timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60 // Current UTC date/time expressed as seconds since midnight, January 1, 1970 UTC
@@ -387,7 +399,7 @@
 	  	    let offsets = json.dstOffset * 1000 + json.rawOffset * 1000 // get DST and time zone offsets in milliseconds
 	  	    let localdate = new Date(timestamp * 1000 + offsets) // Date object containing current time of Tokyo (timestamp + dstOffset + rawOffset)
 	  	    console.log(localdate.toLocaleString())
-	  	    //console.log(json);
+	  	    //console.log(json);*/
 
             
 	  	    /*let zones = this.zoneList.filter(function(zone){
