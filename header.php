@@ -56,7 +56,6 @@ if(!isset($_SESSION)) { session_start(); }
           background-color: #F4F4F4;
           padding: 0 10em;
         }
-        .navbar-expand-lg{}
         .nav-item{
             padding: 10px 15px;
             border-bottom: 3px solid #fffff;
