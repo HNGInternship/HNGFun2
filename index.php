@@ -2,6 +2,20 @@
 include_once("header.php");
 ?>
 
+<style>
+	.hero-sub-text-2{
+		color: #2196F3 !important;
+	}
+
+	.text-primary{
+		color: #2196F3 !important;
+	}
+
+	.btn-blue{
+		background-color: #2196F3 !important;
+	}
+</style>
+
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
   <p class="hero-main-text font-weight-bold"> hng</p>
   <p class="hero-sub-text-1 font-weight-bold"> Internship</p>
@@ -20,27 +34,31 @@ include_once("header.php");
 
 <div class="my-5 py-5">
 	<div class="container container-fluid bg-transparent my-5 py-5">
-		<h3 class="text-center">Ready to get started? register now</h3>
+		<h3 class="text-center">Ready to get started?</h3>
 		<div class="d-flex justify-content-center mt-3">
-		  <form class="w-75">
-		  	<label class="mb-0 pb-0">Email:</label>
+                <form action="send.php" method="post" id="newsletter" name="newsletter" class="w-75">
+		<label class="mb-0 pb-0">Email:</label>
 		  	<div class="input-group mb-4 mt-0">
 		  	  <div class="input-group-prepend ">
-		  	    <span class="input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
+		  	    <span class="home-signup-email input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
 		  	  </div>
-		  	  <input type="text" class="form-control  rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
-		  	  <a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="btn btn-blue btn-lg ml-3 rounded py-0">
-		  	  	<p class="font-weight-normal text-white f-4 mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
+
+		  	  <input type="text" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
+		  	  <a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">
+		  	  	<p class="font-weight-normal text-white mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
 		  	  </a>
 		  	</div>
-		  </form>
+			</form>
+			<!-- <a href="./signup.php">
+				<button class="home-signup">
+					SIGN UP
+				</button>
+			</a> -->
 		</div>
+
 	</div>
 </div>
-
+<script src="js/lib.js"></script>
 <?php
 include_once("footer.php");
 ?>
-
-
-   
