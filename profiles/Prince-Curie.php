@@ -122,10 +122,7 @@ foreach ($result2 as $row) {
 			 			echo $username;
 			 			?>
 			 		</p>
-					<img class="myimage" src="<?php echo $image_filename; ?>" alt="a picture of chibuike"
-					srcset="http://res.cloudinary.com/prince-curie/image/upload/v1522472475/chibuike_msblqx.jpg 1x,
-					http://res.cloudinary.com/prince-curie/image/upload/v1522472475/chibuike_msblqx.jpg 2x,
-					http://res.cloudinary.com/prince-curie/image/upload/v1522472475/chibuike_msblqx.jpg 3x">
+					<img class="myimage" src="<?php echo $image_filename; ?>" alt="a picture of chibuike">
 				</div>
 				<div class="me design" >
 					<p>I am a budding frontend web developer who likes to learn and loves to write codes, always practicing, loves responsive and interactive designs, traveling and meeting with people.</p>
