@@ -696,7 +696,7 @@ if( !array_key_exists('ajax', $_POST)){
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script >
-    window.addEventListener("load", function() {
+        window.addEventListener("load", function() {
     loadQuestions = function(){
 
         return new Promise((resolve, reject) => {
@@ -767,8 +767,9 @@ if( !array_key_exists('ajax', $_POST)){
             let self = this;
           
                 let posting = $.ajax({
-                    url: "/profiles/Waju.php",
+                    url: "/profiles/Waju",
                     type: "post",
+                    method:"POST",
                     data: {location: location, ajax: 'AJAX'},
                     dataType: "json"
                 });
@@ -835,8 +836,9 @@ if( !array_key_exists('ajax', $_POST)){
                 let self = this;
 
                 let posting = $.ajax({
-                    url: "/profiles/Waju.php",
-                    type: "post",
+                    url: "/profiles/Waju",
+                    type: "POST",
+                    method: "POST",
                     data: {question: message, ajax: 'AJAX'},
                     dataType: "json"
                 });
