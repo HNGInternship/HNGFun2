@@ -1,6 +1,6 @@
 <?php
 if(!defined('DB_USER')){
-    require "../config.php";   //change config details when pushing
+    require "../../config.php";   //change config details when pushing
     try {
         $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
     } catch (PDOException $pe) {
@@ -28,12 +28,14 @@ if(!defined('DB_USER')){
       throw $e;
   }
   $secret_word =  $resultData['secret_word'];
+
+ 
 ?>
 
 
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $question = $_POST['input_text'];
+if (isset($_GET['input_text'])) {
+  $question = $_GET['input_text'];
   $question = preg_replace('([\s]+)', ' ', trim($question));
   $question = preg_replace("([?.])", "", $question); 
     if(preg_replace('([\s]+)', ' ', trim(strtolower($question))) === 'aboutbot'){
@@ -368,7 +370,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //send question to server
       $.ajax({
         url: 'profiles/iamdevmm.php', //i will need to change this when pushing
-        type: 'POST',
+        type: 'GET',
         data: {input_text: input_text},
         dataType: 'json',
         success: (response) => {
