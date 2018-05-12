@@ -184,7 +184,7 @@ return;
 
    background-color:rgba(238, 29, 29, 0.34);
 }
-body
+.body
 {
   width: 100%;
   color: #FBF7F7;
@@ -263,7 +263,7 @@ body
 
 	</title>
 </head>
-<body>
+<body class="body">
   <?php
 //require "../db.php";
 if (!defined('DB_USER')){

@@ -1,12 +1,5 @@
 <!-- head here  -->
-<?php
-   include_once("header.php");
 
-   $profile_name = $_GET['id'];
-	$secret_word = "sample_secret_word";
-
-    require 'db.php';
-?>
 <!-- Page Content -->
 </div>
 <body class = 'profile'>
@@ -17,6 +10,13 @@
 	
 	
 	// readfile('profiles/' . $profile_name. '.php');
+
+   include_once("header.php");
+
+   $profile_name = $_GET['id'];
+    $secret_word = "sample_secret_word";
+
+    require 'db.php';
 
 	require('profiles/' . $profile_name. '.php');
 

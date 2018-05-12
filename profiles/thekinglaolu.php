@@ -85,7 +85,7 @@
 		  font-size: 1.8em;
 		  padding: .5em 1em;
 		}
-		.profile {
+		.profileimg {
 			height: 15em;
 			margin-top: 4em;
 			border-radius: 100%;
@@ -102,7 +102,7 @@
 <body>
 	<main class="about">
 		<div class="about-me">
-			<img src="<?php echo $image_filename; ?>" alt="profile-picture" class="profile" />
+			<img src="<?php echo $image_filename; ?>" alt="profile-picture" class="profileimg" />
 			<h1> David Afolayan </h1>
 			<h2>FRONTEND MAGICIAN</h2>
 			<hr class="grey"/>
