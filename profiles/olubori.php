@@ -89,6 +89,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
+			align-items: center;
 		  }
 		  #main > div {
 		  	/*border: 1px solid red;*/
