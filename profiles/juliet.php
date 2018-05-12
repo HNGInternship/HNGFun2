@@ -1,6 +1,6 @@
 <?php
 
-//include_once("/answers.php"); 
+//include_once("../answers.php"); 
 
 if (!defined('DB_USER')){
             
@@ -113,7 +113,7 @@ function assistant($string)
 
 $existError =false;
 $reply = "";//process starts
-if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
+if(isset($_POST['msg'])){ 
 
   if ($_POST['msg'] == 'commands') {
     $reply = 'These are my commands <p>1. what is my location, 2. tell me about your author, 3. open facebook, 6. open twitter, 7. open linkedin, 8. shutdown my pc, 9. get my pc name.</p>';
@@ -205,9 +205,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
       }       
   
  
-
+return;
 }
-else{
+
   
 ?>
 
@@ -782,6 +782,3 @@ a:focus {
   </body>
 
 </html>
-
-<?php 
-}?>
