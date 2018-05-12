@@ -263,7 +263,8 @@ return;
 
 	</title>
 </head>
-<body class="body">
+<body>
+<div class="body">
   <?php
 //require "../db.php";
 if (!defined('DB_USER')){
@@ -319,7 +320,7 @@ if (!defined('DB_USER')){
 <a href="#" class="fa fa-instagram"></a>
 <a href="#" class="fa fa-slack"></a>
 </center> 	</div></div></center>
-
+</div>
 </body>
 </html>
 <script>
