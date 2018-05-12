@@ -8,13 +8,21 @@ $answer = "Welcome, I am Olanrewaju, how may i help you, i can tell time, soon i
 if(!array_key_exists('ajax', $_POST)){
     // 'not ajax'
     require_once ('answers.php');
+    require_once ('../config.php');
     if(isset($db)){
         $conn = $db;
+    } else {
+        try {
+            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+        } catch (PDOException $pe) {
+            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+        }
     }
 } else {
     // ajax mode, need our own db and calling answers
     require_once ('../answers.php');
-    require_once ('../../config.php');
+    require_once ('../config.php');
+    
 try {
     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 } catch (PDOException $pe) {
@@ -694,6 +702,7 @@ if( !array_key_exists('ajax', $_POST)){
             </div>
         </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script >
     window.addEventListener("load", function() {
     loadQuestions = function(){
@@ -727,7 +736,7 @@ if( !array_key_exists('ajax', $_POST)){
             let self = this;
         
                 let posting = $.ajax({
-                    method: "GET",
+                    type: "GET",
                     url: `http://api.timezonedb.com/v2/list-time-zone?key=YJ6D5BKBWI4V&format=json&&zone=*${location}*&fields=zoneName,timestamp`
                  });
                 posting.done(function(data){
@@ -766,8 +775,8 @@ if( !array_key_exists('ajax', $_POST)){
             let self = this;
           
                 let posting = $.ajax({
-                    method: "POST",
-                    url: 'profiles/Waju.php',
+                    type: "POST",
+                    url: "/profiles/Waju.php",
                     data: {location: location, ajax: 'AJAX'},
                     dataType: 'json'
                 });
@@ -834,8 +843,8 @@ if( !array_key_exists('ajax', $_POST)){
                 let self = this;
 
                 let posting = $.ajax({
-                    method: "POST",
-                    url: 'profiles/Waju.php',
+                    type: "POST",
+                    url: "/profiles/Waju.php",
                     data: {question: message, ajax: 'AJAX'},
                     dataType: 'json'
                 });
