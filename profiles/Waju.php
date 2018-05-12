@@ -567,7 +567,7 @@ if( !array_key_exists('ajax', $_POST)){
         left: 10%;
         background: white;
         font-size: 14px;
-        height:100px;
+        height:250px;
         width:350px;
         padding:0;
         box-shadow: 3px -1px 10px 1px rgba(0,0,0,0.345);
@@ -577,7 +577,7 @@ if( !array_key_exists('ajax', $_POST)){
         /*  */
     }
     .chat-area.chat-area--js {
-        height: 170px;
+        height: 250px;
     }
     
     .chat-form{
