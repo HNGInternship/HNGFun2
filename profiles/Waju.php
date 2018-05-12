@@ -729,7 +729,7 @@ if( !array_key_exists('ajax', $_POST)){
         
                 let posting = $.ajax({
                     type: "GET",
-                    url: `http://api.timezonedb.com/v2/list-time-zone?key=YJ6D5BKBWI4V&format=json&&zone=*${location}*&fields=zoneName,timestamp`
+                    url: `https://api.timezonedb.com/v2/list-time-zone?key=YJ6D5BKBWI4V&format=json&&zone=*${location}*&fields=zoneName,timestamp`
                  });
                 posting.done(function(data){
                     if('FAILED' == data.status){
