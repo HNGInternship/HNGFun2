@@ -9,15 +9,7 @@ if(!array_key_exists('ajax', $_POST)){
     // 'not ajax'
     require_once ('answers.php');
     require_once ('../config.php');
-    if(isset($db)){
-        $conn = $db;
-    } else {
-        try {
-            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-        } catch (PDOException $pe) {
-            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-        }
-    }
+
 } else {
     // ajax mode, need our own db and calling answers
     require_once ('../answers.php');
