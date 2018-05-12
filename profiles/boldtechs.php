@@ -60,7 +60,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
     <style>
         body {
             font-family: "Josefin Sans","Montserrat","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif";
-            color: #fffff;
+            color: #ffffff;
             overflow-x: hidden;
         }
         .btn {
@@ -102,9 +102,9 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             margin-left: auto;
             margin-right: auto;
             display: block;
-            width: 300px;
-            border-radius: 100px;
-		border: 10px solid gainsboro;
+            width: 200px;
+            border-radius: 100%;
+		border: 7px solid gainsboro;
         }
         .profile-name {
             font-size: 25px;
@@ -124,7 +124,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             color: #1da1f2;
         }
         .hello-text {
-            font-family: "Lobster Two", "Montserrat", "Roboto", "Arial";
+            font-family: "Roboto", "Montserrat", "Roboto", "Arial";
             font-size: 3.5em;
             font-weight: 600;
             margin-bottom: 0;
