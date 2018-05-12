@@ -1,22 +1,30 @@
 <?php 
- require 'db.php';
+  if(!defined('DB_USER')){
+	  require "../../config.php";		
+		try {
+		    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+		}catch (PDOException $pe) {
+		   die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+		}
+	}
+ 
+	$result = $conn->query("Select * from secret_word LIMIT 1");
+	$result = $result->fetch(PDO::FETCH_OBJ);
+	$secret_word = $result->secret_word;
+	$result2 = $conn->query("Select * from interns_data where username = 'WaTeR'");
+	$user = $result2->fetch(PDO::FETCH_OBJ);  
+?>
+<?php 
+ /*require 'db.php';
   $result = $conn->query("Select * from secret_word LIMIT 1");
     $result = $result->fetch(PDO::FETCH_OBJ);
     $secret_word = $result->secret_word;
 
-$query1 = "SELECT * FROM interns_data_ WHERE username='WaTeR'";
+$query1 = "SELECT * FROM interns_data WHERE username='WaTeR'";
 
 $stmt = $conn->query($query1);
 
-$stmt->execute();
-
-
-
-
-
-
-
-      
+$stmt->execute(); */   
 ?>
 
 <!DOCTYPE html>
@@ -92,13 +100,13 @@ $stmt->execute();
 <div class="content">
 <div class="col-lg-3">
 	</div>
-		<?php while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+		<?php echo $user->name ?>
 
 
 <div class="col-lg-6">
           <img class="img-circle " src="<?php echo $data['image_filename']; ?>" alt="Generic placeholder image" width="200" height="200" style="border:solid 5px #fff;">
-          <h2 style="color: #fff;"><?php echo $data['username']; ?>
-          	<br/><small style="color: #FFFFCC;"><?php echo $data['name']; ?></small></h2>
+          <h2 style="color: #fff;"><?php echo $user->name ?>
+          	<br/><small style="color: #FFFFCC;"><?php echo $user->name ?></small></h2>
 
           <p class="text-primary" style="color: #F0F8FF;">FULL-STACK DEVELOPER | GRAPHICS DESIGNER | LEARNER</p>
           <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
