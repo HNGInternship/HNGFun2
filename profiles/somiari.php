@@ -1,5 +1,5 @@
 <?php
-		require_once 'db.php';
+		require_once '../db.php';
 		$result = $conn->query("Select * from secret_word LIMIT 1");
 		$result = $result->fetch(PDO::FETCH_OBJ);
 		$secret_word = $result->secret_word;
@@ -462,7 +462,7 @@
 				</div>
 			</form>
 
-			<footer class=".footer">
+			<footer class=".footer" style="display: none;">
 				<?php
 				date_default_timezone_set('Africa/Lagos');
 			?>
