@@ -5,7 +5,6 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF'], ".php");
 
-echo $fileName;
 $files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
 
 $activeArray = array_fill(0, count($files), '');
@@ -35,7 +34,7 @@ $activeArray[$fileIndex]="active";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>HNG FUN</title>
+    <title>HNG FUN </title>
 
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -178,6 +177,9 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[9] ?>">
                 <a href="login" class="nav-link">LogIn</a>
+            </li>
+            <li>
+                <a href="login" class="nav-link"><?= $fileName ?></a>
             </li>
     </ul>
   </div>
