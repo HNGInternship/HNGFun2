@@ -36,7 +36,7 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-    if ($_SERVER['REQUEST_METHOD'] === GET") {
+    if ($_SERVER['REQUEST_METHOD'] === "GET") {
        
         $question =test_input($_GET["displayMessage"]);
         //bot version
