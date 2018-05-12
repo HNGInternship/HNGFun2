@@ -395,7 +395,23 @@ button:hover, a:hover {
     margin: 0 5px;
 }
 
+.opheuscont {
+	  margin: 0 auto;
+	  background-color: white;
+	  border: 0.1px solid #333;
+	  border-radius: 2px;
+	  height: 500px;
+	  margin-top: 15px;
+}
 .portlet .portlet-body {
+	  
+	  margin: 0 auto;
+	  background-color: white;
+	  border: 0.1px solid #333;
+	  border-radius: 2px;
+	  height: 500px;
+	  margin-top: 15px;
+	  overflow: scroll;
     padding: 15px;
     background: #fff;
 }
@@ -559,14 +575,14 @@ button:hover, a:hover {
                 </div>
                 <div id="chat" class="panel-collapse collapse in">
                     <div>
-                    <div class="portlet-body chat-widget" style="overflow-y: auto; width: 400px; height: 500px;">
+                    <div class="portlet-body"  id="scrollbody">
                         <div class="row">
                             <div class="col-lg-12">
                                 <p class="text-center text-muted small"><?php $date = date("Y-m-d h:i:sa"); echo $date;?></p>
                             </div>
                         </div>
                      
-                       <div id="opheuscont">
+                       <div id="opheuscont" class="opheuscont">
 						
 						</div>
                     </div>
@@ -698,7 +714,8 @@ function send_message(message){
         prevSms = prevSms + '<br>'
         }
       $('#opheuscont').html(prevSms + '<span class="cureent_sms">' + '<span class="bot">opheusbot: </span>' + message + '</span>');
-	  $('#opheuscont').scrollTop($('#opheuscont').height());
+	  $('.portlet-body').scrollTop($('.portlet-body').prop('scrollHeight'));
+
       $('.cureent_sms').hide();
       $('.cureent_sms').delay(50).fadeIn();
       $('.cureent_sms').removeClass("current_sms");
@@ -707,7 +724,7 @@ function send_message(message){
 // get the username
 function get_username(){
     send_message('Hi, friend what should i call you....?');
-	responsiveVoice.speak('Welcome, i am online if you need me. Click the chat and enter your first name only to begin.','UK English Male');
+	responsiveVoice.speak('Welcome, i am online if you need me. Click the chat and enter your name only to begin.','UK English Male');
 }
 
 
@@ -829,7 +846,8 @@ $(function() {
         //show the sms to the opheuscont div
         $('#opheuscont').html(prevSms + username + sms);
 
-        $('#opheuscont').scrollTop($('#opheuscont').prop('scrollHeight'));
+        //$('.portlet-body').scrollTop($('.portlet-body').prop('scrollHeight'));
+
 
         ai(sms);
       });
