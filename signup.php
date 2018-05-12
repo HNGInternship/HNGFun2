@@ -46,7 +46,7 @@ include_once("header.php");
             <form action="" class="text-center" name="register_form" id="register_form">
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:25px">
-                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
+                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Full Name">
                 </div>
                 <div class="form-group col-md-6" style="padding-right:25px">
                     <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
