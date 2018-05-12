@@ -280,6 +280,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
 <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 
 <style>
 .card {
@@ -706,7 +707,7 @@ function send_message(message){
 // get the username
 function get_username(){
     send_message('Hi, friend what should i call you....?');
-	responsiveVoice.speak('Welcome, i am online if you need me. Click the chat and enter your name only to begin.','UK English Male');
+	responsiveVoice.speak('Welcome, i am online if you need me. Click the chat and enter your first name only to begin.','UK English Male');
 }
 
 
@@ -752,8 +753,8 @@ function ai(message){
 		else if (message.indexOf('train:') >= 0){
 		trainer = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {opheustrain: trainer },
 			success: function(data){
 				send_message(data);
@@ -764,8 +765,8 @@ function ai(message){
 		else if (message.indexOf('time in') >= 0){
 		citytime = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {timing: citytime },
 			success: function(data){
 				send_message(data);
@@ -776,8 +777,8 @@ function ai(message){
 		else if (message.indexOf('weather in') >= 0){
 		forecast = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {weather: forecast },
 			success: function(data){
 				send_message(data);
@@ -788,8 +789,8 @@ function ai(message){
 		else{
 		elses = message;
 		$.ajax({
-			type: "POST",
-			url: 'profiles/opheus.php',
+			method: "POST",
+			url: 'profiles/opheus.php/',
 			data: {opheuscheck: elses },
 			success: function(data){
 				send_message(data);
