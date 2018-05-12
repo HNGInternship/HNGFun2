@@ -775,10 +775,10 @@ if( !array_key_exists('ajax', $_POST)){
             let self = this;
           
                 let posting = $.ajax({
-                    type: "POST",
                     url: "/profiles/Waju",
+                    type: "post",
                     data: {location: location, ajax: 'AJAX'},
-                    dataType: 'json'
+                    dataType: "json"
                 });
                 posting.done(function(data){
                     if (false == data.message){
@@ -843,10 +843,10 @@ if( !array_key_exists('ajax', $_POST)){
                 let self = this;
 
                 let posting = $.ajax({
-                    type: "POST",
                     url: "/profiles/Waju",
+                    type: "post",
                     data: {question: message, ajax: 'AJAX'},
-                    dataType: 'json'
+                    dataType: "json"
                 });
                 posting.done(function(data){
                     if(!data.message){
