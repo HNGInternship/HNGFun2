@@ -1,5 +1,7 @@
 <?php
 
+include_once("../answers.php"); 
+
 if(!defined('DB_USER')){
      require "../../config.php";
      try {
