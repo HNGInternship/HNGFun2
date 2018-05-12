@@ -273,8 +273,7 @@
 	               {key: 'train', description: 'You can train me with this', format: '[question] [answer] [password]'}, 
 	               {key: 'currenttime', description: 'I will get the current time in any location in this world', format: '[location]'},
 	               {key: 'dayofweek', description: 'I will tell you the day of the week a date falls on', format: '[yyyy-mm-dd]'},
-	               {key: 'aboutbot', description: 'I will tell you about me', format: ''},
-	               {key: 'popularcities', description: 'I will show you all popular city that starts with an alphabet', format: '[a], or [b],... [z]'}
+	               {key: 'aboutbot', description: 'I will tell you about me', format: ''}
 	              ],
         humanMessage: '',
         choice: {command: '', message:''},
@@ -286,7 +285,6 @@
                   ],
         info: '<h4 class="text-center">Bot is currently preparing data</h4><p class="text-center">Please wait...</p>',
         googlekey: 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts',
-        zoneList: null
       },
 	  computed: {
 	  	suggestedCommands: function(){
@@ -344,8 +342,6 @@
 			    return this.getCurrentTime();
 			  case 'train':
 			    return this.doTrainBot();
-			  case 'popularcities':
-			    return this.getAllCities();
 			  default:
 			    return this.doChat();
 			}
@@ -463,31 +459,8 @@
 	  	  
 	  	  
 	  	},
-	  	getAllCities: function(){
-	  		let char;
-	  	  try{
-            char = this.choice['message'].match(/\[[a-zA-Z]{1}\]/)[0];
-            
-	  	  }catch(ex){
-            return "Follow the correct syntax /popularcities [a], or /popularcities [b], ... popularcities [z]";
-	  	  }
-	  		char = char.charAt(1).toUpperCase();
-	  		let cities = [];
-            
-            val = `<p>Cities that starts with <strong>${char}</strong></p><ul>`;
-	  	    for (zone of this.zoneList) {
-	  	      const arr = zone.zoneName.split('/');
-	  		  city = arr[arr.length-1];
-              if(city.indexOf(char) === 0)
-              	val += `<li><strong>${city}</strong> - ${zone.countryName}</li>`;
-	  	    }
-
-	  		val += `</ul>`;
-
-	  		return val;
-	  	},
 	  	processUnexpectedInput: function(){
-	  		commands = ['aboutbot', 'currenttime', 'dayofweek', 'train', 'popularcities'];
+	  		commands = ['aboutbot', 'currenttime', 'dayofweek', 'train'];
 	  		mycommand = this.choice.message.split(' ')[0];
 	  		mycommand = mycommand.substring(1);
 	  		for(cmd of commands){
