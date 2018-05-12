@@ -1,7 +1,5 @@
 
 <?php
-   
-require '../db.php'; 
 
 //query to select intern data
     $userrow = "SELECT * FROM interns_data WHERE username='Rex'" ; 
@@ -54,12 +52,12 @@ require '../db.php';
       border-radius: 4px;
       border: solid coral;
     }
-    .container {
+    .img-container {
     width: 350px;
     height: 700px;
 
     }
-    .container img {
+    .img-container img {
     width: 100%;
     border: solid 4px coral;
     height: auto;
@@ -95,7 +93,7 @@ require '../db.php';
 </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container img-container">
         <img src="<?php echo $image_file ?>">
     </div>
     <div class="Wordings">
@@ -119,5 +117,5 @@ require '../db.php';
 </body>
 
 
-</html
+</html>
 
