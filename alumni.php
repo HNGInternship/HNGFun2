@@ -1,7 +1,3 @@
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- styles link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -38,10 +34,6 @@
       cursor: pointer;
       transition: background 0.1s, color 0.1s;
       
-      &:hover {
-        background-color: #ddd;
-        color: #3366cc;
-      }
       
       &.active {
         background-color: #bbb;
@@ -133,16 +125,18 @@
     }
     </style>
 
-    <title>Alumni</title>
-  </head>
-  <body>
+<!--head here-->
 <?php
 include_once("header.php");
 ?>
-    <div class="container-fluid">
-      <h1 class="heading">Our Alumni</h1>
-      <hr style="width:5%;border:1px solid #555;margin-top:0px;">
-      <p class="heading">HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
+
+    <div class="container sponsor-container">
+            <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Alumni</h1>
+        <div class="d-flex justify-content-center">
+              <div class="bd-top"></div>
+            </div>
+      <p class="sponsors-text text-center pb-4 pt-3 text-center"> HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>    
+      </div>
 <!-- first page -->
 
     <div class="article-loop">
@@ -157,7 +151,7 @@ include_once("header.php");
           </tr>
         </thead>
     </div>
-
+        
       <div class="article-loop">
        <tbody>
           <tr>
@@ -636,7 +630,7 @@ include_once("header.php");
     </script>
 
 
-  </body>
+ 
 
 <?php
 include_once("footer.php");
