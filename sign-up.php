@@ -130,16 +130,7 @@ include_once("header.php");
         </div> <!-- /container -->
     </div>
   </div>
-<?php 
-	if $_POST["submit"] { 
-	header( "Location: activateaccount.php" ); 
-exit;
- } else { 
-displayForm();
- } 
-function displayForm() { 
-	}
-?> 
+<?php if(isset($_POST['submit'])){ // Fetching variables of the form which travels in URL $nationality= $_POST['nationality']; $state = $_POST['state']; if($nationality !=''&& $state !=''&& ) { // To redirect form on a particular page header("Location:https://hng.fun/activateaccount"); } else{ ?><span><?php echo "Please fill all fields.....!!!!!!!!!!!!";?></span> <?php } } ?>
 <?php
 function custom_scripts(){
 	echo <<<_END
