@@ -1,7 +1,7 @@
 <?php
 require_once('country-array.php');
 include_once("header.php");
-require_once("activateaccount.php");
+
 ?>
 
 <style>
@@ -119,7 +119,7 @@ require_once("activateaccount.php");
             <input type="password" class="form-control" placeholder="" required>
             </div>
             
-            <button class="btn btn-primary signup-btn mt-4" action="activateaccount.php" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" name="submit" value="submit" type="submit">Sign Up</button>
 
           
           </form>
@@ -130,7 +130,9 @@ require_once("activateaccount.php");
         </div> <!-- /container -->
     </div>
   </div>
+<?php if(isset($_POST['submit'])) { // To redirect form on a particular page header("Location:activateaccount.php"); } 
 
+ ?>
 <?php
 function custom_scripts(){
 	echo <<<_END
