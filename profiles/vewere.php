@@ -268,7 +268,7 @@
 
             $.ajax({
               type: "POST",
-              url: "/PHP/HNGFun2/profiles/vewere.php",
+              url: "profiles/vewere.php",
               data: formdata,
               processData: false,
               contentType: false,
