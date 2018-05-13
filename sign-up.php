@@ -138,7 +138,6 @@ exit;
 displayForm();
  } 
 function displayForm() { 
-	header( "Location: signup.php" ); 
 	}
 ?> 
 <?php
