@@ -119,7 +119,7 @@ include_once("header.php");
             <input type="password" class="form-control" placeholder="" required>
             </div>
             
-            <button class="btn btn-primary signup-btn mt-4" name="submit" value="submit" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" name="submit" value="submit" id="submit" type="submit">Sign Up</button>
 
           
           </form>
