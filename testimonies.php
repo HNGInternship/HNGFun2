@@ -9,14 +9,11 @@ include_once("header.php");
 
 <!--Section: Testimonials v.4-->
 <section class="pb-4 container">
-    <div class="container sponsor-container">
-            <h1 class="sponsorsbg-text pt-5 text-center hero-text">Testimonies</h1>
-        <div class="d-flex justify-content-center">
-              <div class="bd-top"></div>
-            </div>
-            
-            <p class="sponsors-text text-center pb-4 pt-3 text-center"> HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
-      </div>
+    <div class="header text-center">
+        <h1>Testimonies</h1>
+        <hr class="head-hr" width="6%">
+        <p>HNG 4.0 has been a life-transforming journey for interns across Africa. <br/> Don’t take our word for it... Take theirs.</p>
+    </div>
     <!--Section heading-->
     <div class="row justify-content-center mx-auto">
         <!--Carousel Wrapper-->
@@ -232,7 +229,7 @@ include_once("header.php");
             </a>
             <!--Controls-->
 
-            <div class="text-center"><hr class="bottom-hr" width="959px"></div>
+           
         </div>
         <!--Carousel Wrapper-->
 
@@ -294,7 +291,6 @@ include_once("header.php");
         </a>
 
    </div>
-    </div>
 </section>
 <!--Section: Testimonials v.4-->
 
