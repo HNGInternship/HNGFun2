@@ -232,7 +232,7 @@
   </style>
   <script>
     var outer_profile = true;
-    var version = "Bot v1.0.20";
+    var version = "Bot v1.0.21";
     $(function (){    
       
       // Switch between Profile and Chat screens
@@ -259,7 +259,7 @@
           
           $("#request").val("");
 
-          if (input == 'aboutbot' || input == 'Aboutbot' || input == 'ABOUTBOT' || input == 'AboutBot'){
+          if (input.toLowerCase() == 'aboutbot'){
             $("#chat-area table").append("<tr><td><div class='bot-bubble'><p>"+version+"</p></div></td></tr>");
           } else {
             formdata = new FormData();
@@ -268,7 +268,7 @@
 
             $.ajax({
               type: "POST",
-              url: "/PHP/HNGFun/profiles/vewere.php",
+              url: "/PHP/HNGFun2/profiles/vewere.php",
               data: formdata,
               processData: false,
               contentType: false,
