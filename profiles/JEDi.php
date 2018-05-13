@@ -498,7 +498,7 @@ body.fullsingle p {
               question.value = '';
             }
             }
-        xhttp.open('POST', 'profiles/Abigail', true);
+        xhttp.open('POST', 'profiles/JEDi', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('question='+ question.value);
         e.preventDefault();
