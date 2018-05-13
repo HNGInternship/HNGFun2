@@ -130,7 +130,7 @@ include_once("header.php");
         </div> <!-- /container -->
     </div>
   </div>
-<?php if(isset($_POST['submit'])) { // To redirect form on a particular page header("Location:activateaccount.php"); } 
+<?php if(isset($_POST['submit'])) { // To redirect form on a particular page header("location: https://hng.fun/activateaccount"); } 
 
  ?>
 <?php
