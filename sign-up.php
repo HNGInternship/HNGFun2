@@ -119,7 +119,7 @@ include_once("header.php");
             <input type="password" class="form-control" placeholder="" required>
             </div>
             
-            <button class="btn btn-primary signup-btn mt-4" name="submit" value="submit" id="submit" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" onclick="redirect();" type="submit">Sign Up</button>
 
           
           </form>
@@ -130,12 +130,18 @@ include_once("header.php");
         </div> <!-- /container -->
     </div>
   </div>
-<?php if(isset($_POST['submit'])){$nationality= $_POST['nationality']; $state = $_POST['state']; if($nationality !=''&& $state !=''&& ) { header("Location:https://hng.fun/activateaccount"); } else{ ?><span><?php echo "Please fill all fields.....!!!!!!!!!!!!";?></span> <?php } } ?>
 <?php
 function custom_scripts(){
 	echo <<<_END
-	<script>
-		
+	
+		<script type="text/javascript" language="javascript">
+function redirect()
+{
+    window.location.href="activateaccount.php";
+}
+</script>
+<script>
+
 	$("select[name='nationality']").on('change', function() {
 		
 		if (!($("#nigeria").is(":selected"))) {
