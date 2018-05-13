@@ -82,7 +82,7 @@
 		}
 
     div .hidden {
-      display: none;
+      display: none !important;
     }
 
     .text {
