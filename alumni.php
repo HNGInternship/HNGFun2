@@ -1,4 +1,6 @@
-
+<?php
+include_once("header.php");
+?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,8 +14,11 @@
     <!-- custom style -->
     <style>
     body {
-      font-family: 'work sans';
+      
       background: #ffffff;
+    }
+    .body-font{
+    font-family: 'work sans';	
     }
     h1 {
       font-weight: bolder;
@@ -134,9 +139,7 @@
     </style>
 
   
-<?php
-include_once("header.php");
-?>
+    <div class="body-font">
   
     <div class="container sponsor-container">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Alunmi</h1>
@@ -637,7 +640,7 @@ include_once("header.php");
     $('.article-loop').paginate(15);
     </script>
 
-
+</div>
   
 
 <?php
