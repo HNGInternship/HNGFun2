@@ -1,6 +1,6 @@
 <?php
 
-require 'db.php';
+// require 'db.php';
 
 $username = "Modupe";
 
@@ -50,7 +50,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 20px 20px rgba(0,0,0,0.2);
-            display: none;
+            /*display: none;*/
 
         }
         .myprofile{
@@ -197,32 +197,9 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
 </div>
-<div class="myprofile" id="pic">
-    <button id="btn">Learn More</button>
-</div>
 
-<script>
-var i = 0;
-var txt = 'Adebayo Modupe A.';
-var speed = 150;
-var button = document.getElementById("btn");
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("name").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
- 
-   document.querySelector("button").addEventListener("click", function(){
-    document.querySelector("div").style.display = "block";   
-    document.getElementById("pic").style.left = "35%";
-    document.querySelector("div").style.left = "55%";
-    typeWriter();
-    button.style.display = "none";
-    
-       
-   });
+
+
 
 
 </script>
