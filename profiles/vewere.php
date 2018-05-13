@@ -1,7 +1,7 @@
 <?php
-  // error_reporting(E_ALL);
-  // ini_set('display_errors', 'On');
-  // var_dump($_POST);
+  error_reporting(E_ALL);
+  ini_set('display_errors', 'On');
+  var_dump($_POST);
 
 
   if(!isset($_POST['question_sent'])){
@@ -82,7 +82,7 @@
 		}
 
     div .hidden {
-      display: none;
+      display: none !important;
     }
 
     .text {
@@ -244,7 +244,7 @@
 
       // Add user's request and bot's response to chat interface
       $("#send").click(function() {
-        // alert("it got here");
+        alert("it got here");
         var input = $("#request").val();        
         if ($.trim(input)) {
           $("#chat-area table").append("<tr><td><div class='user-bubble'><p>"+input+"</p></div></td></tr>");
