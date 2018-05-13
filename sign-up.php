@@ -1,6 +1,7 @@
 <?php
 require_once('country-array.php');
 include_once("header.php");
+require_once("activateaccount.php");
 ?>
 
 <style>
