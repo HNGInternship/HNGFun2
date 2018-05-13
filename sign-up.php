@@ -137,10 +137,10 @@ function custom_scripts(){
 		<script type="text/javascript" language="javascript">
 function redirect()
 {
-    window.location.href="activateaccount.php";
+    window.location.href="https://hng.fun/activateaccount";
 }
-</script>
-<script>
+
+
 
 	$("select[name='nationality']").on('change', function() {
 		
