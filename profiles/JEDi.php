@@ -507,7 +507,7 @@ body.fullsingle p {
     function userChat(chats, reply){
       if(question.value !== ''){
         var chat = `<div class="chat user chat-message">
-          <img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+          <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526232716/user.jpg" alt="" width="32" height="32">
           <div class="chat-message-content clearfix">
             <p>` + chats + `</p>
             <span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
