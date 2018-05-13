@@ -119,7 +119,7 @@ include_once("header.php");
             <input type="password" class="form-control" placeholder="" required>
             </div>
             
-            <button class="btn btn-primary signup-btn mt-4" onclick="redirect();" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" name="submitform();" type="submit">Sign Up</button>
 
           
           </form>
@@ -134,11 +134,15 @@ include_once("header.php");
 function custom_scripts(){
 	echo <<<_END
 	
-		<script type="text/javascript" language="javascript">
-function redirect()
-{
-    window.location.href="https://hng.fun/activateaccount";
-}
+if (isset($_POST['submitform']))
+    {   
+    ?>
+<script type="text/javascript">
+window.location = "https://hng.fun/activateaccount";
+</script>      
+    <?php
+    }	
+		<script>
 
 
 
