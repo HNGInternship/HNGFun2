@@ -131,7 +131,7 @@ include_once("header.php");
     </div>
   </div>
 <?php 
-	if ( isset( $_POST["submit"] ) ) { 
+	if $_POST["submit"] { 
 	header( "Location: activateaccount.php" ); 
 exit;
  } else { 
