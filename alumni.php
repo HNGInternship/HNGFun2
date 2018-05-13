@@ -1,6 +1,4 @@
-<?php
-include_once("header.php");
-?>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,12 +12,10 @@ include_once("header.php");
     <!-- custom style -->
     <style>
     body {
-      
       background: #ffffff;
     }
     .body-font{
-    font-family: 'work sans';	
-    }
+      font-family: 'work sans';}
     h1 {
       font-weight: bolder;
     }
@@ -64,7 +60,7 @@ include_once("header.php");
       }
     }
     /* arbitrary styles */
-    .heading { text-align: center; max-width: 500px; margin: 20px auto; }
+    .heading { text-align: center; max-width: 500px;  }
     .article-loop {
       display: block;
       width: 80%;
@@ -139,8 +135,8 @@ include_once("header.php");
     </style>
 
   
-    <div class="body-font">
-  
+
+  <div class="body-font">
     <div class="container sponsor-container">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Alunmi</h1>
             
@@ -640,8 +636,8 @@ include_once("header.php");
     $('.article-loop').paginate(15);
     </script>
 
-</div>
-  
+
+  </div>
 
 <?php
 include_once("footer.php");

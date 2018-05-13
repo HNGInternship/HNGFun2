@@ -1,9 +1,3 @@
-<!-- head here  -->
-
-<!-- Page Content -->
-</div>
-<body class = 'profile'>
-
 
 	
     <?php 
@@ -45,6 +39,13 @@
     top: 50px;
     ">Secret key mismatch. Insert your secret key</div>
 <?php } ?>
+<!-- head here  -->
+
+<!-- Page Content -->
+</div>
+<body class = 'profile'>
+
+
 
 </body>
 
