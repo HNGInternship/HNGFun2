@@ -1,34 +1,26 @@
-
-    <!-- Required meta tags -->
+<?php
+include_once("header.php");
+?>
+<!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- styles link -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- font-awesome -->
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- custom style -->
-    <style>
-    body {
-      font-family: 'work sans';
-      background: #ffffff;
-    }
-    h1 {
-      font-weight: bolder;
-    }
-    .pagination {
+  <!-- custom style --> 
+<style> 
+.pagination {
       display: block;
       width: 75%;
       margin: 5em auto;
-      text-align: center;
-      
+    
       &:after {
         content: '';
         clear: both;
       }
     }
+    
     .pagination-button {
       display: inline-block;
       padding: 5px 10px;
@@ -43,7 +35,7 @@
         color: #3366cc;
       }
       
-      &.active {
+      &:active {
         background-color: #bbb;
         border-color: #bbb;
         color: #3366cc;
@@ -57,15 +49,19 @@
       &:last-of-type {
         border-radius: 0 $border-radius $border-radius 0;
       }
+      
     }
-    /* arbitrary styles */
-    .heading { text-align: center; max-width: 500px; margin: 20px auto; }
+    
+    
+     /* arbitrary styles */
+     .heading { text-align: center; max-width: 500px; margin: 20px auto; }
     .article-loop {
       display: block;
       width: 80%;
       padding: 0px 2em;
       margin: 0px auto;
     }
+    
     .top {
       width: 74%;
       margin: 2em auto;
@@ -74,7 +70,7 @@
       text-align: center;
       border: 1px solid lightgrey;
     }
-    .table, thead {
+     .table, thead {
       margin-top: 0px;
     }
     .in {
@@ -100,10 +96,10 @@
         border-style: solid;
         border-collapse: collapse;
       }
-      th {
+         th {
       	height: 50px;
       }
-      .top {
+        .top {
         padding: 1em;
         border: 1px solid lightgrey;
         text-align: center;
@@ -111,34 +107,18 @@
         max-width: 500px; 
         margin: 0px auto;
       }
-      .in {
+        .in {
         width: 90%;
       }
-      #p {
+     #p {
       	float: none !important;
       }
+      }
     }
-    @media (min-width: 768px) and (max-width: 991px) {
-    	.top {
-    		width: 70%;
-    	}
-    }
-    a {
-      margin: 0.5em;
-      color: #000;
-    }
-    #p {
-      font-weight: bold;
-      float: left;
-    }
-    </style>
-
-  
-<?php
-include_once("header.php");
-?>
-  
-    <div class="container sponsor-container">
+     
+      
+</style>
+<div class="container sponsor-container">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Alunmi</h1>
             
             <p class="sponsors-text text-center pb-4 pt-3 text-center"> HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
@@ -167,7 +147,7 @@ include_once("header.php");
             <td>@chuks</td>
             <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/9jaSwag" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/9jaSwag" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="https://facebook.com/troy34" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
             </td>
           </tr>
@@ -180,7 +160,7 @@ include_once("header.php");
           <td>@orobolucky</td>
           <td>Full Stack Developer</td>
             <td>
-              <a href="https://www.twitter.com/orobogenius" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://www.twitter.com/orobogenius" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://facebook.com/orobogenius" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
               
             </td>
@@ -194,7 +174,7 @@ include_once("header.php");
           <td>@valentine</td>
           <td>Back End Developer</td>
             <td>
-              <a href="https://twitter.com/chiefoleka" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/chiefoleka" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/olekavalentine" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
         
             </td>
@@ -208,7 +188,7 @@ include_once("header.php");
           <td>@kehinde_emmanuel</td>
           <td>Full Stack Developer</td>
             <td>
-              <a href="https://twitter.com/emmakoko96" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/emmakoko96" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
             </td>
         </tr>
@@ -221,7 +201,7 @@ include_once("header.php");
           <td>@xyluz</td>
           <td>Back End Developer</td>
             <td>
-              <a href="https://twitter.com/xyluz" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/xyluz" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/onifade.xeyi" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
             </td>
         </tr>
@@ -234,7 +214,7 @@ include_once("header.php");
           <td>@adetona</td>
           <td>Back End Developer</td>
             <td>
-              <a href="https://twitter.com/Adetona77" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/Adetona77" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/abiodun.adetona.351" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
             </td>
         </tr>
@@ -247,7 +227,7 @@ include_once("header.php");
           <td>@digitallarija</td>
           <td>UI/UX Designer</td>
             <td>
-              <a href="https://twitter.com/digitalmarija" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/digitalmarija" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/digitalmarija" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
            
             </td>
@@ -261,7 +241,7 @@ include_once("header.php");
           <td>@aniekan</td>
           <td>Back End Developer</td>
             <td>
-              <a href="https://twitter.com/aniekanoffiong" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/aniekanoffiong" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
             
             </td>
@@ -275,7 +255,7 @@ include_once("header.php");
           <td>@okoyecb</td>
           <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/Okoyecb" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/Okoyecb" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/okoyecb" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
              
             </td>
@@ -289,7 +269,7 @@ include_once("header.php");
           <td>@chiamaka</td>
           <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/amries_grace" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/amries_grace" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/grace.chiamaka.16" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
              
             </td>
@@ -303,7 +283,7 @@ include_once("header.php");
           <td>@namsoukpanah</td>
           <td>UI/UX Designer</td>
             <td>
-              <a href="https://twitter.com/i_am_marshal" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/i_am_marshal" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/marshal.ukpanah" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
         
             </td>
@@ -317,7 +297,7 @@ include_once("header.php");
           <td>@mozartted</td>
           <td>Full Stack Developer</td>
             <td>
-              <a href="https://twitter.com/mozartted" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/mozartted" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/mozart.osita" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
              
             </td>
@@ -331,7 +311,7 @@ include_once("header.php");
           <td>@Daniel</td>
           <td>UI/UX Designer</td>
             <td>
-              <a href="https://twitter.com/Tochi_ihcot_501" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/Tochi_ihcot_501" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/tochukwu.onuchukwu" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
              
             </td>
@@ -345,8 +325,8 @@ include_once("header.php");
           <td>@dejoe</td>
           <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/deo_joe" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="https://www.facebook.com/adeyemo.j.adeola" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
+              <a href="https://twitter.com/deo_joe" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+              <a href="https://www.facebook.com/adeyemo.j.adeola" target="_blank"><i class="fa fa-facebook fa-1px"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
              
             </td>
         </tr>
@@ -359,8 +339,8 @@ include_once("header.php");
               <td>@faradayy</td>
               <td>Full Stack Developer</td>
             <td>
-              <a href="https://twitter.com/faradayyg" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-              <a href="https://www.facebook.com/godswillf" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
+              <a href="https://twitter.com/faradayyg" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+              <a href="https://www.facebook.com/godswillf" target="_blank"><i class="fa fa-facebook fa-1px"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
              
             </td>
             </tr>
@@ -392,7 +372,7 @@ include_once("header.php");
             <td>@sarahchima</td>
             <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/sarah_chima" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/sarah_chima" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="https://www.facebook.com/sarah.chima" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
               
             </td>
@@ -406,7 +386,7 @@ include_once("header.php");
           <td>@odusanya</td>
           <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/OdusanyaTomi" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/OdusanyaTomi" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
               
             </td>
@@ -420,7 +400,7 @@ include_once("header.php");
           <td>@jaykay</td>
           <td>UI/UX Designer</td>
             <td>
-              <a href="https://twitter.com/iam_JayKay" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/iam_JayKay" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
         
             </td>
@@ -434,7 +414,7 @@ include_once("header.php");
           <td>@codebyomar</td>
           <td>Back End Developer</td>
             <td>
-              <a href="https://twitter.com/codebyomar" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/codebyomar" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
             </td>
         </tr>
@@ -447,7 +427,7 @@ include_once("header.php");
           <td>@dinyangetoh</td>
           <td>Full Stack Developer</td>
             <td>
-              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
               
             </td>
@@ -461,7 +441,7 @@ include_once("header.php");
           <td>@marimazi</td>
           <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/sheiladadiva" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/sheiladadiva" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
              
             </td>
@@ -475,7 +455,7 @@ include_once("header.php");
           <td>@promise</td>
           <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/promhize" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/promhize" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
              
             </td>
@@ -489,7 +469,7 @@ include_once("header.php");
           <td>@reginarex</td>
           <td>Front End Developer</td>
             <td>
-              <a href="https://twitter.com/reginarrex" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/reginarrex" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
        
             </td>
@@ -503,7 +483,7 @@ include_once("header.php");
           <td>@yusuf</td>
           <td>UI/UX Designer</td>
             <td>
-              <a href="https://twitter.com/yusfyinka" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+              <a href="https://twitter.com/yusfyinka" target="_blank"><i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
               <a href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
            
             </td>
