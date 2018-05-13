@@ -1,6 +1,6 @@
 <?php
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST')
+    if($_SERVER['REQUEST_METHOD'] === 'GET')
      {
                if (!defined('DB_USER')){
                    require "../../config.php";
@@ -10,7 +10,7 @@
                  } catch (PDOException $pe) {
                    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
                  }
-          $mesuu = $_POST['question'];
+          $mesuu = $_GET['question'];
           $message=strtolower($mesuu);
           trim($message);
           $statusTrain = stripos($message, "train:");
@@ -277,7 +277,7 @@
     
         <div id="async"></div>
 
-        <form id="myform" method="POST">
+        <form id="myform" method="GET">
             <textarea  sid="text" name="question" id="ter" rows="0" cols="0" class="textarea" style=" padding:2px; border-radius: 12px;width: 80%;background-color:rgba(220, 20, 60, 0.5); color: #fff; font-size: 16px;" placeholder="enter your message"></textarea> <br>
            <button id="btn1" type="submit" class="button" >send</button>
            <br><br>
@@ -298,7 +298,7 @@
     $("#async").append(resusr+" "+valnext2+" </p></div>");
       $.ajax({
         url: 'profiles/sadiq.php',
-        type: 'POST',
+        type: 'GET',
         data: {question: question},
         dataType: 'json',
         success: function(response){
