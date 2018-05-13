@@ -15,9 +15,10 @@
   }
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once "../db.php";
     if (substr($_POST['question'], 0, 5) == 'train'){
       // echo "<script>console.log('training mode');</script>";
-      include "../db.php";
+      
       $input = preg_replace('/\s*#\s*/', '#', $_POST['question']);
 
       $indexof1 = strpos($input, '#');
@@ -35,7 +36,6 @@
     }
     
     if (isset($_POST['question'], $_POST['question_sent'])){
-      include "../db.php";
       $question = $_POST['question'];
       $result3 = $conn->query("Select * from chatbot where question = '$question'");
       $answer = $result3->fetchAll(PDO::FETCH_OBJ);
@@ -232,7 +232,7 @@
   </style>
   <script>
     var outer_profile = true;
-    var version = "Bot v1.0.20";
+    var version = "Bot v1.0.23";
     $(function (){    
       
       // Switch between Profile and Chat screens
@@ -259,7 +259,7 @@
           
           $("#request").val("");
 
-          if (input == 'aboutbot' || input == 'Aboutbot' || input == 'ABOUTBOT' || input == 'AboutBot'){
+          if (input.toLowerCase() == 'aboutbot'){
             $("#chat-area table").append("<tr><td><div class='bot-bubble'><p>"+version+"</p></div></td></tr>");
           } else {
             formdata = new FormData();
@@ -268,7 +268,7 @@
 
             $.ajax({
               type: "POST",
-              url: "/PHP/HNGFun/profiles/vewere.php",
+              url: "profiles/vewere.php",
               data: formdata,
               processData: false,
               contentType: false,
