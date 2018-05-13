@@ -1080,10 +1080,10 @@ $dataa = json_decode(file_get_contents($url_location), true);
  }
 
  //////////////////////////// BROWN SAMSON DO NOT MODIFY ////////////////////////////////////
-if ($_REQUEST["qsam"]){
-    $qsam = $_REQUEST["qsam"];
-    samsonjnrBot($qsam);
-}
+//if ($_REQUEST["qsam"]){
+//    $qsam = $_REQUEST["qsam"];
+//    samsonjnrBot($qsam);
+//}
  function samsonjnrBot($qsam){
      $qsam = strtolower($qsam);
      $anwerSam = "";
@@ -1213,6 +1213,12 @@ if ($_REQUEST["qsam"]){
                                 'Am all good. and how are you too?');
         $index = mt_rand(0, 2);
         return $anwerSam = $respondGreeting[$index];
+     }
+
+     function getLocationAPI() {
+         $ip = gethostbyname(gethostname());
+         $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+         return $query;
      }
 
      function checkDatabaseToo($question){
