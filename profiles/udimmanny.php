@@ -1,11 +1,11 @@
 <?php 
 error_reporting(0);
-if(empty(conn)){
-    include("..db/php");
+if(empty($conn)){
+    include("db.php");
 }
-$servername = "DB_HOST";
-$username = "DB_USERNAME";
-$password = "DB_PASSWORD":
+$servername = DB_HOST;
+$username = DB_USERNAME;
+$password = DB_PASSWORD;
 // CREATE CONNECTION
 $conn = new mysqli($servername, $username, $password);
 
@@ -15,12 +15,8 @@ if ($conn->connect_error){
 }
 $sql = "SELECT name, username, image_filename FROM intern_data where username = 'udimmanny'";
 $result = $conn->query($sql);
-<<<<<<< HEAD
 $sql = "SELECT secret_word FROM secret_word";
-$secret_word = $conn->query($sql)
-=======
-$secret_word = "SELECT secret_word FROM secret_word";
->>>>>>> Update profile
+$secret_word = $conn->query($sql);
  ?>
 <!DOCTYPE html>
 <html lang="en">
