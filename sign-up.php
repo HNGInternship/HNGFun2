@@ -119,7 +119,7 @@ include_once("header.php");
             <input type="password" class="form-control" placeholder="" required>
             </div>
             
-            <button class="btn btn-primary signup-btn mt-4" name="submitform();" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" name="submit" type="submit">Sign Up</button>
 
           
           </form>
@@ -130,18 +130,17 @@ include_once("header.php");
         </div> <!-- /container -->
     </div>
   </div>
+
+<?php
+if (isset($_POST['submit'])){
+  header("Location: https://hng.fun/activateaccount");
+}
+?>
+
 <?php
 function custom_scripts(){
 	echo <<<_END
 	
-if (isset($_POST['submitform']))
-    {   
-    ?>
-<script type="text/javascript">
-window.location = "https://hng.fun/activateaccount";
-</script>      
-    <?php
-    }	
 		<script>
 
 
