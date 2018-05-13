@@ -49,18 +49,18 @@ include_once("header.php");
 				} else {
 					$showform = true;
 				}
-			
+
 			if ($showform){
 				if ($error){
 			?>
-			
+
 			<small style="font-family: 'Roboto', sans-serif; color: #9d3d3d">
 				Please fill in all fields
 			</small>
-			
+
 			<?php
 					}
-					
+
 				showForm();
 				}
 			?>
@@ -74,12 +74,12 @@ include_once("header.php");
 
 
         <?php
-	
+
 	function sendForm(){
 		$email = $_POST['email'];
 		$first = $_POST['firstname'];
 		$last = $_POST['lastname'];
-		
+
      $slackInviteUrl='https://'.SUBDOMAIN.'.slack.com/api/users.admin.invite?t='.time();
        //var_dump(SUBDOMAIN);
 	    $fields = array(
@@ -90,21 +90,21 @@ include_once("header.php");
 	            'set_active' => urlencode('true'),
 	            '_attempts' => '1'
 	    );
-	
+
 	    // url-ify the data for the POST
 	            $fields_string='';
 	            foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
 	            rtrim($fields_string, '&');
-	
+
 	    // open connection
 	            $ch = curl_init();
-	
+
 	    // set the url, number of POST vars, POST data
 	            curl_setopt($ch,CURLOPT_URL, $slackInviteUrl);
 	            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	            curl_setopt($ch,CURLOPT_POST, count($fields));
 	            curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
-	
+
 	    // exec
 	            $replyRaw = curl_exec($ch);
 	            $reply=json_decode($replyRaw,true);
@@ -139,14 +139,14 @@ include_once("header.php");
 	                    echo '</p>';
 	            }
 
-	            
-	
+
+
 	    // close connection
-	            curl_close($ch);		
+	            curl_close($ch);
 	}
-	
+
 	function showForm(){
-		
+
 		?>
 
 		     <form method="POST" class="text-center" style="margin-top: 5px;">
@@ -170,15 +170,15 @@ include_once("header.php");
 		                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Optional" value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>">
 		                </div>
 		            </div>
-		                 
+
 		                    <button style="margin-top: 30px; border:0px; margin-bottom: 7px; background-color: #2196F3; color: white; width: 400px; font-size: 18px; cursor: pointer; height: 40px; border-radius: 10px" id="submitbutton" class="">Send Invite</button>
         </form>
 
-		
-			
-			
-		<?php		
-		
+
+
+
+		<?php
+
 	}
 
 	?>

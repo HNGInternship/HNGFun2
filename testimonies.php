@@ -9,11 +9,14 @@ include_once("header.php");
 
 <!--Section: Testimonials v.4-->
 <section class="pb-4 container">
-    <div class="header text-center">
-        <h1>Testimonies</h1>
-        <hr class="head-hr" width="6%">
-        <p>HNG 4.0 has been a life-transforming journey for interns across Africa. <br/> Don’t take our word for it...take theirs.</p>
-    </div>
+    <div class="container sponsor-container">
+            <h1 class="sponsorsbg-text pt-5 text-center hero-text">Testimonies</h1>
+        <div class="d-flex justify-content-center">
+              <div class="bd-top"></div>
+            </div>
+            
+            <p class="sponsors-text text-center pb-4 pt-3 text-center"> HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
+      </div>
     <!--Section heading-->
     <div class="row justify-content-center mx-auto">
         <!--Carousel Wrapper-->
@@ -33,8 +36,9 @@ include_once("header.php");
                                         <div class="col-sm testimonial">
                                             <div class="message">
                                                 It's been a great opportunity working with different people and using various tools in accomplishing the tasks given.
+                                                <br /><br />
                                                 Thanks to hng internship I can now use Figma for designs and TeamViewer also.
-                                                Looking forward to more of such experiences
+                                                Looking forward to more of such experiences.
                                             </div>
                                             <img src="images/TechHajiya.PNG" alt="Avatar" class="testimonial-avatar">
                                             <div class="testimonial-name">
@@ -43,7 +47,7 @@ include_once("header.php");
                                         </div>
                                         <div class="col-sm testimonial">
                                             <div class="message">
-                                                Phew!!! Learnt how to ask specific questions. Thanks to all who have helped me thus far
+                                                Phew!!! Learnt how to be precise in the way I ask questions. Thanks to all who have helped me thus far.
                                             </div>
                                             <img src="images/Fotes.PNG" alt="Avatar" class="testimonial-avatar">
                                             <div class="testimonial-name">
@@ -54,9 +58,10 @@ include_once("header.php");
                                     <div class="row">
                                         <div class="col-sm testimonial">
                                             <div class="message">
-                                                I learnt how to design a web page with Figma, implemented the designs with HTML,CSS and PHP.
-                                                I used TeamViewer for the first time yesterday and now I just had a better understanding about Git.
-                                                Isn't this internship just amazing. I can't wait to learn more...
+                                                I learnt how to design a web page with Figma, implement the designs in HTML, CSS and PHP.
+                                                <br /><br />
+                                                I used TeamViewer for the first time ever and now I also have a better understanding of Git.
+                                                Isn't this internship just amazing? I can't wait to learn more...
                                             </div>
                                             <img src="images/Didicodes.png" alt="Avatar" class="testimonial-avatar">
                                             <div class="testimonial-name">
@@ -66,9 +71,11 @@ include_once("header.php");
 
                                         <div class="col-sm testimonial">
                                             <div class="message">
-                                                It is getting more interesting... I learnt how to push codes to github for the first time.
+                                                It is getting more interesting... I learnt how to push code to git for the first time.
                                                 I'm now using that knowledge to push other codes I had left vulnerable.
-                                                I actually coded with php for the first time.... and did something practical with html/css. it is just amazing.                                            </div>
+                                                I actually coded with php for the first time.... and did something practical with HTML/CSS.
+                                                <br /><br />
+                                                It is just amazing.                                            </div>
                                             <img src="images/default.jpg" alt="Avatar" class="testimonial-avatar">
                                             <div class="testimonial-name">
                                                 <h5>interactive_bee<br/><small>Nigeria</small></h5>
@@ -95,9 +102,10 @@ include_once("header.php");
                                     <div class="row">
                                         <div class="col-sm testimonial">
                                             <div class="message">
-                                                I hadn't heard about Figma until this Internship started.
+                                                I hadn't heard about Figma until this Internship.
                                                 I've been playing around with designs since then.
                                                 Also, I'm learning the hows and whats of GitHub.
+                                                <br /><br />
                                                 I'm having an amazing time!
                                             </div>
                                             <img src="images/default.jpg" alt="Avatar" class="testimonial-avatar">
@@ -231,7 +239,7 @@ include_once("header.php");
     </div>
     <br>
     <!-- videos -->
-     <h3 style="text-align:center">VIDEOS</h3><br>
+     <h3 style="text-align:center">RELEVANT VIDEOS</h3><br>
       <div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
@@ -247,52 +255,35 @@ include_once("header.php");
           <div class="carousel-item active">
              <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                        <p>I learnt something new, Thanks to HNG Internship 4</p>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
+                        <p>How ICT Changed My Life</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                        <p>I learnt something new, Thanks to HNG Internship 4</p>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
+                        <p>Information and Communication Technology for Development</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                        <p>I learnt something new, Thanks to HNG Internship 4</p>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
+                        <p>ICT is Changing Education in Developing Countries</p>
                 </div>
              </div>
         </div>
         <div class="carousel-item">
             <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
+                        <p>How Technology is Changing Family Lives</p>
+                </div>
+                <!-- <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
-                </div>
-                <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                        <p>I learnt something new, Thanks to HNG Internship 4</p>
-                </div>
+                </div> -->
             </div>
         </div>
-
-        <div class="carousel-item">
-            <div class="row">
-                <div class="col-md-3" style="margin-left:60px">
-                   <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                    <p>I learnt something new, Thanks to HNG Internship 4</p>
-                </div>
-                <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                    <p>I learnt something new, Thanks to HNG Internship 4</p>
-                </div>
-                <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                    <p>I learnt something new, Thanks to HNG Internship 4</p>
-                </div>
-            </div>
-       </div>
 
   <!-- Left and right controls -->
         <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -303,6 +294,7 @@ include_once("header.php");
         </a>
 
    </div>
+    </div>
 </section>
 <!--Section: Testimonials v.4-->
 
@@ -310,4 +302,3 @@ include_once("header.php");
 <?php
 include_once("footer.php");
 ?>
-

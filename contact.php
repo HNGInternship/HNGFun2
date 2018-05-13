@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['send'])) {
+if (isset($_POST['send'])) {
     $name = $_POST['name'];
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $message = $_POST['message'];
@@ -12,7 +12,8 @@ if(isset($_POST['send'])) {
     }
 }
 include_once("header.php");
-function custom_styles() {
+function custom_styles()
+{
     $styles = '<style>
     body{
         background:#e5e5e5;
@@ -107,7 +108,8 @@ function custom_styles() {
 
 <?php
 include_once("footer.php");
-function custom_scripts() {
+function custom_scripts()
+{
     $script = "<script>jQuery(document).ready(function($) {
   var alterClass = function() {
     var ww = document.body.clientWidth;
@@ -123,9 +125,9 @@ function custom_scripts() {
   //Fire it when the page first loads:
   alterClass();
 });</script>";
-echo $script;
+    echo $script;
 };
-if(isset($_POST['send'])) {
+if (isset($_POST['send'])) {
     $name = $_POST['name'];
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $message = $_POST['message'];

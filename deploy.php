@@ -11,11 +11,12 @@
 	$commands = array(
 		'echo $PWD',
 		'whoami',
+		'git reset --hard HEAD',
 		'git pull',
 		'git status',
 		'git submodule sync',
 		'git submodule update',
-		'git submodule status',
+		'composer install',
 	);
 	// Run the commands for output
 	$output = '';
