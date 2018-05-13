@@ -1,7 +1,7 @@
 <?php
-  error_reporting(E_ALL);
-  ini_set('display_errors', 'On');
-  var_dump($_POST);
+  // error_reporting(E_ALL);
+  // ini_set('display_errors', 'On');
+  // var_dump($_POST);
 
 
   if(!isset($_POST['question_sent'])){
@@ -66,7 +66,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Victor's Profile</title>
   <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	
@@ -81,9 +81,9 @@
 			height: 100%;
 		}
 
-    div .hidden {
+    /* div .hidden {
       display: none !important;
-    }
+    } */
 
     .text {
       font-family: "Rajdhani", sans-serif;
@@ -138,6 +138,14 @@
 
 
     /* Chat Styles */
+    
+    #outer-chat {
+      display: none;
+    }
+
+    #outer-profile {
+
+    }
 
     #chat {
       margin-left: auto;
@@ -224,19 +232,19 @@
   </style>
   <script>
     var outer_profile = true;
-    var version = "Bot v1.0.19";
+    var version = "Bot v1.0.20";
     $(function (){    
       
       // Switch between Profile and Chat screens
       $("#toggle-visibility").click(function (){
         if (outer_profile) {
-          $("#outer-profile").attr('class', 'hidden');
-          $("#outer-chat").removeAttr('class', 'hidden');
+          $("#outer-profile").css('display', 'none');
+          $("#outer-chat").css('display', 'block');
           $("#toggle-text").html("VIEW PROFILE")
           outer_profile = false;
         } else {
-          $("#outer-chat").attr('class', 'hidden');
-          $("#outer-profile").removeAttr('class', 'hidden');
+          $("#outer-chat").css('display', 'none');
+          $("#outer-profile").css('display', 'block');
           $("#toggle-text").html("TEST BOT")
           outer_profile = true;
         }
@@ -244,7 +252,7 @@
 
       // Add user's request and bot's response to chat interface
       $("#send").click(function() {
-        alert("it got here");
+        // alert("it got here");
         var input = $("#request").val();        
         if ($.trim(input)) {
           $("#chat-area table").append("<tr><td><div class='user-bubble'><p>"+input+"</p></div></td></tr>");
@@ -339,7 +347,7 @@
       </div>
       <div id="input-area"> 
         <div class="oj-flex">
-            <input name="question" id="request" placeholder="Ask a question" class="oj-padding-horizontal oj-flex-item oj-sm-9 oj-md-9 oj-lg-9"  type="text" style="background: white;" autofocus>
+            <input name="question" id="request" placeholder="Ask a question" class="oj-padding-horizontal oj-flex-item oj-sm-9 oj-md-9 oj-lg-9"  type="text" style="background: white;" autocomplete="off" autofocus>
             <button name="submit" id="send" class="oj-flex-item oj-sm-2 oj-md-2 oj-lg-2" ><i class="fa fa-paper-plane"></i></button> 
         </div>
       </div>
