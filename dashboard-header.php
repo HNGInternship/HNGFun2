@@ -11,8 +11,8 @@
     <title>HNG FUN Dashboard</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+      
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
@@ -128,30 +128,30 @@
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
-        <div class="navbar-right acc">
+			<div class="navbar-right acc">
 
-        <div class="dropdown" id="home-language-switch">
-        <img class="acc-img" src="img/dashboard/amy.png">
-        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><?php require_once "dashboard.php";
-        echo $username; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-                <a href="profile.php" class="dropdown-item">
-                <img class="dashb-icons" src="img/dashboard/profile.png">Your Profile</a>
+				<div class="dropdown" id="home-language-switch">
+					<img class="acc-img" src="img/dashboard/amy.png">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="note" aria-haspopup="true"><?php require_once "dashboard.php";
+					echo $username; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="note">
+							<span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="profile.php">Your Profile</a>
+							</span>
 
-                <a href="invite2.php" class="dropdown-item">
-                <img class="dashb-icons" src="img/dashboard/invite.png">Invite to HNG</a>
+							<span href="invite2.php" class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/invite.png">Invite to HNG</span>
 
-                <a href="" class="dropdown-item">
-                <img class="dashb-icons" src="img/dashboard/settings.png">Settings</a>
+							<a href="" class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/settings.png">Settings</a>
 
-                <a href="logout.php" class="dropdown-item">
-                <img class="dashb-icons" src="img/dashboard/logout.png">Logout</a>
+							<a href="logout.php" class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/logout.png">Logout</a>
 
-        </div>
-    </div>
+					</div>
+				</div>
 
-        </div>
+			</div>
 
         </nav>
     </div>
