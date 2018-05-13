@@ -1,4 +1,4 @@
-<?php 
+<?php  
 	if(!defined('DB_USER')){
 	require "../../config.php";
 	try {
@@ -7,21 +7,124 @@
 		} catch (PDOException $e) {
 			die("<br><br><br>Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
 		}
+		}
 	$result = $conn->query("Select * from secret_word LIMIT 1");
 	$result = $result->fetch(PDO::FETCH_OBJ);
 	$secret_word = $result->secret_word;
 
    	$result2 = $conn->query("Select * from interns_data where username = 'akinsource'");
    	$user = $result2->fetch(PDO::FETCH_OBJ);
-}
 ?>
 
 <?php
 
 	function tryout($str,$dbcon) {
-		$tryout = $dbcon->query("Select * from chatbot where question='$str'");
+		$tryout = $dbcon->query("Select * from chatbot where question like '$str'");
 		$tryout = $tryout->fetch(PDO::FETCH_OBJ);
 		return $tryout;
+	}
+	function retryout($str,$dbcon) {
+		$bits = explode(' ',$str);
+		$cntbit = count($bits);
+		$GLOBALS['newinf'] = $bits[$cntbit-1];
+		$bits = array_diff($bits, [$bits[$cntbit-1]]);
+		$bits = implode(' ', $bits);
+		
+		$retryout = $dbcon->query("Select * from chatbot where question like '$bits%' '%{{%'");
+		$retryout = $retryout->fetch(PDO::FETCH_OBJ);
+		$question = $retryout->question;
+		if (stripos($question,'{{') && stripos($question,'}}')){
+			$retryout = $question;
+		} else {
+			$retryout = false;
+		}
+		return $retryout;
+	}
+	function get_time() {
+	//get_language();
+	global $newinf;
+	if (!$newinf){
+		$date = new DateTime();
+		$date->setTimezone(new DateTimeZone('Africa/lagos'));
+		$time = $date->format('h:i:sa');
+	} else {
+		$timezone = get_timezone($newinf);
+		$date = new DateTime("now", new DateTimeZone($timezone));
+		$time=$date->format("h:i:sa");
+	}		
+		return $time;
+	}
+	function get_timezone($location) {
+		$location = urlencode($location);
+		$url = "https://maps.googleapis.com/maps/api/geocode/json?address={$location}&sensor=false&key=AIzaSyCP_zGdTmeg-aBMmR0n5hkQSz1zc0frANM";
+		$data = file_get_contents($url);
+		$data = json_decode($data);
+		if(!$data) return false;
+		if(!is_array($data->results)) return false;
+		if(!isset($data->results[0])) return false;
+		if(!is_object($data->results[0])) return false;
+		//////////////////////////////////////////
+		
+		//$GLOBALS['lingo'] =
+		//////////////////////////////////////////
+		if(!is_object($data->results[0]->geometry)) return false;
+		if(!is_object($data->results[0]->geometry->location)) return false;
+		if(!is_numeric($data->results[0]->geometry->location->lat)) return false;
+		if(!is_numeric($data->results[0]->geometry->location->lng)) return false;
+		$lat = $data->results[0]->geometry->location->lat;
+		$lng = $data->results[0]->geometry->location->lng;		
+		
+		// get the API response for the timezone
+		$timestamp = time();
+		$timezoneAPI = "https://maps.googleapis.com/maps/api/timezone/json?location={$lat},{$lng}&sensor=false&timestamp={$timestamp}";
+		$response = file_get_contents($timezoneAPI);
+		if(!$response) return false;
+		$response = json_decode($response);
+		if(!$response) return false;
+		if(!is_object($response)) return false;
+		if(!is_string($response->timeZoneId)) return false;
+	
+		return $response->timeZoneId;
+		//$time=print_r($response);
+		
+	}
+	function get_language() {
+		global $newinf;
+		$location = ucwords($newinf);
+		$url = "http://country.io/names.json";
+		$data = file_get_contents($url);
+		$data = json_decode($data);
+		$data = get_object_vars($data);
+		if(!$data) return false;
+		//$language=print_r($data);//['currency']['code'];
+		$location = array_search($location, $data);
+		if ($location){
+		$phone_code = url("http://country.io/phone.json", $location);
+		$capitals = url("http://country.io/capital.json", $location);
+		$currency = url("http://country.io/currency.json", $location);
+		if($phone_code && $capitals && $currency){
+			$location = $location.'<br>Dialing code: +'.$phone_code.'<br>Capital: '.$capitals.'<br>Currency: '.$currency;
+		} else {
+			$location = false;
+		}
+		} else {
+			$location = false;
+		}
+		return $location;
+	}
+	function url ($urls,$location){
+		$url = $urls;
+		$data = file_get_contents($url);
+		$data = json_decode($data);
+		$data = get_object_vars($data);
+		if(!$data) return false;
+		if($data){
+			$detail = $data[$location];
+		} else {
+			$detail = false;
+		}
+		//print_r($detail);
+		return $detail;
 	}
 	function test_input($data) {
 		$data = trim($data);
@@ -32,7 +135,7 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			require "../answers.php";
 			$name = test_input($_POST["inputw"]);
-		
+			date_default_timezone_set("Africa/Lagos");
 	// collect value of input field
     try {
 	if (empty($name)) {
@@ -83,12 +186,51 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			echo json_encode($ans);
 			return;
 		} else {
-			$ans = $conn->query("Select answer from chatbot where question = '$name'");
-			$ans = $ans->fetch(PDO::FETCH_OBJ);
+			//$ans = $conn->query("Select answer from chatbot where question = '$name'");
+			//$ans = $ans->fetch(PDO::FETCH_OBJ);
 			$reply = tryout($name, $conn)->answer;
+			if (stripos($reply, '((') && stripos($reply, '{{')){
+				preg_match("/\\{{2}(.*?)\\}{2}/", $reply, $match);
+				preg_match("/\\({2}(.*?)\\){2}/", $reply, $matches);
+				$param=$match[1];
+				$fxn=$matches[1];
+				//print $param."\n";
+				//print $fxn;
+				$patterns = array ("/\\{{2}(.*?)\\}{2}/", "/\\({2}(.*?)\\){2}/");
+				$replace = array ($param, $fxn($param));
+				$reply=preg_replace($patterns, $replace, $reply);
+			} elseif (stripos($reply, '((')){
+ 				preg_match("/\\({2}(.*?)\\){2}/", $reply, $matches);
+				$fxn=$matches[1];
+				$patterns = "/\\({2}(.*?)\\){2}/";
+				$replace = $fxn();
+				$reply=preg_replace($patterns, $replace, $reply);
+			}	
 			echo json_encode($reply);
 			return;
 		}
+	} elseif(retryout($name, $conn)) {	
+		
+		$reply = retryout($name, $conn);
+		$reply = tryout($reply, $conn)->answer;
+		if (stripos($reply, '((') && stripos($reply, '{{') ){
+			//preg_match("/\\{{2}(.*?)\\}{2}/", $reply, $match);
+			preg_match("/\\({2}(.*?)\\){2}/", $reply, $matches);
+			$param=$newinf;
+			$fxn=$matches[1];
+			$patterns = array ("/\\{{2}(.*?)\\}{2}/", "/\\({2}(.*?)\\){2}/");
+			$replace = array ($param, $fxn($param));
+			$reply=preg_replace($patterns, $replace, $reply);
+		} elseif (stripos($reply, '((')){
+			preg_match("/\\({2}(.*?)\\){2}/", $reply, $matches);
+			$fxn=$matches[1];
+			$patterns = "/\\({2}(.*?)\\){2}/";
+			$replace = $fxn();
+			$reply=preg_replace($patterns, $replace, $reply);
+		}	
+		echo json_encode($reply);
+		return;
+		
 	} else {	
 		$reply = "It appears I do not know the answer!";
 		echo json_encode($reply);
@@ -97,10 +239,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	} catch (PDOException $e){
 		$e->getMessage();
 	}
-
 	}
+	
 	?>
-
 <!DOCTYPE html>
 <html>
 <link id="css" rel="stylesheet" href="https://static.oracle.com/cdn/jet/v5.0.0/default/css/alta/oj-alta-min.css" type="text/css"/>
@@ -108,8 +249,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 .scroll 
 {
 	width: 600px;
-    	height: 300px;
-    	overflow-y:auto;
+   	height: 300px;
+   	overflow-y:auto;
 	display:block;
 	padding: 10px;
 	background-color: #9cec9c;
@@ -186,13 +327,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	display:block;
 	float: right;
 }	
+
+.butto:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s; 
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite; 
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    border-radius: 50%;
+}
 </style>
 <body style="padding:0; margin:0;">
 <div div class="oj-panel oj-panel-alt4 oj-sm-margin-2x demo-mypanel oj-panel-shadow-md">
 <table border="0" cellpadding="0" cellspacing="0" style="margin: 0; padding: 0;" width="100%">
     <tr>
         <td align="center" valign="top" bgcolor="#fff">
-			<table width="640" cellspacing="0" cellpadding="0" bgcolor="#" class="100p">
+			<table width="640" cellspacing="0" cellpadding="0" bgcolor="#fff" class="100p">
                 <tr>
                     <td background="images/header-bg.jpg" bgcolor="#f6546a" width="640" valign="top" class="100p">
                                 <div class="oj-flex">
@@ -269,7 +436,7 @@ function hide() {//hide chat interface
     }
 }
 </script>
-<button onclick="hide(3000)" class="butto">Click Me</button><span id="deep"> Collective knowledge of a lot of bots!</span>
+<button onclick="hide(3000)" class="butto" id="tch">Click Me</button><span id="deep"> Collective knowledge of a lot of bots!</span>
 <div class="oj-panel oj-panel-alt4 oj-sm-margin-2x demo-mypanel oj-panel-shadow-md hid" align="center" id="siri">
 <code>Meet my butler!</code>
 <div class="scroll oj-selected" id="view">
@@ -285,15 +452,12 @@ function hide() {//hide chat interface
 	</div>
 	</div>
 <p><span id="ask"></span></p>
-<!--<?php print_r('$user') ?>-->
-
-
 <h3><i>Time is of the essence!</i></h3>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-   
+  
 <script>
 $(document).ready(function(){
 	$("#input-form").submit(function(e){
@@ -313,6 +477,10 @@ $(document).ready(function(){
 				);
         });
 	});
+$("#tch").click(function(){
+    
+	$("html, body").scrollTop(700);
+});
 </script>
 </body>
 </html>
