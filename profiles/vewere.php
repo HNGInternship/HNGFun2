@@ -224,7 +224,7 @@
   </style>
   <script>
     var outer_profile = true;
-    var version = "Bot v1.0.18";
+    var version = "Bot v1.0.19";
     $(function (){    
       
       // Switch between Profile and Chat screens
@@ -237,7 +237,7 @@
         } else {
           $("#outer-chat").attr('class', 'hidden');
           $("#outer-profile").removeAttr('class', 'hidden');
-          $("#toggle-text").html("TEST MY BOT")
+          $("#toggle-text").html("TEST BOT")
           outer_profile = true;
         }
       });
@@ -251,7 +251,7 @@
           
           $("#request").val("");
 
-          if (input == 'aboutbot'){
+          if (input == 'aboutbot' || input == 'Aboutbot' || input == 'ABOUTBOT' || input == 'AboutBot'){
             $("#chat-area table").append("<tr><td><div class='bot-bubble'><p>"+version+"</p></div></td></tr>");
           } else {
             formdata = new FormData();
@@ -332,7 +332,7 @@
           </tr></td>
           <tr><td>
             <div class="bot-bubble">
-              <p>My name is Bot :p</p>
+              <p>My name is Bot</p>
             </div>
           </tr></td>
         </table>
