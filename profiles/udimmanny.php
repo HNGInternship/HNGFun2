@@ -1,22 +1,13 @@
 <?php 
 error_reporting(0);
-if(empty($conn)){
-    include("db.php");
-}
-$servername = DB_HOST;
-$username = DB_USERNAME;
-$password = DB_PASSWORD;
-// CREATE CONNECTION
-$conn = new mysqli($servername, $username, $password);
 
-//check connection
-if ($conn->connect_error){
-    die("connection failed:" .$conn->conn_error);
-}
 $sql = "SELECT name, username, image_filename FROM intern_data where username = 'udimmanny'";
 $result = $conn->query($sql);
 $sql = "SELECT secret_word FROM secret_word";
 $secret_word = $conn->query($sql);
+$secret_word->setFetchMode(PDO::FETCH_ASSOC);
+$secret_word = $secret_word->fetch();
+$secret_word = $secret_word['secret_word'];
  ?>
 <!DOCTYPE html>
 <html lang="en">
