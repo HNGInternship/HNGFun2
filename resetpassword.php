@@ -8,9 +8,9 @@ include_once("header.php");
 
     <div class="row justify-content-md-center">
         <div class="clearfix"></div>
-        <div id="message" class="row"></div>
+        <div id="message"></div>
 
-        <form style='text-align: center; padding: 100px' id="reset_form">
+        <form style='text-align: center; padding: 100px; padding-top:10px' id="reset_form">
             <h1>Reset Password</h1>
             <p style="width: 480px; margin-left: 150px;">
                 Enter your email address and we'll send you an email with instructions to reset your password.
