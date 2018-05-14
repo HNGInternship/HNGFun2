@@ -42,11 +42,13 @@
     
     if (isset($_GET['question'], $_GET['question_sent'])){
       $question = $_GET['question'];
-      $result3 = $conn->query("Select * from chatbot where question = '$question'");
+      $result3 = $conn->query("Select * from chatbot where question = '$question' ORDER BY rand() LIMIT 1");
       
 
       
       // var_dump($answer);
+      echo $result3;
+      return;
       if ($result3){
         $answer = $result3->fetchAll(PDO::FETCH_OBJ);
         $index = rand(0, count($answer)-1);
