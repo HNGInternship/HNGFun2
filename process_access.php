@@ -89,9 +89,7 @@ if(isset($_POST['registration'])){
          VALUES (:email,:phone,:firstname,:username,:password,:nationality,:lastname,:verified,:verification_token)");
 
       $result= $stmt->execute(array(
-          ':email'=>$email,':phone'=>$phone,':firstname'=>$firstname,':username'=>$username,':password'=>password_hash($password, PASSWORD_DEFAULT),':nationality'=>$nationality,':lastname'=>$lastname,':verified'=>0,':verification_token'=>$rand_no
-         
-
+          ':email'=>$email,':phone'=>$phone,':firstname'=>$firstname,':username'=>$username,':password'=>md5($password),':nationality'=>$nationality,':lastname'=>$lastname,':verified'=>0,':verification_token'=>$rand_no
        ));
          $token=md5($email.$rand_no);
 
