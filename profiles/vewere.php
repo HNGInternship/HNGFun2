@@ -13,7 +13,14 @@
     $user = $result2->fetch(PDO::FETCH_OBJ);
 
   }else{
-    require_once "../db.php";
+    if (!defined('DB_USER')){
+      require "../../config.php";
+    }
+    try {
+      $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+    } catch (PDOException $pe) {
+      die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+    }
     if (substr($_GET['question'], 0, 5) == 'train'){
       // echo "<script>console.log('training mode');</script>";
       
@@ -267,14 +274,11 @@
             $.ajax({
               type: "GET",
               url: "profiles/vewere.php",
-              data: formdata,
-              processData: false,
-              contentType: false,
-              cache: false,
+              data: {question: input, question_sent: 1},
               success: function(data){
                 console.log(data);
-                $("#chat-area table").append("<tr><td><div class='bot-bubble'><p>"+data+"</p></div></td></tr>");
-                $("#chat-area").scrollTop($("#chat-area")[0].scrollHeight);
+               $("#chat-area table").append("<tr><td><div class='bot-bubble'><p>"+data+"</p></div></td></tr>");
+              $("#chat-area").scrollTop($("#chat-area")[0].scrollHeight);
 
               }
             });
