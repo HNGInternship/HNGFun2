@@ -106,6 +106,8 @@
       }
       th {
       	height: 50px;
+        font-weight: normal;
+        font-family: Verdana,sans-serif;
       }
       .top {
         padding: 1em;
