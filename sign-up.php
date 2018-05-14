@@ -19,7 +19,7 @@ include_once("header.php");
 
   .signup-btn{
     width:50%;
-    font-size:0.8em;
+    /*font-size:0.8em;*/
     padding:2%;
     border-radius:3px;
   }
@@ -42,6 +42,7 @@ include_once("header.php");
   .label{
     color:#5F5F5F !important;
   }
+
 
 </style>
 
@@ -154,6 +155,8 @@ include_once("header.php");
             
             <button class="btn btn-primary signup-btn mt-4" id="register" type="submit">Sign Up</button>
 
+            <!-- <button type="submit" name="register" class="btn btn-signup" id="register">Sign Up </button> -->
+
           
           </form>
 
@@ -163,7 +166,7 @@ include_once("header.php");
         </div> <!-- /container -->
     </div>
   </div>
-  
+
 <script type="text/javascript">
        $( document ).ready(function() {
         $('#signUpInfo').hide();
@@ -195,10 +198,10 @@ include_once("header.php");
         }
        
               
-      $("#signUpInfo").html('Registering...');
-            $("#signUpInfo").attr("class","text-warning");
+      // $("#signUpInfo").html('Registering...');
+      //       $("#signUpInfo").attr("class","text-warning");
 
-        $('#signUpInfo').show();
+      //   $('#signUpInfo').show();
 
 
              var data = $("#register_form").serialize();
@@ -208,8 +211,9 @@ include_once("header.php");
             data : data,
             success: function(data){
 
+      $("#register").html('Sign Up');
 
-              if(data===""){
+              if(data==="1"){
                 window.location.href="activateaccount.php";
                 return;
               }
@@ -234,7 +238,9 @@ include_once("header.php");
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
                     // alert('Request not completed');
-                 $("#signUpInfo").html('An error occured, please try again later '+ errorThrown);
+      $("#register").html('Sign Up');
+
+                 $("#signUpInfo").html('An error occured, please try again later ');
             $("#signUpInfo").attr("class","text-danger");
 
         $('#signUpInfo').show();
@@ -244,10 +250,10 @@ include_once("header.php");
                 // $("#register").html('Failed');
             },
             beforeSend :function(){
-
-      $("#signUpInfo").html('Registering...');
-            $("#signUpInfo").attr("class","text-warning");
-        $('#signUpInfo').show();
+      $("#register").html('Registering..');
+      // $("#signUpInfo").html('Registering...');
+      //       $("#signUpInfo").attr("class","text-warning");
+      //   $('#signUpInfo').show();
 
          
             },
