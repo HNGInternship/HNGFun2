@@ -108,7 +108,6 @@
       	height: 50px;
         font-weight: normal;
         font-family: Verdana,sans-serif;
-        font-size: 50px;
       }
       .top {
         padding: 1em;
