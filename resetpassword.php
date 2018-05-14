@@ -1,16 +1,18 @@
 <?php
 include_once("header.php");
 ?>
-
+<style>
+    .contnt{text-align: center; padding: 100px;}
+</style>
 
 <div class="container" >
     
 
     <div class="row justify-content-md-center">
         <div class="clearfix"></div>
-        <div id="message"></div>
+        <div id="message" class="contnt"></div>
 
-        <form style='text-align: center; padding: 100px; padding-top:10px' id="reset_form">
+        <form class="contnt" id="reset_form">
             <h1>Reset Password</h1>
             <p style="width: 480px; margin-left: 150px;">
                 Enter your email address and we'll send you an email with instructions to reset your password.
