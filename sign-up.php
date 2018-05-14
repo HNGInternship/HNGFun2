@@ -81,7 +81,7 @@ include_once("header.php");
 
             <div class="input-block pb-2">
             <label class="label">Email</label>
-            <input type="text" class="form-control" placeholder="" required value="<?php if (isset($_POST['email']) && !empty($_POST['email'])){ echo $_POST['email'];} ?>">
+            <input type="text" name="email" class="form-control" placeholder="" required value="<?php if (isset($_POST['email']) && !empty($_POST['email'])){ echo $_POST['email'];} ?>">
             </div>
             
             <div class="input-block mr-9 pb-2">
