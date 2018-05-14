@@ -2,9 +2,9 @@
 include_once("header.php");
 ?>
 
-<style type="text/css">
+<style>
     .msg{
-        text-align: center;
+        vertical-align: middle;
     }
 </style>
 <div class="container" >
@@ -23,7 +23,7 @@ include_once("header.php");
                 <input type="hidden" name="reset_password_token" value="yes">
                 <button id='reset' class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;">Reset Password</button>
                 <p style='color: #ADADAD '>
-                     Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
+                     Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In here</span></a> 
                 </p>
             </div>
         </form>
