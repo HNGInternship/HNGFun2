@@ -162,9 +162,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			
 
 		#abt-me-div{
-			width: 60%;
+			width: 70%;
 			height: auto;
-			margin:  70px auto;
+			/*margin:  70px auto;*/
 			margin-bottom: 70px;
 			padding: 100px 100px 0px 100px;
 			background-color: rgba(239, 239, 239, 0.6);

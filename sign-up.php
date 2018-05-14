@@ -1,6 +1,7 @@
 <?php
 require_once('country-array.php');
 include_once("header.php");
+
 ?>
 
 <style>
@@ -118,7 +119,7 @@ include_once("header.php");
             <input type="password" class="form-control" placeholder="" required>
             </div>
             
-            <button class="btn btn-primary signup-btn mt-4" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" name="submit" type="submit">Sign Up</button>
 
           
           </form>
@@ -131,15 +132,25 @@ include_once("header.php");
   </div>
 
 <?php
+if (isset($_POST['submit'])){
+  header("Location: https://hng.fun/activateaccount");
+}
+?>
+
+<?php
 function custom_scripts(){
 	echo <<<_END
-	<script>
-		
+	
+		<script>
+
+
+
 	$("select[name='nationality']").on('change', function() {
 		
 		if (!($("#nigeria").is(":selected"))) {
 			$("#state").addClass("d-none");
 			$("#enter_state").removeClass('d-none');
+			window.location = "https://hng.fun/activateaccount/";
 		}else{
 			$("#state").removeClass("d-none");			
 			$("#enter_state").addClass("d-none");

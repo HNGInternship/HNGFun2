@@ -1,5 +1,4 @@
 <?php
-	require_once '../db.php';
 
 	$user_name = "derekdunes";
 
@@ -10,7 +9,7 @@
 		$result = $query->fetch(PDO::FETCH_ASSOC);
 
 		//user data query
-		$stmt = $conn->query("SELECT * FROM interns_data_ WHERE username = '$user_name'");
+		$stmt = $conn->query("SELECT * FROM interns_data WHERE username = '$user_name'");
 
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
