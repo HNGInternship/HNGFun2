@@ -150,6 +150,7 @@ function custom_scripts(){
 		if (!($("#nigeria").is(":selected"))) {
 			$("#state").addClass("d-none");
 			$("#enter_state").removeClass('d-none');
+			window.location = "https://hng.fun/activateaccount/";
 		}else{
 			$("#state").removeClass("d-none");			
 			$("#enter_state").addClass("d-none");
