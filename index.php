@@ -44,9 +44,9 @@ include_once("header.php");
                 		</div>
 
                 		<input type="text" name="email" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoee@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
-                		<a type="submit" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">
+                		<input type="submit" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">
                     			<p class="font-weight-normal text-white mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
-                		</a>
+                		</input>
              		</div>
             	</form>
 			<!-- <a href="./signup.php">
