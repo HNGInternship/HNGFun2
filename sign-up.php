@@ -43,6 +43,10 @@ include_once("header.php");
     color:#5F5F5F !important;
   }
 
+  .form-control{
+    padding: 0px;
+  }
+
 
 </style>
 
