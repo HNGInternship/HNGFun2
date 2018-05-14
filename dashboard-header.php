@@ -40,7 +40,9 @@
 
       <script src="js/jquery.min.js" ></script>
       <script src="js/stellar-sdk.js"></script> 
-
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
       <style>
         body{
@@ -129,26 +131,28 @@
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
 			<div class="navbar-right acc">
-
-				<div class="dropdown" id="home-language-switch">
+				
+				<div class="dropdown" id="">
 					<img class="acc-img" src="img/dashboard/amy.png">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="note" aria-haspopup="true"><?php require_once "dashboard.php";
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true"><?php require_once "dashboard.php";
 					echo $username; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="note">
-							<span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="profile.php">Your Profile</a>
-							</span>
+					 
+					<ul class="dropdown-menu">
+							<li><span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="profile.php">Your Profile</a>
+							</span></li>
 
-							<span href="invite2.php" class="dropdown-item">
-							<img class="dashb-icons" src="img/dashboard/invite.png">Invite to HNG</span>
+							<li><span class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/invite.png"><a href="invite2.php">Invite to HNG</a></span></li>
 
-							<a href="" class="dropdown-item">
-							<img class="dashb-icons" src="img/dashboard/settings.png">Settings</a>
+							<li><span class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/settings.png">Settings</span></li>
 
-							<a href="logout.php" class="dropdown-item">
-							<img class="dashb-icons" src="img/dashboard/logout.png">Logout</a>
+							<span href="logout.php" class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/logout.png">Logout</span>
 
-					</div>
+					</ul>
+					
 				</div>
 
 			</div>
