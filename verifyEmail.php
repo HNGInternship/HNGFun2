@@ -1,7 +1,8 @@
 <?php
 include_once("header.php");
 // require_once('db.php');
-
+$header="";
+$message="";
 if(!defined('DB_USER')){
             require "../config.php";     
             try {
@@ -12,8 +13,30 @@ if(!defined('DB_USER')){
         }
 
 
-$header="";
-$message="";
+ try {
+        $sql = "SELECT name, username, image_filename FROM interns_data WHERE username='Wizard of Oz'";
+        $q = $conn->query($sql);
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $data = $q->fetch();
+    } catch (PDOException $e) {
+        print_r($e);
+        
+    }
+    $header=$data["username"];
+
+    try {
+        $sql = "SELECT * FROM users WHERE id='1'";
+        $q = $conn->query($sql);
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $data = $q->fetch();
+    } catch (PDOException $e) {
+        print_r($e);
+        
+    }
+    $message=$data["email"];
+
+
+
 if(isset($_GET['token'])){
 
   $token = $_GET['token'];
