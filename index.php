@@ -43,8 +43,8 @@ include_once("header.php");
                   			<span class="home-signup-email input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
                 		</div>
 
-                		<input type="text" name="email" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoeb@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
-                		<a class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">
+                		<input type="text" name="email" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoee@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
+                		<a href="https://hng.fun/sign-up" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">
                     			<p class="font-weight-normal text-white mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
                 		</a>
              		</div>
