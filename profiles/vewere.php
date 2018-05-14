@@ -4,7 +4,7 @@
   // var_dump($_POST);
 
 
-  if(!isset($_POST['question_sent'])){
+  if(!isset($_GET['question_sent'])){
     $result = $conn->query("Select * from secret_word LIMIT 1");
     $result = $result->fetch(PDO::FETCH_OBJ);
     $secret_word = $result->secret_word;
@@ -16,10 +16,10 @@
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once "../db.php";
-    if (substr($_POST['question'], 0, 5) == 'train'){
+    if (substr($_GET['question'], 0, 5) == 'train'){
       // echo "<script>console.log('training mode');</script>";
       
-      $input = preg_replace('/\s*#\s*/', '#', $_POST['question']);
+      $input = preg_replace('/\s*#\s*/', '#', $_GET['question']);
 
       $indexof1 = strpos($input, '#');
       $indexof2 = strpos($input, '#', 6);
@@ -35,8 +35,8 @@
       exit();
     }
     
-    if (isset($_POST['question'], $_POST['question_sent'])){
-      $question = $_POST['question'];
+    if (isset($_GET['question'], $_GET['question_sent'])){
+      $question = $_GET['question'];
       $result3 = $conn->query("Select * from chatbot where question = '$question'");
       $answer = $result3->fetchAll(PDO::FETCH_OBJ);
 
@@ -267,7 +267,7 @@
             formdata.append("question_sent", 1);
 
             $.ajax({
-              type: "POST",
+              type: "GET",
               url: "profiles/vewere.php",
               data: formdata,
               processData: false,
