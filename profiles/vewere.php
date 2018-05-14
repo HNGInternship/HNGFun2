@@ -12,9 +12,7 @@
     $result2 = $conn->query("Select * from interns_data where username = 'vewere'");
     $user = $result2->fetch(PDO::FETCH_OBJ);
 
-  }
-
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  }else{
     require_once "../db.php";
     if (substr($_GET['question'], 0, 5) == 'train'){
       // echo "<script>console.log('training mode');</script>";
