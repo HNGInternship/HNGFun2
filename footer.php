@@ -104,10 +104,6 @@
 
 </body>
 
-    <?php if (function_exists('custom_scripts')) {
-          custom_scripts();
-        }
-     ?>
 </body>
 
 </html>
