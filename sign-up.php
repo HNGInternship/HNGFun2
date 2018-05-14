@@ -221,6 +221,7 @@ include_once("header.php");
 
             $("#signUpInfo").html(data);
             $("#signUpInfo").attr("class","text-danger");
+            $("#signUpInfo").show();
 
 
             // $("#register").html('Registration successful');
