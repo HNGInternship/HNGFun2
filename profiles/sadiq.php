@@ -53,8 +53,6 @@
     return;
           }
 
-
-
           if($message=='aboutbot'){
             echo json_encode([
                'status' => 1,
