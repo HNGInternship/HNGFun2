@@ -203,7 +203,7 @@
 		<a href="#">Profile</a>
 		<a href="#">Chat Bot</a>
 	</div>
-  <div id="main">
+  <div id="main" class="container">
   	<div id="profile-box" class="px-4">
 
   	   <span  id="img-container">
