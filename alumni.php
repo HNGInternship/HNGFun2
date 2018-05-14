@@ -106,6 +106,7 @@
       }
       th {
       	height: 50px;
+        font-weight: normal;
       }
       .top {
         padding: 1em;
