@@ -7,10 +7,10 @@ include_once("header.php");
 
 <div class="container" >
     
-
+<div class="clearfix"></div>
     <div class="row justify-content-md-center">
-        <div class="clearfix"></div>
-        <div id="notif" class="contnt"></div>
+        
+        <div id="notif" ></div>
 
         <form class="contnt" id="reset_form">
             <h1>Reset Password</h1>
