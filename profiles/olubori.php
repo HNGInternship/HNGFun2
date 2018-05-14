@@ -92,7 +92,6 @@
 		  	position: relative;
 		  	background: url('../img/banner-image-1.png');
 		  	background-repeat: no-repeat;
-	        background-attachment: fixed;
 	        background-position: center;
 	        background-size: cover;
 		  }
@@ -199,10 +198,10 @@
 		</style>
 
 <section id="app" class="mt-4">
-	<div id="menu">
+	<!--<div id="menu">
 		<a href="#">Profile</a>
 		<a href="#">Chat Bot</a>
-	</div>
+	</div>-->
   <div id="main" class="container">
   	<div id="profile-box" class="px-4">
 
