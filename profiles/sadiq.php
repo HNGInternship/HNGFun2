@@ -23,11 +23,8 @@
               $mQuestion= $sets[0];
               $mAns= $sets[1];
               $mPwd= $sets[2];
-              echo json_encode([
-                   'status' => 1,
-                   'answer' => "sorry wrong password"
-                 ]);
-              if($mPwd=='passcode'){
+              
+              if( trim($mPwd) === "passcode"){
               $resultIns = $conn->query("insert into chatbot (`question`, `answer`) values ('$mQuestion','$mAns')" );
                 if($resultIns)
                 {
