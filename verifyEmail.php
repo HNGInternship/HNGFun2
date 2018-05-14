@@ -17,27 +17,27 @@ if(!defined('DB_USER')){
         }
 
 
- try {
-        $sql = "SELECT name, username, image_filename FROM interns_data WHERE username='Wizard of Oz'";
-        $q = $conn->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
-        $data = $q->fetch();
-    } catch (PDOException $e) {
-        print_r($e);
+ // try {
+ //        $sql = "SELECT name, username, image_filename FROM interns_data WHERE username='Wizard of Oz'";
+ //        $q = $conn->query($sql);
+ //        $q->setFetchMode(PDO::FETCH_ASSOC);
+ //        $data = $q->fetch();
+ //    } catch (PDOException $e) {
+ //        print_r($e);
         
-    }
-    $header=$data["username"]."2!";
+ //    }
+ //    $header=$data["username"]."2!";
 
-    try {
-        $sql = "SELECT * FROM users WHERE id='1'";
-        $q = $conn->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
-        $data = $q->fetch();
-    } catch (PDOException $e) {
-        print_r($e);
+ //    try {
+ //        $sql = "SELECT * FROM users WHERE id='1'";
+ //        $q = $conn->query($sql);
+ //        $q->setFetchMode(PDO::FETCH_ASSOC);
+ //        $data = $q->fetch();
+ //    } catch (PDOException $e) {
+ //        print_r($e);
         
-    }
-    $message=$data["email"];
+ //    }
+ //    $message=$data["email"];
 
 
 
@@ -90,12 +90,12 @@ if(isset($_GET['token'])){
 
 }
 
-// else{
+else{
 
-//   header("Location: login.php");
-//   exit();
+  header("Location: login.php");
+  exit();
 
-// }
+}
 
 ?>
 
