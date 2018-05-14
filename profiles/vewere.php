@@ -42,7 +42,7 @@
     
     if (isset($_GET['question'], $_GET['question_sent'])){
       $question = $_GET['question'];
-      $result3 = $conn->query("Select answer from chatbot where question = '$question' ORDER BY rand() LIMIT 1");
+      $result3 = $conn->query("Select answer from chatbot where question LIKE '$question' ORDER BY rand() LIMIT 1");
       
 
       
