@@ -18,7 +18,7 @@ if(!defined('DB_USER')){
 
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-		include '../answers.php';
+	    include "../answers.php";
 	    
 	    try{
 
@@ -120,17 +120,12 @@ if(!defined('DB_USER')){
 
 		        $stat->setFetchMode(PDO::FETCH_ASSOC);
 		        $rows = $stat->fetchAll();
-		        if(empty($rows)){
-		        	echo json_encode([
-			    		'status' => 0,
-			    		'answer' => "I am sorry, I cannot answer your question now. You could train me to answer the question."
-			    	]);
-			    	return;
-			    }else{
-			    	$rand = array_rand($rows);
-			    	$answer = $rows[$rand]['answer'];
-
-			    	$index_of_parentheses = stripos($answer, "((");
+		        if(count($rows)>0){
+			        $index = rand(0, count($rows)-1);
+			        $row = $rows[$index];
+			        $answer = $row['answer'];
+			        // check if answer is a function.
+			        $index_of_parentheses = stripos($answer, "((");
 			        if($index_of_parentheses === false){// if answer is not to call a function
 			        	echo json_encode([
 				        	'status' => 1,
@@ -162,8 +157,15 @@ if(!defined('DB_USER')){
 				            }
 				            return;
 			            }
-			        }
-			    }       
+			        }    
+			    }else{
+
+			    	echo json_encode([
+			    		'status' => 0,
+			    		'answer' => "I am sorry, I cannot answer your question now. You could offer to train me."
+			    	]);
+			    	return;
+			    }
 		    }
 		}catch (Exception $e){
 			return $e->message ;

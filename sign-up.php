@@ -105,8 +105,13 @@ include_once("header.php");
 
 
             <div class="input-block pb-2">
+<!-- <<<<<<< HEAD -->
             <label class="label" for="phone">Phone number</label>
             <input type="tel" id="phone" name="phone" class="form-control" placeholder="" required>
+<!-- =======
+            <label class="label">Email</label>
+            <input type="text" name="email" class="form-control" placeholder="" required value="<?php if (isset($_POST['email']) && !empty($_POST['email'])){ echo $_POST['email'];} ?>">
+>>>>>>> d530f7f4dc913fd97f9de97a0b808cfb28f97970 -->
             </div>
             
          <!--    <div class="input-block mr-9 pb-2">
@@ -158,9 +163,8 @@ include_once("header.php");
         </div> <!-- /container -->
     </div>
   </div>
-
+  
 <script type="text/javascript">
-    
        $( document ).ready(function() {
         $('#signUpInfo').hide();
     $("#register_form").submit(function(e){
@@ -206,7 +210,7 @@ include_once("header.php");
 
 
               if(data===""){
-                window.location.href="learn.php";
+                window.location.href="activateaccount.php";
                 return;
               }
             
@@ -258,31 +262,7 @@ include_once("header.php");
     });
     
 </script>
-
 <?php
-// function custom_scripts(){
-// 	echo <<<_END
-	
-// 		<script type="text/javascript" language="javascript">
-// function redirect()
-// {
-//     window.location.href="https://hng.fun/activateaccount";
-// }
 
-
-
-// 	$("select[name='nationality']").on('change', function() {
-		
-// 		if (!($("#nigeria").is(":selected"))) {
-// 			$("#state").addClass("d-none");
-// 			$("#enter_state").removeClass('d-none');
-// 		}else{
-// 			$("#state").removeClass("d-none");			
-// 			$("#enter_state").addClass("d-none");
-// 		}
-// 	});
-// 	</script>
-// _END;
-// }
 include_once("footer.php");
 ?>

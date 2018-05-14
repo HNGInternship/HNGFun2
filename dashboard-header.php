@@ -11,8 +11,8 @@
     <title>HNG FUN Dashboard</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+      
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
       <!-- Custom fonts for this template -->
   <!-- Custom fonts for this template -->
@@ -40,13 +40,19 @@
 
       <script src="js/jquery.min.js" ></script>
       <script src="js/stellar-sdk.js"></script> 
-
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
       <style>
         body{
             background-color: #fafafa;
             font-family: 'Lato', sans-serif;
         }
+		.dash-b{
+			background-color: #FFFFFF;
+			padding-left: 30px;
+		}
         #navbar{
             font-size: 15px;
             font-weight: bold;
@@ -55,6 +61,7 @@
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
+			font-size: 13px !important;
         }
         .nav-item:hover {
             background-color: rgba(199, 196, 196, 0.1);
@@ -128,35 +135,37 @@
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
-        <div class="navbar-right acc">
+			<div class="navbar-right acc">
+				
+				<div class="dropdown" id="">
+					<img class="acc-img" src="img/dashboard/amy.png">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true"><?php require_once "dashboard.php";
+					echo $username; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
+					</a>
+					 
+					<ul class="dropdown-menu">
+							<li><span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="profile.php">Your Profile</a>
+							</span></li>
 
-        <div class="dropdown" id="home-language-switch">
-        <img class="acc-img" src="img/dashboard/amy.png">
-        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><?php require_once "dashboard.php";
-        echo $username; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-                <a href="profile.php" class="dropdown-item">
-                <img class="dashb-icons" src="img/dashboard/profile.png">Your Profile</a>
+							<li><span class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/invite.png"><a href="invite2.php">Invite to HNG</a></span></li>
 
-                <a href="invite2.php" class="dropdown-item">
-                <img class="dashb-icons" src="img/dashboard/invite.png">Invite to HNG</a>
+							<li><span class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/settings.png">Settings</span></li>
 
-                <a href="" class="dropdown-item">
-                <img class="dashb-icons" src="img/dashboard/settings.png">Settings</a>
+							<span href="logout.php" class="dropdown-item">
+							<img class="dashb-icons" src="img/dashboard/logout.png">Logout</span>
 
-                <a href="logout.php" class="dropdown-item">
-                <img class="dashb-icons" src="img/dashboard/logout.png">Logout</a>
+					</ul>
+					
+				</div>
 
-        </div>
-    </div>
-
-        </div>
+			</div>
 
         </nav>
     </div>
 
-    <div class="dash-b container">
+    <div class="dash-b">
         <ul class="navbar-nav collapse ml-auto dashmenu">
             <li class="nav-item active">
                 <a href="index.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>

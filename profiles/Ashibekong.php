@@ -1,24 +1,18 @@
-<!DOCTYPE HTML>
-
-<html>
-	<head>
-
- <?php
+<?php
 
 
    try {
-   $sql = 'SELECT * FROM secret_word';
-       $q = $conn->query($sql);
-       $q->setFetchMode(PDO::FETCH_ASSOC);
-   } catch (PDOException $e) {
+	   $sql = 'SELECT * FROM secret_word';
+	       $q = $conn->query($sql);
+	       $q->setFetchMode(PDO::FETCH_ASSOC);
+	} catch (PDOException $e) {
        die("Could not query the database:" . $e->getMessage());
-     }
+    }
    $result = $q->fetch();
    $secret_word = $result['secret_word'];
-
-   ?>
- 
-
+?>
+<html>
+	<head>
 
 		<title>Ashibekong John Ishado</title>
 		<meta charset="utf-8" />
