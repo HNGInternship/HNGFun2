@@ -181,7 +181,7 @@
 	      #profile-box a {
 	      	color: #0085A1;
 	      }
-	      #profile-box img {
+	      #img-container img {
 	      	border-radius: 2rem;
 	      }
 		  @media only screen and (min-width: 993px) {
@@ -197,19 +197,32 @@
 		  }
 		</style>
 
-<section id="app" class="mt-4">
+<section id="app" class="mt-4 d-flex flex-column align-items-center">
 	<!--<div id="menu">
 		<a href="#">Profile</a>
 		<a href="#">Chat Bot</a>
 	</div>-->
-  <div id="main" class="container">
-  	<div id="profile-box" class="px-4">
-
-  	   <span  id="img-container">
-  	   <img src="https://res.cloudinary.com/naera/image/upload/v1525932431/Photo_on_1-26-18_at_2.57_PM_2_xpnojm.jpg" class="img-fluid">
+     <span  id="img-container" class="col-md-5 col-sm-8 col-xs-10">
+     		<img src="https://res.cloudinary.com/naera/image/upload/v1525932431/Photo_on_1-26-18_at_2.57_PM_2_xpnojm.jpg" class="img-fluid">
   	</span>
-  		<h3 class="mt-4"><?= $user->name ?></h3>
-  		<p class="mt-0 text-primary"><strong>Laravel and VueJS fanatic</strong></p>
+  	<h2 class="mt-4"><?= $user->name ?></h2>
+  	<ul class="row justify-content-between col-md-5 col-sm-6 col-xs-9">
+  		<li>
+  			I KNOW GOD
+  		</li>
+
+  		<li>
+  			I LOVE HUMANITY
+  		</li>
+
+  		<li>
+  			I INSTRUCT COMPUTERS
+  		</li>
+  	</ul>
+  	<p class="mt-0 text-primary"><strong>Laravel and VueJS fanatic</strong></p>
+  <div id="main" class="container row flex-wrap">
+
+  	<div id="profile-box" class="px-4 col-md-6">
   		<h4 style="align-self: flex-start;" class="mt-3">Links to some of my works</h4>
     <div class="w-100">
   		<ol>
@@ -237,7 +250,7 @@
   		</ol>
   	</div>
   	</div>
-  	<div id="chat-box" >
+  	<div id="chat-box" class="col-md-5">
   		<header>
   			<h4 class="text-center text-success">BORI BOT</h4>
   		</header>
