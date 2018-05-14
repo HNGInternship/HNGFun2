@@ -31,13 +31,13 @@
 							
 							<div class="row mx-auto">
 								<div class="col">
-									<i class="fa fa-twitter fa-lg"></i>
+									<a href="https://twitter.com/BluechipTechNG" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
 								</div>
 								<div class="col">
-									<i class="fa fa-facebook fa-lg"></i>
+									<a href="https://web.facebook.com/BluechipTech/" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
 								</div>
 								<div class="col">
-									<i class="fa fa-github fa-lg"></i>
+									<a href="https://github.com/bluechiptech" target="_blank"><i class="fa fa-github fa-lg"></i></a>
 								</div>
 							</div>
 							

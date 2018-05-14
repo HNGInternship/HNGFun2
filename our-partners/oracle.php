@@ -31,13 +31,13 @@
 							
 							<div class="row mx-auto">
 								<div class="col">
-									<i class="fa fa-twitter fa-lg"></i>
+									<a href="https://twitter.com/Oracle" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
 								</div>
 								<div class="col">
-									<i class="fa fa-facebook fa-lg"></i>
+									<a href="https://web.facebook.com/Oracle/?_rdc=1&_rdr" target="_blank">	<i class="fa fa-facebook fa-lg"></i></a>
 								</div>
 								<div class="col">
-									<i class="fa fa-github fa-lg"></i>
+									<a href="https://www.linkedin.com/company/oracle/" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
 								</div>
 							</div>
 							
