@@ -2,16 +2,12 @@
 include_once("header.php");
 ?>
 
-<style>
-    .msg{
-        vertical-align: middle;
-    }
-</style>
+
 <div class="container" >
     
 
     <div class="row justify-content-md-center">
-        <div id="message"></div>
+        <center><div id="message"></div></center>
         <form style='text-align: center; padding: 100px' id="reset_form">
             <h1>Reset Password</h1>
             <p style="width: 480px; margin-left: 150px;">
@@ -23,7 +19,7 @@ include_once("header.php");
                 <input type="hidden" name="reset_password_token" value="yes">
                 <button id='reset' class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;">Reset Password</button>
                 <p style='color: #ADADAD '>
-                     Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In here</span></a> 
+                     Already have account? <a href="login.php" style="text-decoration: none; "><span style="color: #1E99E0">Log In</span></a> 
                 </p>
             </div>
         </form>
@@ -40,7 +36,7 @@ include_once("header.php");
              
         if(email ==""){
             alert('please enter email');
-            $("#message").addClass('msg alert alert-danger');
+            $("#message").addClass(' alert alert-danger');
             $("#message").html('Please enter email');
         }
        
@@ -60,7 +56,7 @@ include_once("header.php");
             success: function(data){
 
              
-             $("#message").addClass('msg alert alert-success');
+             $("#message").addClass('alert alert-success');
             $("#message").html(data);
 
             $("#reset").html('DONE');          
@@ -74,7 +70,7 @@ include_once("header.php");
             },
             beforeSend :function(){
 
-            $("#message").removeClass('msg alert alert-danger');
+            $("#message").removeClass('lert alert-danger');
             $("#message").html('');
 
             $("#reset").html('Requesting..');
