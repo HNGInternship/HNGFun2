@@ -14,7 +14,7 @@
           }
           $mesuu = $_GET['question'];
           $message=strtolower($mesuu);
-          trim($message);
+          $message = trim($message);
           $statusTrain = stripos($message, "train:");
           if($statusTrain !== false) // Check for truthiness should be explicitly stated
           {
