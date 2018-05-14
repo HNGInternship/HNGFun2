@@ -49,6 +49,10 @@
             background-color: #fafafa;
             font-family: 'Lato', sans-serif;
         }
+		.dash-b{
+			background-color: #FFFFFF;
+			padding-left: 30px;
+		}
         #navbar{
             font-size: 15px;
             font-weight: bold;
@@ -57,6 +61,7 @@
         .nav-item{
             padding-right: 15px;
             padding-left: 15px;
+			font-size: 13px !important;
         }
         .nav-item:hover {
             background-color: rgba(199, 196, 196, 0.1);
@@ -160,7 +165,7 @@
         </nav>
     </div>
 
-    <div class="dash-b container">
+    <div class="dash-b">
         <ul class="navbar-nav collapse ml-auto dashmenu">
             <li class="nav-item active">
                 <a href="index.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
