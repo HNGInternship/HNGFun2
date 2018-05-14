@@ -93,6 +93,10 @@
     tbody > tr:hover {
     	background: #e5e5e5;
     }
+
+    th{
+      font-family: Verdana, sans-serif;
+    }
     @media screen and (max-width: 767px) {
       html, body {
       	width: 100%;
@@ -106,8 +110,6 @@
       }
       th {
       	height: 50px;
-        font-weight: normal;
-        font-family: Verdana,sans-serif;
       }
       .top {
         padding: 1em;
