@@ -1,6 +1,6 @@
 <?php
 
-    if($_SERVER['REQUEST_METHOD'] === 'GET')
+    if(isset($_GET['question']))
      {
                if (!defined('DB_USER')){
                    require "../../config.php";
@@ -51,20 +51,9 @@
                     // code...
                   }
     return;
-          }if ($message==""){
-      echo json_encode([
-         'status' => 1,
-         'answer' => "enter a question  you can also train me "
-       ]);
-    return;
-    }
-    if ($message==""){
-    echo json_encode([
-    'status' => 1,
-    'answer' => "enter a question  you can also train me "
-    ]);
-    return;
-    }
+          }
+
+
 
           if($message=='aboutbot'){
             echo json_encode([
@@ -91,14 +80,6 @@
       echo json_encode([
          'status' => 1,
          'answer' =>"sorry i have no answer to that yet, but you can train me how to annswer questions "
-       ]);
-    return;
-    }
-
-    if ($message==""){
-      echo json_encode([
-         'status' => 1,
-         'answer' => "enter a question  you can also   train me "
        ]);
     return;
     }
