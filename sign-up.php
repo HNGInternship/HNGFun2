@@ -79,10 +79,19 @@ include_once("header.php");
             <input type="text" class="form-control" placeholder="" required>
             </div>
 
-            <div class="input-block pb-2">
-            <label class="label">Email</label>
-            <input type="text" class="form-control" placeholder="" required>
-            </div>
+            <form action="sign-up.php" method="post" id="newsletter" name="newsletter" class="w-75">
+        <label class="mb-0 pb-0">Email:</label>
+              <div class="input-group mb-4 mt-0">
+                <div class="input-group-prepend ">
+                  <span class="home-signup-email input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
+                </div>
+
+                <input type="text" name="email" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;" value="<?php if (isset($_POST['email']) && !empty($_POST['email'])){ echo $_POST['email'];} ?>">
+                <a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">
+                    <p class="font-weight-normal text-white mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
+                </a>
+              </div>
+            </form>
             
             <div class="input-block mr-9 pb-2">
             <label class="label">Nationality</label>
