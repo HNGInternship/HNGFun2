@@ -2,55 +2,53 @@
 
     if(isset($_GET['question']))
      {
-               if (!defined('DB_USER')){
-                   require "../../config.php";
-               }
-               try {
-                   $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-                 } catch (PDOException $pe) {
-                   die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-                 }
+          if (!defined('DB_USER')){
+            require "../../config.php";
+          }
+          try {
+            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+          } catch (PDOException $pe) {
+            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+          }
           $mesuu = $_GET['question'];
           $message=strtolower($mesuu);
           trim($message);
           $statusTrain = stripos($message, "train:");
           if($statusTrain)
           {
-            $newstring=str_replace("train:","","$message");
-             $sets = explode("#", $newstring);
-                  $mQuestion= $sets[0];
-                  $mAns= $sets[1];
-                  $mPwd= $sets[2];
-                  if($mPwd=='passcode'){
-                  $resultIns = $conn->query("insert into chatbot (`question`, `answer`) values ('$mQuestion','$mAns')" );
-                  if($resultIns)
-                  {
-                    echo json_encode([
-                     'status' => 1,
-                            'answer' => "thanks and noted."
-                            ]);
-    return;
+              $newstring=str_replace("train:","","$message");
+              $sets = explode("#", $newstring);
+              $mQuestion= $sets[0];
+              $mAns= $sets[1];
+              $mPwd= $sets[2];
+              if($mPwd=='passcode'){
+              $resultIns = $conn->query("insert into chatbot (`question`, `answer`) values ('$mQuestion','$mAns')" );
+                if($resultIns)
+                {
+                  echo json_encode([
+                   'status' => 1,
+                    'answer' => "thanks and noted."
+                  ]);
+                  return;
+                }
+                else {
+                  echo json_encode([
+                  'status' => 1,
+                  'answer' => "sorry something went wrong"
+                  ]);
+                  return;
+                  // code...
+                }
+              }
+              else {
 
-    }
-    else {
-
-    echo json_encode([
-       'status' => 1,
-       'answer' => "sorry something went wrong"
-     ]);
-    return;
-      // code...
-    }
-                  }
-                  else {
-
-                    echo json_encode([
-                       'status' => 1,
-                       'answer' => "sorry wrong password"
-                     ]);
-                    // code...
-                  }
-    return;
+                echo json_encode([
+                   'status' => 1,
+                   'answer' => "sorry wrong password"
+                 ]);
+                // code...
+              }
+              return;
           }
 
           if($message=='aboutbot'){
@@ -58,32 +56,30 @@
                'status' => 1,
                'answer' => "sasbot 1.0"
              ]);
-    return;
+            return;
           }
          if ($message!=''){
-    $result2 = $conn->query("select * from chatbot where question = '$message' order by rand()");
-    $user = $result2->fetch(PDO::FETCH_OBJ);
+           $result2 = $conn->query("select * from chatbot where question = '$message' order by rand()");
+           $user = $result2->fetch(PDO::FETCH_OBJ);
 
-    if($user){
-    $rows=$user->answer;
+           if($user){
+             $rows=$user->answer;
 
-    echo json_encode([
-       'status' => 1,
-       'answer' => $rows
-     ]);
-    return;
-    }
-    else
-    {
-      echo json_encode([
-         'status' => 1,
-         'answer' =>"sorry i have no answer to that yet, but you can train me how to annswer questions "
-       ]);
-    return;
-    }
-    }
-        return;
-     }
+             echo json_encode([
+               'status' => 1,
+               'answer' => $rows
+             ]);
+             return;
+           }else{
+             echo json_encode([
+               'status' => 1,
+               'answer' =>"sorry i have no answer to that yet, but you can train me how to annswer questions "
+             ]);
+             return;
+           }
+         }
+         return;
+      }
 
 ?>
 
