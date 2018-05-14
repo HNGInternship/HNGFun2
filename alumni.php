@@ -95,7 +95,7 @@
     }
 
     th{
-      font-family: Trebuchet;
+      font-family: Calibri;
     }
     @media screen and (max-width: 767px) {
       html, body {
