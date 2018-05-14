@@ -7,7 +7,8 @@ include_once("header.php");
     
 
     <div class="row justify-content-md-center">
-        <center><div id="message"></div></center>
+        <div id="message"></div>
+        <div class="clearfix"></div>
         <form style='text-align: center; padding: 100px' id="reset_form">
             <h1>Reset Password</h1>
             <p style="width: 480px; margin-left: 150px;">
