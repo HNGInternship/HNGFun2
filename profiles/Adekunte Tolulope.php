@@ -1,7 +1,7 @@
 <?php
 if (!defined('DB_USER'))
 	{
-	require "../db.php";
+	require "db.php";
 	}
 try
 	{
