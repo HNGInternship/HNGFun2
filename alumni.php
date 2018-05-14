@@ -95,7 +95,7 @@
     }
 
     th{
-      font-family: Arial;
+      font-family: Trebuchet;
     }
     @media screen and (max-width: 767px) {
       html, body {
