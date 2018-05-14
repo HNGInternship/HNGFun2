@@ -80,7 +80,7 @@ include_once("header.php");
             </div>
 
             <div class="input-block pb-2">
-            <label class="label">Address</label>
+            <label class="label">Email</label>
             <input type="text" class="form-control" placeholder="" required>
             </div>
             
