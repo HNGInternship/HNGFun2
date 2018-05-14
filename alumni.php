@@ -95,7 +95,7 @@
     }
 
     th{
-      font-family: Verdana, sans-serif;
+      font-family: Arial;
     }
     @media screen and (max-width: 767px) {
       html, body {
