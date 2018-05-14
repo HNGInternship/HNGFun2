@@ -229,7 +229,7 @@ include_once("header.php");
             </a>
             <!--Controls-->
 
-            <div class="text-center"><hr class="bottom-hr" width="959px"></div>
+           
         </div>
         <!--Carousel Wrapper-->
 

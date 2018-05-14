@@ -307,6 +307,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     <meta charset="utf-8" />
     <title>Fantastic Genius Profile</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" >
+    
     
 
     <style>
@@ -317,7 +319,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
             min-height: 600px;
         }
 
-        .overlay{
+        .gen-overlay{
             background: rgb(51, 51, 51, 0.59) ;
             background-size: cover;
             min-height: 600px;
@@ -417,6 +419,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
         .skills-item li .fa{
             margin-right: 10px;
+            color: 	#990000 !important;
         }
 
         .social-link{
@@ -430,7 +433,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
             padding: 0 5px;
         }
         .social-link li .fa{
-            color: #2A32F4;
+            color: #2A32F4 !important;
             font-size: 20px;
         }
 
@@ -456,6 +459,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
             padding: 20px 30px;
             border-radius: 10px 10px 0 0;
             cursor: pointer;
+        }
+        .chatbot-head .fa{
+            color: #000080 !important;
         }
         .chat-message{
             background: #ffffff;
@@ -539,7 +545,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 </head>
 <body>
     <div class="main">
-        <div class="overlay">
+        <div class="gen-overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 order-md-2">

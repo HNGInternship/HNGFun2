@@ -1,5 +1,7 @@
 <?php
 
+include_once("../answers.php"); 
+
 if(!defined('DB_USER')){
      require "../../config.php";
      try {
@@ -160,9 +162,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			
 
 		#abt-me-div{
-			width: 60%;
+			width: 70%;
 			height: auto;
-			margin:  70px auto;
+			/*margin:  70px auto;*/
 			margin-bottom: 70px;
 			padding: 100px 100px 0px 100px;
 			background-color: rgba(239, 239, 239, 0.6);
@@ -493,7 +495,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	            question.value = '';
 	          }
       	    }
-        xhttp.open('POST', 'profiles/Abigail.php', true);
+        xhttp.open('POST', 'profiles/Abigail', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('question='+ question.value);
         e.preventDefault();

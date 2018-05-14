@@ -34,7 +34,7 @@ $activeArray[$fileIndex]="active";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>HNG FUN </title>
+    <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,13 +78,13 @@ $activeArray[$fileIndex]="active";
           background-color: #F4F4F4;
           padding: 0 10em;
         }
-        .navbar-expand-lg{}
+
         .nav-item{
-            padding: 10px 15px;
-            border-bottom: 3px solid #fffff;
+            padding: 24px 15px;
+            border-bottom: 3px solid #f4f4f4;
         }
         .nav-item:hover, .active {
-            border-bottom: 3px solid  #495af5;
+            border-bottom: 3px solid #2196F3;
         }
         /* horizontal line learn page */
         hr.under-line {
@@ -159,7 +159,7 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li>
+            </li> 
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Current Intern</a>
             </li>
@@ -177,9 +177,6 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[9] ?>">
                 <a href="login" class="nav-link">LogIn</a>
-            </li>
-            <li>
-                <a href="login" class="nav-link">Test <?= $fileName ?> end</a>
             </li>
     </ul>
   </div>

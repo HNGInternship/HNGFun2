@@ -1,10 +1,8 @@
 
 <?php 
 
-   require '../db.php';
-
 try {
-    $query = "SELECT * FROM interns_data_ WHERE username='Samuel'";
+    $query = "SELECT * FROM interns_data WHERE username='Samuel'";
     $resultSet = $conn->query($query);
     $result = $resultSet->fetch(PDO::FETCH_ASSOC);
 } catch (PDOException $e){

@@ -1,22 +1,16 @@
-<!-- head here  -->
-<?php
-   include_once("header.php");
 
-   $profile_name = $_GET['id'];
-	$secret_word = "sample_secret_word";
-
-    require 'db.php';
-?>
-<!-- Page Content -->
-</div>
-<body class = 'profile'>
-
-<div class="container">
 	
     <?php 
 	
 	
 	// readfile('profiles/' . $profile_name. '.php');
+
+   include_once("header.php");
+
+   $profile_name = $_GET['id'];
+    $secret_word = "sample_secret_word";
+
+    require 'db.php';
 
 	require('profiles/' . $profile_name. '.php');
 
@@ -30,7 +24,7 @@
 
     throw $e;
 }?>
-</div>
+
 
 <?php if(!isset($secret_word) || $secret_word != $data['secret_word']) { ?>
     <div style="
@@ -45,6 +39,13 @@
     top: 50px;
     ">Secret key mismatch. Insert your secret key</div>
 <?php } ?>
+<!-- head here  -->
+
+<!-- Page Content -->
+</div>
+<body class = 'profile'>
+
+
 
 </body>
 

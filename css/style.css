@@ -89,7 +89,6 @@ li.nav-item {
 nav.navbar {
 	box-sizing: border-box !important;
 	padding: 0 16px 0 50px !important;
-	height: 100px;
 }
 
 form.home-signup-form {

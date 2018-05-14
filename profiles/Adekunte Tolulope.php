@@ -1,7 +1,7 @@
 <?php
 if (!defined('DB_USER'))
 	{
-	require "../../config.php";
+	require"../../config.php";
 	}
 try
 	{
@@ -12,12 +12,10 @@ catch(PDOException $pe)
 	die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
 	}
 global $conn;
-
 $diffAns ='';
 if (isset($_POST['bot_adekunte'])) {
 	
 	$data = $_POST['bot_adekunte'];
-
 	if ($data == 'aboutbot') {
 		echo "V 1.0";
 		exit();
@@ -32,7 +30,6 @@ if (isset($_POST['bot_adekunte'])) {
 					$conn -> query($sql);
 					echo "Training Successful. Now i know $exp[0]";
 					exit();
-
 				}catch(PDOException $e){
 					echo "I refused to be trained!".$e->getMessage();
 					exit();
@@ -50,14 +47,11 @@ if (isset($_POST['bot_adekunte'])) {
 	else{
 		try{
 			$sql = "SELECT answer FROM chatbot WHERE question LIKE '%$data%' ";
-
 			$query = $conn -> query($sql);
-
 			if (count($query -> fetchAll()) > 0) {
 				$query2 = $conn -> query($sql);
 				while ($val = $query2 -> fetch()) {
 					$diffAns .= $val[0].',';
-
 			}
 			$diff = explode(',', $diffAns);
 			if (count($diff) > 1) {
@@ -80,22 +74,18 @@ if (isset($_POST['bot_adekunte'])) {
 		}
 		
 	}
-
 }
 ?>
 
 <?php
-
 $result = $conn->query("SELECT * FROM secret_word LIMIT 1");
  $res = $result->fetch(PDO::FETCH_OBJ);
   $secret_word = $res->secret_word;
-
  $result2 = $conn->query("SELECT * FROM interns_data WHERE username = 'Adekunte Tolulope'");
  $user = $result2->fetch(PDO::FETCH_OBJ);
 $name = $user-> name;
 $image = $user-> image_filename;
 $username = $user-> username;
-
 ?>
 
 
@@ -164,12 +154,10 @@ button:hover, a:hover {
 		border:solid 1px black;
 		border-radius: 100%;
 	}
-
 	#content{
 		
 		padding:10px 8px;
 		margin-top: 2px;
-
 	}
 	#content > #head {
 		background-color: #cccccc;
@@ -220,7 +208,6 @@ button:hover, a:hover {
 		text-align: right;
 		border-radius: 8px;
 		padding-right: 1px;
-
 	}
 	#body #inpBut input{
 		width:100%;
@@ -296,7 +283,7 @@ button:hover, a:hover {
 			</div>
 		</div>
 		<div id="foot">
-		<kbd>ADREX</kbd>
+		<kbd>ADTREX</kbd>
 		</div>
 	</div>
 </div>
@@ -325,7 +312,6 @@ var no = 0;
 			}
 		}
 			x.send(vars);
-
 			document.getElementById("id"+no).innerHTML="loading..."
 		}
 }

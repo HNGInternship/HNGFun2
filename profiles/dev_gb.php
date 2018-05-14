@@ -227,7 +227,7 @@ body {
 .clear {
     *zoom: 1;
 }
-img {
+.dimg {
   width: 100%;
   vertical-align: bottom;
 }
@@ -523,7 +523,7 @@ a:focus {
 
                    <li class="person">
                           <span class="avatar">
-                            <img src="http://res.cloudinary.com/devgeaks/image/upload/v1523731563/2017-03-02_08.30.03.jpg" alt="Sacha Griffin" />
+                            <img class="dimg" src="http://res.cloudinary.com/devgeaks/image/upload/v1523731563/2017-03-02_08.30.03.jpg" alt="Sacha Griffin" />
                             <span class="status online"></span>
                           </span>
                           <span class="info">

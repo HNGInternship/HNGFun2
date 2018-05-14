@@ -184,7 +184,7 @@ return;
 
    background-color:rgba(238, 29, 29, 0.34);
 }
-body
+.body
 {
   width: 100%;
   color: #FBF7F7;
@@ -264,6 +264,7 @@ body
 	</title>
 </head>
 <body>
+<div class="body">
   <?php
 //require "../db.php";
 if (!defined('DB_USER')){
@@ -319,7 +320,7 @@ if (!defined('DB_USER')){
 <a href="#" class="fa fa-instagram"></a>
 <a href="#" class="fa fa-slack"></a>
 </center> 	</div></div></center>
-
+</div>
 </body>
 </html>
 <script>

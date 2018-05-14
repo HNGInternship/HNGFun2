@@ -8,7 +8,6 @@
 			    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
 			}
 		}
-
     try {
         $q = 'SELECT * FROM secret_word';
         $sql = $conn->query($q);
@@ -16,20 +15,15 @@
         $data = $sql->fetch();
         $secret_word = $data["secret_word"];
     } catch (PDOException $err) {
-
         throw $err;
     }?>
 	
 <?php
-
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		
 		require "../answers.php";
-
 		date_default_timezone_set("Africa/Lagos");
-
 		// header('Content-Type: application/json');
-
 		if(!isset($_POST['question'])){
 			echo json_encode([
 				'status' => 1,
@@ -37,29 +31,24 @@
 			]);
 			return;
 		}
-
 		$question = $_POST['question']; //get the entry into the chatbot text field
-
 		//check if in training mode
 		$index_of_train = stripos($question, "train:");
 		if($index_of_train === false){//then in question mode
 			$question = preg_replace('([\s]+)', ' ', trim($question)); //remove extra white space from question
 			$question = preg_replace("([?.])", "", $question); //remove ? and .
-
 			//check if answer already exists in database
 			$question = "%$question%";
 			$sql = "select * from chatbot where question like :question";
 			$stmt = $conn->prepare($sql);
 			$stmt->bindParam(':question', $question);
 			$stmt->execute();
-
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			$rows = $stmt->fetchAll();
 			if(count($rows)>0){
 				$index = rand(0, count($rows)-1);
 				$row = $rows[$index];
 				$answer = $row['answer'];	
-
 				//check if the answer is to call a function
 				$index_of_parentheses = stripos($answer, "((");
 				if($index_of_parentheses === false){ //then the answer is not to call a function
@@ -118,7 +107,6 @@
 			}
 			$que = trim($split_string[0]);
 			$ans = trim($split_string[1]);
-
 			if(count($split_string) < 3){
 				echo json_encode([
 					'status' => 0,
@@ -126,7 +114,6 @@
 				]);
 				return;
 			}
-
 			$password = trim($split_string[2]);
 			//verify if training password is correct
 			define('TRAINING_PASSWORD', 'password');
@@ -137,8 +124,6 @@
 				]);
 				return;
 			}
-
-
 			//insert into database
 			$sql = "insert into chatbot (question, answer) values (:question, :answer)";
 			$stmt = $conn->prepare($sql);
@@ -152,7 +137,6 @@
 			]);
 			return;
 		}
-
 		echo json_encode([
 			'status' => 0,
 			'answer' => "Sorry I cannot answer that question, please train me"
@@ -162,13 +146,14 @@
 	else{
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link id="css" rel="stylesheet" href="https://static.oracle.com/cdn/jet/v4.2.0/default/css/alta/oj-alta-min.css" type="text/css"/>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 <style type="text/css">
       body {
 			
@@ -263,18 +248,20 @@
   <body style = "background color: #FFFFFF">
 
 <!-- Main Content -->
-<div class="oj-flex oj-flex-items-pad oj-contrast-marker">
-        <div class="oj-sm-6 oj-md-6 oj-flex-item">
-            <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
-                <div role="img" class="oj-flex-item alignCenter">
-                    <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
-                    data-bind="attr:{'aria-label':'Soyombo Oluwadamilola'}">
-                    </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='images/default.jpg'" src="http://res.cloudinary.com/iamdharmy/image/upload/v1523622015/iam__dharmy.png" >
-                </div>
-            </div>
-			<div class="body0">
-				<div class="oj-sm-align-self-center">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 offset-md-1 frame">
+			<div class="row">
+				<div class="col-md-12">
+				<br/><br/>
+					<div class="circle" align="center">
+						<img src="http://res.cloudinary.com/iamdharmy/image/upload/v1523622015/iam__dharmy.png" alt="Profile Picture" class="rounded-circle img-fluid" / >
+					</div>
+				</div>	
+			</div>
+
+			<div class="row info">
+				<div class="col-md-12">
 					<h1 class="text-center">
 						Soyombo Oluwadamilola
 					</h1>
@@ -340,7 +327,9 @@
 <!--<script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>-->
-
+<!--
+	<link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
 <script>
 	
 	$(document).ready(function(){
@@ -358,10 +347,8 @@
 						'</div>'+
 					'</div>';
 			
-
 			messageFrame.html(messageFrame.html()+chatToBeDisplayed);
 			$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
-
 			//send question to server
 			$.ajax({
 				url: "/profiles/iam__dharmy.php",
@@ -375,7 +362,6 @@
 										'<h5>'+response.answer+'</h5>'+
 									'</div>'+
 								'</div>';
-
 						messageFrame.html(messageFrame.html()+chatToBeDisplayed);
 						questionBox.val("");	
 						$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
@@ -385,7 +371,6 @@
 										'<h5>'+response.answer+'</h5>'+
 									'</div>'+
 								'</div>';
-
 						messageFrame.html(messageFrame.html()+chatToBeDisplayed);
 						$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
 					}
@@ -394,7 +379,6 @@
 					console.log(error);
 				}
 			})
-
 		});
 	});
 </script>	
