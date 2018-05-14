@@ -2,7 +2,11 @@
 include_once("header.php");
 ?>
 
-
+<style type="text/css">
+    .msg{
+        text-align: center;
+    }
+</style>
 <div class="container" >
     
 
@@ -36,7 +40,7 @@ include_once("header.php");
              
         if(email ==""){
             alert('please enter email');
-            $("#message").addClass('alert alert-danger');
+            $("#message").addClass('msg alert alert-danger');
             $("#message").html('Please enter email');
         }
        
@@ -56,7 +60,7 @@ include_once("header.php");
             success: function(data){
 
              
-             $("#message").addClass('alert alert-success');
+             $("#message").addClass('msg alert alert-success');
             $("#message").html(data);
 
             $("#reset").html('DONE');          
@@ -70,7 +74,7 @@ include_once("header.php");
             },
             beforeSend :function(){
 
-            $("#message").removeClass('alert alert-danger');
+            $("#message").removeClass('msg alert alert-danger');
             $("#message").html('');
 
             $("#reset").html('Requesting..');
