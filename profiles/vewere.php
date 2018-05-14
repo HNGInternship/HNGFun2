@@ -43,8 +43,8 @@
     if (isset($_GET['question'], $_GET['question_sent'])){
       $question = $_GET['question'];
       $result3 = $conn->query("Select answer from chatbot where question LIKE '$question' ORDER BY rand() LIMIT 1");
-      $answer = $result3->fetch(PDO::FETCH_OBJ);
-      if ($answer){
+      $result3 && ($answer = $result3->fetch(PDO::FETCH_OBJ));
+      if (isset($answer) && $answer){
         $response = $answer->answer;
       } else {
         $response = "Well, this is embarrassing. I don't know what to say. You can teach me by entering the question and answer in this format: train#your-question#your-answer";
