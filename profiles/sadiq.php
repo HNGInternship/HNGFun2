@@ -1,5 +1,7 @@
 <?php
 
+
+    // Check if a get variable question isset. If not continue with page operation
     if(isset($_GET['question']))
      {
           if (!defined('DB_USER')){
@@ -14,13 +16,17 @@
           $message=strtolower($mesuu);
           trim($message);
           $statusTrain = stripos($message, "train:");
-          if($statusTrain)
+          if($statusTrain !== false) // Check for truthiness should be explicitly stated
           {
               $newstring=str_replace("train:","","$message");
               $sets = explode("#", $newstring);
               $mQuestion= $sets[0];
               $mAns= $sets[1];
               $mPwd= $sets[2];
+              echo json_encode([
+                   'status' => 1,
+                   'answer' => "sorry wrong password"
+                 ]);
               if($mPwd=='passcode'){
               $resultIns = $conn->query("insert into chatbot (`question`, `answer`) values ('$mQuestion','$mAns')" );
                 if($resultIns)
