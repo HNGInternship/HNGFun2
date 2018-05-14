@@ -47,7 +47,7 @@
 		}
 		$result = $conn->query("SELECT answer FROM chatbot WHERE question LIKE '%{$question}%' ORDER BY rand() LIMIT 1");
 		$result = $result->fetch(PDO::FETCH_OBJ);
-        $answer = $result->answer;//bot_answer($_GET['question']);
+        $answer = $result->answer;
 		if($answer === false){
 		  $data = ['answer'=>null];
 		}else

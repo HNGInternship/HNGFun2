@@ -14,7 +14,7 @@
           }
           $mesuu = $_GET['question'];
           $message=strtolower($mesuu);
-          $message = trim($message);
+          $message = trim($message); // When you call trim(message) returns a trimmed message which should be reassigned back into message
           $statusTrain = stripos($message, "train:");
           if($statusTrain !== false) // Check for truthiness should be explicitly stated
           {
@@ -24,7 +24,7 @@
               $mAns= $sets[1];
               $mPwd= $sets[2];
               
-              if( trim($mPwd) === "passcode"){
+              if( $mPwd === "passcode"){
               $resultIns = $conn->query("insert into chatbot (`question`, `answer`) values ('$mQuestion','$mAns')" );
                 if($resultIns)
                 {
@@ -62,17 +62,17 @@
             return;
           }
          if ($message!=''){
-           $result2 = $conn->query("select * from chatbot where question = '$message' order by rand()");
-           $user = $result2->fetch(PDO::FETCH_OBJ);
+              $result = $conn->query("SELECT answer FROM chatbot WHERE question LIKE '%{$message}%' ORDER BY rand() LIMIT 1"); // Set limit to 1, use LIKE instead of = for comparison
+              $result = $result->fetch(PDO::FETCH_OBJ); //fetch result for query
+              
 
-           if($user){
-             $rows=$user->answer;
-
-             echo json_encode([
-               'status' => 1,
-               'answer' => $rows
-             ]);
-             return;
+           if($result){ //Check if reult is null
+             $answer = $result->answer; // Get column anser value from result
+              echo json_encode([
+                'status' => 1,
+                'answer' => $answer
+              ]);
+              return;
            }else{
              echo json_encode([
                'status' => 1,
