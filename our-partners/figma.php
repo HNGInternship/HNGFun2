@@ -8,7 +8,7 @@
 			<div class="row">
 			    <div class="col-xs-9" id="content"></div>
 			    <div class="col-xs-3">
-			        <div id="img-fixed" class=""><img src="../img/figma-overlay.jpg"></div>
+			       <!-- <div id="img-fixed" class=""><img src="../img/figma-overlay.jpg"></div> -->
 
 			    </div>
 </div>
