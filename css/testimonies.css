@@ -1,7 +1,6 @@
 .carousel-control-prev,
 .carousel-control-next {
-    width:5%
-    border:solid 1px red;
+    width:5%;
 }
 
 .carousel-control-prev-icon,
@@ -13,6 +12,7 @@
     background-size: 100%, 100%;
     border-radius: 50%;
     background-image: none;
+    border:solid 1px red;
 }
 
 .carousel-control-next-icon:after
