@@ -156,11 +156,11 @@
       <table class="table">
         <thead style="background-color:#2196F3;color:#fff;font-weight:lighter;">
           <tr>
-            <th scope="col"></th>
-            <th scope="col">Name</th>
-            <th scope="col">Username</th>
-            <th scope="col">Summary Information</th>
-            <th scope="col">Social Profile</th>
+            <th scope="col" style="text-align:center; font-weight:bolder; font-size:x-large;"></th>
+            <th scope="col" style="text-align:center; font-weight:bolder; font-size:x-large;">Name</th>
+            <th scope="col" style="text-align:center; font-weight:bolder; font-size:x-large;">Username</th>
+            <th scope="col" style="text-align:center; font-weight:bolder; font-size:x-large;">Summary Information</th>
+            <th scope="col" style="text-align:center; font-weight:bolder; font-size:x-large;">Social Profile</th>
           </tr>
         </thead>
         
