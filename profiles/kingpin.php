@@ -27,7 +27,7 @@
               {
                 echo json_encode([
                  'status' => 1,
-                        'answer' => "thanks for enlarging my knowledge base"
+                        'answer' => "thanks  alot for enlarging my knowledge base"
                         ]);
 return;
 

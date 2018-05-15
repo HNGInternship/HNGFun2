@@ -7,7 +7,7 @@
 </div>
 
 <div class="container" style='color: #3D3D3D'>
-    <div id="message"></div>
+    <div id="message" style="color:black; font-weight:bold;"></div>
     <div class="row justify-content-md-center" style="text-align: center">
         <div class="col-lg-4">
             <div >
@@ -58,6 +58,7 @@
             alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
+            $("#message").
         }
        
         else if(password ==""){
@@ -94,7 +95,7 @@
                 $("#message").addClass('alert alert-danger');
             
                 $("#message").html(data);
-                 $("#login").html('Failed');
+                 $("#message").html('Error Invalid Email or password');
              } 
             
 

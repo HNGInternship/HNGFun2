@@ -31,11 +31,19 @@ include_once("header.php");
 		margin-right: auto;
 	}
 	.btn-custom-primary{
-		background-color: #00aeff;
+		background-color: #f5f5f5;
 		text-transform: none;
 		font-family: inherit !important;
 		font-size: 1.3rem;
-		border-radius: 5px;
+		border-radius:5px;
+	}
+	.btn-custom-primary:hover{
+		background-color: #007bff!important;
+		color: white !important;
+    	-moz-transition: all 0.5s linear;
+    	-webkit-transition: all 0.5s linear;
+    	-o-transition: all 0.5s linear;
+    	transition: all 0.5s linear;
 	}
 	.paddedhr{
 		width: 100px;
@@ -62,7 +70,7 @@ include_once("header.php");
 		font-size: 1.4rem;
 	}
 	.clip-bottom h1.text-primary{
-		color: #00aeff; 
+		color: #00aeff;
 		font-size: 2.6rem;
 		font-weight: 1000 !important;
 	}
@@ -73,21 +81,21 @@ include_once("header.php");
 		background-color: #00AEFF;
 	}
     .img-bg {
-        position: relative; 
+        position: relative;
         width: 100%;
         margin: auto
     }
-    .head1 { 
-        position: absolute; 
-        bottom: 150px; 
-        left: 50px; 
-        width: 70%; 
+    .head1 {
+        position: absolute;
+        bottom: 150px;
+        left: 50px;
+        width: 70%;
     }
-    .head { 
-        position: absolute; 
-        bottom: 50px; 
-        left: 50px; 
-        width: 70%; 
+    .head {
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        width: 70%;
     }
 </style>
 
@@ -103,15 +111,15 @@ include_once("header.php");
 	</div>
 
 	<div class="container">
-		
+
 		<!-- <div class="logo my-5 d-flex justify-content-center mw-75 ml-auto mr-auto">
 			<img src="icons/logo-blue-bg.png" style="max-width: 300px; max-height: 252px;">
 		</div> -->
 		<div class="content">
-			<p class="text-muted px-5"> The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria 
-            and the whole of Africa. Everyone is welcome to participate (there is no entrance exam). We create fun challenges every week on our slack channel. 
-            Those who solve them stay on. Everyone gets to learn important concepts quickly, and make connections with people they can work with in the future. 
-            The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalist are connected to 
+			<p class="text-muted px-5"> The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria
+            and the whole of Africa. Everyone is welcome to participate (there is no entrance exam). We create fun challenges every week on our slack channel.
+            Those who solve them stay on. Everyone gets to learn important concepts quickly, and make connections with people they can work with in the future.
+            The intern coders are introduced to complex programming frameworks, and get to work on real applications that scale. the finalist are connected to
             the best companies in the tech ecosystem and get full time jobs and contracts immediately </p>
 		</div>
 	</div>
@@ -136,7 +144,7 @@ include_once("header.php");
 			<h1 class="text-primary">5</h1>
 			African Countries
 			<hr class="paddedhr2">
-		</div>	
+		</div>
 	</div>
 	<div class="container">
 		<h3 class="mt-5 text-center">What you will learn</h3>
@@ -163,7 +171,7 @@ include_once("header.php");
 					Collaborate with passionate individuals to deliver on real-world projects and reasonable deadlines.
 				</p>
 			</div>
-			
+
 		</div>
 	</div>
     <div class="row bg-footer-top py-2" ></div>
@@ -179,11 +187,11 @@ include_once("header.php");
 					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
 				</div>
 				<div class="col-4 form-group">
-					<button class="btn btn-custom text-white py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #000000">Sign Up </button>
+					<button class="btn btn-custom-primary py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #000000">Sign Up </button>
 				</div>
 			</form>
-		</div> 
-		
+		</div>
+
 	</div>
 </main>
 <?php

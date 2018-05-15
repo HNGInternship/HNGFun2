@@ -6,7 +6,6 @@ include_once("header.php");
 <!-- head ends -->
 <!-- Main Content -->
 
-
 <!--Section: Testimonials v.4-->
 <section class="pb-4 container">
     <div class="header text-center">
@@ -30,7 +29,7 @@ include_once("header.php");
                             <div class="row">
                                 <div class="offset-md-1 col-sm-10">
                                     <div class="row">
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm col-xs-12 testimonial">
                                             <div class="message">
                                                 It's been a great opportunity working with different people and using various tools in accomplishing the tasks given.
                                                 <br /><br />
@@ -42,7 +41,7 @@ include_once("header.php");
                                                 <h5>TechHajiya<br/><small>Nasarawa, Nigeria</small></h5>
                                             </div>
                                         </div>
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm col-xs-12 testimonial">
                                             <div class="message">
                                                 Phew!!! Learnt how to be precise in the way I ask questions. Thanks to all who have helped me thus far.
                                             </div>
@@ -53,7 +52,7 @@ include_once("header.php");
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm  col-xs-12 testimonial">
                                             <div class="message">
                                                 I learnt how to design a web page with Figma, implement the designs in HTML, CSS and PHP.
                                                 <br /><br />
@@ -66,7 +65,7 @@ include_once("header.php");
                                             </div>
                                         </div>
 
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm  col-xs-12 testimonial">
                                             <div class="message">
                                                 It is getting more interesting... I learnt how to push code to git for the first time.
                                                 I'm now using that knowledge to push other codes I had left vulnerable.
@@ -219,6 +218,7 @@ include_once("header.php");
             <!--Slides-->
             <!--Controls-->
             <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
+                
 
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
