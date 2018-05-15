@@ -57,7 +57,7 @@
         if(email ==""){
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
-            $("#message").
+            
         }
        
         else if(password ==""){
