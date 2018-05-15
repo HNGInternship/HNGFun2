@@ -1,14 +1,18 @@
 <?php
 include_once("header.php");
 ?>
-
+<style>
+    .contnt{text-align: center; padding: 100px;}
+</style>
 
 <div class="container" >
     
-
+<div class="clearfix"></div>
     <div class="row justify-content-md-center">
-        <div id="message"></div>
-        <form style='text-align: center; padding: 100px' id="reset_form">
+        
+        <div id="notif" ></div>
+
+        <form class="contnt" id="reset_form">
             <h1>Reset Password</h1>
             <p style="width: 480px; margin-left: 150px;">
                 Enter your email address and we'll send you an email with instructions to reset your password.
@@ -36,8 +40,8 @@ include_once("header.php");
              
         if(email ==""){
             alert('please enter email');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter email');
+            $("#notif").addClass(' alert alert-danger');
+            $("#notif").html('Please enter email');
         }
        
         
@@ -56,8 +60,8 @@ include_once("header.php");
             success: function(data){
 
              
-             $("#message").addClass('alert alert-success');
-            $("#message").html(data);
+             $("#notif").addClass('alert alert-success');
+            $("#notif").html(data);
 
             $("#reset").html('DONE');          
 
@@ -70,8 +74,8 @@ include_once("header.php");
             },
             beforeSend :function(){
 
-            $("#message").removeClass('alert alert-danger');
-            $("#message").html('');
+            $("#notif").removeClass('lert alert-danger');
+            $("#notif").html('');
 
             $("#reset").html('Requesting..');
             },

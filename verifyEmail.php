@@ -26,10 +26,10 @@ if(!defined('DB_USER')){
         print_r($e);
         
     }
-    $header=$data["username"];
+    $header=$data["username"]."2!";
 
     try {
-        $sql = "SELECT * FROM users WHERE id='24'";
+        $sql = "SELECT * FROM users WHERE id='1'";
         $q = $conn->query($sql);
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $data = $q->fetch();

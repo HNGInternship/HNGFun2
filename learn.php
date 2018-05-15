@@ -52,6 +52,10 @@ include_once("header.php");
         }
     }
     .align{
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b08461f85a3fcc5368948943f51f0b6021549d3
         text-align:center;
         width: 800px ;
         margin-left: auto ;
