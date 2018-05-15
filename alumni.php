@@ -43,7 +43,7 @@
       transition: background 0.1s, color 0.1s;
       }
       .pagination-button:hover {
-        background-color: #2196F3;
+        background-color: #85C1E9;
         color: #f9f9f9;
         -moz-transition: all 0.5s linear;
         -webkit-transition: all 0.5s linear;
