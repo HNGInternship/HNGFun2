@@ -72,11 +72,11 @@
 							<p>Oracle is not just relevant for its products, it commits heavily to educating developer teams on how best to design and deploy mission-critical solutions. Support for the HNG internship is just one of their numerous educational outreaches across the globe and while Oracle has done this for decades on the Indian subcontinent, it realises the emerging potential on the African frontier and is taking a quietly bullish approach in supporting initiatives like the HNG Internship.</p>
 
 							<ul>
-							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+							<li><span>Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 							</li>
-							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+							<li><span>Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 							</li>
-							<li><span>Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+							<li><span>Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 							</li>
 							</ul>  
 							
