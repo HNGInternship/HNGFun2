@@ -8051,16 +8051,3 @@
 </body>
 
 </html>
-
-
-<?php 
-        
-        // Release returned data
-        mysqli_free_result($result)
-        ?>
-
-
-<?php 
-// Close Database Connection
-mysqli_close($conn);
- ?>
