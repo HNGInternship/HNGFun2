@@ -53,10 +53,7 @@
     background: black;
     height: 1px;
 }
-.bottom-hr {
-    background: #c4c4c4;
-    height: 1px;
-}
+
 .chat-history {
     padding: 30px 30px 20px;
     /*max-height: 700px;*/
