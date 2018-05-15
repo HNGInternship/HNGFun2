@@ -52,10 +52,6 @@ include_once("header.php");
         }
     }
     .align{
-<<<<<<< HEAD
-=======
-
->>>>>>> 7b08461f85a3fcc5368948943f51f0b6021549d3
         text-align:center;
         width: 800px ;
         margin-left: auto ;
@@ -70,7 +66,7 @@ include_once("header.php");
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">What Interns Learn</h1>
             <hr class="under-line">
             <span>
-                In HNG 4.0, interns get to learn important concepts quickly, they are introduced to
+                In HNG 4.0, Interns get to learn important concepts quickly, they are introduced to
                 complex programming frameworks alongside important collaborative tools.
             </span>
 
