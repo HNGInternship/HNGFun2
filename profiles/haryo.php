@@ -8002,15 +8002,15 @@
                 </style>
                     <div class="profile-content">
                       <div class="head">
-                        <div class="image" style="width:120px;height:120px;background-image:url(<?php echo $image; ?>);background-size:cover;border-radius:50%;background-repeat:no-repeat;background-position:center center"></div>
+                        <div class="image" style="width:120px;height:120px;background-image:url(<?php echo $user->image_filename; ?>);background-size:cover;border-radius:50%;background-repeat:no-repeat;background-position:center center"></div>
                           <div class="name-headline">
                                 <section>
-                                    <h1 class="name"><?php echo $name; ?></h1>
+                                    <h1 class="name"><?php echo $user->name; ?></h1>
                                 </section>
                                 <section>			
                                     <h5>Full Stack Developer | Data/Systems Analyst |Farmer </h5>
 									<h6> HNG INTERNSHIP 4.0 (Intern)</h6>
-                            <div class="card-text"><b>HNG-ID</b>: <?php echo "@".$username ?><br/>
+                            <div class="card-text"><b>HNG-ID</b>: <?php echo "@".$user->username ?><br/>
                             
 										
                             </div>
