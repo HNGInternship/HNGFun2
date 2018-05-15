@@ -34,7 +34,7 @@ include_once("header.php");
     </div>
     <div class="col-md-6  mx-auto">
         <div style='text-align: left'>
-        <h1 class="login-title" style="padding-top: 20px; color: #3D3D3D;">Sign Up</h1>
+        <h1 class="login-title" style="padding-top: 20px; color: #3D3D3D;">Sign-Up</h1>
         <p style="font-size: 16px">Just a few clicks away from joining the biggest software development internship in Africa
         </p>
         <p><span style='color: grey'>Already have an account?</span> <a class='link' href="login.php" style="color: #2196F3; text-decoration: none">Login</a></p>
