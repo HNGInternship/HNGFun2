@@ -32,7 +32,7 @@ function GenPagination()
     } 
   }
   function GetAllInterns($no){
-	  
+	  //
 	  include_once('../config.php');
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
     $no=Filter(sqli($conn,$no));
