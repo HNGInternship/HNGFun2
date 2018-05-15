@@ -51,17 +51,18 @@ include_once("header.php");
             flex-direction: row;
         }
     }
-    .align{
+    /* .align{
         text-align:center;
         width: 800px ;
         margin-left: auto ;
         margin-right: auto ;
-    }
+    } */
 </style>
 
 <div class="container">
     <div class="align"> 
        <div class="row justify-content-md-center text-center">
+       	<div class="col"></div>
         <div class="col-8" style="margin-top: 1em;">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">What Interns Learn</h1>
             <hr class="under-line">
@@ -69,6 +70,8 @@ include_once("header.php");
                 In HNG 4.0, Interns get to learn important concepts quickly, they are introduced to
                 complex programming frameworks alongside important collaborative tools.
             </span>
+        </div>
+        <div class="col"></div>
 
         </div>
     </div>
