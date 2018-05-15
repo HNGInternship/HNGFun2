@@ -1,7 +1,7 @@
 <?php
 
 if(!defined('DB_USER')){
-    require "../config.example.php";    
+    require "../../config.php";   
     try {
         $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
     } catch (PDOException $pe) {
@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $result2 = $conn->query("Select * from interns_data where username = 'joel'");
     $user = $result2->fetch(PDO::FETCH_OBJ);
 } else {
-    require '../answers.php';
      $message = trim(strtolower($_POST['message']));
      $botversion = 'drugAbuse2020 V2.1';
 
