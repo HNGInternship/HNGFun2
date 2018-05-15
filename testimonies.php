@@ -2,7 +2,7 @@
 <?php
 include_once("header.php");
 ?>
-<link rel="stylesheet" type="text/css" href="css/Testimonies.css">
+<link rel="stylesheet" type="text/css" href="css/testimonies.css">
 <!-- head ends -->
 <!-- Main Content -->
 
