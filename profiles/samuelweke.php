@@ -2,8 +2,11 @@
 <html>
 <head>
 	<title>Samuel Profile</title>
-	<?php 
- if(!defined('DB_USER')){
+	<?php
+
+include_once("../answers.php"); 
+
+if(!defined('DB_USER')){
      require "../../config.php";
      try {
          $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
@@ -16,15 +19,15 @@ $result = $query->fetch(PDO::FETCH_ASSOC);
 $secret_word = $result['secret_word'];
 $question;
 
-  global $pass;
+global $pass;
 	$pass = "password";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
 	
 	function botAnswer($message){
-		$botAnswer = '<div class="chat bot bot-message">
-					
-					<div class="bot-message-content clearfix">
+		$botAnswer = '<div class="chat bot chat-message">
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
 						<p>' . $message . '</p>';
 			return $botAnswer;
 	}
@@ -45,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			$bot = botAnswer("Thanks for helping me be better.");
 
 		}elseif($rows !== 0){
-			$bot = botAnswer("I can answer that. Ask me a new question, or teach me something else.");
+			$bot = botAnswer("I already know how to do that. You can ask me a new question, or teach me something else. Remember, the format is train: question # answer # password");
 		}
 		echo $bot;
 	}
@@ -67,17 +70,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	 			$bot = train($conn, $data);
 	 			//array_push($_SESSION['chat-log'] , $bot);
 	 		}else{
-	 			$bot = botAnswer("You have entered a wrong password. Input the correct password");
+	 			$bot = botAnswer("You have entered a wrong password. Let's try that again with the right password, shall we?");
 	 			//array_push($_SESSION['chat-log'] , $bot);
 	 		}
 	 		
 	 	}elseif($userInput === 'about' || $userInput === 'aboutbot'){
 	 		$bot = botAnswer("Version 1.0");
      		//array_push($_SESSION['chat-log'] , $bot);
-	 	}elseif($userInput === 'hey' || $userInput === 'hi' || $userInput === 'wassup' || $userInput === 'hello'){
-	 		$bot = botAnswer("Hi, How are you doing?");
-	 	}elseif($userInput === 'name' || $userInput === 'What is your name'){
-	 		$bot = botAnswer("Samuel's Bot");
 	 	}else{
 			 $userInputQuery = $conn->query("SELECT * FROM chatbot WHERE question like '".$userInput."' ");
 		     $userInputs = $userInputQuery->fetchAll(PDO::FETCH_ASSOC);
@@ -98,7 +97,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
      }
 
 ?>
-
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
 		<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet'>
@@ -207,8 +205,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		}
 
-		/* ---------- chat-box ---------- */
-
 		#chat-box {
 			bottom: 0;
 			font-size: 12px;
@@ -217,10 +213,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			width: 300px;
 
 		}
+
 		#chat-box header {
-			background: #075e54;
-			border-radius: 7px 7px 0 0;
-			color: #ffffff;
+			background: #293239;
+			border-radius: 5px 5px 0 0;
+			color: #fff;
 			cursor: pointer;
 			padding: 16px 24px;
 		}
@@ -242,7 +239,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		}
 
 		#chat-box h4 {
-			font-size: 20px;
+			font-size: 12px;
 		}
 
 		#chat-box h5 {
@@ -250,29 +247,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		}
 
 		#chat-box form {
-			padding-left: 15px;
-			padding-top: 10px;
-			background-color: #ece5dd;
-			height: 57px;
+			padding: 24px;
 		}
 
 		#chat-box input[type="text"] {
 			border: 1px solid #ccc;
-			border-radius: 30px;
-			padding-top:4px;
-			padding-bottom: 4px;
-			padding-left: 10px;
+			border-radius: 3px;
+			padding: 8px;
 			outline: none;
-			width: 258px;
-			height: 38px;
-			font-size: 18px;
-
+			width: 234px;
 		}
-		#chat-box ::placeholder{
-			color:#707B7C;
-			opacity: 1;
-		}
-
 
 		header h4{
 			color: #fff;
@@ -280,54 +264,43 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		.chat {
 			background: #fff;
-			min-height: 20px;
 					
-		}
-
-		.chat p{
-			margin: 0;
-			padding-top: 7px;
 		}
 			.hide{
 			display: none;
 		}
 
 		.chatlogs {
-			background-color:#ece5dd;
-			height: 260px;
+			height: 252px;
 			padding: 8px 24px;
 			overflow-y: scroll;
-
 		}
 
-		.bot-message {
+		.chat-message {
 			margin: 16px 0;
-			width: 215px;
 		}
 
 		.bot img {
 			border-radius: 50%;
 			float: left;
 		}
-		.bot .bot-message-content{
-			margin-left: 10px;
-			padding: 3px 10px;
+		.bot .chat-message-content{
+			margin-left: 40px;
+			border-radius:0  15px 15px 15px;
+			background: #e4e4e4;
+			padding: 15px 10px;
 		}
-		.user .bot-message-content{
-			margin-right: -20px;
-			background: #dcf8c6;
-			padding: 3px 10px;
+		.user .chat-message-content{
+			margin-right: 40px;
+			border-radius: 15px 15px 0 15px;
+			background: #e4e4e4;
+			padding: 15px 10px;
 		}
-		.user .bot-message-content.chat{
-			background: #dcf8c6;
-		}
-
-
 		.user img{
 			border-radius: 50%;
 			float: right;
 		}
-		.bot-message-content {
+		.chat-message-content {
 			/*margin-left: 56px;*/
 		}
 
@@ -339,11 +312,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			float: right;
 			font-size: 10px;
 		}
-		.chat-time{
-			margin-top: -7px;
-			color: #707B7C;
-		}
-
 	</style>
 
 	</head>
@@ -373,42 +341,43 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			</div>
 		</div>
 
-		<div id="chat-box">	
+	<div id="chat-box">	
 		<header class="clearfix" onclick="change()">
-			<h4>Chat with Bot</h4>
+			<h4>Online...</h4>
 		</header>
 		<div class="chat hide" id="chat">
 			<div class="chatlogs" id="chatlogs">
-				<div class="chat bot bot-message">
-					
-					<div class="bot-message-content clearfix">
-						<p>Welcome, I am a chatbot. </p>
+				<div class="chat bot chat-message">
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>Welcome.</p>
 						<span class="chat-time"> </span>
 					</div> 
 				</div>
-				<div class="chat bot bot-message">
-					
-					<div class="bot-message-content clearfix">
-						<p>To know my version enter<br> "aboutbot".</p>
+				<div class="chat bot chat-message">
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>I am here to help you.</p>
 						<span class="chat-time"></span>
 					</div> 
 				</div>
-				<div class="chat bot bot-message">
-					
-					<div class="bot-message-content clearfix">
-						<p>Ask me questions and I will try to answer. You can train me to answer some questions. Just make use of the format (train: question #answer #password).</p>
+				<div class="chat bot chat-message">
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>You can ask me questions, and I will do my best to answer. You can train me to answer specific questions. Just make use of the format train: question # answer # password.</p>
 						<span class="chat-time"></span>
 					</div> 
 				</div>
 
 				
 				 
-				<div id="bot-content"></div>
+				<div id="chat-content"></div>
 				
 			</div> <!-- end chat-history -->
 			<form action="#" method="post" class="form-data">
 				<fieldset>
-					<input type="text" placeholder="Type a message" name="question" id="question" autofocus>
+					<input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
+					<input type="submit" name="bot-interface" value="SEND"/>
 				</fieldset>
 			</form>
 		</div> <!-- end chat -->
@@ -425,7 +394,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
      var btn = document.getElementsByClassName('form-data')[0];
 		var question = document.getElementById("question");
 		var chatLog = document.getElementById("chatlogs");
-		var chatContent = document.getElementById("bot-content");
+		var chatContent = document.getElementById("chat-content");
 		var myTime = new Date().toLocaleTimeString(); 
 		document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
 		document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
@@ -448,7 +417,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	            question.value = '';
 	          }
       	    }
-        xhttp.open('POST', 'profiles/samuelweke.php', true);
+        xhttp.open('POST', 'profiles/Abigail', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('question='+ question.value);
         e.preventDefault();
@@ -456,9 +425,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		function userChat(chats, reply){
 			if(question.value !== ''){
-				var chat = `<div class="chat user bot-message">
-					
-					<div class="bot-message-content clearfix">
+				var chat = `<div class="chat user chat-message">
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
 						<p>` + chats + `</p>
 						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
 					 </div>
@@ -474,7 +443,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			}, 1000);
 		}
 	</script>
-
+	
 	</body>
 
 </html>
