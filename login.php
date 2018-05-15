@@ -88,7 +88,6 @@
             window.location ="dashboard.php";
              }  
              else{
-                alert(data);
                 $("#message").addClass('alert alert-danger');
             
                 $("#message").html(data);
