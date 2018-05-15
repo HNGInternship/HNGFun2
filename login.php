@@ -94,7 +94,7 @@
                 $("#message").addClass('alert alert-danger');
             
                 $("#message").html(data);
-                 $("#login").html('Failed');
+                 $("#message").html('Error Invalid Email or password');
              } 
             
 
