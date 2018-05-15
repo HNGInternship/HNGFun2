@@ -172,6 +172,10 @@ if(isset($_POST['registration'])){
     color:#5F5F5F !important;
   }
 
+  .form-control{
+    padding: 0px;
+  }
+
 
 </style>
 
