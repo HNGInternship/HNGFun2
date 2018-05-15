@@ -204,6 +204,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		}
 
+	/* ---------- chat-box ---------- */
+
 		#chat-box {
 			bottom: 0;
 			font-size: 12px;
@@ -212,11 +214,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			width: 300px;
 
 		}
-
 		#chat-box header {
-			background: #293239;
-			border-radius: 5px 5px 0 0;
-			color: #fff;
+			background: #075e54;
+			border-radius: 7px 7px 0 0;
+			color: #ffffff;
 			cursor: pointer;
 			padding: 16px 24px;
 		}
@@ -238,7 +239,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		}
 
 		#chat-box h4 {
-			font-size: 12px;
+			font-size: 20px;
 		}
 
 		#chat-box h5 {
@@ -246,16 +247,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		}
 
 		#chat-box form {
-			padding: 24px;
+			padding-left: 15px;
+			padding-top: 10px;
+			background-color: #ece5dd;
+			height: 57px;
 		}
 
 		#chat-box input[type="text"] {
 			border: 1px solid #ccc;
-			border-radius: 3px;
-			padding: 8px;
+			border-radius: 30px;
+			padding-top:4px;
+			padding-bottom: 4px;
+			padding-left: 10px;
 			outline: none;
-			width: 234px;
+			width: 258px;
+			height: 38px;
+			font-size: 18px;
+
 		}
+		#chat-box ::placeholder{
+			color:#707B7C;
+			opacity: 1;
+		}
+
 
 		header h4{
 			color: #fff;
@@ -263,20 +277,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		.chat {
 			background: #fff;
+			min-height: 20px;
 					
+		}
+
+		.chat p{
+			margin: 0;
+			padding-top: 7px;
 		}
 			.hide{
 			display: none;
 		}
 
 		.chatlogs {
-			height: 252px;
+			background-color:#ece5dd;
+			height: 260px;
 			padding: 8px 24px;
 			overflow-y: scroll;
+
 		}
 
 		.chat-message {
 			margin: 16px 0;
+			width: 215px;
 		}
 
 		.bot img {
@@ -284,17 +307,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			float: left;
 		}
 		.bot .chat-message-content{
-			margin-left: 40px;
-			border-radius:0  15px 15px 15px;
-			background: #e4e4e4;
-			padding: 15px 10px;
+			margin-left: 10px;
+			padding: 3px 10px;
 		}
 		.user .chat-message-content{
-			margin-right: 40px;
-			border-radius: 15px 15px 0 15px;
-			background: #e4e4e4;
-			padding: 15px 10px;
+			margin-right: -20px;
+			background: #dcf8c6;
+			padding: 3px 10px;
 		}
+		.user .chat-message-content.chat{
+			background: #dcf8c6;
+		}
+
+
 		.user img{
 			border-radius: 50%;
 			float: right;
@@ -311,6 +336,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			float: right;
 			font-size: 10px;
 		}
+		.chat-time{
+			margin-top: -7px;
+			color: #707B7C;
+		}
+
 	</style>
 
 	</head>
