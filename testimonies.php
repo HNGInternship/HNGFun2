@@ -218,7 +218,7 @@ include_once("header.php");
             </div>
             <!--Slides-->
             <!--Controls-->
-            <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev" style="bottom:0px; color:red;">
+            <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
                 
 
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

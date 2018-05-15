@@ -1,6 +1,7 @@
 .carousel-control-prev,
 .carousel-control-next {
     width:5%
+    border:solid 1px red;
 }
 
 .carousel-control-prev-icon,
