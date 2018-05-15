@@ -372,28 +372,28 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <div id="chat-box">	
 		<header class="clearfix" onclick="change()">
-			<h4>Online...</h4>
+			<h4>Chat with Bot</h4>
 		</header>
 		<div class="chat hide" id="chat">
 			<div class="chatlogs" id="chatlogs">
 				<div class="chat bot chat-message">
 					
 					<div class="chat-message-content clearfix">
-						<p>Welcome.</p>
+						<p>Welcome, I am a chatbot.</p>
 						<span class="chat-time"> </span>
 					</div> 
 				</div>
 				<div class="chat bot chat-message">
 					
 					<div class="chat-message-content clearfix">
-						<p>I am here to help you.</p>
+						<p>To know my version enter<br> "aboutbot".</p>
 						<span class="chat-time"></span>
 					</div> 
 				</div>
 				<div class="chat bot chat-message">
 					
 					<div class="chat-message-content clearfix">
-						<p>You can ask me questions, and I will do my best to answer. You can train me to answer specific questions. Just make use of the format train: question # answer # password.</p>
+						<p>Ask me questions and I will try to answer. You can train me to answer some questions. Just make use of the format (train: question #answer #password).</p>
 						<span class="chat-time"></span>
 					</div> 
 				</div>
@@ -406,7 +406,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			<form action="#" method="post" class="form-data">
 				<fieldset>
 					<input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
-					<input type="submit" name="bot-interface" value="SEND"/>
 				</fieldset>
 			</form>
 		</div> <!-- end chat -->
