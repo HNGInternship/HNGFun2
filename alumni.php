@@ -27,7 +27,7 @@
       width: 75%;
       margin: 5em auto;
       text-align: center;
-      
+
       &:after {
         content: '';
         clear: both;
@@ -36,25 +36,29 @@
     .pagination-button {
       display: inline-block;
       padding: 5px 10px;
-      border: 1px solid #e0e0e0;  
+      border: 1px solid #e0e0e0;
       background-color: #eee;
       color: #333;
       cursor: pointer;
       transition: background 0.1s, color 0.1s;
-      
-      &:hover {
-        background-color: #ddd;
-        color: #3366cc;
       }
-      
-      &.active {
+      .pagination-button:hover {
+        background-color: #2196F3;
+        color: #f9f9f9;
+        -moz-transition: all 0.5s linear;
+        -webkit-transition: all 0.5s linear;
+        -o-transition: all 0.5s linear;
+        transition: all 0.5s linear;
+      }
+
+      .pagination-button.active {
         background-color: #bbb;
         border-color: #bbb;
-        color: #3366cc;
+        color: #f5f5f5;
       }
-      
-      $border-radius: 18px;  
-      
+
+      $border-radius: 18px;
+
       &:first-of-type {
         border-radius: $border-radius 0 0 $border-radius;
       }
@@ -117,7 +121,7 @@
         border: 1px solid lightgrey;
         text-align: center;
         display: block;
-        max-width: 500px; 
+        max-width: 500px;
         margin: 0px auto;
       }
       .in {
@@ -142,12 +146,12 @@
     }
     </style>
 
-  
+
 
   <div class="body-font">
     <div class="container sponsor-container">
             <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Alunmi</h1>
-            
+
             <p class="sponsors-text text-center pb-4 pt-3 text-center"> HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
       </div>
 <!-- first page -->
@@ -163,8 +167,8 @@
             <th scope="col">Social Profile</th>
           </tr>
         </thead>
-        
-    
+
+
 
       <div class="article-loop">
        <tbody>
@@ -189,7 +193,7 @@
             <td>
               <a class="a" href="https://www.twitter.com/orobogenius" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://facebook.com/orobogenius" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              
+
             </td>
         </tr>
       </div>
@@ -203,7 +207,7 @@
             <td>
               <a class="a" href="https://twitter.com/chiefoleka" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/olekavalentine" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-        
+
             </td>
         </tr>
       </div>
@@ -256,7 +260,7 @@
             <td>
               <a class="a" href="https://twitter.com/digitalmarija" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/digitalmarija" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-           
+
             </td>
         </tr>
       </div>
@@ -270,7 +274,7 @@
             <td>
               <a class="a" href="https://twitter.com/aniekanoffiong" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-            
+
             </td>
         </tr>
       </div>
@@ -284,7 +288,7 @@
             <td>
               <a class="a" href="https://twitter.com/Okoyecb" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/okoyecb" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-             
+
             </td>
         </tr>
       </div>
@@ -298,7 +302,7 @@
             <td>
               <a class="a" href="https://twitter.com/amries_grace" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/grace.chiamaka.16" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-             
+
             </td>
         </tr>
       </div>
@@ -312,7 +316,7 @@
             <td>
               <a class="a" href="https://twitter.com/i_am_marshal" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/marshal.ukpanah" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-        
+
             </td>
         </tr>
       </div>
@@ -326,10 +330,10 @@
             <td>
               <a class="a" href="https://twitter.com/mozartted" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/mozart.osita" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-             
+
             </td>
         </tr>
-      </div>                        
+      </div>
 
       <div class="article-loop">
         <tr>
@@ -340,7 +344,7 @@
             <td>
               <a class="a" href="https://twitter.com/Tochi_ihcot_501" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/tochukwu.onuchukwu" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-             
+
             </td>
         </tr>
       </div>
@@ -354,7 +358,7 @@
             <td>
               <a class="a" href="https://twitter.com/deo_joe" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/adeyemo.j.adeola" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-             
+
             </td>
         </tr>
       </div>
@@ -368,7 +372,7 @@
             <td>
               <a class="a" href="https://twitter.com/faradayyg" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/godswillf" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-             
+
             </td>
             </tr>
           </div>
@@ -401,7 +405,7 @@
             <td>
               <a class="a" href="https://twitter.com/sarah_chima" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="https://www.facebook.com/sarah.chima" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              
+
             </td>
           </tr>
       </div>
@@ -415,7 +419,7 @@
             <td>
               <a class="a" href="https://twitter.com/OdusanyaTomi" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              
+
             </td>
         </tr>
       </div>
@@ -429,7 +433,7 @@
             <td>
               <a class="a" href="https://twitter.com/iam_JayKay" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-        
+
             </td>
         </tr>
       </div>
@@ -456,7 +460,7 @@
             <td>
               <a class="a" href="#" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-              
+
             </td>
         </tr>
       </div>
@@ -470,7 +474,7 @@
             <td>
               <a class="a" href="https://twitter.com/sheiladadiva" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-             
+
             </td>
         </tr>
       </div>
@@ -484,7 +488,7 @@
             <td>
               <a class="a" href="https://twitter.com/promhize" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-             
+
             </td>
         </tr>
       </div>
@@ -498,7 +502,7 @@
             <td>
               <a class="a" href="https://twitter.com/reginarrex" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-       
+
             </td>
         </tr>
       </div>
@@ -512,7 +516,7 @@
             <td>
               <a class="a" href="https://twitter.com/yusfyinka" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
               <a class="a" href="#" target="_blank"><i class="fa fa-facebook fa-1px"></i></a>
-           
+
             </td>
         </tr>
           </tbody>
@@ -529,7 +533,7 @@
   <!-- custom script -->
   <script>
     (function($){
-        
+
         var paginate = {
             startPos: function(pageNumber, perPage) {
                 // determine what array position to start from
