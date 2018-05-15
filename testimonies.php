@@ -244,7 +244,7 @@ h5{
         <!--Carousel Wrapper-->
 
     </div>
-    <div class="text-center"><hr class="bottom-hr" width="959px"></div>
+    <div class="text-center"></div>
     <br>
     <!-- videos -->
      <h3 style="text-align:center">RELEVANT VIDEOS</h3><br>
