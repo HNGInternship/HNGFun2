@@ -340,28 +340,28 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			</div>
 		</div>
 
-	<div id="chat-box">	
+<div id="chat-box">	
 		<header class="clearfix" onclick="change()">
 			<h4>Online...</h4>
 		</header>
 		<div class="chat hide" id="chat">
 			<div class="chatlogs" id="chatlogs">
 				<div class="chat bot chat-message">
-					
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
 					<div class="chat-message-content clearfix">
 						<p>Welcome.</p>
 						<span class="chat-time"> </span>
 					</div> 
 				</div>
 				<div class="chat bot chat-message">
-					
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
 					<div class="chat-message-content clearfix">
 						<p>I am here to help you.</p>
 						<span class="chat-time"></span>
 					</div> 
 				</div>
 				<div class="chat bot chat-message">
-					
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
 					<div class="chat-message-content clearfix">
 						<p>You can ask me questions, and I will do my best to answer. You can train me to answer specific questions. Just make use of the format train: question # answer # password.</p>
 						<span class="chat-time"></span>
@@ -425,7 +425,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		function userChat(chats, reply){
 			if(question.value !== ''){
 				var chat = `<div class="chat user chat-message">
-					
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
 					<div class="chat-message-content clearfix">
 						<p>` + chats + `</p>
 						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
