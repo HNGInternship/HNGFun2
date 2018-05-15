@@ -1,8 +1,17 @@
 <?php
+if(!defined('DB_USER')){
+  require "../../config.php";		
+	try {
+	    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+	}catch (PDOException $pe) {
+	   die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+	}
+}
+
 
 	// Fetch profile details from database using USERNAME as the unique identifier
-    $profile_details_query = "SELECT name, username, image_filename FROM interns_data where username = '$profile_name' LIMIT 1"
-	//$profile_details_query = "SELECT name, username, image_filename FROM interns_data where username = '$profile_name' LIMIT 1";
+    
+	$profile_details_query = "SELECT name, username, image_filename FROM interns_data where username = '$profile_name' LIMIT 1";
 	$profile_details_result = $conn->query($profile_details_query);
 
 	// Assign the data to a variable
