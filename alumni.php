@@ -157,7 +157,7 @@
         <thead style="background-color:#2196F3;color:#fff;font-weight:lighter;">
           <tr>
             <th scope="col">Id</th>
-            <th scope="col" style="text-indent;">Name</th>
+            <th scope="col">Name</th>
             <th scope="col">Username</th>
             <th scope="col">Summary Information</th>
             <th scope="col">Social Profile</th>
@@ -380,7 +380,7 @@
 
 <div class="article-loop">
       <table class="table">
-        <thead style="background-color:#0475CE;color:#fff;font-weight:lighter;">
+         <thead style="background-color:#2196F3;color:#fff;font-weight:lighter;">
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
