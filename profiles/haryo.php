@@ -1,45 +1,18 @@
 
 <?php
-// Connect to Database 
-require '../../config.php';
 
-// Begin query 
-$query = "SELECT *";
-$query .= "FROM interns_data ";
-$query .= "WHERE username = 'haryo' ";
-$result = mysqli_query($conn, $query);
+    $result = $conn->query("Select * from secret_word LIMIT 1");
+    $result = $result->fetch(PDO::FETCH_OBJ);
+    $secret_word = $result->secret_word;
 
-
-//Test if there is a query error
-if(!$result){
-    die ("Database Query Failed");
-}
-
-// Fetch data into associative array
-while ($data = mysqli_fetch_assoc($result)){
-    $image = $data["image_filename"];
-    $username = $data["username"];
-    $name = $data["name"];
-    
-    
-
-} 
-
-$secretquery = "SELECT secret_word from secret_word";
-$secretresult = mysqli_query($conn, $secretquery);
-
-// Fetch data into associative array
-
-while($data = mysqli_fetch_assoc($secretresult)){
-    $secret_word = $data["secret_word"];
-} 
+    $result2 = $conn->query("Select * from interns_data where username = 'haryo'");
+    $user = $result2->fetch(PDO::FETCH_OBJ); 
 ?>
-<html>
-    
+<html>  
 
 <head>
     
-    <title><?php echo $username; ?>'s Profile</title>
+    <title><?php echo $user->username; ?>'s Profile</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, minimum-scale=1">
