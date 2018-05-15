@@ -5,19 +5,6 @@ include_once("header.php");
 <link rel="stylesheet" type="text/css" href="css/testimonies.css">
 <!-- head ends -->
 <!-- Main Content -->
-
-<style type="text/css">
-    
-@media screen and (max-width: 711px) {
-  .message{
-    width: 300px;
-
-  }
-}
-h5{
-    padding-left: 10px;
-}
-</style>
 <!--Section: Testimonials v.4-->
 <section class="pb-4 container">
     <div class="header text-center  justify-content-center mx-auto">
@@ -238,13 +225,11 @@ h5{
             </a>
             <!--Controls-->
 
-          
+            <div class="text-center"><hr class="bottom-hr" width="959px"></div>
         </div>
-          
         <!--Carousel Wrapper-->
 
     </div>
-    <div class="text-center"></div>
     <br>
     <!-- videos -->
      <h3 style="text-align:center">RELEVANT VIDEOS</h3><br>
@@ -261,35 +246,35 @@ h5{
      <div class="carousel-inner">
 
           <div class="carousel-item active">
-             <div class="row justify-content-center mx-auto">
-                <div class="col-md-3" style="margin-left:62px; margin-top: 120px">
+             <div class="row">
+                <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
                         <p>How ICT Changed My Life</p>
                 </div>
-                <div class="col-md-3" style="margin-left:62px; margin-top: 120px">
+                <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
                         <p>Information and Communication Technology for Development</p>
                 </div>
-                <div class="col-md-3" style="margin-left:62px; margin-top: 120px">
+                <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
                         <p>ICT is Changing Education in Developing Countries</p>
                 </div>
              </div>
         </div>
         <div class="carousel-item">
-            <div class="row justify-content-center mx-auto">
-                <div class="col-md-3" style="margin-left:62px; margin-top: 140px">
+            <div class="row">
+                <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
                         <p>How Technology is Changing Family Lives</p>
                 </div>
-                <div class="col-md-3" style="margin-left:62px; margin-top: 140px">
+                <!-- <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
                 </div>
-                <div class="col-md-3" style="margin-left:62px; margin-top: 140px">
+                <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -300,7 +285,9 @@ h5{
         <a class="carousel-control-next" href="#demo" data-slide="next">
             <span class="carousel-control-next-icon"></span>
         </a>
+
    </div>
+    </div>
 </section>
 <!--Section: Testimonials v.4-->
 
