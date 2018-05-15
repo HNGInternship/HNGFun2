@@ -96,7 +96,7 @@
 
     th{
       font-family: Calibri;
-      font-size: 30px;
+      font-size: 18px;
     }
     @media screen and (max-width: 767px) {
       html, body {
