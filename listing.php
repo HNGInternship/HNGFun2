@@ -48,7 +48,7 @@ function GenPagination()
           <a href=\"profile.php?id=".$row['username']."\" class=\"my-0 py-0 btn btn-default\">View Profile</a>
         </div>
       </div>
-      <h4 class=\"text-center mt-3\">". $row['first_name']."</h4>
+      <h4 class=\"text-center mt-3\">". $row['name']."</h4>
     </div>";	
 			}
 			mysqli_close($conn);
