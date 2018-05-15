@@ -38,8 +38,8 @@ include_once("header.php");
 		border-radius:5px;
 	}
 	.btn-custom-primary:hover{
-		background-color: #007bff!important;
-		color: white !important;
+		background-color: #dbf4ff !important;
+		color:#000000 !important;
     	-moz-transition: all 0.5s linear;
     	-webkit-transition: all 0.5s linear;
     	-o-transition: all 0.5s linear;
