@@ -6,10 +6,21 @@ include_once("header.php");
 <!-- head ends -->
 <!-- Main Content -->
 
+<style type="text/css">
+    
+@media screen and (max-width: 711px) {
+  .message{
+    width: 300px;
 
+  }
+}
+h5{
+    padding-left: 10px;
+}
+</style>
 <!--Section: Testimonials v.4-->
 <section class="pb-4 container">
-    <div class="header text-center">
+    <div class="header text-center  justify-content-center mx-auto">
         <h1>Testimonies</h1>
         <hr class="head-hr" width="6%">
         <p>HNG 4.0 has been a life-transforming journey for interns across Africa. <br/> Don’t take our word for it... Take theirs.</p>
@@ -27,19 +38,17 @@ include_once("header.php");
                     <div class="row justify-content-center mx-auto">
                         <!--Grid column-->
                         <div class="chat-history">
-                            <div class="row">
+                            <div class="row justify-content-center mx-auto">
                                 <div class="offset-md-1 col-sm-10">
                                     <div class="row">
                                         <div class="col-sm testimonial">
                                             <div class="message">
                                                 It's been a great opportunity working with different people and using various tools in accomplishing the tasks given.
-                                                <br /><br />
-                                                Thanks to hng internship I can now use Figma for designs and TeamViewer also.
-                                                Looking forward to more of such experiences.
+                                                <br /><br />Thanks to hng internship I can now use Figma for designs and TeamViewer also. Looking forward to more of such experiences.
                                             </div>
                                             <img src="images/TechHajiya.PNG" alt="Avatar" class="testimonial-avatar">
                                             <div class="testimonial-name">
-                                                <h5>TechHajiya<br/><small>Nasarawa, Nigeria</small></h5>
+                                                <h5 style="padding-left: 10px;">TechHajiya<br/><small>Nasarawa, Nigeria</small></h5>
                                             </div>
                                         </div>
                                         <div class="col-sm testimonial">
@@ -219,7 +228,6 @@ include_once("header.php");
             <!--Slides-->
             <!--Controls-->
             <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
-                
 
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -230,11 +238,13 @@ include_once("header.php");
             </a>
             <!--Controls-->
 
-           
+          
         </div>
+          
         <!--Carousel Wrapper-->
 
     </div>
+    <div class="text-center"><hr class="bottom-hr" width="959px"></div>
     <br>
     <!-- videos -->
      <h3 style="text-align:center">RELEVANT VIDEOS</h3><br>
@@ -251,35 +261,35 @@ include_once("header.php");
      <div class="carousel-inner">
 
           <div class="carousel-item active">
-             <div class="row">
-                <div class="col-md-3" style="margin-left:60px">
+             <div class="row justify-content-center mx-auto">
+                <div class="col-md-3" style="margin-left:62px; margin-top: 120px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
                         <p>How ICT Changed My Life</p>
                 </div>
-                <div class="col-md-3" style="margin-left:60px">
+                <div class="col-md-3" style="margin-left:62px; margin-top: 120px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
                         <p>Information and Communication Technology for Development</p>
                 </div>
-                <div class="col-md-3" style="margin-left:60px">
+                <div class="col-md-3" style="margin-left:62px; margin-top: 120px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
                         <p>ICT is Changing Education in Developing Countries</p>
                 </div>
              </div>
         </div>
         <div class="carousel-item">
-            <div class="row">
-                <div class="col-md-3" style="margin-left:60px">
+            <div class="row justify-content-center mx-auto">
+                <div class="col-md-3" style="margin-left:62px; margin-top: 140px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
                         <p>How Technology is Changing Family Lives</p>
                 </div>
-                <!-- <div class="col-md-3" style="margin-left:60px">
+                <div class="col-md-3" style="margin-left:62px; margin-top: 140px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
                 </div>
-                <div class="col-md-3" style="margin-left:60px">
+                <div class="col-md-3" style="margin-left:62px; margin-top: 140px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
-                </div> -->
+                </div>
             </div>
         </div>
 
@@ -290,7 +300,6 @@ include_once("header.php");
         <a class="carousel-control-next" href="#demo" data-slide="next">
             <span class="carousel-control-next-icon"></span>
         </a>
-
    </div>
 </section>
 <!--Section: Testimonials v.4-->
