@@ -382,7 +382,7 @@
       <table class="table">
         <thead style="background-color:#0475CE;color:#fff;font-weight:lighter;">
           <tr>
-            <th scope="col"></th>
+            <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Username</th>
             <th scope="col">Summary Information</th>
