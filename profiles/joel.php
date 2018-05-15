@@ -1,7 +1,11 @@
 <?php
 
 if(!defined('DB_USER')){
+<<<<<<< HEAD
     require "../config.example.php";    
+=======
+    require "../../config.php";   
+>>>>>>> 2ccdb1c2ea1f2e58ee07608d6dbd5fc6c9a7cc13
     try {
         $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
     } catch (PDOException $pe) {
@@ -18,19 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $result2 = $conn->query("Select * from interns_data where username = 'joel'");
     $user = $result2->fetch(PDO::FETCH_OBJ);
 } else {
+<<<<<<< HEAD
     require '../answers.php';
+=======
+>>>>>>> 2ccdb1c2ea1f2e58ee07608d6dbd5fc6c9a7cc13
      $message = trim(strtolower($_POST['message']));
      $botversion = 'drugAbuse2020 V2.1';
 
-    
-
-  // $message = trim(strtolower($_POST['message']));
-
-    //step 1: Figure out the intent of the message
-    //intents: Greeting, Find the current time, Ask about the HNG Programme
-    //Train the bot
-    //Provide directions for HNG Stage completions
-    //check the db
 
     $intent = 'unrecognized';
     $unrecognizedAnswers = [
