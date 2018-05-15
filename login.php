@@ -55,14 +55,12 @@
         
         
         if(email ==""){
-            alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
             $("#message").
         }
        
         else if(password ==""){
-            alert('Please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
         }
