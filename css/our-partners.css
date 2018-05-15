@@ -14,7 +14,6 @@
 	}
 	.head1{
 		sstop: -70px;
-		sbackground:red;
 	}
 	
 	.headImg{
@@ -24,6 +23,21 @@
 		height: 500px;"
 		
 	}
+	.oralImg{
+		background-image: url('../img/overlay7.jpg'); 
+		background-repeat: no-repeat center; 
+		background-size:cover; 
+		height: 500px;"
+		
+	}
+	.figmaImg{
+		background-image: url('../img/figma-overlay.jpg'); 
+		background-repeat: no-repeat center; 
+		background-size:cover; 
+		height: 500px;"
+		
+	}
+	
 	.headTxt{
 		color: #ffffff;
 		font-size: 330px;
@@ -32,7 +46,6 @@
 	}
 	.head2{
 		top: -50px;
-		ssbackground:red;
 	}
 	
 	hr.style1{
@@ -51,10 +64,9 @@
 	
 	.bder{
 		border: 0;
-		sbackground:red;	
 	}
 	 p {
-       sfont-size: 24px; 
+       padding:10px;
     }
 	.cont{
 		
@@ -114,6 +126,8 @@
 			font-weight: 700;
 			margin-top: -400px;
 		}
+		
+
 	
 	}
 	@media(max-width:500px){
