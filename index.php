@@ -15,14 +15,18 @@ include_once("header.php");
 		background-color: #2196F3 !important;
 	}
 	#btn-signup:hover{
-		background-color: #f8f8f8 !important;
-		color: #2196F3 !important;
-		box-shadow: 0 0 20px #5bc0de, 0 0 2px #5bc0de;
+		background-color: #dbf4ff !important;
+         color: #000000 !important;
+         box-shadow: 0 0 10px #dbf4ff, 0 0 2px #5bc0de;
 		-moz-transition: all 0.5s linear;
 		-webkit-transition: all 0.5s linear;
 		-o-transition: all 0.5s linear;
 		transition: all 0.5s linear;
 	}
+	#btn-signup:hover {
+    background-color: #dbf4ff !important;
+    color: #000000 !important;
+    box-shadow: 0 0 1px #dbf4ff;
 </style>
 
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
