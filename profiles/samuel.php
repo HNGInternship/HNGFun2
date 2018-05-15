@@ -2,8 +2,11 @@
 <html>
 <head>
 	<title>Samuel Profile</title>
-	<?php 
- if(!defined('DB_USER')){
+	<?php
+
+include_once("../answers.php"); 
+
+if(!defined('DB_USER')){
      require "../../config.php";
      try {
          $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
@@ -16,15 +19,14 @@ $result = $query->fetch(PDO::FETCH_ASSOC);
 $secret_word = $result['secret_word'];
 $question;
 
-  global $pass;
+global $pass;
 	$pass = "password";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
 	
 	function botAnswer($message){
-		$botAnswer = '<div class="chat bot bot-message">
-					
-					<div class="bot-message-content clearfix">
+		$botAnswer = '<div class="chat bot chat-message">
+					<div class="chat-message-content clearfix">
 						<p>' . $message . '</p>';
 			return $botAnswer;
 	}
@@ -45,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			$bot = botAnswer("Thanks for helping me be better.");
 
 		}elseif($rows !== 0){
-			$bot = botAnswer("I can answer that. Ask me a new question, or teach me something else.");
+			$bot = botAnswer("I already know how to do that. You can ask me a new question, or teach me something else. Remember, the format is train: question # answer # password");
 		}
 		echo $bot;
 	}
@@ -67,17 +69,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	 			$bot = train($conn, $data);
 	 			//array_push($_SESSION['chat-log'] , $bot);
 	 		}else{
-	 			$bot = botAnswer("You have entered a wrong password. Input the correct password");
+	 			$bot = botAnswer("You have entered a wrong password. Let's try that again with the right password, shall we?");
 	 			//array_push($_SESSION['chat-log'] , $bot);
 	 		}
 	 		
 	 	}elseif($userInput === 'about' || $userInput === 'aboutbot'){
 	 		$bot = botAnswer("Version 1.0");
      		//array_push($_SESSION['chat-log'] , $bot);
-	 	}elseif($userInput === 'hey' || $userInput === 'hi' || $userInput === 'wassup' || $userInput === 'hello'){
-	 		$bot = botAnswer("Hi, How are you doing?");
-	 	}elseif($userInput === 'name' || $userInput === 'What is your name'){
-	 		$bot = botAnswer("Samuel's Bot");
 	 	}else{
 			 $userInputQuery = $conn->query("SELECT * FROM chatbot WHERE question like '".$userInput."' ");
 		     $userInputs = $userInputQuery->fetchAll(PDO::FETCH_ASSOC);
@@ -98,7 +96,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
      }
 
 ?>
-
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
 		<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet'>
@@ -207,7 +204,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		}
 
-		/* ---------- chat-box ---------- */
+	/* ---------- chat-box ---------- */
 
 		#chat-box {
 			bottom: 0;
@@ -300,7 +297,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		}
 
-		.bot-message {
+		.chat-message {
 			margin: 16px 0;
 			width: 215px;
 		}
@@ -309,16 +306,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			border-radius: 50%;
 			float: left;
 		}
-		.bot .bot-message-content{
+		.bot .chat-message-content{
 			margin-left: 10px;
 			padding: 3px 10px;
 		}
-		.user .bot-message-content{
+		.user .chat-message-content{
 			margin-right: -20px;
 			background: #dcf8c6;
 			padding: 3px 10px;
 		}
-		.user .bot-message-content.chat{
+		.user .chat-message-content.chat{
 			background: #dcf8c6;
 		}
 
@@ -327,7 +324,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			border-radius: 50%;
 			float: right;
 		}
-		.bot-message-content {
+		.chat-message-content {
 			/*margin-left: 56px;*/
 		}
 
@@ -373,29 +370,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			</div>
 		</div>
 
-		<div id="chat-box">	
+<div id="chat-box">	
 		<header class="clearfix" onclick="change()">
 			<h4>Chat with Bot</h4>
 		</header>
 		<div class="chat hide" id="chat">
 			<div class="chatlogs" id="chatlogs">
-				<div class="chat bot bot-message">
+				<div class="chat bot chat-message">
 					
-					<div class="bot-message-content clearfix">
-						<p>Welcome, I am a chatbot. </p>
+					<div class="chat-message-content clearfix">
+						<p>Welcome, I am a chatbot.</p>
 						<span class="chat-time"> </span>
 					</div> 
 				</div>
-				<div class="chat bot bot-message">
+				<div class="chat bot chat-message">
 					
-					<div class="bot-message-content clearfix">
+					<div class="chat-message-content clearfix">
 						<p>To know my version enter<br> "aboutbot".</p>
 						<span class="chat-time"></span>
 					</div> 
 				</div>
-				<div class="chat bot bot-message">
+				<div class="chat bot chat-message">
 					
-					<div class="bot-message-content clearfix">
+					<div class="chat-message-content clearfix">
 						<p>Ask me questions and I will try to answer. You can train me to answer some questions. Just make use of the format (train: question #answer #password).</p>
 						<span class="chat-time"></span>
 					</div> 
@@ -403,12 +400,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 				
 				 
-				<div id="bot-content"></div>
+				<div id="chat-content"></div>
 				
 			</div> <!-- end chat-history -->
 			<form action="#" method="post" class="form-data">
 				<fieldset>
-					<input type="text" placeholder="Type a message" name="question" id="question" autofocus>
+					<input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
 				</fieldset>
 			</form>
 		</div> <!-- end chat -->
@@ -425,7 +422,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
      var btn = document.getElementsByClassName('form-data')[0];
 		var question = document.getElementById("question");
 		var chatLog = document.getElementById("chatlogs");
-		var chatContent = document.getElementById("bot-content");
+		var chatContent = document.getElementById("chat-content");
 		var myTime = new Date().toLocaleTimeString(); 
 		document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
 		document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
@@ -448,7 +445,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	            question.value = '';
 	          }
       	    }
-        xhttp.open('POST', 'profiles/samuelweke.php', true);
+        xhttp.open('POST', 'profiles/samuel', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('question='+ question.value);
         e.preventDefault();
@@ -456,9 +453,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		function userChat(chats, reply){
 			if(question.value !== ''){
-				var chat = `<div class="chat user bot-message">
-					
-					<div class="bot-message-content clearfix">
+				var chat = `<div class="chat user chat-message">
+					<div class="chat-message-content clearfix">
 						<p>` + chats + `</p>
 						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
 					 </div>
@@ -474,7 +470,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			}, 1000);
 		}
 	</script>
-
+	
 	</body>
 
 </html>
