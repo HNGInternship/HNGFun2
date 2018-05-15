@@ -2,9 +2,7 @@
 if (!defined('DB_USER'))
 	{
 	require"../../config.php";
-	echo "not set";
-	}else{
-echo "set";}
+	}
 try
 	{
 	$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
@@ -296,7 +294,7 @@ var no = 0;
 		
 		if (document.getElementById('botInp').value != '') {
 			var x = new XMLHttpRequest();
-		var url = 'Adekunte Tolulope.php';
+		var url = 'profiles/Adekunte Tolulope.php';
 		var data = document.getElementById("botInp").value;
 		var vars = "bot_adekunte="+data;no++;
 		document.getElementById('ans').innerHTML+='<div><div class="ques">'+data+'</div></div>';
