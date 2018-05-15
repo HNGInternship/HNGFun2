@@ -29,15 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
      $message = trim(strtolower($_POST['message']));
      $botversion = 'drugAbuse2020 V2.1';
 
-    
-
-  // $message = trim(strtolower($_POST['message']));
-
-    //step 1: Figure out the intent of the message
-    //intents: Greeting, Find the current time, Ask about the HNG Programme
-    //Train the bot
-    //Provide directions for HNG Stage completions
-    //check the db
 
     $intent = 'unrecognized';
     $unrecognizedAnswers = [
