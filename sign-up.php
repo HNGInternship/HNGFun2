@@ -95,8 +95,9 @@ include_once("header.php");
 
              <div class="input-block mr-9 pb-2">
             <label class="label">Nationality</label>
-            <select class="form-control" name="nationality" id="nationality" required>
+            <select class="form-control" style="height:10%;" name="nationality" id="nationality" required>
               <option value="">Select Country</option>
+
               <?php
                   foreach ($countrylist as $key => $country) {
                     echo "<option id='".strtolower($country)."'>$country</option>";
