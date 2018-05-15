@@ -60,7 +60,7 @@ $count++;
     <div class="profile">
       <div class="card">
       <a href="profile.php?id=<?php echo $list['username'] ?>">  <img class="card-img-top" src="<?php echo $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
-        <div class="card-footer">
+        <div class="card-footer" style="text-align: center;">
           <a href="profile.php?id=<?php echo $list['username'] ?>" class="my-0 py-0 btn btn-default">View Profile</a>
           <!--<i class="fa fa-github fa-lg"></i>--> <!--No github link for now -->
         </div>
