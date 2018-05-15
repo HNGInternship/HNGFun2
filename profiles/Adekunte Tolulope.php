@@ -2,7 +2,9 @@
 if (!defined('DB_USER'))
 	{
 	require"../../config.php";
-	}
+	echo "not set";
+	}else{
+echo "set";}
 try
 	{
 	$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
