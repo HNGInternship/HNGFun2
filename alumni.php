@@ -157,7 +157,7 @@
         <thead style="background-color:#2196F3;color:#fff;font-weight:lighter;">
           <tr>
             <th scope="col">Id</th>
-            <th scope="col" style="text-indent:10">Name</th>
+            <th scope="col" style="text-indent:10px">Name</th>
             <th scope="col">Username</th>
             <th scope="col">Summary Information</th>
             <th scope="col">Social Profile</th>
@@ -383,7 +383,7 @@
          <thead style="background-color:#2196F3;color:#fff;font-weight:lighter;">
           <tr>
             <th scope="col">Id</th>
-            <th scope="col" style="text-indent:10">Name</th>
+            <th scope="col" style="text-indent:10px">Name</th>
             <th scope="col">Username</th>
             <th scope="col">Summary Information</th>
             <th scope="col">Social Profile</th>
