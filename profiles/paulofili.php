@@ -1,7 +1,11 @@
 <?php 
 // header("Access-Control-Allow-Origin: *");
     if(!defined('DB_USER')){
-         require "../../config.php";
+        //  require "../../config.php";
+        define ('DB_USER', "root");
+        define ('DB_PASSWORD', "");
+        define ('DB_DATABASE', "hngfun");
+        define ('DB_HOST', "localhost");
     }
     global $connect;
     $connect = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
@@ -398,6 +402,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
     </footer>   
    
     <script src="<?=$home_url;?>/js/jquery.min.js"type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="<?=$home_url;?>vendor/bootstrap/js/bootstrap.min.js"></script>
 
