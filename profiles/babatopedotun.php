@@ -32,7 +32,7 @@
     
     * {
     margin: 0;
-    padding: 10px;
+    padding: 0;
 }
     
 
