@@ -49,27 +49,27 @@
 
             <ul class="list-inline text-center" style="padding-top:20px;">
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="contact.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="contact.html">
                      Contact Us
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="about.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="about.html">
                      About Us
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="press.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="press.html">
                     Press
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="help.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="help.html">
                     Help
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="core_values.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="core_values.html">
                     Our Core Values
                   </a>
                </li>

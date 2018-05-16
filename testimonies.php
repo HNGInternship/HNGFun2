@@ -1,4 +1,10 @@
 <!-- head here  -->
+<!-- <style type="text/css">
+    .message{
+        font-size: 14px;
+        width: 100px
+    }
+</style> -->
 <?php
 include_once("header.php");
 ?>
@@ -32,7 +38,6 @@ include_once("header.php");
                                         <div class="col-sm col-xs-12 testimonial">
                                             <div class="message">
                                                 It's been a great opportunity working with different people and using various tools in accomplishing the tasks given.
-                                                <br /><br />
                                                 Thanks to hng internship I can now use Figma for designs and TeamViewer also.
                                                 Looking forward to more of such experiences.
                                             </div>
@@ -251,16 +256,16 @@ include_once("header.php");
 
           <div class="carousel-item active">
              <div class="row">
-                <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
+                <div class="col-md-3" style="margin-left:60px; max-width: 300px;">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
                         <p>How ICT Changed My Life</p>
                 </div>
-                <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
+                <div class="col-md-3" style="margin-left:60px; max-width: 300px">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
                         <p>Information and Communication Technology for Development</p>
                 </div>
-                <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
+                <div class="col-md-3" style="margin-left:60px; max-width:300px;">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
                         <p>ICT is Changing Education in Developing Countries</p>
                 </div>
              </div>
@@ -268,9 +273,12 @@ include_once("header.php");
         <div class="carousel-item">
             <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
                         <p>How Technology is Changing Family Lives</p>
                 </div>
+
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
                 <!-- <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
@@ -298,3 +306,4 @@ include_once("header.php");
 <?php
 include_once("footer.php");
 ?>
+x
