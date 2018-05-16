@@ -84,7 +84,7 @@ function custom_styles()
             margin-top: 100px;
         } */
         #contact-right{
-            margin-top: 30px;
+            padding-top: 30px;
             background-color: #2196F3;
         }
     }
