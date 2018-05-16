@@ -361,44 +361,9 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
                 </div>
             </div>
             <div class="col-sm-6 skills" style="">
-                <p class="hello-text text-center">Hello World!</p>
+                <p class="hello-text text-center"></p>
                 <span>I am a Full-Stack Developer and an aspiring UI/UX Designer. Feel free to engage me in any of your projects.</span>
-                <div class="skill-list">
-                    <h4>Skills</h4>
-                    <div class="skill-progress">
-                        <span class="skill-name">HTML + CSS + Bootstrap</span>
-                        <div class="progress-bar">
-                            <div class="progress html">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <span class="skill-name">Javascript + JQuery</span>
-                        <div class="progress-bar">
-                            <div class="progress js">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <span class="skill-name">PHP + Laravel</span>
-                        <div class="progress-bar">
-                            <div class="progress php">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <span class="skill-name">Apache + MYSQL</span>
-                        <div class="progress-bar">
-                            <div class="progress mysql">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <span class="skill-name">UI/UX + Figma</span>
-                        <div class="progress-bar">
-                            <div class="progress figma">
-                            </div>
-                        </div>
+                
                     </div>
                 </div>
                 <div class="chatbot-menu">
