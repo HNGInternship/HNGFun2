@@ -1,370 +1,391 @@
-<?php 
+<?php
+//error_reporting(E_ALL);
+  //require '../db.php';
+//header('Content-Type: text/plain; charset=UTF-8;');
   if(!defined('DB_USER')){
     require "../../config.php";
   }
-  try {
-    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-  } catch (PDOException $pe) {
-    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-  }
-try {
-      $user = 'befe';
-      $sql = "SELECT * FROM interns_data WHERE username = '$user' "; 
-      $q = $conn->query($sql);
-      $q->setFetchMode(PDO::FETCH_ASSOC);
-      $data = $q->fetch();
-      $bef = $data['username'];
-      $image = $data['image_filename'];
-  } catch (PDOException $e) {
-      throw $e;
-  }
-  try {
-      $sql = 'SELECT * FROM secret_word';
-      $q = $conn->query($sql);
-      $q->setFetchMode(PDO::FETCH_ASSOC);
-      $mydata = $q->fetch();
-      $secret_word = $mydata['secret_word'];
-  } catch (PDOException $e) {
-      throw $e;
-  }
-?>
+  $res = $conn->query("SELECT * FROM  interns_data WHERE username = 'Damilola' ");
+  $row = $res->fetch(PDO::FETCH_BOTH);
+  $name = $row['name'];
+  $img = $row['image_filename'];
+  $username =$row['username'];
 
-<?php 
-global $msgss;
-global $reply;
-global $train;
-global $aboutBot;
-if(isset($_POST['msgs'])){
-    $msgss = $_POST['msgs'];
-    $train = stripos($msgss, 'train:');
-    $aboutBot = 'aboutbot';
+
+
+  $res1 = $conn->query("SELECT * FROM secret_word");
+  $res2 = $res1->fetch(PDO::FETCH_ASSOC);
+  $secret_word = $res2['secret_word'];
+
+
+
+  
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  //var_dump($_REQUEST);
+    $msg = $_POST['msg'];
+    $train = stripos($msg, 'train:');
+    echo $train;
     if ($train === 0){
-        trainbot($msgss);
-    }
-    else if ($aboutBot == $msgss){
-        aboutBot();
+        trainbot($msg);
     }
      else {
-        fetchAnswer($msgss); 
+        fetchans($msg); 
     }
-    
 }
-    function aboutBot(){
-        $reply = 'Hello, Welcome to Bot Xperience v1.0...'.'<br>';
-        $reply .= 'Ask me anything...'.'<br>';
-        $reply .= 'If I don\'t know what you asked, you can simply train me by using the format:'.'<br>';
-        $reply .= 'train: question # answer # password'.'<br>';
-        $reply .= 'Thankyou!';
-        echo $reply;
-        exit();
-    }
-    function trainbot($msgss){
+
+function fetchans($msg){
     include '../db.php';
-        $trainmsg = substr($msgss, 6);
-        $trainmsg = preg_replace("([\s]+)", " ", trim($trainmsg));
-    $trainmsg = preg_replace("([?.'])", "", $trainmsg);
-        $separate = explode('#', $trainmsg);
-        $separatenum = count($separate);
-        $ques = $separate[0];
-        if (isset($separate[1])){
-            $ans = $separate[1]; 
-        }
-        if (isset($separate[2])){
-            $separate[2] = trim($separate[2]);
-        }
-        
-        $pass = 'password';
-        if($separatenum <= 1){
-            echo $reply = 'Invalid training format.';
-        } else if($separatenum < 3){
-            echo $reply = 'You need to enter a password to train me.';
-        } else if($separatenum > 3){
-            echo $reply = 'Invalid training format.';
-        } else {
-            if($pass !== $separate[2]){
-                echo $reply = 'Incorrect training password please try again with correct password.';
-            } else {
-                $sql = "INSERT INTO chatbot (question, answer) VALUES ('$ques', '$ans')";
-                $conn->exec($sql);  
-                echo $reply = 'Training me was successful. Thanks I\'m now Smarter.';
-                // $reply = $sql;
-                // echo $reply;
-                // echo $ques.' and '.$ans;
-            }     
-            
-        }  
-        exit();  
-    }
-function fetchAnswer($msgss){
-    include '../db.php';
-    $msgss = preg_replace('([\s]+)', ' ', trim($msgss));
-  $msgss = preg_replace("([?.'])", "", $msgss);
-    $sql = "SELECT * FROM chatbot WHERE question LIKE '%$msgss%' ORDER BY rand() LIMIT 1";
+    $msg = preg_replace('([\s]+)', ' ', trim($msg));
+    $sql = "SELECT * FROM chatbot WHERE question='$msg' ORDER BY rand() LIMIT 1";
     $q = $conn->query($sql);
     $q->setFetchMode(PDO::FETCH_ASSOC);
-    $answer = $q->fetch();
-    $reply = $answer['answer'];
-    if ($reply == ''){
-        $reply = 'Sorry I couldn\'t understand you';
+    $ans = $q->fetch();
+    $ans1 = $ans['answer'];
+    if ($ans1 == ''){
+        $ans1 = 'Sorry, I cant find an answer. You can train me tho.';
     } 
-    echo $reply;
+    echo $ans1;
     exit();
 } 
+
+    function trainbot($msg) {
+     include '../db.php';
+       $msg = preg_replace("([\s]+)", " ", trim($msg));
+       $msg = substr(strstr($msg," "), 1);
+        $msg = explode('#', $msg);
+        $question = trim($msg[0]);
+        $answer = trim($msg[1]);
+        $password = trim($msg[2]);
+        if($password == 'password') {
+            $sql = 'SELECT * FROM chatbot WHERE question = "'.$question .'" and answer = "'. $answer .'" LIMIT 1';
+            $q = $conn->query($sql);
+            $q->setFetchMode(PDO::FETCH_ASSOC);
+            $data = $q->fetch();
+            if(empty($data)) {
+                $training = array(':question' => $question, ':answer' => $answer);
+                $sql = 'INSERT INTO chatbot ( question, answer) VALUES (:question, :answer );';
+                    $q = $conn->prepare($sql);
+                    if ($q->execute($training) == true) {
+                        $ans2 = 'Training Successful';
+                    }
+            }else{
+              $training = array(':question' => $question, ':answer' => $answer);
+                $sql = 'INSERT INTO chatbot ( question, answer) VALUES (:question, :answer );';
+                    $q = $conn->prepare($sql);
+                    if ($q->execute($training) == true) {
+                $ans2 = 'Question already exists but your version has been added. :)';
+            }
+          }
+        }else {
+           $ans2 = 'Incorrect Password';
+        }
+        echo $ans2;
+        exit();
+    }
 ?>
 
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title><?php echo $data['name']; ?>'s Profile</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-        <style>
-            body {
-                background-color: #e6f2ff;
-            }
-            h1, h3 {
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
-            }
-            h1 {
-                font-style: normal;
-                /*font-weight: bold;*/
-                color: #007BFF !important;
-            }
-            h3 {
-                font-style: italic;
-                font-weight: normal;
-                /*line-height: normal;*/
-                color: #99B2B2 !important;
-            }
-            .bot-chat-button {
-                    border: 2px solid #3396FF;
-                    border-radius: 20px;
-                    padding: 5px;
-                    padding-left: 24px;
-                    margin-top: 10px;
-                    color: #3396FF;
-                    cursor: pointer;
-                    margin-bottom: 8px;
-            }
-            #chatlog {
-                    overflow-y: auto;
-                    height: 400px;
-            }
-            #bot-ui {
-                    border: 2px solid #3396FF;
-                    border-radius: 20px;
-                    /*margin-right: -50px;*/
-                    height: 540px;
-                    /*position: absolute;*/
-                }
-                #bot-ui h3.first, #bot-ui h3.second {
-                    line-height: 2px;
-                }
-                #chatbox {
-                    position: absolute;
-                    bottom: 20px;
-                    margin-top: 20px;
-                }
-                input[type=text] {
-                    box-sizing: border-box;
-                    border-radius: 4px;
-                    padding: 5px;
-                    padding-left: 10px;
-                    border: 2px solid #a6a6a6;
-                }
-                input[type=submit] {
-                    padding: 5px;
-                    border: none;
-                    padding: 8px;
-                    margin-top: 10px;
-                    border-radius: 4px;
-                    background-color: #006fe6;
-                    color: #fff;
-                }
-            @media (min-width: 992px){
-                #main {
-                background-color: #fff;
-                height: 460px;
-                margin-top: 100px;
-                margin-left: 50px;
-                border-top-right-radius: 150px;
-                }
-                h1 {
-                    font-size: 48px;
-                    margin-bottom: 25px;
-                    line-height: 10px;
-                }
-                h3 {
-                    font-size: 24px;
-                }
-                p {
-                    font-size: 19px;
-                    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif !important;
-                    margin-top: 50px;
-                    color: #212c2c !important;
-                }
-                img {
-                margin-left: -20px;
-                height: 460px;
-                width: 300px !important;
-                }
-                .details {
-                    margin-left: 25px;
-                    margin-top: 80px;
-                }
-                
-                #bot-ui {
-                    /*border: 2px solid #3396FF;
-                    border-radius: 20px;*/
-                    margin-top: 60px;
-                    /*margin-right: -50px;*/
-                    margin-left: 25px;
-                    /*height: 540px;*/
-                    /*position: absolute;*/
-                }
-                #bot-ui p {
-                    font-size: 15px;
-                    margin-top: 0;
-                }
-                #bot-ui h1 {
-                    font-size: 20px;
-                }
-                #bot-ui h3 {
-                    font-size: 15px;
-                }
-                input[type=text] {
-                    width: 240px;
-                }
-                input[type=submit] {
-                    width: 70px;
-                }
-                
-            }
-            @media (max-width: 991px){
-                body {
-                    max-width: 100%;
-                    overflow-x: hidden;
-                }
-                img {
-                    display: inline-block;
-                    width: 270px;
-                    height: 480px;
-                    margin-top: 10px;
-                    /*margin-left: 35%;
-                    margin-right: 35%;*/
-                    
-                } 
-                #main {
-                    /*max-width: 90%;  */
-                    background-color: white;  
-                    margin-bottom: 30px;
-                }
-                #main .details {
-                    margin-left: 20px;
-                    padding-bottom: 15px;
-                }
-                h1 {
-                    font-size: 28px;
-                }
-                h3 {
-                    margin-top: -10px;
-                    font-size: 20px;
-                }
-                p {
-                    font-size: 16px;
-                }
-                .contain-pic {
-                    background-image: url("<?php echo $image;?>");
-                    opacity: 0.8;
-                    height: 500px;
-                    background-size: cover;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class='container-fluid'>
-            <section class='row'>
-                <article class='col-md-8' id='main'>
-                    <div class='row'>
-                        <div class='contain-pic col-md-3'>
-                            <img class='' src="<?php echo $image; ?>" alt ='befe sitted and giving a pose'>
-                        </div>
-                        <div class='details col-md-7'>
-                            <h1>Deekor Baribefe</h1>
-                            <h3>UI-UX Developer/Web Developer </h3>
-                            <p>Hi, I'm Befe a tech enthusiast. <br>I am a web developer with skills: <br> in html5, css3, javascript and php/mysql. <br>I am conversant with bootstrap, jquery and <br> angular frameworks. <br>I am a newbie currently taking python and django. </p>
-                            <div class='bot-chat-button col-sm-5 col-xs-6'>Chat With My Bot!</div>
-                        </div>
-                    </div>
-                </article>
-                <article class='col-md-3' id='bot-ui'>
-                    <h1>Welcome to Bot Xperience</h1>
-                    <section id='chatlog'> 
-                        <h3 class='first'>Ask me anything...</h3>
-                        <h3 class='second'>Or Simply type 'aboutbot' to know more...</h3>
-                        <h3 class='third'>You can also train me if I can't answer your questions using:
-                        <br>'trainbot: question # answer # password'</h3>
-                    </section>
-                    <div id='chatbox'>
-                        <form class='chat' >
-                        <input type='text' name='message' placeholder='Ask me anything...' class='msgbox'>
-                        <input type='submit' value='Send'>
-                    </div>
-                </form>
+<head>
+<meta charset="utf-8">
+<title>Stage 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+   
+
+    
+    
+<style>
+  body{
+        margin: 0;
+        padding: 0;
+        color: white;
+        background:url(http://res.cloudinary.com/damilola/image/upload/v1524350079/bg.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: "abel";
+  } 
+
+
+  #cover{
+    width: 100%;
+    /*background: rgba(0,0,0,.95);*/
+    height: 100vh;
+    text-align: center;
+  }
+
+ 
+
+
+  #box{
+    width: 100%;
+    text-align: center;
+    position:;
+    padding: 0;
+    min-height: 100vh;
+    
+  }
+
+  #box p{
+    font-size: 50px
+  }
+
+  #box img{
+    width: 200px;
+    border-radius: 5px;
+    /*transform: rotate(360deg);*/
+  }
+
+  .row{
+    margin: 0;
+    padding: 0;
+    min-height: 100%
+  }
+
+  .row .col-sm-12{
+    height: 100%;
+    padding: 0;
+    padding-top: 80px;
+  }
+
+  .row #chatbox{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.9);
+    width: 70%;
+    border: 1px solid #696969;
+    border-radius: 5px;
+
+  }
+
+  #chatbox #cbox{
+    height: 350px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+#form{
+  color: green
+}
+
+#tbox{
+  background: rgba(0,0,0,0);
+  width: 95%;
+  height: 45px;
+  border: 1px solid #696969;
+  padding: 1%;
+}
+  
+
+#head{
+  border-bottom: 1px solid #696969;
+  font-size: 30px;
+  color: green;
+  text-align: left;
+  padding: 1% 1% 1% 10%;
+}
+
+.output{
+  text-align: right;
+  color: green;
+  font-size: 20px;
+  padding: 1% 5% 1% 1%;
+}
+
+.outputa{
+  text-align: left;
+  color: red;
+  font-size: 20px;
+  padding: 1% 1% 1% 5%;
+}
+
+#cbox .outputa p{
+  font-size: 20px;
+  white-space: nowrap;
+  width: 100%;
+  word-wrap: break-word;
+  overflow: hidden;
+   -webkit-animation: type 5s steps(40, end);
+  animation: type 5s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+
+
+
+.btn{
+  margin-top: 1%;
+  width: 50%;
+  border-radius: 0;
+  background: rgba(0,0,0,0);
+  border: 1px solid #696969;
+}
+
+
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right:none; 
+  }
+  100% {
+    border: none;
+  }
+}
+
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
+}
+
+h4{
+  font-size: 30px;
+}
+
+h5{
+  font-size: 20px;
+}    
+
+
+
+</style>
+
+
+<!--script language="javascript">
+        function copy() {
+            var data = document.getElementById('tbox').value;
+            document.getElementById('cbox').innerHTML +="<div class='output'>" + data + "</div>" + "<br/>";
+        }
+    </script-->
+</head>
+
+<body>
+
+
+    <div id="cover">
+      <div id="box">
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+           <img src="http://res.cloudinary.com/damilola/image/upload/v1524350063/me.jpg" alt="Damilola" class="img-rounded">
+            <p><?php echo $name; ?></p>
+            <h4>Because i'm Batman (In Batman's voice)</h4>
+            <h5>Username: @<?php echo $username; ?></h5>
+            <h5>Phone: 08023975087</h5> 
+            <h5>Email: dhaamie.soyemi@gmail.com</h5> 
+            <h5>Skills: Css,Bootstrap, Javascript, PHP</h5>
+          </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12" align="center">
+          <div id="chatbox">
+            <div id="head">
+              Alfred
+            </div>
+            <div id="cbox">
+              <div class="outputa">
+                  To Know More about me type 'aboutbot'
+                  You can also train me using:
+                  'train: question #answer #password'
+                  if i cant answer any of your question.
+                  ;) 
+              </div>
+            </div>
+            <div id="form">
+                  <div class="form-group">
+                  <input type="text" name="text" id="tbox" class="mbox">
+                  <input type="submit" name="submit" value="Submit" class="btn">
                 </div>
-                </article>
-            </section>
+
+            </div>
+          </div>
+        
         </div>
-        <script>
+
+     </div>
+    </div>
+  </div>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+
+
+
+
+
+<!--script type="text/javascript">
+  $(function() {
+    $('#box')
+  .css('opacity', 0)
+  .slideDown('slow')
+  .animate(
+    { opacity: 1 },
+    { queue: false, duration: 1500 }
+  );
+});
+</script-->
+
+
+ <script>
             $(function(){
-                $('#bot-ui').hide();
-                
-                $('.bot-chat-button').click(function(){
-                    $('#bot-ui').fadeIn(500);
-                })
-                $('h3.first').hide();
-                $('h3.second').hide();
-                $('h3.third').hide();
-               $('input[type=text]').click(function(){
-                    $('h3.first').show(500);
-                    $('h3.second').show(500);
-                    $('h3.third').show(500);
-               });
+              var name='Alfred:';
                function bot_chat(reply){
-                    $('#chatlog').append('<p>Bot Xperience: ' + reply + '</p>');
-                    $('#chatlog').scrollTop($('#chatlog').height());
+                    $('#cbox').append('<div class="outputa"><p>Alfred: ' + reply + '<p></div>');
+                    $('#cbox').scrollTop($('#cbox').height());
                }
                $('input[type=submit]').click(function(){
-                  var msg = $('.msgbox').val();
-                  var reset = $('.msgbox').val("");   
-                    if(msg){
-                        $('#chatlog').append('<p> You: ' + msg + '</p>');
-                        $('#chatlog').scrollTop($('#chatlog').height());
+                  var message = $('.mbox').val();
+                  var reset = $('.mbox').val("");   
+                    if(message){
+                        $('#cbox').append('<div class="output">You: ' + message + '</div>');
+                        $('#cbox').scrollTop($('#cbox').height());
                     }
                   
-                  if(msg==''){
-                    $('#chatlog').append('<p>Bot Xperience: You have not typed anything</p>');
-                    $('#chatlog').scrollTop($('#chatlog').height());
+                  if(message==''){
+                    $('#cbox').append('<div class="outputa"><p>'+ name + ' You have not typed anything</p></div>');
+                    $('#cbox').scrollTop($('#cbox').height());
                     return false;
-                    } else {
+                    } else if(message=='aboutbot'){
+                      $('#cbox').append('<div class="outputa"><p>'+ name + ' Alfred v1.0</p></div>');
+                    $('#cbox').scrollTop($('#cbox').height());
+                    return false;
+                    } else{
                         $.ajax({
-                        url: 'profiles/Damilola.php',
-                        type: 'post',
-                        cache: 'false',
-                        data: {
-                            msgs: msg
-                        },
+                          url: 'profile?id=Damilola', //This is the current doc
+                          type: "POST",
+                          dataType: "text",
+                          //dataType:'json', // add json datatype to get json
+                          data: ({msg: message}),
                         success: function(data){
-                            bot_chat(data);
-                            reset;
+                            $('#cbox').append('<div class="outputa"><p>Alfred: ' + data + '<p></div>');
+                    $('#cbox').scrollTop($('#cbox').height());
                         }
-                    });
+                    }) .done(function(data,textStatus,jqXHR){
+                        alert("response with: " + data);
+                        })
+                        .fail(function(data,textStatus,errorThrown){ alert("Request failed!"); console.log('FAILURE: ' + textStatus); })
+                        .always(function(data,textStatus,errorThrown){});
+
+
+
+
                     return false;
                     }
                })
@@ -372,5 +393,5 @@ function fetchAnswer($msgss){
             
         </script>
 
-    </body>
+</body>
 </html>
