@@ -1,30 +1,6 @@
 <?php
-// require_once('db.php');
+require_once('db.php');
 
-if(!defined('DB_USER')){
-            require "../config.php";     
-            try {
-                $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-            } catch (PDOException $pe) {
-                die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-            }
-        }
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// define('DB_USER', "root"); // db user
-// define('DB_PASSWORD', "root"); // db password (mention your db password here)
-// define('DB_DATABASE', "hng_fun"); // database name
-// define('DB_HOST', "localhost"); // db server
-// try {
-//      $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-// } catch (PDOException $pe) {
-//     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-// }
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 if(isset($_POST['registration'])){
@@ -39,12 +15,7 @@ if(isset($_POST['registration'])){
   $username=$_POST['userName'];
 
 
-  echo 'I work as a GET or not parameter and first name is : '.$firstname;
-
-  exit();
-  
-
-  
+  
 
   if($firstname == ""){
 

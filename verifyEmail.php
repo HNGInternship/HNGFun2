@@ -43,8 +43,22 @@ include_once("header.php");
 
 
             if($linkValidity==1){
+               $stmt = $conn->prepare("UPDATE users SET verified=:verified , verification_token=:token WHERE email=:email");
+
+      $result= $stmt->execute(array(
+          ':verified'=>1,':verification_token'=>0,':email'=>$email,
+       ));
+             if($result){
               $message='Proceed to <a href="login.php">LOG IN</a>';
               $header="Activation successful";
+            }
+
+            else{
+
+              $message='An error occured with the activation link or it has already been used.';
+              $header="Activation failed";
+              
+            }
             }
 
             else if ($linkValidity==0){
