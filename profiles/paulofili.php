@@ -1,6 +1,6 @@
 <?php 
     if(!defined('DB_USER')){
-         require "../config.php";
+         require "../../config.php";
     }
     global $connect;
     $connect = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
@@ -390,9 +390,9 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         </div>
     </footer>   
    
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
     
-    <!-- <script src=  "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src=  "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.js"></script>
     <script>
         $(document).ready(function() {
