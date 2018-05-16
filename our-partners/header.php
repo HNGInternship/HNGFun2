@@ -175,7 +175,7 @@ $activeArray[$fileIndex]="active";
     }
 
     .navbar-toggler {
-    float: right;
+    float: left;
     }
 
     .nav-item.active {
@@ -260,11 +260,11 @@ $activeArray[$fileIndex]="active";
   	 position: relative;
     display: inline-block;
   }
-	   
+
       .footer-li .fa-stack-1x:hover{
             color: #0465be !important;
-      }      
-	
+      }
+
   @media (min-width: 575px) {
   #img-fixed {
     width: 235px;
