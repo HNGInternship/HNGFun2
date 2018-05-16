@@ -65,11 +65,6 @@ function custom_styles()
     footer {
         padding-bottom: 0;
     }
-    @media screen and (min-width: 768px){
-        #contact-info-title{
-            margin-top: 50px;
-        }
-    }
     </style>';
     echo $styles;
 };
@@ -83,6 +78,13 @@ function custom_styles()
 
         </div>
     </div>
+    <style>
+    @media screen and (max-width: 768px){
+        #contact-info-title{
+            margin-top: 50px;
+        }
+    }
+    </style>
 
     <div class="container jumbotron " id="contact-half">
         <div class="row" >
