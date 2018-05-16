@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     ];
     if (strpos($message, 'aboutbot') !== false) {
         $intent = 'aboutbot';
-        $response = 'david' . $version;
+        $response = 'jegededavid' . $version;
     }
     //check for a function call
     if (($startIndex = strpos($message, '((')) !== false && ($endIndex = strpos($message, '))')) !== false) {
@@ -373,7 +373,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             function sendMessage(message) {
                 $.ajax({
                     method: 'POST',
-                    url: 'profiles/melas.php',
+                    url: 'profiles/jegededavid.php',
                     data: {message: message},
                     success: function(response) {
                         $("#chats").append(`<p class="chat received">${response}</p>`);
