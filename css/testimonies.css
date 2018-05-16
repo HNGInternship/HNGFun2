@@ -29,6 +29,7 @@
 
 .testimonial{
     height: 400px;
+     position: 100%;
 }
 @media(max-width: 780px){
     .testimonial{
