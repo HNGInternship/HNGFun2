@@ -1,5 +1,5 @@
 <?php 
-header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Origin: *");
     if(!defined('DB_USER')){
          require "../../config.php";
     }
@@ -21,6 +21,12 @@ header("Access-Control-Allow-Origin: *");
     } else {
         echo "No data in database";
     }    
+
+    $home_url = '';
+    if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
+        $padding = '80px 70px';
+        $home_url = '../';
+    }
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){              
 
@@ -391,10 +397,10 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         </div>
     </footer>   
    
-    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script src=  "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="<?=$home_url;?>/js/jquery.min.js"type="text/javascript"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="<?=$home_url;?>vendor/bootstrap/js/bootstrap.min.js"></script>
+
     <script>
         $(document).ready(function() {
             
