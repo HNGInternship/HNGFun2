@@ -1,6 +1,6 @@
 <?php
 	if(!defined('DB_USER')){
-	  require "../../config.php";		//change config details when pushing
+	  require "../../config.example.php";		//change config details when pushing
 	  try {
 	      $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 	  } catch (PDOException $pe) {
