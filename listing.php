@@ -1,5 +1,5 @@
 <?php
-include_once("header.php");
+include_once("header_currentlisting.php");
 include_once("db.php");
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 8;
