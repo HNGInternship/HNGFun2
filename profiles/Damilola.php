@@ -20,7 +20,7 @@
 
 
   
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
+if(isset($_POST['msgs'])){
   //var_dump($_REQUEST);
     $msg = $_POST['msg'];
     $train = stripos($msg, 'train:');
