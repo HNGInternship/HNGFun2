@@ -368,7 +368,7 @@ h5{
                     return false;
                     } else{
                         $.ajax({
-                          url: 'profile?id=Damilola', //This is the current doc
+                          url: 'profiles/Damilola.php', //This is the current doc
                           type: "POST",
                           dataType: "text",
                           //dataType:'json', // add json datatype to get json
