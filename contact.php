@@ -81,7 +81,7 @@ function custom_styles()
     <style>
     @media screen and (max-width: 768px){
         #contact-info-title{
-           /* margin-top: 100px; */
+            margin-top: 100px; 
         } 
         #contact-right{
             padding-top: 30px;
