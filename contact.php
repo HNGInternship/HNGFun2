@@ -83,6 +83,11 @@ function custom_styles()
        /* #contact-info-title{
             margin-top: 100px; 
         }  */
+        
+          #contact-info-title{
+            padding-top: 100px; 
+        }  
+        
         #contact-right{
             padding-top: 30px;
             background-color: #2196F3;
