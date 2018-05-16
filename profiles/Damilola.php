@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 function fetchans($msg){
-    include '../db.php';
+    include 'db.php';
     $msg = preg_replace('([\s]+)', ' ', trim($msg));
     $sql = "SELECT * FROM chatbot WHERE question='$msg' ORDER BY rand() LIMIT 1";
     $q = $conn->query($sql);
@@ -35,7 +35,7 @@ function fetchans($msg){
 } 
 
     function trainbot($msg) {
-     include '../db.php';
+     include 'db.php';
        $msg = preg_replace("([\s]+)", " ", trim($msg));
        $msg = substr(strstr($msg," "), 1);
         $msg = explode('#', $msg);
