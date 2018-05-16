@@ -93,14 +93,10 @@ function custom_styles()
         
            @media screen and (max-width: 576px){
        #contact-info-title{
-            padding-top: 20px; 
+            padding-top: 10px; 
         }  
           
-        
-        #contact-right{
-            padding-top: 30px;
-            background-color: #2196F3;
-        }
+
     }
     </style>
 
