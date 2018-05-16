@@ -1,58 +1,14 @@
 <?php
 include_once("header.php");
-function Filter($str)
-{
-  $filter=htmlspecialchars($str, ENT_QUOTES);
-	return $filter;
-}
-
-function sqli($con,$str1)
-{
-	$sqli_filter=mysqli_real_escape_string($con,$str1);
-	return $sqli_filter;
-}
-
-function GenPagination()
-{
-    include_once('../config.php');
-    $con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
-    $query  = " select * from interns_data ";
-    $r=mysqli_query($con,$query);
-    $count=mysqli_num_rows($r);
-    $link=ceil($count/20);
-    for($start=1;$start<=$link;$start++)
-    {
-      if($start==1){
-        echo '<li class="page-item"><a  class="page-link" href="listing.php?id='.$start.'">'.$start.'</a></li>';
-      }else{
-        echo '<li class="page-item"><a  class="page-link" href="listing.php?id='.$start.'">'.$start.'</a></li>';
-        
-      }
-      
-    } 
-  }
-  function GetAllInterns($no){
-	  ///
-	  include_once('../config.php');
-    $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
-    $no=Filter(sqli($conn,$no));
-		$no=($no*20)-20; 
-		$query  = "select * from interns_data  order by id desc limit ".$no.",20";
-		$result=mysqli_query($conn,$query);
-			while($row = mysqli_fetch_assoc($result)) { 
-			$default_image = '';
-			echo "<div class=\"profile\">
-      <div class=\"card\">
-        <a href=\"profile.php?id=".$row['username']."\"><img class=\"card-img-top\" src='".$row['image_filename']."' onerror=\"this.src='images/default.jpg'\" alt=\"Profile Image\"> </a>
-        <div class=\"card-footer\">
-          <a href=\"profile.php?id=".$row['username']."\" class=\"my-0 py-0 btn btn-default\">View Profile</a>
-        </div>
-      </div>
-      <h4 class=\"text-center mt-3\">". $row['name']."</h4>
-    </div>";	
-			}
-			mysqli_close($conn);
-	}
+include_once("db.php");
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 8;
+$start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+$articles = $conn->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM interns_data LIMIT {$start}, {$perPage}");
+$articles->execute();
+$articles = $articles->fetchAll(PDO::FETCH_ASSOC);
+$total = $conn->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+$pages = ceil($total/$perPage);
 ?>
 
 <style>
@@ -92,14 +48,17 @@ function GenPagination()
   <p class="text-center my-1">HNG4.0 has been a life-transforming journey for interns across Africa.</p>
   <p class="text-center my-1">Don't take our word for it...take theirs.</p>
   <div class="row mx-0 mt-4 justify-space-between">
-  <?php 
-      if(isset($_GET['id']) && !empty($_GET['id']) ){
-        GetAllInterns($_GET['id']);
-      }else{
-        GetAllInterns(1);
-      } 
-       ?>  
-
+<?php foreach ($articles as $row): ?>
+  <div class="profile">
+      <div class="card0">
+        <a href="profile.php?id=<?php echo $row['username'];?>"><img class="card-img-top" src='<?php echo $row['image_filename']?>' onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
+        <div class="card-footer">
+          <a href="profile.php?id=<?php echo $row['username'];?>" class="my-0 py-0 btn btn-default">View Profile</a>
+        </div>
+      </div>
+      <h4 class="text-center mt-3"><?php echo $row['name'];?></h4>
+    </div>
+<?php endforeach ?>
     <nav class="text-xs-center" style="margin:auto;">
     <br>
 <br>
@@ -111,7 +70,9 @@ function GenPagination()
           </a>
         </li>
         
-        <?php GenPagination();?>
+        <?php for ($x=1; $x <= $pages; $x++): ?>
+        <li class="page-item"><a  class="page-link" href="listing.php?page=<?php echo $x?>&per-page=<?php echo $perPage; ?>"><?php echo $x; ?></a></li>
+        <?php endfor; ?>
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
