@@ -38,6 +38,14 @@
 		
 	}
 	
+	.bluechipImg{
+		background-image: url('../img/overlay0.jpg'); 
+		background-repeat: no-repeat center; 
+		background-size:cover; 
+		height: 500px;"
+		
+	}
+	
 	.headTxt{
 		color: #ffffff;
 		font-size: 330px;
