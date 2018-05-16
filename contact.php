@@ -85,7 +85,7 @@ function custom_styles()
              <?php if(isset($result)) echo $result; ?>	
                 <h3 class="text-left"> Send us a message</h3>
                 <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span>
-                 <form method="post" action="contact.php">
+                 <form method="post" action="https://hng.fun/contact">
                         <div class="form-group row">
                             <div class="col">
                                 <label for="name" class="col-form-label-sm">Your Name</label>
