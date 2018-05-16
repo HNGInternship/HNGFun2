@@ -65,6 +65,11 @@ function custom_styles()
     footer {
         padding-bottom: 0;
     }
+    @media screen and (min-width: 768px){
+        #contact-info-title{
+            margin-top: 50px;
+        }
+    }
     </style>';
     echo $styles;
 };
@@ -125,7 +130,7 @@ function custom_styles()
 
 
                  <!-- <div class="form-group"> -->
-                    <h3>Contact Information</h3>
+                    <h3 id="contact-info-title">Contact Information</h3>
                 <!-- </div> -->
             <div class="contact-info">
                 <div class="form-group">
