@@ -8,7 +8,7 @@
         define ('DB_HOST', "localhost");
     }
     global $connect;
-    $connect = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+    $connect = mysqli_connect( "localhost", "root", "", "hngfun");
 
     //check connection
     

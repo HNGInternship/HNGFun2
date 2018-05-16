@@ -30,6 +30,11 @@
 .testimonial{
     height: 400px;
 }
+@media(max-width: 780px){
+    .testimonial{
+        height: 585px;
+    }
+}
 
 .testimonial-avatar {
     vertical-align: middle;
@@ -45,6 +50,15 @@
     position: absolute;
     left: 55%;
     width: 10px;
+}
+@media (max-width: 780px) {
+    .testimonial-name{
+        position: absolute;
+        left: 64%;
+        width:6px;
+        font-size: 10px;
+    }
+    
 }
 .header {
     padding: 50px 50px 0 50px;
