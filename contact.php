@@ -1,17 +1,58 @@
 <?php
-if (isset($_POST['send'])) {
-    $name = $_POST['name'];
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $message = $_POST['message'];
-    if ($email) {
-        $content = "Name: $name\n";
-        $content .= "Email: $name\n";
-        $content .= "Message: $message\n";
-        $headers = "From: webmaster@example.com\r\nReply-to: $email";
-        mail('info@exmaple.com', 'Contact Form', $message, $headers);
-    }
-}
+// if (isset($_POST['send'])) {
+//     $name = $_POST['name'];
+//     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+//     $message = $_POST['message'];
+//     if ($email) {
+//         $content = "Name: $name\n";
+//         $content .= "Email: $name\n";
+//         $content .= "Message: $message\n";
+//         $headers = "From: webmaster@example.com\r\nReply-to: $email";
+//         mail('info@exmaple.com', 'Contact Form', $message, $headers);
+//     }
+// }
 include_once("header.php");
+if (isset($_POST["submit"])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $phone_number = $_POST['phone_number'];
+    $subject = $_POST['subject'];
+    $from = 'From: $email \r\n'; 
+    $to = 'akinsanyaadeoluwa21@gmail.com'; 
+    $body ="From: $name\n E-Mail: $email\n Phone Number: $phone_number\n Message:\n $message";
+    // Check if name has been entered
+    if (!$_POST['name']) {
+        $errName = 'Please enter your name';
+    }
+    // Check if email has been entered and is valid
+    if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $errEmail = 'Please enter a valid email address';
+    }
+    
+    //Check if message has been entered
+    if (!$_POST['message']) {
+        $errMessage = 'Please enter your message';
+    }
+    //Check phone number
+    if (!$_POST['phone_number']) {
+        $errPhone_number = 'Please enter your phone number';
+    }
+
+    //Check subject
+    if (!$_POST['subject']) {
+        $errSubject = 'Please enter your Email Subject';
+    }
+// If there are no errors, send the email
+if (!isset($errName) && !isset($errEmail) && !isset($errMessage) && !isset($errPhone_number) && !isset($errSubject)) {
+if (mail ($to, $subject, $body, $from)) {
+    $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
+} else {
+    $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
+}
+}
+}
+
 function custom_styles()
 {
     $styles = '<style>
@@ -41,36 +82,42 @@ function custom_styles()
     <div class="container jumbotron " id="contact-half">
         <div class="row" >
              <section id="contact-left" class="col-md-6  contact-form">
+             <?php if(isset($result)) echo $result; ?>	
                 <h3 class="text-left"> Send us a message</h3>
                 <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span>
-                 <form method="post" id="contact-form">
+                 <form method="post" action="contact.php">
                         <div class="form-group row">
                             <div class="col">
                                 <label for="name" class="col-form-label-sm">Your Name</label>
                                 <input type="text" name="name" class="form-control"/>
+                                <?php if(isset($errName)) echo "<p class='text-danger'>$errName</p>";?>
                             </div>
                             <div class="col">
                                 <label for="email" class="col-form-label-sm">Email Address</label>
                                 <input type="text" name="email" class="form-control"/>
+                                <?php if(isset($errEmail)) echo "<p class='text-danger'>$errEmail</p>";?>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col">
                                 <label for="phone_number" class="col-form-label-sm">Phone Number</label>
                                 <input type="text" name="phone_number" class="form-control"/>
+                                <?php if(isset($errPhone_number)) echo "<p class='text-danger'>$errPhone_number</p>";?>
                             </div>
                             <div class="col">
                                 <label for="subject" class="col-form-label-sm">Subject</label>
                                 <input type="text" name="subject" class="form-control" />
+                                <?php if(isset($errSubject)) echo "<p class='text-danger'>$errSubject</p>";?>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col">
                                 <label for="message" class="col-form-label-sm">Message</label>
                                 <textarea id="contact-message" class="form-control"  name="message" placeholder="Type your message..."></textarea>
+                                <?php if(isset($errMessage)) echo "<p class='text-danger'>$errMessage</p>";?>
                             </div>
                         </div>
-                    <button class="send-button" type="submit"><img src="./img/send.png" alt="envelope" ></button>
+                    <button class="send-button" name="submit" type="submit"><img src="./img/send.png" alt="envelope" ></button>
                 </form>
             </section>
               <!-- <section class="col-md-6"> -->
@@ -93,7 +140,7 @@ function custom_styles()
 
                 <div class="form-group">
                     <p class="contact-icon mail"><img src="./img/envelope.png" alt=""></p>
-                    <p>support@hng.fun</p>
+                    <p><a style="color:white;" href="mailto:support@hng.fun?Subject=Contact HNGInternship">support@hng.fun</a></p>
                 </div>
 
                   <div class="social-media">
@@ -127,16 +174,5 @@ function custom_scripts()
 });</script>";
     echo $script;
 };
-if (isset($_POST['send'])) {
-    $name = $_POST['name'];
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $message = $_POST['message'];
-    if ($email) {
-        $content = "Name: $name\n";
-        $content .= "Email: $name\n";
-        $content .= "Message: $message\n";
-        $headers = "From: webmaster@example.com\r\nReply-to: $email";
-        mail('info@exmaple.com', 'Contact Form', $message, $headers);
-    }
-}
+
 ?>
