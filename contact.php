@@ -83,6 +83,9 @@ function custom_styles()
         #contact-info-title{
             margin-top: 100px;
         }
+        #contact-right{
+            margin-top: 0px;
+        }
     }
     </style>
 
