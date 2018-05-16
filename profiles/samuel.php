@@ -156,7 +156,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             height: 3px;
         }
         .progress {
-            background-color: #007BFF;
+            background-color: #075e54;
             height: 3px;
             margin-bottom: 0px;
         }
@@ -177,16 +177,16 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
         }
         .chat-btn {
             float: right;
-            background: #007BFF;
-            border-color: #007BFF;
+            background: #075e54;
+            border-color: #075e54;
             font-size: 14px;
             padding: 12px;
         }
         .btn-primary.chat-btn:hover, 
         .btn-primary.chat-btn:active, 
         .btn-primary.chat-btn:focus {
-            background-color: #007BFF !important;
-            border-color: #007BFF !important;
+            background-color: #075e54 !important;
+            border-color: #075e54 !important;
             box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.19);
         }
         .chatbot-menu {
@@ -202,7 +202,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.19);
         }
         .chatbot-menu-header {
-            background-color: #007BFF;
+            background-color: #075e54;
             padding: 7px 25px;
             margin: -15px 0 0 -15px;
             color: #FFFFFF;
@@ -283,14 +283,14 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
             width: 100%;
         }
         .btn-primary.send-message {
-            background-color: #007BFF !important;
-            border-color: #007BFF !important;
+            background-color: #075e54 !important;
+            border-color: #075e54 !important;
         }
         .btn-primary:hover, 
         .btn-primary:active, 
         .btn-primary:focus {
-            background-color: #007BFF !important;
-            border-color: #007BFF !important;
+            background-color: #075e54 !important;
+            border-color: #075e54 !important;
         }
         .bot-command {
             color: #B55106;
@@ -416,7 +416,7 @@ if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
                             <div class="training-menu">
                                 <p>You can train me to understand and answer new questions. </p>
                                 <p>1) Simple Mode: You can train me to answer any question, I mean any question at all using: <span class="bot-command">train: question # answer # [password]</span></p> 
-                                <p>eg <span class="bot-command">train: Where is Yaba # Yaba is in Lagos # password</span></p>
+                                <p>eg <span class="bot-command">train: Opposite of Boy # Girl # password</span></p>
                                 
                                 
                                 <p>To get the my current version, type <span class="bot-command">aboutbot</span></p>
