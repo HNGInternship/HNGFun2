@@ -1,10 +1,9 @@
 <?php 
-
     if(!defined('DB_USER')){
-        require "../../config.php";        
+         require "../../config.php";
     }
     global $connect;
-    $connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+    $connect = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 
     //check connection
     
@@ -21,12 +20,6 @@
     } else {
         echo "No data in database";
     }    
-
-    $home_url = '';
-    if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
-        // $padding = '80px 70px';
-        $home_url = '../';
-    }
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){              
 
@@ -368,7 +361,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
             <div class="chatlogs" id="chatlogs">
                 <div class="chat bot row">
                     <div class="user-photo"></div>
-                    <p class="chat-message">What's up! Name is Paul bot v1.0</p>
+                    <p class="chat-message">What's up! Name's Paul chat</p>
                 </div>
                 <div class="chat bot row">
                     <div class="user-photo"></div>
@@ -397,11 +390,10 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         </div>
     </footer>   
    
-    <!-- <script src="<?=$home_url;?>/js/jquery.min.js"type="text/javascript"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="<?=$home_url;?>vendor/bootstrap/js/bootstrap.min.js"></script>
-
+    <script src="vendor/jquery/jquery.min.js"></script>
+    
+    <script src=  "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.js"></script>
     <script>
         $(document).ready(function() {
             
