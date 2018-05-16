@@ -64,7 +64,8 @@ include_once("header.php");
         </div> 
 
           <div class="col-md-6 pt-0">
-            <h2 class="text-justify">Sign Up</h2>
+            <div class="signup-form">
+                  <h2 class="text-justify">Sign Up</h2>
             <p class="text-justify mt-2" style="color:#ADADAD;">Already have an account? <span><a href="login.php" style="text-decoration:none; color:#008DDD;">Log In</a></span></p>
 
             <h6 class="text-danger" id="signUpInfo"></h6>
@@ -72,22 +73,22 @@ include_once("header.php");
             <form class="form-signin signup " id="register_form">
             <div class="input-block mr-9 pb-2 pt-2">
             <label class="label" for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="" autofocus required>
+            <div class="form-style"><input  type="text" id="firstName" style="height: 40px;" name="firstName" class="form-control" placeholder="" autofocus required></div>
             </div>
 
             <div class="input-block pb-2">
             <label class="label" for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="" required>
+            <input type="text" style="height: 40px;" id="lastName" name="lastName" class="form-control" placeholder="" required>
             </div>
             
             <div class="input-block mr-9 pb-2">
             <label class="label" for="userName">Username</label>
-            <input type="text" id="userName" name="userName" class="form-control" placeholder="" required>
+            <input type="text" style="height: 40px;" id="userName" name="userName" class="form-control" placeholder="" required>
             </div>
 
             <div class="input-block pb-2">
             <label class="label" for="email">Email Address</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="" required>
+            <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required>
             </div>
 
 
@@ -108,7 +109,7 @@ include_once("header.php");
             <div class="input-block pb-2">
 <!-- <<<<<<< HEAD -->
             <label class="label" for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" class="form-control" placeholder="" required>
+            <input type="tel" id="phone" style="height: 40px;" name="phone" class="form-control" placeholder="" required>
 <!-- =======
             <label class="label">Email</label>
             <input type="text" name="email" class="form-control" placeholder="" required value="<?php if (isset($_POST['email']) && !empty($_POST['email'])){ echo $_POST['email'];} ?>">
@@ -142,12 +143,12 @@ include_once("header.php");
              -->
             <div class="input-block mr-9 pb-2">
             <label class="label" for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="" required>
+            <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
             </div>
 
             <div class="input-block pb-2">
             <label class="label" for="passwordCheck">Retype Password</label>
-            <input type="password" id="passwordCheck" name="passwordCheck" class="form-control" placeholder="" required>
+            <input type="password" id="passwordCheck"  style="height: 40px;" name="passwordCheck" class="form-control" placeholder="" required>
             </div>
 
                 <input type="hidden" name="registration" value="yes">
@@ -162,6 +163,8 @@ include_once("header.php");
 
           </div><!-- /col -->
           </div><!-- /row -->
+            
+            </div>
 
         </div> <!-- /container -->
     </div>

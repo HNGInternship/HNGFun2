@@ -1,17 +1,17 @@
 .carousel-control-prev,
 .carousel-control-next {
-    width:5%
+    width:5%;
+     
 }
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    height: 42px;
-    width: 42px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);
-    background-size: 100%, 100%;
-    border-radius: 50%;
-    background-image: none;
+   border-radius: 50%;
+   height: 47px;
+   width: 47px;
+   box-shadow: 0px 0px 3px #333333;
+   margin-top:-125px;
+   background-color:#ffffff; 
+    
 }
 
 .carousel-control-next-icon:after
@@ -28,7 +28,13 @@
 }
 
 .testimonial{
-    height: 400px
+    height: 400px;
+     position: 100%;
+}
+@media(max-width: 780px){
+    .testimonial{
+        height: 585px;
+    }
 }
 
 .testimonial-avatar {
@@ -37,13 +43,23 @@
     height: 60px;
     border-radius: 50%;
     position: absolute;
-    left: 40%;
+    left: 35%;
     /*top:300%*/
 }
 
 .testimonial-name {
     position: absolute;
     left: 55%;
+    width: 10px;
+}
+@media (max-width: 780px) {
+    .testimonial-name{
+        position: absolute;
+        left: 64%;
+        width:6px;
+        font-size: 10px;
+    }
+    
 }
 .header {
     padding: 50px 50px 0 50px;
@@ -52,10 +68,12 @@
     background: black;
     height: 1px;
 }
+
 .bottom-hr {
     background: #c4c4c4;
     height: 1px;
 }
+
 .chat-history {
     padding: 30px 30px 20px;
     /*max-height: 700px;*/
@@ -73,9 +91,10 @@
     /*margin-right: 20px;*/
     margin-left: 20px;
     margin-bottom: 30px;
-    height: 250px;
+    min-height: 250px;
     /*width: 309px*/
     position: relative;
+
 }
 /*.chat-history .message:after {*/
 /*top: 91%;*/
@@ -112,4 +131,5 @@
     border: 19px solid;
     border-color: #fff #fff transparent transparent;
 }
+
 
