@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
     $phone_number = $_POST['phone_number'];
     $subject = $_POST['subject'];
     $from = 'From: $email \r\n'; 
-    $to = 'akinsanyaadeoluwa21@gmail.com'; 
+    $to = 'support@hng.fun'; 
     $body ="From: $name\n E-Mail: $email\n Phone Number: $phone_number\n Message:\n $message";
     // Check if name has been entered
     if (!$_POST['name']) {
