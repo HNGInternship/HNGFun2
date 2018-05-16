@@ -241,7 +241,7 @@ include_once("header.php");
     </div>
     <br>
     <!-- videos -->
-     <h3 style="text-align:center">RELEVANT VIDEOS</h3><br>
+     <h3 style="text-align:center">VIDEO TESTIMONIES</h3><br>
       <div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
@@ -257,24 +257,24 @@ include_once("header.php");
           <div class="carousel-item active">
              <div class="row">
                 <div class="col-md-3" style="margin-left:60px; max-width: 300px;">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
-                        <p>How ICT Changed My Life</p>
+                    <iframe width="300" height="200" src="https://youtube.com/embed/mnl4IddBlVk"></iframe>
+                        <p>Mercy Ikpe</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px; max-width: 300px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
-                        <p>Information and Communication Technology for Development</p>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/ljqJjV5pWC0"></iframe>
+                        <p>Blessing Akpan</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px; max-width:300px;">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
-                        <p>ICT is Changing Education in Developing Countries</p>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/ScIL-vPXpD0"></iframe>
+                        <p>Abigail Adeboga</p>
                 </div>
              </div>
         </div>
         <div class="carousel-item">
             <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
-                        <p>How Technology is Changing Family Lives</p>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/DkwQnsJvwNI"></iframe>
+                        <p>Aniuchi Adaobi</p>
                 </div>
 
                 <div class="col-md-3"></div>
