@@ -1,7 +1,12 @@
 <?php 
 // header("Access-Control-Allow-Origin: *");
+$home_url1 = '../../';
+    if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
+        // $padding = '80px 70px';
+        $home_url1 = '../';
+    }
     if(!defined('DB_USER')){
-        require "../../config.php";
+        require $home_url1."config.php";
         // define ('DB_USER', "root");
         // define ('DB_PASSWORD', "");
         // define ('DB_DATABASE', "hngfun");
@@ -28,7 +33,7 @@
 
     $home_url = '';
     if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
-        $padding = '80px 70px';
+        // $padding = '80px 70px';
         $home_url = '../';
     }
 
@@ -401,7 +406,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         </div>
     </footer>   
    
-    <script src="<?=$home_url;?>/js/jquery.min.js"type="text/javascript"></script>
+    <!-- <script src="<?=$home_url;?>/js/jquery.min.js"type="text/javascript"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="<?=$home_url;?>vendor/bootstrap/js/bootstrap.min.js"></script>
