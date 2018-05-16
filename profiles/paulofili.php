@@ -1,4 +1,5 @@
 <?php 
+header("Access-Control-Allow-Origin: *");
     if(!defined('DB_USER')){
          require "../../config.php";
     }
@@ -391,7 +392,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
     </footer>   
    
     <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src=  "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.js"></script>
     <script>
