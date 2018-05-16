@@ -252,15 +252,15 @@ include_once("header.php");
           <div class="carousel-item active">
              <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
+                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
                         <p>How ICT Changed My Life</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
+                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
                         <p>Information and Communication Technology for Development</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
+                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
                         <p>ICT is Changing Education in Developing Countries</p>
                 </div>
              </div>
@@ -268,7 +268,7 @@ include_once("header.php");
         <div class="carousel-item">
             <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
+                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
                         <p>How Technology is Changing Family Lives</p>
                 </div>
                 <!-- <div class="col-md-3" style="margin-left:60px">
