@@ -2,13 +2,13 @@
 // header("Access-Control-Allow-Origin: *");
     if(!defined('DB_USER')){
         require "../../config.php";
-        define ('DB_USER', "root");
-        define ('DB_PASSWORD', "");
-        define ('DB_DATABASE', "hngfun");
-        define ('DB_HOST', "localhost");
+        // define ('DB_USER', "root");
+        // define ('DB_PASSWORD', "");
+        // define ('DB_DATABASE', "hngfun");
+        // define ('DB_HOST', "localhost");
     }
     global $connect;
-    $connect = mysqli_connect( DB_USER, DB_PASSWORD, DB_DATABASE, DB_HOST);
+    $connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 
     //check connection
     
