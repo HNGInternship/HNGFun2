@@ -1,535 +1,454 @@
-<?php
-	header("Access-Control-Allow-Origin: *");
-	if($_SERVER['REQUEST_METHOD'] === "GET"){
-		if(!defined('DB_USER')){
-			require "../../config.php";
-			try {
-			    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-			} catch (PDOException $pe) {
-			    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-			}
-		}
-
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-		$stmt = $conn->prepare("select secret_word from secret_word limit 1");
-		$stmt->execute();
-
-		$secret_word = null;
-
-		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$rows = $stmt->fetchAll();
-		if(count($rows)>0){
-			$row = $rows[0];
-			$secret_word = $row['secret_word'];
-		}
-
-		$name = null;
-		$username = "somiari";
-		$image_filename = '';
-
-		$stmt = $conn->prepare("select * from interns_data where username = :username");
-		$stmt->bindParam(':username', $username);
-		$stmt->execute();
-
-		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$rows = $stmt->fetchAll();
-		if(count($rows)>0){
-			$row = $rows[0];
-			$name = $row['name'];
-			$image_filename = $row['image_filename'];
-		}
-	}
-?>
-
-
-<?php
-		// require_once '../../config.php';
-		// require_once '../db.php';
-
-		// $result = $conn->query("Select * from secret_word LIMIT 1");
-		// $result = $result->fetch(PDO::FETCH_OBJ);
-		// $secret_word = $result->secret_word;
-
-		// $result2 = $conn->query("Select * from interns_data where username = 'somiari'");
-		// $user = $result2->fetch(PDO::FETCH_OBJ);
-
-	// Function to return Date
-	function respondDate(){
-		date_default_timezone_set("Africa/Lagos");
-		$time = date("Y/m/d");
-		$respondTime = array( 'Today\'s date is '.$time,
-								'it\'s '. $time,
-								'Today is '. $time,
-								$time);
-		$index = mt_rand(0, 3);
-		return $anwerSam = $respondTime[$index];
-	}// Date function ends here
-
-	// Function to return Time
-	function respondTime(){
-		date_default_timezone_set("Africa/Lagos");
-		$time = date("h:i A");
-		$respondTime = array( 'The time is '.$time,
-								'it\'s '. $time,
-								$time);
-		$index = mt_rand(0, 2);
-		return $anwerSam = $respondTime[$index];
-	} // Time function ends here
-
-	// function to train bot
-	// pass message as arguement
-	function trainAlan($newmessage){
+<?php 
+   if(isset($_GET['answer'])){
 		require_once '../db.php';
-		$message = explode('#', $newmessage);
-		$question = explode(':', $message[0]);
-		$answer = $message[1];
-		$password = $message[2];
-
-		$question[1] = trim($question[1]); //triming off white spaces
-		$password = trim($password); //triming off white spaces
-
-		// check if password matches
-		if ($password != "password"){
-			echo "You are not authorized to train me.";
-		}else{
-			$chatbot= array(':id' => NULL, ':question' => $question[1], ':answer' => $answer);
-			$query = 'INSERT INTO chatbot ( id, question, answer) VALUES ( :id, :question, :answer)';
-
-			try {
-				$execQuery = $conn->prepare($query);
-				if ($execQuery ->execute($chatbot) == true) {
-					// call a function that handles successful training response
-					echo repondTraining();
-				};
-			} catch (PDOException $e) {
-				echo "Oops! i did't get that, Something is wrong i guess, <br> please try again";
-			} // End Catch
-		} // End Else
-	} // Train Function Ends here
-
-	// Returns random respond to training
-	// called if training is successful
-	function repondTraining(){
-		$repondTraining = array(  'Noted! Thank you for teaching me',
-									'Acknowledged, thanks, really want to learn more',
-									'A million thanks, I\'m getting smarter',
-									'i\'m getting smarter, I really appreciate');
-		$index = mt_rand(0, 3);
-		return $anwerSam = $repondTraining[$index];
-	} // respondTraining Ends Here
-
-
-	// Function to check if question is in database
-	// Returns 1 if question is not found in database
-	function checkDatabase($question){
-		try{
-			require_once '../db.php';
-			$stmt = $conn->prepare('select answer FROM chatbot WHERE (question LIKE "%'.$question.'%") LIMIT 1');
-			$stmt->execute();
-
-			// checking if query retrieves data
-			if($stmt->rowCount() > 0){
-				while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ echo $row["answer"];}
-			}else{
-				return 1; // returns 1 is no data was retrieved
-			}
-		}catch (PDOException $e){
-			 echo "Error: " . $e->getMessage();
-		} // Catch Ends here
-
-		$conn = null; // close database connection
+		$question = safeInput($_GET['question']);
+		$answer = safeInput($_GET['answer']);
+		$params = array(':question' => $question, ':answer' => $answer);
+		$sql = 'INSERT INTO chatbot ( question, answer )
+		      VALUES (:question, :answer);';
+		try {
+		    $q = $conn->prepare($sql);
+		    if ($q->execute($params) == true) {
+		        echo json_encode([
+		        	'success' => true,
+		            'message' => "Thanks for training me, I can now respond to you better"
+		        ]);
+		    };
+		} catch (PDOException $e) {
+			echo json_encode([
+			    'success' => false,
+			    'message'    => "Error training me: "
+			]);
+		    throw $e;
+		}
+        return;
+	}else if(isset($_GET['question'])){
+	   require_once '../../config.php';
+	   	$question = safeInput($_GET['question']);
+		try {
+		    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+		} catch (PDOException $pe) {
+		    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+		}
+		$result = $conn->query("SELECT answer FROM chatbot WHERE question LIKE '%{$question}%' ORDER BY rand() LIMIT 1");
+		$result = $result->fetch(PDO::FETCH_OBJ);
+        $answer = $result->answer;
+		if($answer === false){
+		  $data = ['answer'=>null];
+		}else
+		  $data = ['answer'=>$answer];
+		
+		header('Content-Type: application/json');
+		echo json_encode($data);
+		return;
+	}else {
+		$result = $conn->query("Select * from secret_word LIMIT 1");
+		$result = $result->fetch(PDO::FETCH_OBJ);
+		$secret_word = $result->secret_word;
+		$result2 = $conn->query("Select * from interns_data where username = 'samuel'");
+		$user = $result2->fetch(PDO::FETCH_OBJ);
 	}
-
-	//////////// CHATBOT STARTS HERE //////////////////////////////////////////////////////////////
-		// if (isset($_POST['message'])) {
-			if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-			// Retrieve form data from ajax
-			// Change message to all lowercase
-			// trim off white spaces
-			$message = trim(strtolower($_POST['message']));
-
-			//Analyse message to determine response
-			// if (strtok($message, ":") == "train"){
-				if (strpos($message, 'train') !== false) {
-					trainAlan($message); // Call function to handle training
-			}else if ($message != "" ){
-				// Check if question exist in database
-				// returns 1 if question does not exist in database
-				$tempVariable = checkDatabase($message);
-
-				if ($tempVariable == 1){
-					if ($message == "what is the time"){
-						echo respondTime();
-					}else if ($message == "today's date"){
-						echo respondDate();
-					}else{
-						echo "I didn't quite get that but I'm a fast learner.
-						To teach me something, just type and send:
-						train: question # answer # password";
-					} // end else
-				} // end if
-			}
-			die();
+		function safeInput($data){
+		  $data = trim($data);
+	      $data = stripslashes($data);
+		  $data = htmlspecialchars($data);
+		  return $data;
 		}
-
-		// if ($_SERVER["REQUEST_METHOD"] == "GET"){
 	?>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300" rel="stylesheet" type="text/css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+		<style type="text/css">
+		  #app{
+		  	font-family: "Source Sans Pro", sans-serif;
+		  }
+		  #main {
+		  	width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+		  }
+		  #main > div {
+		  	/*border: 1px solid red;*/
+		  	width: 100%;
+		  	min-height: 80vh;
+		  	margin-top: 5rem;
+		  }
+		  #chat-box {
+		  	position: relative;
+		  	background: url('http://res.cloudinary.com/samuelweke/image/upload/v1524649468/in-your-mind-949653.jpg');
+		  	background-repeat: no-repeat;
+	        background-position: center;
+	        background-size: cover;
+		  }
+		  #chat-box > #human-text {
+		  	position: absolute;
+		  	bottom: 0;
+		  	width: 100%;
+		  }
+		  #chat-box > header {
+		  	position: absolute;
+		  	top: 0;
+		  	background: #F5F5F5; /* rgba(184, 196, 196, 0.5); */
+		  	width: 100%;
+		  }
+		  #chat-box > main {
+		  	overflow-y: scroll;
+		  	display: flex;
+		  	flex-direction: column;
+		  	margin-top: 35px;
+		  	position: absolute;
+		  	bottom: 30px;
+		  	height: 90%;
+		  	width: 100%;
 		
-		<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet'>
-	<link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="styleshet" type="text/css">
-	<style>
-	/*Global*/
-			body{
-				 max-width: 100%;
-      height: auto;
-			font-family: 'Angkor';
-			font-size: 15px;
-			line-height: 1.5;
-			padding: 0;
-			background-color: #1B1829;
-		}
-		.profiles{ 
-			margin: auto;
-			background-color: #ffffff;
-			max-width: 290px;
-			min-height: 380px;
-			margin-top: 150px;
-			border-radius: 10px;
-			position: relative;
-		}
-		a{
-			color: #000000;
-		}
+		  }
+		  #chat-box > main > p{
+		  	border-radius: 20px;
+		  	padding: 10px;
+		  	margin-top: 0.5rem;
+		  	margin-bottom: 0.5rem;
+		  	font-size: 15px;
+		  	
+		  }
+		  #chat-box .human-msg {
+		  	max-width: 65%;
+		  	align-self: flex-end;
+		  	background: #F5F5F5;
+		  	margin-right: 1rem;
+		  	color: #32465a;
+		  }
+		  #chat-box .bot-msg {
+		  	background: #435f7a;
+		  	color: #F5F5F5;
+		  	max-width: 65%;
+		  	margin-left: 1rem;
+		  }
+		  .suggestion {
+		  	position: absolute;
+		  	bottom: 30px;
+		  	background: rgba(255,248,220, 0.9);
+		  	width: 100%;
+		  	margin-bottom: 0px;
+		  	list-style: none;
+		  	padding: 1rem 0 1rem 0;
+		  }
+		  .suggestion li {
+		  	font-size: 18px;
+		  }
+		  .suggestion li:hover{
+		  	background-color: #435f7a;
+		  	cursor: pointer;
+		  	color: white !important;
+		  }
+		  .suggestion li:hover .description {
+		  	color: white;
+		  }
+		  .suggestion .title {
+		  	font-weight: bold;
+		  }
+		  .suggestion .description {
+		  	display: block;
+	   		overflow: hidden;
+	    	color: #717274;
+	    	text-overflow: ellipsis;
+		  }
+		  ul:focus {
+		  	background: #ff122d;
+		  }
+	      #img-container {
+	      	width: 90%;
+	      }
+	      #profile-box {
+	      	display: flex;
+	      	flex-direction: column;
+	      	align-items: center;
+	      }
+	      #profile-box a {
+	      	color: #0085A1;
+	      }
+	      #img-container img {
+	      	border-radius: 2rem;
+	      }
+		  @media only screen and (min-width: 993px) {
+		  	#main > div {
+		  	  width: 50%;
+		    }
+		    #menu {
+		      display: none;
+		    }
+		    #img-container {
+	      	  width: 70%
+	        }
+		  }
+		</style>
 
-		hr{
-			margin-top: 5px;
-			margin-bottom: 5px;
-			 background-color: #DECBBA; 
-			 height: 1px; 
-			 border: 0;
+<section id="app" class="mt-4 d-flex flex-column align-items-center">
+	<!--<div id="menu">
+		<a href="#">Profile</a>
+		<a href="#">Chat Bot</a>
+	</div>-->
+     <span  id="img-container" class="col-md-5 col-sm-8 col-xs-10">
+     		<img src="https://res.cloudinary.com/samuelweke/image/upload/v1523620154/2017-11-13_21.01.13.jpg" class="img-fluid">
+  	</span>
+  	<h2 class="mt-4"><?= $user->name ?></h2>
+  	<ul class="row justify-content-between col-md-5 col-sm-6 col-xs-9">
+  		<li>
+  			I love coding
+  		</li>
+
+  		<li>
+  			I love music
+  		</li>
+
+  	</ul>
+  	<p class="mt-0 text-primary"><strong>Full Stack Developer</strong></p>
+  <div id="main" class="container row flex-wrap">
+
+  	<div id="profile-box" class="px-4 col-md-6">
+  		<h4 style="align-self: flex-start;" class="mt-3"></h4>
+    
+  	</div>
+  	<div id="chat-box" class="col-md-5">
+  		<header>
+  			<h4 class="text-center text-success">Samuel BOT</h4>
+  		</header>
+  		<main ref="chat-msgs" id="chat-msgs">
+  			<p v-for="msg in messages" :class="msg.human ? 'human-msg': 'bot-msg'" v-html="msg.text"></p>
+  		</main>
+  		<ul class="suggestion" v-show="suggestedCommands" ref="list">
+  			<p class="my-0">Available commands <small>Click on any to choose</small></p>
+  			<command-item v-for="(command, index) in suggestedCommands" :command="command" :key="command.key" :on-item-click="handleCommandClick"></command-item>
+  		</ul>
+  		<input type="text" v-model="humanMessage" class="border" placeholder="Type / followed by command you want to give e.g. /train" id="human-text" @keyup.enter="handleSubmit" />
+  	</div>
+  </div>
+  
+</section>
+
+
+<script type="text/javascript">
+	var app = new Vue({
+	  el: '#app',
+	  data: {
+	    commands: [
+	               {key: 'train', description: 'You can train me with this', format: '[question] [answer] [password]'}, 
+	               {key: 'currenttime', description: 'I will get the current time in any location in this world', format: '[location]'},
+	               {key: 'dayofweek', description: 'I will tell you the day of the week a date falls on', format: '[yyyy-mm-dd]'},
+	               {key: 'aboutbot', description: 'I will tell you about me', format: ''}
+	              ],
+        humanMessage: '',
+        choice: {command: '', message:''},
+        messages: [
+                    {
+                    	human: false, 
+                    	text: `Hi, I am Samuel Bot, I can do many things. To get list of commands you can use on me just type / in the textbox`
+                    }
+                  ],
+        info: '<h4 class="text-center">Bot is currently preparing data</h4><p class="text-center">Please wait...</p>',
+        googlekey: 'AIzaSyA0W2GMiWvp-Jm7ZbpthWIoyamHpJFarts',
+      },
+	  computed: {
+	  	suggestedCommands: function(){
+	  	  let command;
+	  	  let suggestion = null;  
+	  	  if(this.humanMessage.startsWith('/')){
+	        command = this.humanMessage.substr(1).toLowerCase();
+	        if(command.length > 0){
+  	          suggestion = this.commands.filter(function(cmd){
+                return cmd['key'].indexOf(command) !== -1;
+  	          });
+  	          suggestion.length == 0 && (suggestion = null)
+	        }else
+	          suggestion = this.commands;
+	  	  }
+	  	  
+          return suggestion;
+	  	}
+	  },
+	  methods: {
+	  	handleCommandClick(item){
+	  	  let c = this.commands.find(function(cmd){
+	  	  	        return cmd.key === item
+	  	          });
+	  	  this.choice.command = c.key;
+	  	  this.humanMessage = '/' + c.key + ' ' + c.format;
+	  	},
+	  	handleSubmit: function(){
+	  	  this.choice.message = this.humanMessage;
+	  	  this.humanMessage = '';
+          this.messages.push({human: true, text: this.choice.message});
+          this.handleAnswer();
+	  	},
+	  	handleAnswer: async function(){
+          let answer = await this.getAnswer();
+          this.messages.push({human: false, text: answer});
+          this.choice = {command: '', message:''};          
+          $("#chat-msgs").animate({ scrollTop: $("#chat-msgs").height() }, "fast");
+	  	},
+	  	getAnswer: async function(){
+	  		if(!this.choice.command){
+	  		  this.processUnexpectedInput();
+	  		}
+	  		if(this.choice.message.indexOf('/') == 0 && !this.choice.command){
+              return "I can't help with that please, give me a correct command";
+	  		}
+			switch(this.choice.command){
+			  case 'aboutbot':
+			    return 'Samuel Bot Version 1.0, I tell day of the week from date, and I can tell time in any location too.';
+			  case 'dayofweek':
+			    return this.getDayFromDate();
+			  case 'currenttime':
+			    return this.getCurrentTime();
+			  case 'train':
+			    return this.doTrainBot();
+			  default:
+			    return this.doChat();
 			}
-
-		h2{
-			padding-top: 22px;
-			margin-bottom: 0;
-			font-family: 'Angkor';
-			font-size: 29px;
-			color: #ffffff;
-			padding-bottom: 10px;
-		}
-		h4{
-			margin-top: 8px;
-			font-size: 18px;
-			margin-bottom: 35px;
-			font-family: 'Angkor';
-
-		}
-		.top-box{
-			min-height: 180px;
-			background-color:  #FF4C48;
-			border-radius: 10px 10px 0 0;
-			color: #ffffff;
-			text-align: center;
-		}
-		img{
-		    border-radius: 50%;
-		    height: 140px;
-		    width: 140px;
-		    /* center .blue-circle inside .main */
-		    position: absolute;
-		    top: 41%;
-		    left: 50%;
-		    margin-top: -70px;
-		    margin-left: -70px;
-
-		}
-
-		.bottom-box{
-			background-color: #ffffff;
-			 min-height: 180px;
-			 border-radius: 0 0 10px 10px;
-		}
-
-		.down-box{
-			padding-top: 90px;
-		}
-
-		.text{
-			color: #1C1B1A;
-			padding-left: 10px;
-			font-weight: bold;
-		}
-		.fa-whatsapp{
-			padding-left: 110px;
-			font-size: 20px;
-		}
-		.fa-envelope-open{
-			padding-left: 68px;
-			padding-bottom: 10px;
-			font-size: 17px;
-		}
-		.end{
-
-		}
-		.bottom{
-			min-height: 40px;
-			background-color: #F0E1DF;
-			padding-top: 5px;
-			border-radius: 0 0 10px 10px;
-			font-size: 25px;
-			text-align: center;
-
-		}
-
-		.chat-box {
-				display: flex;
-				flex-direction: column;
-				margin: 50px auto 30px auto;
-				border: 1px solid rgba(0, 0, 0, .3);
-				border-radius: 30px;
-				width: 90%;
-				padding-bottom: 10px;
+            
+	  	},
+	  	getDayFromDate: function(){
+	  		var date;
+	  		try{
+	          date = this.choice['message'].match(/\[(\d{4}-\d{2}-\d{2})\]/)[1];
+	  		}catch(ex){
+	  		  return "Follow the correct syntax /dayofweek [yyyy-mm-dd]";
+	  		}
+	  		date = new Date(date);
+	      
+	      	return `<h4>${this.getDayOfWeek(date.getDay())}</h4><p class="my-0">${this.getMonthOfYear(date.getMonth())} ${date.getDate()},  ${date.getFullYear()}</p>`;
+	  	},
+	  	getDayOfWeek: function(index){
+	  	  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday'];
+	  	  return days[index];
+	  	},
+	  	getMonthOfYear: function(index){
+          let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          return months[index];
+	  	},
+	  	formatAMPM: function(date) {
+	  	  let hours = date.getHours();
+	  	  let minutes = date.getMinutes();
+	  	  let ampm = hours >= 12 ? 'PM' : 'AM';
+	  	  hours %= 12;
+	  	  hours = hours ? hours : 12; // the hour '0' should be '12'
+	  	  minutes = minutes < 10 ? '0'+minutes : minutes;
+	  	  var strTime = hours + ':' + minutes + ' ' + ampm;
+	  	  return strTime;
+	  	},
+	  	getLocationFromAddress: async function(address){
+	  		
+	  		let url  = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + this.googlekey;
+	  		try {
+	  		  const response = await fetch(url);
+	  		  
+	  		  const json = await response.json();
+	  		  switch(json.status){
+	  		    case "OK":
+                  return json.results[0];
+                default:
+                  return {error: "Address not found"};
+	  		  }
+	  		}catch(ex){
+	  		  return {error: 'Sorry something went wrong in getting your address'};
+	  		}
+	  	},
+	  	getTimeFromLocation: async function(location){
+	  	  	let targetDate = new Date() // Current date/time of user computer
+	  	  	let timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60 // Current UTC date/time expressed as seconds since midnight, January 1, 1970 UTC
+	  	  	let url = `https://maps.googleapis.com/maps/api/timezone/json?location=${location.lat}, ${location.lng}&timestamp=${timestamp}&key=${this.googlekey}`;
+	  	  	try{
+	  	  	  const response = await fetch(url);
+	  	  	    
+	  	  	  const json = await response.json();
+	  	  	  let offsets = json.dstOffset * 1000 + json.rawOffset * 1000 // get DST and time zone offsets in milliseconds
+	  	  	  return new Date(timestamp * 1000 + offsets) // Date object containing current time of location (timestamp + dstOffset + rawOffset)
+	  	  	}catch(ex){
+	  	  	  return {error: true};
+	  	  	}
+	  	    
+	  	},
+	  	getCurrentTime: async function(){
+			let address, time, output;
+			try{
+	          address = this.choice['message'].match(/\[(.*?)\]/)[1];
+			}catch(ex){
+			  return "Follow the correct syntax /currenttime [location]";
 			}
-
-			.chat-box .chat-box-header {
-				display: block;
-				padding-top: 20px;
-				padding-bottom: 20px;
-				border-bottom: 1px solid rgba(0, 0, 0, .3);
-				font-size: 18px;
-			}
-
-			.chat-msgs {
-				height: 300px;
-				margin: 30px auto 15px auto;
-				overflow-y: scroll;
-				width: 98%;
-			}
-
-			.guest,
-			.alan {
-				width: auto;
-				max-width: 80%;
-				border: 1px solid lightgrey;
-				padding: 5px;
-				clear: both;
-				margin: 0 5px 5px 8px;
-				border-radius: 10px;
-				font-size: 16px;
-			}
-
-			.alan {
-				text-align: left;
-				padding-left: 20px;
-			}
-
-			.guest {
-				float: right;
-				text-align: left;
-				padding-right: 20px;
-			}
-
-			.chat-type {
-				position: relative;
-				width: 100%;
-				margin: 0 auto;
-			}
-
-			.chat-msg {
-				width: 95%;
-				margin: 0 auto;
-				outline: none;
-				border: 1px solid rgba(0, 0, 0, .3);
-				background: transparent;
-				/* position: relative; */
-				resize: none;
-				padding: 10px;
-				padding-right: 75px;
-				height: 90px;
-				border-radius: 10px;
-				font-size: 18px;
-			}
-
-			.chat-send {
-				position: absolute;
-				border-radius: 50%;
-				border: 1px solid rgba(0, 0, 0, .3);
-				height: 50px;
-				width: 50px;
-				background: transparent;
-				right: 20px;
-				bottom: 23px;
-				color: rgba(0, 0, 0, .6);
-				cursor: pointer;
-				outline: none;
-				/* overflow: hidden; */
-			}
-
-			@media only screen and (min-width: 600px) {
-				.socials .fa-icon {
-					flex-basis: 0;
-				}
-				.name {
-					font-size: 4.1rem;
-					font-weight: bolder;
-				}
-				.labels {
-					font-size: 1.4rem;
-				}
-				.footer {
-					font-size: 1.2rem;
-				}
-				.footer .icon {
-					font-size: 1.4rem;
-				}
-				.guest,
-				.alan {
-					width: auto;
-					max-width: 60%;
-				}
-
-				.chat-send {
-					line-height: 50px;
-					position: absolute;
-					border-radius: 50%;
-					border: 1px solid rgba(0, 0, 0, .3);
-					;
-					height: 50px;
-					width: 50px;
-					background: transparent;
-					right: 40px;
-					bottom: 23px;
-					color: rgba(0, 0, 0, .6);
-					cursor: pointer;
-					outline: none;
-					/* overflow: hidden; */
-				}
-				.chat-msg {
-					width: 95%;
-					margin: 0 auto;
-					outline: none;
-					border: 1px solid rgba(0, 0, 0, .3);
-					background: transparent;
-					/* position: relative; */
-					resize: none;
-					padding: 10px;
-					padding-right: 85px;
-					height: 90px;
-					border-radius: 10px;
-					font-size: 18px;
-				}
-
-				.chat-box .chat-box-header {
-					font-size: 24px;
-				}
-			}
-
-		
-	</style>
-
-	</head>
-
-	<body>
-
-		<div class="profiles oj-flex oj-flex-items-pad oj-contrast-marker">
-			<div class="top-box oj-sm-12 oj-md-6 oj-flex-item">
-				<h2>Weke Samuel</h2>
-				<h4>Full Stack Developer</h4>
-			</div>
-			<div class="circle oj-flex-item alignCenter">
-				<img src="https://res.cloudinary.com/samuelweke/image/upload/v1523620154/2017-11-13_21.01.13.jpg" alt="Samuel Weke" >
-			</div>
-			<div class="bottom-box oj-flex">
-				<div class="down-box">
-					<hr>
-					<span class="text" >+234 817 280 9245 <i class="fa fa-whatsapp " ></i></span>
-					<hr>
-					<span class="text" >wekesamuel@yahoo.com <i class="fa fa-envelope-open " ></i></span>
-			   </div>
-				<div class="bottom">
-					<a href="https://web.facebook.com/segun.weke">..<i class="fa fa-facebook" ></i></a>
-					<a href="https://twitter.com/samuelweke"><i class="fa fa-twitter" style="padding-left: 10px" ></i></a>
-					<a href="#"><i class="fa fa-instagram" style="padding-left: 10px" ></i></a>
-				</div>
-			</div>
-		</div>
-		<form class="chat-box" id="ajax-contact" method="post" action=""  style="background-color: #ffffff; width: 400px;">
-				<span class="chat-box-header" style="text-align: center;">Chat with Bot</span>
-				<div class="chat-msgs">
-					<p class="alan">Hello! I am a bot</p>
-					<p class="alan">I'm a fast learner. To teach me something, just type and send: train: question # answer # password</p>
-				</div>
-				<div class="chat-type" style="padding-left: 10px;">
-					<textarea class="chat-msg" name="message" required></textarea>
-					<button class="chat-send" type="submit">
-						<i class="icon fa fa-fw fa-paper-plane"></i>
-					</button>
-				</div>
-			</form>
-		
-	</body>
-
-	<script src="vendor/jquery/jquery.min.js"></script>
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script> -->
-		<script>
-			const chatMsgs = document.querySelector(".chat-msgs");
-			const chatMsg = document.querySelector(".chat-msg");
-			const callAJAX = document.querySelector(".chat-send");
-
-			callAJAX.addEventListener("click", function () {
-				if (chatMsg.value != "") {
-					chatMsgs.innerHTML += '<p class="guest">' + chatMsg.value + '</p>';
-				}
-				fixScroll(); // call function to fix scroll bottom
-			});
-
-
-
-			$(function () {
-				// Get the form.
-				var form = $('#ajax-contact');
-
-				// Set up an event listener for the contact form.
-				$(form).submit(function (event) {
-					// Stop the browser from submitting the form.
-					event.preventDefault();
-
-					// Serialize the form data.
-					var formData = $(form).serialize();
-
-					// ignore question mark
-					formData = formData.replace("%3F", "");
-
-					// Submit the form using AJAX.
-					sendTheMessage(formData);
-
-					// Clearing text filled
-					chatMsg.value = "";
-				}); // End of form event handler
-			});
-
-			// function to handle ajax
-			function sendTheMessage(formData) {
-				var form = $('#ajax-contact');
-
-				$.ajax({
-					type: 'POST',
-					url: "profiles/somiari.php",
-					data: formData,
-				}).done(function (response) {
-					console.log(response);
-					chatMsgs.innerHTML += '<p class="alan">' + response + '</p>';
-					fixScroll(); // call function to fix scroll bottom
-				}) // end ajax handler
-			} // end send message fuction
-
-			// function to fix scroll bottom
-			function fixScroll() {
-				chatMsgs.scrollTop = chatMsgs.scrollHeight - chatMsgs.clientHeight;
-			}
-		</script>
-
-</html>
+	  		output = await this.getLocationFromAddress(address);
+	  		if(output.error){
+	  		  return output.status;	
+	  		}
+            let { formatted_address } = output;
+            output = await this.getTimeFromLocation(output.geometry.location);
+            if(output.error){
+              return "Something went wrong while trying to get the time";
+            }
+            time = output;
+            return `<h4>${this.formatAMPM(time)}</h4><p class="my-0">${this.getDayOfWeek(time.getDay())}, ${time.getDate()} ${this.getMonthOfYear(time.getMonth())} ${time.getFullYear()}</p><p class="my-0">Time in ${formatted_address}</p>`;
+	  	},
+	  	doChat: function(){
+          let question = this.choice['message'];
+	  	  return axios.get('profiles/samuel.php?question='+ question)
+	  	    .then(function (response) {
+	  	      let chatResponse = response.data.answer || 'I cannot find you a valid answer, go ahead and train me. Use /train [question] [answer] [password]';
+	  	      return chatResponse;
+	  	    })
+	  	    .catch(function (error) {
+	  	      console.log(error);
+	  	      return 'Something went wrong, try again please';
+	  	    });
+	  	},
+	  	doTrainBot: function(){
+          let params, password;
+	  	  try{
+	  	  	params = this.choice['message'].match(/\[(.*?)\] \[(.*?)\] \[(.*?)\]/);
+	  	  	password = params[3];
+	  	  }catch(ex){
+	  	  	return "Follow the correct syntax /train [question] [answer] [password]";
+	  	  }
+	  	  if(password != 'password')
+	  	  	  return 'You cannot train me, input correct password';
+	  	  return axios.get('profiles/samuel.php',
+	  	   {
+	  	   	 params: { question: params[1], answer: params[2] }
+	  	   })
+		  	  .then(function (response) {
+		  	        return response.data.message;
+		  	    })
+		  	    .catch(function (error) {
+		  	      console.log(error);
+		  	      return 'Something went wrong, try again please';
+		  	    });
+	  	  
+	  	  
+	  	},
+	  	processUnexpectedInput: function(){
+	  		commands = ['aboutbot', 'currenttime', 'dayofweek', 'train'];
+	  		mycommand = this.choice.message.split(' ')[0];
+	  		mycommand = mycommand.substring(1);
+	  		for(cmd of commands){
+	  		  if(cmd == mycommand){
+	  		  	this.choice.command = cmd;
+	  		  }
+	  		}
+	  	}
+	  }
+	})
+	Vue.component('command-item', {
+	  props: ['command', 'onItemClick'],
+	  data: function () {
+	    return {
+	      count: 0
+	    }
+	  },
+	  template: `<li class="my-2 px-2" @click="onItemClick(command.key)">
+			       <span class="title">/{{command.key}}</span> <span class="format">{{command.format}}</span>
+			       <span class="description d-block">{{command.description}}</span>	
+		        </li>`
+	})
+</script>
+</section>
