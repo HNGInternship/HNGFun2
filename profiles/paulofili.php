@@ -362,7 +362,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
             <div class="chatlogs" id="chatlogs">
                 <div class="chat bot row">
                     <div class="user-photo"></div>
-                    <p class="chat-message">What's up! Name's Paul chat</p>
+                    <p class="chat-message">What's up! Name is Paul bot v1.0</p>
                 </div>
                 <div class="chat bot row">
                     <div class="user-photo"></div>
@@ -393,7 +393,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
    
     <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src=  "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src=  "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="vendor/bootstrap/js/bootstrap.js"></script>
     <script>
         $(document).ready(function() {
