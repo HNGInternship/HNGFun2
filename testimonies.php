@@ -6,17 +6,13 @@ include_once("header.php");
 <!-- head ends -->
 <!-- Main Content -->
 
-
 <!--Section: Testimonials v.4-->
 <section class="pb-4 container">
-    <div class="container sponsor-container">
-            <h1 class="sponsorsbg-text pt-5 text-center hero-text">Testimonies</h1>
-        <div class="d-flex justify-content-center">
-              <div class="bd-top"></div>
-            </div>
-            
-            <p class="sponsors-text text-center pb-4 pt-3 text-center"> HNG 4.0 has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
-      </div>
+    <div class="header text-center">
+        <h1>Testimonies</h1>
+        <hr class="head-hr" width="6%">
+        <p>HNG 4.0 has been a life-transforming journey for interns across Africa. <br/> Don’t take our word for it... Take theirs.</p>
+    </div>
     <!--Section heading-->
     <div class="row justify-content-center mx-auto">
         <!--Carousel Wrapper-->
@@ -33,7 +29,7 @@ include_once("header.php");
                             <div class="row">
                                 <div class="offset-md-1 col-sm-10">
                                     <div class="row">
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm col-xs-12 testimonial">
                                             <div class="message">
                                                 It's been a great opportunity working with different people and using various tools in accomplishing the tasks given.
                                                 <br /><br />
@@ -45,7 +41,7 @@ include_once("header.php");
                                                 <h5>TechHajiya<br/><small>Nasarawa, Nigeria</small></h5>
                                             </div>
                                         </div>
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm col-xs-12 testimonial">
                                             <div class="message">
                                                 Phew!!! Learnt how to be precise in the way I ask questions. Thanks to all who have helped me thus far.
                                             </div>
@@ -56,7 +52,7 @@ include_once("header.php");
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm  col-xs-12 testimonial">
                                             <div class="message">
                                                 I learnt how to design a web page with Figma, implement the designs in HTML, CSS and PHP.
                                                 <br /><br />
@@ -69,7 +65,7 @@ include_once("header.php");
                                             </div>
                                         </div>
 
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm  col-xs-12 testimonial">
                                             <div class="message">
                                                 It is getting more interesting... I learnt how to push code to git for the first time.
                                                 I'm now using that knowledge to push other codes I had left vulnerable.
@@ -222,6 +218,7 @@ include_once("header.php");
             <!--Slides-->
             <!--Controls-->
             <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
+                
 
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -232,7 +229,7 @@ include_once("header.php");
             </a>
             <!--Controls-->
 
-            <div class="text-center"><hr class="bottom-hr" width="959px"></div>
+           
         </div>
         <!--Carousel Wrapper-->
 
@@ -255,15 +252,15 @@ include_once("header.php");
           <div class="carousel-item active">
              <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
+                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/AJx0mOKSGFA"></iframe>
                         <p>How ICT Changed My Life</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
+                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/7zMNjraEMvY"></iframe>
                         <p>Information and Communication Technology for Development</p>
                 </div>
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
+                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/k1Hvmt4PY_Y"></iframe>
                         <p>ICT is Changing Education in Developing Countries</p>
                 </div>
              </div>
@@ -271,7 +268,7 @@ include_once("header.php");
         <div class="carousel-item">
             <div class="row">
                 <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
+                    <iframe width="300" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/sTV_-esSHaQ"></iframe>
                         <p>How Technology is Changing Family Lives</p>
                 </div>
                 <!-- <div class="col-md-3" style="margin-left:60px">
@@ -294,7 +291,6 @@ include_once("header.php");
         </a>
 
    </div>
-    </div>
 </section>
 <!--Section: Testimonials v.4-->
 

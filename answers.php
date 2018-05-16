@@ -1221,6 +1221,12 @@ if (isset($_REQUEST["qsam"])){
         return $anwerSam = $respondGreeting[$index];
      }
 
+     function getLocationAPI() {
+         $ip = gethostbyname(gethostname());
+         $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+         return $query;
+     }
+
      function checkDatabaseToo($question){
         try{
                 require 'db.php';

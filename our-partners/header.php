@@ -44,7 +44,7 @@ $activeArray[$fileIndex]="active";
       <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
    	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> -->
@@ -325,7 +325,7 @@ $activeArray[$fileIndex]="active";
                 <a href="../learn" class="nav-link">Learn</a>
             </li>
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="../listing" class="nav-link">Current Intern</a>
+                <a href="../listing" class="nav-link">Our Interns</a>
             </li>
             <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="../testimonies" class="nav-link">Testimonies</a>

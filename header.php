@@ -1,5 +1,27 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
+
+// for choosing active page on nav bar
+
+$fileName=basename($_SERVER['PHP_SELF'], ".php");
+
+$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
+
+$activeArray = array_fill(0, count($files), '');
+
+$fileIndex=array_search($fileName,$files);
+
+
+// if page is unknown, dont mark any nav item
+
+if($fileIndex!==FALSE){
+
+$activeArray[$fileIndex]="active";
+}
+
+/////////////////////////////////////////////////////////
+
+
 ?>
 
 <!DOCTYPE html>
@@ -12,15 +34,15 @@ if(!isset($_SESSION)) { session_start(); }
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>HNG FUN </title>
+    <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <!--link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"-->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
 
     <!-- Custom fonts for this template -->
-    <!--link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -56,12 +78,13 @@ if(!isset($_SESSION)) { session_start(); }
           background-color: #F4F4F4;
           padding: 0 10em;
         }
+
         .nav-item{
-            padding: 10px 15px;
-            border-bottom: 3px solid #fffff;
+            padding: 24px 15px;
+            border-bottom: 3px solid #f4f4f4;
         }
         .nav-item:hover, .active {
-            border-bottom: 3px solid  #495af5;
+            border-bottom: 3px solid #2196F3;
         }
         /* horizontal line learn page */
         hr.under-line {
@@ -131,37 +154,31 @@ if(!isset($_SESSION)) { session_start(); }
 
 
         <ul class="navbar-nav ml-auto">
-            <li id="index" class="nav-item">
+            <li class="nav-item <?= $activeArray[0] ?>">
                 <a href="index" class="nav-link">Home</a>
             </li>
-            <li id="learn" class="nav-item">
+            <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
+            </li> 
+            <li class="nav-item <?= $activeArray[2] ?>">
+                <a href="listing" class="nav-link">Our Interns</a>
             </li>
-            <li id="listing" class="nav-item">
-                <a href="listing" class="nav-link">Current Intern</a>
-            </li>
-            <li id="testimonies" class="nav-item">
+            <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>
             </li>
-            <li id="sponsors" class="nav-item">
+            <li class="nav-item <?= $activeArray[4] ?>">
                 <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
-            <li id="alumni" class="nav-item">
+            <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
-             <li id="sign-up" class="nav-item">
-                <a href="sign-up" class="nav-link">SignUp</a>
+             <li class="nav-item <?= $activeArray[8] ?>">
+                <a href="sign-up" class="nav-link">Sign Up</a>
             </li>
-            <li id="login" class="nav-item">
+            <li class="nav-item <?= $activeArray[9] ?>">
                 <a href="login" class="nav-link">LogIn</a>
             </li>
     </ul>
   </div>
 
     </nav>
-<script type="text/javascript"> 
-  let fileName = window.location.pathname.split('/')[1];
-  fileName = fileName || 'index';
-  let ele = document.getElementById(fileName)
-  ele && ele.classList.add('active');
-</script>
