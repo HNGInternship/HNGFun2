@@ -80,9 +80,9 @@ function custom_styles()
     </div>
     <style>
     @media screen and (max-width: 768px){
-       /* #contact-info-title{
-            margin-top: 100px; 
-        }  */
+        #contact-info-title{
+            padding-top: 5px; 
+        }  
           
         
         #contact-right{
@@ -91,13 +91,7 @@ function custom_styles()
         }
     }
         
-           @media screen and (max-width: 576px){
-       #contact-info-title{
-            padding-top: 10px; 
-        }  
-          
 
-    }
     </style>
 
     <div class="container jumbotron " id="contact-half">
