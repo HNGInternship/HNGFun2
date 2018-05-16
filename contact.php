@@ -81,7 +81,7 @@ function custom_styles()
     <style>
     @media screen and (max-width: 768px){
         #contact-info-title{
-            margin-top: 50px;
+            margin-top: 100px;
         }
     }
     </style>
