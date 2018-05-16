@@ -86,7 +86,7 @@ function custom_styles()
           
         
         #contact-right{
-            padding-top: 50px;
+            padding-top: 30px;
             background-color: #2196F3;
         }
     }
