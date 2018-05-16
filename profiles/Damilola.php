@@ -376,7 +376,7 @@ h5{
                     $('#cbox').scrollTop($('#cbox').height());
                         }
                     }) .done(function(data,textStatus,jqXHR){
-                        alert("response with: " + data);
+                        //alert("response with: " + data);
                         })
                         .fail(function(data,textStatus,errorThrown){ alert("Request failed!"); console.log('FAILURE: ' + textStatus); })
                         .always(function(data,textStatus,errorThrown){});
