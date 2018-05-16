@@ -1,101 +1,181 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Samuel Profile</title>
-	<?php
-
-include_once("../answers.php"); 
-
-if(!defined('DB_USER')){
-     require "../../config.php";
-     try {
-         $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-     } catch (PDOException $pe) {
-         die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-     }
-   }
-$query = $conn->query("SELECT * FROM secret_word");
-$result = $query->fetch(PDO::FETCH_ASSOC);
-$secret_word = $result['secret_word'];
-$question;
-
-global $pass;
-	$pass = "password";
-
-if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
-	
-	function botAnswer($message){
-		$botAnswer = '<div class="chat bot chat-message">
-					<div class="chat-message-content clearfix">
-						<p>' . $message . '</p>';
-			return $botAnswer;
-	}
-
-
-	function train($dbcon, $data){
-		$trainCheck = $dbcon->prepare("SELECT * FROM chatbot WHERE question LIKE :question and answer LIKE :answer");
-		$trainCheck->bindParam(':question', $data['question']);
-		$trainCheck->bindParam(':answer', $data['answer']);
-		$trainCheck->execute();
-		$result = $trainCheck->fetch(PDO::FETCH_ASSOC);
-		$rows = $trainCheck->rowCount();
-			if($rows === 0){
-			$trainQuery = $dbcon->prepare("INSERT INTO chatbot (id, question, answer) VALUES(null, :q, :a)");
-			$trainQuery->bindParam(':q', $data['question']);
-			$trainQuery->bindParam(':a', $data['answer']);
-			$trainQuery->execute();
-			$bot = botAnswer("Thanks for helping me be better.");
-
-		}elseif($rows !== 0){
-			$bot = botAnswer("I already know how to do that. You can ask me a new question, or teach me something else. Remember, the format is train: question # answer # password");
+<?php
+	header("Access-Control-Allow-Origin: *");
+	if($_SERVER['REQUEST_METHOD'] === "GET"){
+		if(!defined('DB_USER')){
+			require "../../config.php";
+			try {
+			    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+			} catch (PDOException $pe) {
+			    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+			}
 		}
-		echo $bot;
+
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		$stmt = $conn->prepare("select secret_word from secret_word limit 1");
+		$stmt->execute();
+
+		$secret_word = null;
+
+		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$rows = $stmt->fetchAll();
+		if(count($rows)>0){
+			$row = $rows[0];
+			$secret_word = $row['secret_word'];
+		}
+
+		$name = null;
+		$username = "somiari";
+		$image_filename = '';
+
+		$stmt = $conn->prepare("select * from interns_data where username = :username");
+		$stmt->bindParam(':username', $username);
+		$stmt->execute();
+
+		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$rows = $stmt->fetchAll();
+		if(count($rows)>0){
+			$row = $rows[0];
+			$name = $row['name'];
+			$image_filename = $row['image_filename'];
+		}
 	}
-	
-		
-	
-	 	$userInput = strtolower(trim($_POST['question']));
-	 	if(isset($userInput)){
-	 		$user = $userInput;
-	 		 //array_push($_SESSION['chat-log'] , $user);
-	 	}
-	 	
-	 	if(strpos($userInput , 'train:') ===0){
-	 		list($t, $r ) = explode(":", $userInput);
-			list($trainquestion, $trainanswer, $trainpassword) = explode("#", $r);
-			$data['question'] = $trainquestion;
-	 		$data['answer'] = $trainanswer;
-	 		if($trainpassword === $pass){
-	 			$bot = train($conn, $data);
-	 			//array_push($_SESSION['chat-log'] , $bot);
-	 		}else{
-	 			$bot = botAnswer("You have entered a wrong password. Let's try that again with the right password, shall we?");
-	 			//array_push($_SESSION['chat-log'] , $bot);
-	 		}
-	 		
-	 	}elseif($userInput === 'about' || $userInput === 'aboutbot'){
-	 		$bot = botAnswer("Version 1.0");
-     		//array_push($_SESSION['chat-log'] , $bot);
-	 	}else{
-			 $userInputQuery = $conn->query("SELECT * FROM chatbot WHERE question like '".$userInput."' ");
-		     $userInputs = $userInputQuery->fetchAll(PDO::FETCH_ASSOC);
-		    $userInputRows = $userInputQuery->rowCount();
-		     if($userInputRows == 0){
-		     	$bot = botAnswer("I am unable to answer your question right now. But you can train me to answer this particular question. Use the format train: question #answer #password");
-		     //	array_push($_SESSION['chat-log'] , $bot);
-
-		     }else{
-		     	$botAnswer = $userInputs[rand(0, count($userInputs)-1)]['answer'];
-		     	$bot = botAnswer($botAnswer);
-		     	//array_push($_SESSION['chat-log'] , botAnswer($botAnswer));
-		     }
-     	}
-     	echo $bot;
-
-     	exit();
-     }
-
 ?>
+
+
+<?php
+		// require_once '../../config.php';
+		// require_once '../db.php';
+
+		// $result = $conn->query("Select * from secret_word LIMIT 1");
+		// $result = $result->fetch(PDO::FETCH_OBJ);
+		// $secret_word = $result->secret_word;
+
+		// $result2 = $conn->query("Select * from interns_data where username = 'somiari'");
+		// $user = $result2->fetch(PDO::FETCH_OBJ);
+
+	// Function to return Date
+	function respondDate(){
+		date_default_timezone_set("Africa/Lagos");
+		$time = date("Y/m/d");
+		$respondTime = array( 'Today\'s date is '.$time,
+								'it\'s '. $time,
+								'Today is '. $time,
+								$time);
+		$index = mt_rand(0, 3);
+		return $anwerSam = $respondTime[$index];
+	}// Date function ends here
+
+	// Function to return Time
+	function respondTime(){
+		date_default_timezone_set("Africa/Lagos");
+		$time = date("h:i A");
+		$respondTime = array( 'The time is '.$time,
+								'it\'s '. $time,
+								$time);
+		$index = mt_rand(0, 2);
+		return $anwerSam = $respondTime[$index];
+	} // Time function ends here
+
+	// function to train bot
+	// pass message as arguement
+	function trainAlan($newmessage){
+		require_once '../db.php';
+		$message = explode('#', $newmessage);
+		$question = explode(':', $message[0]);
+		$answer = $message[1];
+		$password = $message[2];
+
+		$question[1] = trim($question[1]); //triming off white spaces
+		$password = trim($password); //triming off white spaces
+
+		// check if password matches
+		if ($password != "password"){
+			echo "You are not authorized to train me.";
+		}else{
+			$chatbot= array(':id' => NULL, ':question' => $question[1], ':answer' => $answer);
+			$query = 'INSERT INTO chatbot ( id, question, answer) VALUES ( :id, :question, :answer)';
+
+			try {
+				$execQuery = $conn->prepare($query);
+				if ($execQuery ->execute($chatbot) == true) {
+					// call a function that handles successful training response
+					echo repondTraining();
+				};
+			} catch (PDOException $e) {
+				echo "Oops! i did't get that, Something is wrong i guess, <br> please try again";
+			} // End Catch
+		} // End Else
+	} // Train Function Ends here
+
+	// Returns random respond to training
+	// called if training is successful
+	function repondTraining(){
+		$repondTraining = array(  'Noted! Thank you for teaching me',
+									'Acknowledged, thanks, really want to learn more',
+									'A million thanks, I\'m getting smarter',
+									'i\'m getting smarter, I really appreciate');
+		$index = mt_rand(0, 3);
+		return $anwerSam = $repondTraining[$index];
+	} // respondTraining Ends Here
+
+
+	// Function to check if question is in database
+	// Returns 1 if question is not found in database
+	function checkDatabase($question){
+		try{
+			require_once '../db.php';
+			$stmt = $conn->prepare('select answer FROM chatbot WHERE (question LIKE "%'.$question.'%") LIMIT 1');
+			$stmt->execute();
+
+			// checking if query retrieves data
+			if($stmt->rowCount() > 0){
+				while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ echo $row["answer"];}
+			}else{
+				return 1; // returns 1 is no data was retrieved
+			}
+		}catch (PDOException $e){
+			 echo "Error: " . $e->getMessage();
+		} // Catch Ends here
+
+		$conn = null; // close database connection
+	}
+
+	//////////// CHATBOT STARTS HERE //////////////////////////////////////////////////////////////
+		// if (isset($_POST['message'])) {
+			if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+			// Retrieve form data from ajax
+			// Change message to all lowercase
+			// trim off white spaces
+			$message = trim(strtolower($_POST['message']));
+
+			//Analyse message to determine response
+			// if (strtok($message, ":") == "train"){
+				if (strpos($message, 'train') !== false) {
+					trainAlan($message); // Call function to handle training
+			}else if ($message != "" ){
+				// Check if question exist in database
+				// returns 1 if question does not exist in database
+				$tempVariable = checkDatabase($message);
+
+				if ($tempVariable == 1){
+					if ($message == "what is the time"){
+						echo respondTime();
+					}else if ($message == "today's date"){
+						echo respondDate();
+					}else{
+						echo "I didn't quite get that but I'm a fast learner.
+						To teach me something, just type and send:
+						train: question # answer # password";
+					} // end else
+				} // end if
+			}
+			die();
+		}
+
+		// if ($_SERVER["REQUEST_METHOD"] == "GET"){
+	?>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
 		<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet'>
@@ -204,143 +284,150 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		}
 
-	/* ---------- chat-box ---------- */
+		.chat-box {
+				display: flex;
+				flex-direction: column;
+				margin: 50px auto 30px auto;
+				border: 1px solid rgba(0, 0, 0, .3);
+				border-radius: 30px;
+				width: 90%;
+				padding-bottom: 10px;
+			}
 
-		#chat-box {
-			bottom: 0;
-			font-size: 12px;
-			right: 24px;
-			position: fixed;
-			width: 300px;
+			.chat-box .chat-box-header {
+				display: block;
+				padding-top: 20px;
+				padding-bottom: 20px;
+				border-bottom: 1px solid rgba(0, 0, 0, .3);
+				font-size: 18px;
+			}
 
-		}
-		#chat-box header {
-			background: #075e54;
-			border-radius: 7px 7px 0 0;
-			color: #ffffff;
-			cursor: pointer;
-			padding: 16px 24px;
-		}
+			.chat-msgs {
+				height: 300px;
+				margin: 30px auto 15px auto;
+				overflow-y: scroll;
+				width: 98%;
+			}
 
-		#chat-box h4, #chat-box h5{
-			line-height: 1.5em;
-			margin: 0;
+			.guest,
+			.alan {
+				width: auto;
+				max-width: 80%;
+				border: 1px solid lightgrey;
+				padding: 5px;
+				clear: both;
+				margin: 0 5px 5px 8px;
+				border-radius: 10px;
+				font-size: 16px;
+			}
 
-		}
-		#chat-box h4:before {
-			background: #1a8a34;
-			border-radius: 50%;
-			content: "";
-			display: inline-block;
-			height: 8px;
-			margin: 0 8px 0 0;
-			width: 8px;
+			.alan {
+				text-align: left;
+				padding-left: 20px;
+			}
 
-		}
+			.guest {
+				float: right;
+				text-align: left;
+				padding-right: 20px;
+			}
 
-		#chat-box h4 {
-			font-size: 20px;
-		}
+			.chat-type {
+				position: relative;
+				width: 100%;
+				margin: 0 auto;
+			}
 
-		#chat-box h5 {
-			font-size: 10px;
-		}
+			.chat-msg {
+				width: 95%;
+				margin: 0 auto;
+				outline: none;
+				border: 1px solid rgba(0, 0, 0, .3);
+				background: transparent;
+				/* position: relative; */
+				resize: none;
+				padding: 10px;
+				padding-right: 75px;
+				height: 90px;
+				border-radius: 10px;
+				font-size: 18px;
+			}
 
-		#chat-box form {
-			padding-left: 15px;
-			padding-top: 10px;
-			background-color: #ece5dd;
-			height: 57px;
-		}
+			.chat-send {
+				position: absolute;
+				border-radius: 50%;
+				border: 1px solid rgba(0, 0, 0, .3);
+				height: 50px;
+				width: 50px;
+				background: transparent;
+				right: 20px;
+				bottom: 23px;
+				color: rgba(0, 0, 0, .6);
+				cursor: pointer;
+				outline: none;
+				/* overflow: hidden; */
+			}
 
-		#chat-box input[type="text"] {
-			border: 1px solid #ccc;
-			border-radius: 30px;
-			padding-top:4px;
-			padding-bottom: 4px;
-			padding-left: 10px;
-			outline: none;
-			width: 258px;
-			height: 38px;
-			font-size: 18px;
+			@media only screen and (min-width: 600px) {
+				.socials .fa-icon {
+					flex-basis: 0;
+				}
+				.name {
+					font-size: 4.1rem;
+					font-weight: bolder;
+				}
+				.labels {
+					font-size: 1.4rem;
+				}
+				.footer {
+					font-size: 1.2rem;
+				}
+				.footer .icon {
+					font-size: 1.4rem;
+				}
+				.guest,
+				.alan {
+					width: auto;
+					max-width: 60%;
+				}
 
-		}
-		#chat-box ::placeholder{
-			color:#707B7C;
-			opacity: 1;
-		}
+				.chat-send {
+					line-height: 50px;
+					position: absolute;
+					border-radius: 50%;
+					border: 1px solid rgba(0, 0, 0, .3);
+					;
+					height: 50px;
+					width: 50px;
+					background: transparent;
+					right: 40px;
+					bottom: 23px;
+					color: rgba(0, 0, 0, .6);
+					cursor: pointer;
+					outline: none;
+					/* overflow: hidden; */
+				}
+				.chat-msg {
+					width: 95%;
+					margin: 0 auto;
+					outline: none;
+					border: 1px solid rgba(0, 0, 0, .3);
+					background: transparent;
+					/* position: relative; */
+					resize: none;
+					padding: 10px;
+					padding-right: 85px;
+					height: 90px;
+					border-radius: 10px;
+					font-size: 18px;
+				}
 
+				.chat-box .chat-box-header {
+					font-size: 24px;
+				}
+			}
 
-		header h4{
-			color: #fff;
-		}
-
-		.chat {
-			background: #fff;
-			min-height: 20px;
-					
-		}
-
-		.chat p{
-			margin: 0;
-			padding-top: 7px;
-		}
-			.hide{
-			display: none;
-		}
-
-		.chatlogs {
-			background-color:#ece5dd;
-			height: 260px;
-			padding: 8px 24px;
-			overflow-y: scroll;
-
-		}
-
-		.chat-message {
-			margin: 16px 0;
-			width: 215px;
-		}
-
-		.bot img {
-			border-radius: 50%;
-			float: left;
-		}
-		.bot .chat-message-content{
-			margin-left: 10px;
-			padding: 3px 10px;
-		}
-		.user .chat-message-content{
-			margin-right: -20px;
-			background: #dcf8c6;
-			padding: 3px 10px;
-		}
-		.user .chat-message-content.chat{
-			background: #dcf8c6;
-		}
-
-
-		.user img{
-			border-radius: 50%;
-			float: right;
-		}
-		.chat-message-content {
-			/*margin-left: 56px;*/
-		}
-
-		.bot .chat-time {
-			float: right;
-			font-size: 10px;
-		}
-		.user .chat-time {
-			float: right;
-			font-size: 10px;
-		}
-		.chat-time{
-			margin-top: -7px;
-			color: #707B7C;
-		}
-
+		
 	</style>
 
 	</head>
@@ -369,108 +456,80 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				</div>
 			</div>
 		</div>
-
-<div id="chat-box">	
-		<header class="clearfix" onclick="change()">
-			<h4>Chat with Bot</h4>
-		</header>
-		<div class="chat hide" id="chat">
-			<div class="chatlogs" id="chatlogs">
-				<div class="chat bot chat-message">
-					
-					<div class="chat-message-content clearfix">
-						<p>Welcome, I am a chatbot.</p>
-						<span class="chat-time"> </span>
-					</div> 
+		<form class="chat-box" id="ajax-contact" method="post" action=""  style="background-color: #ffffff; width: 400px;">
+				<span class="chat-box-header" style="text-align: center;">Chat with Bot</span>
+				<div class="chat-msgs">
+					<p class="alan">Hello! I am a bot</p>
+					<p class="alan">I'm a fast learner. To teach me something, just type and send: train: question # answer # password</p>
 				</div>
-				<div class="chat bot chat-message">
-					
-					<div class="chat-message-content clearfix">
-						<p>To know my version enter<br> "aboutbot".</p>
-						<span class="chat-time"></span>
-					</div> 
+				<div class="chat-type" style="padding-left: 10px;">
+					<textarea class="chat-msg" name="message" required></textarea>
+					<button class="chat-send" type="submit">
+						<i class="icon fa fa-fw fa-paper-plane"></i>
+					</button>
 				</div>
-				<div class="chat bot chat-message">
-					
-					<div class="chat-message-content clearfix">
-						<p>Ask me questions and I will try to answer. You can train me to answer some questions. Just make use of the format (train: question #answer #password).</p>
-						<span class="chat-time"></span>
-					</div> 
-				</div>
-
-				
-				 
-				<div id="chat-content"></div>
-				
-			</div> <!-- end chat-history -->
-			<form action="#" method="post" class="form-data">
-				<fieldset>
-					<input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
-				</fieldset>
 			</form>
-		</div> <!-- end chat -->
-	</div> <!-- end chat-box -->
-
-
-	<script >
 		
-		
-		function change(){
-			document.getElementById("chat").classList.toggle('hide');
-			
-    }
-     var btn = document.getElementsByClassName('form-data')[0];
-		var question = document.getElementById("question");
-		var chatLog = document.getElementById("chatlogs");
-		var chatContent = document.getElementById("chat-content");
-		var myTime = new Date().toLocaleTimeString(); 
-		document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
-		document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
-		document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
-		btn.addEventListener("submit", chat);
-
-
-		function chat(e){
-		    if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
-			     var xhttp = new XMLHttpRequest();
-			} else if (window.ActiveXObject) { // IE 6 and older
-			  var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-		   
-			xhttp.onreadystatechange = function() {
-	          if(this.readyState == 4 && this.status == 200) {
-	          	// console.log(this.response);
-	          	 userChat(question.value, this.response);
-     			e.preventDefault();
-	            question.value = '';
-	          }
-      	    }
-        xhttp.open('POST', 'profiles/samuel', true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send('question='+ question.value);
-        e.preventDefault();
-		}
-
-		function userChat(chats, reply){
-			if(question.value !== ''){
-				var chat = `<div class="chat user chat-message">
-					<div class="chat-message-content clearfix">
-						<p>` + chats + `</p>
-						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
-					 </div>
-				</div>`;
-			}
-			chatContent.innerHTML += chat;
-		     
-		    setTimeout(function() {
-			    chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
-					</div> 
-				</div>`;
-				document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight;	
-			}, 1000);
-		}
-	</script>
-	
 	</body>
+
+	<script src="vendor/jquery/jquery.min.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script> -->
+		<script>
+			const chatMsgs = document.querySelector(".chat-msgs");
+			const chatMsg = document.querySelector(".chat-msg");
+			const callAJAX = document.querySelector(".chat-send");
+
+			callAJAX.addEventListener("click", function () {
+				if (chatMsg.value != "") {
+					chatMsgs.innerHTML += '<p class="guest">' + chatMsg.value + '</p>';
+				}
+				fixScroll(); // call function to fix scroll bottom
+			});
+
+
+
+			$(function () {
+				// Get the form.
+				var form = $('#ajax-contact');
+
+				// Set up an event listener for the contact form.
+				$(form).submit(function (event) {
+					// Stop the browser from submitting the form.
+					event.preventDefault();
+
+					// Serialize the form data.
+					var formData = $(form).serialize();
+
+					// ignore question mark
+					formData = formData.replace("%3F", "");
+
+					// Submit the form using AJAX.
+					sendTheMessage(formData);
+
+					// Clearing text filled
+					chatMsg.value = "";
+				}); // End of form event handler
+			});
+
+			// function to handle ajax
+			function sendTheMessage(formData) {
+				var form = $('#ajax-contact');
+
+				$.ajax({
+					type: 'POST',
+					url: "profiles/somiari.php",
+					data: formData,
+				}).done(function (response) {
+					console.log(response);
+					chatMsgs.innerHTML += '<p class="alan">' + response + '</p>';
+					fixScroll(); // call function to fix scroll bottom
+				}) // end ajax handler
+			} // end send message fuction
+
+			// function to fix scroll bottom
+			function fixScroll() {
+				chatMsgs.scrollTop = chatMsgs.scrollHeight - chatMsgs.clientHeight;
+			}
+		</script>
 
 </html>
