@@ -12,7 +12,7 @@
 //     }
 // }
 include_once("header.php");
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit"])) 
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
@@ -81,7 +81,7 @@ function custom_styles()
     <style>
     @media screen and (max-width: 768px){
         #contact-info-title{
-            margin-top: 0px;
+           /* margin-top: 100px; */
         } 
         #contact-right{
             padding-top: 30px;
