@@ -90,6 +90,18 @@ function custom_styles()
             background-color: #2196F3;
         }
     }
+        
+           @media screen and (max-width: 576px){
+       #contact-info-title{
+            padding-top: 40px; 
+        }  
+          
+        
+        #contact-right{
+            padding-top: 40px;
+            background-color: #2196F3;
+        }
+    }
     </style>
 
     <div class="container jumbotron " id="contact-half">
