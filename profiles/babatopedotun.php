@@ -48,7 +48,7 @@ body {
         }
 
          .card {
-            position: relative;
+           
     margin-top: 20px;
     padding: 30px;
     background-color: rgba(214, 224, 226, 0.2);
@@ -73,9 +73,11 @@ body {
 }
 .card.hovercard .card-background {
     height: 130px;
+    width: 800%
 }
 .card-background img {
     position: relative;
+    width: 
     background: url(); no-repeat center;
     -webkit-filter: blur(25px);
     -moz-filter: blur(25px);
@@ -192,7 +194,6 @@ $(".btn-pref .btn").click(function () {
                 <div class="hidden-xs">Hobbies</div>
             </button>
         </div>
-        <br>
         <div class="btn-group" role="group">
             <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                 <div class="hidden-xs">Bot</div>
