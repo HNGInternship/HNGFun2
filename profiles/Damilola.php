@@ -21,7 +21,7 @@
 
   
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-  var_dump($_REQUEST);
+  //var_dump($_REQUEST);
     $msg = $_POST['msg'];
     $train = stripos($msg, 'train:');
     echo $train;
@@ -370,6 +370,7 @@ h5{
                         $.ajax({
                           url: 'profile?id=Damilola', //This is the current doc
                           type: "POST",
+                          dataType: "text",
                           //dataType:'json', // add json datatype to get json
                           data: ({msg: message}),
                         success: function(data){
