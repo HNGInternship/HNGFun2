@@ -397,7 +397,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         </div>
     </footer>   
    
-    <!-- <script src="<?=$home_url;?>/js/jquery.min.js"type="text/javascript"></script> -->
+    <script src="<?=$home_url;?>/js/jquery.min.js"type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="<?=$home_url;?>vendor/bootstrap/js/bootstrap.min.js"></script>
