@@ -217,6 +217,9 @@ include_once("header.php");
       $("#register").html('Sign Up');
 
               if(data==="1"){
+                $("#signUpInfo").html("Account created successfully");
+            $("#signUpInfo").attr("class","text-success");
+            $("#signUpInfo").show();
                 window.location.href="activateaccount.php";
                 return;
               }

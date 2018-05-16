@@ -36,6 +36,8 @@ include_once("header.php");
 
               else{
             $linkValidity=0;
+              echo "tokens dont match";
+
 
               }
 
@@ -43,6 +45,7 @@ include_once("header.php");
 
 
             if($linkValidity==1){
+              echo "validity is 1";
                $stmt = $conn->prepare("UPDATE users SET verified=:verified , verification_token=:token WHERE email=:email");
 
       $result= $stmt->execute(array(
@@ -57,7 +60,7 @@ include_once("header.php");
 
               $message='An error occured with the activation link or it has already been used.';
               $header="Activation failed";
-              
+
             }
             }
 

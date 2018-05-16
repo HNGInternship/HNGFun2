@@ -78,7 +78,7 @@ if(isset($_POST['registration'])){
             <br/>
            You are receiving this message because you have just registered on the HNGI Site on <a href="https://hng.fun">https://hng.fun</a><br/>
            Please, follow this link to verify your new account:<br/>
-           <a href="https://hng.fun/verifyEmail.php?token='.$token.'&email='.$email.'">Account Verification Link</a>
+           <a href="https://hng.fun/verifyEmail?token='.$token.'&email='.$email.'">Account Verification Link</a>
            <br/> <br/>
            <p>If you have not registered on our site, you can just delete this email.</p>
            <br/>
