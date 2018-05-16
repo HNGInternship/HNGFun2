@@ -160,7 +160,7 @@ $activeArray[$fileIndex]="active";
     ul.navbar-nav.collapse.ml-auto {
         display: -webkit-inline-box;
         height: 100% !important;
-        float: left;
+        float: right;
     }
 
     nav.navbar {
@@ -175,7 +175,7 @@ $activeArray[$fileIndex]="active";
     }
 
     .navbar-toggler {
-    float: right;
+    float: left;
     }
 
     .nav-item.active {
