@@ -12,7 +12,7 @@
 //     }
 // }
 include_once("header.php");
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit"])) 
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
@@ -78,6 +78,17 @@ function custom_styles()
 
         </div>
     </div>
+    <style>
+    @media screen and (max-width: 768px){
+        #contact-info-title{
+            margin-top: 100px; 
+        } 
+        #contact-right{
+            padding-top: 30px;
+            background-color: #2196F3;
+        }
+    }
+    </style>
 
     <div class="container jumbotron " id="contact-half">
         <div class="row" >
@@ -125,7 +136,7 @@ function custom_styles()
 
 
                  <!-- <div class="form-group"> -->
-                    <h3>Contact Information</h3>
+                    <h3 id="contact-info-title">Contact Information</h3>
                 <!-- </div> -->
             <div class="contact-info">
                 <div class="form-group">
