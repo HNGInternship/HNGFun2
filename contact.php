@@ -80,9 +80,9 @@ function custom_styles()
     </div>
     <style>
     @media screen and (max-width: 768px){
-        /* #contact-info-title{
+         #contact-info-title{
             margin-top: 100px;
-        } */
+        } 
         #contact-right{
             padding-top: 30px;
             background-color: #2196F3;
