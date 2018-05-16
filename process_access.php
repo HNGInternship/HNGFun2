@@ -29,6 +29,7 @@ if(!defined('DB_USER')){
 
 
 if(isset($_POST['registration'])){
+  echo 'I work as a GET or not parameter and first name is : ';
 
   $firstname = $_POST['firstName'];
   $lastname = $_POST['lastName'];
@@ -37,6 +38,11 @@ if(isset($_POST['registration'])){
   $nationality= $_POST['nationality'];
   $phone=$_POST['phone'];
   $username=$_POST['userName'];
+
+
+  echo 'I work as a GET or not parameter and first name is : '.$firstname;
+
+  exit();
   
 
   

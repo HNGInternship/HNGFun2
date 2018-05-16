@@ -206,7 +206,7 @@ include_once("header.php");
 
              var data = $("#register_form").serialize();
 
-             $.ajax('process_access.php',{
+             $.ajax('process_access',{
             type : 'post',
             data : data,
             success: function(data){
