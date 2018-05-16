@@ -374,8 +374,8 @@ h5{
                           //dataType:'json', // add json datatype to get json
                           data: ({msg: message}),
                         success: function(data){
-                            bot_chat(data);
-                            reset;
+                            $('#cbox').append('<div class="outputa"><p>Alfred: ' + data + '<p></div>');
+                    $('#cbox').scrollTop($('#cbox').height());
                         }
                     }) .done(function(data,textStatus,jqXHR){
                         alert("response with: " + data);
