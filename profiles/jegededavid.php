@@ -234,7 +234,7 @@ return ;
         };
         
         
-        xhttp.open("POST", "jegededavid.php", true);
+        xhttp.open("POST", "`./profiles/jegededavid`", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
 }
