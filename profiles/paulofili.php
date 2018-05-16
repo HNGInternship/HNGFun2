@@ -1,7 +1,7 @@
 <?php 
 // header("Access-Control-Allow-Origin: *");
     if(!defined('DB_USER')){
-        //  require "../../config.php";
+        require "../../config.php";
         define ('DB_USER', "root");
         define ('DB_PASSWORD', "");
         define ('DB_DATABASE', "hngfun");
