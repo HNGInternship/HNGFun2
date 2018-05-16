@@ -1,16 +1,7 @@
 <?php 
-// header("Access-Control-Allow-Origin: *");
-$home_url1 = '../../';
-    if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
-        // $padding = '80px 70px';
-        $home_url1 = '../';
-    }
+
     if(!defined('DB_USER')){
-        require $home_url1."config.php";
-        // define ('DB_USER', "root");
-        // define ('DB_PASSWORD', "");
-        // define ('DB_DATABASE', "hngfun");
-        // define ('DB_HOST', "localhost");
+        require "../../config.php";        
     }
     global $connect;
     $connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
