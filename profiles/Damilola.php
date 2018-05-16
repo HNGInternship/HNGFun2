@@ -5,20 +5,6 @@
   if(!defined('DB_USER')){
     require "../../config.php";
   }
-  $res = $conn->query("SELECT * FROM  interns_data WHERE username = 'Damilola' ");
-  $row = $res->fetch(PDO::FETCH_BOTH);
-  $name = $row['name'];
-  $img = $row['image_filename'];
-  $username =$row['username'];
-
-
-
-  $res1 = $conn->query("SELECT * FROM secret_word");
-  $res2 = $res1->fetch(PDO::FETCH_ASSOC);
-  $secret_word = $res2['secret_word'];
-
-
-
   
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
   //var_dump($_REQUEST);
@@ -82,6 +68,18 @@ function fetchans($msg){
         echo $ans2;
         exit();
     }
+
+     $res = $conn->query("SELECT * FROM  interns_data WHERE username = 'Damilola' ");
+  $row = $res->fetch(PDO::FETCH_BOTH);
+  $name = $row['name'];
+  $img = $row['image_filename'];
+  $username =$row['username'];
+
+
+
+  $res1 = $conn->query("SELECT * FROM secret_word");
+  $res2 = $res1->fetch(PDO::FETCH_ASSOC);
+  $secret_word = $res2['secret_word'];
 ?>
 
 
