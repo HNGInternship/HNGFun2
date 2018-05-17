@@ -109,7 +109,12 @@ if(isset($_POST['submit']) ){
     <?php if($success) {
         echo "<div class='alert alert-success'>Successful! Click <a href='profile.php?id=$username'>here</a> to view your profile</div>";
     }?>
-
+<script type="text/javascript">
+function Confirm(form){
+alert("successfully! Click <a href='profile.php?id=$username'>here</a> to view your profile"); 
+form.submit();
+}
+</script>
     <form action="admin.php" method="post" enctype="multipart/form-data">
 
         <div class="row">
