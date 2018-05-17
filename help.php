@@ -225,7 +225,7 @@ i.fa.fa-bars {
                             </button>
                         </h5>   -->
                               <h5 class="mb-0">
-                            <p class ="col-sm" class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <p class ="col-sm" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                              Will I be awarded a certificate after this internship?
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </p>
@@ -253,10 +253,10 @@ i.fa.fa-bars {
                       <div class="col">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
-                                    <button class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                   <p class ="col-sm" class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     Is this internship program open for only Nigerians?
                                     <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
+                                    </p>
                                 </h5>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
