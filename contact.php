@@ -79,7 +79,7 @@ function custom_styles()
         </div>
     </div>
     <style>
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 568px){
        /* #contact-info-title{
             padding-top: 100px; 
         }  */
