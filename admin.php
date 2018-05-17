@@ -7,7 +7,7 @@ $nameError = "";
 $usernameError = "";
 $keyError = "";
 $filenameError = "";
-
+exit();
 //$imageSuccess = false;
 $success = false;
 $key = "sample_secret_word";
