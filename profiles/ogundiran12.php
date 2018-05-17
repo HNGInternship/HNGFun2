@@ -165,7 +165,7 @@
             background-color: #e7f8ec !important;
         }
         .mycontainer{
-            margin-top: 0;
+            margin-top: 10%;
         }
         #app{
             font-family: "Montserrat", sans-serif;
@@ -710,7 +710,7 @@
                                 .then(response => {
                                     // get body dat
                                     var trainMeMsg = 'I cannot find you a valid answer, go ahead and train me. Use #train [question] [answer] [password]';
-                                    this.botMsg = (response.data.answer !== null || response.data !== null) ? response.data.answer : trainMeMsg;
+                                    this.botMsg = (response.data.answer != null) ? response.data.answer : trainMeMsg;
                                     this.sendBotMsg(this.botMsg);
                                 }, response => {
                                     // error callback
