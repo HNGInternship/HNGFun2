@@ -80,9 +80,9 @@ function custom_styles()
     </div>
     <style>
     @media screen and (max-width: 768px){
-        #contact-info-title{
+       /* #contact-info-title{
             padding-top: 2px; 
-        }  
+        }  */
           
         
         #contact-right{
