@@ -152,8 +152,8 @@
 				<p>Posted on <strong>April 20, 2018</strong> </p>
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
-				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
+				<span id="collapseTwo" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseTwo">Read More </a>
 			</div>
 
 			<div class="box" id="mid1" >
@@ -162,8 +162,8 @@
 				<p>Posted on <strong>April 26, 2018</strong> </p>
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
-				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
+				<span id="collapseThree" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseThree">Read More </a>
 			</div>
 
 			<div class="box" >
@@ -172,8 +172,8 @@
 				<p>Posted on <strong>May 1, 2018</strong> </p>
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
-				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
+				<span id="collapseFour" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseFour">Read More </a>
 			</div>
 
 			<div class="box">
@@ -182,8 +182,8 @@
 				<p>Posted on <strong>May 5, 2018</strong> </p>
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
-				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
+				<span id="collapseFive" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseFive">Read More </a>
 			</div>
 
 			<div class="box" id="last" >
@@ -192,8 +192,8 @@
 				<p>Posted on <strong>May 15, 2018</strong> </p>
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
-				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
+				<span id="collapseSix" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseSix">Read More </a>
 			</div>
 
 
