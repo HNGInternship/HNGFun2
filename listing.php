@@ -9,9 +9,9 @@ $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_DATABASE);
 $query = "SELECT * FROM interns_data";
 
 //these variables are passed via URL
-$limit = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 5; //movies per page
+$limit = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 8; //movies per page
 $page = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1; //starting page
-$links = 5;
+$links = 8;
 
 $paginator = new Paginator( $mysqli, $query ); //__constructor is called
 $results = $paginator->getData( $limit, $page );
