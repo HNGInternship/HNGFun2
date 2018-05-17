@@ -62,7 +62,7 @@ include_once("header.php");
 		  	  </a>
 		  	</div>
 			</form>
-			<!-- <a href="./signup.php">
+			<!-- <a href="./sign-up.php">
 				<button class="home-signup">
 					SIGN UP
 				</button>
