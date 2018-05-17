@@ -135,14 +135,14 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
 	                    	//if no answer and password
 	                         echo json_encode([
 		                        'status' => 1,
-		                        'answer' => "Training Unsuccessfull! Please add desired answer and the training password, To train type <b>train: question #answer #password"
+		                        'answer' => "Training Unsuccessful! Please add desired answer and the training password, To train type <b>train: question #answer #password"
 		                    ]);
 	                		return;
 	                    }else{
 	                    	//if no password only
 	                        echo json_encode([
 		                        'status' => 1,
-		                        'answer' => "Training Unsuccessfull! Please add the training password, To train type <b>train: question #answer #password"
+		                        'answer' => "Training Unsuccessful! Please add the training password, To train type <b>train: question #answer #password"
 		                    ]);
 	                		return;
 	                    }
@@ -151,7 +151,7 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
 	                	//if it does not have 1 or 2 hashtags
 	                    echo json_encode([
 		                    'status' => 1,
-		                    'answer' => "Training Unseccessfull! Please train with this pattern: 'train: question #answer #password' without the quote ofcourse."
+		                    'answer' => "Training Unsuccessful! Please train with this pattern: 'train: question #answer #password' without the quote ofcourse."
 	                    ]);
 	                return;
 	                }
@@ -227,7 +227,7 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
 	<br><br>
 	<div class='row'>
 		<div class='col-sm-6' >
-			<center><img height='100%' class='img-responsive' src="http://res.cloudinary.com/dlsfrelbb/image/upload/v1523639668/josh.png"></center>
+			<center><img height='100%' class='img-responsive' src="https://res.cloudinary.com/dlsfrelbb/image/upload/v1523639668/josh.png"></center>
 		</div>
 		<div class='col-sm-6'>
 			<div>
@@ -235,11 +235,11 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
 				<h1 style='font-family: "proxima-nova"; color:#fff; font-size: 22px; font-weight: 600; letter-spacing: .14em; line-height: 1em; text-transform: uppercase;'><?php echo $user->name; ?></h1>
 				<h2 style='font-family: "proxima-nova"; color:#a3a3a3; font-size: 22px; line-height: 1.15em; text-transform: none;letter-spacing: .01em; margin-bottom:26px; text-align:left;'>I am a website devloper, android app devloper ,an animator and also love gaimg. Follow me anywhere.</h2>
 				<h2 style='text-align:left;'><a href="mailto:starboi247@gmail.com" style='font-family: "proxima-nova"; color:#fff; font-size: 22px; font-weight: 600; letter-spacing: .14em; line-height: 1em; '>STARBOI247@GMAIL.COM</a></h2>
-				<h2 style='text-align:left;'><a href="http://itsjoat.com" style='font-family: "proxima-nova"; color:#fff; font-size: 22px; font-weight: 600; letter-spacing: .14em; line-height: 1em; '>WEBSITE</a></h2>
+				<h2 style='text-align:left;'><a href="https://itsjoat.com" style='font-family: "proxima-nova"; color:#fff; font-size: 22px; font-weight: 600; letter-spacing: .14em; line-height: 1em; '>WEBSITE</a></h2>
 				<div>
-					<a href="https://instagram.com/its_joat"><img style='margin-right:10px;' width='40' height='40' src="http://res.cloudinary.com/dlsfrelbb/image/upload/v1523643336/instagram-icon-white.png"></a>
-					<a href="https://twitter.com/its_joat"><img style='margin-right:10px;' width='40' height='40' src="http://res.cloudinary.com/dlsfrelbb/image/upload/v1523643336/icon-twitter-white-1.png"></a>
-					<a href="https://m.youtube.com/channel/UCvLacR6r37O6N_dWEXDGUyQ"><img width='40' height='40' src="http://res.cloudinary.com/dlsfrelbb/image/upload/v1523643336/white-youtube-2-512.png"></a>
+					<a href="https://instagram.com/its_joat"><img style='margin-right:10px;' width='40' height='40' src="https://res.cloudinary.com/dlsfrelbb/image/upload/v1523643336/instagram-icon-white.png"></a>
+					<a href="https://twitter.com/its_joat"><img style='margin-right:10px;' width='40' height='40' src="https://res.cloudinary.com/dlsfrelbb/image/upload/v1523643336/icon-twitter-white-1.png"></a>
+					<a href="https://m.youtube.com/channel/UCvLacR6r37O6N_dWEXDGUyQ"><img width='40' height='40' src="https://res.cloudinary.com/dlsfrelbb/image/upload/v1523643336/white-youtube-2-512.png"></a>
 				</div>
 			</div>
 		</div>
@@ -307,7 +307,7 @@ $user = $result2->fetch(PDO::FETCH_OBJ);
 		$("#chats").scrollTop($("#chats")[0].scrollHeight);
 		//send question to server
 		$.ajax({
-			url: '/profiles/joat.php',
+			url: 'profiles/joat.php',
 			type: 'POST',
 			data: {question: question},
 			dataType: 'json',

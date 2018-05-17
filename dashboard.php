@@ -9,6 +9,6 @@ echo $_SESSION['email'];
 </head>
 <body>
 
-your now logged in 
+Amy Xandra
 </body>
 </html>

@@ -139,7 +139,7 @@
 
 <?php 
 
-include('header.php')
+//include('header.php')
 
  ?>
 
@@ -177,33 +177,24 @@ include('header.php')
 		
 	</section>
 	
-			<h1 style="text-align: center; color: black; padding-top: 20px;">My Chatbot</h1>
-			<div id="container">
-				<div class="chat_bot">
-					<ul class="chat_bot_conserv">
-						
-					</ul>
-				</div>
+		<h1 style="text-align: center; color: black; padding-top: 20px;">My Chatbot</h1>
+		<div id="container">
+			<div class="chat_bot">
+				<ul class="chat_bot_conserv">
+					
+				</ul>
 			</div>
-			<div id="controls">
-				<div class="form-group" style="text-align: center;">
-					<input type="text" class="form-control" name="question" id="question" placeholder="Type Here.........">	
-				</div>
-				<button id="send" style="float:right;" class="btn btn-lg btn-primary btn-hover" name="send">Send</button>
-		  	</div>
-	
- 
- 		
- 		
-	
+		</div>
+		<div id="controls">
+			<div class="form-group" style="text-align: center;">
+				<input type="text" class="form-control" name="question" id="question" placeholder="Type Here.........">	
+			</div>
+			<button id="send" style="float:right;" class="btn btn-lg btn-primary btn-hover" name="send">Send</button>
+	  	</div>
 	<?php 
-		include('footer.php');
+		//include('footer.php');
 
-	 ?>
-
-
-
-
+	?>
 </body>
 </html>
 

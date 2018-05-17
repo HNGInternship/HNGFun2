@@ -1,110 +1,88 @@
 <?php
 
-    if($_SERVER['REQUEST_METHOD'] === 'GET')
+
+    // Check if a get variable question isset. If not continue with page operation
+    if(isset($_GET['question']))
      {
-               if (!defined('DB_USER')){
-                   require "../../config.php";
-               }
-               try {
-                   $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-                 } catch (PDOException $pe) {
-                   die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-                 }
+          if (!defined('DB_USER')){
+            require "../../config.php";
+          }
+          try {
+            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+          } catch (PDOException $pe) {
+            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+          }
           $mesuu = $_GET['question'];
           $message=strtolower($mesuu);
-          trim($message);
+          $message = trim($message); // When you call trim(message) returns a trimmed message which should be reassigned back into message
           $statusTrain = stripos($message, "train:");
-          if($statusTrain)
+          if($statusTrain !== false) // Check for truthiness should be explicitly stated
           {
-            $newstring=str_replace("train:","","$message");
-             $sets = explode("#", $newstring);
-                  $mQuestion= $sets[0];
-                  $mAns= $sets[1];
-                  $mPwd= $sets[2];
-                  if($mPwd=='passcode'){
-                  $resultIns = $conn->query("insert into chatbot (`question`, `answer`) values ('$mQuestion','$mAns')" );
-                  if($resultIns)
-                  {
-                    echo json_encode([
-                     'status' => 1,
-                            'answer' => "thanks and noted."
-                            ]);
-    return;
+              $newstring=str_replace("train:","","$message");
+              $sets = explode("#", $newstring);
+              $mQuestion= $sets[0];
+              $mAns= $sets[1];
+              $mPwd= $sets[2];
+              
+              if( $mPwd === "password"){
+              $resultIns = $conn->query("insert into chatbot (`question`, `answer`) values ('$mQuestion','$mAns')" );
+                if($resultIns)
+                {
+                  echo json_encode([
+                   'status' => 1,
+                    'answer' => "thanks and noted."
+                  ]);
+                  return;
+                }
+                else {
+                  echo json_encode([
+                  'status' => 1,
+                  'answer' => "sorry something went wrong"
+                  ]);
+                  return;
+                  // code...
+                }
+              }
+              else {
 
-    }
-    else {
-
-    echo json_encode([
-       'status' => 1,
-       'answer' => "sorry something went wrong"
-     ]);
-    return;
-      // code...
-    }
-                  }
-                  else {
-
-                    echo json_encode([
-                       'status' => 1,
-                       'answer' => "sorry wrong password"
-                     ]);
-                    // code...
-                  }
-    return;
-          }if ($message==""){
-      echo json_encode([
-         'status' => 1,
-         'answer' => "enter a question  you can also train me "
-       ]);
-    return;
-    }
-    if ($message==""){
-    echo json_encode([
-    'status' => 1,
-    'answer' => "enter a question  you can also train me "
-    ]);
-    return;
-    }
+                echo json_encode([
+                   'status' => 1,
+                   'answer' => "sorry wrong password"
+                 ]);
+                // code...
+              }
+              return;
+          }
 
           if($message=='aboutbot'){
             echo json_encode([
                'status' => 1,
                'answer' => "sasbot 1.0"
              ]);
-    return;
+            return;
           }
          if ($message!=''){
-    $result2 = $conn->query("select * from chatbot where question = '$message' order by rand()");
-    $user = $result2->fetch(PDO::FETCH_OBJ);
+              $result = $conn->query("SELECT answer FROM chatbot WHERE question LIKE '%{$message}%' ORDER BY rand() LIMIT 1"); // Set limit to 1, use LIKE instead of = for comparison
+              $result = $result->fetch(PDO::FETCH_OBJ); //fetch result for query
+              
 
-    if($user){
-    $rows=$user->answer;
-
-    echo json_encode([
-       'status' => 1,
-       'answer' => $rows
-     ]);
-    return;
-    }
-    else
-    {
-      echo json_encode([
-         'status' => 1,
-         'answer' =>"sorry i have no answer to that yet, but you can train me how to annswer questions "
-       ]);
-    return;
-    }
-
-    if ($message==""){
-      echo json_encode([
-         'status' => 1,
-         'answer' => "enter a question  you can also   train me "
-       ]);
-    return;
-    }
-    }
-        return;
-     }
+           if($result){ //Check if reult is null
+             $answer = $result->answer; // Get column anser value from result
+              echo json_encode([
+                'status' => 1,
+                'answer' => $answer
+              ]);
+              return;
+           }else{
+             echo json_encode([
+               'status' => 1,
+               'answer' =>"sorry i have no answer to that yet, but you can train me how to annswer questions "
+             ]);
+             return;
+           }
+         }
+         return;
+      }
 
 ?>
 

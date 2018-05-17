@@ -155,12 +155,14 @@ $activeArray[$fileIndex]="active";
         padding-left: .5rem;
         padding-top: 20px;
         font-size: 15px !important;
+        position: relative;
     }
 
     ul.navbar-nav.collapse.ml-auto {
         display: -webkit-inline-box;
         height: 100% !important;
         float: right;
+
     }
 
     nav.navbar {
@@ -260,11 +262,11 @@ $activeArray[$fileIndex]="active";
   	 position: relative;
     display: inline-block;
   }
-	   
+
       .footer-li .fa-stack-1x:hover{
             color: #0465be !important;
-      }      
-	
+      }
+
   @media (min-width: 575px) {
   #img-fixed {
     width: 235px;
@@ -304,7 +306,8 @@ $activeArray[$fileIndex]="active";
   }
 }
     </style>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript">
+    </script>
 
   </head>
 
