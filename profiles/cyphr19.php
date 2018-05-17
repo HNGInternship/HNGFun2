@@ -275,7 +275,7 @@ function fetchans($msg){
 
                 <a href="https://twitter.com/GALDREN_CYPHR" target="_blank" target="_blank">
 
-                  <img class="social-icons" src="http://res.cloudinary.com/eskye/image/upload/c_scale,w_100/v1523623465/twitter.svg" />
+                  <img class="social-icons" src="http://res.cloudinary.com/galdrencyphr/image/upload/v1526557309/twitter-512.png" />
 
                 </a>
 
