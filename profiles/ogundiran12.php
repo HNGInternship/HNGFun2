@@ -689,7 +689,7 @@
                                             You can perform the following commands <br> 
                                             <p class="c1">aboutbot - To know about me.</p>
                                             <p class="c2">trumpet - I'll 'blow' you something Donald Trump once said.</p>
-                                            <p class="c3">train - #train [question] [answer] [password] .</p>`;
+                                            <p class="c3">train - <b>#train [question] [answer] [password]</b>.</p>`;
                                 this.sendBotMsg(cmdMsg);
                                 break;
                             case 'aboutbot':
