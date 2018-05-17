@@ -54,27 +54,27 @@
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="about.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/about">
                      About Us
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="press.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/press">
                     Press
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="help.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/help">
                     Help
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="core_values.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/core_values">
                     Our Core Values
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="index.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/index">
                     Current Internship
                   </a>
                </li>
