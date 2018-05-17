@@ -22,20 +22,26 @@
       die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
     }
     if (substr($_GET['question'], 0, 5) == 'train'){
-      // echo "<script>console.log('training mode');</script>";
       
       $input = preg_replace('/\s*#\s*/', '#', $_GET['question']);
 
       $indexof1 = strpos($input, '#');
       $indexof2 = strpos($input, '#', 6);
+      $indexof3 = strpos($input, '#', $indexof2+1);
 
       $new_question = substr($input, $indexof1+1, $indexof2-$indexof1-1);
-      $new_answer = substr($input, $indexof2+1);
+      $new_answer = substr($input, $indexof2+1, $indexof3-$indexof2-1);
+      $password = substr($input, $indexof3+1);
 
-      $sql = "INSERT INTO chatbot (question, answer) VALUES ('$new_question', '$new_answer')";
-      $conn->exec($sql);
+      if ($password == "password"){
+        $sql = "INSERT INTO chatbot (question, answer) VALUES ('$new_question', '$new_answer')";
+        $conn->exec($sql);
 
-      $response = "Training Successful";
+        $response = "Training Successful";
+      } else {
+        $response = "Training was not successful. Please use the correct training password.";
+      }
+      
       echo $response;
       exit();
     }
@@ -47,7 +53,7 @@
       if (isset($answer) && $answer){
         $response = $answer->answer;
       } else {
-        $response = "Well, this is embarrassing. I don't know what to say. You can teach me by entering the question and answer in this format: train#your-question#your-answer";
+        $response = "Well, this is embarrassing. I don't know what to say. You can teach me by entering the question and answer in this format: train#your-question#your-answer#training-password";
       }
 
       echo $response;
@@ -81,10 +87,6 @@
 			background-color: #958080;
 			height: 100%;
 		}
-
-    /* div .hidden {
-      display: none !important;
-    } */
 
     .text {
       font-family: "Rajdhani", sans-serif;
@@ -233,7 +235,7 @@
   </style>
   <script>
     var outer_profile = true;
-    var version = "Bot v1.0.23";
+    var version = "Bot v1.0.24";
     $(function (){    
       
       // Switch between Profile and Chat screens
@@ -253,7 +255,6 @@
 
       // Add user's request and bot's response to chat interface
       $("#send").click(function() {
-        // alert("it got here");
         var input = $("#request").val();        
         if ($.trim(input)) {
           $("#chat-area table").append("<tr><td><div class='user-bubble'><p>"+input+"</p></div></td></tr>");
@@ -278,8 +279,6 @@
               }
             });
           }
-          
-
 
         }
         $("#chat-area").scrollTop($("#chat-area")[0].scrollHeight);
@@ -291,7 +290,6 @@
           return false; 
         } 
       });
-
 
     });
   </script>
@@ -340,6 +338,12 @@
               <p>My name is Bot</p>
             </div>
           </tr></td>
+          <tr><td>
+            <div class="bot-bubble">
+              <p>Ask me a question or teach me something new by entering the question and answer in this format: train#your-question#your-answer#training-password</p>
+            </div>
+          </tr></td>
+          
         </table>
       </div>
       <div id="input-area"> 

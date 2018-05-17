@@ -318,122 +318,10 @@
     </div>  
   </div>
 
-  <script type="text/javascript" src="https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/require/require.js"></script>
+  <!--<script type="text/javascript" src="https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/require/require.js"></script>-->
   <script>
-    requirejs.config({
-      // Path mappings for the logical module names
-            paths: {
-              'knockout': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/knockout/knockout-3.4.0',
-              'jquery': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/jquery/jquery-3.1.1.min',
-              'jqueryui-amd': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/jquery/jqueryui-amd-1.12.0.min',
-              'ojs': 'https://static.oracle.com/cdn/jet/v4.1.0/default/js/min',
-              'ojL10n': 'https://static.oracle.com/cdn/jet/v4.1.0/default/js/ojL10n',
-              'ojtranslations': 'https://static.oracle.com/cdn/jet/v4.1.0/default/js/resources',
-              'text': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/require/text',
-              'promise': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/es6-promise/es6-promise.min',
-              'hammerjs': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/hammer/hammer-2.0.8.min',
-              'signals': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/js-signals/signals.min',
-              'ojdnd': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/dnd-polyfill/dnd-polyfill-1.0.0.min',
-              'css': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/require-css/css.min',
-              'customElements': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/webcomponents/custom-elements.min',
-              'proj4js': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/proj4js/dist/proj4'
-            },
-                  
-            // Shim configuration
-            shim: {
-                'jquery': {
-                    exports: ['jQuery', '$']
-                }
-            }
-    });
-
-    require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodule', 'ojs/ojrouter'],
-    function (oj, ko, app) { // this callback gets executed when all required modules are loaded
-      
-      $(function() {
-        $("#send").click(function(){
-          var usernameTag = "<li><div class='right-chat'><i class='fa fa-user-circle-o fa-3x'></i><p><b>You: </b>";
-          
-          var prevState = $("#chatSection").html();
-          
-          if(prevState.length == 189){
-            var username = $("#textbox").val();
-            
-            if(prevState.length > prevState.length){
-              prevState = prevState + "<br/>";
-            }
-            
-            $("#chatSection").html(prevState + usernameTag + username + "</p><span>" +botDate+ "</span></div></li>");
-            $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
-            $("#textbox").val("");
-
-            displayUsername(username);
-          }
-          else{
-            var userQuestion = $("#textbox").val();
-            if(prevState.length > prevState.length){
-                  prevState = prevState + "<br/>";
-            }
-
-            $("#chatSection").html(prevState + usernameTag + userQuestion + "</p><span>" +botDate+ "</span></div></li>");
-            $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
-            $("#textbox").val("");
-
-            ai(userQuestion);
-            }
-        });
-
-        //initialization function
-        function init() {
-          oj.Router.sync().then(
-            function () {
-              // Bind your ViewModel for the content of the whole page body.
-              ko.applyBindings(app, document.getElementById('globalBody'));
-
-              $(".left-first-section").click(function(){
-                  $("#chatbot-heading").removeClass('blink');
-                  $('.main-section').toggleClass("open-more");
-              });
-
-              $(".fa-minus").click(function(){
-                $('.main-section').removeClass("open-more");
-              });
-                      
-              $('.main-section').addClass("open-more");
-
-              welcome();
-              $("#textbox").keypress(function(event){
-                if( event.which == 13){
-                  if( $("#enter").prop("checked") ){
-                    $("#send").click();
-                    event.preventDefault();
-                  }
-                }
-              });
-            },
-            function (error) {
-              oj.Logger.error('Error in root start: ' + error.message);
-            }
-          );
-        }
-  
-        // If running in a hybrid (e.g. Cordova) environment, we need to wait for the deviceready 
-        // event before executing any code that might interact with Cordova APIs or plugins.
-        if ($(document.body).hasClass('oj-hybrid')) {
-          document.addEventListener("deviceready", init);
-        } else {
-          init();
-        }
-  
-      });
-      
-      
-      
-    }
-  );
-
-
-  var username = "";
+		
+		var username = "";
 
 		//function to add extra zeros for my botdate
 		function pad(number){
@@ -457,10 +345,10 @@
 		//function to append users username in introductory greeting
 		function displayUsername(message) {
 			if(username.length < 6){
-        username = message;
-        send_message("Nice to meet you " + username + ". <br/>You could ask me a question right now, see my list of commands by typing <b style = 'color: #d16027'>pinky commands</b> or train me with a question of your own." +
+				username = message;
+				send_message("Nice to meet you " + username + ". <br/>You could ask me a question right now, see my list of commands by typing <b style = 'color: #d16027'>pinky commands</b> or train me with a question of your own." +
 				"<br/> To do that, do the following: In your text field type this: <b style = 'color: #d16027'> train: question # answer </b>");
-      		}
+			}
 		}
 
 		//function to return bot's message
@@ -468,12 +356,12 @@
 			$(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
 			var prevState = $("#chatSection").html();
 			if(prevState.length > prevState.length){
-					prevState = prevState + "<br/>";
+				prevState = prevState + "<br/>";
 			}
 			$("#chatSection").html(prevState + "<li class='current_message'><div class='left-chat'><i class='fa fa-user-circle fa-3x'></i><p><b>Pinky: </b>" + message + "</p></div></li>");   
 			$(".current_message").hide();
-      		$(".current_message").delay(600).fadeIn();
-      		$(".current_message").removeClass("current_message");
+			$(".current_message").delay(600).fadeIn();
+			$(".current_message").removeClass("current_message");
 			$(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
 		}
 
@@ -484,19 +372,78 @@
 			if(userQuestion.length < prevState.length){	
 				var form_data = {userQuestion : message}
 				$.ajax({
-                	type: "POST",
-                	url: "profiles/AdaM.php",
-                	data: form_data,
-                	success: function(data){
+					type: "POST",
+					url: "profiles/AdaM.php",
+					data: form_data,
+					success: function(data){
 						send_message(data);
-                	},
+					},
 					error: function(){
 						alert("Unable to retrieve answer!");
 					}
-          		});
-			}
-			
+				});
+			}	
 		}
+
+
+		$(function() {
+			$('.main-section').addClass("open-more");
+
+      welcome();
+
+			$(".left-first-section").click(function(){
+          $("#chatbot-heading").removeClass('blink');
+          $('.main-section').toggleClass("open-more");
+      });
+
+      $(".fa-minus").click(function(){
+        $('.main-section').removeClass("open-more");
+      });
+                      
+      $("#textbox").keypress(function(event){
+        if( event.which == 13){
+          if( $("#enter").prop("checked") ){
+              $("#send").click();
+                event.preventDefault();
+          }
+        }
+      });
+
+      $("#send").click(function(){
+        var usernameTag = "<li><div class='right-chat'><i class='fa fa-user-circle-o fa-3x'></i><p><b>You: </b>";
+          
+        var prevState = $("#chatSection").html();
+        
+        if(prevState.length == 208){
+          var username = $("#textbox").val();
+            
+          if(prevState.length > prevState.length){
+              prevState = prevState + "<br/>";
+          }
+            
+            $("#chatSection").html(prevState + usernameTag + username + "</p><span>" +botDate+ "</span></div></li>");
+            $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
+            $("#textbox").val("");
+
+            displayUsername(username);
+          }
+          else{
+            var userQuestion = $("#textbox").val();
+            if(prevState.length > prevState.length){
+                  prevState = prevState + "<br/>";
+            }
+
+            $("#chatSection").html(prevState + usernameTag + userQuestion + "</p><span>" +botDate+ "</span></div></li>");
+            $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
+            $("#textbox").val("");
+
+            ai(userQuestion);
+            }
+      });
+
+			
+		});
+
   </script>
 </body>
 </html>

@@ -64,6 +64,7 @@ section .section-title{
 }
 .card-title{
     font-size: 15px;
+    padding-top: 10px;
 }
 .card-text{
     font-size: 13px;
@@ -76,30 +77,6 @@ section .section-title{
 .image-aside img{
     display: inline;
     width: 145px;
-}
-
-.webdiv{
-	height:430px;
-	width:300px;
-	border: 1px solid white;
-	margin-top:60px;
-    border-radius: 5px;
-	text-align:center;
-	padding-left:20px;
-	padding-right:20px;
-	padding-top:10px;
-	margin-right:20px
-}
-
-
-.webdiv img{
-	height:140px;
-	width:250px;
-}
-
-.row{
-padding-left:90px;
-padding-right:90px;
 }
 
 #webdo{
@@ -134,7 +111,51 @@ right:17px;
   margin-top: 250px;
 }
 
-/* End carousel */
+
+.webdiv p {
+	margin-top: 0;
+}
+.col-md-3{
+	padding-right: 30px;
+}
+.row{
+	width: 90%;
+	margin: 0 auto;
+}
+#row{
+	margin-top: 48px;
+}
+.col-md-4{
+	border: none;
+	position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.col-md-4 p{
+	padding-top: 0;
+	margin-top: 0;
+}
+.col-md-4 h1{
+	padding-top: 20px;
+}
+p.card-text{
+	padding-bottom: 50px;
+}
+@media (min-width: 768px){
+.col-md-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
 
 </style>
 
@@ -213,90 +234,54 @@ right:17px;
 	</section>
 	<!-- /learning resources section -->
 
-<div class="containers" id="webdo" style="background:#2181F7;height:650px">
+<div class="container"  style="background:#2181F7; max-width: 1349px;">
   <!-- <div class="row">
     <h2>Media Slider Carousel BS3</h2>
   </div>
   <div class='row'> -->
     <!-- <div class='col-md-8'> -->
-	<h2 class="section-title mb-2 h1" style="font-size:30px;color:white;text-align:center;padding-top:50px">Design Learning Resources</h2>
-      <div class="carousel slide media-carousel" id="media">
-        <div class="carousel-inner">
-          <div class="item  active">
-            <div class="row">
-              <div class="col-md-3">
-					<div class="webdiv">
-						<img src="img/6.png" style="margin-top:20px">
-						<h1 style="font-size:20px;color:white;text-align:left;margin-top:15px;padding-bottom:10px;font-weight:100px;margin-left:5px">ORACLE</h1>
-						<p class="card-title" style="color:white;text-align:left;margin-left:5px">Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
-						<h3 class="card-title" style="color:white;text-align:left;margin-top:45px;margin-left:5px">POSTED BY Jane Doe</h3>
-						<p class="card-text" style="color:white;text-align:left;margin-left:5px">5 mins ago</p>
-					</div>
+	<h2 class="section-title mb-2 h1" style="color:white;text-align:center;padding-top:50px; ">Design Learning Resources</h2>
+     
+           
+            <div class="row" id="row" >
+              <div class="col-md-4" >
+					
+						<img src="img/6.png" style="margin-top:10px; width:80%; height: 150px;">
+						<h1 style="font-size:20px; margin-top:15px;padding-bottom:10px;font-weight:100px;">ORACLE</h1>
+						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
+						<h3 class="card-title" >POSTED BY Jane Doe</h3>
+						<p class="card-text" >5 mins ago</p>
+					
               </div>          
-              <div class="col-md-3">
-			  		<div class="webdiv">
-						<img src="img/6.png" style="margin-top:20px">
-						<h1 style="font-size:20px;color:white;text-align:left;margin-top:15px;padding-bottom:10px;font-weight:100px;margin-left:5px">ORACLE</h1>
-						<p class="card-title" style="color:white;text-align:left;margin-left:5px">Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
-						<h3 class="card-title" style="color:white;text-align:left;margin-top:45px;margin-left:5px">POSTED BY Jane Doe</h3>
-						<p class="card-text" style="color:white;text-align:left;margin-left:5px">5 mins ago</p>
-					</div>
+              <div class="col-md-4" >
+			  		
+						<img src="img/6.png" style="margin-top:10px; width:80%; height: 150px;">
+						<h1 style="font-size:20px;margin-top:15px;padding-bottom:10px;font-weight:100px;">ORACLE</h1>
+						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
+						<h3 class="card-title" >POSTED BY Jane Doe</h3>
+						<p class="card-text" >5 mins ago</p>
+				
               </div>
-              <div class="col-md-3">
-			  		<div class="webdiv">
-						<img src="img/6.png" style="margin-top:20px">
-						<h1 style="font-size:20px;color:white;text-align:left;margin-top:15px;padding-bottom:10px;font-weight:100px;margin-left:5px">ORACLE</h1>
-						<p class="card-title" style="color:white;text-align:left;margin-left:5px">Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
-						<h3 class="card-title" style="color:white;text-align:left;margin-top:45px;margin-left:5px">POSTED BY Jane Doe</h3>
-						<p class="card-text" style="color:white;text-align:left;margin-left:5px">5 mins ago</p>
-					</div>
+              <div class="col-md-4" >
+			  		
+						<img src="img/6.png" style="margin-top:10px; width:80%; height: 150px;">
+						<h1 style="font-size:20px;margin-top:15px;padding-bottom:10px;font-weight:100px;">ORACLE</h1>
+						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
+						<h3 class="card-title" >POSTED BY Jane Doe</h3>
+						<p class="card-text" >5 mins ago</p>
+					
               </div>        
-            </div>
+           
+          
           </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-md-3">
-			  		<div class="webdiv">
-						<img src="img/6.png" style="margin-top:20px">
-						<h1 style="font-size:20px;color:white;text-align:left;margin-top:15px;padding-bottom:10px;font-weight:100px;margin-left:5px">ORACLE</h1>
-						<p class="card-title" style="color:white;text-align:left;margin-left:5px">Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
-						<h3 class="card-title" style="color:white;text-align:left;margin-top:45px;margin-left:5px">POSTED BY Jane Doe</h3>
-						<p class="card-text" style="color:white;text-align:left;margin-left:5px">5 mins ago</p>
-					</div>
-              </div>          
-              <div class="col-md-3">
-			 	 	<div class="webdiv">
-						<img src="img/6.png" style="margin-top:20px">
-						<h1 style="font-size:20px;color:white;text-align:left;margin-top:15px;padding-bottom:10px;font-weight:100px;margin-left:5px">ORACLE</h1>
-						<p class="card-title" style="color:white;text-align:left;margin-left:5px">Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
-						<h3 class="card-title" style="color:white;text-align:left;margin-top:45px;margin-left:5px">POSTED BY Jane Doe</h3>
-						<p class="card-text" style="color:white;text-align:left;margin-left:5px">5 mins ago</p>
-					</div>
-              </div>
-              <div class="col-md-3">
-			  		<div class="webdiv">
-						<img src="img/6.png" style="margin-top:20px">
-						<h1 style="font-size:20px;color:white;text-align:left;margin-top:15px;padding-bottom:10px;font-weight:100px;margin-left:5px">ORACLE</h1>
-						<p class="card-title" style="color:white;text-align:left;margin-left:5px">Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
-						<h3 class="card-title" style="color:white;text-align:left;margin-top:30px;margin-left:5px">POSTED BY Jane Doe</h3>
-						<p class="card-text" style="color:white;text-align:left;margin-left:5px">5 mins ago</p>
-					</div>
-              </div>        
-            </div>
-          </div>
-        </div>
-        <a data-slide="prev" href="#media" class="left carousel-control" style="color:#000000;">‹</a>
-        <a data-slide="next" href="#media" class="right carousel-control" style="color:#000000;">›</a>
-      </div>                          
-    <!-- </div> -->
-  <!-- </div> -->
+       
 </div>
 
 
     <!-- android learning resources section -->
 	<section id="what-we-do">
 		<div class="container">
-			<h2 class="section-title mb-2 h1">Android Learning Resources</h2>
+			<h2 class="section-title mb-2 h1" style="padding-top: 10px;">Android Learning Resources</h2>
 			<!-- <p class="text-center text-muted h5">Having and managing a correct marketing strategy is crucial in a fast moving market.</p> -->
 			<div class="row mt-5">
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -359,14 +344,7 @@ right:17px;
 		</div>	
 	</section>
 	<!-- /learning resources section -->
-<script>
-$(document).ready(function() {
-  $('#media').carousel({
-    pause: true,
-    interval: false,
-  });
-});
-</script>
+
 <!-- </body> -->
 <!-- </html>-->
 <?php include('footer.php'); ?>
