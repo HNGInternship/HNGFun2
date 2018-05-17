@@ -219,7 +219,7 @@ i.fa.fa-bars {
                         <div class="card-header" id="headingOne" >
 
                         <h5 class="mb-0">
-                            <button class ="col-sm-6" class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class ="col-sm-6" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                              Will I be awarded a certificate after this internship?
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </button>
