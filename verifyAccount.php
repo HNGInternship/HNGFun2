@@ -43,7 +43,7 @@ if(isset($_GET['S']) && isset($_GET['q']))
         $msg = "
 		       <div class='alert alert-error'>
 			   <button class='close' data-dismiss='alert'>&times;</button>
-			   <strong>sorry !</strong>  No Account Found : <a href='signup.php'>Signup here</a>
+			   <strong>sorry !</strong>  No Account Found : <a href='sign-up.php'>Signup here</a>
 			   </div>
 			   ";
     }

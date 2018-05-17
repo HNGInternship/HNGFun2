@@ -216,14 +216,21 @@ i.fa.fa-bars {
                         <div class="img-top img-box"><i class="fa fa-database"></i></div>
                     </div>
                     <div class="col">
-                        <div class="card-header" id="headingOne">
+                        <div class="card-header" id="headingOne" >
 
-                        <h5 class="mb-0">
-                            <button class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <!--  <h5 class="mb-0">
+                            <button class ="col-sm-6" class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                              Will I be awarded a certificate after this internship?
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </button>
+                        </h5>   -->
+                              <h5 class="mb-0">
+                            <p class ="col-sm" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                             Will I be awarded a certificate after this internship?
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </p>
                         </h5>
+
                         </div>
 
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
@@ -246,10 +253,10 @@ i.fa.fa-bars {
                       <div class="col">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
-                                    <button class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                   <p class ="col-sm" class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     Is this internship program open for only Nigerians?
                                     <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
+                                    </p>
                                 </h5>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
@@ -271,9 +278,9 @@ i.fa.fa-bars {
                       <div class="col">
                             <div class="card-header" id="headingThree">
                                 <h5 class="mb-0">
-                                    <button class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                   <p class ="col-sm" class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     Do I need any prior programming experience to join?<i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
+                                    </p>
                                 </h5>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
@@ -293,10 +300,10 @@ i.fa.fa-bars {
                         <div class="col">
                             <div class="card-header" id="headingfour">
                             <h5 class="mb-0">
-                                <button  class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                <p class ="col-sm" class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
                                 What are the basic requirements for this program?
                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </button>
+                                </p>
                             </h5>
                             </div>
 

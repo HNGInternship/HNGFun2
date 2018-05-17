@@ -6,17 +6,39 @@
   <title>Profie | Sampam</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <?php
-    require 'db.php';
 
-    $sql = "Select * from secret_word LIMIT 1";
-    $result = $conn->query($sql);
-    $result = $result->fetch(PDO::FETCH_OBJ);
-    $secret_word = $result->secret_word;
+    try {
+    $sql = "SELECT * FROM secret_word";
+    $q = $conn->query($sql);
+    $q->setFetchMode(PDO::FETCH_ASSOC);
+    $data = $q->fetch();
+    $secret_word = $data['secret_word'];
+    } catch (PDOException $e) {
 
-    $data_sql = "Select * from interns_data where username = 'Sampam'";
-    $data = $conn->query($data_sql);
-    $user = $data->fetch(PDO::FETCH_OBJ);
-    ?>
+        throw $e;
+    }
+
+
+?>
+
+
+   <?php
+
+                try {
+                $sql = "SELECT * FROM interns_data WHERE username= 'Oluwapelumi' ";
+                $q = $conn->query($sql);
+                $q->setFetchMode(PDO::FETCH_ASSOC);
+                $data = $q->fetch();
+                $name = $data['name'];
+                $username = $data['username'];
+                $image_file = $data['image_filename'];
+                } catch (PDOException $e) {
+
+                    throw $e;
+                }
+
+
+            ?>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   <style>
 
