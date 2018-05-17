@@ -7,6 +7,8 @@ $nameError = "";
 $usernameError = "";
 $keyError = "";
 $filenameError = "";
+
+
 //$imageSuccess = false;
 $success = false;
 $key = "sample_secret_word";
@@ -102,18 +104,13 @@ if(isset($_POST['submit']) ){
 
 <div class="container" id="container">
     <?php if($nameError != "" || $keyError != ""|| $usernameError != "" || $filenameError != "") {
-        echo "Error found, please try again!";
+        echo "<div class='alert alert-danger'>Error found, please try again!</div>";
     }?>
 
     <?php if($success) {
         echo "<div class='alert alert-success'>Successful! Click <a href='profile.php?id=$username'>here</a> to view your profile</div>";
     }?>
-<script type="text/javascript">
-function Confirm(form){
-alert("successfully! Click <a href='profile.php?id=$username'>here</a> to view your profile"); 
-form.submit();
-}
-</script>
+
     <form action="admin.php" method="post" enctype="multipart/form-data">
 
         <div class="row">
