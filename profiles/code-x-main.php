@@ -239,176 +239,191 @@ p { margin: 0; }
   </div>
   <div class="column">
 <?php
-  //require '../db.php';
-  $res = $conn->query("SELECT * FROM  interns_data WHERE username = 'code-x' ");
-  $row = $res->fetch(PDO::FETCH_BOTH);
-  $name = $row['name'];
-  $img = $row['image_filename'];
-  $username =$row['username'];
-
-
-
-  $res1 = $conn->query("SELECT * FROM secret_word");
-  $res2 = $res1->fetch(PDO::FETCH_ASSOC);
-  $secret_word = $res2['secret_word'];
+if(!defined('DB_USER')){
+    require "../../config.php";		
+    try {
+        $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+    } catch (PDOException $pe) {
+        die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+    }
+}
+global $conn;
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $result = $conn->query("select * from secret_word LIMIT 1");
+    $result = $result->fetch(PDO::FETCH_OBJ);
+    $secret_word = $result->secret_word;
+    $result2 = $conn->query("Select * from interns_data where username = 'code-x-main'");
+    $user = $result2->fetch(PDO::FETCH_OBJ);
+} else {
+    //require '../answers.php';
+    $message = trim(strtolower($_POST['message']));
+    $version = '1.0';
+    //step 1: Figure out the intent of the message
+    //intents: Greeting, Find the current time, Ask about the HNG Programme
+    //Train the bot
+    //Provide directions for HNG Stage completions
+    //check the db
+    $intent = 'unrecognized';
+    $unrecognizedAnswers = [
+        'sorry, I dont seem to understand your scribbling. i will love it if you can train me. just  type: <b>#train: Question | Answer.</b>',
+        'To make me understand you, boss kindly teach me . Just type: <b>#train: Question | Answer.</b>',
+        "OMG, my bad, this is serious you need to teach me just type: <b>#train: Question | Answer.</b>"
+    ];
+    if (strpos($message, 'aboutbot') !== false) {
+        $intent = 'aboutbot';
+        $response = 'CodexBot' . $version;
+    }
+    //check for a function call
+    if (($startIndex = strpos($message, '((')) !== false && ($endIndex = strpos($message, '))')) !== false) {
+        if ($startIndex < $endIndex) {
+            $message = trim($_POST["message"]);
+            $funcName = substr($message, $startIndex + 2, $endIndex - $startIndex - 2);
+            $funcName = trim($funcName);
+            
+            if(!function_exists($funcName)){
+                $intent = 'confusion';
+                $response = 'You been try call "function" wey no dey exist. Try again';
+            } else {
+                $intent = 'function_call';
+                $response = $funcName();
+            }
+        }
+    }
+    //check for bot training
+    $trainingData = '';
+    if (strpos($message, '#train:') !== false) {
+        $intent = 'training';
+        $parts = explode('#train:', $message);
+        if (count($parts) > 1) {
+            $trainingData = $parts[1];
+        }
+    } else if (strpos($message, '# train:') !== false) {
+        $intent = 'training';
+        $parts = explode('# train:', $message);
+        if (count($parts) > 1) {
+            $trainingData = $parts[1];
+        }
+    } else if (strpos($message, '#train :') !== false) {
+        $intent = 'training';
+        $parts = explode('#train :', $message);
+        if (count($parts) > 1) {
+            $trainingData = $parts[1];
+        }
+    }
+    if ($intent === 'training' && $trainingData === '') {
+        $response = 'oops!, you are not training me well. Use this format >>> "#train: Question | Answer"';
+    } else if ($trainingData !== '') {
+        $intent = 'training';
+        $parts = explode('|', $trainingData);
+        if (count($parts) > 1) {
+            $question = trim($parts[0]);
+            $answer = trim($parts[1]);
+            //save in db
+            $sql = "insert into chatbot (question, answer) values (:question, :answer)";
+            $query = $conn->prepare($sql);
+            $query->bindParam(':question', $question);
+            $query->bindParam(':answer', $answer);
+            $query->execute();
+            $query->setFetchMode(PDO::FETCH_ASSOC);
+            
+            $response = 'Thanks for finding out time to teach me boss';
+        } else {
+            $response = 'OMG, I seem not to still understand you. Please use this format >>> "#train: Question | Answer"';
+        }
+    }
+    if ($intent === 'unrecognized') {
+        $answer = '';
+        $stmt = $conn->prepare("SELECT answer FROM chatbot WHERE question LIKE '$message' ORDER BY rand() LIMIT 1");
+        $stmt->execute();
+        if($stmt->rowCount() > 0) {
+            $intent = 'db_question';
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $answer = $row["answer"];
+            }
+        }
+    }
+    switch($intent) {
+        case 'aboutbot':
+        case 'function_call':
+        case 'training':
+            echo $response;
+            break;
+        case 'db_question':
+            echo $answer;
+            break;
+        case 'confusion':
+            echo $response;
+            break;
+        case 'unrecognized':
+        default:
+            echo $unrecognizedAnswers[rand(0, count($unrecognizedAnswers) - 1)];
+            break;
+    }
+    exit;
+}
+  
 ?>
-
-<div id="live-chat">
-		
-		<header class="clearfix">
-			
-			<a href="#" class="chat-close">x</a>
-
-			<h4>CodeX Chatbot</h4>
-
-			<span class="chat-message-counter">3</span>
-
-		</header>
-
-		<div class="chat">
-			
-			<div class="chat-history" id="chat-box">
-				
-				<div class="chat-message clearfix">
-					
-					<img src="http://res.cloudinary.com/code-x/image/upload/v1525118313/code-x.jpg" alt="" width="32" height="32">
-
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">01:30pm</span>
-
-						<h5>Code-X</h5>
-
-						<p>Hello, I'm CodexBot, how may I help you today? You can also train me!!!</p>
-
-					</div> <!-- end chat-message-content -->
-					</div> <!-- end chat-message -->
-
-				<hr>
-
-				<div class="chat-message clearfix">
-					
-					<img src="https://scontent.flos8-1.fna.fbcdn.net/v/t1.0-9/29101326_1670126126413809_8661840651001790464_n.jpg?_nc_cat=0&oh=aac8c36c8aae143804e8c681f4112bb3&oe=5B91B7CA" alt="" width="32" height="32">
-
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">02:37pm</span>
-
-						<h5>Maggie Lakes</h5>
-
-						<p>Good afternoon, I need help with my website!</p>
-
-					</div> <!-- end chat-message-content -->
-
-				</div> <!-- end chat-message -->
-
-				<hr>
-
-				<div class="chat-message clearfix">
-					
-					<img src="https://scontent.flos8-1.fna.fbcdn.net/v/t1.0-9/29101326_1670126126413809_8661840651001790464_n.jpg?_nc_cat=0&oh=aac8c36c8aae143804e8c681f4112bb3&oe=5B91B7CA" alt="" width="32" height="32">
-
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">3:05pm</span>
-
-						<h5>Maggie Lakes</h5>
-
-						<p>Check it from the link sent</p>
-
-					</div> <!-- end chat-message-content -->
-
-				</div> <!-- end chat-message -->
-
-				<hr>
-
-			</div> <!-- end chat-history -->
-
-			<p class="chat-feedback">Your partner is typing…</p>
-
-			<form action="#" method="post">
-
-				<fieldset>
-					
-					<input type="text" placeholder="Type your message…"	id="text-input" autofocus>
-					<input type="hidden">
-
-				</fieldset>
-
-			</form>
-
-		</div> <!-- end chat -->
-
-	</div> <!-- end live-chat -->
+<div class="row">
+            <div class="chat-window" id="chat-window">
+                <div class="chats" id="chats">
+                    <p class="chat received">Hi, This is CodexBot, How may I help you today? <br> Sorry if I don't understand you, <br> Kindly train me thus #train: Question | Answer.</p>
+                </div>
+                <input type="text" id="chat-input" placeholder="Type and hit enter to send a message"/>
+            </div>
+            <button class="chat-trigger" id="chat-trigger"><i class="fa fa-comments"></i></button>
+        </section>
+        
+    </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   </div>
 </div> 
-<script>
-document.getElementById('text-input').onkeypress = function(e){
 
-    if (!e) e = window.event;
 
-    var keyCode = e.keyCode || e.which;
-
-    if (keyCode == '13'){
-      let chatDiv = document.getElementById('text-input');
-      let reply = botReply(e.target.value);
-
-      return false;
-
-    }
-
-  }
-  
- function botReply(input){
-  if(input == 'aboutbot')
-	return 'This is CodeXbotv1.0908'
-  else //AJAX GOES HERE
-    return 'This is the response from server';
- }
- 
- function userMessage(msg){
-	 let output = '<div class="chat-message clearfix">';
-	 output += '<img src="https://scontent.flos8-1.fna.fbcdn.net/v/t1.0-9/29101326_1670126126413809_8661840651001790464_n.jpg?_nc_cat=0&oh=aac8c36c8aae143804e8c681f4112bb3&oe=5B91B7CA" alt="" width="32" height="32">
-	 ';
-	 output  += '<div class="chat-message-content clearfix">';
-						
-	 output += '<span class="chat-time">02:37pm</span>'
-
-     ouput += '<h5>Maggie Lakes</h5>'
-
-	 output += '<p>' + msg + '</p>';
-	 ouput += '</div> <!-- end chat-message-content -->';
-	 ouput += '</div>'
-
- 
-     return output;
- }
- 
- function botMessage(msg){
-	 let output = '<div class="chat-message clearfix">';
-	 output += '<img src="http://res.cloudinary.com/code-x/image/upload/v1525118313/code-x.jpg" alt="" width="32" height="32">
-	 ';
-	 output  += '<div class="chat-message-content clearfix">';
-						
-	 output += '<span class="chat-time">02:37pm</span>'
-
-     ouput += '<h5>CodeXbot</h5>'
-
-	 output += '<p>' + msg + '</p>';
-	 ouput += '</div> <!-- end chat-message-content -->';
-	 ouput += '</div>'
-
- 
-     return output;
- }
- 
- 
- 
-
-</script>
-
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#chat-window").toggle();
+            var chatTrigger = $("#chat-trigger");
+            chatTrigger.on('click', function() {
+                $("#chat-window").toggle(1000);
+            });
+            $('#chat-input').on('keypress', function (e) {
+                if(e.which === 13){
+                    //Disable textbox to prevent multiple submit
+                    $(this).attr("disabled", "disabled");
+                    if(this.value !== '') {
+                        //send message
+                        $("#chats").append(`<p class="chat sent">${this.value}</p>`);
+                        $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 1000);
+                        sendMessage(this.value);
+                        this.value = '';
+                        
+                    }
+                    //Enable the textbox again if needed.
+                    $(this).removeAttr("disabled");
+                }
+            });
+            function sendMessage(message) {
+                $.ajax({
+                    method: 'POST',
+                    url: 'profiles/code-x-main.php',
+                    data: {message: message},
+                    success: function(response) {
+                        $("#chats").append(`<p class="chat received">${response}</p>`);
+                        $("#chats").animate({scrollTop: $('#chats').prop("scrollHeight")}, 1000);
+                    },
+                    error: function(error) {
+                        $("#chats").append(`<p class="chat received">Sorry, I cannot give you a response at this time.</p>`);
+                        $("#chats").animate({scrollTop: $('#chats').prop("scrollHeight")}, 1000);
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

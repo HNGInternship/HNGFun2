@@ -119,7 +119,7 @@ right:17px;
 	padding-right: 30px;
 }
 .row{
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
 }
 #row{
@@ -148,13 +148,16 @@ right:17px;
 p.card-text{
 	padding-bottom: 50px;
 }
-@media (min-width: 768px){
+@media (max-width:  768px){
 .col-md-4 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 33.333333%;
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
+	width: 100%;
+	margin-left: 8%;
+	margin-right: 7%;
+	padding-right: 0;
+}
+
+.col-md-4 img{
+	width: 100%;
 }
 
 </style>
@@ -248,7 +251,7 @@ p.card-text{
 					
 						<img src="img/6.png" style="margin-top:10px; width:80%; height: 150px;">
 						<h1 style="font-size:20px; margin-top:15px;padding-bottom:10px;font-weight:100px;">ORACLE</h1>
-						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
+						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind. Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
 						<h3 class="card-title" >POSTED BY Jane Doe</h3>
 						<p class="card-text" >5 mins ago</p>
 					
@@ -257,7 +260,7 @@ p.card-text{
 			  		
 						<img src="img/6.png" style="margin-top:10px; width:80%; height: 150px;">
 						<h1 style="font-size:20px;margin-top:15px;padding-bottom:10px;font-weight:100px;">ORACLE</h1>
-						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
+						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind. Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
 						<h3 class="card-title" >POSTED BY Jane Doe</h3>
 						<p class="card-text" >5 mins ago</p>
 				
@@ -266,7 +269,7 @@ p.card-text{
 			  		
 						<img src="img/6.png" style="margin-top:10px; width:80%; height: 150px;">
 						<h1 style="font-size:20px;margin-top:15px;padding-bottom:10px;font-weight:100px;">ORACLE</h1>
-						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
+						<p class="card-title" >Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind. Introducing you to a world of interface design with real time collaboration using Figma. First of it's kind </p>
 						<h3 class="card-title" >POSTED BY Jane Doe</h3>
 						<p class="card-text" >5 mins ago</p>
 					
