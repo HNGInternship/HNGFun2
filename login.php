@@ -93,7 +93,7 @@
 
             $("#login").html('Redirecting..');
 
-            window.location.href ="dashboard";
+            window.location.href ="dashboard.php";
              }  
              else if(data=="2"){
                 $("#message")attr("class", 'text-danger');
