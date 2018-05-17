@@ -165,7 +165,7 @@
             background-color: #e7f8ec !important;
         }
         .mycontainer{
-            margin-top: 25%;
+            margin-top: 0;
         }
         #app{
             font-family: "Montserrat", sans-serif;
