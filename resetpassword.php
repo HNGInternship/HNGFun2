@@ -54,7 +54,8 @@ include_once("header.php");
 
             
 
-             $.ajax('Process.php',{
+             $.ajax({
+                url : 'process.php',
             type : 'post',
             data : data,
             success: function(data){
