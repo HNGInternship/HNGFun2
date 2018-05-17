@@ -216,7 +216,7 @@ i.fa.fa-bars {
                         <div class="img-top img-box"><i class="fa fa-database"></i></div>
                     </div>
                     <div class="col">
-                        <div class="card-header" id="headingOne">
+                        <div class="card-header" id="headingOne" class ="col-sm-6">
 
                         <h5 class="mb-0">
                             <button class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
