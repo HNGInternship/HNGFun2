@@ -278,9 +278,9 @@ i.fa.fa-bars {
                       <div class="col">
                             <div class="card-header" id="headingThree">
                                 <h5 class="mb-0">
-                                    <button class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                   <p class ="col-sm" class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     Do I need any prior programming experience to join?<i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
+                                    </p>
                                 </h5>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
@@ -300,10 +300,10 @@ i.fa.fa-bars {
                         <div class="col">
                             <div class="card-header" id="headingfour">
                             <h5 class="mb-0">
-                                <button  class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                <p class ="col-sm" class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
                                 What are the basic requirements for this program?
                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </button>
+                                </p>
                             </h5>
                             </div>
 
