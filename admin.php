@@ -7,7 +7,6 @@ $nameError = "";
 $usernameError = "";
 $keyError = "";
 $filenameError = "";
-exit();
 //$imageSuccess = false;
 $success = false;
 $key = "sample_secret_word";
@@ -103,7 +102,7 @@ if(isset($_POST['submit']) ){
 
 <div class="container" id="container">
     <?php if($nameError != "" || $keyError != ""|| $usernameError != "" || $filenameError != "") {
-        echo "<div class='alert alert-danger'>Error found, please try again!</div>";
+        echo "Error found, please try again!";
     }?>
 
     <?php if($success) {
