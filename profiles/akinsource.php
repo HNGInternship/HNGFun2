@@ -5,7 +5,7 @@
 		$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $e) {
-			die("<br><br><br>Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+			die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
 		}
 		}
 	$result = $conn->query("Select * from secret_word LIMIT 1");
@@ -237,7 +237,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		return;			
 	}
 	} catch (PDOException $e){
-		$e->getMessage();
+		echo $sql . "<br>" . $e->getMessage();
+	    	exit();
 	}
 	}
 	

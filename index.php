@@ -14,6 +14,19 @@ include_once("header.php");
 	.btn-blue{
 		background-color: #2196F3 !important;
 	}
+	#btn-signup:hover{
+		background-color: #dbf4ff !important;
+         color: #000000 !important;
+         box-shadow: 0 0 10px #dbf4ff, 0 0 2px #5bc0de;
+		-moz-transition: all 0.5s linear;
+		-webkit-transition: all 0.5s linear;
+		-o-transition: all 0.5s linear;
+		transition: all 0.5s linear;
+	}
+	#btn-signup:hover {
+    background-color: #dbf4ff !important;
+    color: #000000 !important;
+    box-shadow: 0 0 1px #dbf4ff;
 </style>
 
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
@@ -44,8 +57,8 @@ include_once("header.php");
 		  	  </div>
 
 		  	  <input type="text" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
-		  	  <a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">
-		  	  	<p class="font-weight-normal text-white mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
+		  	  <a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0" id="btn-signup">
+		  	  	<p class="font-weight-normal mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
 		  	  </a>
 		  	</div>
 			</form>

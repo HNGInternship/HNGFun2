@@ -40,7 +40,7 @@ try {
 			
 			<li class="list-group-item">
 				<i class="fa fa-user"></i>
-				&emsp;
+				
 				<strong>
 					<?php echo $user->name; ?>
 				</strong>
@@ -48,7 +48,7 @@ try {
 
 			<li class="list-group-item">
 				<i class="fa fa-info"></i>
-				&emsp;
+				
                     <p>I am a Software Developer and an Android Enthusiast. You can follow me on twitter <a target="_blank" href="https://twitter.com/dfrank300/"><i class="fa fa-twitter"></i></a> </p>
 			</li>
 			
