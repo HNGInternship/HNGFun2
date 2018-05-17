@@ -5,7 +5,7 @@
 		$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $e) {
-			die("<br><br><br>Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+			die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
 		}
 		}
 	$result = $conn->query("Select * from secret_word LIMIT 1");
@@ -40,7 +40,7 @@
 		}
 		return $retryout;
 	}
-	function get_time() {
+	function get_times() {
 	//get_language();
 	global $newinf;
 	if (!$newinf){
@@ -237,7 +237,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		return;			
 	}
 	} catch (PDOException $e){
-		$e->getMessage();
+		echo $sql . "<br>" . $e->getMessage();
+	    	exit();
 	}
 	}
 	
@@ -432,7 +433,7 @@ function hide() {//hide chat interface
 	d.innerHTML = " Collective knowledge of a lot of bots!";
     } else {
 	s.style.display = "block";
-	d.innerHTML = " I can show you time from present moment till any date! Try 'countdown January 1 2019'";
+	d.innerHTML = " I can show you time from present moment till any date! Try 'countdown January 5 2019'";
     }
 }
 </script>

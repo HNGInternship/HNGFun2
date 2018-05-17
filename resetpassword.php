@@ -4,11 +4,11 @@ include_once("header.php");
 <style>
     .contnt{text-align: center; padding: 100px;}
 </style>
-<div class="clearfix"></div>
+
 <div class="container" >
     
-
-    <div class="row justify-content-md-center">
+<div class="clearfix"></div>
+    <div class="justify-content-md-center">
         
         <div id="notif" ></div>
 

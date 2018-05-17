@@ -24,13 +24,18 @@
     margin-top: 40px;
     margin-bottom: 80px;
 }
-#left-pan{
-    flex: 0 0 60%;
-    max-width: 60% !important;    
-}
+
 #right-pan{
-    max-width: 40% !important;
     background: #2196F3;
+}
+@media only screen and (min-width: 768px){
+    #left-pan{
+        flex: 0 0 60%;
+        max-width: 60% !important;    
+    }
+    #right-pan{
+        max-width: 40% !important;
+    }
 }
 #shield-invite-lpanel{
     margin: 0 auto;
@@ -41,6 +46,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media only screen and (max-width: 768px){
+    #shield-envelope {
+        padding: 50px 0;
+    }
 }
 .shield-circle{
     width: 200px;
