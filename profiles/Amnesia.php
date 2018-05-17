@@ -59,7 +59,7 @@
 
     }
 
-    a {
+    a.intern-link {
       text-decoration: none;
       font-size: 22px;
       color: black;
@@ -80,7 +80,7 @@
     <h3 class="mt">Bassey Kingsley</h3>
     <h6> Designer</h6>
     <h6 style="color: #007BFF"> slack username: amnesia</h6>
-    <p><button><a href="www.hngfun/amnesia.php"></a>  HNG 4.0 Intern</button></p>
+    <p><button><a href="www.hngfun/amnesia.php" class="intern-link"></a>  HNG 4.0 Intern</button></p>
   </div>
 
     <!-- Bootstrap core JavaScript -->
