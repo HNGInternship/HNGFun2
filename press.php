@@ -151,7 +151,7 @@
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 20, 2018</strong> </p>
 				<hr>
-				>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
+				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
 				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
 			</div>
@@ -161,7 +161,7 @@
 				<h3>Team DragonShield Won The HNGFun Task - Mark.</h3>
 				<p>Posted on <strong>April 26, 2018</strong> </p>
 				<hr>
-				>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
+				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
 				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
 			</div>
@@ -171,7 +171,7 @@
 				<h3>Its Popular Apps Week, Earn Money By Creating Apps- Mark.</h3>
 				<p>Posted on <strong>May 1, 2018</strong> </p>
 				<hr>
-				>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
+				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
 				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
 			</div>
@@ -181,7 +181,7 @@
 				<h3>Interns who haven't reached Stage 3 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>May 5, 2018</strong> </p>
 				<hr>
-				>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
+				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
 				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
 			</div>
@@ -191,7 +191,7 @@
 				<h3>Stage3 and Popular Apps has been shutdown - Mark.</h3>
 				<p>Posted on <strong>May 15, 2018</strong> </p>
 				<hr>
-				>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
+				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
 				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
 			</div>
