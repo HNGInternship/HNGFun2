@@ -197,6 +197,7 @@ h3{
   border-radius:15px;
 }
 .chatlog {
+   background-color: #ffffff
    font: 10px arial, sans-serif;
 }
 #chatbox {
@@ -352,8 +353,7 @@ $result2 = $conn->query("SELECT * FROM interns_data WHERE username = 'puenehfait
                   <div class="chat" id="chat">
                     <p class="Jayo">Hi! My name na Jayo <br>i sabi something well well ask me any question,my madam want you to teach me more about javascript she still dey learn am</p>
                     <p class="Jayo">Anything you tell me to do i go do am,Assurance cover you.<br> You fit type Hello make we start from there.</p>
-                    <p class="Jayo">To train me abeg make you type "train:question#answer#password"</p>
-                    <p class="Jayo">The Password na: <b>password</b>.</p>
+                    <p class="Jayo">To train me abeg make you type "train:question#answer#password"The Password na: <b>password </p>
                   </div>
                 </div>
                 <div class="clearfix"></div>
