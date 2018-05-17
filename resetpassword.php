@@ -8,7 +8,7 @@ include_once("header.php");
 <div class="container" >
     
 
-    <div class="row justify-content-md-center">
+    <div class="justify-content-md-center">
         
         <div id="notif" ></div>
 

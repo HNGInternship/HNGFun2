@@ -5,6 +5,7 @@
         $q2 = $conn->query($sql2);
         $q2->setFetchMode(PDO::FETCH_ASSOC);
         $my_data = $q2->fetch();
+        $name = $my_data['name'];
     } catch (PDOException $e) {
         throw $e;
     }
@@ -149,7 +150,7 @@
           color: black;
        }
        .content{
-        background-color: #C0C0C0;
+        background-color: #D3D3D3;
         border-radius: 100px 0px;
         max-width: 500px;
         border: 0px solid black;
@@ -167,6 +168,9 @@
         padding-top: 30px;
         padding-right: 20px;
        }
+	   .skill progress{
+		   width:100%
+	   }
        .skill p {
         text-align: center;
        }
@@ -273,7 +277,7 @@
 
 <div class="container oj-web-applayout-page">
  <div class="content oj-web-applayout-max-width oj-web-applayout-content">
-  <div class="img-grid  oj-flex  oj-sm-12 oj-lg-offset-6">
+  <div class="img-grid  oj-flex  oj-sm-12 oj-lg-offset-5">
     <div class="oj-sm-3"></div>
     <div class="oj-flex-item oj-sm-9">
       <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" class="oj-sm-center img-responsive" height="250px">
@@ -286,35 +290,53 @@
   <div class="skills_grid oj-flex oj-sm-12">
     <div class="skill oj-flex-item oj-sm-4">
       <p>FrontEnd</p>
-       <div class="progress progress-striped active"> 
-            <div class="progress-bar progress-bar-success" role="progressbar"  
-                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"  
-                style="width: 80%;"> 
-            <span class="">80%</span> 
-            </div>
-        </div>
+      <progress  id="frontEnd" min="0" max="100" value=""></progress>
     </div>
     <div class="skill oj-flex-item oj-sm-4">
       <p>BackEnd</p>
-       <div class="progress progress-striped active"> 
-            <div class="progress-bar progress-bar-success" role="progressbar"  
-                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"  
-                style="width: 60%;"> 
-            <span class="">60%</span> 
-            </div>
-        </div>
+      <progress id="backEnd" min="0" max="100" value=""></progress>
     </div>
     <div class="skill oj-flex-item oj-sm-4">
       <p>UI/UX</p>
-       <div class="progress progress-striped active"> 
-            <div class="progress-bar progress-bar-success" role="progressbar"  
-                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"  
-                style="width: 50%;"> 
-            <span class="">50%</span> 
-            </div>
-        </div>
-    </div>
-    <div class="log0">
+       <progress id="ui" min="0" max="100" value=""></progress>
+    </div>  
+
+    <script >
+    window.onload = function(){
+      let val = 0
+      let t = setInterval(frontEnd,25);
+      function frontEnd(){
+        if(val == 60){
+          clearInterval(t);
+        }else {
+          val++;
+          document.getElementById('frontEnd').value=val;
+        }
+      }
+      let val1 = 0
+      let t1 = setInterval(backEnd,25);
+      function backEnd(){
+        if(val1 == 80){
+          clearInterval(t);
+        }else {
+          val1++;
+          document.getElementById('backEnd').value=val1;
+        }
+      }
+      let val2 = 0
+      let t2 = setInterval(ui,25);
+      function ui(){
+        if(val2 == 50){
+          clearInterval(t);
+        }else {
+          val2++;
+          document.getElementById('ui').value=val2;
+        }
+      }
+    }
+    </script>
+  </div>
+    <div class="log">
       <ul class="oj-flex navi">
         <li Class="oj-flex-item oj-sm-3">
           <a href="https://www.twitter.com/epospiky" target="_blank"><img class="logo" src="http://res.cloudinary.com/epospiky/image/upload/v1524768461/twitter.png"></a>
@@ -330,7 +352,7 @@
         </li>
       </ul> 
     </div>
-  </div>
+  
 
   <button class="btn col-sm-offset-5 chat-btn" data-toggle='modal' data-target='#chatModal'><i class="fa fa-comment-alt">Chat</i></button>
         <!--modal-->
@@ -386,7 +408,7 @@
         var message = $("#user-input").val();
         outputArea.append(`<p class='me'>${message}</p>`);
         $.ajax({
-            url: 'profile.php?id=epospiky',
+            url: 'profile.php?id=Epospiky',
             type: 'POST',
             data:  'user-input=' + message,
             success: function(response) {
@@ -402,6 +424,5 @@
         $("#user-input").val("");
     });
 </script>
-</div>
 </body>
 </html>
