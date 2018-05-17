@@ -220,7 +220,7 @@ include_once("header.php");
                 $("#signUpInfo").html("Account created successfully");
             $("#signUpInfo").attr("class","text-success");
             $("#signUpInfo").show();
-                window.location.href="activateaccount.php";
+                window.location.href="activateaccount?email="+email+"&name="+firstname;
                 return;
               }
             
