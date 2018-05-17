@@ -18,7 +18,7 @@
       background: #ffffff;
     }
     .body-font{
-      font-family: 'work sans';}
+      font-family: 'Lato', 'work sans';}
     h1 {
       font-weight: bolder;
     }
@@ -99,7 +99,7 @@
     }
 
     th{
-      font-family: Calibri;
+      font-family: 'Lato', 'work sans';
       font-size: 18px;
     }
     @media screen and (max-width: 767px) {
@@ -150,7 +150,7 @@
 
   <div class="body-font">
     <div class="container sponsor-container">
-            <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Alunmi</h1>
+            <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Alumni</h1>
 
             <p class="sponsors-text text-center pb-4 pt-3 text-center"> HNG Internship has been a life-transforming journey for interns across Africa.<br />Don't take our word for it... take theirs.</p>
       </div>
