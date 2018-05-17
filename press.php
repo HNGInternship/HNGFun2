@@ -128,9 +128,9 @@
 	<div class="update-container">
 		<div class="sidebar" style="padding:20px;">
 			<a href="#release1" class="btn btn-default">Press Release</a>
-			<br><a href="#" class="btn btn-default">Press Release</a>
-			<br><a href="#" class="btn btn-default">Press Release</a>
-			<br><a href="#" class="btn btn-default">Press Release</a>
+			<br><a href="#release2" class="btn btn-default">Press Release</a>
+			<br><a href="#release3" class="btn btn-default">Press Release</a>
+			<br><a href="#releaseLast" class="btn btn-default">Press Release</a>
 		</div>
 	    <div id="boxes">
 	    	<h2 style="text-align: left;">Live Updates</h2>
@@ -180,7 +180,7 @@
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
 
-			<div class="box">
+			<div class="box" id="releaseLast" >
 				<img src="img/bicycle.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
