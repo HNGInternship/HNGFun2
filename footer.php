@@ -49,7 +49,7 @@
 
             <ul class="list-inline text-center" style="padding-top:20px;">
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="contact.php">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/contact">
                      Contact Us
                   </a>
                </li>
