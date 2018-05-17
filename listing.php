@@ -1,14 +1,7 @@
 <?php
 include_once("header.php");
-include_once("db.php");
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 8;
-$start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
-$articles = $conn->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM interns_data LIMIT {$start}, {$perPage}");
-$articles->execute();
-$articles = $articles->fetchAll(PDO::FETCH_ASSOC);
-$total = $conn->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
-$pages = ceil($total/$perPage);
+include_once("../config.php");
+require ('paginator.php');
 ?>
 
 <style>
@@ -42,13 +35,30 @@ $pages = ceil($total/$perPage);
      text-align:center;
    }*/
 </style>
+<?php 
+$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_DATABASE); 
+$query = "SELECT * FROM interns_data";
+
+//these variables are passed via URL
+$limit = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 8; //movies per page
+$page = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1; //starting page
+$links = 8;
+$paginator = new Paginator( $mysqli, $query ); //__constructor is called
+$results = $paginator->getData( $limit, $page );
+?>
 <main class="container mt-5 mb-5 px-5">
   <h2>Our Interns</h2>
   <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto mb-5" />
   <p class="text-center my-1">HNG4.0 has been a life-transforming journey for interns across Africa.</p>
   <p class="text-center my-1">Don't take our word for it...take theirs.</p>
   <div class="row mx-0 mt-4 justify-space-between">
-<?php foreach ($articles as $row): ?>
+  <?php 
+  for($p = 0; $p < count($results->data); $p++): ?> 
+    
+    <?php 
+    //store in $movie variable for easier reading
+    $row = $results->data[$p]; 
+    ?>
   <div class="profile">
       <div class="card0">
         <a href="profile.php?id=<?php echo $row['username'];?>"><img class="card-img-top" src='<?php echo $row['image_filename']?>' onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
@@ -58,28 +68,11 @@ $pages = ceil($total/$perPage);
       </div>
       <h4 class="text-center mt-3"><?php echo $row['name'];?></h4>
     </div>
-<?php endforeach ?>
+<?php endfor ?>
     <nav class="text-xs-center" style="margin:auto;">
     <br>
 <br>
-      <ul class="pagination pagination-sm">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        
-        <?php for ($x=1; $x <= $pages; $x++): ?>
-        <li class="page-item"><a  class="page-link" href="listing.php?page=<?php echo $x?>&per-page=<?php echo $perPage; ?>"><?php echo $x; ?></a></li>
-        <?php endfor; ?>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
+       <?php echo $paginator->createLinks( $links, 'pagination pagination-sm' );?>
     </nav>
     
   </div>
