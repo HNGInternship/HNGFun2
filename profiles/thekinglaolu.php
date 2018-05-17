@@ -113,9 +113,9 @@
 		}
 
 		h2 {
-		  font-family: 'Poppins', sans-serif;
+		  font-family: 'Lato', sans-serif;
 			color: #383838;
-			font-size: 1.8em;
+			font-size: 1.5em;
 			margin-top: 0;
 			font-weight: 300;
 		}
@@ -176,6 +176,7 @@
 			background: #3f8abf;
 			margin-bottom: .7em;
 			border-radius: 1.2em;
+			width: fit-content;
 			width: -moz-fit-content;
 			max-width: 70%;
 		}
@@ -187,6 +188,7 @@
 			margin-left: auto;
 			margin-bottom: .7em;
 			border-radius: 1.2em;
+			width: fit-content;
 			width: -moz-fit-content;
 			max-width: 70%;
 		}
@@ -252,7 +254,7 @@
 			<h1> David Afolayan </h1>
 			<h2>FRONTEND MAGICIAN</h2>
 			<hr class="grey"/>
-			<p class="bio">David Afolayan is a young and passionate ninja geek. He has interests in javascript technologies, UI/UX design and building things that crawl on the web. He's aspiring tech influencer who's trying to get his feet steady in the sands of coding. And did I mention he's a sucker for graphics design, phtography and art? Well, He is!</p>
+			<p class="bio">David Afolayan is a young and passionate ninja geek. He has interests in javascript technologies, UI/UX design and building things that crawl on the web. He's an aspiring tech influencer who's trying to get his feet steady in the sands of coding. And did I mention he's a sucker for graphics design, phtography and art? Well, He is!</p>
 		</section>
 		<section class="chat-box">
 			<section class="chat-log">
@@ -291,12 +293,10 @@
 				data: 'chat-input=' + chatInput,
 				success: (reply) => { 
 			        var botReply = $($.parseHTML(reply)).filter('#reply').text();
-			        console.log(reply);
-			        console.log(botReply);
 			        setTimeout(function() {
 				        chatLog.append("<div class='bot-msg'>"+ botReply +"</div>");
 				       	$('.chat-log').animate({scrollTop: $('.chat-log').get(0).scrollHeight}, 1100);
-				       }, 500);
+				       }, 250);
 				}
 				
 			});

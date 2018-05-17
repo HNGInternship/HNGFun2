@@ -13,14 +13,11 @@
         $username = $interns_data['username'];       
         $image = $interns_data['image_filename'];
 ?>
-
-
-<div class="main_profile">
-
-    
-    
-        <!-- Styles -->
-        <style>
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Styles -->
+    <style>
             div.main_profile{
                 margin-top: 67px;
             }
@@ -68,12 +65,6 @@
                 background-color: #181818;
                 color: #575757;
             }
-            div.content{
-                position: relative;
-                top: 3.75em;
-                width: 71%;
-                margin: 0 4em;
-            }
             div p.name{
                 font-size: 53px;
                 font-size-adjust: 0.7;
@@ -94,7 +85,11 @@
                 color: #ffffff;
             }
         </style>
-
+</head>
+        
+<body>
+<div class="container">      
+<div class="main_profile">
     <!-- Navigation Area -->
     <nav class="main_nav_area">
         <ul class="social_links">
@@ -112,11 +107,10 @@
         <div class="content">
             <p class="name"><?php echo $name; ?></p>
             <p class="username">@<?php echo $username; ?></p>
-            
-            
             <article> <p class="about">About</p> <p class="about_me">I am a junior web developer from Nigeria, And this is my HNG profile.</p></article>
         </div>
-    </div>
-    
-
+    </div> 
 </div>
+</div>
+</body>
+</html>

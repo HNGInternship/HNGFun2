@@ -1,47 +1,13 @@
 <?php
-include_once("header.php");
-// require_once('db.php');
+require_once('db.php');
 $header="";
 $message="";
-if(!defined('DB_USER')){
-            require "../config.php";
-            // define('DB_USER', "root"); // db user
-// define('DB_PASSWORD', "root"); // db password (mention your db password here)
-// define('DB_DATABASE', "hng_fun"); // database name
-// define('DB_HOST', "localhost"); // db server     
-            try {
-                $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-            } catch (PDOException $pe) {
-                die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-            }
-        }
-
-
- try {
-        $sql = "SELECT name, username, image_filename FROM interns_data WHERE username='Wizard of Oz'";
-        $q = $conn->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
-        $data = $q->fetch();
-    } catch (PDOException $e) {
-        print_r($e);
-        
-    }
-    $header=$data["username"]."2!";
-
-    try {
-        $sql = "SELECT * FROM users WHERE id='1'";
-        $q = $conn->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
-        $data = $q->fetch();
-    } catch (PDOException $e) {
-        print_r($e);
-        
-    }
-    $message=$data["email"];
+$display="";
 
 
 
 if(isset($_GET['token'])){
+include_once("header.php");
 
   $token = $_GET['token'];
   $email = $_GET['email'];
@@ -72,30 +38,49 @@ if(isset($_GET['token'])){
               else{
             $linkValidity=0;
 
+
               }
 
             }
 
 
             if($linkValidity==1){
-              $message='Proceed to <a href="login.php">LOG IN</a>';
+               $stmt = $conn->prepare("UPDATE users SET verified=:verified , verification_token=:token WHERE email=:email");
+
+      $result= $stmt->execute(array(
+          ':verified'=>1,':token'=>0,':email'=>$email,
+       ));
+             if($result){
+              $message='You can now enjoy navigating the website';
               $header="Activation successful";
+              $display="display:block";
+            }
+
+            else{
+
+              $message='An error occured with the activation link or it has already been used.';
+              $header="Activation failed";
+              $display="display:none";
+
+            }
             }
 
             else if ($linkValidity==0){
               $message='An error occured with the activation link or it has already been used.';
               $header="Activation failed";
+              $display="display:none";
+
             }
 
 
 }
 
-// else{
+else{
 
-//   header("Location: login.php");
-//   exit();
+  header("Location: login.php");
+  exit();
 
-// }
+}
 
 ?>
 
@@ -117,6 +102,17 @@ if(isset($_GET['token'])){
   </div>
 </div>
 </div>
+
+
+<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+    <div class="row justify-content-md-center" style="text-align: center;">
+        <div class="col-sm-12">
+            <h1><b>><?= $header ?></b></h1>
+            <p style="font-size: 16px;"><?= $message ?></p>
+            <a href="login" style=<?= $display ?> class="btn btn-primary">Proceed to Log in</a>
+        </div>   
+    </div>
+</div>  
 
 
 
