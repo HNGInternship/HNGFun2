@@ -225,10 +225,10 @@ i.fa.fa-bars {
                             </button>
                         </h5>   -->
                               <h5 class="mb-0">
-                            <span class ="col-sm" class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <p class ="col-sm" class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                              Will I be awarded a certificate after this internship?
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                            </span>
+                            </p>
                         </h5>
 
                         </div>
