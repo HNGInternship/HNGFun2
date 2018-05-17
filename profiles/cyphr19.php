@@ -257,47 +257,7 @@ function fetchans($msg){
             <h5>Email: cyphr19@gmail.com</h5> 
 			<h5>username: cyphr19</h5>
            
-		   <div id="social">
-
-            <ul class="nav nav-pills">
-
-              <div> <li>
-
-                <a href="https://github.com/galdrencyphr" target="_blank" target="_blank" target="_blank">
-
-                  <img class="social-icons" src="http://res.cloudinary.com/eskye/image/upload/c_scale,w_150/v1523623556/github.svg" />
-
-                </a>
-
-              </li>
-
-              <li>
-
-                <a href="https://twitter.com/GALDREN_CYPHR" target="_blank" target="_blank">
-
-                  <img class="social-icons" src="http://res.cloudinary.com/eskye/image/upload/c_scale,w_100/v1523623465/twitter.svg" />
-
-                </a>
-
-              </li>
-
-              <li>
-
-                <a href="https://facebook.com/tommy5b" target="_blank" target="_blank">
-
-                  <img class="social-icons" src="http://res.cloudinary.com/eskye/image/upload/c_scale,w_512/v1523623281/facebook.png" />
-
-                </a>
-
-              </li>
-			  </div>
-
-           
-
-            </ul>
-
-          </div>
-          </div>
+		   
 
         <div class="col-lg-6 col-md-6 col-sm-12" align="center">
           <div id="chatbox">
@@ -327,9 +287,6 @@ function fetchans($msg){
      </div>
     </div>
   </div>
-
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
