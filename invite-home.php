@@ -10,7 +10,7 @@ include_once("header.php");
                         <p>When summer comes around, however, the reality can present itself somewhat differently. 
                     Holidaying as a single person when many friends have settled down can often mean sacrif</p>
                     </div>
-                    <button class="btn shield-invite-btn">Send invites</button>
+                    <a href="hng.fun/invite" class="button--style-red">Click!</a>
                 </div>
             </div>
             <div id="right-pan" class="col-md-6">
