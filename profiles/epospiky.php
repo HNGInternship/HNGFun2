@@ -408,7 +408,7 @@
         var message = $("#user-input").val();
         outputArea.append(`<p class='me'>${message}</p>`);
         $.ajax({
-            url: '/profiles/epospiky',
+            url: '/profile?id=epospiky.php',
             type: 'POST',
             data:  'user-input=' + message,
             success: function(response) {
