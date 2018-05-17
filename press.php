@@ -127,7 +127,7 @@
 <section>
 	<div class="update-container">
 		<div class="sidebar" style="padding:20px;">
-			<a href="#release1" class="btn btn-default">Press Release</a>
+			<a href="" target="#releaseLast" class="btn btn-default">Press Release</a>
 			<br><a href="#release2" class="btn btn-default">Press Release</a>
 			<br><a href="#release3" class="btn btn-default">Press Release</a>
 			<br><a href="#releaseLast" class="btn btn-default">Press Release</a>
