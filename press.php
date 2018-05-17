@@ -127,15 +127,15 @@
 <section>
 	<div class="update-container">
 		<div class="sidebar" style="padding:20px;">
-			<a href="" target="#releaseLast" class="btn btn-default">Press Release</a>
-			<br><a href="#release2" class="btn btn-default">Press Release</a>
-			<br><a href="#release3" class="btn btn-default">Press Release</a>
-			<br><a href="#releaseLast" class="btn btn-default">Press Release</a>
+			<a href="#top" class="btn btn-default">Press Release</a>
+			<br><a href="#mid1" class="btn btn-default">Press Release</a>
+			<br><a href="#mid2" class="btn btn-default">Press Release</a>
+			<br><a href="#last" class="btn btn-default">Press Release</a>
 		</div>
 	    <div id="boxes">
 	    	<h2 style="text-align: left;">Live Updates</h2>
 	    	<hr width="10%">
-			<div class="box" id="release1">
+			<div class="box" id="top">
 				<img src="img/press.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
@@ -144,7 +144,7 @@
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
 
-			<div class="box" id="release2" >
+			<div class="box">
 				<img src="img/book.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
@@ -153,7 +153,7 @@
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
 
-			<div class="box" id="release3" >
+			<div class="box" id="mid1" >
 				<img src="img/city.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
@@ -162,13 +162,13 @@
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
 
-			<div class="box">
+			<div class="box" >
 				<img src="img/contact-bg.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
 				<hr>
 				<p>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best. Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam.</p>
-				<a href="#" class="btn btn-default">Read More</a>
+				<a href="#mid2" class="btn btn-default">Read More</a>
 			</div>
 
 			<div class="box">
@@ -180,7 +180,7 @@
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
 
-			<div class="box" id="releaseLast" >
+			<div class="box" id="last" >
 				<img src="img/bicycle.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
