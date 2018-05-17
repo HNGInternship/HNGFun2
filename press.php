@@ -142,6 +142,7 @@
 				<hr>
 				<p>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best. Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam.</p>
 				<a href="#" class="btn btn-default">Read More</a> 
+		        </div>
 				<!--
 				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
                                 <span>id="collapseOne" class="collapse show">
