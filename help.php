@@ -208,7 +208,7 @@ i.fa.fa-bars {
         </div>
         <div class="answers wrap">
             <div class="row">
-                <div class="col-sm-9" id="tab2">
+                <div class="col" id="tab2">
                 <div id="accordion">
                   <div class="card">
                     <div class="row">
