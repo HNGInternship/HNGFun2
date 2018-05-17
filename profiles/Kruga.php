@@ -19,7 +19,8 @@ try {
          throw $e;
     }
 ?>
-<!Doctype html>
+<!-- Former broken page
+    <!Doctype html>
 <html>
 <title>Kruga Task3</title>
 <head>
@@ -57,10 +58,30 @@ font-color: white;
 <body>
 
 <div class ="container">
-    <img class="img-circle img-responsive" src= "<?php echo $intern_data['image_filename']; ?>" alt="Kruga Profile Image">
+    <img class="img-circle img-responsive" src= "<?php// echo $intern_data['image_filename']; ?>" alt="Kruga Profile Image">
     <h1><em>Hello!<em></h1>
     <h2>I'm a Pharmacist looking to push beyond the boundaries of the pharmaceutical world to experience something new and unfamiliar.<br>  
-    My name is <?php echo $intern_data['name']; ?>.</h2>
+    My name is <?php //echo $intern_data['name']; ?>.</h2>
 </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kruga Task3</title>
+    <style type="text/css">
+        body{background-color: skyblue;}
+        .kruga-image{ display: block; margin-left: auto; margin-right: auto; }
+        h1{ font-family: Dotum; color: white; text-align:center; margin-top: 50px;}
+        h2{ font-family: Dotum; color: white; text-align:center; margin-top: 0px; }
+    </style>
+</head>
+<body>
+    <div class ="container">
+        <img class="img-responsive img-circle kruga-image" src= "<?php echo $intern_data['image_filename']; ?>" alt="Kruga Profile Image">
+        <h1><em>Hello!</em></h1>
+        <h2>I'm a Pharmacist looking to push beyond the boundaries of the pharmaceutical world to experience something new and unfamiliar.<br>  
+        My name is <?php echo $intern_data['name']; ?>.</h2>
+    </div>
 </body>
 </html>
