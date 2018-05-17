@@ -127,15 +127,15 @@
 <section>
 	<div class="update-container">
 		<div class="sidebar" style="padding:20px;">
-			<a href="" class="btn btn-default">Press Release</a>
-			<br><a href="#" class="btn btn-default">Headlines</a>
+			<a href="#release1" class="btn btn-default">Press Release</a>
+			<br><a href="#" class="btn btn-default">Press Release</a>
 			<br><a href="#" class="btn btn-default">Press Release</a>
 			<br><a href="#" class="btn btn-default">Press Release</a>
 		</div>
 	    <div id="boxes">
 	    	<h2 style="text-align: left;">Live Updates</h2>
 	    	<hr width="10%">
-			<div class="box">
+			<div class="box" id="release1">
 				<img src="img/press.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
@@ -144,7 +144,7 @@
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
 
-			<div class="box">
+			<div class="box" id="release2" >
 				<img src="img/book.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
@@ -153,7 +153,7 @@
 				<a href="#" class="btn btn-default">Read More</a>
 			</div>
 
-			<div class="box">
+			<div class="box" id="release3" >
 				<img src="img/city.jpg" class="img-responsive">
 				<h3>Interns who haven't reached Stage 2 would soon be dropped - Mark.</h3>
 				<p>Posted on <strong>April 21, 2018</strong> </p>
