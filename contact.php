@@ -81,8 +81,9 @@ function custom_styles()
     <style>
     @media screen and (max-width: 768px){
        /* #contact-info-title{
-            padding-top: 2px; 
+            padding-top: 100px; 
         }  */
+        
           
         
         #contact-right{
@@ -140,7 +141,7 @@ function custom_styles()
 
 
               <!--   <div class="form-group"> -->
-                    <h3 id="contact-info-title">Contact Information</h3>
+                    <h3 class="pt-auto" id="contact-info-title">Contact Information</h3>
               <!--   </div> -->
             <div class="contact-info">
                 <div class="form-group">
