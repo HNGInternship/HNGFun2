@@ -56,11 +56,11 @@ font-color: white;
 </head>
 <body>
 
-
-<img class="img-circle" src= "<?php echo $intern_data['image_filename']; ?>" alt="Kruga Profile Image">
-<h1><em>Hello!<em></h1>
-<h2>I'm a Pharmacist looking to push beyond the boundaries of the pharmaceutical world to experience something new and unfamiliar.<br>  
-My name is Kruga Owodeha-Ashaka.</h2>
-
+<div class ="container">
+    <img class="img-circle img-responsive" src= "<?php echo $intern_data['image_filename']; ?>" alt="Kruga Profile Image">
+    <h1><em>Hello!<em></h1>
+    <h2>I'm a Pharmacist looking to push beyond the boundaries of the pharmaceutical world to experience something new and unfamiliar.<br>  
+    My name is <?php echo $intern_data['name']; ?>.</h2>
+</div>
 </body>
 </html>
