@@ -52,7 +52,7 @@ $pages = ceil($total/$perPage);
   <div class="profile">
       <div class="card0">
         <a href="profile.php?id=<?php echo $row['username'];?>"><img class="card-img-top" src='<?php echo $row['image_filename']?>' onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
-        <div class="card-footer" style= "text-align:center">
+        <div class="card-footer">
           <a href="profile.php?id=<?php echo $row['username'];?>" class="my-0 py-0 btn btn-default">View Profile</a>
         </div>
       </div>
