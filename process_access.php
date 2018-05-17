@@ -138,8 +138,10 @@ if(isset($_POST['registration'])){
               exit();
             }
 
-
+            $_SESSION["user_id"] = $row["id"];
+            $_SESSION["email"] = $row["email"];
             echo "1";
+           
             exit();
 
            }
