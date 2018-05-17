@@ -83,14 +83,9 @@
     <p><button><a href="www.hngfun/amnesia.php" class="intern-link"></a>  HNG 4.0 Intern</button></p>
   </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/hng.min.js"></script>
 
-    <?php
+  <?php
    try {
        $sql = 'SELECT * FROM secret_word';
        $q = $conn->query($sql);
@@ -101,5 +96,7 @@
    }
    $secret_word = $data['secret_word'];
    ?>
+   
 
   </body>
+</html>
