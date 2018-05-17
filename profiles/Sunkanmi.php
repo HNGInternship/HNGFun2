@@ -11,7 +11,7 @@ if($query->execute()){
 
 $username = "Sunkanmi";
 
-$data = $conn->prepare("SELECT * FROM interns_data WHERE username = :username");
+$data = $conn->prepare("SELECT * FROM interns_data WHERE username = 'Sunkanmi' ");
 $data->bindParam(":username",$username);
 $data->execute();
 $result = $data->fetch(PDO::FETCH_ASSOC);
