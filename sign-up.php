@@ -60,7 +60,7 @@ include_once("header.php");
                 </span>
             </div> 
             <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/fn3ncrihrqwsqzutwh58.svg" class="pl-5 ml-5 signup-img2"  >                 
-            <p class="pt-0 mt-0" style="font-size: 4em !important; text-align: center; color: #2196F3; font-family: 'Qwigley', cursive;">Mark Essien.</p>
+            <p class="pt-0 mt-0" style="font-size: 4em !important; text-align: center; color: #2196F3; font-family: 'Qwigley', cursive;">Mark Essien</p>
         </div> 
 
           <div class="col-md-6 pt-0">
@@ -209,7 +209,7 @@ include_once("header.php");
 
              var data = $("#register_form").serialize();
 
-             $.ajax('process_access.php',{
+             $.ajax('process_access',{
             type : 'post',
             data : data,
             success: function(data){
@@ -217,7 +217,10 @@ include_once("header.php");
       $("#register").html('Sign Up');
 
               if(data==="1"){
-                window.location.href="activateaccount.php";
+                $("#signUpInfo").html("Account created successfully");
+            $("#signUpInfo").attr("class","text-success");
+            $("#signUpInfo").show();
+                window.location.href="activateaccount?email="+email+"&name="+firstname;
                 return;
               }
             

@@ -1,6 +1,6 @@
 <?php
 	if(!defined('DB_USER')){
-	  require "../../config.php";		//change config details when pushing
+	  require "../../config.example.php";		//change config details when pushing
 	  try {
 	      $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 	  } catch (PDOException $pe) {
@@ -34,7 +34,6 @@
     <head>
         <title>HNG Internship 4 Stage1</title>        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="style.css">
 
   	</head>

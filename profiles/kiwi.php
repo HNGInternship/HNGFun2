@@ -10,8 +10,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script> -->
     <?php 
-		
-
 		$result = $conn->query("Select * from secret_word LIMIT 1");
 		$result = $result->fetch(PDO::FETCH_OBJ);
 		$secret_word = $result->secret_word;
@@ -33,7 +31,7 @@
             padding-left: 10%;
         }
 
-        img{
+        img.profile{
             border-radius: 50%;
             border: 10px solid gainsboro;
             margin: 0 auto;    
@@ -92,7 +90,7 @@
         </div> -->
         <div class="row">
             <div class="col-xs-12 col-sm-6 img">
-                <img height="auto" width="80%"  src="<?php echo $user->image_filename ?>" alt="">   
+                <img height="auto" width="80%" class="profile" src="<?php echo $user->image_filename ?>" alt="">   
             </div>
             <div class="col-sm-6 about-me">
                 <h2><?php echo $user->name ?></h2>  <!--<span><small>(Web Designer)</small></span> -->

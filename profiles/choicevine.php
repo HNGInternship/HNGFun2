@@ -12,7 +12,6 @@
         
 
 
-        // think this should go here
         $ask = $conn->query("select * from secret_word LIMIT 1");
     
     //fetch as an object
@@ -29,11 +28,13 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     
-    <style type="text/css">
-        * {
+  <style type="text/css">
+    
+    * {
     margin: 0;
     padding: 0;
 }
+    
 
 body {
     font-family: "Georgia";
@@ -41,12 +42,13 @@ body {
 }
         .container {
             position: relative;
-            width: 100vw;
+            width: 90%;
             padding: 30px;
+            margin: 22px;
         }
 
          .card {
-            position: relative;
+           
     margin-top: 20px;
     padding: 30px;
     background-color: rgba(214, 224, 226, 0.2);
@@ -62,7 +64,8 @@ body {
 }
 .card.hovercard {
     position: relative;
-    padding-top: 0;
+    padding-top: 10px;
+    width: 90%;
     overflow: hidden;
     text-align: center;
     background-color: #fff;
@@ -70,9 +73,11 @@ body {
 }
 .card.hovercard .card-background {
     height: 130px;
+    width: 800%
 }
 .card-background img {
     position: relative;
+    width: 
     background: url(); no-repeat center;
     -webkit-filter: blur(25px);
     -moz-filter: blur(25px);
@@ -134,6 +139,7 @@ body {
     -webkit-border-radius:0 !important;
 }
 
+
     </style>
 </head>
 <body>
@@ -142,36 +148,42 @@ body {
         $(document).ready(function() {
 $(".btn-pref .btn").click(function () {
     $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-    // $(".tab").addClass("active"); // instead of this do the below 
+     
     $(this).removeClass("btn-default").addClass("btn-primary");   
 });
 });
     </script>
 
+        <div class="masthead"></div>
         <div class="container">
 
-        <div class="col-lg-6 col-sm-6" style="position: relative;">
-    <div class="card hovercard">
-        <div class="card-background">
-            <img class="card-bkimg" alt="" src="http://res.cloudinary.com/devgeaks/image/upload/v1523731563/2017-03-02_08.30.03.jpg">
-            
-        </div>
-        <div class="useravatar">
-            <img alt="" src="<?php echo $result->image_filename; ?>">
-            <hr> 
-        </div>
-        <div class="card-info"> <span class="card-title"><?php echo $result->name; ?></span>
+            <div class="col-lg-6 col-sm-6" style="position: relative; width: 100%;">
+                <div class="card hovercard">
+                    <div class="card-background">
+                        <img class="card-bkimg" alt="" src="http://res.cloudinary.com/choicevine/image/upload/v1525725300/Camera%20Roll/WIN_20171210_134157.jpg">
+                
+                </div>
+                    <div class="useravatar">
+                         
+                        <img alt="" src="<?php echo $result->image_filename; ?>">
+                        </div>
+                         <hr>
+                    <div class="card-info"> <span class="card-title"><?php echo $result->name; ?></span>
 
-        </div>
-        <div class="card-info"> <span class="card-title"><?php echo $result->username;  ?></span>
+                        </div>
+                    <div class="card-info"> <span class="card-title"><?php echo $result->username;  ?></span>
 
-        </div>
-        <div class="card-info"> <span class="card-title">Developer</span>
-        </div>
-        </div>
-        
-    </div>
-    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+                        </div>
+                    <div class="card-info"> <span class="card-title">Developer</span>
+                        </div>
+                    </div>
+                    
+
+                </div>
+
+                <div class="mok" style="position: relative;
+                                width: 88.2%; padding-left: 11px; ">
+            <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
             <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                 <div class="hidden-xs">Accolades</div>
@@ -184,7 +196,7 @@ $(".btn-pref .btn").click(function () {
         </div>
         <div class="btn-group" role="group">
             <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                <div class="hidden-xs">Favorites</div>
+                <div class="hidden-xs">Bot</div>
             </button>
         </div>
         <div class="btn-group" role="group">
@@ -194,26 +206,11 @@ $(".btn-pref .btn").click(function () {
         </div>
     </div>
 
-        <div class="well">
-      <div class="tab-content">
-        <div class="tab-pane fade in active" id="tab1">
-          <h3>Accolades</h3>
+            
         </div>
-        <div class="tab-pane fade in" id="tab2">
-          <h3>Hobbies</h3>
-        </div>
-        <div class="tab-pane fade in" id="tab3">
-          <h3>Favorites</h3>
-        </div>
-        <div class="tab-pane fade in" id="tab3">
-          <h3>Following</h3>
-        </div>
-      </div>
-    </div>
-    
+           
     </div>
 
    </div>
-
 </body>
 </html>
