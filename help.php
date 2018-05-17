@@ -218,12 +218,19 @@ i.fa.fa-bars {
                     <div class="col">
                         <div class="card-header" id="headingOne" >
 
-                        <h5 class="mb-0">
-                            <button class ="col-sm-6" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <!--  <h5 class="mb-0">
+                            <button class ="col-sm-6" class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                              Will I be awarded a certificate after this internship?
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </button>
+                        </h5>   -->
+                              <h5 class="mb-0">
+                            <span class ="col-sm" class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                             Will I be awarded a certificate after this internship?
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </span>
                         </h5>
+
                         </div>
 
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
