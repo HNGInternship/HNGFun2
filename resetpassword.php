@@ -39,7 +39,7 @@ include_once("header.php");
         var email = $("#email").val();
              
         if(email ==""){
-            alert('please enter email');
+           
             $("#notif").addClass(' alert alert-danger');
             $("#notif").html('Please enter email');
         }
@@ -62,13 +62,14 @@ include_once("header.php");
              
              $("#notif").addClass('alert alert-success');
             $("#notif").html(data);
-
+              $("#notif").html('Password reset successful! Please check your email and proceed.');
             $("#reset").html('DONE');          
 
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
-                    alert('Request not completed');
+                  
+                      $("#notif").html('Email does not exist!');
                  }
                 $("#reset").html('Failed');
             },
