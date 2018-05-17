@@ -113,7 +113,6 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
         <script src="../js/jquery.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
-        <style type="text/css">
         
         <style type="text/css"> 
  body{
