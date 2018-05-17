@@ -297,11 +297,11 @@ function fetchans($msg){
             </div>
             <div id="cbox">
               <div class="outputa">
-                  To Know More about me type 'aboutbot'
+		  Come on type 'aboutbot' to know more about me </br>
                   You can also train me using:
                   'train: question #answer #password'
-                  if i cant answer any of your question.
-                  ;) 
+                  if i'm sorry if i can't answer any of your question,
+                  im still a baby :D.
               </div>
             </div>
             <div id="form">
