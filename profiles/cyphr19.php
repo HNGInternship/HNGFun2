@@ -125,7 +125,8 @@ width: 250px;
 size: 45px;
 }
 .social-icons {
-width: 25px;
+height: 50px;
+width: 50px;
 transition: all 700ms;
 }
 .social-icons:hover {
