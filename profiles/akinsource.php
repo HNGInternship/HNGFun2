@@ -40,7 +40,7 @@
 		}
 		return $retryout;
 	}
-	function get_time() {
+	function get_times() {
 	//get_language();
 	global $newinf;
 	if (!$newinf){
@@ -433,7 +433,7 @@ function hide() {//hide chat interface
 	d.innerHTML = " Collective knowledge of a lot of bots!";
     } else {
 	s.style.display = "block";
-	d.innerHTML = " I can show you time from present moment till any date! Try 'countdown January 1 2019'";
+	d.innerHTML = " I can show you time from present moment till any date! Try 'countdown January 5 2019'";
     }
 }
 </script>

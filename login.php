@@ -8,7 +8,7 @@
 
 <div class="container" style='color: #3D3D3D'>
     <!-- /*<div id="message" style="color:black; font-weight:bold;"></div>*/ -->
-            <h6 class="text-danger" id="message"></h6>
+            <h6 style="text-align: center" class="text-danger" id="message"></h6>
 
 
     <div class="row justify-content-md-center" style="text-align: center">
@@ -50,24 +50,33 @@
 </div>
 <script type="text/javascript">
        $( document ).ready(function() {
-    $("#login").submit(function(e){
+
+    $("#login_form").submit(function(e){
         e.preventDefault();
 
        
         var email = $("#email").val();
        
         var password = $("#password").val();
+
+
         
         
         if(email ==""){
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
+                 $("#message").show();
+            $("#login").html('Log In');
+
             
         }
        
         else if(password ==""){
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
+                 $("#message").show();
+
+
         }
 
        
@@ -84,11 +93,10 @@
             type : 'post',
             data : data,
             success: function(data){
-            $("#login").html('Log In');
 
 
              if(data=="1"){
-                $("#message")attr("class",'text-success');
+                $("#message").attr("class",'text-success');
             $("#message").html("Login successful");
 
             $("#login").html('Redirecting..');
@@ -96,25 +104,29 @@
             window.location.href ="dashboard";
              }  
              else if(data=="2"){
-                $("#message")attr("class", 'text-danger');
+                $("#message").attr("class", 'text-danger');
             
                 $("#message").html("Account has not been verified yet");
              } 
 
              else if(data="0"){
 
-                $("#message")attr("class", 'text-danger');
+                $("#message").attr("class", 'text-danger');
             
                  $("#message").html('Error Invalid Email or password');
              }
 
              else{
 
-                 $("#message")attr("class", 'text-danger');
+                 $("#message").attr("class", 'text-danger');
             
                  $("#message").html(data);
              }
-            
+                 $("#message").show();
+
+
+            $("#login").html('Log In');
+                
 
             },
            error : function(jqXHR,textStatus,errorThrown){
@@ -126,7 +138,7 @@
             },
             beforeSend :function(){
 
-
+                 $("#message").hide();
             $("#login").html('Logging in..');
             },
         });

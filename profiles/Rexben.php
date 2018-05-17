@@ -1,12 +1,4 @@
-<?php
-require_once '../config.php';
-try {
-    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-    // echo "Connected to ". DB_DATABASE . " successfully.</br>";
-} catch (PDOException $pe) {
-    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-}
-?>
+
 
 <!DOCTYPE html>
 <head>
@@ -52,14 +44,24 @@ try {
 	</style>
 </head>
 <body>
-	<?php
-$name_query = $conn->query('SELECT * FROM interns_data WHERE username="Rexben"');
-			$name_query->execute(); 
-			$result = $name_query->fetch(PDO::FETCH_ASSOC);
-			$name = $result['name'];
-			$img_file = $result['image_filename'];
-			$username = $result['username'];
-		?>
+	 <?php
+
+                try {
+                $sql = "SELECT * FROM interns_data WHERE username= 'Rexben' ";
+                $q = $conn->query($sql);
+                $q->setFetchMode(PDO::FETCH_ASSOC);
+                $data = $q->fetch();
+                $name = $data['name'];
+                $username = $data['username'];
+                $image_file = $data['image_filename'];
+                } catch (PDOException $e) {
+
+                    throw $e;
+                }
+
+
+            ?>
+
 
 
 <p class= "imagee">
@@ -89,10 +91,11 @@ $name_query = $conn->query('SELECT * FROM interns_data WHERE username="Rexben"')
 					        $q = $conn->query($sql);
 					        $q->setFetchMode(PDO::FETCH_ASSOC);
 					        $data = $q->fetch();
+						$secret_word = $data['secret_word'];
 					    } catch (PDOException $e) {
 					        throw $e;
 					    }
-					    $secret_word = $data['secret_word'];
+					    
 					  ?>
 		</body>
 

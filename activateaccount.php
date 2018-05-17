@@ -62,7 +62,7 @@
 	$.ajax('process_access',{
 
             type : 'post',
-            data : {"email":$("#email").val(),"name":$("#name").val()},
+            data : {email:$("#email").val(),name:$("#name").val()},
             success: function(data){
                 $("#resendActivation").html("Resend Activation Link");
                 $('#activationModal').modal('show')
