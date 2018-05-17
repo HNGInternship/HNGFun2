@@ -101,7 +101,7 @@
 
             $("#login").html('Redirecting..');
 
-            window.location.href ="dashboard.php";
+            window.location.href ="dashboard";
              }  
              else if(data=="2"){
                 $("#message").attr("class", 'text-danger');
