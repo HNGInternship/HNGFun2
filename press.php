@@ -140,8 +140,7 @@
 				<h3>HNGINTERNSHIP 4.0 Officially Begins May 1st- Mark.</h3>
 				<p>Posted on <strong>April 5, 2018</strong> </p>
 				<hr>
-				<p>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a> 
+				<p>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a> <span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
 		        </div>
 				<!--
 				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
