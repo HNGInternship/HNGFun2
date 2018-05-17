@@ -280,7 +280,7 @@
   <div class="img-grid  oj-flex  oj-sm-12 oj-lg-offset-5">
     <div class="oj-sm-3"></div>
     <div class="oj-flex-item oj-sm-9">
-      <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" class="oj-sm-center img-responsive" height="250px">
+      <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" class="oj-sm-center img-responsive" width="200px">
     </div>
   </div>
 
@@ -408,7 +408,7 @@
         var message = $("#user-input").val();
         outputArea.append(`<p class='me'>${message}</p>`);
         $.ajax({
-            url: 'profiles/epospiky',
+            url: '/profiles/epospiky',
             type: 'POST',
             data:  'user-input=' + message,
             success: function(response) {
