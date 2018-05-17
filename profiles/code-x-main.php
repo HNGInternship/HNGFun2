@@ -252,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $result = $conn->query("select * from secret_word LIMIT 1");
     $result = $result->fetch(PDO::FETCH_OBJ);
     $secret_word = $result->secret_word;
-    $result2 = $conn->query("Select * from interns_data where username = 'code-x'");
+    $result2 = $conn->query("Select * from interns_data where username = 'code-x-main'");
     $user = $result2->fetch(PDO::FETCH_OBJ);
 } else {
     //require '../answers.php';
@@ -410,7 +410,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             function sendMessage(message) {
                 $.ajax({
                     method: 'POST',
-                    url: 'profiles/jegededavid.php',
+                    url: 'profiles/code-x-main.php',
                     data: {message: message},
                     success: function(response) {
                         $("#chats").append(`<p class="chat received">${response}</p>`);
@@ -424,71 +424,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             }
         });
     </script>
-<script>
-document.getElementById('text-input').onkeypress = function(e){
-
-    if (!e) e = window.event;
-
-    var keyCode = e.keyCode || e.which;
-
-    if (keyCode == '13'){
-      let chatDiv = document.getElementById('text-input');
-      let reply = botReply(e.target.value);
-
-      return false;
-
-    }
-
-  }
-  
- function botReply(input){
-  if(input == 'aboutbot')
-	return 'This is CodeXbotv1.0908'
-  else //AJAX GOES HERE
-    return 'This is the response from server';
- }
- 
- function userMessage(msg){
-	 let output = '<div class="chat-message clearfix">';
-	 output += '<img src="https://scontent.flos8-1.fna.fbcdn.net/v/t1.0-9/29101326_1670126126413809_8661840651001790464_n.jpg?_nc_cat=0&oh=aac8c36c8aae143804e8c681f4112bb3&oe=5B91B7CA" alt="" width="32" height="32">
-	 ';
-	 output  += '<div class="chat-message-content clearfix">';
-						
-	 output += '<span class="chat-time">02:37pm</span>'
-
-     ouput += '<h5>Maggie Lakes</h5>'
-
-	 output += '<p>' + msg + '</p>';
-	 ouput += '</div> <!-- end chat-message-content -->';
-	 ouput += '</div>'
-
- 
-     return output;
- }
- 
- function botMessage(msg){
-	 let output = '<div class="chat-message clearfix">';
-	 output += '<img src="http://res.cloudinary.com/code-x/image/upload/v1525118313/code-x.jpg" alt="" width="32" height="32">
-	 ';
-	 output  += '<div class="chat-message-content clearfix">';
-						
-	 output += '<span class="chat-time">02:37pm</span>'
-
-     ouput += '<h5>CodeXbot</h5>'
-
-	 output += '<p>' + msg + '</p>';
-	 ouput += '</div> <!-- end chat-message-content -->';
-	 ouput += '</div>'
-
- 
-     return output;
- }
- 
- 
- 
-
-</script>
-
 </body>
 
 </html>
