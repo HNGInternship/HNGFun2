@@ -40,18 +40,20 @@
     return trim($text);
 }
 
-if(isset($_GET['info'])){
+if(isset($_GET['training'])) {
+      $message = $_GET['training'];
+        echo workOnTrainData($message);
+        exit();
+}
+
+else if(isset($_GET['info'])){
       $message = $_GET['info'];
       echo getReply($message);
         exit();
 
 }
 
- else if(isset($_GET['training'])) {
-      $message = $_GET['training'];
-        echo workOnTrainData($message);
-        exit();
-}
+ 
 
 function workOnTrainData($data){
     
