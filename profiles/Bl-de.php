@@ -3,6 +3,106 @@
 <head>
 <meta charset="utf-8">
 <title>Bl-de - Profile</title>
+ <?php 
+    if($_SERVER['REQUEST_METHOD']==='POST'){
+        function test_input($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            $data = preg_replace("([?.!])", "", $data);
+            $data = preg_replace("(['])", "\'", $data);
+            return $data;
+        }
+        function chatMode($ques){
+            require '../../config.php';
+            $ques = test_input($ques);
+            $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
+            if(!$conn){
+                echo json_encode([
+                    'status'    => 1,
+                    'response'    => "Could not connect to the database " . DB_DATABASE . ": " . $conn->connect_error
+                ]);
+                return;
+            }
+            $query = "SELECT answer FROM chatbot WHERE question LIKE '$ques'";
+            $result = $conn->query($query)->fetch_all();
+            echo json_encode([
+                'status' => 1,
+                'response' => $result
+            ]);
+            return;
+        }
+        function trainerMode($ques){
+            require '../../config.php';
+            $questionAndAnswer = substr($ques, 6); 
+            $questionAndAnswer =test_input($questionAndAnswer); 
+            $questionAndAnswer = preg_replace("([?.])", "", $questionAndAnswer);  
+            $questionAndAnswer = explode("#",$questionAndAnswer);
+            if((count($questionAndAnswer)==3)){
+                $question = $questionAndAnswer[0];
+                $answer = $questionAndAnswer[1];
+                $password = test_input($questionAndAnswer[2]);
+            }
+            if(!(isset($password))|| $password !== 'password'){
+                echo json_encode([
+                    'status'    => 1,
+                    'response'    => "Please insert the correct training password"
+                ]);
+                return;
+            }
+            if(isset($question) && isset($answer)){
+                $question = test_input($question);
+                $answer = test_input($answer);
+                if($question == "" ||$answer ==""){
+                    echo json_encode([
+                        'status'    => 1,
+                        'response'    => "empty question or response"
+                    ]);
+                    return;
+                }
+                $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
+                if(!$conn){
+                    echo json_encode([
+                        'status'    => 1,
+                        'response'    => "Could not connect to the database " . DB_DATABASE . ": " . $conn->connect_error
+                    ]);
+                    return;
+                }
+                $query = "INSERT INTO `chatbot` (`question`, `answer`) VALUES  ('$question', '$answer')";
+                if($conn->query($query) ===true){
+                    echo json_encode([
+                        'status'    => 1,
+                        'response'    => "trained successfully"
+                    ]);
+                }else{
+                    echo json_encode([
+                        'status'    => 1,
+                        'response'    => "Error training me: ".$conn->error
+                    ]);
+                }
+                
+                return;
+            }else{ 
+            echo json_encode([
+                'status'    => 0,
+                'response'    => "Wrong training pattern<br> PLease use this<br>train: question # answer"
+            ]);
+            return;
+            }
+        }
+        
+        $ques = test_input($_POST['ques']);
+        if(strpos($ques, "train:") !== false){
+            trainerMode($ques);
+        }else{
+            chatMode($ques);
+        }
+       
+        return;
+    }
+ 
+?>
+
 <style type="text/css">
 font-family: Montserrat;
 </style>
@@ -32,7 +132,7 @@ Train me with the sequence-> train: question#answer#password<br/>
 </div>
 </section>
 
-<script type="text/javascript">
+<script>
 var trigger = [
 	["hi", "hey", "hello", "wassup", "sup"], 
 	["about", "aboutbot"],
@@ -89,7 +189,7 @@ function output(input){
 		if(compare(trigger, reply, text)){
 			var product = compare(trigger, reply, text);
 		} else {
-			var product = alternative[Math.floor(Math.random()*alternative.length)];
+			sendMsg();
 		}
 	}
 	document.getElementById("Scarjobot").innerHTML = product;
@@ -118,6 +218,36 @@ function speak(string){
 	utterance.pitch = 2; //0-2 interval
 	speechSynthesis.speak(utterance);
 }
+    function sendMsg(){
+    var ques = document.querySelector("#question");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(xhttp.readyState ==4 && xhttp.status ==200){
+            processData(xhttp.responseText);
+        }
+    };
+    xhttp.open("POST", "/profiles/Bl-de.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("ques="+ques.value);
+    }
+    function processData (data){
+    data = JSON.parse(data);
+    var answer = data.response;
+   
+    if(Array.isArray(answer)){
+        if(answer.length !=0){
+            var res = Math.floor(Math.random()*answer.length);
+			var answer = res[0]
+        }else{
+			var answer = alternative[Math.floor(Math.random()*alternative.length)];
+        }
+		}else{
+			return answer
+    }
+	document.getElementById("Scarjobot").innerHTML = answer;
+	speak(answer);
+	document.getElementById("question").value = ""; //clear input value
+    }
 </script>
 </body>
 
