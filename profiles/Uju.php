@@ -327,29 +327,49 @@ catch(PDOException $pe)
 
         e.preventDefault();
 
-        var message = $("#user-input").val();
-
-        outputArea.append(`<div class='bot-message'><div class='message'>${message}</div></div>`);
-
-
-        $.ajax({
-            url: '/profiles/jaycodes.php',
-            type: 'POST',
-            data:  'user-input=' + message,
-            success: function(response) {
-                var result = $($.parseHTML(response)).find("#result").text();
-                setTimeout(function() {
-                    outputArea.append("<div class='user-message'><div class='message'>" + result + "</div></div>");
-                    $('#chat-output').animate({
-                        scrollTop: $('#chat-output').get(0).scrollHeight
-                    }, 1500);
-                }, 250);
+        var message = $("#user-input");
+        var chat-output = $("#chat-output");
+        // alert(message.value);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+            var result = JSON.parse(xhttp.responseText);
+            //<div class='bot-message'><div class='message'>${message}</div></div>
+            message.value = '';
+            var pp = document.createElement('div');
+            pp.classList = 'bot-message';
+            var inner = document.createElement('div');
+            inner.classList = 'message';
+            pp.append(inner);
+            console.log(result.results.length);
+            
+            if(result.results.length === 0){
+                //alert('hello');
+                inner.innerHTML = 'Not in database. please train me';
+                chat-output.append(pp);
+                return;
             }
-        });
+            console.log(typeof(result.results))
+            if(typeof(result.results) == 'object' ){
+                var res = Math.floor(Math.random() * result.results.length);
+                
+                inner.innerHTML = result.results[res];
+                chatarea.append(inner)
+            }else{
+                var res = Math.floor(Math.random() * result.results.length);
+                inner.innerHTML = result.results;
+                chatarea.append(inner)
+            }
+            
+            }
+        };
+        
 
-
-        $("#user-input").val("");
-
+        
+        xhttp.open("POST", "/profiles/jaycodes.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("message="+message.value);
     });
 </script>
 
