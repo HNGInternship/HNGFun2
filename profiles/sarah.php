@@ -179,14 +179,14 @@
     html {
       font-size: 100%;
       box-sizing: border-box;
-      height: 100%;
+      height: auto !important;
     }
 
     body {
       font-family: Roboto, sans-serif;
       font-size: 1.4rem;
       line-height: 1;
-      height: 100%;
+      height: auto !important;
       background: lightsmoke;
     }
 
@@ -438,12 +438,12 @@
 <body>
 
     <div class="constrain">
-      <img src="https://res.cloudinary.com/temipet/image/upload/c_scale,w_300/v1523998638/fine_sarah.jpg" alt="A really fine pic of Sarah" class="profile-dp">
+      <img src="https://res.cloudinary.com/temipet/image/upload/c_scale,w_300/v1523998638/fine_sarah.jpg" alt="A fine pic of Sarah" class="profile-dp">
       <section class="title">
         <h1 class="name">Sarah Temitope</h1>
         <p class="labels">Budding Designer ✿ Lover of Life</p>
       </section>
-      <section class="socials">
+<!--       <section class="socials">
         <a href="https://www.instagram.com/elegant_garlie0" class="fa-icon" target="_blank">
           <i class="fa fa-fw fa-instagram"></i>
         </a>
@@ -462,7 +462,7 @@
         <a href="mailto:talk2oluwasarah@gmail.com" class="fa-icon" target="_blank">
           <i class="fa fa-fw fa-envelope"></i>
         </a>
-      </section>
+      </section> -->
 
       <form class="chat-box" id="ajax-contact" method="post" action="">
 				<span class="chat-box-header">Let's talk!</span>
