@@ -108,7 +108,10 @@ if(isset($_POST['submit']) ){
         background-color: transparent;
     }
     .form-label{
-        color: #333;
+        color: #666;
+    }
+    input{
+        font-size: 16px;
     }
 </style>
 
