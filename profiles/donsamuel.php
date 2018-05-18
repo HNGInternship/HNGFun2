@@ -178,7 +178,7 @@
             
             }
         };
-        xhttp.open("GET", "/profiles/donsamuel.php?question=".message, true);
-        xhttp.send();
+        xhttp.open("GET", "/profiles/donsamuel.php", true);
+        xhttp.send({ question: 'message' });
     }
     </script>
