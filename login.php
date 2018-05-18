@@ -97,7 +97,7 @@
 
              if(data=="1"){
                 $("#message").attr("class",'text-success');
-            $("#message").html("Login successful");
+            $("#message").html("Login Successful");
 
             $("#login").html('Redirecting..');
 
