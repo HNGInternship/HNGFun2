@@ -269,6 +269,9 @@ class DBHelper{
         margin: 0;
         font-family: 'Montserrat',sans-serif;
         }
+        .header-main{
+            margin-bottom: 30px;
+        }
         .main {
         width: 360px;
         height: 600px;
@@ -315,11 +318,12 @@ class DBHelper{
         font-weight: bold;
         font-size: 16px;
         }
-        #icons{
+        .footer-main{
          margin-left: 50px;
+            margin-top: 20px;
         }
         .fa {
-            position: relative;
+        position: relative;
         padding: 20px;
         font-size: 20px;
         width: 20px;
@@ -434,7 +438,7 @@ class DBHelper{
 	.btn{
         position: absolute;
         bottom: 16px;
-        right: 25px;
+        left: 25px;
 		  padding:11px 15px;
             border:none;
             color:white;
@@ -464,6 +468,9 @@ class DBHelper{
 	</style>
 </head>
 <body>
+    <div class="header-main">
+        <?php include('../header.php'); ?>
+    </div>
     <div class="main">
         <div class="image"><img src="<?php echo $user->image_filename; ?>" alt="Author's Picture"></div>
         <div class="details">
@@ -471,12 +478,6 @@ class DBHelper{
             <h3>Slack Username: @<?php echo $user->username; ?></h3>
             <p>Exceptionally well organised, self taught, self motivated and resourceful Professional with few years of experience in Website Development and Design using HTML, CSS, Bootstrap, JAVASCRIPT, JQuery, Laravel, PHP, MYSQL.  Excellent analytical and problem solving skills.</p>
             <p class="connect_me">Connect with me</p>
-
-<!--
-        <div id="icons">
-          <?php //include('../footer.php'); ?>
-        </div>
--->
     </div>
     </div>
 <!--  Starting up the Chatbot Design  -->
@@ -511,7 +512,7 @@ class DBHelper{
                     <div class="input-group">
                     	<div class="row">
                     	 	<div class ="col-xs-9 textInput">
-                    	 		<input type="text" class="form-control custom-control" id="chat_message_text" autofocus="autofocus" rows="2" style="resize:none" placeholder="Type your message here"> 
+                    	 		<input type="text" class="form-control custom-control" id="chat_message_text" autofocus="autofocus" rows="2" style="resize:none" width="50px" placeholder="Type your message here"> 
                     	 	</div>	
                     	 	<div class ="col-xs-3 sendBtn">
                     	 		<button type="submit" class="btn btn-success btn-sm pull-right">Send</button>  
@@ -522,6 +523,11 @@ class DBHelper{
          	</div>
      	</div>
     </div>
+    
+        <div class="footer-main">
+          <?php include('../footer.php'); ?>
+        </div>
+
 </body>
 </html> 
 
@@ -570,7 +576,7 @@ class DBHelper{
 
             var message = $("#chat_message_text").val();
 
-            var strMessages = '<li class="sent"><p><small style="font-size:15px;">You:</small> ' +
+            var strMessages = '<li class="sent"><p><small>You:</small> ' +
                 ' ' + message + '</p></li><div class="clearfix"></div> ';
             $('#message-outlet').append(strMessages);
             $(".messages").scrollTop($("#message-outlet").outerHeight());
@@ -582,7 +588,7 @@ class DBHelper{
             this.postJSON(data, "../profiles/abayomi.php", function (response) {
                 $('#message_chat_form')[0].reset();
                 console.log(response);
-                var strMessages = '<li class="replies"><small style="font-size: 15px; color:rgb(47, 136, 204);" >ChatMe:</small> ' +
+                var strMessages = '<li class="replies"><small style=" color:rgb(47, 136, 204);" >ChatMe:</small> ' +
                     ' ' + response.message + '</p></li><div class="clearfix"></div> ';
                 $('#message-outlet').append(strMessages);
                 $(".messages").scrollTop($("#message-outlet").outerHeight());

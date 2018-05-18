@@ -3,9 +3,9 @@ class Database
 {
 
     private $host = "localhost";
-    private $db_name = "slayers_db";
+    private $db_name = "hng_fun";
     private $username = "root";
-    private $password = "29gE9t*dJ2#2f-BS";
+    private $password = "oluwabigi32";
     public $conn;
 
     public function dbConnection()
