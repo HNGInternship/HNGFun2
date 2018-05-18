@@ -36,7 +36,7 @@ include_once("header.php");
                                 <div class="offset-md-1 col-sm-10">
                                     <div class="row">
                                         <div class="col-sm col-xs-12 testimonial">
-                                            <div class="message">
+                                            <div class="message" style="font-size: small;">
                                                 It's been a great opportunity working with different people and using various tools in accomplishing the tasks given.
                                                 Thanks to hng internship I can now use Figma for designs and TeamViewer also.
                                                 Looking forward to more of such experiences.
@@ -47,7 +47,7 @@ include_once("header.php");
                                             </div>
                                         </div>
                                         <div class="col-sm col-xs-12 testimonial">
-                                            <div class="message">
+                                            <div class="message" style="font-size: small;">
                                                 Phew!!! Learnt how to be precise in the way I ask questions. Thanks to all who have helped me thus far.
                                             </div>
                                             <img src="images/Fotes.PNG" alt="Avatar" class="testimonial-avatar">
@@ -58,7 +58,7 @@ include_once("header.php");
                                     </div>
                                     <div class="row">
                                         <div class="col-sm  col-xs-12 testimonial">
-                                            <div class="message">
+                                            <div class="message" style="font-size: small;">
                                                 I learnt how to design a web page with Figma, implement the designs in HTML, CSS and PHP.
                                                 <br /><br />
                                                 I used TeamViewer for the first time ever and now I also have a better understanding of Git.
@@ -71,7 +71,7 @@ include_once("header.php");
                                         </div>
 
                                         <div class="col-sm  col-xs-12 testimonial">
-                                            <div class="message">
+                                            <div class="message" style="font-size: small;">
                                                 It is getting more interesting... I learnt how to push code to git for the first time.
                                                 I'm now using that knowledge to push other codes I had left vulnerable.
                                                 I actually coded with php for the first time.... and did something practical with HTML/CSS.
@@ -102,7 +102,7 @@ include_once("header.php");
                                 <div class="offset-sm-1 col-sm-10">
                                     <div class="row">
                                         <div class="col-sm testimonial">
-                                            <div class="message">
+                                            <div class="message" style="font-size: small;">
                                                 I hadn't heard about Figma until this Internship.
                                                 I've been playing around with designs since then.
                                                 Also, I'm learning the hows and whats of GitHub.
@@ -115,7 +115,7 @@ include_once("header.php");
                                             </div>
                                         </div>
                                         <div class="col-sm testimonial">
-                                            <div class="message">
+                                            <div class="message" style="font-size: small;">
                                                 This internship has been WOW.
                                                 I've been able to greatly improve my html/css and design skills, and I now know how to use github.                                          </div>
                                             <img src="images/iam__dharmy.PNG" alt="Avatar" class="testimonial-avatar">
@@ -126,7 +126,7 @@ include_once("header.php");
                                     </div>
                                     <div class="row">
                                         <div class="col-sm testimonial">
-                                            <div class="message">
+                                            <div class="message" style="font-size: small;">
                                                 I got to work with Figma for first time.
                                                 As a designer, this is definitely a nice tool to add to my toolbox.
                                                 Been a challenging and good experience so far. looking forward to more.
@@ -137,7 +137,7 @@ include_once("header.php");
                                             </div>
                                         </div>
                                         <div class="col-sm testimonial">
-                                            <div class="message">
+                                            <div class="message" style="font-size: small;">
                                                 I wrote my first php code!
                                                 I've had github but I never used it or bothered to learn it.
                                                 Thanks to this internship for pushing me out of my comfort zone, now I can make use of github and implement a php file.                                           </div>
@@ -167,7 +167,7 @@ include_once("header.php");
                                     <div class="offset-sm-1 col-sm-10">
                                         <div class="row">
                                             <div class="col-sm testimonial">
-                                                <div class="message">
+                                                <div class="message" style="font-size: small;">
                                                     This internship has been WOW.
                                                     I've learnt how to clone, push, pull to <a href="https://www.github.com" target="NEW">github</a>,
                                                     I have been able to work with a team and also improve my html/css and design skills, and
@@ -179,7 +179,7 @@ include_once("header.php");
                                                 </div>
                                             </div>
                                             <div class="col-sm testimonial">
-                                                <div class="message">
+                                                <div class="message" style="font-size: small;">
                                                     Definitely took me out of my comfort zone.
                                                     Was wonderful to learn how to use Docker.
                                                     I liked designing using figma. Wish I had known about it previously                                                </div>
@@ -256,25 +256,25 @@ include_once("header.php");
 
           <div class="carousel-item active">
              <div class="row">
-                <div class="col-md-3" style="margin-left:60px; max-width: 300px;">
-                    <iframe width="300" height="200" src="https://youtube.com/embed/mnl4IddBlVk"></iframe>
-                        <p>Mercy Ikpe</p>
+                <div class="col-md-3" style="margin-left:70px; max-width: 300px;">
+                    <iframe width="250" frameborder="0" scrolling="no" id="iframe" src="https://youtube.com/embed/mnl4IddBlVk"></iframe>
+                        <p style="text-align: center;">Mercy Ikpe</p>
                 </div>
-                <div class="col-md-3" style="margin-left:60px; max-width: 300px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/ljqJjV5pWC0"></iframe>
-                        <p>Blessing Akpan</p>
+                <div class="col-md-3" style="margin-left:70px; max-width: 300px">
+                    <iframe width="250" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/ljqJjV5pWC0"></iframe>
+                        <p style="text-align: center;">Blessing Akpan</p>
                 </div>
-                <div class="col-md-3" style="margin-left:60px; max-width:300px;">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/ScIL-vPXpD0"></iframe>
-                        <p>Abigail Adeboga</p>
+                <div class="col-md-3" style="margin-left:70px; max-width:300px;">
+                    <iframe width="250" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/ScIL-vPXpD0"></iframe>
+                        <p style="text-align: center;">Abigail Adeboga</p>
                 </div>
              </div>
         </div>
         <div class="carousel-item">
             <div class="row">
-                <div class="col-md-3" style="margin-left:60px">
-                    <iframe width="300" height="200" src="https://www.youtube.com/embed/DkwQnsJvwNI"></iframe>
-                        <p>Aniuchi Adaobi</p>
+                <div class="col-md-3" style="margin-left:70px">
+                    <iframe width="250" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/DkwQnsJvwNI"></iframe>
+                        <p style="text-align: center;">Aniuchi Adaobi</p>
                 </div>
 
                 <div class="col-md-3"></div>

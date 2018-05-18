@@ -1,326 +1,234 @@
 <?php
 include_once("header.php");
 ?>
-<style>
 
-/* General styles */
-main {
-    position: relative;
-}
-
-header {
-
-    padding-bottom: 0;
-}
-
-.hero {
-    max-width: 640px;
-    margin: 0 auto;
-
-}
-
-/*FAQ styles */
-
-.jumbotron {
-
-    background: #;
-    text-align: center;
-    color: #3D3D3D;
-    border: 0;
-    border-radius: 0;
-    margin: 0;
-    margin-bottom: 0;
-
-}
-
- .bg-cover {
-     background-size: cover;
-     color: white;
-     background-position: 0px -200px;
-     position: relative;
-     z-index: -2;
-     background-image: url('./img/ask.jpg');
- }
-
- .overlay {
-     background-color: #000;
-     opacity: 0.5;
-     position: absolute;
-     top: 0;
-     left: 0;
-     bottom: 0;
-     right: 0;
-     z-index: -1;
- }
-
-.faq-wrapper {
-    /* border: 1px solid #4f4f4f; */
-    margin: 3em 0 3em;
-    padding: 0.8em;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    text-align: right;
-    max-width: 1185px;
-    background: #f4f4f4;
-    border-bottom: 2px solid #0598ec;
-
-
-}
-
-.wrap {
-    background: #fafafa;
-    padding-left: 0.56em;
-    max-width: 1185px;
-}
-
-.answers {
-    margin-bottom: 2em;
-
-
-}
-
-.faq-wrapper h5 {
-    text-transform: uppercase;
-    padding: 18px;
-     text-align: center;
-     font-size: 2em;
-     font-weight: 700;
-
-}
-
-.faq-h5 {
-    text-align: center;
-    font-weight: 200;
-    padding-bottom: .7em;
-
-}
-
-.btn-q {
-    background: #f2f2f2;
-    color: #3d3d3d;
-    text-align: left;
-    border: 0;
-    padding-right: 0;
-    padding-bottom: 2em;
-}
-
-
-
-.nav-btn {
-    color: red;
-    z-index: 1001;
-    position: fixed;
-    top: 100px;
-    left: 0;
-    cursor: pointer;
-    background: #ffffff;
-    padding: 4px 8px;
-}
-
-.img-box {
-   font-size: 4em;
-    text-align: center;
-    border: 1px solid #3d3d3d;
-    background: #f2f2f2;
-    margin-bottom: 5px;
-}
-
-.answers card {
-    margin-right: 0;
-}
-
-.answers .col-sm-2 {
-    padding-right: 4px;
-    padding-left: 2px;
-
-}
-
-.answers .col {
-    padding-left: 0;
-}
-
-.answers #accordion .card {
-    border: none;
-    margin: 0 5px 5px;
-}
-
-.answers #accordion .card .row {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.answers #accordion .card .col {
-    padding-right: 7px;
-}
-
-.card-header h5.mb-0 {
-    max-width: 240px;
-}
-
-.answers #accordion .card-header {
-    background: #f2f2f2;
-    height: 6.1em;
-    border: 1px solid #3d3d3d;
-    padding-left: .25em;
-    border-radius: 0;
-}
-
-.answers #accordion .card-body {
-    height: 330px;
-    font-size: 16px;
-
-}
-
-i.fa.fa-bars {
-    color: #3d3d3d !important;
-}
-.hero input[type="text"]{
-    padding: 10px;
-    padding-left: 50px;
-    margin-left: 10px;
-    border: 1px solid #3d3d3d;
-}
-
-
-
-@media(max-width: 568px) {
-    .btn-q {
-        padding-left: 0;
-        width: 370px;
+<head>
+  <title>Help Center</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- custom style -->
+  <style type="text/css">
+  @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: 'Lato', 'work sans';
+      background: #fafafa;
+      font-size: medium;
     }
-}
+    header {
+      background: #e4e4e4;
+      padding: 30px;
+    }
+    header > h1 {
+      font-weight: bold;
+    }
+    header > h4 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    #header-search {
+      background: none;
+      border: 1px solid grey;
+      text-indent: 30px;
+    }
+    .fa-search { 
+      position: sticky;
+      margin-right: -30px;
+      font-size: 15px;
+    }
+    .btn {
+      border: 1px solid #57aff5;
+    }
+    .btn-primary {
+      background: #2196f3;
+    }
+    .btn-default {
+      background: #fff;
+      color: #57aff5;
+    }
+    .btn-block {
+      width: 75%;
+      margin: 30px 0;
+    }
+    #faq {
+      margin-top: 50px;
+      margin-left: 50px;
+      border: 1px solid grey;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    #faq > h4 {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-right: 50px;
+    }
+    .form {
+      margin-top: 100px;
+    }
+    form {
+      border: 1px solid grey;
+      padding: 70px 170px;
+      margin-top: 0;
+    }
+    .alt-header {
+      display: none;
+    }
+    @media screen and (max-width: 767px) {
+      header {
+        display: none;
+      }
+      .alt-header {
+        display: block;
+      }
+      form {
+        padding: 1em;
+        width: 100%;
+      }
+    }
+    #textarea {
+      height: 150px;
+      margin-top: 35px;
+    }
+    .p {
+      margin-bottom: 0;
+      font-weight: bold;
+      font-size: large;
+    }
+    #left > .btn {
+      width: 70%;
+      margin-left: 60px;
+    }
+    #right {
+      background: #f2f2f2;
+      margin-top: 30px;
+      height: 300px;
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      #left .btn {
+        width: 100%;
+      }
+      #right {
+        margin-left: 10%;
+      }
+    }
 
-
-</style>
-
-
-<header class="jumbotron bg-cover">
-<div class="overlay"></div>
-<div class="hero">
- <h1>Help Center</h1>
-    <p>What Can we help you with ?</p>
-</div>
-</header>
-<main class="">
-    <section class="container">
-        <div class="faq-wrapper">
-            <h5>faq's</h5>
+    #submit {
+      margin-top: 10px;
+      margin-left: 80%;
+      width: 20%;
+    }
+    figure > img {
+      border-radius: 50%;
+      height: 12em;
+    }
+    figcaption {
+      font-weight: bold;
+      font-size: large;
+      color: #2196f3;
+    }
+    .main-left {
+      margin-top: 2em;
+    }
+    .main-left > button {
+      margin-left: 2em;
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      .main-left > button {
+        width: 100%;
+        font-size: 12px;
+      }
+    }   
+    .anchor {
+      color: #000;
+      font-weight: bold;
+    }
+    #accordion {
+      padding-left: 10px;
+    }
+    .anchor:before {
+      content: '\2335';
+      float: right;
+    }
+    .anchor:active:before,
+    .anchor:focus:before {
+      transform: rotate(180deg);
+      transition: all 0.5s;
+    }
+  </style>  
+</head>
+<body>
+  <main class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- shows on small screen only --> 
+        <header class="text-center alt-header">
+          <h1>Help Center</h1>
+          <h4>What Can we help you with?</h4>
+          <span class="fa fa-search"></span>
+          <input type="text" id="header-search" placeholder="Have a question? Ask or enter a search term here" class="form-control" style="width:70%;display:inline;">
+          <input type="button" class="btn btn-primary" value="Search" id="search" style="width:15%;">
+        </header>
+        <div class="main-left text-center">
+          <figure>
+            <img src="./img/dashboard/amy.png" alt="pic" class="img-circle">
+          </figure>
+          <figcaption>rock_zion</figcaption>
+          <button class="btn btn-default btn-block">PROFILE</button>
+          <button class="btn btn-default btn-block">TRADE</button>
+          <button class="btn btn-default btn-block">ACCOLADE BALANCE</button>
+          <button class="btn btn-primary btn-block">HELP & FEEDBACK</button>
         </div>
-        <div class="answers wrap">
-            <div class="row">
-                <div class="col" id="tab2">
-                <div id="accordion">
-                  <div class="card">
-                    <div class="row">
-                    <div class="col-sm-2">
-                        <div class="img-top img-box"><i class="fa fa-database"></i></div>
-                    </div>
-                    <div class="col">
-                        <div class="card-header" id="headingOne">
+      </div>
 
-                        <h5 class="mb-0">
-                            <button class="btn-q btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                             Will I be awarded a certificate after this internship?
-                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                            </button>
-                        </h5>
-                        </div>
-
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body">
-                                <div id="#collapseOne">
-                                We do not currently issue certificates to participants but we hope to do that in the future.
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                  </div><!-- end of Card -->
-
-                  <div class="card">
-                  <div class="row">
-                      <div class="col-sm-2">
-                        <div class="img-top img-box"><i class="fa fa-question"></i></div>
-                      </div>
-                      <div class="col">
-                            <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Is this internship program open for only Nigerians?
-                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                    No, no at all. The HNG internship program is open for residents of African countries. We believe by creating an equal opportunity, we not only create human resource value by equipping our interns with the proper technical skills, we also make them employable thereby creating an adequately skilled, qualified workforce in Africa.
-
-                                </div>
-                            </div>
-                        </div><!-- end of col-->
-
-                      </div>
-                  </div><!-- end of card-->
-
-                  <div class="card">
-                  <div class="row">
-                        <div class="col-sm-2">
-                            <div class="img-top img-box"><i class="fa fa-search"></i></div>
-                        </div>
-                      <div class="col">
-                            <div class="card-header" id="headingThree">
-                                <h5 class="mb-0">
-                                    <button class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Do I need any prior programming experience to join?<i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                <div class="card-body">
-                                    The HNG internship is open for beginners with little or no experience in design, programming or DevOps. Once you are self driven and motivated to learn, you are good to go!
-                                </div>
-                            </div>
-                      </div><!-- end of col -->
-                  </div>
-
-                  </div><!-- end of card-->
-                  <div class="card">
-                    <div class="row">
-                        <div class="col-sm-2">
-                             <div class="img-top img-box"><i class="fa fa-key"></i></div>
-                        </div>
-                        <div class="col">
-                            <div class="card-header" id="headingfour">
-                            <h5 class="mb-0">
-                                <button  class="btn-q btn collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                What are the basic requirements for this program?
-                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </button>
-                            </h5>
-                            </div>
-
-                            <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
-                                <div class="card-body">
-                                    These are some basic prerequisites for this program: <br><br>1. You are self driven and motivated to learn. Participation in this program requires consistently meeting the deadlines.<br><br>
-                                            2. You have access to a computer with broadband connection, on which you will install a professional code/text editor.<br><br>
-                                            3. You are willing to contribute to the success of the program, including collaborating with fellow interns. <br><br>
-                                    4. You approach problem solving strategically and can clearly communicate your strategy.
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-            </div><!-- end of accordion -->
+      <div class="col-md-9">
+        <header class="text-center">
+          <h1>Help Center</h1>
+          <h4>What Can we help you with?</h4>
+          <span class="fa fa-search"></span>
+          <input type="text" id="header-search" placeholder="Have a question? Ask or enter a search term here" class="form-control" style="width:70%;display:inline;">
+          <input type="button" class="btn btn-primary" value="Search" id="search" style="width:15%;">
+        </header>
+        <div class="container section">
+          <div id="faq">
+            <h4 class="text-right">FAQs</h4>
+          </div>
+          <div class="row">
+            <div class="col-md-3" id="left">
+              <button class="btn btn-primary btn-block">Private Key</button>
+              <button class="btn btn-default btn-block">Accolades</button>
+            </div>
+            <div class="col-md-9" id="right">
+              <a href="#accordion" data-toggle="collapse" class="anchor">What is a private key?</a>
+              <div id="accordion" class="collapse">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                <br> nisi ut aliquip exea commodo consequat.
+              </div>
+              <hr>
+              <a href="#accordion2" data-toggle="collapse" class="anchor">Why do i need a private key?</a>
+              <div id="accordion2" class="collapse">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                <br> nisi ut aliquip exea commodo consequat.
+              </div>
+            </div>
+          </div>
+          <div class="form">
+            <p class="text-center p">We would like to hear from you</p>
+            <form class="form-group" action="">
+              <input type="email" placeholder="Email Address" class="form-control">
+              <textarea placeholder="Message" class="form-control" id="textarea"></textarea>
+              <input type="submit" class="btn btn-primary" value="SEND" id="submit">
+            </form>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </main>
 
-</main>
-
-
+  <!-- scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
 
 <?php
 include_once("footer.php");

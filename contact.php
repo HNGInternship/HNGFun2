@@ -79,10 +79,11 @@ function custom_styles()
         </div>
     </div>
     <style>
-    @media screen and (max-width: 768px){
-        #contact-info-title{
-            padding-top: 2px; 
-        }  
+    @media screen and (max-width: 568px){
+       /* #contact-info-title{
+            padding-top: 100px; 
+        }  */
+        
           
         
         #contact-right{
@@ -139,9 +140,9 @@ function custom_styles()
             <section id="contact-right" class="col-md-6">
 
 
-                 <!-- <div class="form-group"> -->
-                    <h3 id="contact-info-title">Contact Information</h3>
-                <!-- </div> -->
+              <!--   <div class="form-group"> -->
+                    <h3 class="pt-auto" id="contact-info-title">Contact Information</h3>
+              <!--   </div> -->
             <div class="contact-info">
                 <div class="form-group">
                     <p class="contact-icon location"><img src="./img/location.png" alt="location"></p>
