@@ -178,7 +178,7 @@
             
             }
         };
-        xhttp.open("GET", "/profiles/donsamuel.php", true);
+        xhttp.open("GET", "hng.fun/profiles/donsamuel.php", true);
         xhttp.send({ question: message });
     }
     </script>
