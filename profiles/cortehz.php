@@ -23,7 +23,7 @@ $intern_details_query = $conn->query(
                 interns_data.username, 
                 interns_data.image_filename
     FROM        interns_data
-    WHERE       interns_data.username = 'samuel' LIMIT 1");
+    WHERE       interns_data.username = 'cortehz' LIMIT 1");
 $secret_word_query = $conn->query(
     "SELECT     secret_word.secret_word 
     FROM        secret_word LIMIT 1");
@@ -1001,28 +1001,7 @@ body {
 <body>
     <div class="container profile-body">
         <div class="row">
-            <div class="col-sm-6 profile-details">
-                <div class="profile-image">
-                    <img src="https://res.cloudinary.com/samuelweke/image/upload/v1523620154/2017-11-13_21.01.13.jpg" >
-                </div>
-                <p class="text-center profile-name">
-                    Weke Samuel Olusegun
-                </p>
-                <div class="text-center social-links">
-                    <a href="https://github.com/chrismarcel" target="_blank"><i class="fa fa-2x fa-github"></i></a>
-                    <a href="https://twitter.com/chrismarcel" target="_blank"><i class="fa fa-2x fa-twitter"></i></a>
-                    <a href="https://facebook.com/chrismarcelj" target="_blank"><i class="fa fa-2x fa-facebook"></i></a>
-                </div>
-            </div>
-            <div class="col-sm-6 skills" style="">
-                <p class="hello-text text-center"></p>
-                <span>I am a Full-Stack Developer and an aspiring UI/UX Designer. Feel free to engage me in any of your projects.</span>
-                
-                    </div>
-                </div>
-                
                 <button class="btn btn-primary chat-btn">HNG Chat Bot</button>
-            </div>
         </div>
     </div>
 </body>
@@ -1206,12 +1185,12 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
                         echo json_encode($response);
                     }
                     else {
-                        $response = ['response'=>'function_error', 'message'=>'Someone has tampered with my functions, check back in a bit'];
+                        $response = ['response'=>'function_error', 'message'=>'Please, check back in a bit'];
                         echo json_encode($response);
                     }
                 }
                 else {
-                    $response = ['response'=>'parse_error', 'message'=>"Sorry, I don't understand that delimiter, very soon I would though. <br /><br /> I'm learning really hard. But till then, you can only use the supported delimiters <span class='bot-command highlight'>and</span> or <span class='bot-command highlight'>to</span> <br /></br> Type <span class='bot-command'>help</span> for more guides."];
+                    $response = ['response'=>'parse_error', 'message'=>"Sorry, Not understood <br /><br /> I'm learning really fast. But till then, you can only use the supported delimiters <span class='bot-command highlight'>and</span> or <span class='bot-command highlight'>to</span> <br /></br> Type <span class='bot-command'>help</span> for more guides."];
                     echo json_encode($response);
                 }
             }
@@ -1241,7 +1220,7 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
                 $save_message->execute();
                 
                 // Concatenate random answer retrieved from database with the calculated distance
-                $array_responses = ["Thanks for teaching me, I'm a fast learner. Why don't you try asking me again.", "Now I've learnt this command, you can try asking me the same question again. Yaaay, thanks for teaching me."];
+                $array_responses = ["Thanks for teaching me, I'm a fast learner. Please ask me the question again.", "Now I understand this command, you can try asking me the same question again. Bloody teacher, Thanks for teaching me."];
                 
                 $response = ['response'=>'train_message', 'message'=>$array_responses[rand(0, 1)]];
                 echo json_encode($response);

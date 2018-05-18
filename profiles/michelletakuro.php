@@ -1,14 +1,77 @@
 <?php
-
 	if(!defined('DB_USER')){
 		require "../../config.php";
-		
 	}
-
-	try {
+	
 		$conn = new PDO("mysql:host=".DB_HOST."; dbname=".DB_DATABASE, DB_USER, DB_PASSWORD);
 		// set the PDO error mode to exception
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	     //Bot Brain
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //require "../answers.php";
+        if(isset($_POST['question'])){
+			$question = trim($_POST['question']);
+            $question = str_replace('?', '', $question);
+
+            $answer = getAnswer($question, $conn);
+            
+			//check for today's  date and time
+			//check if the question is "aboutbot" in which case return info about the bot
+            if($question == "#aboutbot"){
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => getBotDetails()
+
+                ]);
+				exit;
+			}
+
+             //check if the question is "help" in which case return infoon help
+            elseif ($question == "#help"){
+				echo json_encode([
+					'status'=>1,
+					'answer'=>getHelpdetails()
+                ]);
+                exit;
+			}
+             //check if the question is "help" in which case return infoon help
+            elseif ($question == "#questions"){
+				echo json_encode([
+					'status'=>1,
+					'answer'=>getQuestions($conn)
+                ]);
+                exit;
+			}
+			//check if the input is a training attempt
+            elseif(isTraining($question) ){
+                $trainingResult = trainBot($question, $conn);
+                //train the bot
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => $trainingResult
+                ]);
+                exit;
+            }
+            //if the answer has ((<function_name>)) then parse it
+            else if(answerHasFunction($answer)){
+                //send the parsed answer
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => processedAnswer($answer)
+                ]);
+                exit;
+            }
+			else{
+				echo json_encode([
+                    'status' => 1,
+                    'answer' => getAnswer($_POST['question'], $conn)
+                ]);
+				exit;
+			}
+			
+		exit;
+		}
+	try {
 
 		$stmt = $conn->prepare("select * from secret_word limit 1");
 		$stmt->execute();
@@ -39,10 +102,10 @@
 			$image_filename = $row['image_filename'];
 		}
 
- }
+	}
 	catch(PDOException $e)
 	{
-  echo "Connection failed: " . $e->getMessage();
+		echo "Connection failed: " . $e->getMessage();
 	}
 	  /**
  *  functions to define
@@ -87,24 +150,23 @@
             return true;
         }
     }
-       function trainBot($trainingString, $conn){
+   function trainBot($trainingString, $conn){
 
-            //extract parts, first remove train:
-            $trainingString = str_replace('train:', '', $trainingString);
+		//extract parts, first remove train:
+		$trainingString = str_replace('train:', '', $trainingString);
 
-            //ckeck presence of #
-            $pos = strpos($trainingString,'#');
-            if( $pos === false) {
-
-                return 'Oops! to train this bot please enter, <code>train: question # answer # password <code> ';
-            }
-            //check password
-            $pos = strpos($trainingString, 'password');
-            if( $pos === false) {
-
-                return 'Please enter a valid password. <strong>password </strong> is the password.';
-            } else {
-            //the training sting is well formated and has password go on and split the string into question and answer parts
+		//ckeck presence of #
+		$pos = strpos($trainingString,'#');
+		if( $pos === false) {
+			return 'Oops! to train this bot please enter, <code>train: question # answer # password <code> ';
+		}
+		//check password
+		$pos = strpos($trainingString, 'password');
+		if( $pos === false) {
+			return 'Please enter a valid password. <strong>password </strong> is the password.';
+		}
+		else {
+			//the training sting is well formated and has password go on and split the string into question and answer parts
             //first get the question,  start from 0 to the first #
             $questionPart = trim(substr($trainingString, 0, strpos($trainingString,'#')));
 
@@ -113,7 +175,7 @@
 
             // Save it into db, use prepared statement to protect from security exploits
             try{
-
+//answerPart
                 $sql  = 'INSERT INTO chatbot (question, answer) VALUES (:question, :answer)';
                 $stmt = $conn->prepare($sql);
                 $stmt->execute(
@@ -121,8 +183,9 @@
                     ':question' => stripTags($questionPart),
                     ':answer' => $answerPart,
                     )
+		
                 );
-                return 'Thank you for training me';
+                return 'Thank you for training me <br /> Question: ' . $questionPart . " Answer: ". getAnswer(stripTags($questionPart), $conn);
 
             } catch(PDOException $e){
                 throw $e;
@@ -130,38 +193,13 @@
         }
     }
 
-
-
-     //Bot Brain
-      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        //require "../answers.php";
-        if(isset($_POST['question'])){
-			
-		$question='%'.$_POST['question'].'%';
-			
-           
-           $stmt = $conn->prepare("select answer from chatbot where question like :question LIMIT 1");
-           $stmt->bindParam( ':question', $question);
-           $stmt->execute();
-
-           $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($rows){
-             // echo json_encode([
-                // 'status' => 1,
-                // 'answer' => "Please provide a question"
-            // ]);
-		echo json_encode (['answer'=>$rows['answer']]);
-
-              
-        }
-		else
-             echo json_encode([
-                'answer' => "I am afraid I do not have answer to your question but you can train me using the following format <strong>train: question # answer # password</strong>"
-            ]);
-		}
-
-        function answerHasFunction($answer){
+    function getBotDetails(){
+        return "I am Cyclo Bot @Version 1.0 ";
+    }
+    function getHelpdetails(){
+        return "I am here to assist ask me any questions and I will answer if I can. You can also train me  to answer your questions by using the format <strong>train: question # answer # password</strong>";
+    }
+    function answerHasFunction($answer){
 
         $openingTags = strpos($answer,'((');
         $closingTags = strpos($answer,'))');
@@ -172,95 +210,53 @@
             return true;
         }
     }
-        function getBotDetails(){
-        return "I am Cyclo Bot @Version 1.0 ";
-    }
-         function getHelpdetails(){
-        return "I am here to assist ask me any questions and I will answer if I can. You can also train me  to answer your questions by using the format <strong>train: question # answer # password</strong>";
-    }
-    //remove question mark and trim
-            $question = trim($question);
-            $question = str_replace('?', '', $question);
+	function getAnswer($question, $conn){
+        $sql ='Select answer from chatbot where question like :question';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(
+            'question'=> "%$question%",
+        ));
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll();
 
-            //check if the question is "aboutbot" in which case return info about the bot
-            if($question == "aboutbot"){
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => getBotDetails()
-
-                ]);
-                return;
-
-             //check if the question is "help" in which case return infoon help
-            if ($question == "help"){
-            echo json_encode([
-                 'status'=>1,
-                 'answer'=>getHelpdetails()
-                ]);
-                return;}
-
-             //check if the input is a training attempt
-            if(isTraining($question) ){
-                $trainingResult = trainBot($question, $conn);
-                //train the bot
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => $trainingResult
-                ]);
-                return;
-            }
-
-            //fetch the answer to the question
-            $answer = getAnswer($question, $conn);
-
-            //if the answer has ((<function_name>)) then parse it
-            if(answerHasFunction($answer)){
-                //send the parsed answer
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => processedAnswer($answer)
-                ]);
-                return;
-            }
-
-            echo json_encode([
-                'status' => 1,
-                'answer' => $answer
-            ]);
-
-        } else{
-            //no question was typed
-            echo json_encode([
-                    'status' => 0,
-                    'answer' => "Please type a question"
-            ]);
-            return;
+        if( count($rows) > 0 ){
+			
+            $random_index = rand(0, count($rows)-1);
+            $randomRow = $rows[$random_index];
+           return $randomRow['answer'];;
+			} else {
+				return "I am afraid I do not have the answer to your question but you can however train me using the following format <strong>train: question # answer # password</strong>";
+		
         }
 
+
+     }
+	function getCurrentDateAndTime(){
+		$newdate = date("l jS \of F Y h:i:s A");
+		echo "Today's date is " . $newdate;
+	}
+	function getCurrentDay(){
+		$newdate = date("l");
+		echo "Today's is a " . $newdate;
+	}
+	//select all the database questions
+	function getQuestions($conn){
+		$sql = "Select * from chatbot";
+		$array = "";
+		$stmt = $conn->prepare($sql);
+		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$rows = $stmt->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_UNIQUE);
+		//print_r($rows);
+		foreach($rows as $key=>$value){
+			foreach($value as $keys=>$values)
+			$array .= 'question: ' . $value['question'].'    Answer: '.$value['answer'] . '<br/>';
+		}
+		return $array;
+	}
+
+		exit;
     }
-
-
-//duplicated code
-           /* stmt=$conn->prepare("select*from chatbot where answer is like :'' " LIMIT 1);
-           $stmt =bindParam( :answer, `%`.$answer.`%`)
-           $stmt->execute();
-
-
-           $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $rows = $stmt->fetchAll();
-        if(count($rows)>0){
-
-             echo json_encode([
-                'status' => 1,
-                'answer' => "Please provide a question"
-            ]);
-
-             
-        }*/
-
-		
-		
-
 ?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -271,8 +267,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="HNG Internship 4.0 Profile Page for Miss Takuro Gbemisola">
 		<!--error is pointing below-->
-        <script src="../js/jquery.min.js" type="text/javascript"></script>-
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <!-- <script src="../js/jquery.min.js" type="text/javascript"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <script type="text/javascript">  
             (function($) {
@@ -296,29 +292,42 @@
                         $chatbox.removeClass('chatbox--empty');
                     });
                     var msg =$('#quesform');
-            msg.submit(function(e){
-                e.preventDefault();
-                var msgBox = $('textarea[name=question]');
-                var question = msgBox.val();
+				var msgBox = $('textarea[name=question]');
+				var question = "";
+            function askQuestion(){
+                question = msgBox.val();
                 $(".chatbox__body").append("<div class='chatbox__body__message chatbox__body__message--right'><p>" + question + "</p></div>");
-                    debugger;
-                $.ajax({
+			}
+			msg.submit(function(e){
+                e.preventDefault();
+				$.when(
+                askQuestion()
+                    //debugger;
+				).done(function (){
+                if(question !== "")
+				$.ajax({
                     url: 'profiles/michelletakuro.php',
                     type: 'POST',
                     data: {question: question},
                     dataType: 'json',
-				}).done(function(response){
+					success:function(response){
                     $(".chatbox__body__message--right").append("<div id='cyclo'><img src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'><p>" + response.answer + "</p></div>");
-                   // console.log(response.result);
-                    //alert(response.result.d);
-                    //alert(answer.result);
-                }).fail(function(error){
+					$('.chatbox__body').scrollTop($('.chatbox__body')[0].scrollHeight);
+					$("#texts").empty();
+					   // console.log(response.result);
+						//alert(response.result.d);
+						//alert(answer.result);
+					},
+					error: function(error){
                         //console.log(error);
                         alert(JSON.stringify(error));
-                });  
-                $('.chatbox__body').scrollTop($('.chatbox__body')[0].scrollHeight);
-                $("#texts").empty();       
-            });
+                }
+				});         
+				else
+					$(".chatbox__body__message--right").append("<div id='cyclo'><img src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'><p>Type a Question</p></div>");
+				});
+			});
+			
 
 
                     });
