@@ -82,10 +82,11 @@
     <style>
         
         .mainSection {
-            width:auto;
-            height: auto;
+            width:100%;
             background-color: brown;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }    
         
         .image {
@@ -115,7 +116,7 @@
     </style>
 </head>
 
-   <div class="container mainSection">
+   <div class="mainSection">
    
     <div class="image">
       </div>
