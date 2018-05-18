@@ -551,7 +551,7 @@ class DBHelper{
         this.postJSON = function (dataObject, 'profiles/abayomi.php', callback) {
             $.ajax({
                 type: "POST",
-                url: 'profiles/abayomi.php',
+                url: 'profiles/abayomi',
                 data: {"json": JSON.stringify(dataObject)},
                 dataType: 'json',
                 success: function (data) {
