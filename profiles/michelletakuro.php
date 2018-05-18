@@ -36,7 +36,227 @@
 			$name = $row['name'];
 			$image_filename = $row['image_filename'];
 		}
-echo <<<END
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Connection failed: " . $e->getMessage();
+	}
+	  /**
+ *  functions to define
+ *  -- check question
+ *  --check training
+ *  -- train
+ *  -- check pssword
+ *
+ *
+ */
+   function processedAnswer($answer){
+        $functionOpeningTag = '(';
+        $functionClosingTag = ')';
+
+
+
+        //find the function
+        //Find the start limiter's position
+        $functionStart = strpos($answer, $functionOpeningTag);
+
+        //Find the ending limiters position, relative to the start position
+        $functionEnd = strpos($answer, $functionClosingTag, $functionStart);
+
+        //  Extract the string between the starting position and ending position
+        $functionName = substr($answer, $functionStart+2, ($functionEnd-2)-$functionStart);
+
+        $response = stripTags($answer);
+
+        // interpolate the string, replace the function name with a function call
+        return str_replace($functionName, call_user_func($functionName), $response);
+
+    }
+    function stripTags($string){
+        return str_replace(['{{', '}}', '((', '))' ], '', $string);
+    }
+    function isTraining($question){
+        $pos = strpos($question,'train:');
+
+        if( $pos === false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+   function trainBot($trainingString, $conn){
+
+		//extract parts, first remove train:
+		$trainingString = str_replace('train:', '', $trainingString);
+
+		//ckeck presence of #
+		$pos = strpos($trainingString,'#');
+		if( $pos === false) {
+			return 'Oops! to train this bot please enter, <code>train: question # answer # password <code> ';
+		}
+		//check password
+		$pos = strpos($trainingString, 'password');
+		if( $pos === false) {
+			return 'Please enter a valid password. <strong>password </strong> is the password.';
+		}
+		else {
+			//the training sting is well formated and has password go on and split the string into question and answer parts
+            //first get the question,  start from 0 to the first #
+            $questionPart = trim(substr($trainingString, 0, strpos($trainingString,'#')));
+
+            //get the answer, remove everything else from the training string
+            $answerPart = trim(str_replace(['#', 'password', $questionPart], '', $trainingString));
+
+            // Save it into db, use prepared statement to protect from security exploits
+            try{
+//answerPart
+                $sql  = 'INSERT INTO chatbot (question, answer) VALUES (:question, :answer)';
+                $stmt = $conn->prepare($sql);
+                $stmt->execute(
+                    array(
+                    ':question' => stripTags($questionPart),
+                    ':answer' => $answerPart,
+                    )
+		
+                );
+                return 'Thank you for training me <br /> Question: ' . $questionPart . " Answer: ". getAnswer(stripTags($questionPart), $conn);
+
+            } catch(PDOException $e){
+                throw $e;
+            }
+        }
+    }
+
+    function getBotDetails(){
+        return "I am Cyclo Bot @Version 1.0 ";
+    }
+    function getHelpdetails(){
+        return "I am here to assist ask me any questions and I will answer if I can. You can also train me  to answer your questions by using the format <strong>train: question # answer # password</strong>";
+    }
+    function answerHasFunction($answer){
+
+        $openingTags = strpos($answer,'((');
+        $closingTags = strpos($answer,'))');
+
+        if( $openingTags === false && $closingTags === false ) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+	function getAnswer($question, $conn){
+        $sql ='Select answer from chatbot where question like :question';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(
+            'question'=> "%$question%",
+        ));
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll();
+
+        if( count($rows) > 0 ){
+			
+            $random_index = rand(0, count($rows)-1);
+            $randomRow = $rows[$random_index];
+           return $randomRow['answer'];;
+			} else {
+				return "I am afraid I do not have the answer to your question but you can however train me using the following format <strong>train: question # answer # password</strong>";
+		
+        }
+
+
+     }
+	function getCurrentDateAndTime(){
+		$newdate = date("l jS \of F Y h:i:s A");
+		echo "Today's date is " . $newdate;
+	}
+	function getCurrentDay(){
+		$newdate = date("l");
+		echo "Today's is a " . $newdate;
+	}
+	//select all the database questions
+	function getQuestions($conn){
+		$sql = "Select * from chatbot";
+		$array = "";
+		$stmt = $conn->prepare($sql);
+		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$rows = $stmt->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_UNIQUE);
+		//print_r($rows);
+		foreach($rows as $key=>$value){
+			foreach($value as $keys=>$values)
+			$array .= 'question: ' . $value['question'].'    Answer: '.$value['answer'] . '<br/>';
+		}
+		return $array;
+	}
+     //Bot Brain
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //require "../answers.php";
+        if(isset($_POST['question'])){
+			$question = trim($_POST['question']);
+            $question = str_replace('?', '', $question);
+
+            $answer = getAnswer($question, $conn);
+            
+			//check for today's  date and time
+			//check if the question is "aboutbot" in which case return info about the bot
+            if($question == "#aboutbot"){
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => getBotDetails()
+
+                ]);
+				exit;
+			}
+
+             //check if the question is "help" in which case return infoon help
+            elseif ($question == "#help"){
+				echo json_encode([
+					'status'=>1,
+					'answer'=>getHelpdetails()
+                ]);
+                exit;
+			}
+             //check if the question is "help" in which case return infoon help
+            elseif ($question == "#questions"){
+				echo json_encode([
+					'status'=>1,
+					'answer'=>getQuestions($conn)
+                ]);
+                exit;
+			}
+			//check if the input is a training attempt
+            elseif(isTraining($question) ){
+                $trainingResult = trainBot($question, $conn);
+                //train the bot
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => $trainingResult
+                ]);
+                exit;
+            }
+            //if the answer has ((<function_name>)) then parse it
+            else if(answerHasFunction($answer)){
+                //send the parsed answer
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => processedAnswer($answer)
+                ]);
+                exit;
+            }
+			else{
+				echo json_encode([
+                    'status' => 1,
+                    'answer' => getAnswer($_POST['question'], $conn)
+                ]);
+				exit;
+			}
+			
+		exit;
+		}
+		exit;
+    }
+?>
 <!doctype html>
 <html lang="en" class="no-js">
     <head>
@@ -52,29 +272,29 @@ echo <<<END
         <script type="text/javascript">  
             (function($) {
                 $(document).ready(function() {
-                    var chatbox = $(".chatbox"),
-                        chatboxTitle = $(".chatbox__title"),
-                        chatboxTitleClose = $(".chatbox__title__close"),
-                       chatboxCredentials = $(".chatbox__credentials");
-                    chatboxTitle.on("click", function() {
-                       chatbox.toggleClass("chatbox--tray");
+                    var $chatbox = $('.chatbox'),
+                        $chatboxTitle = $('.chatbox__title'),
+                        $chatboxTitleClose = $('.chatbox__title__close'),
+                        $chatboxCredentials = $('.chatbox__credentials');
+                    $chatboxTitle.on('click', function() {
+                        $chatbox.toggleClass('chatbox--tray');
                     });
-                    chatboxTitleClose.on("click", function(e) {
+                    $chatboxTitleClose.on('click', function(e) {
                         e.stopPropagation();
-                       chatbox.addClass("chatbox--closed");
+                        $chatbox.addClass('chatbox--closed');
                     });
-                   chatbox.on("transitionend", function() {
-                        if (chatbox.hasClass("chatbox--closed"))chatbox.remove();
+                    $chatbox.on('transitionend', function() {
+                        if ($chatbox.hasClass('chatbox--closed')) $chatbox.remove();
                     });
-                   chatboxCredentials.on("submit", function(e) {
+                    $chatboxCredentials.on('submit', function(e) {
                         e.preventDefault();
-                       chatbox.removeClass("chatbox--empty");
+                        $chatbox.removeClass('chatbox--empty');
                     });
-                    var msg =$("#quesform");
-				var msgBox = $("textarea[name=question]");
+                    var msg =$('#quesform');
+				var msgBox = $('textarea[name=question]');
 				var question = "";
             function askQuestion(){
-                question = msgBox.val();
+                question = msgBox.html();
                 $(".chatbox__body").append("<div class='chatbox__body__message chatbox__body__message--right'><p>" + question + "</p></div>");
 			}
 			msg.submit(function(e){
@@ -83,6 +303,7 @@ echo <<<END
                 askQuestion()
                     //debugger;
 				).done(function (){
+				console.log(question)
                 if(question !== "")
 				$.ajax({
                     url: 'profiles/michelletakuro.php',
@@ -681,228 +902,3 @@ echo <<<END
 
     </body>
 </html>
-
-END;
-	}
-	catch(PDOException $e)
-	{
-		echo "Connection failed: " . $e->getMessage();
-	}
-	  /**
- *  functions to define
- *  -- check question
- *  --check training
- *  -- train
- *  -- check pssword
- *
- *
- */
-   function processedAnswer($answer){
-        $functionOpeningTag = '(';
-        $functionClosingTag = ')';
-
-
-
-        //find the function
-        //Find the start limiter's position
-        $functionStart = strpos($answer, $functionOpeningTag);
-
-        //Find the ending limiters position, relative to the start position
-        $functionEnd = strpos($answer, $functionClosingTag, $functionStart);
-
-        //  Extract the string between the starting position and ending position
-        $functionName = substr($answer, $functionStart+2, ($functionEnd-2)-$functionStart);
-
-        $response = stripTags($answer);
-
-        // interpolate the string, replace the function name with a function call
-        return str_replace($functionName, call_user_func($functionName), $response);
-
-    }
-    function stripTags($string){
-        return str_replace(['{{', '}}', '((', '))' ], '', $string);
-    }
-    function isTraining($question){
-        $pos = strpos($question,'train:');
-
-        if( $pos === false) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-   function trainBot($trainingString, $conn){
-
-		//extract parts, first remove train:
-		$trainingString = str_replace('train:', '', $trainingString);
-
-		//ckeck presence of #
-		$pos = strpos($trainingString,'#');
-		if( $pos === false) {
-			return 'Oops! to train this bot please enter, <code>train: question # answer # password <code> ';
-		}
-		//check password
-		$pos = strpos($trainingString, 'password');
-		if( $pos === false) {
-			return 'Please enter a valid password. <strong>password </strong> is the password.';
-		}
-		else {
-			//the training sting is well formated and has password go on and split the string into question and answer parts
-            //first get the question,  start from 0 to the first #
-            $questionPart = trim(substr($trainingString, 0, strpos($trainingString,'#')));
-
-            //get the answer, remove everything else from the training string
-            $answerPart = trim(str_replace(['#', 'password', $questionPart], '', $trainingString));
-
-            // Save it into db, use prepared statement to protect from security exploits
-            try{
-//answerPart
-                $sql  = 'INSERT INTO chatbot (question, answer) VALUES (:question, :answer)';
-                $stmt = $conn->prepare($sql);
-                $stmt->execute(
-                    array(
-                    ':question' => stripTags($questionPart),
-                    ':answer' => $answerPart,
-                    )
-		
-                );
-                return 'Thank you for training me <br /> Question: ' . $questionPart . " Answer: ". getAnswer(stripTags($questionPart), $conn);
-
-            } catch(PDOException $e){
-                throw $e;
-            }
-        }
-    }
-
-    function getBotDetails(){
-        return "I am Cyclo Bot @Version 1.0 ";
-    }
-    function getHelpdetails(){
-        return "I am here to assist ask me any questions and I will answer if I can. You can also train me  to answer your questions by using the format <strong>train: question # answer # password</strong>";
-    }
-    function answerHasFunction($answer){
-
-        $openingTags = strpos($answer,'((');
-        $closingTags = strpos($answer,'))');
-
-        if( $openingTags === false && $closingTags === false ) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-	function getAnswer($question, $conn){
-        $sql ='Select answer from chatbot where question like :question';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(array(
-            'question'=> "%$question%",
-        ));
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $rows = $stmt->fetchAll();
-
-        if( count($rows) > 0 ){
-			
-            $random_index = rand(0, count($rows)-1);
-            $randomRow = $rows[$random_index];
-           return $randomRow['answer'];;
-			} else {
-				return "I am afraid I do not have the answer to your question but you can however train me using the following format <strong>train: question # answer # password</strong>";
-		
-        }
-
-
-     }
-	function getCurrentDateAndTime(){
-		$newdate = date("l jS \of F Y h:i:s A");
-		echo "Today's date is " . $newdate;
-	}
-	function getCurrentDay(){
-		$newdate = date("l");
-		echo "Today's is a " . $newdate;
-	}
-	//select all the database questions
-	function getQuestions($conn){
-		$sql = "Select * from chatbot";
-		$array = "";
-		$stmt = $conn->prepare($sql);
-		$stmt->execute();
-		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$rows = $stmt->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_UNIQUE);
-		//print_r($rows);
-		foreach($rows as $key=>$value){
-			foreach($value as $keys=>$values)
-			$array .= 'question: ' . $value['question'].'    Answer: '.$value['answer'] . '<br/>';
-		}
-		return $array;
-	}
-     //Bot Brain
-	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        //require "../answers.php";
-        if(isset($_POST['question'])){
-			$question = trim($_POST['question']);
-            $question = str_replace('?', '', $question);
-
-            $answer = getAnswer($question, $conn);
-            
-			//check for today's  date and time
-			//check if the question is "aboutbot" in which case return info about the bot
-            if($question == "#aboutbot"){
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => getBotDetails()
-
-                ]);
-				exit;
-			}
-
-             //check if the question is "help" in which case return infoon help
-            elseif ($question == "#help"){
-				echo json_encode([
-					'status'=>1,
-					'answer'=>getHelpdetails()
-                ]);
-                exit;
-			}
-             //check if the question is "help" in which case return infoon help
-            elseif ($question == "#questions"){
-				echo json_encode([
-					'status'=>1,
-					'answer'=>getQuestions($conn)
-                ]);
-                exit;
-			}
-			//check if the input is a training attempt
-            elseif(isTraining($question) ){
-                $trainingResult = trainBot($question, $conn);
-                //train the bot
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => $trainingResult
-                ]);
-                exit;
-            }
-            //if the answer has ((<function_name>)) then parse it
-            else if(answerHasFunction($answer)){
-                //send the parsed answer
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => processedAnswer($answer)
-                ]);
-                exit;
-            }
-			else{
-				echo json_encode([
-                    'status' => 1,
-                    'answer' => getAnswer($_POST['question'], $conn)
-                ]);
-				exit;
-			}
-			
-		exit;
-		}
-		exit;
-    }else{
-		exit;
-	}
-
-	?>
