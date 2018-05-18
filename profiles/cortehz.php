@@ -1366,7 +1366,7 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
 									<span class="my-name" style="color: orange">Samuel Omanchi</span>
 								</h1>
 								<h3>
-									<span>Web Developer / Budding Writer</span>
+									<span>Web Developer / Budding Writer<br> <hr> Check Out my bot below</span>
 								</h3>
 								<p>
 									<ul class="fh5co-social-icons">
@@ -1398,27 +1398,19 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
 		</div>
 
 		
-        <div class="chatbot-menu">
+        <div class="chatbot-menu container">
                     <div class='chatbot-menu-header'>
-                        <div class="hng-logo">}{</div> <span>Samuel's Bot</span>
-                        <a href="#" class="pull-right chatbot-close"><i class="fa fa-close"></i></a>
-                        <a href="#" class="pull-right chatbot-help"><i class="fa fa-question-circle"></i></a>
+                        <span>Cortehz's Balaclava Bot</span>
                     </div>
                     <div class="chatbot-menu-content">
                         <div class="chatbot-message-bot">
-                            <div class="gen-message">
-                                <p>Hi! I'm a bot</p>
-                                
-                            </div>
                             <div class="training-menu">
                                 <p>You can train me to understand and answer new questions. </p>
-                                <p>1) Simple Mode: You can train me to answer any question, I mean any question at all using: <span class="bot-command">train: question # answer # [password]</span></p> 
-                                <p>eg <span class="bot-command">train: Opposite of Boy # Girl # password</span></p>
+                                <p>1) Simple Mode: You can train me to answer any question using: <span class="bot-command">train: question # answer # [password]</span></p> 
+                                <p>eg <span class="bot-command">train: Whats my name # Cortehz # password</span></p>
                                 
                                 
                                 <p>To get the my current version, type <span class="bot-command">aboutbot</span></p>
-                                <!-- <p>Use the <i class="bot-command fa fa-arrow-up"></i> and <i class="bot-command fa fa-arrow-down"></i> keys on your keyboard to navigate between previous commands.</p> -->
-                                <p>To see this help menu again, simply type <span class="bot-command">help</span> or click the <i class="fa fa-question-circle"></i> above</p>
                             </div>
                         </div>
                     </div>
