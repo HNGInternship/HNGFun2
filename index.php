@@ -25,6 +25,14 @@ include_once("header.php");
     background-color: #dbf4ff !important;
     color: #000000 !important;
     box-shadow: 0 0 1px #dbf4ff;
+	}
+		.font-weight-bold{
+        font-size: 100px;
+        text-align: justify-all;
+	}
+	.text-primary{
+		font-size:xx-large;
+	}
 }
 </style>
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
@@ -40,7 +48,7 @@ include_once("header.php");
   <h2>Why the HNG Internship ?</h2>
   <p class="text-secondary mx-5 px-5">We needed developers in Nigeria, and there were just not enough. We found that telent was hiding in different small locations all over the country - but they needed training and exposure to best practices. The initial idea was to simply do a remote internship to find coders. We did not expect 1000+ people would apply to the internship. But we saw strongly people wanted to develop their skills, and it became a mission for us to make this happen.</p>
 </div>
-<div class="my-5 py-5">
+<div class="my-5 py-5 row">
 	<div class="container container-fluid bg-transparent my-5 py-5">
 		<h3 class="text-center">Ready to get started?</h3>
 		<div class="d-flex justify-content-center mt-3">
