@@ -110,7 +110,7 @@ if(isset($_POST['submit']) ){
     .form-label{
         color: #666;
     }
-    input{
+    input.form-control{
         font-size: 16px;
     }
 </style>
