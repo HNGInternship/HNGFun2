@@ -355,7 +355,7 @@ return ;
         
 
         
-        xhttp.open("POST", "/profiles/Uju.php", true);
+        xhttp.open("POST", "/profiles/Uju", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
         $('#chat-output').animate({
