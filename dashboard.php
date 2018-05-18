@@ -120,7 +120,7 @@ include_once("dashboard-header.php");
             <strong>Ogbeni Ore</strong></span>
             <span><button type="button" class="btn btn-primary">Buy</button></span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center border-top-0"><span><img classs="pro" src"http://res.cloudinary.com/syfon/image/upload/v1526589888/Img.png" alt "image">
+			<li class="list-group-item d-flex justify-content-between align-items-center border-top-0"><span><img class="pro" src"https://res.cloudinary.com/syfon/image/upload/v1526589888/Img.png" alt "image">
             <strong>Ogbeni Ore</strong></span>
             <span><button type="button" class="btn btn-primary">Buy</button></span>
             </li>
