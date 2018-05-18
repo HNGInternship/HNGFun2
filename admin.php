@@ -100,6 +100,14 @@ if(isset($_POST['submit']) ){
         </div>
     </div>
 </header>
+<style>
+    #container{
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: none;
+    }
+</style>
 
 <div class="container" id="container">
     <?php if($nameError != "" || $keyError != ""|| $usernameError != "" || $filenameError != "") {
