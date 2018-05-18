@@ -1,4 +1,5 @@
  <?php
+if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     try {
         $sql = 'SELECT * FROM secret_word';
@@ -9,6 +10,7 @@
         throw $e;
     }
     $secret_word = $data['secret_word'];
+}
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     function test_input($data) {
@@ -224,37 +226,6 @@ return ;
 </head>
 <body>
 <div class="container">
-    <?php
-    if (!defined('DB_USER'))
-  {
-  require "../../config.php";
-
-  }
-
-try
-  {
-  $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-  }
-
-catch(PDOException $pe)
-  {
-  die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-  }
-
-    global $conn;
-
-    try {
-        $sql2 = 'SELECT * FROM interns_data WHERE username="Uju"';
-        $q2 = $conn->query($sql2);
-        $q2->setFetchMode(PDO::FETCH_ASSOC);
-        $my_data = $q2->fetch();
-    } catch (PDOException $e) {
-        throw $e;
-    }
-    ?>
-
-
-
     <div class="oj-flex oj-flex-items-pad oj-contrast-marker">
         <div class="oj-sm-12 oj-md-6 oj-flex-item">
             <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
@@ -319,14 +290,29 @@ catch(PDOException $pe)
 
 
 <script>
-    var outputArea = $("#chat-output");
+    window.addEventListener("keydown", function(e){
+            if(e.keyCode ==13){
+                if(document.querySelector("#user-input").value.trim()==""||document.querySelector("#user-input").value==null||document.querySelector("#user-input").value==undefined){
+                    //console.log("empty box");
+                }else{
+                    //this.console.log("Unempty");
+                    chat();
+                }
+            }
+        });
 
-    $("#user-input-form").on("submit", function(e) {
-
-        e.preventDefault();
-
-        var message = $("#user-input");
-        var chat-output = $("#chat-output");
+    function chat() {
+        var message = document.querySelector('#user-input');
+        var chatOutput = document.querySelector('#chat-output');
+        var pp = document.createElement('div');
+        var inner = document.createElement('div');
+        pp.classList = 'user-message';
+        inner.classList = 'message';
+        pp.append(inner);
+        inner.innerHTML = message.value;
+        //console.log(message.value)
+        chatOutput.appendChild(pp);
+        //return
         // alert(message.value);
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -335,40 +321,48 @@ catch(PDOException $pe)
             var result = JSON.parse(xhttp.responseText);
             //<div class='bot-message'><div class='message'>${message}</div></div>
             message.value = '';
-            var pp = document.createElement('div');
-            pp.classList = 'bot-message';
-            var inner = document.createElement('div');
-            inner.classList = 'message';
-            pp.append(inner);
-            console.log(result.results.length);
+            var p = document.createElement('div');
+            var inn = document.createElement('div');
+            p.classList = 'bot-message';
+            inn.classList = 'message';
+            p.append(inn);
+
+            //console.log(result.results.length);
             
             if(result.results.length === 0){
                 //alert('hello');
-                inner.innerHTML = 'Not in database. please train me';
-                chat-output.append(pp);
+                inn.innerHTML = 'Not in database. please train me';
+                chatOutput.append(p);
                 return;
-            }
-            console.log(typeof(result.results))
-            if(typeof(result.results) == 'object' ){
-                var res = Math.floor(Math.random() * result.results.length);
-                
-                inner.innerHTML = result.results[res];
-                chatarea.append(inner)
             }else{
-                var res = Math.floor(Math.random() * result.results.length);
-                inner.innerHTML = result.results;
-                chatarea.append(inner)
+                //console.log(typeof(result.results)) 
+                if(typeof(result.results) == 'object' ){
+                    var res = Math.floor(Math.random() * result.results.length);
+                    
+                    inn.innerHTML = result.results[res];
+                    chatOutput.append(p)
+                }else{
+                    var res = Math.floor(Math.random() * result.results.length);
+                    inn.innerHTML = result.results;
+                    chatOutput.append(p)
+                }   
             }
+            
+            
             
             }
         };
         
 
         
-        xhttp.open("POST", "/profiles/jaycodes.php", true);
+        xhttp.open("POST", "/profiles/Uju.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
-    });
+        $('#chat-output').animate({
+                scrollTop: chatOutput.scrollHeight,
+                scrollLeft: 0
+            }, 500);
+    }
 </script>
 
 </html>
