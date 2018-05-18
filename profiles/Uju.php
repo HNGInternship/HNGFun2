@@ -299,10 +299,8 @@ catch(PDOException $pe)
                 </div>
 
                 <div class="chat-input">
-                    <form action="" method="post" id="user-input-form">
                         <input type="text" name="user-input" id="user-input" class="user-input" placeholder="Say something here">
-                        <button type="submit" class="send_button" id="send">Send</button>
-                    </form>
+                        <button onclick="chat()" class="send_button" id="send">Send</button>
                 </div>
             
 
