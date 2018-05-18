@@ -136,7 +136,7 @@
                   <p id="chatlog2" class="chatlog">&nbsp;</p>
                   <p id="chatlog1" class="chatlog">&nbsp;</p>
                   </div>
-                  <div><input style="width:170px" type="text" name="chat" id="chatbox" placeholder="chat here with me..." onfocus="placeHolder()"/>
+                  <div><input style="width:170px" type="text" name="chat" id="chatbox" placeholder="chat here with me..." onfocus=""/>
                   <button style="float: right" onclick = loadDoc()><i class="fa fa-send-o fa-2x"></i></button></div>
                 
     </div>
@@ -157,7 +157,7 @@
             if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log(xhttp.responseText);
             var result = JSON.parse(xhttp.responseText);
-            
+            console.log(result);
             var pp = document.createElement('p');
             pp.id = 'bot';
             if(result.results == ''){
