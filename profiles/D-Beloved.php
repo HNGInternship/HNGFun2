@@ -15,7 +15,7 @@
 		.body0 {
 			height: 100%;
 		}
-		.img-fluid {
+		.img {
 			border-radius: 50%;
 			margin: 2em 20em 0em 20em;
 		}
@@ -72,10 +72,10 @@
 			margin-left: 9em;
 			margin-top: 10px;
 		}
-		body, html {
+		.body {
 			margin: 0px;
 			background-color: #8E60F1; !important;
-			height: 100%;
+			
 		}
 		.body1 {
 			font-family: 'Source Sans Pro', sans-serif;
@@ -88,6 +88,7 @@
 </style>
 </head>
 <body>
+<div class="body">
 <?php
     global $conn;
     try {
@@ -107,7 +108,7 @@
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
                     data-bind="attr:{'aria-label':'Avatar of Moronkeji Ayodeji'}">
                     </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='images/default.jpg'" src="https://res.cloudinary.com/dbeloved/image/upload/v1524498118/dee1.jpg" >
+                    <img class="img" onerror="this.src='images/default.jpg'" src="https://res.cloudinary.com/dbeloved/image/upload/v1524498118/dee1.jpg" >
                 </div>
             </div>
             <div class="body0">
@@ -140,7 +141,7 @@
     }
 		$secret_word = $data['secret_word'];
 	?>
-
+</div>
 </body>
 
 <script type="application/javascript">

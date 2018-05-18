@@ -624,7 +624,7 @@
 		            <p style="font-size: 12px; font-style: italic; font-weight: bold;">Optimus Prime is thinking...</p>
 		        </div>
 		        <div class="oj-flex oj-flex-item oj-md-12 oj-sm-12">
-		            <input class="oj-flex-item oj-md-12 oj-sm-12 oj-margin oj-padding" type="text" name="question" placeholder="Ask a question" style="border-radius: 3px; border: none;" />
+		            <input class="oj-flex-item oj-md-12 oj-sm-12 oj-margin oj-padding" type="text" name="question" placeholder="Ask a question" style="border-radius: 3px; border: none; background-color: white" />
 		        </div>
 		        <div class="oj-flex oj-flex-item oj-md-12 oj-sm-12" style="margin-top: 15px">
 		            <button type="submit" class="oj-flex-item oj-md-12 oj-sm-12 oj-margin" style="background: #3385ff; border: none; border-radius: 3px">Send</button>
@@ -634,7 +634,7 @@
     </div>
 </div>
 
-<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 </body>
 <script>
@@ -679,7 +679,7 @@
             thinkingDiv.show();
             //send question to server
             $.ajax({
-                url: "/profiles/chigozie.php",
+                url: "/profiles/chigozie",
                 type: "post",
                 data: { question: question },
                 dataType: "json",

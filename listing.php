@@ -1,42 +1,41 @@
 <?php
 include_once("header.php");
-require 'db.php';
+include_once("../config.php");
+require ('paginator.php');
 
+$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_DATABASE); 
 
-$sql = 'SELECT * FROM interns_data';
-$q = $conn->query($sql);
-$q->setFetchMode(PDO::FETCH_ASSOC);
-$data = $q->fetchAll();
+//DO NOT limit this query with LIMIT keyword, or...things will break!
+$query = "SELECT * FROM interns_data";
+
+//these variables are passed via URL
+$limit = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 8; //movies per page
+$page = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1; //starting page
+$links = 8;
+
+$paginator = new Paginator( $mysqli, $query ); //__constructor is called
+$results = $paginator->getData( $limit, $page );
 ?>
 
 <style>
   h2 {
     font-family: 'work sans';
   }
-
   .profile {
     width: 250px;
   }
-  .profile .card > .card-img-top {
-    height: 250px;
+  .card-img-top {
+    height: 250px !important;
   }
-
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-  }
+  
   /* #contain img{
     width:100%;
     padding:5px;
     height:200px;
-
-
    }
    #contain{
      margin-left:auto;
      margin-right:auto;
-
-
    }
    #contain #border{
      margin-left:70px;
@@ -47,7 +46,6 @@ $data = $q->fetchAll();
    }
    #caption{
      text-align:center;
-
    }*/
 </style>
 <main class="container mt-5 mb-5 px-5">
@@ -55,48 +53,33 @@ $data = $q->fetchAll();
   <hr style="width: 58px; border-top: 2px solid #3D3D3D;" class="mx-auto mb-5" />
   <p class="text-center my-1">HNG4.0 has been a life-transforming journey for interns across Africa.</p>
   <p class="text-center my-1">Don't take our word for it...take theirs.</p>
-  <form class="form-inline">
-    <div class="row mx-0 mt-4 justify-space-between w-100 mb-5">
-      <select class="form-control col-sm-2" >
-        <option>Skills</option>
-      </select>
-      <select class="form-control col-sm-2" >
-        <option>Country</option>
-      </select>
-      <input class="form-control col-sm-2" type="search" placeholder="Search Name" aria-label="Search" >
-
-      <button class="btn btn-primary col-sm-1" type="submit" >Search</button>
-      <button class="btn btn-outline-primary col-sm-1" type="submit" >Clear</button>
-    </div>
-  </form>
-  <?php $total = count($data);
-  foreach ($data as $index => $list) { ?>
-  <?php if ($index % 3 == 0) {
-    $count = 0;
-    ?>
   <div class="row mx-0 mt-4 justify-space-between">
-  <?php
-
-}
-$count++;
-?>
-    <div class="profile">
-      <div class="card">
-        <img class="card-img-top" src="<?= $list['image_filename'] ?>" onerror="this.src='images/default.jpg'" alt="Profile Image">
+  <?php for ($p = 0; $p < count($results->data); $p++): ?> 
+    
+    <?php 
+    //store in $movie variable for easier reading
+    $row = $results->data[$p]; 
+    ?>
+  <div class="profile">
+      <div class="card0">
+        <a href="profile.php?id=<?php echo $row['username'];?>"><img class="card-img-top" src='<?php echo $row['image_filename']?>' onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
         <div class="card-footer">
-          <a href="profile.php?id=<?= $list['username'] ?>" class="ml-3 my-0 py-0 btn btn-default">View Profile</a>
-          <i class="fa fa-github fa-lg"></i>
+          <a href="profile.php?id=<?php echo $row['username'];?>" class="my-0 py-0 btn btn-default">View Profile</a>
         </div>
       </div>
-      <h4 class="text-center mt-3"><?= $list['username'] ?></h4>
-      <p class="small text-center mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+      <h4 class="text-center mt-3"><?php echo $row['name'];?></h4>
     </div>
-  <?php if ($count === 3 || $index == $total - 1) { ?>
+<?php endfor ?>
+    <nav class="text-xs-center" style="margin:auto;">
+    <br>
+<br>
+      
+        
+        <?php echo $paginator->createLinks( $links, 'pagination pagination-sm' );?>
+        
+    </nav>
+    
   </div>
-  <?php
-}
-}
-?>
 </main>
 <?php
 include_once("footer.php");

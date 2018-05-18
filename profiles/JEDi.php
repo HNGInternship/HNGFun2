@@ -36,6 +36,7 @@ try {
 	<meta charset="UTF-8" />
 	<title>Elekwa Solomon</title> 
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style type="text/css">
 
@@ -55,9 +56,6 @@ li {
 
 body {
   line-height: 1; }
-
- ul {
-  list-style: none; }
 
 img.alignright {
   float: right; }
@@ -79,24 +77,6 @@ body,
 p, a, a:hover {
   color: #000000; }
 
-a,
-a:hover {
-  text-decoration: none;
-  border: none;
-  border-style: none;
-  box-shadow: none; }
-
-
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-@keyframes fadein {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
 
 html {
   background-color: #061C30; }
@@ -130,7 +110,7 @@ body.fullsingle p {
 .fs-split .image {
     width: 50%;
     height: 100vh;
-    background-image: url(<?php echo $my_data['image_filename']; ?>);
+    background-image: url("https://res.cloudinary.com/cupidy28/image/upload/v1523799015/background.jpg");
     background-position: center center;
     background-size: cover; }
 
@@ -173,7 +153,7 @@ body.fullsingle p {
 	  font-size: 64px;
   	line-height: 80px;
   	letter-spacing: -2px; }
-.intro h1 {
+ h1 {
     font-weight: 400;
     text-transform: uppercase;
     font-size: 16px;
@@ -200,50 +180,149 @@ body.fullsingle p {
 .bio p {
     color: #848d96; }
 
-.bio a {
-    color: #848d96;
-    transition-duration: 0.5s;
-    border-bottom: 1px dotted #848d96; }
-
-.bio a:hover {
-    color: #CA486d;
-    transition-duration: 0.1s;
-    border-bottom: 1px dotted #CA486d; }
-
 .lists .list {
-  	width: 30%;
+  	width: 10%;
   	display: inline-block;
-  	margin-bottom: 40px; }
+  	margin-bottom: 20px; }
   @media (max-width: 500px) {
     .lists .list {
       	width: 90%; } }
-  	.lists .list h3 {
-    	font-weight: 400;
-    	text-transform: uppercase;
-    	font-size: 11px;
+  	.lists .list i {
     	line-height: 11px;
-    	margin-bottom: 31px;
+    	margin-bottom: 32px;
     	color: #848d96;
-    	letter-spacing: 2px;
-    	opacity: 0.5; }
-  	.lists .list ul li {
-    	font-size: 16px;
-    	line-height: 16px;
-    	margin-bottom: 12px; }
-    .lists .list ul li a {
-      color: #848d96;
-      transition-duration: 0.5s; }
-    .lists .list ul li a:hover {
-        color: #CA486d;
-        transition-duration: 0.1s; }
+      font-size: 26px
+    	opacity: 0.7; }
 
- 	  .credit {
-  		opacity: 0.4; }
-  	.credit p {
-    	font-size: 12px;
-    	line-height: 14px; }
-    .credit p a {
-      color: #848d96; }
+
+ *{
+  box-sizing:border-box
+}
+
+.container {
+    width: 100%;
+    height: wrap-content;
+    background-color: #ddd; 
+}
+
+.skills {
+    text-align: right; 
+    padding-right: 40px; 
+    line-height: 40px; 
+    color: white; 
+}
+
+.html {width: 90%; background-color: #4CAF50; height: 5px;} /* Green */
+.css {width: 80%; background-color: #2196F3; height: 5px;} /* Blue */
+.js {width: 75%; background-color: #f44336; height: 5px;} /* Red */
+.php {width: 30%; background-color: #808080; height: 5px;} /* Dark Grey */
+
+
+/* ---------- chat-bot ---------- */
+
+    #chat-box {
+      bottom: 0;
+      font-size: 12px;
+      right: 24px;
+      position: fixed;
+      width: 300px;
+
+    }
+
+    #chat-box header {
+      background: #293239;
+      border-radius: 5px 5px 0 0;
+      color: #fff;
+      cursor: pointer;
+      padding: 16px 24px;
+    }
+
+    #chat-box h4, #chat-box h5{
+      line-height: 1.5em;
+      margin: 0;
+
+    }
+    #chat-box h4:before {
+      background: #1a8a34;
+      border-radius: 50%;
+      content: "";
+      display: inline-block;
+      height: 8px;
+      margin: 0 8px 0 0;
+      width: 8px;
+
+    }
+
+    #chat-box h4 {
+      font-size: 12px;
+    }
+
+    #chat-box h5 {
+      font-size: 10px;
+    }
+
+    #chat-box form {
+      padding: 24px;
+    }
+
+    #chat-box input[type="text"] {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 8px;
+      outline: none;
+      width: 234px;
+    }
+
+    .chat {
+      background: #fff;
+          
+    }
+      .hide{
+      display: none;
+    }
+
+    .chatlogs {
+      height: 252px;
+      padding: 8px 24px;
+      overflow-y: scroll;
+    }
+
+    .chat-message {
+      margin: 16px 0;
+    }
+
+    .bot img {
+      border-radius: 50%;
+      float: left;
+    }
+    .bot .chat-message-content{
+      margin-left: 40px;
+      border-radius:0  10px 10px 10px;
+      background: #e4e4e4;
+      padding: 10px 10px;
+    }
+    .user .chat-message-content{
+      margin-right: 40px;
+      border-radius: 0px 10px 10px 10px;
+      background: #e4e4e4;
+      padding: 10px 10px;
+    }
+    .user img{
+      border-radius: 50%;
+      float: right;
+    }
+    .chat-message-content {
+      /*margin-left: 56px;*/
+    }
+
+    .bot .chat-time {
+      float: right;
+      font-size: 10px;
+    }
+    .user .chat-time {
+      float: right;
+      font-size: 10px;
+    }
 
 </style>
 
@@ -266,79 +345,199 @@ body.fullsingle p {
 		
 			<div class="intro">
 				
-				<h1><?php echo $my_data['name']; ?></h1>
+				<h1>Elekwa Solomon U.</h1>
 
-				<span class="tagline">Developer. Accountant. Nomad.</span>
+				<span class="tagline">Developer. Accountant. Poet.</span>
 
 			</div>
 
 			<div class="bio">
 				
-				<p>I'm currently a Sofware Development fellow at <a href="https://nhub.ng">nHub</a>, a startup incubator in Jos Plateau state. 
-        <br>
-        I have a degree in Accounting from the University of Jos where i graduated with honors. 
-        <br> 
-        In 2017 i completed the Android Development Course under the Android Learning Community (ALC) run by <a href="https://andela.com">Andela</a> with support from Google and <a href="https://udacity.com">Udacity</a>. I have an undying passion for music, poetry and working with kids. 
-        <br> 
-        This inspired my pet project <a href="https://facebook.com/nerdsvilleinc">Nerdsville Code Club</a> where i introduce elementary school kids to the basics of programming, teamwork and innovative (divergent) thinking.
-        <br>
-        <br>
-        You can connect with me below <br>
-        and hey - thanks for checking out my page!</p>
+				<h1>My Skills</h1>
 
-			</div>
+        <p>HTML</p>
+        <div class="container">
+          <div class="skills html"></div>
+        </div>
 
-			<div class="lists">
+        <p>CSS</p>
+        <div class="container">
+          <div class="skills css"></div>
+        </div>
+
+        <p>JavaScript</p>
+        <div class="container">
+          <div class="skills js"></div>
+        </div>
+
+        <p>PHP</p>
+        <div class="container">
+          <div class="skills php"></div>
+        </div>
+
+			  </div>
+
+			  <div class="lists">
 				
 				<div class="list">
+					<h3><a href="https://web.facebook.com/jeddyel">
+          <i class="fa fa-facebook iconn"></i>
+          </a></h3>
+        </div>
 
-					<h3>Connect</h3>
+        <div class="list">
+          <h3> 
+          <a href="https://twitter.com/JeddyEl">
+          <i class="fa fa-twitter iconn"></i>
+          </a></h3>
+        </div>
 
-					<ul>
-						<li><a href="http://jeddyel.blogspot.com.ng">Blog</a></li>
-						<li><a href="mailto:jeddypatricks@gmail.com ?subject=Email%20Subject&body=Email%20Body%20Text">EMail</a></li>
-						<li><a href="https://medium.com/@jeddypatricks">Medium</a></li>
-					</ul>
+        <div class="list">
+          <h3>
+          <a href="https://github.com/JEDiTech/">
+          <i class="fa fa-github iconn"></i>
+          </a></h3>
+        </div>
 
-				</div>
+        <div class="list">
+          <h3>
+          <a href="https://slack.com/hnginternship4/@JEDi">
+          <i class="fa fa-slack iconn"></i>
+          </a> </h3>
+        </div>
 
-				<div class="list">
+        <div class="list">
+          <h3>
+          <a href="https://www.linkedin.com/in/solomon-u-elekwa-7667a5132/">
+          <i class="fa fa-linkedin iconn"></i>
+          </a></h3>
+        </div>
+						
 
-					<h3>Social</h3>
-
-					<ul>
-						<li><a href="https://twitter.com/JeddyEl">Twitter</a></li>
-						<li><a href="https://www.instagram.com/jeddy_el/">Instagram</a></li>
-						<li><a href="https://web.facebook.com/jeddyel">Facebook</a></li>
-					</ul>
-
-				</div>
-
-				<div class="list">
-
-					<h3>Network</h3>
-
-					<ul>
-						<li><a href="https://www.linkedin.com/in/solomon-u-elekwa-7667a5132/">LinkedIn</a></li>
-						<li><a href="https://plus.google.com/u/0/100983049215283226594">Google+</a></li>
-						<li><a href="https://github.com/JEDiTech/">Github</a></li>
-					</ul>
-
-				</div>
-				
-			</div>
-
-			<div class="credit">
-
-				<p>&copy; 2018 <a href="#">Elekwa Solomon U.</a> </p>
-
-			</div>		
+			</div>	
 
 		</div>
 
 	</div>
 
 </div>
+
+<div id="chat-box"> 
+    <header class="clearfix" onclick="change()">
+      <h4>Online</h4>
+    </header>
+    <div class="chat hide" id="chat">
+      <div class="chatlogs" id="chatlogs">
+        <div class="chat bot chat-message">
+          <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526227579/Profile.jpg" alt="" width="32" height="32">
+          <div class="chat-message-content clearfix">
+            <p>Hello.</p>
+            <span class="chat-time"> </span>
+          </div> 
+        </div>
+        <div class="chat bot chat-message">
+          <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526227579/Profile.jpg" alt="" width="32" height="32">
+          <div class="chat-message-content clearfix">
+            <p>I'm JEDiBot, here to help you.</p>
+            <span class="chat-time"></span>
+          </div> 
+        </div>
+        <div class="chat bot chat-message">
+          <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526227579/Profile.jpg" alt="" width="32" height="32">
+          <div class="chat-message-content clearfix">
+            <p>You can ask me any question, and I'll do my best to answer. You can also train me to answer specific questions
+            using the format train: question # answer # password.</p>
+            <span class="chat-time"></span>
+          </div> 
+        </div>
+
+        
+         
+        <div id="chat-content"></div>
+        
+      </div> <!-- end chat-history -->
+      <form action="#" method="post" class="form-data">
+        <fieldset>
+          <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
+          <input type="submit" name="bot-interface" value="SEND"/>
+        </fieldset>
+      </form>
+    </div> <!-- end chat -->
+  </div> <!-- end chat-box -->
+
+
+  <script >
+    
+    
+    function change(){
+      document.getElementById("chat").classList.toggle('hide');
+      
+    }
+     var btn = document.getElementsByClassName('form-data')[0];
+    var question = document.getElementById("question");
+    var chatLog = document.getElementById("chatlogs");
+    var chatContent = document.getElementById("chat-content");
+    var myTime = new Date().toLocaleTimeString(); 
+    document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
+    document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
+    document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
+    btn.addEventListener("submit", chat);
+
+
+    function chat(e){
+        if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+           var xhttp = new XMLHttpRequest();
+      } else if (window.ActiveXObject) { // IE 6 and older
+        var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+       
+      xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+              // console.log(this.response);
+               userChat(question.value, this.response);
+          e.preventDefault();
+              question.value = '';
+            }
+            }
+        xhttp.open('POST', 'profiles/Abigail', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send('question='+ question.value);
+        e.preventDefault();
+    }
+
+    function userChat(chats, reply){
+      if(question.value !== ''){
+        var chat = `<div class="chat user chat-message">
+          <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526232716/user.jpg" alt="" width="32" height="32">
+          <div class="chat-message-content clearfix">
+            <p>` + chats + `</p>
+            <span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
+           </div>
+        </div>`;
+      }
+      chatContent.innerHTML += chat;
+         
+        setTimeout(function() {
+          chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
+          </div> 
+        </div>`;
+        document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight; 
+      }, 1000);
+    }
+  </script>
+
+  <!-- Bootstrap core JavaScript -->
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="js/mail.js"></script>
+    <!--script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script-->
+
+    <!-- Custom scripts for this template -->
+    <script src="js/hng.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>

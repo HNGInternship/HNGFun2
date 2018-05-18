@@ -42,28 +42,33 @@ $activeArray[$fileIndex]="active";
 
 
 
-    <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-   <script src="js/jquery.min.js"></script>
-
-      <!-- Custom fonts for this template -->
-  <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
-     <link rel="stylesheet" href="css/custom.css" type="text/css">
-<!--      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
+    <link rel="shortcut icon" href="images/favicon.png">
+
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
       <link href="css/style1.css" rel="stylesheet">
       <link href="css/style.css" rel="stylesheet">
+      <link href="css/learn.css" rel="stylesheet">
       <link href="css/custom.css" rel="stylesheet">
-     <!-- <link href="css/learn.css" rel="stylesheet"> -->
-<!--	  <link href="css/carousel.css" rel="stylesheet">-->
+      <link rel="stylesheet" href="css/login.css">
+      <link rel="stylesheet" href="css/signout.css">
       <link href="css/landing-page.min.css" rel="stylesheet">
+      <link href="css/shield-invite.css" rel="stylesheet">
+        <link href="css/404.css" rel="stylesheet">
+      <!-- <link href="css/carousel.css" rel="stylesheet"> -->
+
+      <script src="js/jquery.min.js" ></script>
+      <script src="js/stellar-sdk.js"></script> 
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
       <style>
       
@@ -147,8 +152,8 @@ $activeArray[$fileIndex]="active";
           <li class="nav-item <?= $activeArray[1] ?>">
             <a class="nav-link" href="buyandsell.php">Sell HNGcoin</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
+          <li class="nav-item <?= $activeArray[2] ?>" > 
+            <a class="nav-link" href="help.php">Help</a>
           </li>
         </ul>
         <!-- <form class="form-inline my-2 my-lg-0">

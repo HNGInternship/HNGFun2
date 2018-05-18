@@ -4,6 +4,7 @@ include_once("header.php");
      $styles = '<style>footer{margin-top:0!important;padding-top:5;padding-bottom:20px;}</style>';
      echo $styles;
  };
+
 ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron page404">

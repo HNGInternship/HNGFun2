@@ -14,10 +14,10 @@
         <div class="col-lg-4">
             <div style="padding: 0px 20px 0px 20px">
                 <form class="form-signin" id="login_form">
-            <label for="email" class="sr-only">Email</label>
+            <label for="inputEmail" class="sr-only">Email</label>
             <input type="email" id="email" class="form-control" placeholder="Email" name="email" required="" autofocus="">
             <br/>
-            <label for="password" class="sr-only">Password</label>
+            <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
             <br/>
             <input type="hidden" name="login" value="yes">
@@ -36,7 +36,7 @@
             <span style="font-size: 14px; color: grey">Forgot Password?<a href="resetpassword.php" style="color: #008DDD"> Click here</a></span>
         </div>
         
-        <div style="padding-bottom: 20px; font-size: 14px; color: #ADADAD">Don't have an account?&nbsp; <a href="signup.php" style="color: #008DDD">Get Started</a></div>
+        <div style="padding-bottom: 20px; font-size: 14px; color: #ADADAD">Don't have an account?&nbsp; <a href="sign-up.php" style="color: #008DDD">Get Started</a></div>
         </div>
     </div>
     

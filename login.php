@@ -2,66 +2,81 @@
 
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
-    <h1 class="font-weight-normal">
-        <h1>Log In</h1>
-	    <p style="font-size: 16px;">Login to access your dashboard and manage your account.</p>
-    </h1>
+    <h1 class="pt-5">Log In</h1>
+    <p style="font-size: 0.7em !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
 </div>
 
 <div class="container" style='color: #3D3D3D'>
-    <div id="message"></div>
+    <!-- /*<div id="message" style="color:black; font-weight:bold;"></div>*/ -->
+            <h6 style="text-align: center" class="text-danger" id="message"></h6>
+
+
     <div class="row justify-content-md-center" style="text-align: center">
         <div class="col-lg-4">
-            <div style="padding: 0px 20px 0px 20px">
+            <div >
                 <form class="form-signin" id="login_form">
-            <label for="email" class="sr-only">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Email" name="email" required="" autofocus="">
-            <br/>
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
-            <br/>
-            <input type="hidden" name="login" value="yes">
-            <div class="checkbox mb-3" style="text-align: left">
-                <label>
-                    <input type="checkbox" value="remember-me">&nbsp; <span style="font-size: 16px;">Remember me</span>
-                </label>
-            </div>
-            <div>
-               <button class="btn btn-primary btn-block" id="login" type="submit">Log In</button> 
-            </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Username or Email address" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    
+                    <div class="custom-control custom-checkbox pl-0 ml-0 pb-2 text-justify">
+                        <input type="checkbox" value="remember-me">
+                        <label class="form-check-label" style="font-size:0.7em;">Remember Me</label>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-block" id="login" type="submit">Log In</button> 
+                <input type="hidden" name="login" value="yes">
+
+                
                 </form>
+                <div class="pt-0 mt-0 text-justify pl-3"> 
+                    <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="15px" width="auto"/>
+                    <span style="font-size: 0.7em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
+                </div>
+
+                <div style="font-size: 0.7em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
             </div>
-        <div style="padding-top: 30px; padding-bottom: 30px"> 
-            <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="15px" width="auto"/>
-            <span style="font-size: 14px; color: grey">Forgot Password?<a href="resetpassword.php" style="color: #008DDD"> Click here</a></span>
-        </div>
+        </div> 
         
-        <div style="padding-bottom: 20px; font-size: 14px; color: #ADADAD">Don't have an account?&nbsp; <a href="signup.php" style="color: #008DDD">Get Started</a></div>
-        </div>
+        
     </div>
     
 </div>
 <script type="text/javascript">
        $( document ).ready(function() {
-    $("#login").click(function(e){
+
+    $("#login_form").submit(function(e){
         e.preventDefault();
 
        
         var email = $("#email").val();
        
         var password = $("#password").val();
+
+
         
         
         if(email ==""){
-            alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
+                 $("#message").show();
+            $("#login").html('Log In');
+
+            
         }
        
         else if(password ==""){
-            alert('Please enter password');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
+                 $("#message").show();
+
+
         }
 
        
@@ -74,40 +89,56 @@
 
             
 
-             $.ajax('process.php',{
+             $.ajax('process_access',{
             type : 'post',
             data : data,
             success: function(data){
 
-             if(data==true){
-                $("#message").addClass('alert alert-success');
+
+             if(data=="1"){
+                $("#message").attr("class",'text-success');
             $("#message").html("Login successful");
 
             $("#login").html('Redirecting..');
 
-            window.location ="dashboard.php";
+            window.location.href ="dashboard";
              }  
-             else{
-                alert(data);
-                $("#message").addClass('alert alert-danger');
+             else if(data=="2"){
+                $("#message").attr("class", 'text-danger');
             
-                $("#message").html(data);
-                 $("#login").html('Failed');
+                $("#message").html("Account has not been verified yet");
              } 
+
+             else if(data="0"){
+
+                $("#message").attr("class", 'text-danger');
             
+                 $("#message").html('Error Invalid Email or password');
+             }
+
+             else{
+
+                 $("#message").attr("class", 'text-danger');
+            
+                 $("#message").html(data);
+             }
+                 $("#message").show();
+
+
+            $("#login").html('Log In');
+                
 
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
+            $("#login").html('Log In');
+
                     alert('Request not completed');
                  }
-                $("#login").html('Failed');
             },
             beforeSend :function(){
 
-            $("#message").removeClass('alert alert-danger');
-            $("#message").html('');
-
+                 $("#message").hide();
             $("#login").html('Logging in..');
             },
         });
