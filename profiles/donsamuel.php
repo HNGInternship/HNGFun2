@@ -183,12 +183,3 @@
         xhttp.send("question="+message.value);
     }
     </script>
-                
-
-    <script type="text/javascript" src="https://static.oracle.com/cdn/jet/v5.0.0/3rdparty/require/require.js"></script>
-
-<script type="text/javascript" src="https://static.oracle.com/cdn/jet/v@version@/default/js"></script>
-
-<script type="text/javascript" src="https://static.oracle.com/cdn/jet/v@version@/3rdparty"></script>
-
-<script type="text/javascript" src="../js/main.js"></script>
