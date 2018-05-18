@@ -81,35 +81,9 @@ include_once("header.php");
             <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required value="<?php echo $_POST['email']; ?>">
             </div>
 
-             <div class="input-block mr-9 pb-2">
-            <label class="label">Nationality</label>
-            <select class="form-control" name="nationality" id="nationality" required style="height: 40px;">
-              <option value="">Select Country</option>
-              <?php
-                  foreach ($countrylist as $key => $country) {
-                    echo "<option id='".strtolower($country)."'>$country</option>";
-                  }
-                ?>
-            </select>
-            </div>
-
-
-            <div class="input-block pb-2">
+           <div class="input-block pb-2">
             <label class="label" for="phone">Phone number</label>
             <input type="tel" id="phone" style="height: 40px;" name="phone" class="form-control" placeholder="" required>
-            </div>
-
-            <div class="input-block mr-9 pb-2">
-            <label class="label">City</label>
-            <select class="form-control" id="state" name="state" required style="height: 40px;">
-              <option value=""></option>
-              <?php
-                  foreach ($states as $key => $state) { ?>
-                    <option value="<?php echo $key;?>"><?php echo $state?></option>
-                  <?php }
-                  ?>
-             </select>
-             <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
             </div>
             
             <div class="input-block pb-2">
