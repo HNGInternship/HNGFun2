@@ -1,6 +1,6 @@
 <?php
 include_once("coin_header.php");
-/*include_once("db.php");
+include_once("db.php");
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if(!isset($_GET['request_id'])){
     echo "<script>alert('Request ID required');</script>";
