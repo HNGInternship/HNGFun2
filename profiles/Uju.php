@@ -11,6 +11,7 @@
     $secret_word = $data['secret_word'];
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        return "hello";
         $data = $_POST['user-input'];
       //  $data = preg_replace('/\s+/', '', $data);
         $temp = explode(':', $data);
