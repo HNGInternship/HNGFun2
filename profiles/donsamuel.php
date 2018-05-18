@@ -87,10 +87,7 @@
           justify-content: space-between;
         }
         .mainSection {
-            width:auto;
-            height: auto;
             background-color: brown;
-            display: flex;
         }    
         
         .image {
