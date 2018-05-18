@@ -996,14 +996,41 @@ body {
 .message_template {
   display: none;
 }
+
+.chatbot-menu-header{
+    background-color: orange;
+    color: white;
+    padding: 2%;
+
+}
+
+.training-menu{
+    color: white;
+    padding 4%;
+    background-color: blue;
+}
+
+.chatbot-message-sender p{
+    background-color: orange;
+    color: white;
+    padding: 2%;
+    margin: 1%;
+}
+
+.chatbot-message-bot p{
+    background-color: blue;
+    color: white;
+    padding: 2%;
+    margin: 1%;
+}
+
+.message-box input{
+    background-color: #666;
+    color: #000;
+}
     </style>
 </head>
 <body>
-    <div class="container profile-body">
-        <div class="row">
-                <button class="btn btn-primary chat-btn">HNG Chat Bot</button>
-        </div>
-    </div>
 </body>
 <script src="<?=$home_url;?>/js/jquery.min.js" type="text/javascript"></script>
 <!-- Latest compiled and minified JavaScript -->
@@ -1366,12 +1393,12 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<div class="display-t js-fullheight">
 							<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-								<div class="profile-thumb" style="background: url(http://res.cloudinary.com/cortehz/image/upload/v1517224597/portfolio/profile-1_hjigdy.jpg);"></div>
+								<div class="profile-thumb" style="background: url(https://res.cloudinary.com/cortehz/image/upload/v1517224597/portfolio/profile-1_hjigdy.jpg);"></div>
 								<h1>
-									<span class="my-name">Samuel Omanchi</span>
+									<span class="my-name" style="color: orange">Samuel Omanchi</span>
 								</h1>
 								<h3>
-									<span>Web Developer / Budding Writer</span>
+									<span>Web Developer / Budding Writer<br> <hr> Check Out my bot below</span>
 								</h3>
 								<p>
 									<ul class="fh5co-social-icons">
@@ -1403,27 +1430,19 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
 		</div>
 
 		
-        <div class="chatbot-menu">
+        <div class="chatbot-menu container">
                     <div class='chatbot-menu-header'>
-                        <div class="hng-logo">}{</div> <span>Samuel's Bot</span>
-                        <a href="#" class="pull-right chatbot-close"><i class="fa fa-close"></i></a>
-                        <a href="#" class="pull-right chatbot-help"><i class="fa fa-question-circle"></i></a>
+                        <span>Cortehz's Balaclava Bot</span>
                     </div>
                     <div class="chatbot-menu-content">
                         <div class="chatbot-message-bot">
-                            <div class="gen-message">
-                                <p>Hi! I'm a bot</p>
-                                
-                            </div>
                             <div class="training-menu">
                                 <p>You can train me to understand and answer new questions. </p>
-                                <p>1) Simple Mode: You can train me to answer any question, I mean any question at all using: <span class="bot-command">train: question # answer # [password]</span></p> 
-                                <p>eg <span class="bot-command">train: Opposite of Boy # Girl # password</span></p>
+                                <p>1) Simple Mode: You can train me to answer any question using: <span class="bot-command">train: question # answer # [password]</span></p> 
+                                <p>eg <span class="bot-command">train: Whats my name # Cortehz # password</span></p>
                                 
                                 
                                 <p>To get the my current version, type <span class="bot-command">aboutbot</span></p>
-                                <!-- <p>Use the <i class="bot-command fa fa-arrow-up"></i> and <i class="bot-command fa fa-arrow-down"></i> keys on your keyboard to navigate between previous commands.</p> -->
-                                <p>To see this help menu again, simply type <span class="bot-command">help</span> or click the <i class="fa fa-question-circle"></i> above</p>
                             </div>
                         </div>
                     </div>
