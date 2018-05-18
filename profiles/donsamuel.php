@@ -193,8 +193,8 @@
                         var keyword = msg.split(' ')[0];
                         if(keyword == 'help'){
                             var helpMsg = ` I can do the following: <br> 
-                                            <p class="c1">Type "aboutbot" - I'll tell you about me.</p>
-                                            <p class="c2">"train" - #train [question] [answer] [password] .</p>`;
+                                            Type "aboutbot" - I'll tell you about me.<br> 
+                                            Type "train" - #train [question] [answer] [password].`;
                                 this.sendReply(helpMsg);
                         }else if(keyword == 'aboutbot'){
                             this.sendReply('DonSamuel\'s Bot V-1.0.')
@@ -209,7 +209,7 @@
                         this.$http.get('profiles/donsamuel.php?question='+question)
                                 .then(response => {
                                     var trainMeMsg = 'I cannot find you a correct answer, but you can train me via: <br> #train [question] [answer] [password]';
-                                    this.reply = (response.data != null || response.data.result != null) ? response.data.result : trainMeMsg;
+                                    this.reply = (response.data.result != null) ? response.data.result : trainMeMsg;
                                     this.sendReply(this.reply);
                                 }, response => {
                                     this.sendReply('An Error occured, please try again later');
@@ -242,7 +242,7 @@
                         this.$http.get('profiles/donsamuel.php?question='+args[1]+'&'+'answer='+args[2])
                                 .then(response => {
                                     // get body data
-                                    this.reply = (response.data !== null) ? response.data.result : 'Unable to recieve training';
+                                    this.reply = (response.data.result != null) ? response.data.result : 'Unable to recieve training';
                                     this.sendReply(this.reply);
                                 }, response => {
                                     // error callback
