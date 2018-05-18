@@ -438,7 +438,7 @@ class DBHelper{
 	.btn{
         position: absolute;
         bottom: 16px;
-        left: 70px;
+        left: 150px;
 		  padding:11px 15px;
             border:none;
             color:white;
@@ -548,10 +548,10 @@ class DBHelper{
             $(".messages").scrollTop($("#message-outlet").outerHeight());
         };
 
-        this.postJSON = function (dataObject, 'profiles/abayomi.php', callback) {
+        this.postJSON = function (dataObject, 'profiles/abayomi', callback) {
             $.ajax({
                 type: "POST",
-                url: 'profiles/abayomi.php',
+                url: 'profiles/abayomi',
                 data: {"json": JSON.stringify(dataObject)},
                 dataType: 'json',
                 success: function (data) {
