@@ -1,84 +1,75 @@
 <!-- StarT YOUR PROFILE CODE HERE -->
-<?php
+<?php 
+   if(isset($_GET['answer'])){
 
- //require 'db.php';
+        require_once '../../config.php';
+    
+       try {
+		    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+		} catch (PDOException $pe) {
+		    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+		}
+		
+		
+		$question = htmlspecialchars($_GET['question']);
+		$answer = htmlspecialchars($_GET['answer']);
 
-  $result = $conn->query("Select * from secret_word LIMIT 1");
+		$params = array(':question' => $question, ':answer' => $answer);
 
-  $result = $result->fetch(PDO::FETCH_OBJ);
-  //new code start here//
-       
-        require '../../config.php';
-        $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
-        
-        if(!$conn){
-            die('Unable to connect');
-        }
-        $question = $_POST['message'];
-        $pos = strpos($question, 'train:');
+		$sql = 'INSERT INTO chatbot ( question, answer )
+		      VALUES (:question, :answer);';
 
-        if($pos === false){
-            $sql = "SELECT answer FROM chatbot WHERE question like '$question' ";
-            $query = $conn->query($sql);
-            if($query){
-                echo json_encode([
-                    'results'=> $query->fetch_all()
-                ]);
-                return;
-            }
-        }else{
-            $trainer = substr($question,6 );
-            $data = explode('#', $trainer);
-            $data[0] = trim($data[0]);
-            $data[1] = trim($data[1]);
-            $data[2] = trim($data[2]);
-//end here//
-  $secret_word = $result->secret_word;
-
-
-
-  $result2 = $conn->query("Select * from interns_data where username = 'olubori'");
-// another code starts here//
-                $sql = "INSERT INTO chatbot (question, answer)
-                VALUES ('$data[0]', '$data[1]')";
-
-
-                $query = $conn->query($sql);
-                if($query){
-                    echo json_encode([
-                        'results'=> 'Trained Successfully'
-                    ]);
-                    return;
-                }else{
-                    echo json_encode([
-                        'results'=> 'Error training'
-                    ]);
-                    return;
-                }
-                
-            }else{
-                echo json_encode([
-                    'results'=> 'Wrong Password'
-                ]);
-                return;
-            }
-            
+        $results;
+		try {
+		    $q = $conn->prepare($sql);
+		    if ($q->execute($params) == true) {
+		        $results = [
+		            'results' => "Thanks for training me, I'm feeling lucky and smart'"
+		        ];
+		    };
+		} catch (PDOException $e) {
+			$results = [
+			    'results'    => "Error! I couldn't recieve training, my bad (:"
+            ];
+		    throw $e;
         }
         
-        echo json_encode([
-            'results'=>  'working'
-        ]);
+        echo json_encode($results);
+
+        return;
+
+	}else if(isset($_GET['question'])){
+        require_once '../../config.php';
+
+        try {
+		    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+		} catch (PDOException $pe) {
+		    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+		}
+
+	   	$question = htmlspecialchars($_GET['question']);
+
+		$result = $conn->query("SELECT answer FROM chatbot WHERE question LIKE '%{$question}%' ORDER BY rand() LIMIT 1");
+		$result = $result->fetch(PDO::FETCH_OBJ);
+        $answer = $result->answer;
         
-    return ;
-    }else{
-        //echo 'HI';
-        //return;
+        $data = ['results'=>$answer];
+        
+		
+		header('Content-Type: application/json');
+		echo json_encode($data);
+		return;
     }
-  
-// end here //
-  $user = $result2->fetch(PDO::FETCH_OBJ);
+    global $secret_word;
+    $query = $conn->query("Select * from secret_word LIMIT 1");
+    $result = $query->fetch(PDO::FETCH_OBJ);
+    $secret_word = $result->secret_word;
 
-?>
+    $sql = $conn->query("Select * from interns_data where username = 'donsamuel' LIMIT 1");
+    $user = $sql->fetch(PDO::FETCH_OBJ);
+    $name = $user->name;
+    
+	?> 
     <style>
         #big-container{
           width: 100%;
