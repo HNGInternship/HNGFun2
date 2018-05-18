@@ -1027,9 +1027,15 @@ body {
     border-radius: 20px;
 }
 
+.chatbot-menu-input{
+    margin: 0 auto;
+}
 .message-box input{
     background-color: #666;
     color: #000;
+}
+.chatbot-menu-header{
+    margin: 0 auto;
 }
     </style>
 </head>
