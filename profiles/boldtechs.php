@@ -736,6 +736,8 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
         //         $response = ['response'=>'show_direction', 'message'=>$map_url];
         //         echo json_encode($response);
         //     }
+
+        
             else {
                 $response = ['response'=>'command_error', 'message'=>'Someone must have tampered with my files.'];
                 echo json_encode($response);
