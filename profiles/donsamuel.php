@@ -1,13 +1,12 @@
 <!-- StarT YOUR PROFILE CODE HERE -->
 <?php
 
- require 'db.php';
+ //require 'db.php';
 
   $result = $conn->query("Select * from secret_word LIMIT 1");
 
   $result = $result->fetch(PDO::FETCH_OBJ);
-  <!-- a new added code..added in -->
-  =======
+  //new code start here//
        
         require '../../config.php';
         $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
@@ -33,15 +32,13 @@
             $data[0] = trim($data[0]);
             $data[1] = trim($data[1]);
             $data[2] = trim($data[2]);
->>>>>>> 306b07817e52d3028043974c9945b701d9d70a10
-<!-- end here-->
+//end here//
   $secret_word = $result->secret_word;
 
 
 
   $result2 = $conn->query("Select * from interns_data where username = 'olubori'");
-<!-- another code starts here-->
-=======
+// another code starts here//
                 $sql = "INSERT INTO chatbot (question, answer)
                 VALUES ('$data[0]', '$data[1]')";
 
@@ -77,19 +74,11 @@
         //echo 'HI';
         //return;
     }
-    
->>>>>>> 306b07817e52d3028043974c9945b701d9d70a10
-<!-- end here -->
+  
+// end here //
   $user = $result2->fetch(PDO::FETCH_OBJ);
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Profile</title>
     <style>
         
         .mainSection {
@@ -125,8 +114,8 @@
         
     </style>
 </head>
-<body>
-   <div class="mainSection">
+
+   <div class="container mainSection">
    
     <div class="image">
       </div>
@@ -211,9 +200,3 @@
 <script type="text/javascript" src="https://static.oracle.com/cdn/jet/v@version@/3rdparty"></script>
 
 <script type="text/javascript" src="../js/main.js"></script>
-
-
->>>>>>> 306b07817e52d3028043974c9945b701d9d70a10
-    
-</body>
-</html>
