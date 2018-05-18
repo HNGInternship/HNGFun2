@@ -1,139 +1,7 @@
 <?php
 require_once('country-array.php');
 include_once("header.php");
-
-
-if(!defined('DB_USER')){
-            require "../config.php";     
-            try {
-                $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-            } catch (PDOException $pe) {
-                die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-            }
-        }
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// define('DB_USER', "root"); // db user
-// define('DB_PASSWORD', "root"); // db password (mention your db password here)
-// define('DB_DATABASE', "hng_fun"); // database name
-// define('DB_HOST', "localhost"); // db server
-// try {
-//      $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-// } catch (PDOException $pe) {
-//     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-// }
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-if(isset($_POST['registration'])){
-
-  $firstname = $_POST['firstName'];
-  $lastname = $_POST['lastName'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $nationality= $_POST['nationality'];
-  $phone=$_POST['phone'];
-  $username=$_POST['userName'];
-  
-
-  
-
-  if($firstname == ""){
-
-    echo "Please enter your Firstname";
-    exit();
-  }
-  elseif($lastname == ""){
-
-    echo "Please enter your Lastname";
-    exit();
-
-  }
-  
-  elseif($email == ""){
-    echo "Please enter your Email";
-    exit();
-
-  }
-  
-  elseif($password == ""){
-    echo "Please enter your Password";
-    exit();
-
-  }
-  
-
-  $stmt = $conn->prepare("SELECT * FROM users WHERE email=:email");
-
-          $result= $stmt->execute(array(
-             ':email'=>$email
-           ));
-
-            $accountExist=false;
-           while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-            echo "Account already exists or email already in use";
-            $accountExist=true;
-            exit();
-
-           }
-
-
-           if(!$accountExist){
-
-            $rand_no=rand(0,1000);
-
-       $stmt = $conn->prepare("INSERT INTO users (email,phone,firstname,username,password,nationality,lastname,verified,verification_token)
-         VALUES (:email,:phone,:firstname,:username,:password,:nationality,:lastname,:verified,:verification_token)");
-
-      $result= $stmt->execute(array(
-          ':email'=>$email,':phone'=>$phone,':firstname'=>$firstname,':username'=>$username,':password'=>md5($password),':nationality'=>$nationality,':lastname'=>$lastname,':verified'=>0,':verification_token'=>$rand_no
-       ));
-         $token=md5($email.$rand_no);
-
-       if($result){
-        // header("Location: learn.php");
-
-         $to = "".$email."";
-         $subject = "Verify your account";
-         $txt = 'Hi '. $firstname.',
-            <br/>
-           You are receiving this message because you have just registered on the HNGI Site on <a href="https://hng.fun">https://hng.fun</a><br/>
-           Please, follow this link to verify your new account:<br/>
-           <a href="https://hng.fun/verifyEmail.php?token='.$token.'&email='.$email.'">Account Verification Link</a>
-           <br/> <br/>
-           <p>If you have not registered on our site, you can just delete this email.</p>
-           <br/>
-           Thank you for visiting our site,<br/>
-           HNGI Team';
-
-         $headers = "From: noreply@hng.fun" . "\r\n" ;
-         $headers .= "MIME-Version: 1.0\r\n";
-         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-         mail($to,$subject,$txt,$headers);
-
-
-        // header("Location: learn.php");
-
-        echo "1";
-
-        exit();
-       
-        
-
-         }
-     }
-
-
-   }
     
-    
-
-
 ?>
 
 <style>
@@ -145,38 +13,27 @@ if(isset($_POST['registration'])){
     padding-top:0 !important;
     margin-top:0 !important;
   }
-
   .signup-btn{
     width:50%;
     /*font-size:0.8em;*/
     padding:2%;
     border-radius:3px;
   }
-
   .signup-img{
     width:30%;
     height:80px;
     text-align:left !important;
   }
-
 .signup-img2{
     width:130%;
     height:80px;
   }
-
   .signup-text{
     padding-top:5% !important;
   }
-
   .label{
     color:#5F5F5F !important;
   }
-
-  .form-control{
-    padding: 0px;
-  }
-
-
 </style>
 
 
@@ -197,7 +54,8 @@ if(isset($_POST['registration'])){
         </div> 
 
           <div class="col-md-6 pt-0">
-            <h2 class="text-justify">Sign Up</h2>
+            <div class="signup-form">
+                  <h2 class="text-justify">Sign Up</h2>
             <p class="text-justify mt-2" style="color:#ADADAD;">Already have an account? <span><a href="login.php" style="text-decoration:none; color:#008DDD;">Log In</a></span></p>
 
             <h6 class="text-danger" id="signUpInfo"></h6>
@@ -205,29 +63,27 @@ if(isset($_POST['registration'])){
             <form class="form-signin signup " id="register_form">
             <div class="input-block mr-9 pb-2 pt-2">
             <label class="label" for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="" autofocus required>
+            <div class="form-style"><input  type="text" id="firstName" style="height: 40px;" name="firstName" class="form-control" placeholder="" autofocus required></div>
             </div>
 
             <div class="input-block pb-2">
             <label class="label" for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="" required>
+            <input type="text" style="height: 40px;" id="lastName" name="lastName" class="form-control" placeholder="" required>
             </div>
             
             <div class="input-block mr-9 pb-2">
             <label class="label" for="userName">Username</label>
-            <input type="text" id="userName" name="userName" class="form-control" placeholder="" required>
+            <input type="text" style="height: 40px;" id="userName" name="userName" class="form-control" placeholder="" required>
             </div>
 
             <div class="input-block pb-2">
             <label class="label" for="email">Email Address</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="" required>
+            <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required value="<?php echo $_POST['email']; ?>">
             </div>
-
-
 
              <div class="input-block mr-9 pb-2">
             <label class="label">Nationality</label>
-            <select class="form-control" name="nationality" id="nationality" required>
+            <select class="form-control" name="nationality" id="nationality" required style="height: 40px;">
               <option value="">Select Country</option>
               <?php
                   foreach ($countrylist as $key => $country) {
@@ -239,54 +95,37 @@ if(isset($_POST['registration'])){
 
 
             <div class="input-block pb-2">
-<!-- <<<<<<< HEAD -->
             <label class="label" for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" class="form-control" placeholder="" required>
-<!-- =======
-            <label class="label">Email</label>
-            <input type="text" name="email" class="form-control" placeholder="" required value="<?php if (isset($_POST['email']) && !empty($_POST['email'])){ echo $_POST['email'];} ?>">
->>>>>>> d530f7f4dc913fd97f9de97a0b808cfb28f97970 -->
+            <input type="tel" id="phone" style="height: 40px;" name="phone" class="form-control" placeholder="" required>
+            </div>
+
+            <div class="input-block mr-9 pb-2">
+            <label class="label">City</label>
+            <select class="form-control" id="state" name="state" required style="height: 40px;">
+              <option value=""></option>
+              <?php
+                  foreach ($states as $key => $state) { ?>
+                    <option value="<?php echo $key;?>"><?php echo $state?></option>
+                  <?php }
+                  ?>
+             </select>
+             <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
             </div>
             
-         <!--    <div class="input-block mr-9 pb-2">
-            <label class="label">Nationality</label>
-            <select class="form-control" name="nationality" required>
-              <option value=""></option>
-              <?php
-						      foreach ($countrylist as $key => $country) {
-						      	echo "<option id='".strtolower($country)."'>$country</option>";
-						      }
-						    ?>
-            </select>
-            </div>
-
             <div class="input-block pb-2">
-            <label class="label">City</label>
-            <select class="form-control" id="state" name="state" required>
-              <option value=""></option>
-              <?php
-						      foreach ($states as $key => $state) { ?>
-						      	<option value="<?php echo $key;?>"><?php echo $state?></option>"
-						      <?php }
-						      ?>
-						 </select>
-						 <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
-            </div>
-             -->
-            <div class="input-block mr-9 pb-2">
             <label class="label" for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="" required>
+            <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
             </div>
 
-            <div class="input-block pb-2">
+            <div class="input-block mr-9 pb-2">
             <label class="label" for="passwordCheck">Retype Password</label>
-            <input type="password" id="passwordCheck" name="passwordCheck" class="form-control" placeholder="" required>
+            <input type="password" id="passwordCheck"  style="height: 40px;" name="passwordCheck" class="form-control" placeholder="" required>
             </div>
 
                 <input type="hidden" name="registration" value="yes">
 
             
-            <button class="btn btn-primary signup-btn mt-4" id="register" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" style="font-weight: bold; font-size: 18px" id="register" type="submit">Sign Up</button>
 
             <!-- <button type="submit" name="register" class="btn btn-signup" id="register">Sign Up </button> -->
 
@@ -295,6 +134,8 @@ if(isset($_POST['registration'])){
 
           </div><!-- /col -->
           </div><!-- /row -->
+            
+            </div>
 
         </div> <!-- /container -->
     </div>
@@ -305,21 +146,16 @@ if(isset($_POST['registration'])){
         $('#signUpInfo').hide();
     $("#register_form").submit(function(e){
         e.preventDefault();
-
          $("#password").removeClass('is-invalid');
             $("#passwordCheck").removeClass('is-invalid');
         $('#signUpInfo').hide();
-
-
         var firstname = $("#firstName").val();
          var lastname = $("#lastName").val();
         var email = $("#email").val();
          var password = $("#password").val();
          var password2 = $("#passwordCheck").val();
-
         
         // var terms = $('#terms').is(':checked'); 
-
         if(password !==password2){
             $("#password").addClass('is-invalid');
             $("#passwordCheck").addClass('is-invalid');
@@ -327,38 +163,30 @@ if(isset($_POST['registration'])){
             $("#signUpInfo").attr("class","text-danger");
         $('#signUpInfo').show();
         return;
-
         }
        
               
       // $("#signUpInfo").html('Registering...');
       //       $("#signUpInfo").attr("class","text-warning");
-
       //   $('#signUpInfo').show();
-
-
              var data = $("#register_form").serialize();
-
-             $.ajax('sign-up.php',{
+             $.ajax('process_access',{
             type : 'post',
             data : data,
             success: function(data){
-
       $("#register").html('Sign Up');
-
               if(data==="1"){
-                window.location.href="activateaccount.php";
+                $("#signUpInfo").html("Account created successfully");
+            $("#signUpInfo").attr("class","text-success");
+            $("#signUpInfo").show();
+                window.location.href="activateaccount?email="+email+"&name="+firstname;
                 return;
               }
             
-
             $("#signUpInfo").html(data);
             $("#signUpInfo").attr("class","text-danger");
             $("#signUpInfo").show();
-
-
             // $("#register").html('Registration successful');
-
             // window.location.href ="https://hng.fun/activateaccount";
              // }  
              // else{
@@ -367,19 +195,14 @@ if(isset($_POST['registration'])){
                 //  $("#register").html('Failed');
              // } 
             
-
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
                     // alert('Request not completed');
       $("#register").html('Sign Up');
-
                  $("#signUpInfo").html('An error occured, please try again later ');
             $("#signUpInfo").attr("class","text-danger");
-
         $('#signUpInfo').show();
-
-
                  }
                 // $("#register").html('Failed');
             },
@@ -388,21 +211,15 @@ if(isset($_POST['registration'])){
       // $("#signUpInfo").html('Registering...');
       //       $("#signUpInfo").attr("class","text-warning");
       //   $('#signUpInfo').show();
-
          
             },
         });
     
-
         
      });
-
-
-
     });
     
 </script>
 <?php
-
 include_once("footer.php");
 ?>
