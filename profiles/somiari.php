@@ -39,7 +39,7 @@
 			$name = $row['name'];
 			$image_filename = $row['image_filename'];
 		}
-	} die();
+	} 
 ?>
 
 
@@ -477,7 +477,7 @@
 				<h1 class="name">
 				<?php echo $name; ?>
 				</h1>
-				<p class="labels">UI/UX. Front-end. Content Development</p>
+				<p class="labels">UI/UX. Front-end. Content Development.</p>
 			</section>
 			<section class="socials">
 				<a href="https://www.github.com/somiari" class="fa-icon" target="_blank">
