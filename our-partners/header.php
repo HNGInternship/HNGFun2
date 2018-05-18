@@ -44,7 +44,7 @@ $activeArray[$fileIndex]="active";
       <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
    	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> -->
@@ -131,15 +131,6 @@ $activeArray[$fileIndex]="active";
     }
     ?>
 
-    nav.navbar {
-        box-sizing: border-box !important;
-        padding: 0px 50px !important;
-        font-size: 15px;
-        font-weight: bold;
-        display: inline-block;
-        width: 100%;
-            padding: 10px 50px !important;
-    }
 
     .navbar-logo {
         width: auto !important;
@@ -155,15 +146,8 @@ $activeArray[$fileIndex]="active";
         padding-left: .5rem;
         padding-top: 20px;
         font-size: 15px !important;
-        position: relative;
     }
 
-    ul.navbar-nav.collapse.ml-auto {
-        display: -webkit-inline-box;
-        height: 100% !important;
-        float: right;
-
-    }
 
     nav.navbar {
         padding: 0 16px 0 50px !important;
@@ -185,22 +169,17 @@ $activeArray[$fileIndex]="active";
         border-bottom: 3px solid rgb(90, 145, 247);
     }
 
-    .navbar-fixed {
-      background: #f4f4f4 !important;
-    }
+  
      p {
        font-size: 14px;
     }
 
     .rightColumn {
         padding: 50px 5px 5px 20px;
-
     }
     ul {
     list-style-type: circle;
     }
-
-
 
 	.voffset {
 	margin-top: 330px;
@@ -262,11 +241,11 @@ $activeArray[$fileIndex]="active";
   	 position: relative;
     display: inline-block;
   }
-
+	   
       .footer-li .fa-stack-1x:hover{
             color: #0465be !important;
-      }
-
+      }      
+	
   @media (min-width: 575px) {
   #img-fixed {
     width: 235px;
@@ -306,21 +285,30 @@ $activeArray[$fileIndex]="active";
   }
 }
     </style>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript">
-    </script>
 
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript">
+</script>
   </head>
 
   <body>
+  
+  
     <!-- Navigation -->
-    <div id="navbar-fixed" class="navbar-fixed">
-        <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
-        <a class="navbar-brand" href="../index.php"><img src="../img/logo.png" alt="" class="navbar-logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+	
+        <nav class="navbar navbar-expand-lg navbar-light" >
+		
+        <a class="navbar-brand" href="../index.php">
+			<img src="../img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
+		</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-            <ul class="navbar-nav collapse ml-auto">
+		
+		 <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+		 
+            <ul class="navbar-nav  ml-auto">
                <li class="nav-item <?= $activeArray[0] ?>">
                 <a href="../index" class="nav-link">Home</a>
             </li>
@@ -328,7 +316,7 @@ $activeArray[$fileIndex]="active";
                 <a href="../learn" class="nav-link">Learn</a>
             </li>
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="../listing" class="nav-link">Current Intern</a>
+                <a href="../listing" class="nav-link">Our Interns</a>
             </li>
             <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="../testimonies" class="nav-link">Testimonies</a>
@@ -346,6 +334,6 @@ $activeArray[$fileIndex]="active";
                 <a href="../login" class="nav-link">LogIn</a>
             </li>
             </ul>
-
+		</div>
         </nav>
-    </div>
+    
