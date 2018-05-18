@@ -86,11 +86,12 @@
             background-color: brown;
         }
         #chatborder{
+            font-size:13px;
             margin-top:10px;
             padding: 10px;
             border: 1px solid #eee;
             background-color: whitesmoke;
-            width: 316px;
+            width: 320px;
             height: 342px;
             overflow-y: scroll;
         }
