@@ -178,8 +178,7 @@
             
             }
         };
-        xhttp.open("POST", "profiles/donsamuel.php?question=".message, true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("question="+message.value);
+        xhttp.open("GET", "profiles/donsamuel.php?question=".message.value, true);
+        xhttp.send();
     }
     </script>
