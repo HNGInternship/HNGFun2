@@ -1353,7 +1353,7 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
 
 
 	<div id="page">
-		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(https://res.cloudinary.com/cortehz/image/upload/v1517224595/portfolio/Snapchat_izgfgf.jpg);"
+		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(http://res.cloudinary.com/cortehz/image/upload/v1517224595/portfolio/Snapchat_izgfgf.jpg);"
 		 data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container-fluid">
