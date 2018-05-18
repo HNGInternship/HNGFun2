@@ -117,6 +117,7 @@
                     ':question' => stripTags($questionPart),
                     ':answer' => $answerPart,
                     )
+		
                 );
                 return 'Thank you for training me <br /> Question: ' . $questionPart . " Answer: ". getAnswer(stripTags($questionPart), $conn);
 
