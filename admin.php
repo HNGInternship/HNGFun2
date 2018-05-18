@@ -113,6 +113,12 @@ if(isset($_POST['submit']) ){
     input.form-control{
         font-size: 16px;
     }
+    input[type='submit']{
+        border-radius: 0;
+        font-size: 16px;
+        padding: 5px 20px;
+        margin-top: 20px;
+    }
 </style>
 
 <div class="container" id="container">
@@ -130,7 +136,7 @@ if(isset($_POST['submit']) ){
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="name" class="form-label">Name</label>
-                    <input required type="text" name="name" class="form-control"  id="name" placeholder="surname First">
+                    <input required type="text" name="name" class="form-control"  id="name" placeholder="surname first">
                     <?php if($nameError != "") { echo "<div class='alert alert-danger'>$nameError</div>"; }?>
                 </div>
             </div>
