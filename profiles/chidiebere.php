@@ -221,12 +221,8 @@
         }
 		
 		
-		.chatboz{
-			border:3px solid brown;
-			width:50%;
-			background:red;
-			
-		}
+		
+		
 		
 		@media screen and (max-width: 766px) {
 			.profile-details{margin:0 auto; }
@@ -274,9 +270,9 @@ require './db.php';
 				
                 </div>
                 <div class="text-center social-links">
-                    <a href="https://github.com/cara06" target="_blank"><i class="fa fa-2x fa-github"></i></a>
-                    <a href="https://twitter.com/techhajiya" target="_blank"><i class="fa fa-2x fa-twitter"></i></a>
-                    <a href="https://facebook.com/lois.idzi5" target="_blank"><i class="fa fa-2x fa-facebook"></i></a>
+                    <a href="https://github.com" target="_blank"><i class="fa fa-2x fa-github"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fa fa-2x fa-twitter"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fa fa-2x fa-facebook"></i></a>
                 </div>
             </div>
 			  </div>
