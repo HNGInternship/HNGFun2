@@ -8,6 +8,7 @@ include_once("header.php");
 
 <section class="pb-4 container">
   <div  class="row">
+    <div class="col-md-12">
       <div class="col-md-8 col-sm-12">
           <div >
               <img />
@@ -28,6 +29,7 @@ include_once("header.php");
             <li><a href="https://techcabal.com/2018/05/15/two-day-battery-flagship-hero-nokia-7-plus-arrives-in-nigeria/">Two-day battery flagship hero Nokia 7 plus arrives in Nigeria</a></li>
         </ul>
     </div>
+      </div>
    </div>
 </section>
 <!--Section: Testimonials v.4-->
