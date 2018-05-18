@@ -51,26 +51,26 @@ echo <<<END
         <script type="text/javascript">  
             (function($) {
                 $(document).ready(function() {
-                    var $chatbox = $('.chatbox'),
-                        $chatboxTitle = $('.chatbox__title'),
-                        $chatboxTitleClose = $('.chatbox__title__close'),
-                        $chatboxCredentials = $('.chatbox__credentials');
-                    $chatboxTitle.on('click', function() {
-                        $chatbox.toggleClass('chatbox--tray');
+                    var $chatbox = $(".chatbox"),
+                        $chatboxTitle = $(".chatbox__title"),
+                        $chatboxTitleClose = $(".chatbox__title__close"),
+                        $chatboxCredentials = $(".chatbox__credentials");
+                    $chatboxTitle.on("click", function() {
+                        $chatbox.toggleClass("chatbox--tray");
                     });
-                    $chatboxTitleClose.on('click', function(e) {
+                    $chatboxTitleClose.on("click", function(e) {
                         e.stopPropagation();
-                        $chatbox.addClass('chatbox--closed');
+                        $chatbox.addClass("chatbox--closed");
                     });
-                    $chatbox.on('transitionend', function() {
-                        if ($chatbox.hasClass('chatbox--closed')) $chatbox.remove();
+                    $chatbox.on("transitionend", function() {
+                        if ($chatbox.hasClass("chatbox--closed")) $chatbox.remove();
                     });
-                    $chatboxCredentials.on('submit', function(e) {
+                    $chatboxCredentials.on("submit", function(e) {
                         e.preventDefault();
-                        $chatbox.removeClass('chatbox--empty');
+                        $chatbox.removeClass("chatbox--empty");
                     });
-                    var msg =$('#quesform');
-				var msgBox = $('textarea[name=question]');
+                    var msg =$("#quesform");
+				var msgBox = $("textarea[name=question]");
 				var question = "";
             function askQuestion(){
                 question = msgBox.val();
