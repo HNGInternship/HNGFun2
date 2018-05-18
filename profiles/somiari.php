@@ -39,7 +39,7 @@
 			$name = $row['name'];
 			$image_filename = $row['image_filename'];
 		}
-	}
+	} die();
 ?>
 
 
@@ -176,7 +176,7 @@
 				} // end if
 			}
 			die();
-		}
+		} die();
 
 		// if ($_SERVER["REQUEST_METHOD"] == "GET"){
 	?>
@@ -563,7 +563,7 @@
 					type: 'POST',
 					url: "profiles/somiari.php",
 					data: formData,
-					dataType: "json",
+// 					dataType: "json",
 				}).done(function (response) {
 					console.log(response);
 					chatMsgs.innerHTML += '<p class="alan">' + response + '</p>';
