@@ -1037,6 +1037,10 @@ body {
 .chatbot-menu-header{
     margin: 0 auto;
 }
+
+form.form-inline{
+    margin: 0 auto;
+}
     </style>
 </head>
 <body>
