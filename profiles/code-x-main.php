@@ -89,12 +89,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	<title>Hotelsng User Profile </title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Federant" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
-   
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <style>
     .card {
     /* Add shadows to create the "card" effect */
@@ -111,7 +106,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
        .header-top{
            height: 500px;
-           background-color: #0A356F;
+           background-color: #afafaf;
        }
           /* Custom, iPhone Retina */ 
     @media only screen and (min-width : 320px) {
@@ -249,7 +244,7 @@ CHATBOT CSS
 ::-webkit-scrollbar-thumb
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
+    background-color: #2b2b2b;
 }
 div.panel-heading#accordion {
     background-color: #007bff;
@@ -284,7 +279,7 @@ span.chat-img img {
 			width: 300px;
 		}
 		#chat-box header {
-			background: #0572ce;
+			background: #4c4c4c;
 			border-radius: 5px 5px 0 0;
 			color: #fff;
 			cursor: pointer;
@@ -295,7 +290,7 @@ span.chat-img img {
 			margin: 0;
 		}
 		#chat-box h4:before {
-			background: #12c53b;
+			background: #4c4c4c;
 			border-radius: 50%;
 			content: "";
 			display: inline-block;
