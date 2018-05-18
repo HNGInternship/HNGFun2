@@ -205,14 +205,14 @@
 			html {
 				font-size: 100%;
 				box-sizing: border-box;
-				height: 100%;
+				height: auto !important;
 			}
 
 			body {
 				font-family: Roboto, 'Roboto Slab', sans-serif;
 				font-size: 1.4rem;
 				line-height: 1;
-				height: 100%;
+				height: auto !important;
 				background: #ecf0f1;
 			}
 
@@ -223,7 +223,7 @@
 
 			.contained {
 				margin: 0 auto;
-				height: 100%;
+				height: auto !important;
 				width: 95%;
 				max-width: 2000px;
 				display: flex;
@@ -514,19 +514,6 @@
 					</button>
 				</div>
 			</form>
-
-			<footer class=".footer">
-				<?php
-				date_default_timezone_set('Africa/Lagos');
-			?>
-				<span class="date">
-					<?php echo date("D. M d, Y"); ?>
-				</span>
-				<i class="icon fa fa-fw fa-clock-o"></i>
-				<span class="time">
-					<?php echo date("h:i a"); ?>
-				</span>
-			</footer>
 
 		</div>
 		<script src="vendor/jquery/jquery.min.js"></script>
