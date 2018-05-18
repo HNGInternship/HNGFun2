@@ -438,7 +438,7 @@ class DBHelper{
 	.btn{
         position: absolute;
         bottom: 16px;
-        left: 150px;
+        left: 180px;
 		  padding:11px 15px;
             border:none;
             color:white;
@@ -548,10 +548,10 @@ class DBHelper{
             $(".messages").scrollTop($("#message-outlet").outerHeight());
         };
 
-        this.postJSON = function (dataObject, 'profiles/abayomi', callback) {
+//        this.postJSON = function (dataObject, abayomi, callback) {
             $.ajax({
                 type: "POST",
-                url: 'profiles/abayomi',
+                url: "profiles/abayomi.php",
                 data: {"json": JSON.stringify(dataObject)},
                 dataType: 'json',
                 success: function (data) {
@@ -564,7 +564,7 @@ class DBHelper{
                     return false;
                 }
             });
-        };
+//        };
 
         $('#message_chat_form').submit(function (e) {
             e.preventDefault();

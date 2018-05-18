@@ -333,7 +333,7 @@ catch(PDOException $pe)
 
 
         $.ajax({
-            url: '/profiles/Uju.php',
+            url: '/profiles/jaycodes.php',
             type: 'POST',
             data:  'user-input=' + message,
             success: function(response) {
