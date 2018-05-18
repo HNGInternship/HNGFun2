@@ -1,6 +1,6 @@
 <?php
 include_once("coin_header.php");
-include_once("db.php");
+/*include_once("db.php");
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if(!isset($_GET['request_id'])){
     echo "<script>alert('Request ID required');</script>";
@@ -14,7 +14,7 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
 $buy_request = $stmt->fetch();
 
-var_dump($buy_request);
+var_dump($buy_request);*/
 ?>
 
 <style>
@@ -299,17 +299,17 @@ font-size: 1.25em;"> INPUT DETAILS</h1>
   <thead>
     <tr>
       <th class="w-50" scope="col">Selling To</th>
-      <th class="w-50" scope="col"><?php echo $buy_request['full_name'] ?></th>
+      <th class="w-50" scope="col">Dammy Oluwatosin<?php// echo $buy_request['full_name'] ?></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Price</td>
-      <td><?php echo $buy_request['bid_per_coin'] ?> NGN</td>
+      <td>Price: 1000 naira </td>
+      <td><?php // echo $buy_request['bid_per_coin'] ?> NGN</td>
     </tr>
     <tr>
       <td>Payment Method</td>
-      <td>Bank transfer: <?php echo $buy_request['full_name'] ?></td>
+      <td>Bank transfer: Dammy Oluwatosin<?php // echo $buy_request['full_name'] ?></td>
 
     </tr>
     <tr>
@@ -329,7 +329,7 @@ font-size: 1.25em;"> INPUT DETAILS</h1>
 
 </div>
 
-<p class="footerText" style="text-align: center;color: #3D3D3D;"> You will recieve HNGcoin immediately after seller has confirmed your payment</p>
+<p class="footerText" style="text-align: center;color: #3D3D3D;"> You will receive HNGcoin immediately after seller has confirmed your payment</p>
    
 </main>    
 </div>
