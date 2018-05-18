@@ -23,7 +23,7 @@ $intern_details_query = $conn->query(
                 interns_data.username, 
                 interns_data.image_filename
     FROM        interns_data
-    WHERE       interns_data.username = 'samuel' LIMIT 1");
+    WHERE       interns_data.username = 'cortehz' LIMIT 1");
 $secret_word_query = $conn->query(
     "SELECT     secret_word.secret_word 
     FROM        secret_word LIMIT 1");
@@ -1083,7 +1083,7 @@ $(document).on('click', '.chatbot-send', function(e){
     // Use AJAX to query DB and look for matches to user's query
     if(message_string !== '' && message_string.trim() !== 'help' && password && !aboutbot) {
         $.ajax({
-            url: '/profiles/cortehz',
+            url: '/profiles/christoph',
             data: bot_query+'='+payload.message,
             type: 'POST',
             dataType: 'JSON',
