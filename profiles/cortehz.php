@@ -996,6 +996,38 @@ body {
 .message_template {
   display: none;
 }
+
+.chatbot-menu-header{
+    background-color: orange;
+    color: white;
+    padding: 2%;
+
+}
+
+.training-menu{
+    color: white;
+    padding 4%;
+    background-color: blue;
+}
+
+.chatbot-message-sender p{
+    background-color: orange;
+    color: white;
+    padding: 2%;
+    margin: 1%;
+}
+
+.chatbot-message-bot p{
+    background-color: blue;
+    color: white;
+    padding: 2%;
+    margin: 1%;
+}
+
+.message-box input{
+    background-color: #666;
+    color: #000;
+}
     </style>
 </head>
 <body>
