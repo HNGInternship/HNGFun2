@@ -1008,6 +1008,7 @@ body {
     color: white;
     padding 4%;
     background-color: blue;
+    border-radius: 40px;
 }
 
 .chatbot-message-sender p{
@@ -1015,6 +1016,7 @@ body {
     color: white;
     padding: 2%;
     margin: 1%;
+    border-radius: 20px;
 }
 
 .chatbot-message-bot p{
@@ -1022,11 +1024,22 @@ body {
     color: white;
     padding: 2%;
     margin: 1%;
+    border-radius: 20px;
 }
 
+.chatbot-menu-input{
+    margin: 0 auto;
+}
 .message-box input{
     background-color: #666;
     color: #000;
+}
+.chatbot-menu-header{
+    margin: 0 auto;
+}
+
+form.form-inline{
+    margin: 0 auto;
 }
     </style>
 </head>
@@ -1432,7 +1445,7 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
 		
         <div class="chatbot-menu container">
                     <div class='chatbot-menu-header'>
-                        <span>Cortehz's Balaclava Bot</span>
+                        <span class="text-center">Cortehz's Balaclava Bot</span>
                     </div>
                     <div class="chatbot-menu-content">
                         <div class="chatbot-message-bot">
