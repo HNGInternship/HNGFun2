@@ -303,7 +303,7 @@
 				).done(function (){
                 if(question !== "")
 				$.ajax({
-                    url: 'michelletakuro.php',
+                    url: 'profiles/michelletakuro.php',
                     type: 'POST',
                     data: {question: question},
                     dataType: 'json',
