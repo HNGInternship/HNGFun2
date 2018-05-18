@@ -8,7 +8,7 @@ include_once("header.php");
 
 <section class="pb-4 container">
   <div  class="row">
-      <div class="col-md-12">
+      <div class="col-md-8 col-sm-12">
           <div >
               <img />
               Hotels.ng gets $1.2M to expand across Africa
@@ -18,7 +18,7 @@ include_once("header.php");
           An Analysis Of Hotels.Ng 2012 Pitch That Was Sent To Rocket Internet
           </div>
       </div>
-  </div>  
+  
     
     
     <div class="latestnews col-sm col-md-4">
@@ -28,21 +28,9 @@ include_once("header.php");
             <li><a href="https://techcabal.com/2018/05/15/two-day-battery-flagship-hero-nokia-7-plus-arrives-in-nigeria/">Two-day battery flagship hero Nokia 7 plus arrives in Nigeria</a></li>
         </ul>
     </div>
+   </div>
 </section>
 <!--Section: Testimonials v.4-->
 <?php
 include_once("footer.php");
 ?>
-.latestnews{
-float:right;
-}
-.latestnews ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    list-style-image: none;
-}
-li, .latestnews li {
-    border-top-width: 1px;
-    border-top-style: solid;
-}
