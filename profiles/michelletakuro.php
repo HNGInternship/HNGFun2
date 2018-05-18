@@ -253,6 +253,7 @@
 			
 		exit;
 		}
+		exit;
     }
 ?>
 <!doctype html>
