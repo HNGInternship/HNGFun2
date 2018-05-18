@@ -2,76 +2,10 @@
 	if(!defined('DB_USER')){
 		require "../../config.php";
 	}
-	
+	try {
 		$conn = new PDO("mysql:host=".DB_HOST."; dbname=".DB_DATABASE, DB_USER, DB_PASSWORD);
 		// set the PDO error mode to exception
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	     //Bot Brain
-	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        //require "../answers.php";
-        if(isset($_POST['question'])){
-			$question = trim($_POST['question']);
-            $question = str_replace('?', '', $question);
-
-            $answer = getAnswer($question, $conn);
-            
-			//check for today's  date and time
-			//check if the question is "aboutbot" in which case return info about the bot
-            if($question == "#aboutbot"){
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => getBotDetails()
-
-                ]);
-				exit;
-			}
-
-             //check if the question is "help" in which case return infoon help
-            elseif ($question == "#help"){
-				echo json_encode([
-					'status'=>1,
-					'answer'=>getHelpdetails()
-                ]);
-                exit;
-			}
-             //check if the question is "help" in which case return infoon help
-            elseif ($question == "#questions"){
-				echo json_encode([
-					'status'=>1,
-					'answer'=>getQuestions($conn)
-                ]);
-                exit;
-			}
-			//check if the input is a training attempt
-            elseif(isTraining($question) ){
-                $trainingResult = trainBot($question, $conn);
-                //train the bot
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => $trainingResult
-                ]);
-                exit;
-            }
-            //if the answer has ((<function_name>)) then parse it
-            else if(answerHasFunction($answer)){
-                //send the parsed answer
-                echo json_encode([
-                    'status' => 1,
-                    'answer' => processedAnswer($answer)
-                ]);
-                exit;
-            }
-			else{
-				echo json_encode([
-                    'status' => 1,
-                    'answer' => getAnswer($_POST['question'], $conn)
-                ]);
-				exit;
-			}
-			
-		exit;
-		}
-	try {
 
 		$stmt = $conn->prepare("select * from secret_word limit 1");
 		$stmt->execute();
@@ -254,9 +188,74 @@
 		}
 		return $array;
 	}
+     //Bot Brain
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //require "../answers.php";
+        if(isset($_POST['question'])){
+			$question = trim($_POST['question']);
+            $question = str_replace('?', '', $question);
 
+            $answer = getAnswer($question, $conn);
+            
+			//check for today's  date and time
+			//check if the question is "aboutbot" in which case return info about the bot
+            if($question == "#aboutbot"){
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => getBotDetails()
+
+                ]);
+				exit;
+			}
+
+             //check if the question is "help" in which case return infoon help
+            elseif ($question == "#help"){
+				echo json_encode([
+					'status'=>1,
+					'answer'=>getHelpdetails()
+                ]);
+                exit;
+			}
+             //check if the question is "help" in which case return infoon help
+            elseif ($question == "#questions"){
+				echo json_encode([
+					'status'=>1,
+					'answer'=>getQuestions($conn)
+                ]);
+                exit;
+			}
+			//check if the input is a training attempt
+            elseif(isTraining($question) ){
+                $trainingResult = trainBot($question, $conn);
+                //train the bot
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => $trainingResult
+                ]);
+                exit;
+            }
+            //if the answer has ((<function_name>)) then parse it
+            else if(answerHasFunction($answer)){
+                //send the parsed answer
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => processedAnswer($answer)
+                ]);
+                exit;
+            }
+			else{
+				echo json_encode([
+                    'status' => 1,
+                    'answer' => getAnswer($_POST['question'], $conn)
+                ]);
+				exit;
+			}
+			
+		exit;
+		}
 		exit;
     }
+	exit;
 ?>
 <!doctype html>
 <html lang="en" class="no-js">
