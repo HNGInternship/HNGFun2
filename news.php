@@ -11,12 +11,22 @@ include_once("header.php");
     <div class="col-md-12">
       <div class="col-md-8 col-sm-12">
           <div >
-              <img />
+              <img src="images/hotels (1).PNG" alt="Avatar" class="testimonial-avatar"/>
               Hotels.ng gets $1.2M to expand across Africa
           </div>
           <div >
-              <img />
+              <img src="images/mark-essien.jpg" alt="Avatar" class="testimonial-avatar"/>
           An Analysis Of Hotels.Ng 2012 Pitch That Was Sent To Rocket Internet
+          </div>
+        
+        <div >
+              <img src="images/mark-essien.jpg" alt="Avatar" class="testimonial-avatar"/>
+         Hotels.Ng Is Offering Its Premises For Free On Weekends
+          </div>
+        
+        <div >
+              <img src="images/mark-essien.jpg" alt="Avatar" class="testimonial-avatar"/>
+          This Guy Built A Hotel-Booking Platform In 2 Days, After Mark Essien Challenged Him
           </div>
       </div>
   
