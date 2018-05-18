@@ -999,11 +999,6 @@ body {
     </style>
 </head>
 <body>
-    <div class="container profile-body">
-        <div class="row">
-                <button class="btn btn-primary chat-btn">HNG Chat Bot</button>
-        </div>
-    </div>
 </body>
 <script src="<?=$home_url;?>/js/jquery.min.js" type="text/javascript"></script>
 <!-- Latest compiled and minified JavaScript -->
@@ -1358,7 +1353,7 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
 
 
 	<div id="page">
-		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(http://res.cloudinary.com/cortehz/image/upload/v1517224595/portfolio/Snapchat_izgfgf.jpg);"
+		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(https://res.cloudinary.com/cortehz/image/upload/v1517224595/portfolio/Snapchat_izgfgf.jpg);"
 		 data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container-fluid">
@@ -1366,9 +1361,9 @@ if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST[
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<div class="display-t js-fullheight">
 							<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-								<div class="profile-thumb" style="background: url(http://res.cloudinary.com/cortehz/image/upload/v1517224597/portfolio/profile-1_hjigdy.jpg);"></div>
+								<div class="profile-thumb" style="background: url(https://res.cloudinary.com/cortehz/image/upload/v1517224597/portfolio/profile-1_hjigdy.jpg);"></div>
 								<h1>
-									<span class="my-name">Samuel Omanchi</span>
+									<span class="my-name" style="color: orange">Samuel Omanchi</span>
 								</h1>
 								<h3>
 									<span>Web Developer / Budding Writer</span>
