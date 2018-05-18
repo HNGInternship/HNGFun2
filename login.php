@@ -106,14 +106,14 @@
              else if(data=="2"){
                 $("#message").attr("class", 'text-danger');
             
-                $("#message").html("Account has not been verified yet");
+                $("#message").html("Your Account has not been verified yet");
              } 
 
              else if(data="0"){
 
                 $("#message").attr("class", 'text-danger');
             
-                 $("#message").html('Error Invalid Email or password');
+                 $("#message").html('Your Username or Password is incorrect');
              }
 
              else{
