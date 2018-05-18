@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `secret_word` (
 --
 
 INSERT INTO `secret_word` (`id`, `secret_word`) VALUES
-(1, 'sample_secret_word');
+(1, 'secret_word');
 
 
 
