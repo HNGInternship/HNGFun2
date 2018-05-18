@@ -5,7 +5,7 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF'], ".php");
 
-$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'signup', 'login');
+$files = array('index','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'account');
 
 $activeArray = array_fill(0, count($files), '');
 
@@ -327,11 +327,18 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="../alumni" class="nav-link">Alumni</a>
             </li>
-             <li class="nav-item <?= $activeArray[8] ?>">
-                <a href="../signup" class="nav-link">SignUp</a>
-            </li>
-            <li class="nav-item <?= $activeArray[9] ?>">
-                <a href="../login" class="nav-link">LogIn</a>
+              <style type="text/css">
+              #dropaccount{
+                font-size: 18px;
+              }
+            </style>
+
+            <li class="dropdown nav-item <?= $activeArray[8] ?>" style="">
+                  <a href="#" class="dropdown-togge" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="" aria-hidden="true"></span><span style="color:#888888;">Account</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" style="width: 120px;">
+                    <li><a href="sign-up" class="nav-link" id="dropaccount">Sign Up</a></li>
+                    <li><a href="login" class="nav-link" id="dropaccount">LogIn</a></li>
+                  </ul>
             </li>
             </ul>
 		</div>
