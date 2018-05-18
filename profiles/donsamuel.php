@@ -80,13 +80,17 @@
 
 ?>
     <style>
-        
+        #big-container{
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
         .mainSection {
-            width:100%;
+            width:auto;
+            height: auto;
             background-color: brown;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
         }    
         
         .image {
@@ -114,8 +118,9 @@
      }
         
     </style>
-</head>
 
+  <div id="big-container">
+    
    <div class="mainSection">
    
     <div class="image">
@@ -146,11 +151,9 @@
                   <div><input style="width:170px" type="text" name="chat" id="chatbox" placeholder="chat here with me..." onfocus="placeHolder()"/>
                   <button style="float: right" onclick = loadDoc()><i class="fa fa-send-o fa-2x"></i></button></div>
                 
-  </div>
-    
-    </style>
     </div>
-                <script>
+  </div>
+        <script>
     function loadDoc() {
         //alert('Hello');
         var message = document.querySelector('#chatbox');
