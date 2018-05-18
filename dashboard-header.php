@@ -127,6 +127,7 @@ $username = "Amy Xandra";
     .navbar-fixed {
       background: #f4f4f4 !important;
     }
+    
     </style>
 
     <link href="css/dashboard-menu.css" rel="stylesheet">
@@ -183,3 +184,4 @@ $username = "Amy Xandra";
             </li>
         </ul>
 </div>
+ 

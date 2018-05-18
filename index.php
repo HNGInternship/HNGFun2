@@ -27,6 +27,7 @@ include_once("header.php");
     background-color: #dbf4ff !important;
     color: #000000 !important;
     box-shadow: 0 0 1px #dbf4ff;
+}
 </style>
 
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
@@ -49,18 +50,20 @@ include_once("header.php");
 	<div class="container container-fluid bg-transparent my-5 py-5">
 		<h3 class="text-center">Ready to get started?</h3>
 		<div class="d-flex justify-content-center mt-3">
-                <form action="sign-up.php" method="post" id="" name="newsletter" class="w-75">
-        <label class="mb-0 pb-0">Email:</label>
-              <div class="input-group mb-4 mt-0">
-                <div class="input-group-prepend ">
-                  <span class="home-signup-email input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
-                </div>
+		<form action="send.php" method="post" id="newsletter" name="newsletter" class="w-75">
+		<label class="mb-0 pb-0">Email:</label>
+		  	<div class="input-group mb-4 mt-0">
+		  	  <div class="input-group-prepend ">
+		  	    <span class="home-signup-email input-group-text bg-transparent px-5 font-icon" id="basic-addon1">@</span>
+		  	  </div>
 
-                <input type="text" name="email" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
-                <input type="submit" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0 font-weight-normal text-white mb-0 pt-23 mt-1 text-capitalize" style="height: 70px" value="Sign Up">
-              </div>
-            </form>
-			<!-- <a href="./signup.php">
+		  	  <input type="text" class="home-signup-email form-control rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
+		  	  <a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0" id="btn-signup">
+		  	  	<p class="font-weight-normal mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
+		  	  </a>
+		  	</div>
+			</form>
+			<!-- <a href="./sign-up.php">
 				<button class="home-signup">
 					SIGN UP
 				</button>
