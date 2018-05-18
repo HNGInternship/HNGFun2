@@ -1,4 +1,5 @@
  <?php
+if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     try {
         $sql = 'SELECT * FROM secret_word';
@@ -9,6 +10,7 @@
         throw $e;
     }
     $secret_word = $data['secret_word'];
+}
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     function test_input($data) {
@@ -224,37 +226,6 @@ return ;
 </head>
 <body>
 <div class="container">
-    <?php
-    if (!defined('DB_USER'))
-  {
-  require "../../config.php";
-
-  }
-
-try
-  {
-  $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-  }
-
-catch(PDOException $pe)
-  {
-  die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-  }
-
-    global $conn;
-
-    try {
-        $sql2 = 'SELECT * FROM interns_data WHERE username="Uju"';
-        $q2 = $conn->query($sql2);
-        $q2->setFetchMode(PDO::FETCH_ASSOC);
-        $my_data = $q2->fetch();
-    } catch (PDOException $e) {
-        throw $e;
-    }
-    ?>
-
-
-
     <div class="oj-flex oj-flex-items-pad oj-contrast-marker">
         <div class="oj-sm-12 oj-md-6 oj-flex-item">
             <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
@@ -299,10 +270,8 @@ catch(PDOException $pe)
                 </div>
 
                 <div class="chat-input">
-                    <form action="" method="post" id="user-input-form">
                         <input type="text" name="user-input" id="user-input" class="user-input" placeholder="Say something here">
-                        <button type="submit" class="send_button" id="send">Send</button>
-                    </form>
+                        <button onclick="chat()" class="send_button" id="send">Send</button>
                 </div>
             
 
@@ -321,36 +290,79 @@ catch(PDOException $pe)
 
 
 <script>
-    var outputArea = $("#chat-output");
-
-    $("#user-input-form").on("submit", function(e) {
-
-        e.preventDefault();
-
-        var message = $("#user-input").val();
-
-        outputArea.append(`<div class='bot-message'><div class='message'>${message}</div></div>`);
-
-
-        $.ajax({
-            url: '/profiles/jaycodes.php',
-            type: 'POST',
-            data:  'user-input=' + message,
-            success: function(response) {
-                var result = $($.parseHTML(response)).find("#result").text();
-                setTimeout(function() {
-                    outputArea.append("<div class='user-message'><div class='message'>" + result + "</div></div>");
-                    $('#chat-output').animate({
-                        scrollTop: $('#chat-output').get(0).scrollHeight
-                    }, 1500);
-                }, 250);
+    window.addEventListener("keydown", function(e){
+            if(e.keyCode ==13){
+                if(document.querySelector("#user-input").value.trim()==""||document.querySelector("#user-input").value==null||document.querySelector("#user-input").value==undefined){
+                    //console.log("empty box");
+                }else{
+                    //this.console.log("Unempty");
+                    chat();
+                }
             }
         });
 
+    function chat() {
+        var message = document.querySelector('#user-input');
+        var chatOutput = document.querySelector('#chat-output');
+        var pp = document.createElement('div');
+        var inner = document.createElement('div');
+        pp.classList = 'user-message';
+        inner.classList = 'message';
+        pp.append(inner);
+        inner.innerHTML = message.value;
+        //console.log(message.value)
+        chatOutput.appendChild(pp);
+        //return
+        // alert(message.value);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+            var result = JSON.parse(xhttp.responseText);
+            //<div class='bot-message'><div class='message'>${message}</div></div>
+            message.value = '';
+            var p = document.createElement('div');
+            var inn = document.createElement('div');
+            p.classList = 'bot-message';
+            inn.classList = 'message';
+            p.append(inn);
 
-        $("#user-input").val("");
+            //console.log(result.results.length);
+            
+            if(result.results.length === 0){
+                //alert('hello');
+                inn.innerHTML = 'Not in database. please train me';
+                chatOutput.append(p);
+                return;
+            }else{
+                //console.log(typeof(result.results)) 
+                if(typeof(result.results) == 'object' ){
+                    var res = Math.floor(Math.random() * result.results.length);
+                    
+                    inn.innerHTML = result.results[res];
+                    chatOutput.append(p)
+                }else{
+                    var res = Math.floor(Math.random() * result.results.length);
+                    inn.innerHTML = result.results;
+                    chatOutput.append(p)
+                }   
+            }
+            
+            
+            
+            }
+        };
+        
 
-    });
+        
+        xhttp.open("POST", "/profiles/Uju", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("message="+message.value);
+        $('#chat-output').animate({
+                scrollTop: chatOutput.scrollHeight,
+                scrollLeft: 0
+            }, 500);
+    }
 </script>
 
 </html>
