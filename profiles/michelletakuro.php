@@ -255,6 +255,7 @@
 		}
 		exit;
     }
+	exit;
 ?>
 <!doctype html>
 <html lang="en" class="no-js">

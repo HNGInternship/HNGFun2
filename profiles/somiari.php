@@ -39,7 +39,7 @@
 			$name = $row['name'];
 			$image_filename = $row['image_filename'];
 		}
-	}
+	} 
 ?>
 
 
@@ -176,7 +176,7 @@
 				} // end if
 			}
 			die();
-		}
+		} die();
 
 		// if ($_SERVER["REQUEST_METHOD"] == "GET"){
 	?>
@@ -477,7 +477,7 @@
 				<h1 class="name">
 				<?php echo $name; ?>
 				</h1>
-				<p class="labels">UI/UX. Front-end. Content Development</p>
+				<p class="labels">UI/UX. Front-end. Content Development.</p>
 			</section>
 			<section class="socials">
 				<a href="https://www.github.com/somiari" class="fa-icon" target="_blank">
@@ -563,7 +563,7 @@
 					type: 'POST',
 					url: "profiles/somiari.php",
 					data: formData,
-					dataType: "json",
+// 					dataType: "json",
 				}).done(function (response) {
 					console.log(response);
 					chatMsgs.innerHTML += '<p class="alan">' + response + '</p>';
