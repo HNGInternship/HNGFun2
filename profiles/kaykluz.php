@@ -1199,7 +1199,7 @@ $(document).ready(function() {
 			let stage = 0;
 			var visitor = '';
 			var done_intro = 0;
-			let url = "profiles/alabamustapha.php";
+			let url = "profiles/kaykluz.php";
 			
 			$("div#chat-bot").hide();
 			
