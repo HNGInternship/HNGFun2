@@ -570,11 +570,11 @@ class DBHelper{
             $(".messages").scrollTop($("#message-outlet").outerHeight());
         };
 
-       this.postJSON = function (data, "profiles/abayomi", callback) {
+       this.postJSON = function (dataObject, "profiles/abayomi.php", callback) {
             $.ajax({
                 type: "POST",
                 url: "profiles/abayomi.php",
-                data: {JSON.parse(data);},
+                data: {"json": JSON.stringify(dataObject)},
                 dataType: 'json',
                 success: function (data) {
                     callback(data);
@@ -591,7 +591,7 @@ class DBHelper{
         $('#message_chat_form').submit(function (e) {
             e.preventDefault();
             chat.messageChat();
-//           $('#message_chat_form')[0].reset();
+           $('#message_chat_form')[0].reset();
         });
 
         this.messageChat = function () {
@@ -608,7 +608,7 @@ class DBHelper{
                 "message": message,
             };
             this.postJSON(data, "profiles/abayomi.php", function (response) {
-//                $('#message_chat_form')[0].reset();
+                $('#message_chat_form')[0].reset();
                 console.log(response);
                 var strMessages = '<li class="replies"><small style=" color:rgb(47, 136, 204);" >ChatMe:</small> ' +
                     ' ' + response.message + '</p></li><div class="clearfix"></div> ';
