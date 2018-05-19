@@ -1,6 +1,8 @@
 <?php
 //    $con = mysql_connect('localhost','root','');
 //    $db = mysql_select_db('hng_fun');
+
+require '../db.php';
  if(!defined('DB_USER')){
             require "../../config.php";     
             try {
@@ -35,7 +37,7 @@
 
 //$cn = new PDO('mysql:host=localhost;dbname=messages', 'root', 'root');
 
-require '../db.php';
+
 
   function sanitizeText($text){
 
