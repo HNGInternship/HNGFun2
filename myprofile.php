@@ -39,6 +39,25 @@ include_once("dashboard-header.php");
  <div class="container">
     <div class="box">
         <h1><spa>PROFILE INFORMATION</spa> </h1>
+     <div>
+     <div class ="col-md-4 dp">
+     <img src="" alt=""/>
+      </div>
+     <div class ="col-md-6 info>
+       <div col-md-12>
+          <h4>Name</h4>
+          <hr>
+       </div>
+       <div>
+          <label>Email :</label> <span class= "b_infor"></span><br>
+          <label>Gender :</label> <span class= "b_infor"></span><br>
+          <label>Country :</label> <span class= "b_infor"></span><br>
+          <label>State :</label> <span class= "b_infor"></span><br>
+          <label>City :</label> <span class= "b_infor"></span><br>
+          <label>Phone :</label> <span class= "b_infor"></span><br>
+       </div>
+     </div>
+     </div
         
     <div>
  </div>
