@@ -59,13 +59,22 @@ include_once("header.php");
             type : 'post',
             data : data,
             success: function(data){
-
+            if(data=="1"){
              
              $("#notif").addClass('alert alert-success');
-            $("#notif").html(data);
+            $("#notif").html("Password reset successful!");
 
-            $("#reset").html('DONE');          
-
+            $("#reset").html('DONE');      
+            }
+             else if(data =="0"){
+                 $("#notif").addClass('alert alert-danger'); 
+                 $("#notif").html("Account does not exist!");
+                 $("#reset").html('rest');
+                 }
+             else {
+                   $("#notif").html(data);
+                 }
+                $("#notif").show();
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
@@ -75,7 +84,7 @@ include_once("header.php");
             },
             beforeSend :function(){
 
-            $("#notif").removeClass('lert alert-danger');
+            $("#notif").removeClass('alert alert-danger');
             $("#notif").html('');
 
             $("#reset").html('Requesting..');
