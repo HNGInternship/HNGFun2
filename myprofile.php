@@ -55,12 +55,12 @@ include_once("dashboard-header.php");
           <hr style="padding:20px 0px 20px 0px;">
        </div>
        <div class="b_info_grid col-md-12">
-          <label class="col-md-4">Email :</label> <span class= "b_infor col-md-6">exampl@gmail.com</span><br>
-          <label class="col-md-4" >Gender :</label> <span class= "b_infor col-md-6 ">Male</span><br>
-          <label class="col-md-4" >Country :</label> <span class= "b_infor col-md-6 ">U. S. A</span><br>
-          <label class="col-md-4" >State :</label> <span class= "b_infor col-md-6 ">Boston</span><br>
-          <label class="col-md-4" >City :</label> <span class= "b_infor col-md-6 ">Mars</span><br>
-          <label class="col-md-4" >Phone :</label> <span class= "b_infor col-md-6">+1(415) 452 0826</span><br>
+          <p class="col-md-12">Email :<span class= "b_infor col-md-6">exampl@gmail.com</span></p>
+          <p class="col-md-12" >Gender :<span class= "b_infor col-md-6 ">Male</span></p>
+          <p class="col-md-12" >Country :<span class= "b_infor col-md-6 ">U. S. A</span></p>
+          <p class="col-md-12" >State : <span class= "b_infor col-md-6 ">Boston</span></p>
+          < class="col-md-12" >City :<span class= "b_infor col-md-6 ">Mars</span></p>
+          <p class="col-md-12" >Phone : <span class= "b_infor col-md-6">+1(415) 452 0826</span></p>
        </div>
      </div>
      </div
