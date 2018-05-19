@@ -168,7 +168,6 @@
  <meta name="description" content="">
  <link href="https://fonts.googleapis.com/css?family=Englebert|Open+Sans:400,600,700" rel="stylesheet" type="text/css"> 
  <!--[if IE 6]>
- <link href="default_ie6.css" rel="stylesheet" type="text/css" />
  <![endif]-->
  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
