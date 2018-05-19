@@ -55,14 +55,14 @@ include_once("dashboard-header.php");
      <div class ="col-md-6 info">
        <div class="name col-md-12">
           <h4>Oganji Ernest Paul (Epospiky)</h4>
-          <hr style="padding:20px 0px 20px 0px;">
+          <hr style="padding:20px 0px 10px 0px;">
        </div>
        <div class="b_info_grid col-md-12">
-        <table border="none">
+        <table border="0px">
           <tr class="col-md-12"><td class="l-col col-md-4">Email :</td><td class= "b_infor col-md-6">exampl@gmail.com</td></tr>
           <tr class="col-md-12" ><td class="l-col col-md-4">Gender :</td><td class= "b_infor col-md-6 ">Male</td></tr>
           <tr class="col-md-12" ><td class="l-col col-md-4">Country :</td><td class= "b_infor col-md-6 ">U. S. A</td></tr>
-          <tr class="col-md-12" ><td class="l-col col-md-4>State :</td> <td class= "b_infor col-md-6 ">Boston</td></tr>
+          <tr class="col-md-12" ><td class="l-col col-md-4">State :</td> <td class= "b_infor col-md-6 ">Boston</td></tr>
           <tr class="col-md-12" ><td class="l-col col-md-4">City :</td><td class= "b_infor col-md-6 ">Mars</td></tr>
           <tr class="col-md-12" ><td class="l-color col-md-4">Phone :</td> <td class= "b_infor col-md-6">+1(415) 452 0826</td></tr>
          </table>
