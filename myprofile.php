@@ -42,7 +42,7 @@ include_once("dashboard-header.php");
  .b_info_grid table,td,tr{
             border:4px solid white;
             text-align:left;}
- .row div table tr td p {padding-top:0; padding-bottom:0;}
+ .row div, table, tr, td, p {padding-top:0; padding-bottom:0;}
 </style>
  <title>HNG FUN Profile</title>
 </head>
