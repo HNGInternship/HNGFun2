@@ -541,7 +541,7 @@ body.fullsingle p {
       <form action="#" method="post" class="form-data">
         <fieldset>
           <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
-          <input type="submit" name="bot-interface" value="SEND"  style=" color: white; font-size: 10px; width: 24%; padding: 8px 12px; margin: 8px 0; cursor: pointer; background-color: #47bec7; border:none"/>
+          <input type="submit" name="bot-interface" value="SEND"/>
         </fieldset>
       </form>
     </div> <!-- end chat -->
