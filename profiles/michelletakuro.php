@@ -1,6 +1,6 @@
 <?php
 
-("Content-Type:application/json");
+
 
 	if(!defined('DB_USER')){
 		require "../config.php";
@@ -196,6 +196,7 @@
 	}
      //Bot Brain
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        ("Content-Type:application/json");
         //require "../answers.php";
         if(isset($_POST['question'])){
 			$question = trim($_POST['question']);
