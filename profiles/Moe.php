@@ -16,11 +16,11 @@
   
     <style>
 .fa {
-			float: left;
-			font-size: 25px;
-			color: #ccc;
-			padding: 10px;
-		}   
+		float: left;
+		font-size: 25px;
+		color: #ccc;
+		padding: 10px;
+	}   
 
 body {
     position: fixed;
@@ -74,20 +74,20 @@ img{
   <body>
 
   <header>
-			<div>
-				<a href="https://github.com/benzowe"><i class="fa fa-github"></i></i></a>
-				<a href="https://twitter.com/moegram"><i class="fa fa-twitter"></i></i></a>
-			</div>
+		<div>
+			<a href="https://github.com/benzowe"><i class="fa fa-github"></i></i></a>
+			<a href="https://twitter.com/moegram"><i class="fa fa-twitter"></i></i></a>
+		</div>
 		
 	</header>
   <center><img src="http://res.cloudinary.com/benzowe/image/upload/v1523637805/IMG_0343.jpg" alt="Mohammed" align="center" width="100" height="100" ></center>
   <center><p>Hey Guys.I'm Mohammed Sanusi </p></center>
   <box class="a">
-  <center>Today</center> <br>
-  <?php
-echo "Time is " . date("F j, Y, g:i a") . "<br>";
-?>
-</box>
+	  <center>Today</center> <br>
+	  <?php
+	  echo "Time is " . date("F j, Y, g:i a") . "<br>";
+	  ?>
+	</box>
 
   </body>
 

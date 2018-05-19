@@ -1,19 +1,23 @@
 <?php
 include_once("header.php");
 ?>
-
+<style>
+    
+</style>
 
 <div class="container" >
     
+<div class="clearfix"></div>
+    <div style="500px" class="justify-content-md-center">
+        
+        <div id="notif" style = "text-align:center;"></div>
 
-    <div class="row justify-content-md-center">
-        <div id="message"></div>
-        <form style='text-align: center; padding: 100px' id="reset_form">
+        <form  id="reset_form" style ="text-align: center;">
             <h1>Reset Password</h1>
-            <p style="width: 480px; margin-left: 150px;">
+            <p >
                 Enter your email address and we'll send you an email with instructions to reset your password.
             </p>
-            <div style="padding: 20px 200px 0px 200px;  width: 800px;">
+            <div style="padding: 20px 50px 0px 50px;">
                 <input type="email" class="form-control form-control-lg rounded-right" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" id="email" name="email">
                 <br />
                 <input type="hidden" name="reset_password_token" value="yes">
@@ -36,8 +40,8 @@ include_once("header.php");
              
         if(email ==""){
             alert('please enter email');
-            $("#message").addClass('alert alert-danger');
-            $("#message").html('Please enter email');
+            $("#notif").addClass(' alert alert-danger');
+            $("#notif").html('Please enter email');
         }
        
         
@@ -50,17 +54,26 @@ include_once("header.php");
 
             
 
-             $.ajax('process.php',{
+             $.ajax('process',{
             type : 'post',
             data : data,
             success: function(data){
-
+            if(data=="1"){
              
-             $("#message").addClass('alert alert-success');
-            $("#message").html(data);
+             $("#notif").addClass('alert alert-success');
+            $("#notif").html("Success! Please click on the link in the email to set a new password. ");
 
-            $("#reset").html('DONE');          
-
+            $("#reset").html('DONE');      
+            }
+             else if(data =="0"){
+                 $("#notif").addClass('alert alert-danger'); 
+                 $("#notif").html("Account does not exist!");
+                 $("#reset").html('Reset Password');
+                 }
+             else {
+                   $("#notif").html(data);
+                 }
+                $("#notif").show();
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
@@ -70,8 +83,8 @@ include_once("header.php");
             },
             beforeSend :function(){
 
-            $("#message").removeClass('alert alert-danger');
-            $("#message").html('');
+            $("#notif").removeClass('alert alert-danger');
+            $("#notif").html(' ');
 
             $("#reset").html('Requesting..');
             },

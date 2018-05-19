@@ -1,4 +1,5 @@
 <?php
+
   date_default_timezone_set('Africa/Lagos');
   $result = $conn->query("SELECT * FROM secret_word LIMIT 1");
   $result = $result->fetch(PDO::FETCH_OBJ);

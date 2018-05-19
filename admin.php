@@ -8,12 +8,12 @@ $usernameError = "";
 $keyError = "";
 $filenameError = "";
 
+
 //$imageSuccess = false;
 $success = false;
 $key = "sample_secret_word";
 
 if(isset($_POST['submit']) ){
-
     //Data Sanitization and Validation
     if($_POST['name'] != ""){
         $_POST['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
@@ -100,6 +100,26 @@ if(isset($_POST['submit']) ){
         </div>
     </div>
 </header>
+<style>
+    #container{
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+    }
+    .form-label{
+        color: #666;
+    }
+    input.form-control{
+        font-size: 16px;
+    }
+    input[type='submit']{
+        border-radius: 0;
+        font-size: 16px;
+        padding: 5px 20px;
+        margin-top: 20px;
+    }
+</style>
 
 <div class="container" id="container">
     <?php if($nameError != "" || $keyError != ""|| $usernameError != "" || $filenameError != "") {
@@ -115,14 +135,14 @@ if(isset($_POST['submit']) ){
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input required type="text" name="name" class="form-control"  id="name" placeholder="Surname First">
+                    <label for="name" class="form-label">Name</label>
+                    <input required type="text" name="name" class="form-control"  id="name" placeholder="surname first">
                     <?php if($nameError != "") { echo "<div class='alert alert-danger'>$nameError</div>"; }?>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="username">Slack Username:</label>
+                    <label for="username" class="form-label">Slack Username</label>
                     <input required type="text" name="username" class="form-control"  id="username" placeholder="username">
                     <?php if($usernameError != "") { echo "<div class='alert alert-danger'>$usernameError</div>"; }?>
                 </div>
@@ -132,14 +152,14 @@ if(isset($_POST['submit']) ){
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="text">Profile Picture</label>
+                    <label for="text" class="form-label">Profile Picture</label>
                     <input type="text" name="image_filename" class="form-control" id="image_filename" accept="image/*" required>
                 </div>
                 <?php if($filenameError != "") { echo "<div class='alert alert-danger'>$filenameError</div>"; }?>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="key">Key Code:</label>
+                    <label for="key" class="form-label">Key Code</label>
                     <input required type="text" name="key" class="form-control"  id="key" placeholder="key code">
                     <?php if($keyError != "") { echo "<div class='alert alert-danger'>$keyError</div>"; }?>
                 </div>

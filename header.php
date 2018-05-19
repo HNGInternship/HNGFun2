@@ -65,6 +65,9 @@ $activeArray[$fileIndex]="active";
     <link href="css/contact.css" rel="stylesheet">
     <!-- <link href="css/carousel.css" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Qwigley" rel="stylesheet">
+    <!-- for the dropdown in particular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style>
         body {
@@ -161,7 +164,7 @@ $activeArray[$fileIndex]="active";
                 <a href="learn" class="nav-link">Learn</a>
             </li> 
             <li class="nav-item <?= $activeArray[2] ?>">
-                <a href="listing" class="nav-link">Current Intern</a>
+                <a href="listing" class="nav-link">Our Interns</a>
             </li>
             <li class="nav-item <?= $activeArray[3] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>
@@ -172,13 +175,22 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item <?= $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
-             <li class="nav-item <?= $activeArray[8] ?>">
-                <a href="sign-up" class="nav-link">SignUp</a>
+
+            <style type="text/css">
+              #dropaccount{
+                font-size: 18px;
+              }
+            </style>
+
+            <li class="dropdown nav-item <?= $activeArray[8] ?>" style="">
+                  <a href="#" class="dropdown-togge" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="" aria-hidden="true"></span><span style="color:#888888;">Account</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" style="width: 120px;">
+                    <li><a href="sign-up" class="nav-link" id="dropaccount">Sign Up</a></li>
+                    <li><a href="login" class="nav-link" id="dropaccount">LogIn</a></li>
+                  </ul>
             </li>
-            <li class="nav-item <?= $activeArray[9] ?>">
-                <a href="login" class="nav-link">LogIn</a>
-            </li>
-    </ul>
+        </ul>
   </div>
 
     </nav>
+

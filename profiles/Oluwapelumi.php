@@ -1,15 +1,42 @@
 <?php
-require '../db.php';
+
+    try {
+    $sql = "SELECT * FROM secret_word";
+    $q = $conn->query($sql);
+    $q->setFetchMode(PDO::FETCH_ASSOC);
+    $data = $q->fetch();
+    $secret_word = $data['secret_word'];
+    } catch (PDOException $e) {
+
+        throw $e;
+    }
+
+
+?>
+
+
+   <?php
+
+                try {
+                $sql = "SELECT * FROM interns_data WHERE username= 'Oluwapelumi' ";
+                $q = $conn->query($sql);
+                $q->setFetchMode(PDO::FETCH_ASSOC);
+                $data = $q->fetch();
+                $name = $data['name'];
+                $username = $data['username'];
+                $image_file = $data['image_filename'];
+                } catch (PDOException $e) {
+
+                    throw $e;
+                }
+
+
+            ?>
+
+
+<?php
+
 require '../answers.php';
-
-
-$sql = "Select * from secret_word LIMIT 1";
-$result = $conn->query($sql);
-$result = $result->fetch(PDO::FETCH_OBJ);
-$secret_word = $result->secret_word;
-
-$result2 = $conn->query("Select * from interns_data where username = 'Oluwapelumi'");
-$user = $result2->fetch(PDO::FETCH_OBJ);
 
 
 function chatWithMe($question, $conn){

@@ -120,10 +120,13 @@ if(isset($_POST['login'])){
 
       if($member_response==false){
 
-      die("Email doesnt exist..check the email you typed well"); 
+       echo "0";
+	      exit();
 
       }
       else{
+	      echo "1";
+	      exit();
       	//update password reset token
       	
       	$reset_token_check =  $member->update_token($email,$token,$conn);

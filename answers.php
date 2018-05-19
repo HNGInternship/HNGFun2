@@ -580,36 +580,6 @@ function getRandomQuote(){
     //A.M.A
 }
 
-
-function bot_answer($check) {
-
-
-
-// Create connection
-//$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-//if ($conn->connect_error) {
- //   die("Connection failed: " . $conn->connect_error);
-//}
-
-
-
-$stmt = $conn->prepare("SELECT answer FROM chatbot WHERE question='$check' ORDER BY rand() LIMIT 1");
-$stmt->execute();
-if($stmt->rowCount() > 0)
-{
-  while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-  {
-		echo $row["answer"];
-  }
-} else {
-    echo "Well i couldnt understand what you asked. But you can teach me.";
-	echo "Type ";
-	echo "train: write a question | write the answer.  ";
-	echo "to teach me.";
-}
-}
-
 function getMotivationalQuoteForTheDay(){
 	$randomQuoteJson =file_get_contents("http://quotes.rest/qod.json?category=inspire");
 	$randomQuote = json_decode($randomQuoteJson, true);
@@ -643,6 +613,37 @@ function getPinkyCommands(){
     NB. All or some of the words in bold should be included in your message. Please try to follow these patterns as I am still learning.";
     //A.M.A
 }
+
+///////////////////////////////
+//End Aniuchi A. M's Functions/
+///////////////////////////////
+
+function bot_answer($check) {
+
+// Create connection
+//$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+//if ($conn->connect_error) {
+ //   die("Connection failed: " . $conn->connect_error);
+//}
+
+$stmt = $conn->prepare("SELECT answer FROM chatbot WHERE question='$check' ORDER BY rand() LIMIT 1");
+$stmt->execute();
+if($stmt->rowCount() > 0)
+{
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+  {
+		echo $row["answer"];
+  }
+} else {
+    echo "Well i couldnt understand what you asked. But you can teach me.";
+	echo "Type ";
+	echo "train: write a question | write the answer.  ";
+	echo "to teach me.";
+}
+}
+
+
 
 function train_bot ($message) {
 function multiexplode ($delimiters,$string) {
@@ -705,11 +706,6 @@ function get_browser_name($user_agent)
 
     return 'Other';
 }
-
-
-///////////////////////////////
-//End Aniuchi A. M's Functions/
-///////////////////////////////
 
 
 function get_device_name($user_agent)
@@ -1611,6 +1607,16 @@ function getBotManual() {
     'train: question # answer # password'";
 }
 
+//////////////////////////////////////////////	Iyadi Cyril////////////////////////////////////////////////
+function getReviews(){
+	$curl = curl_init();
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $query = array( "api-key" => "9ecd2e12bc244c42a684f37df0d21443");
+    curl_setopt($curl, CURLOPT_URL,  "https://api.nytimes.com/svc/movies/v2/reviews/search.json" . "?" . http_build_query($query));
+    $result = json_decode(curl_exec($curl));
+    echo json_encode($result);
+	
+}
 
 
 

@@ -21,24 +21,23 @@
         body {
             color: blue;
             background-color: white;
-}
-#wrap {
-                width:50%;
-                margin:0 auto;
-                padding-top: 100px;
-                
-        }
+	    }
+	    #wrap {
+            width:50%;
+            margin:0 auto;
+            padding-top: 100px;
+	                
+	        }
         .container{
             margin: 50px auto;
         }
-p {
-            font-family: verdana;
-            font-size: 16px;
-            color: black;
-            width: 500px;
-            padding-left: 20px;
-        
-       }
+		p {
+	        font-family: verdana;
+	        font-size: 16px;
+	        color: black;
+	        width: 500px;
+	        padding-left: 20px;     
+	       }
         img{
             padding-left: 20px;
             border-radius: 50%;
@@ -84,8 +83,6 @@ p {
         
         form {
             font-size: 15px;
-        }
-
         }
     </style>
         
