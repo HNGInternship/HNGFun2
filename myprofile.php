@@ -30,6 +30,10 @@ include_once("dashboard-header.php");
     
     
  }
+ .dp img{
+     width:300px;
+     border-radius:50%;
+    }
 </style>
 </head>
  <body>
@@ -41,20 +45,20 @@ include_once("dashboard-header.php");
         <h1><spa>PROFILE INFORMATION</spa> </h1>
      <div class="row">
      <div class ="col-md-4 dp">
-     <img src="" alt=""/>
+     <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" alt="epospiky" class="img-responsive"/>
       </div>
      <div class ="col-md-6 info">
        <div class="col-md-12">
-          <h4>Name</h4>
-          <hr>
+          <h4>Oganji Ernest Paul (Epospiky)</h4>
+          <hr style="padding:20px 0px 20px 0px">
        </div>
        <div class="col-md-12">
-          <label>Email :</label> <span class= "b_infor"></span><br>
-          <label>Gender :</label> <span class= "b_infor"></span><br>
-          <label>Country :</label> <span class= "b_infor"></span><br>
-          <label>State :</label> <span class= "b_infor"></span><br>
-          <label>City :</label> <span class= "b_infor"></span><br>
-          <label>Phone :</label> <span class= "b_infor"></span><br>
+          <label class="col-md-4">Email :</label> <span class= "b_infor col-md-6">exampl@gmail.com</span><br>
+          <label class="col-md-4" >Gender :</label> <span class= "b_infor col-md-6 ">Male</span><br>
+          <label class="col-md-4" >Country :</label> <span class= "b_infor col-md-6 ">U. S. A</span><br>
+          <label class="col-md-4" >State :</label> <span class= "b_infor col-md-6 ">Boston</span><br>
+          <label class="col-md-4" >City :</label> <span class= "b_infor col-md-6 ">Mars</span><br>
+          <label class="col-md-4" >Phone :</label> <span class= "b_infor col-md-6">+1(415) 452 0826</span><br>
        </div>
      </div>
      </div
