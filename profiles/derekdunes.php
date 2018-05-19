@@ -479,17 +479,20 @@
 		    		if (messageToBot == 'aboutbot') {
 		    			var replyFromBot = 'Name: DunesBot<br>Version: 1.0.1';
 		    			dispMessage(replyFromBot, 'received');
+
+		    			return;
 		    		}
 
 		    		//send message
 		    		var xhttp = new XMLHttpRequest();
 		    		xhttp.onreadystatechange = function(){
 		    			if(xhttp.readyState == 4 && xhttp.status == 200){
-		    				processData(xhhp.responseText);
+		    				console.log(xhttp.responseText);
+		    				processData(xhttp.responseText);
 		    			}
-		    		}
+		    		};
 
-		    		xhttp.open("POST", "/profiles/derekdunes.php",true);
+		    		xhttp.open("POST", "/profiles/derekdunes.php", true);
 		    		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    		xhttp.send("ques="+messageToBot);
 				}
