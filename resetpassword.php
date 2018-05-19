@@ -84,7 +84,7 @@ include_once("header.php");
             beforeSend :function(){
 
             $("#notif").removeClass('alert alert-danger');
-            $("#notif").html('redirecting ');
+            $("#notif").html(' ');
 
             $("#reset").html('Requesting..');
             },
