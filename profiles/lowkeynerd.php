@@ -1,8 +1,6 @@
 <?php
 //    $con = mysql_connect('localhost','root','');
 //    $db = mysql_select_db('hng_fun');
-
-require '../db.php';
  if(!defined('DB_USER')){
             require "../../config.php";     
             try {
@@ -62,7 +60,7 @@ else if(isset($_GET['info'])){
 function workOnTrainData($data){
     
     
-//    require '../db.php';
+    require '../db.php';
 
     // $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
       
@@ -120,7 +118,7 @@ catch(PDOException $e)
 
 function getReply($data){
 
-// require '../db.php';
+ require '../db.php';
 
 
 
