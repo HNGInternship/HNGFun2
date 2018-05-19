@@ -2,7 +2,7 @@
 include_once("header.php");
 ?>
 <style>
-    .contnt{text-align: center; padding: 100px;}
+    
 </style>
 
 <div class="container" >
@@ -10,9 +10,9 @@ include_once("header.php");
 <div class="clearfix"></div>
     <div class="justify-content-md-center">
         
-        <div id="notif" ></div>
+        <div id="notif" style = "text-align:center;"></div>
 
-        <form class="contnt" id="reset_form">
+        <form  id="reset_form" style ="text-align: center; padding: 100px;">
             <h1>Reset Password</h1>
             <p style="width: 480px; margin-left: 150px;">
                 Enter your email address and we'll send you an email with instructions to reset your password.
@@ -68,7 +68,7 @@ include_once("header.php");
              else if(data =="0"){
                  $("#notif").addClass('alert alert-danger'); 
                  $("#notif").html("Account does not exist!");
-                 $("#reset").html('rest');
+                 $("#reset").html('Reset Password');
                  }
              else {
                    $("#notif").html(data);
