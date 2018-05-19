@@ -1,4 +1,4 @@
- <?php
+<?php
 if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     try {
@@ -48,15 +48,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $data[0] = trim($data[0]);
         $data[1] = trim($data[1]);
         $data[2] = trim($data[2]);
-<<<< HEAD
 
         if($data[2] == 'password'){
 
-=======
-
-        if($data[2] == 'password'){
-
->>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
             $sql = "INSERT INTO chatbot (question, answer)
             VALUES ('$data[0]', '$data[1]')";
 
@@ -90,30 +84,92 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 return ;
 
 }
-
 ?>
-<<<<<<< HEAD
-
-
 <!DOCTYPE html>
 <html>
 <head>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-     <title>HNG Internship 4.0 | Takuro Gbemisola</title>
-     <meta name="description" content="HNG Internship 4.0 Profile Page for Miss Takuro Gbemisola">
     <link href='https://fonts.googleapis.com/css?family=Alegreya|Allura|Almendra SC|Romanesco|Source+Sans+Pro:400,700' rel='stylesheet'>
     <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
->>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
 
     <style type="text/css">
+
+
+           .innerTop {
+                padding: 45px;
+                background-color: rgba(25,92,90,0.7);
+                background-image: linear-gradient(35deg, #64b5f6 36%, #536dfe 65%);
+                text-align: center;
+                font-family: Arial, monospace;
+                font-size: 25px;
+                color:white;
+            }
+
+            /* Style The Dropdown Button */
+            .dropbtn {
+                background-color: #1a237e;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+
+            h1{
+                color: white;
+            }
+            h2{
+                color: white;
+            }
+
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #CFD8DC;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {
+                background-color: #f1f1f1;
+            }
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {
+                background-color: #00838f;
+            }
 
         .container{
             width: 100%;
             min-height: 100%
+            background-color: rgba(25,92,90,0.7);
+             background-image: linear-gradient(35deg, #64b5f6 36%, #536dfe 65%);
         }
         .body0 { 
             height: 100%;
+            width: 150%;
         }
 
         span {
@@ -122,16 +178,25 @@ return ;
             line-height: normal;
         }
 
+        .Bio{
+            background-color:white;
+            padding: 30px;
+             border-radius: 50px;
+             border: 2px black solid;
+        }
+
         .main {
             position: relative;
             /*top:20px;*/
             width: 100%;
             /*padding-top: 300px;*/
+            min-height: 100px;
             max-height: 230px;
             font-family: "Romanesco";
             line-height: 150px;
             font-size: 96px;
             text-align: center;
+
         }
         .text {
             background: -webkit-linear-gradient(0deg, #FF0F00, rgba(17, 26, 240, 0.55), #EC0F13);
@@ -149,6 +214,22 @@ return ;
             text-align: center;
             color: #000830;
         }
+        .box-grey{
+                background-color:white ;
+                border-radius: 50px;
+                box-shadow: 0 3px 12px -2px rgba(0,0,0,0.08);
+                margin-top: 100px;
+                margin-bottom: 30px;
+                padding: 30px 25px 25px;
+                text-align: center;
+                height:contain;
+            }
+      .feat-title h2{
+                color: #010101;
+                text-align: center;
+                font-size: 34px;
+                text-transform: uppercase;
+            }
         .under1 {
             position: relative;
             /*top:500px;*/
@@ -158,7 +239,7 @@ return ;
             line-height: normal;
             font-size: 32px;
             text-align: center;
-            color: #000830;
+    
         }
         .under2 {
             position: relative;
@@ -172,11 +253,36 @@ return ;
             color: #000830;
             background-color: #1380FA;
         }
+
+        .imagee{
+            height: 400px;
+            width: 70%;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 45px;
+            margin-left: 45%;
+
+        }
+
         body{
             background-image: url(boats.jpg);
             background-size: cover;
+            padding: 0px;
         }
+        
+        .chatbox{
+            position: fixed;
+            right:0px;
+            bottom: 0px;
+            
         }
+
+        .chatbody{
+            
+            width: 200%;
+
+        }
+
         .body1 {
             font-family: 'Source Sans Pro', sans-serif;
             font-size: 75%;
@@ -184,6 +290,8 @@ return ;
             flex-direction: column;
             max-width: 700px;
             margin: 0 auto;
+            color: #010101;
+
         }
         .chat-output {
             flex: 1;
@@ -239,55 +347,70 @@ return ;
     </style>
 </head>
 <body>
+ <section>
+    <div class="innerTop">
+        <h1> <strong> HNG FUN INTERNSHIP 4.0 </strong> </h1>
+        <h2> <strong> PROFILE </strong> </h2>
+            <div class="dropdown">
+                 <button class="dropbtn">MENU</button>
+                    <div class="dropdown-content">
+                        <a href="file:///C:/Users/Gbemmy/Desktop/index.html#">Biography</a>
+                        <a href="file:///C:/Users/Gbemmy/Desktop/index.html#">Skillset</a>
+                        <a href="file:///C:/Users/Gbemmy/Desktop/index.html#">Connect with me</a>
+                    </div>
+                </div>
+
+            </div>
+ </section>
 <div class="container">
     <div class="oj-flex oj-flex-items-pad oj-contrast-marker">
         <div class="oj-sm-12 oj-md-6 oj-flex-item">
             <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
-                <div role="img" class="oj-flex-item alignCenter">
+                <div role="img" class="oj-flex-item alignCenter" src="http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg" height="300px" width="30%">
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
-<<<<<<< HEAD
-                    data-bind="attr:{'aria-label':'Avatar of Takuro Gbemisola'}">
+                    data-bind="attr:{'aria-label':'Avatar of Gbemisola Takuro'}">
                     </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'" src="<?=$my_data['image_filename'] ?>" >
-=======
-                    data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
-                    </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='https://res.cloudinary.com/uuujuuu/image/upload/v1526014279/IMG_681.jpg'" src="<?=$my_data['image_filename'] ?>" >
->>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
+                    <img class="imagee" onerror="this.src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'" src="<?=$my_data['image_filename'] ?>" >
                 </div>
             </div>
             <div class="body0">
                 <div class="main"><span class="text"><?=$my_data['name'] ?></span></div>
-                <div class="under"><span>Front End Web Developer</span></div>
+                <div class="Bio">
+                 <div class="feat-title"><h2><strong>Biography</strong></h2></div>
+                <p class="small-text"> <strong>Takuro Gbemisola</strong> is a technology enthusiast with a keen interest in programming language as well as community impact.She is an avid reader, open learner and is constantly seeking opportunities to develop herself.She has worked with several notable organisations like AIESEC,Wecyclers,Ignite Africa etc. She is a fellow of the YALI West Africa RLC,
+        Young Professional Network (YPB) and the Andela Learning Community.Takuro Gbemisola is a graduate of the University of Lagos Quantity surveying department.
+                </p>
+                </div>
+                 <div class="box-grey">
+                  <div class="feat-title"><h2><strong>SKILLSET<strong></strong></h2></div>
+                <div class="Image2">
+                    <img src="http://res.cloudinary.com/michelletakuro/image/upload/v1526025462/download_2.png" height="50%" width="25%">
+                    <img src="http://res.cloudinary.com/michelletakuro/image/upload/v1526025462/download_1.png" height="50%" width="25%">
+                    <img src="http://res.cloudinary.com/michelletakuro/image/upload/v1526025462/download.png" height="50%" width="25%">
+                    <img src="http://res.cloudinary.com/michelletakuro/image/upload/v1526025462/images.png" height="50%" width="20%">
+                </div>
+            </div>
                 <div class="under1"><span>
-<<<<<<< HEAD
                         <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/mitchelletakuro">
-=======
-                        <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/mokunuga">
->>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
                             <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
                                 <img style="width:40px; height: 40px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png">
                             </div></a>
 
-<<<<<<< HEAD
-                            <a href="https://ng.linkedin.com/in/gbemisola-takuro-78b34046">
-=======
-                            <a href="https://linkedin.com/in/mokunuga">
->>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
+                            <a href="https://linkedin.com/in/gbemisola-takuro-78b34046">
                                  <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
                                     <img style="width:40px; height: 40px;" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-social-media/256/Linkedin-icon.png">
                                  </div>
                             </a>
-<<<<<<< HEAD
-
-                            <a hrefhref="https://twitter.com/GbemmySpeaks"> 
+                              <a href="https://twitter.com/GbemmySpeaks">
                                  <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
-                                    <img style="width:40px; height: 40px;"  src="http://res.cloudinary.com/michelletakuro/image/upload/v1526025462/images_1_1.jpg">
+                                    <img style="width:40px; height: 40px;" src="http://res.cloudinary.com/michelletakuro/image/upload/v1526025462/images_1_1.jpg"">
                                  </div>
                             </a>
-
-=======
->>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
+                              <a href="https://www.facebook.com/gtakuro">
+                                 <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
+                                    <img style="width:40px; height: 40px;" src="http://res.cloudinary.com/michelletakuro/image/upload/v1526025462/images_1.png">
+                                 </div>
+                            </a>
                         </div></span>
                 </div>
                 <br>
@@ -298,8 +421,11 @@ return ;
       <br>
       <br>
       <br>
+
+      <div class="chatbox">
         <div class="oj-sm-12 oj-md-6 oj-flex-item">
-          <div class="under2"><span>Cyclobot Bot</span></div>
+            <div class="chatbody">
+          <div class="under2"><span>CYCLOBOT</span></div>
             <div class="body1">
                 <div class="chat-output" id="chat-output">
                     <div class="user-message">
@@ -315,6 +441,8 @@ return ;
 
             </div>
         </div>
+        </div>
+    </div>
     </div>
   
 
@@ -369,11 +497,7 @@ return ;
             
             if(result.results.length === 0){
                 //alert('hello');
-<<<<<<< HEAD
-                inn.innerHTML = 'Not in database. please train me using te format train: question #answer #password';
-=======
                 inn.innerHTML = 'Not in database. please train me';
->>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
                 chatOutput.append(p);
                 return;
             }else{
