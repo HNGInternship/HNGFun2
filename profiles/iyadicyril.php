@@ -158,18 +158,10 @@
   else {
 ?>
 
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
- <html xmlns="https://www.w3.org/1999/xhtml">
- <head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
- <title>Iyadi Cyril</title>
- <meta name="keywords" content="">
- <meta name="description" content="">
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
  <link href="https://fonts.googleapis.com/css?family=Englebert|Open+Sans:400,600,700" rel="stylesheet" type="text/css"> 
- <!--[if IE 6]>
- <link href="default_ie6.css" rel="stylesheet" type="text/css" />
- <![endif]--> 
  <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
