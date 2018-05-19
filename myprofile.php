@@ -39,7 +39,7 @@ include_once("dashboard-header.php");
  <div class="container">
     <div class="box">
         <h1><spa>PROFILE INFORMATION</spa> </h1>
-     <div>
+     <div class="row">
      <div class ="col-md-4 dp">
      <img src="" alt=""/>
       </div>
