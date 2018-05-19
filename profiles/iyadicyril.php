@@ -166,8 +166,7 @@
  <title>Iyadi Cyril</title>
  <meta name="keywords" content="">
  <meta name="description" content="">
- <link href="https://fonts.googleapis.com/css?family=Englebert|Open+Sans:400,600,700" rel="stylesheet" type="text/css">
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <link href="https://fonts.googleapis.com/css?family=Englebert|Open+Sans:400,600,700" rel="stylesheet" type="text/css"> 
  <!--[if IE 6]>
  <link href="default_ie6.css" rel="stylesheet" type="text/css" />
  <![endif]-->
@@ -528,7 +527,7 @@ hr{
 </div>
 <div id="wrapper" class="container">
 	<div id="page" style="width: 350px;">
-		<div id="content"> <a href="#" class="image-style" style="padding-right: 40px;padding-left: 30px;width: 370.797px;"><img src="http://res.cloudinary.com/dj7y9zirl/image/upload/v1523825090/IMG_20180411_111139_1.jpg" width="300" height="200" alt=""></a>
+		<div id="content"> <a href="#" class="image-style" style="padding-right: 40px;padding-left: 30px;width: 370.797px;"><img src="https://res.cloudinary.com/dj7y9zirl/image/upload/v1523825090/IMG_20180411_111139_1.jpg" width="300" height="200" alt=""></a>
 			<h2 class="text-center">Software developer</h2>					
 					<p style="margin-top: 0px;margin-left: 20px;border-right-width: 20px;margin-right: 20px;">The only edge i have is my ever in-depth desire to learn. </br> Have fun with my bot...He's name is Andy.</p>										
 	</div>
@@ -547,12 +546,12 @@ hr{
 					<div class="row single-message">
 						<div class="col-md-12 single-message-bg">
 							<h5>I'm social, chat me up. </h5>
+							<h5>To teach me a response use: <br/><b>train: question # answer # password</b><h5>
 						</div>
 					</div>
 					<div class="row single-message">
-						<div class="col-md-12 single-message-bg">
+						<div class="col-md-12 single-message-bg">							
 							
-							<h5>To teach me a resonse use: <br/><b>train: question # answer # password</b><h5>
 						</div>
 					</div>
 				</div>
