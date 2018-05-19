@@ -209,7 +209,7 @@
                         this.$http.get('profiles/donsamuel.php?question='+question)
                                 .then(response => {
                                     var trainMeMsg = 'I cannot find you a correct answer, but you can train me via: <br> #train [question] [answer] [password]';
-                                    this.reply = (response.data.result != null) ? response.data.result : trainMeMsg;
+                                    this.reply = (response.data != null) ? response.data.result : trainMeMsg;
                                     this.sendReply(this.reply);
                                 }, response => {
                                     this.sendReply('An Error occured, please try again later');

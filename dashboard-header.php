@@ -178,7 +178,7 @@ $username = "Amy Xandra";
             <li class="nav-item">
                 <a href="buyandsell.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
             </li> <li class="nav-item">
-                <a href="profile.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
+                <a href="myprofile.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
             </li> <li class="nav-item">
                 <a href="help.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/help.png">Help & Feedback</a>
             </li>

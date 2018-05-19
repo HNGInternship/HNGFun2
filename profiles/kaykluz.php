@@ -2,6 +2,172 @@
    // $data = getAction(['stage' => 1, 'human_response' => 'train :  red and blue#black#password']);
 // echo $data;
 // die;
+
+function decider($string){
+  
+  if (strpos($string, ":") !== false)
+  {
+    $field = explode (":", $string, 2);
+    $key = $field[0];
+    $key = strtolower(preg_replace('/\s+/', '', $key));
+  if(($key == "train")){
+     $password ="password";
+     $trainer =$field[1];
+     $result = explode ("#", $trainer);
+  if($result[2] && $result[2] == $password){
+    echo"<br>Training mode<br>";
+    return $result;
+  } 
+  else echo "opssss!!! Looks like you are trying to train me without permission";   
+  }
+   }
+}
+function assistant($string)
+{    $reply = "";
+    if ($string == 'what is my location') {
+       
+      
+      $ip=$_SERVER['REMOTE_ADDR'];
+      $reply =unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
+      $reply =var_export('you are in '. $reply['geoplugin_regionName'] .' in '. $reply['geoplugin_countryName']);
+      return $reply;
+        
+    }
+    elseif ($string == 'tell me about your author') {
+        $reply= 'Her name is <i class="em em-sunglasses"></i> Chidimma Juliet Ezekwe, she is Passionate, gifted and creative backend programmer who love to create appealing Web apps solution from concept through to completion. An enthusiastic and effective team player and always challenge the star to quo by taking up complex responsibilities. Social account ';
+        return $reply;    
+    }
+    elseif ($string == 'open facebook') {
+        $reply= "<p>Facebook opened successfully </p> <script language='javascript'> window.open(
+    'https://www.facebook.com/',
+    '_blank' //
+    );
+    </script>
+    ";
+    return $reply;
+    }
+    elseif ($string == 'open twitter') {
+        $reply = "<p>Twitter opened successfully </p> <script language='javascript'> window.open(
+    'https://twitter.com/',
+    '_blank' //
+    );
+    </script>
+    ";
+    return $reply;
+    }elseif ($string == 'open linkedin') {
+        $reply= "<p>Linkedin opened successfully </p> <script language='javascript'> window.open(
+    'https://www.linkedin.com/jobs/',
+    '_blank' //
+    );
+    </script>
+    ";
+    return $reply;
+    }
+    elseif ($string == 'shutdown my pc') {
+        $reply =  exec ('shutdown -s -t 0');
+        return $reply;
+    }elseif ($string == 'get my pc name') {
+        $reply = getenv('username');
+        return $reply;
+    }
+    else{
+        $reply = "";
+        return $reply;
+    }
+  
+}
+$existError =false;
+$reply = "";//process starts
+//echo "This is the POST message " + $_POST['msg'];
+if(isset($_GET['msg'])){ 
+  if ($_GET['msg'] == 'commands') {
+    $reply = 'These are my commands <p>1. what is my location, 2. tell me about your author, 3. open facebook, 6. open twitter, 7. open linkedin, 8. shutdown my pc, 9. get my pc name.</p>';
+    echo $reply;
+  } 
+      if($reply==""){
+       $reply = assistant($_GET['msg']);
+       echo $reply;
+       
+     }
+  if($reply =="") {
+    $post= $_GET['msg'];
+    $result = decider($post);
+    if($result){
+      $question=$result[0]; 
+      $answer= $result[1];
+      $sql = "SELECT * FROM chatbot WHERE question = '$question' And answer = '$answer'";
+      $stm = $conn->query($sql);
+      $stm->setFetchMode(PDO::FETCH_ASSOC);
+      $result = $stm->fetchAll();
+        
+        if (count(($result))> 0) {
+              
+          // while($result) {
+          //   $strippedQ = strtolower(preg_replace('/\s+/', '', $question));
+          //   $strippedA = strtolower(preg_replace('/\s+/', '', $answer));
+          //   $strippedRowQ = strtolower(preg_replace('/\s+/', '', $result['question']));
+          //   $strippedRowA = strtolower(preg_replace('/\s+/', '', $result['answer']));
+          //   if(($strippedRowQ == $strippedQ) && ($strippedRowA == $strippedA)){
+          //   $reply = "I know this already, but you can make me smarter by giving another response to this command";
+          //   $existError = true;
+          //   break;
+            
+          //   }
+              
+          // }  
+          $existError = true; 
+          echo "I know this already, but you can make me smarter by giving another response to this command";
+            
+        } 
+      else
+        if(!($existError)){
+          $sql = "INSERT INTO chatbot(question, answer)
+          VALUES(:quest, :ans)";
+          $stm =$conn->prepare($sql);
+          $stm->bindParam(':quest', $question);
+          $stm->bindParam(':ans', $answer);
+          $saved = $stm->execute();
+            
+          if ($saved) {
+              echo  "Thanks to you, I am smarter now";
+          } else {
+              echo "Error: could not understand";
+          }
+            
+          
+        }  
+  }
+  else{
+    $input = trim($post); 
+ 
+  if($input){
+    
+    $sql = "SELECT * FROM chatbot WHERE question = '$input'";
+    $stm = $conn->query($sql);
+    $stm->setFetchMode(PDO::FETCH_ASSOC);
+    $res = $stm->fetchAll();
+    
+    if (count($res) > 0) {
+    
+      $index = rand(0, count($res)-1);
+      $response = $res[$index]['answer'];  
+      echo $response;
+    
+    }
+    else{
+       echo "I did'nt get that, please rephrase or try again later";
+    }       
+  }
+}
+          
+      
+    
+      }       
+  
+ 
+return;
+}
+
 function getAction($input)
 {
 	$data = [];
@@ -1119,7 +1285,7 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);*/
 $(window).load(function() {
   $messages.mCustomScrollbar();
   setTimeout(function() {
-    fakeMessage();
+    getAction();
   }, 100);
 });
 function updateScrollbar() {
@@ -1146,9 +1312,7 @@ function insertMessage() {
   setDate();
   $('.message-input').val(null);
   updateScrollbar();
-  setTimeout(function() {
-    fakeMessage();
-  }, 1000 + (Math.random() * 20) * 100);
+  
 }
 $('.message-submit').click(function() {
   insertMessage();
@@ -1159,119 +1323,8 @@ $(window).on('keydown', function(e) {
     return false;
   }
 })
-var Fake = [
-  'Hi there, I\'m Kaykluz and you?',
-  'Nice to meet you',
-  'How are you?',
-  'Not too bad, thanks',
-  'What do you do?',
-  'That\'s awesome',
-  'Its a great day',
-  'I think you\'re a nice person',
-  'Why do you think that?',
-  'Can you explain?',
-  'Anyway I\'ve gotta go now',
-  'It was a pleasure chat with you',
-  'later friend',
-  'Bye',
-  ':)'
-]
-function fakeMessage() {
-  if ($('.message-input').val() != '') {
-    return false;
-  }
-  $('<div class="message loading new"><figure class="avatar"><img src="http://res.cloudinary.com/kaykluz/image/upload/v1524408376/avatar_solo.jpg" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  updateScrollbar();
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="http://res.cloudinary.com/kaykluz/image/upload/v1524408376/avatar_solo.jpg" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-    i++;
-  }, 1000 + (Math.random() * 20) * 100);
-}
-$('.button').click(function(){
-  $('.menu .items span').toggleClass('active');
-   $('.menu .button').toggleClass('active');
-});
 
-$(document).ready(function() {
-			// Perform other work here ...
-			let stage = 0;
-			var visitor = '';
-			var done_intro = 0;
-			let url = "profiles/alabamustapha.php";
-			
-			$("div#chat-bot").hide();
-			
-			$("a#start-chat-bot").click(function(e){
-				
-				$("div#chat-bot").toggle();
-				
-				stage = 0;
-				doIntro();
-				$(".human_input").on('keyup', function (e) {
-					if (e.keyCode == 13) {
-						
-						if($("input.human_input").val().trim().length < 1){
-							// $("div.conversation").append(makeMessage("Please provide an input"));
-						}else if($("input.human_input").val() == "cls"){
-							$("div.conversation").html('');
-							$("div.conversation").append(makeMessage("Clean slate, Check menu if needed"));
-							$('input.human_input').val('');
-						}else if($("input.human_input").val() == "exit"){
-							$("div.conversation").html('');
-							$('input.human_input').val('');
-							stage = 0;
-							$("div#chat-bot").hide();	
-						}else{
-							human_response = $("input.human_input").val().trim();
-							
-							$("div.conversation").append(makeHumanMessage(human_response));
-							
-							$('input.human_input').val('');
-							$.post(url, {human_response: human_response, stage: 1})
-							.done(function(response) {
-								response = jQuery.parseJSON(response);
-								if(stage == 1){
-									if(Array.isArray(response.data)){
-										$("div.conversation").append(makeMessage(response.data));
-									}else{
-										$("div.conversation").append(makeMessage(response.data));
-									}
-									
-								}
-								stage = response.stage;	
-							}).fail(function() {
-								alert( "error" );
-							})
-						}	
-					}
-				});
-			});
-		
-			function makeMessage(message){
-				return "<div class='message'> <div class='bot-message message-content text'><span>" + message + "</span></div></div>";
-			}
-			
-			function makeHumanMessage(message){
-				return "<div class='pull-right message'><div class='human-message message-content text'><span>" + message + "</span></div></div>";
-			}
-			function doIntro(human_input){
-					$.post(url, {human_response: human_input, stage: stage})
-						.done(function(response) {
-							$("div.conversation").html('');
-							response = jQuery.parseJSON(response);
-							stage = response.stage;
-							$("div.conversation").append(makeMessage(response.data));
-							// responsiveVoice.speak(response.data);
-						}).fail(function() {
-							alert("error");
-						})
-			}
-		
-		});
-
+http://res.cloudinary.com/kaykluz/image/upload/v1524408376/avatar_solo.jpg
 		</script>
 </head>
 </html>

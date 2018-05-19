@@ -1,7 +1,29 @@
-   <?php
-	if(!defined('DB_USER')){
-            require "../config.php";
+<?php
+if($_SERVER['REQUEST_METHOD'] === "GET"){
+    try {
+        $intern_data = $conn->prepare("SELECT * FROM interns_data WHERE username = 'derekdunes'");
+        $intern_data->execute();
+        $result = $intern_data->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $intern_data->fetch();
+    
+    
+        $secret_code = $conn->prepare("SELECT * FROM secret_word");
+        $secret_code->execute();
+        $code = $secret_code->setFetchMode(PDO::FETCH_ASSOC);
+        $code = $secret_code->fetch();
+        $secret_word = $code['secret_word'];
+     } catch (PDOException $e) {
+         throw $e;
+     }
+     date_default_timezone_set("Africa/Lagos");
+     $today = date("H:i:s");
 }
+
+
+
+<?php
+
+            require "../config.php";
 
 class Db{
     
@@ -548,11 +570,11 @@ class DBHelper{
             $(".messages").scrollTop($("#message-outlet").outerHeight());
         };
 
-//        this.postJSON = function (dataObject, abayomi, callback) {
+       this.postJSON = function (data, "profiles/abayomi", callback) {
             $.ajax({
                 type: "POST",
                 url: "profiles/abayomi.php",
-                data: {"json": JSON.stringify(dataObject)},
+                data: {JSON.parse(data);},
                 dataType: 'json',
                 success: function (data) {
                     callback(data);
@@ -564,12 +586,12 @@ class DBHelper{
                     return false;
                 }
             });
-//        };
-
+       };
+        
         $('#message_chat_form').submit(function (e) {
             e.preventDefault();
             chat.messageChat();
-            $('#message_chat_form')[0].reset();
+//           $('#message_chat_form')[0].reset();
         });
 
         this.messageChat = function () {
@@ -585,8 +607,8 @@ class DBHelper{
                 "function": "messageBot",
                 "message": message,
             };
-            this.postJSON(data, "../profiles/abayomi.php", function (response) {
-                $('#message_chat_form')[0].reset();
+            this.postJSON(data, "profiles/abayomi.php", function (response) {
+//                $('#message_chat_form')[0].reset();
                 console.log(response);
                 var strMessages = '<li class="replies"><small style=" color:rgb(47, 136, 204);" >ChatMe:</small> ' +
                     ' ' + response.message + '</p></li><div class="clearfix"></div> ';
