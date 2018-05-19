@@ -310,7 +310,7 @@
 				console.log(question)
                 if(question !== "")
 				$.ajax({
-                    url: '/profile.php?id=michelletakuro',
+                    url: '/profile?id=michelletakuro',
                     type: 'POST',
                     data: {question: question},
                     dataType: 'json',
