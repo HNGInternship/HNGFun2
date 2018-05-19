@@ -39,7 +39,9 @@ include_once("dashboard-header.php");
  .l-col{
       color:#888888;
      }
- .b_info_grid table,td,tr{border:4px solid white;}
+ .b_info_grid table,td,tr{
+            border:4px solid white;
+            text-align:left;}
 </style>
  <title>HNG FUN Profile</title>
 </head>
@@ -58,7 +60,8 @@ include_once("dashboard-header.php");
      <div class ="col-md-7 info">
        <div class="name col-md-12">
           <h4>Oganji Ernest Paul (Epospiky)</h4>
-          <hr style="padding:30px 0px 0px 0px;">
+          <p style="color:#888888; font-size:12px;" >Boston, Mars</p>
+          <hr style="padding-top:50px; color:#888">
        </div>
        <div class="b_info_grid col-md-12">
         <table>
