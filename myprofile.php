@@ -30,7 +30,7 @@ include_once("dashboard-header.php");
     
     
  }
- .b_info_grid label{border:none;}
+ .b_info_grid tr{padding:0px;}
  .dp,.row, .info, .b_info_grid,.name {border:none;}
  .dp img{
      width:200px;
@@ -39,8 +39,9 @@ include_once("dashboard-header.php");
  .l-col{
       color:#888888;
      }
+ .b_infor td{font-weight:bold;}
  .b_info_grid table,td,tr{
-            border:4px solid white;
+            border:0px solid white;
             text-align:left;}
  .row div, table, tr, td, p {padding-top:0; padding-bottom:0;}
 </style>
@@ -60,7 +61,7 @@ include_once("dashboard-header.php");
       <div class="clearfix"></div>
      <div class ="col-md-7 info">
        <div class="name col-md-12">
-          <h4>Oganji Ernest Paul (Epospiky)</h4>
+          <h4 style ="text-align:left">Oganji Ernest Paul (Epospiky)</h4>
           <p style="color:#888888; text-align:left; font-size:12px;" >Boston, Mars</p>
           <hr style="padding-top:50px; color:#888">
        </div>
