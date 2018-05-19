@@ -1,7 +1,8 @@
 <?php
+ require "../../config.php";
 if($_SERVER['REQUEST_METHOD'] === "GET"){
     try {
-        $intern_data = $conn->prepare("SELECT * FROM interns_data WHERE username = 'derekdunes'");
+        $intern_data = $conn->prepare("SELECT * FROM interns_data WHERE username = 'abayomi'");
         $intern_data->execute();
         $result = $intern_data->setFetchMode(PDO::FETCH_ASSOC);
         $result = $intern_data->fetch();
@@ -22,8 +23,6 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
 
 
 <?php
-
-            require "../config.php";
 
 class Db{
     
