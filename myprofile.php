@@ -30,7 +30,7 @@ include_once("dashboard-header.php");
     
     
  }
- .dp,.row, .info, .b_info_grid,.name {border:none;}
+ label, .dp,.row, .info, .b_info_grid,.name {border:none;}
  .dp img{
      width:300px;
      border-radius:50%;
