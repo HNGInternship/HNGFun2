@@ -39,12 +39,12 @@ include_once("dashboard-header.php");
  .l-col{
       color:#888888;
      }
- .b_infor td{font-weight:bold;}
+ .b_infor {font-weight:bold;}
  .b_info_grid table,td,tr{
             border:2px solid white;
             text-align:left;
             padding:0px; matgin:0px;}
- .row div, table, tr, td, p {margin:0px; padding-top:0; padding-bottom:0;}
+ .name, .b_info_grid{margin:0px; padding-top:0px; padding-bottom:0px;}
 </style>
  <title>HNG FUN Profile</title>
 </head>
@@ -67,13 +67,13 @@ include_once("dashboard-header.php");
           <hr style="padding:0px; color:#888">
        </div>
        <div class="b_info_grid col-md-12">
-        <table>
-          <tr ><td class="l-col col-md-4">Email :</td><td class= "b_infor col-md-6">exampl@gmail.com</td></tr>
-          <tr ><td class="l-col col-md-4"> Gender :</td><td class= "b_infor col-md-6 ">Male</td></tr>
-          <tr ><td class="l-col col-md-4"> Country :</td><td class= "b_infor col-md-6 ">U. S. A</td></tr>
-          <tr ><td class="l-col col-md-4"> State :</td> <td class= "b_infor col-md-6 ">Boston</td></tr>
-          <tr  ><td class="l-col col-md-4"> City :</td><td class= "b_infor col-md-6 ">Mars</td></tr>
-          <tr ><td class="l-col col-md-4"> Phone :</td> <td class= "b_infor col-md-6">+1(415) 452 0826</td></tr>
+        <table >
+          <tr ><td class="l-col col-md-4">Email </td><td class= "b_infor col-md-6">exampl@gmail.com</td></tr>
+          <tr ><td class="l-col col-md-4"> Gender </td><td class= "b_infor col-md-6 ">Male</td></tr>
+          <tr ><td class="l-col col-md-4"> Country </td><td class= "b_infor col-md-6 ">U. S. A</td></tr>
+          <tr ><td class="l-col col-md-4"> State </td> <td class= "b_infor col-md-6 ">Boston</td></tr>
+          <tr  ><td class="l-col col-md-4"> City </td><td class= "b_infor col-md-6 ">Mars</td></tr>
+          <tr ><td class="l-col col-md-4"> Phone </td> <td class= "b_infor col-md-6">+1(415) 452 0826</td></tr>
          </table>
          </div>
      </div>
