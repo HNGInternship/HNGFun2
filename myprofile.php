@@ -37,7 +37,7 @@ include_once("dashboard-header.php");
      border-radius:50%;
     }
  .l-col{
-      
+      color:#888888;
      }
  .b_info_grid table,td,tr{border:4px solid white;}
 </style>
@@ -58,7 +58,7 @@ include_once("dashboard-header.php");
      <div class ="col-md-7 info">
        <div class="name col-md-12">
           <h4>Oganji Ernest Paul (Epospiky)</h4>
-          <hr style="padding:20px 0px 10px 0px;">
+          <hr style="padding:30px 0px 0px 0px;">
        </div>
        <div class="b_info_grid col-md-12">
         <table>
