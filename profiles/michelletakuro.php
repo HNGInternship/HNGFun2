@@ -156,7 +156,6 @@
             <div class="body0">
                 <div class="main"><span class="text"><?=$my_data['name'] ?></span></div>
                 <div class="under"><span>Front End Web Developer</span></div>
-                
                 <div class="under1"><span>
                         <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/mokunuga">
                             <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">

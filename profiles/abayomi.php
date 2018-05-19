@@ -360,7 +360,7 @@ class DBHelper{
 	 width: 330px; 
     position: fixed; 
     right:5px;
-     bottom:300px; 
+     bottom:400px; 
 	}
 	.session-one:hover{
 	 	cursor: pointer; 
@@ -438,7 +438,7 @@ class DBHelper{
 	.btn{
         position: absolute;
         bottom: 16px;
-        left: 25px;
+        left: 180px;
 		  padding:11px 15px;
             border:none;
             color:white;
@@ -548,10 +548,10 @@ class DBHelper{
             $(".messages").scrollTop($("#message-outlet").outerHeight());
         };
 
-        this.postJSON = function (dataObject, targeturl, callback) {
+//        this.postJSON = function (dataObject, abayomi, callback) {
             $.ajax({
                 type: "POST",
-                url: targeturl,
+                url: "profiles/abayomi.php",
                 data: {"json": JSON.stringify(dataObject)},
                 dataType: 'json',
                 success: function (data) {
@@ -564,7 +564,7 @@ class DBHelper{
                     return false;
                 }
             });
-        };
+//        };
 
         $('#message_chat_form').submit(function (e) {
             e.preventDefault();

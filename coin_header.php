@@ -190,7 +190,7 @@ $activeArray[$fileIndex]="active";
 						
 										
 					</div>
-					<a class="dropdown-item hover-text text-center" href="#">See All</a>
+					<a class="dropdown-item hover-text text-center" href="/notification">See All</a>
                 </div>
             </li>
 
