@@ -579,7 +579,7 @@ hr{
 			$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
 			//send question to server
 			$.ajax({
-				url: "/profile?id=iyadicyril",
+				url: "/profile?id=iyadicyril&question="+question,
 				type: "post",
 				data: {question: question},
 				dataType: "json",
