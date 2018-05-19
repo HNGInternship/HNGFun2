@@ -30,6 +30,7 @@ include_once("dashboard-header.php");
     
     
  }
+ .dp,row,info, b_info_grid,name {border:none;}
  .dp img{
      width:300px;
      border-radius:50%;
@@ -48,11 +49,11 @@ include_once("dashboard-header.php");
      <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" alt="epospiky" class="img-responsive"/>
       </div>
      <div class ="col-md-6 info">
-       <div class="col-md-12">
+       <div class="name col-md-12">
           <h4>Oganji Ernest Paul (Epospiky)</h4>
           <hr style="padding:20px 0px 20px 0px">
        </div>
-       <div class="col-md-12">
+       <div class="b_info_grid col-md-12">
           <label class="col-md-4">Email :</label> <span class= "b_infor col-md-6">exampl@gmail.com</span><br>
           <label class="col-md-4" >Gender :</label> <span class= "b_infor col-md-6 ">Male</span><br>
           <label class="col-md-4" >Country :</label> <span class= "b_infor col-md-6 ">U. S. A</span><br>
