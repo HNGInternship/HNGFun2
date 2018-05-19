@@ -1,5 +1,5 @@
 <?php 
-	 require_once "/header.php";
+	 
 	if(!defined('DB_USER')){
 		require "/config.example.php";	
 	   

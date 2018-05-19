@@ -54,8 +54,7 @@ include_once("header.php");
 
             
 
-             $.ajax({
-                url : 'process.php',
+             $.ajax('process',{
             type : 'post',
             data : data,
             success: function(data){
@@ -85,7 +84,7 @@ include_once("header.php");
             beforeSend :function(){
 
             $("#notif").removeClass('alert alert-danger');
-            $("#notif").html('');
+            $("#notif").html('redirecting ');
 
             $("#reset").html('Requesting..');
             },
