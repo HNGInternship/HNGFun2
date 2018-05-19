@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $data[0] = trim($data[0]);
         $data[1] = trim($data[1]);
         $data[2] = trim($data[2]);
-<<<<<<< HEAD
+<<<< HEAD
 
         if($data[2] == 'password'){
 
@@ -90,6 +90,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 return ;
 
 }
+
 ?>
 <<<<<<< HEAD
 
@@ -98,7 +99,6 @@ return ;
 <head>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
      <title>HNG Internship 4.0 | Takuro Gbemisola</title>
-     <meta name="viewport" content="width=device-width, initial-scale=1">
      <meta name="description" content="HNG Internship 4.0 Profile Page for Miss Takuro Gbemisola">
      <link href='https://fonts.googleapis.com/css?family=Alegreya|Allura|Almendra SC|Romanesco|Source+Sans+Pro:400,700' rel='stylesheet'>
      <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
