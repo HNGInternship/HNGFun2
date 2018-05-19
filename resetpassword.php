@@ -14,7 +14,7 @@ include_once("header.php");
 
         <form  id="reset_form" style ="text-align: center; padding: 100px;">
             <h1>Reset Password</h1>
-            <p style="width: 480px; margin-left: 150px;">
+            <p style="width: 480px;">
                 Enter your email address and we'll send you an email with instructions to reset your password.
             </p>
             <div style="padding: 20px 200px 0px 200px;  width: 800px;">
