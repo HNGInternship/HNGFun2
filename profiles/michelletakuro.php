@@ -48,9 +48,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $data[0] = trim($data[0]);
         $data[1] = trim($data[1]);
         $data[2] = trim($data[2]);
+<<<<<<< HEAD
 
         if($data[2] == 'password'){
 
+=======
+
+        if($data[2] == 'password'){
+
+>>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
             $sql = "INSERT INTO chatbot (question, answer)
             VALUES ('$data[0]', '$data[1]')";
 
@@ -85,6 +91,7 @@ return ;
 
 }
 ?>
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html>
@@ -96,6 +103,14 @@ return ;
      <link href='https://fonts.googleapis.com/css?family=Alegreya|Allura|Almendra SC|Romanesco|Source+Sans+Pro:400,700' rel='stylesheet'>
      <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya|Allura|Almendra SC|Romanesco|Source+Sans+Pro:400,700' rel='stylesheet'>
+    <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+>>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
 
     <style type="text/css">
 
@@ -236,25 +251,40 @@ return ;
             <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
                 <div role="img" class="oj-flex-item alignCenter">
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
+<<<<<<< HEAD
                     data-bind="attr:{'aria-label':'Avatar of Takuro Gbemisola'}">
                     </oj-avatar>
                     <img class="img-fluid " onerror="this.src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'" src="<?=$my_data['image_filename'] ?>" >
+=======
+                    data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
+                    </oj-avatar>
+                    <img class="img-fluid " onerror="this.src='https://res.cloudinary.com/uuujuuu/image/upload/v1526014279/IMG_681.jpg'" src="<?=$my_data['image_filename'] ?>" >
+>>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
                 </div>
             </div>
             <div class="body0">
                 <div class="main"><span class="text"><?=$my_data['name'] ?></span></div>
                 <div class="under"><span>Front End Web Developer</span></div>
                 <div class="under1"><span>
+<<<<<<< HEAD
                         <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/mitchelletakuro">
+=======
+                        <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/mokunuga">
+>>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
                             <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
                                 <img style="width:40px; height: 40px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png">
                             </div></a>
 
+<<<<<<< HEAD
                             <a href="https://ng.linkedin.com/in/gbemisola-takuro-78b34046">
+=======
+                            <a href="https://linkedin.com/in/mokunuga">
+>>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
                                  <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
                                     <img style="width:40px; height: 40px;" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-social-media/256/Linkedin-icon.png">
                                  </div>
                             </a>
+<<<<<<< HEAD
 
                             <a hrefhref="https://twitter.com/GbemmySpeaks"> 
                                  <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
@@ -262,6 +292,8 @@ return ;
                                  </div>
                             </a>
 
+=======
+>>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
                         </div></span>
                 </div>
                 <br>
@@ -343,7 +375,11 @@ return ;
             
             if(result.results.length === 0){
                 //alert('hello');
+<<<<<<< HEAD
                 inn.innerHTML = 'Not in database. please train me using te format train: question #answer #password';
+=======
+                inn.innerHTML = 'Not in database. please train me';
+>>>>>>> 882d56889ee4e1edfd3e2e7052f42ce4fc3863be
                 chatOutput.append(p);
                 return;
             }else{

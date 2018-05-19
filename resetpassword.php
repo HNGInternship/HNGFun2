@@ -8,16 +8,16 @@ include_once("header.php");
 <div class="container" >
     
 <div class="clearfix"></div>
-    <div class="justify-content-md-center">
+    <div style="500px" class="justify-content-md-center">
         
         <div id="notif" style = "text-align:center;"></div>
 
-        <form  id="reset_form" style ="text-align: center; padding: 100px;">
+        <form  id="reset_form" style ="text-align: center;">
             <h1>Reset Password</h1>
-            <p style="width: 480px; margin-left: 150px;">
+            <p >
                 Enter your email address and we'll send you an email with instructions to reset your password.
             </p>
-            <div style="padding: 20px 200px 0px 200px;  width: 800px;">
+            <div style="padding: 20px 50px 0px 50px;">
                 <input type="email" class="form-control form-control-lg rounded-right" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" id="email" name="email">
                 <br />
                 <input type="hidden" name="reset_password_token" value="yes">
@@ -61,7 +61,7 @@ include_once("header.php");
             if(data=="1"){
              
              $("#notif").addClass('alert alert-success');
-            $("#notif").html("Password reset successful!");
+            $("#notif").html("Success! Please click on the link in the email to set a new password. ");
 
             $("#reset").html('DONE');      
             }
@@ -84,7 +84,7 @@ include_once("header.php");
             beforeSend :function(){
 
             $("#notif").removeClass('alert alert-danger');
-            $("#notif").html('redirecting ');
+            $("#notif").html(' ');
 
             $("#reset").html('Requesting..');
             },

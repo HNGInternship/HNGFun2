@@ -126,6 +126,7 @@ if(isset($_POST['login'])){
       }
       else{
 	      echo "1";
+	      exit();
       	//update password reset token
       	
       	$reset_token_check =  $member->update_token($email,$token,$conn);

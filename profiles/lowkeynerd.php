@@ -35,6 +35,8 @@
 
 //$cn = new PDO('mysql:host=localhost;dbname=messages', 'root', 'root');
 
+
+
   function sanitizeText($text){
 
     return trim($text);
@@ -459,7 +461,7 @@ catch(PDOException $e){
             url: 'profiles/lowkeynerd.php',
             data: {info: message },
             success: function(data){
-        console.log(data);
+                console.log(data);
 
                 aryaMessage(data);
             }
@@ -481,12 +483,7 @@ catch(PDOException $e){
                 $('#chatBox').hide();
             });
             
-//            var scrollHeightOfChatBox = document.getElementById('chatArea').scrollHeight;
-//            
-//            setInterval(function() {
-//                $('#chatArea').load('profiles/lowkeynerd.php');
-//                $('#chatArea').scrollTop(scrollHeightOfChatBox);
-//            }, 500);
+
             
             $('#newMessageSend').click(function() {
                 var message = $('#newMessageContent').val();
@@ -520,7 +517,7 @@ catch(PDOException $e){
                 
             $.ajax({
             type: "GET",
-            url: 'profiles/lowkeynerd.php',
+            url: '/profiles/lowkeynerd.php',
             data: { training: message },
             success: function(data){
                 aryaMessage(data);
@@ -534,7 +531,7 @@ catch(PDOException $e){
         elses = message;
         $.ajax({
             type: "GET",
-            url: 'profiles/lowkeynerd.php',
+            url: '/profiles/lowkeynerd.php',
             data: {info: message },
             success: function(data){
         console.log(data);
