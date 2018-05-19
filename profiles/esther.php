@@ -914,7 +914,7 @@ footer {
           </div>
         </div>
           <div id="chat-form">
-            <input type="text" name="chatbot-input" id="chat-send" class="form-control" autofocus>
+            <input type="text" name="chatbot-input" id="chat-send" class="form-control" placeholder="Type your question"autofocus>
             <button class="chatbot-send" onclick="checkMessage()">Send</button>
           </div>
           </div>
