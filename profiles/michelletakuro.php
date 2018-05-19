@@ -1,4 +1,5 @@
 <?php
+(Content-Type:application/json);
 	if(!defined('DB_USER')){
 		require "../config.php";
 	}
