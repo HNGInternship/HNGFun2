@@ -63,7 +63,7 @@ include_once("dashboard-header.php");
      <div class ="col-md-7 info">
        <div class="name col-md-12">
           <h4 style ="text-align:left">Oganji Ernest Paul (Epospiky)</h4>
-          <p style="color:#888888; text-align:left; font-size:12px;" >Boston, Mars</p>
+          <p style="color:#888888; text-align:left; font-size:12px; padding:0px" >Boston, Mars</p>
           <hr style="padding-top:50px; color:#888">
        </div>
        <div class="b_info_grid col-md-12">
