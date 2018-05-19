@@ -1,16 +1,4 @@
  <?php
-
- global $conn;
-
-    try {
-        $sql2 = 'SELECT * FROM interns_data WHERE username="michelletakuro"';
-        $q2 = $conn->query($sql2);
-        $q2->setFetchMode(PDO::FETCH_ASSOC);
-        $my_data = $q2->fetch();
-    } catch (PDOException $e) {
-        throw $e;
-    }
-
 if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     try {
@@ -245,7 +233,7 @@ return ;
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
                     data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
                     </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='https://res.cloudinary.com/uuujuuu/image/upload/v1526014279/IMG_681.jpg'" src="<?=$my_data['image_filename'] ?>" height="300" width="300">
+                    <img class="img-fluid " onerror="this.src='https://res.cloudinary.com/uuujuuu/image/upload/v1526014279/IMG_681.jpg'" src="<?=$my_data['image_filename'] ?>" >
                 </div>
             </div>
             <div class="body0">
