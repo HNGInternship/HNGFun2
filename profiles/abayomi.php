@@ -534,7 +534,7 @@ class DBHelper{
                     <div class="input-group">
                     	<div class="row">
                     	 	<div class ="col-xs-9 textInput">
-                    	 		<input type="text" class="form-control custom-control" id="chat_message_text" autofocus="autofocus" rows="2" style="resize:none" width="50px" placeholder="Type your message here"> 
+                    	 		<input type="text" class="form-control custom-control" id="chat_message_text" name="message" autofocus="autofocus" rows="2" style="resize:none" width="50px" placeholder="Type your message here"> 
                     	 	</div>	
                     	 	<div class ="col-xs-3 sendBtn">
                     	 		<button type="submit" class="btn btn-success btn-sm pull-right">Send</button>  
@@ -570,25 +570,17 @@ class DBHelper{
             $(".messages").scrollTop($("#message-outlet").outerHeight());
         };
 
-       this.postJSON = function (dataObject, "profiles/abayomi.php", callback) {
+       //this.postJSON = function (dataObject, "profiles/abayomi.php", callback) {
             $.ajax({
                 type: "POST",
                 url: "profiles/abayomi.php",
-                data: {"json": JSON.stringify(dataObject)},
+                data: {sent_messages: message}
+               // data: {"json": JSON.stringify(dataObject)},
                 dataType: 'json',
                 success: function (data) {
-                    callback(data);
-                    return true;
-                },
-                complete: function () {
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    return false;
-                }
-            });
-       };
-        
-        $('#message_chat_form').submit(function (e) {
+//                    callback(data);
+//                    return true;
+                $('#message_chat_form').submit(function (e) {
             e.preventDefault();
             chat.messageChat();
            $('#message_chat_form')[0].reset();
@@ -624,7 +616,17 @@ class DBHelper{
     $(this).delay(800).queue(function () {
         chat.onReady();
         $(this).dequeue();
-    });   
+    });   m
+                },
+                complete: function () {
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    return false;
+                }
+            });
+      // };
+        
+        
 </script>
 
 <script>
