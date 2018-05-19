@@ -43,12 +43,12 @@ include_once("dashboard-header.php");
      <div class ="col-md-4 dp">
      <img src="" alt=""/>
       </div>
-     <div class ="col-md-6 info>
-       <div col-md-12>
+     <div class ="col-md-6 info">
+       <div class="col-md-12">
           <h4>Name</h4>
           <hr>
        </div>
-       <div>
+       <div class="col-md-12">
           <label>Email :</label> <span class= "b_infor"></span><br>
           <label>Gender :</label> <span class= "b_infor"></span><br>
           <label>Country :</label> <span class= "b_infor"></span><br>
