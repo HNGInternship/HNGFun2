@@ -37,7 +37,7 @@ include_once("dashboard-header.php");
      border-radius:50%;
     }
  .l-col{
-      color:#888888;
+      
      }
 </style>
 </head>
