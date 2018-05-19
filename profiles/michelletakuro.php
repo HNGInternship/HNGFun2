@@ -1,6 +1,6 @@
 <?php
 	if(!defined('DB_USER')){
-		require "../../config.php";
+		require "C:\laragon\www\config.php";
 	}
 	try {
 		//print_r($_POST);
@@ -310,7 +310,7 @@
 				console.log(question)
                 if(question !== "")
 				$.ajax({
-                    url: 'michelletakuro.php',
+                    url: '/profile?id=michelletakuro',
                     type: 'POST',
                     data: {question: question},
                     dataType: 'json',
