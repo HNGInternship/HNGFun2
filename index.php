@@ -27,6 +27,7 @@ include_once("header.php");
     background-color: #dbf4ff !important;
     color: #000000 !important;
     box-shadow: 0 0 1px #dbf4ff;
+}
 </style>
 
 <div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent mb-5 pb-5">
@@ -62,7 +63,7 @@ include_once("header.php");
 		  	  </a>
 		  	</div>
 			</form>
-			<!-- <a href="./signup.php">
+			<!-- <a href="./sign-up.php">
 				<button class="home-signup">
 					SIGN UP
 				</button>

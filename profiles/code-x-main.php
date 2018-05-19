@@ -1,414 +1,584 @@
-<!DOCTYPE html>
+<?php
+if(!defined('DB_USER')){
+     require "../../config.php";
+     try {
+         $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+     } catch (PDOException $pe) {
+         die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+     }
+   }
+$query = $conn->query("SELECT * FROM secret_word");
+$result = $query->fetch(PDO::FETCH_ASSOC);
+$secret_word = $result['secret_word'];
+$question;
+global $pass;
+	$pass = "password";
+if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
+	
+	function botAnswer($message){
+		$botAnswer = '<div class="chat bot chat-message">
+					<img src="data:image/jpeg;base64,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" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>' . $message . '</p>';
+			return $botAnswer;
+	}
+	function train($dbcon, $data){
+		$trainCheck = $dbcon->prepare("SELECT * FROM chatbot WHERE question LIKE :question and answer LIKE :answer");
+		$trainCheck->bindParam(':question', $data['question']);
+		$trainCheck->bindParam(':answer', $data['answer']);
+		$trainCheck->execute();
+		$result = $trainCheck->fetch(PDO::FETCH_ASSOC);
+		$rows = $trainCheck->rowCount();
+			if($rows === 0){
+			$trainQuery = $dbcon->prepare("INSERT INTO chatbot (id, question, answer) VALUES(null, :q, :a)");
+			$trainQuery->bindParam(':q', $data['question']);
+			$trainQuery->bindParam(':a', $data['answer']);
+			$trainQuery->execute();
+			$bot = botAnswer("Thanks for helping me be better.");
+		}elseif($rows !== 0){
+			$bot = botAnswer("I already know how to do that. You can ask me a new question, or teach me something else. Remember, the format is train: question # answer # password");
+		}
+		echo $bot;
+	}
+	
+		
+	
+	 	$userInput = strtolower(trim($_POST['question']));
+	 	if(isset($userInput)){
+	 		$user = $userInput;
+	 		 //array_push($_SESSION['chat-log'] , $user);
+	 	}
+	 	
+	 	if(strpos($userInput , 'train:') ===0){
+	 		list($t, $r ) = explode(":", $userInput);
+			list($trainquestion, $trainanswer, $trainpassword) = explode("#", $r);
+			$data['question'] = $trainquestion;
+	 		$data['answer'] = $trainanswer;
+	 		if($trainpassword === $pass){
+	 			$bot = train($conn, $data);
+	 			//array_push($_SESSION['chat-log'] , $bot);
+	 		}else{
+	 			$bot = botAnswer("You have entered a wrong password. Let's try that again with the right password, shall we?");
+	 			//array_push($_SESSION['chat-log'] , $bot);
+	 		}
+	 		
+	 	}elseif($userInput === 'about' || $userInput === 'aboutbot'){
+	 		$bot = botAnswer("Version 1.0");
+     		//array_push($_SESSION['chat-log'] , $bot);
+	 	}else{
+			 $userInputQuery = $conn->query("SELECT * FROM chatbot WHERE question like '".$userInput."' ");
+		     $userInputs = $userInputQuery->fetchAll(PDO::FETCH_ASSOC);
+		    $userInputRows = $userInputQuery->rowCount();
+		     if($userInputRows == 0){
+		     	$bot = botAnswer("I am unable to answer your question right now. But you can train me to answer this particular question. Use the format train: question #answer #password");
+		     //	array_push($_SESSION['chat-log'] , $bot);
+		     }else{
+		     	$botAnswer = $userInputs[rand(0, count($userInputs)-1)]['answer'];
+		     	$bot = botAnswer($botAnswer);
+		     	//array_push($_SESSION['chat-log'] , botAnswer($botAnswer));
+		     }
+     	}
+     	echo $bot;
+     	exit();
+     }
+?>
 
-<html>
+<!DOCTYPE html>
+<html lang ="en-US"> 
 <head>
 	<title>Hotelsng User Profile </title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<style>
-	
-body {
-	background: #e9e9e9;
-	color: #3d3d3d;
-	font: 100%/1.5em "Droid Sans", sans-serif;
-	margin: 0;
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <style>
+    .card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
-p {
-	font-size: 12px;
-	font-family: Ubuntu;
-	color: #000000;
-	text-align: center;
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-h1 {
-	font-size: 50px;
-	font-family: Ubuntu;
-	color: #bcbaba;
-	background: #000000;
-	text-align: center;
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
 }
-h3 {
-	font-size: 15px;
-	font-family: Ubuntu;
-	color: #FFFF00;
-	background: #000000;
-	text-align: center;
+       .header-top{
+           height: 500px;
+           background-color: #afafaf;
+       }
+          /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+        .header-top{
+            height: 400px;
+        }
 }
-h4, h5 {
-	line-height: 1.5em;
-	margin: 0;
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+    .header-top{
+            height: 400px;
+        }
 }
-
-a {
-	text-align: center;
-	text-decoration: none;
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .header-top{
+            height: 480px;
+        }
 }
-fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
-}
-.row {
-	background: #ececec;
-	font-family: Ubuntu;
-	font-weight: bold;
-	width: 500px;
-	margin-right: auto;
-	margin-left: auto;
-
-}
-
-@font-face {
-      font-family: 'FontAwesome';
-      src: url('../font/fontawesome-webfont.eot');
+       .top-5{
+        margin-top: 5rem!important;
+       }
+       
+       .full-bio{
+        position: absolute;
+        width: 80%;
+        /* margin-top: 10rem; */
+        text-align: center;
+       }
+       
+       .profile img{
+           height: 200px ;
+           width: 200px ;
+           border: 6px solid rgba(0, 0, 0, 0.4);
+       }
+                /* Custom, iPhone Retina */ 
+        @media only screen and (min-width : 320px) {
+            .profile img {
+        height: 120px;
+        width: 120px ;
     }
-.column {
-    float: left;
-    width: 50%;
 }
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-hr {
-	background: #e9e9e9;
-    border: 0;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    height: 1px;
+       .full-name {
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 50px;
+        color: #FFFFFF;
+     }
+        @media only screen and (min-width : 320px) {
+            .full-name {
+           font-size: 25px;
+    }
+        }
+     .ux{
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 25px;
+        color: #FFFFFF;
+     }
+     .location{
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 20px;
+        color: #FFFFFF;
+     }
+     .about{
+     }
+     .about p{
+         padding: 5px;
+     }
+     .title{
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 30px;
+        color: #000000;
+        border-bottom: 0px dotted #000000;
+        border-bottom-width: 6px;
+        text-align: center;
+     }
+/***********************
+CHATBOT CSS
+**************/
+/* .chat
+{
+    list-style: none;
     margin: 0;
-    min-height: 1px;
+    padding: 0;
 }
-
-img {
-    border: 0;
-    display: block;
-    height: auto;
-    max-width: 100%;
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
 }
-
-input {
-	border: 0;
-	color: inherit;
-    font-family: inherit;
-    font-size: 100%;
-    line-height: normal;
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+.chat li .chat-body p
+{
     margin: 0;
+    color: #777777;
 }
-
-p { margin: 0; }
-
-.clearfix { *zoom: 1; } /* For IE 6/7 */
-.clearfix:before, .clearfix:after {
-    content: "";
-    display: table;
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
 }
-.clearfix:after { clear: both; }
-
-/* ---------- LIVE-CHAT ---------- */
-
-#live-chat {
-	bottom: 0;
-	font-size: 12px;
-	right: 24px;
-	position: fixed;
-	width: 300px;
+.panel-body
+{
+    overflow-y: scroll;
+    height: 400px;
 }
-
-#live-chat header {
-	background: #293239;
-	border-radius: 5px 5px 0 0;
-	color: #fff;
-	cursor: pointer;
-	padding: 16px 24px;
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
 }
-
-#live-chat h4:before {
-	background: #1a8a34;
-	border-radius: 50%;
-	content: "";
-	display: inline-block;
-	height: 8px;
-	margin: 0 8px 0 0;
-	width: 8px;
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
 }
-
-#live-chat h4 {
-	font-size: 12px;
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #2b2b2b;
 }
-
-#live-chat h5 {
-	font-size: 10px;
+div.panel-heading#accordion {
+    background-color: #007bff;
+    text-align: center;
+    color: white;
 }
-
-#live-chat form {
-	padding: 24px;
-}
-
-#live-chat input[type="text"] {
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 8px;
-	outline: none;
-	width: 234px;
-}
-
-.chat-message-counter {
-	background: #e62727;
-	border: 1px solid #fff;
-	border-radius: 50%;
-	display: none;
-	font-size: 12px;
-	font-weight: bold;
-	height: 28px;
-	left: 0;
-	line-height: 28px;
-	margin: -15px 0 0 -15px;
-	position: absolute;
-	text-align: center;
-	top: 0;
-	width: 28px;
-}
-
-.chat-close {
-	background: #1b2126;
-	border-radius: 50%;
-	color: #fff;
-	display: block;
-	float: right;
-	font-size: 10px;
-	height: 16px;
-	line-height: 16px;
-	margin: 2px 0 0 0;
-	text-align: center;
-	width: 16px;
-}
-
-.chat {
-	background: #fff;
-}
-
-.chat-history {
-	height: 252px;
-	padding: 8px 24px;
-	overflow-y: scroll;
-}
-
-.chat-message {
-	margin: 16px 0;
-}
-
-.chat-message img {
-	border-radius: 50%;
-	float: left;
-}
-
-.chat-message-content {
-	margin-left: 56px;
-}
-
-.chat-time {
-	float: right;
-	font-size: 10px;
-}
-
-.chat-feedback {
-	font-style: italic;	
-	margin: 0 0 0 80px;
-}
-	</style>
+span.chat-img img {
+    width: 100px !important;
+    border-radius: 100%;
+} */
+	/* ---------- chat-box ---------- */
+        ::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+    ::-webkit-scrollbar
+    {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+    ::-webkit-scrollbar-thumb
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+    }
+    #chat-box {
+			bottom: 0;
+			font-size: 12px;
+			right: 24px;
+			position: fixed;
+			width: 300px;
+		}
+		#chat-box header {
+			background: #4c4c4c;
+			border-radius: 5px 5px 0 0;
+			color: #fff;
+			cursor: pointer;
+			padding: 16px 24px;
+		}
+		#chat-box h4, #chat-box h5{
+			line-height: 1.5em;
+			margin: 0;
+		}
+		#chat-box h4:before {
+			background: #4c4c4c;
+			border-radius: 50%;
+			content: "";
+			display: inline-block;
+			height: 8px;
+			margin: 0 8px 0 0;
+			width: 8px;
+		}
+		#chat-box h4 {
+			font-size: 12px;
+		}
+		#chat-box h5 {
+			font-size: 10px;
+		}
+		#chat-box form {
+			padding: 10px;
+		}
+		#chat-box input[type="text"] {
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			padding: 8px;
+			outline: none;
+			
+		}
+		header h4{
+			color: #fff;
+		}
+		.chat {
+			background: #fff;
+					
+		}
+			.hide{
+			display: none;
+		}
+		.chatlogs {
+			height: 252px;
+			padding: 5px 5px;
+			overflow-y: scroll;
+		}
+		.chat-message {
+			margin: 16px 0;
+		}
+		.bot img {
+        border-radius: 50%;
+        float: left;
+        width: 45px;
+        height: 45px;
+        border: 4px solid #878c90;
+        }
+		.bot .chat-message-content{
+			margin-left: 40px;
+			border-radius:0  15px 15px 15px;
+			background: #e4e4e4;
+			padding: 15px 10px;
+		}
+		.user .chat-message-content {
+            margin-right: 40px;
+            border-radius: 15px 15px 0 15px;
+            background: #0572ce;
+            padding: 15px 10px;
+            color: white;
+        }
+		.user img{
+			border-radius: 50%;
+			float: right;
+            width: 45px;
+            height: 45px;
+            border: 4px solid #878c90;
+		}
+		.chat-message-content {
+			/*margin-left: 56px;*/
+		}
+		.bot .chat-time {
+			float: right;
+			font-size: 10px;
+		}
+		.user .chat-time {
+			float: right;
+			font-size: 10px;
+		}
+    </style>
+    
 </head>
+
 <body>
-  
-<h1> Hotelsng </br>User Profile for </br> Code-X
 
-</h1>
+<div class="container-fluid header-top">
 
- <div class="row">
-  <div class="column">
-<img src="http://res.cloudinary.com/code-x/image/upload/v1525118313/code-x.jpg" alt="Ndueze Ifeanyi Code-X" width="250" height="250">
-</br>
+<div class="full-bio">
+<div class="d-flex justify-content-center top-5">
+                    <img src="http://res.cloudinary.com/code-x/image/upload/v1525118313/code-x.jpg" class="rounded-circle w-25 h-25 img-fluid profile">              
+                </div>
+
+
 <h3>Ndueze Ifeanyi David (Code-X) </br> Web Apps || Mobile Apps </h3>
   <a href="https://www.facebook.com/engrify"><i class="fa fa-facebook-official  fa-3x" aria-hidden="true"></i></a>
   <a href="https://twitter.com/IfeanyiOghene"> <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
   <a href="https://www.instagram.com/davidify/"> <i class="fa fa-instagram fa-3x" aria-hidden="true"></i></i></a>
   <a href="https://github.com/DavidIfeanyichukwu"> <i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
-  </div>
-  <div class="column">
-<?php
-  //require '../db.php';
-  $res = $conn->query("SELECT * FROM  interns_data WHERE username = 'code-x' ");
-  $row = $res->fetch(PDO::FETCH_BOTH);
-  $name = $row['name'];
-  $img = $row['image_filename'];
-  $username =$row['username'];
 
+</div>
 
+</div>
 
-  $res1 = $conn->query("SELECT * FROM secret_word");
-  $res2 = $res1->fetch(PDO::FETCH_ASSOC);
-  $secret_word = $res2['secret_word'];
-?>
-
-<div id="live-chat">
-		
-		<header class="clearfix">
-			
-			<a href="#" class="chat-close">x</a>
-
-			<h4>CodeX Chatbot</h4>
-
-			<span class="chat-message-counter">3</span>
-
+<!-- <div class="top-5">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="accordion">
+                    <span class="glyphicon glyphicon-comment"><i class="fa fa-comment"></i></span> Chat
+                    <div class="btn-group pull-right">
+                        <a type="button" class="btn btn-primary btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <span>  </span>
+                        </a>
+                    </div>
+                </div>
+            <div class="panel-collapse collapse show" id="collapseOne">
+                <div class="panel-body">
+                    <ul class="chat">
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                                </div>
+                                <p>
+                                    Chatbot details
+                                </p>
+                            </div>
+                        </li>
+                        <li class="right clearfix"><span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                </div>
+                                <p>
+                                    Welcome to my bot
+                                </p>
+                            </div>
+                        </li>
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+                                </div>
+                                <p>
+                                    This is not an easy fix
+                                </p>
+                            </div>
+                        </li>
+                        <li class="right clearfix"><span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
+                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                </div>
+                                <p>
+                                    Bold to say
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form action="profiles/code-x-main.php"  method="post">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <!-- <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button> -->
+                                <!-- <input class="btn btn-warning btn-sm"  id="btn-chat" type="submit" value="Submit">
+                        </span>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>  -->
+<div id="chat-box">	
+		<header class="clearfix" onclick="change()">
+			<h4>Online</h4>
 		</header>
+		<div class="chat hide" id="chat">
+			<div class="chatlogs" id="chatlogs">
+				<div class="chat bot chat-message">
+					<img src="data:image/jpeg;base64,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" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>Welcome.</p>
+						<span class="chat-time"> </span>
+					</div> 
+				</div>
+				<div class="chat bot chat-message">
+					<img src="data:image/jpeg;base64,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" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>I am here to help you.</p>
+						<span class="chat-time"></span>
+					</div> 
+				</div>
+				<div class="chat bot chat-message">
+					<img src="data:image/jpeg;base64,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" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>You can ask me questions, and I will do my best to answer. You can train me to answer specific questions. Just make use of the format train: question # answer # password.</p>
+						<span class="chat-time"></span>
+					</div> 
+				</div>
 
-		<div class="chat">
-			
-			<div class="chat-history" id="chat-box">
 				
-				<div class="chat-message clearfix">
-					
-					<img src="http://res.cloudinary.com/code-x/image/upload/v1525118313/code-x.jpg" alt="" width="32" height="32">
-
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">01:30pm</span>
-
-						<h5>Code-X</h5>
-
-						<p>Hello, I'm CodexBot, how may I help you today? You can also train me!!!</p>
-
-					</div> <!-- end chat-message-content -->
-					</div> <!-- end chat-message -->
-
-				<hr>
-
-				<div class="chat-message clearfix">
-					
-					<img src="https://scontent.flos8-1.fna.fbcdn.net/v/t1.0-9/29101326_1670126126413809_8661840651001790464_n.jpg?_nc_cat=0&oh=aac8c36c8aae143804e8c681f4112bb3&oe=5B91B7CA" alt="" width="32" height="32">
-
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">02:37pm</span>
-
-						<h5>Maggie Lakes</h5>
-
-						<p>Good afternoon, I need help with my website!</p>
-
-					</div> <!-- end chat-message-content -->
-
-				</div> <!-- end chat-message -->
-
-				<hr>
-
-				<div class="chat-message clearfix">
-					
-					<img src="https://scontent.flos8-1.fna.fbcdn.net/v/t1.0-9/29101326_1670126126413809_8661840651001790464_n.jpg?_nc_cat=0&oh=aac8c36c8aae143804e8c681f4112bb3&oe=5B91B7CA" alt="" width="32" height="32">
-
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">3:05pm</span>
-
-						<h5>Maggie Lakes</h5>
-
-						<p>Check it from the link sent</p>
-
-					</div> <!-- end chat-message-content -->
-
-				</div> <!-- end chat-message -->
-
-				<hr>
-
+				 
+				<div id="chat-content"></div>
+				
 			</div> <!-- end chat-history -->
-
-			<p class="chat-feedback">Your partner is typing…</p>
-
-			<form action="#" method="post">
-
+			<form action="#" method="post" class="form-data">
 				<fieldset>
-					
-					<input type="text" placeholder="Type your message…"	id="text-input" autofocus>
-					<input type="hidden">
-
+					<input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
+					<input type="submit" class=" btn-primary" name="bot-interface" value="SEND"/>
 				</fieldset>
-
 			</form>
-
 		</div> <!-- end chat -->
+	</div> <!-- end chat-box -->
 
-	</div> <!-- end live-chat -->
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-  </div>
-</div> 
-<script>
-document.getElementById('text-input').onkeypress = function(e){
-
-    if (!e) e = window.event;
-
-    var keyCode = e.keyCode || e.which;
-
-    if (keyCode == '13'){
-      let chatDiv = document.getElementById('text-input');
-      let reply = botReply(e.target.value);
-
-      return false;
-
+	<script >
+		
+		
+		function change(){
+			document.getElementById("chat").classList.toggle('hide');
+			
     }
-
-  }
-  
- function botReply(input){
-  if(input == 'aboutbot')
-	return 'This is CodeXbotv1.0908'
-  else //AJAX GOES HERE
-    return 'This is the response from server';
- }
- 
- function userMessage(msg){
-	 let output = '<div class="chat-message clearfix">';
-	 output += '<img src="https://scontent.flos8-1.fna.fbcdn.net/v/t1.0-9/29101326_1670126126413809_8661840651001790464_n.jpg?_nc_cat=0&oh=aac8c36c8aae143804e8c681f4112bb3&oe=5B91B7CA" alt="" width="32" height="32">
-	 ';
-	 output  += '<div class="chat-message-content clearfix">';
-						
-	 output += '<span class="chat-time">02:37pm</span>'
-
-     ouput += '<h5>Maggie Lakes</h5>'
-
-	 output += '<p>' + msg + '</p>';
-	 ouput += '</div> <!-- end chat-message-content -->';
-	 ouput += '</div>'
-
- 
-     return output;
- }
- 
- function botMessage(msg){
-	 let output = '<div class="chat-message clearfix">';
-	 output += '<img src="http://res.cloudinary.com/code-x/image/upload/v1525118313/code-x.jpg" alt="" width="32" height="32">
-	 ';
-	 output  += '<div class="chat-message-content clearfix">';
-						
-	 output += '<span class="chat-time">02:37pm</span>'
-
-     ouput += '<h5>CodeXbot</h5>'
-
-	 output += '<p>' + msg + '</p>';
-	 ouput += '</div> <!-- end chat-message-content -->';
-	 ouput += '</div>'
-
- 
-     return output;
- }
- 
- 
- 
-
-</script>
-
+     var btn = document.getElementsByClassName('form-data')[0];
+		var question = document.getElementById("question");
+		var chatLog = document.getElementById("chatlogs");
+		var chatContent = document.getElementById("chat-content");
+		var myTime = new Date().toLocaleTimeString(); 
+		document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
+		document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
+		document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
+		btn.addEventListener("submit", chat);
+		function chat(e){
+		    if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+			     var xhttp = new XMLHttpRequest();
+			} else if (window.ActiveXObject) { // IE 6 and older
+			  var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		   
+			xhttp.onreadystatechange = function() {
+	          if(this.readyState == 4 && this.status == 200) {
+	          	// console.log(this.response);
+	          	 userChat(question.value, this.response);
+     			e.preventDefault();
+	            question.value = '';
+	          }
+      	    }
+        xhttp.open('POST', 'profiles/code-x-main.php', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send('question='+ question.value);
+        e.preventDefault();
+		}
+		function userChat(chats, reply){
+			if(question.value !== ''){
+				var chat = `<div class="chat user chat-message">
+					<img src="http://placehold.it/45/000000/fff&text=ME" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>` + chats + `</p>
+						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
+					 </div>
+				</div>`;
+			}
+			chatContent.innerHTML += chat;
+		     
+		    setTimeout(function() {
+			    chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
+					</div> 
+				</div>`;
+				document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight;	
+			}, 1000);
+		}
+	</script>
+	
 </body>
-
 </html>

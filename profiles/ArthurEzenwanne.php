@@ -1,5 +1,7 @@
 <?php
-    // Query secret_word table
+
+    // Query secret_word 
+
     $resultSecretWord = $conn->query("SELECT * FROM secret_word LIMIT 1");
     $resultSecretWord = $resultSecretWord->fetch(PDO::FETCH_OBJ);
     $secret_word = $resultSecretWord->secret_word;

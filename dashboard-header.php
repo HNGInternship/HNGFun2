@@ -1,3 +1,7 @@
+<?php
+
+$username = "Amy Xandra";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,6 +127,7 @@
     .navbar-fixed {
       background: #f4f4f4 !important;
     }
+    
     </style>
 
     <link href="css/dashboard-menu.css" rel="stylesheet">
@@ -139,7 +144,7 @@
 				
 				<div class="dropdown" id="">
 					<img class="acc-img" src="img/dashboard/amy.png">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true"><?php require_once "dashboard.php";
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true"><?php 
 					echo $username; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
 					 
@@ -179,3 +184,4 @@
             </li>
         </ul>
 </div>
+ 

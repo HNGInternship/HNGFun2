@@ -145,7 +145,7 @@ include_once("header.php");
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
                         <h2 class="mb-4" style="color: white;">Ready to get started? Sign up now!</h2>
-                        <button type="submit" href="signup.php" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+                        <button type="submit" href="sign-up.php" class="btn btn-block btn-lg btn-primary">Sign up!</button>
                     </div>
                 </div>
             </div>
