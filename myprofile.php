@@ -39,8 +39,9 @@ include_once("dashboard-header.php");
  .l-col{
       
      }
- table,td,tr{border:0px;}
+ table,td,tr{border:0px solid white;}
 </style>
+ <title>HNG FUN Profile</title>
 </head>
  <body>
    
@@ -59,7 +60,7 @@ include_once("dashboard-header.php");
           <hr style="padding:20px 0px 10px 0px;">
        </div>
        <div class="b_info_grid col-md-12">
-        <table border="0">
+        <table>
           <tr ><td class="l-col col-md-4">Email :</td><td class= "b_infor col-md-6">exampl@gmail.com</td></tr>
           <tr ><td class="l-col col-md-4"> Gender :</td><td class= "b_infor col-md-6 ">Male</td></tr>
           <tr ><td class="l-col col-md-4"> Country :</td><td class= "b_infor col-md-6 ">U. S. A</td></tr>
