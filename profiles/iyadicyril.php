@@ -1,5 +1,3 @@
-
-
 <?php 
 	
 	if(!defined('DB_USER')){
@@ -581,7 +579,7 @@ hr{
 			$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
 			//send question to server
 			$.ajax({
-				url: " ",
+				url: "/profiles/iyadicyril.php",
 				type: "post",
 				data: {question: question},
 				dataType: "json",
