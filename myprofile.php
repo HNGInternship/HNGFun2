@@ -39,7 +39,7 @@ include_once("dashboard-header.php");
  .l-col{
       
      }
- .b_info_grid table,td,tr{border:4px solid black;}
+ .b_info_grid table,td,tr{border:4px solid white;}
 </style>
  <title>HNG FUN Profile</title>
 </head>
