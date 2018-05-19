@@ -54,6 +54,7 @@ include_once("dashboard-header.php");
      <div class ="col-md-4 dp">
      <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" alt="epospiky" class="img-responsive"/>
       </div>
+      <div class="clearfix"></div>
      <div class ="col-md-8 info">
        <div class="name col-md-12">
           <h4>Oganji Ernest Paul (Epospiky)</h4>
