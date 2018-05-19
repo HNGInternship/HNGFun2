@@ -1,3 +1,24 @@
+<?php
+if($_SERVER['REQUEST_METHOD'] === "GET"){
+    try {
+        $intern_data = $conn->prepare("SELECT * FROM interns_data WHERE username = 'didicodes'");
+        $intern_data->execute();
+        $result = $intern_data->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $intern_data->fetch();
+    
+    
+        $secret_code = $conn->prepare("SELECT * FROM secret_word");
+        $secret_code->execute();
+        $code = $secret_code->setFetchMode(PDO::FETCH_ASSOC);
+        $code = $secret_code->fetch();
+        $secret_word = $code['secret_word'];
+     } catch (PDOException $e) {
+         throw $e;
+     }
+     date_default_timezone_set("Africa/Lagos");
+     $today = date("H:i:s");
+}
+ ?>
  <?php 
     if($_SERVER['REQUEST_METHOD']==='POST'){
         function test_input($data) {
@@ -298,7 +319,7 @@
                                             <label for="user-message"></label>
                                            
                                             <input type="text" class="message-input" name="user-message" id="user-message"
-                                                   placeholder="Talk to me.." required>
+                                                   placeholder="Ask me anything" required>
                                         
                                             <button class="btn" type="button" onclick="sendMsg()">
                                                 <i class="fa fa-send message-submit"   value="send"></i>
@@ -332,7 +353,7 @@
     var ques = document.querySelector("#user-message");
     displayOnScreen(ques.value, "sent");
     if(ques.value === 'aboutbot'){
-        displayOnScreen('Name: ScarJoBot<br>Version: 1.3.54', 'received');
+        displayOnScreen('Name: ScarJoBot<br>Version: 1.0', 'received');
         return;
     }
    
