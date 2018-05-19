@@ -1,7 +1,6 @@
    <?php
-	if(!defined('DB_USER')){
+
             require "../config.php";
-}
 
 class Db{
     
@@ -569,7 +568,7 @@ class DBHelper{
         $('#message_chat_form').submit(function (e) {
             e.preventDefault();
             chat.messageChat();
-            $('#message_chat_form')[0].reset();
+           $('#message_chat_form')[0].reset();
         });
 
         this.messageChat = function () {
@@ -585,7 +584,7 @@ class DBHelper{
                 "function": "messageBot",
                 "message": message,
             };
-            this.postJSON(data, "../profiles/abayomi.php", function (response) {
+            this.postJSON(data, "profiles/abayomi.php", function (response) {
                 $('#message_chat_form')[0].reset();
                 console.log(response);
                 var strMessages = '<li class="replies"><small style=" color:rgb(47, 136, 204);" >ChatMe:</small> ' +
