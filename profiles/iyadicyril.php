@@ -561,8 +561,8 @@ hr{
 <script>	
 	$(document).ready(function(){
 		var questionForm = $('#question-form');
-		questionForm.submit(function(e){
-			e.preventDefault();
+		questionForm.submit(function(event){
+			event.preventDefault();
 			var questionBox = $('input[name=question]');
 			var question = questionBox.val();
 			//var question = $('#question-form').val();
