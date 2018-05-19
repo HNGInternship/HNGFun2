@@ -229,14 +229,6 @@ body.fullsingle p {
 
     }
 
-    #chat-box header {
-      background: #293239;
-      border-radius: 5px 5px 0 0;
-      color: #fff;
-      cursor: pointer;
-      padding: 16px 24px;
-    }
-
     #chat-box h4, #chat-box h5{
       line-height: 1.5em;
       margin: 0;
@@ -267,7 +259,7 @@ body.fullsingle p {
 
     #chat-box input[type="text"] {
       border: 1px solid #ccc;
-      border-radius: 3px;
+      border-radius: 4px;
       padding: 8px;
       outline: none;
       width: 234px;
@@ -296,14 +288,14 @@ body.fullsingle p {
       float: left;
     }
     .bot .chat-message-content{
-      margin-left: 40px;
-      border-radius:0  10px 10px 10px;
+      margin-left: 36px;
+      border-radius: 0 14px 14px 14px;
       background: #e4e4e4;
       padding: 10px 10px;
     }
     .user .chat-message-content{
-      margin-right: 40px;
-      border-radius: 0px 10px 10px 10px;
+      margin-right: 36px;
+      border-radius: 14px 0 14px 14px;
       background: #e4e4e4;
       padding: 10px 10px;
     }
@@ -377,8 +369,13 @@ body.fullsingle p {
 
 			  </div>
 
+        <input type="button" id="btn" name="mybtn" value="Let's Chat" style=" color: white; font-size: 20px; width: 24%; padding: 12px 20px; margin: 16px 0; box-sizing: border-box; cursor: pointer; background-color: #47bec7; border:none" onclick="change();"></input>
+
+        <br>
+        <br>
+
 			  <div class="lists">
-				
+
 				<div class="list">
 					<h3><a href="https://web.facebook.com/jeddyel">
           <i class="fa fa-facebook iconn"></i>
@@ -423,43 +420,27 @@ body.fullsingle p {
 </div>
 
 <div id="chat-box"> 
-    <header class="clearfix" onclick="change()">
-      <h4>Online</h4>
-    </header>
     <div class="chat hide" id="chat">
       <div class="chatlogs" id="chatlogs">
         <div class="chat bot chat-message">
           <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526227579/Profile.jpg" alt="" width="32" height="32">
           <div class="chat-message-content clearfix">
-            <p>Hello.</p>
+            <p>Hello. <br> I'm <span style="color: #2196F3;">JEDiBot</span>, here to help you.</p>
+            <br>
+            <p>You can ask me any question, and I'll do my best to answer. You can also train me to answer specific questions
+            using the format train: question # answer # password.</p>
             <span class="chat-time"> </span>
           </div> 
         </div>
-        <div class="chat bot chat-message">
-          <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526227579/Profile.jpg" alt="" width="32" height="32">
-          <div class="chat-message-content clearfix">
-            <p>I'm JEDiBot, here to help you.</p>
-            <span class="chat-time"></span>
-          </div> 
-        </div>
-        <div class="chat bot chat-message">
-          <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526227579/Profile.jpg" alt="" width="32" height="32">
-          <div class="chat-message-content clearfix">
-            <p>You can ask me any question, and I'll do my best to answer. You can also train me to answer specific questions
-            using the format train: question # answer # password.</p>
-            <span class="chat-time"></span>
-          </div> 
-        </div>
 
-        
-         
         <div id="chat-content"></div>
-        
-      </div> <!-- end chat-history -->
+      </div> 
+      <!-- end chat-history -->
+
       <form action="#" method="post" class="form-data">
         <fieldset>
           <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
-          <input type="submit" name="bot-interface" value="SEND"/>
+          <input type="submit" name="bot-interface" value="SEND"  style=" color: white; font-size: 10px; width: 24%; padding: 8px 12px; margin: 8px 0; cursor: pointer; background-color: #47bec7; border:none"/>
         </fieldset>
       </form>
     </div> <!-- end chat -->
