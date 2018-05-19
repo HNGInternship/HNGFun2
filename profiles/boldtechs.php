@@ -147,15 +147,15 @@ return "Am sorry, this question wasn't found,Please ENTER TRAIN:QUESTION#ANSWER#
         }
         .chatbox {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 600px;
+            max-width: 400px;
             margin: auto;
             text-align: center;
             font-family: Ebrima;
             float: right;
-            background-color: grey;
+            background-color: #2fb2af;
         }
         .title {
-            color: grey;
+            color: #ffffff;
             font-size: 18px;
         }
         button {
@@ -228,12 +228,12 @@ return "Am sorry, this question wasn't found,Please ENTER TRAIN:QUESTION#ANSWER#
  <div class="chatbox"> 
         <p style="color: #FFFFFF">&nbsp;
     </p>
-    <p style="color: #e9e9e9; font-size: 24px; font-weight: bolder;">CHATTER-BOT    </p>
-    <p style="color: #FFFFFF">Type help to learn how to Use Me</p>
+    <p style="color: #e9e9e9; font-size: 24px; font-weight: bolder;"> BOT    </p>
+    <p style="color: #FFFFFF">Need Help ?, Type: help </p>
     <p style="color: #FFFFFF">    <form name = "askMe" method="post">
     <p>
         <label>
-            <input name="input" type="text" class="tb5"  placeholder="Type you message then,Press Ask to send.">
+            <input name="input" type="text" class="tb5"  placeholder="Type you message,Press Ask to send.">
         </label>
         <label>
         <input name="button" type="submit"  class="btn btn-primary mb-2" id="button" value="ASK">
@@ -265,7 +265,7 @@ return "Am sorry, this question wasn't found,Please ENTER TRAIN:QUESTION#ANSWER#
             <div class="col-lg-8 col-md-10 mx-auto">
                 <ul class="list-inline text-center">
                     <li class="list-inline-item">
-                        <a id="twitter" href="https://twitter.com/basi_rafael">
+                        <a id="twitter" href="https://twitter.com/boldtechs">
                      <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -274,7 +274,7 @@ return "Am sorry, this question wasn't found,Please ENTER TRAIN:QUESTION#ANSWER#
                     </li>
 
                     <li class="list-inline-item">
-                        <a id="github" href="https://github.com/https://github.com/Kaysy123">
+                        <a id="github" href="https://github.com/https://github.com/engrsaheed">
                      <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>

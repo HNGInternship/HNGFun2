@@ -1,6 +1,9 @@
 <?php
+
+("Content-Type:application/json");
+
 	if(!defined('DB_USER')){
-		require "C:\laragon\www\config.php";
+		require "../config.php";
 	}
 	try {
 		//print_r($_POST);
