@@ -39,7 +39,7 @@ include_once("dashboard-header.php");
  .l-col{
       
      }
- .b_info_grid table,td,tr{border:0px solid white;}
+ .b_info_grid table,td,tr{border:4px solid black;}
 </style>
  <title>HNG FUN Profile</title>
 </head>
@@ -55,7 +55,7 @@ include_once("dashboard-header.php");
      <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" alt="epospiky" class="img-responsive"/>
       </div>
       <div class="clearfix"></div>
-     <div class ="col-md-8 info">
+     <div class ="col-md-7 info">
        <div class="name col-md-12">
           <h4>Oganji Ernest Paul (Epospiky)</h4>
           <hr style="padding:20px 0px 10px 0px;">
