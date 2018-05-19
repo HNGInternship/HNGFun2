@@ -1119,7 +1119,7 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);*/
 $(window).load(function() {
   $messages.mCustomScrollbar();
   setTimeout(function() {
-    chat();
+    getAction();
   }, 100);
 });
 function updateScrollbar() {
