@@ -1119,7 +1119,7 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);*/
 $(window).load(function() {
   $messages.mCustomScrollbar();
   setTimeout(function() {
-    fakeMessage();
+    chat();
   }, 100);
 });
 function updateScrollbar() {
@@ -1147,7 +1147,7 @@ function insertMessage() {
   $('.message-input').val(null);
   updateScrollbar();
   setTimeout(function() {
-    fakeMessage();
+    chat();
   }, 1000 + (Math.random() * 20) * 100);
 }
 $('.message-submit').click(function() {
