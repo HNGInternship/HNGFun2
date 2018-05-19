@@ -284,10 +284,10 @@ return ;
 
                 <div class="chat-input">
                         <input type="text" name="user-input" id="user-input" class="user-input" placeholder="Say something here">
-                        <button onclick="chat()" class="send_button" id="send">Send</button>
+                        
                 </div>
             
-
+                    <button onclick="chat()" class="send_button" id="send">Send</button>
             </div>
         </div>
     </div>
