@@ -68,7 +68,7 @@ include_once("dashboard-header.php");
        </div>
        <div class="b_info_grid col-md-12">
         <table >
-          <tr ><td class="l-col col-md-4">Email </td><td class= "b_infor col-md-6">exampl@gmail.com</td></tr>
+          <tr ><td class="l-col col-md-4">Email </td><td class= "b_infor col-md-6">example@gmail.com</td></tr>
           <tr ><td class="l-col col-md-4"> Gender </td><td class= "b_infor col-md-6 ">Male</td></tr>
           <tr ><td class="l-col col-md-4"> Country </td><td class= "b_infor col-md-6 ">U. S. A</td></tr>
           <tr ><td class="l-col col-md-4"> State </td> <td class= "b_infor col-md-6 ">Boston</td></tr>
