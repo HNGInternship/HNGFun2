@@ -1,4 +1,14 @@
  <?php
+
+    try {
+        $sql2 = 'SELECT * FROM interns_data WHERE username="michelletakuro"';
+        $q2 = $conn->query($sql2);
+        $q2->setFetchMode(PDO::FETCH_ASSOC);
+        $my_data = $q2->fetch();
+    } catch (PDOException $e) {
+        throw $e;
+    }
+
 if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     try {
@@ -223,19 +233,7 @@ return ;
         
 
     </style>
-    <?php
-
-    global $conn;
-
-    try {
-        $sql2 = 'SELECT * FROM interns_data WHERE username="michelletakuro"';
-        $q2 = $conn->query($sql2);
-        $q2->setFetchMode(PDO::FETCH_ASSOC);
-        $my_data = $q2->fetch();
-    } catch (PDOException $e) {
-        throw $e;
-    }
-    ?>
+    
 </head>
 <body>
 <div class="container">
@@ -246,7 +244,7 @@ return ;
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
                     data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
                     </oj-avatar>
-                    <img class="img-fluid "  src="<?=$my_data['image_filename'] ?>" height="300" width="350" >
+                    <img class="img-fluid "  src="<?=$my_data['image_filename'] ?>" height="40" width="400" >
                 </div>
             </div>
             <div class="body0">
