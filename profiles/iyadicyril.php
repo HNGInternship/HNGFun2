@@ -1,7 +1,10 @@
+
+
 <?php 
 	
 	if(!defined('DB_USER')){
-		require "/config.example.php";		
+		require "/config.example.php";	
+	   // include "/header.php";
 		try {
 			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 		} catch (PDOException $pe) {
@@ -155,15 +158,15 @@
   else {
 ?>
 
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
- <html xmlns="http://www.w3.org/1999/xhtml">
+ <html xmlns="https://www.w3.org/1999/xhtml">
  <head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
  <title>Iyadi Cyril</title>
  <meta name="keywords" content="">
  <meta name="description" content="">
- <link href="http://fonts.googleapis.com/css?family=Englebert|Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+ <link href="https://fonts.googleapis.com/css?family=Englebert|Open+Sans:400,600,700" rel="stylesheet" type="text/css">
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
  <!--[if IE 6]>
  <link href="default_ie6.css" rel="stylesheet" type="text/css" />
@@ -271,7 +274,8 @@ hr{
 .container
 {
 	width: 380px;
-	margin: 0px auto;	
+	margin: 0px auto;
+	height: 950px;	
 }
 
 .clearfix
@@ -517,7 +521,7 @@ hr{
 }
 
 </style>
-<div id="header" class="container">
+<div id="header" class="container" style="height:100px">
 	<div id="logo">
 		<h1><a href="#">@IyadiCyril</a></h1>
 	</div>	
@@ -531,7 +535,7 @@ hr{
 </div>
 
  <!--Andy Bot-->
- <div class="col-md-4 offset-md-1 chat-frame" style="width:350px;height:457px">
+ <div class=" " style="width:350px;height:457px">
 			<h2 class="text-center"><u>CHATBOT</u></h2>
 			<div class="row chat-messages" id="chat-messages">
 				<div class="col-md-12" id="message-frame">
@@ -560,8 +564,8 @@ hr{
 					<div class="col-md-12 col-sm-12 col-12">
 						<input class="form-control w-100" type="text" name="question" placeholder="Enter your message" />
 					</div>
-					<div class="col-md-12 col-sm-12 col-12" style="margin-top: 20px">
-						<button type="submit" class="btn btn-info float-right w-100" style="width:70px;border-left-width:0px;border-right-width:0px;padding-left:10px;padding-right:10px;margin-left:90px;margin-right:90px">DM</button>
+					<div class=" " style="margin-top: 20px; width:350px;">
+						<button type="submit" class="btn btn-info" style="width:70px;border-left-width:0px;border-right-width:0px;padding-left:10px;padding-right:10px;margin-left:140px;margin-right:140px">DM</button>
 					</div>
 				</form>	
 			</div>
