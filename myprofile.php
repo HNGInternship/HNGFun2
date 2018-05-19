@@ -39,7 +39,7 @@ include_once("dashboard-header.php");
  .l-col{
       
      }
- table{border:none;}
+ table,td,tr{border:0px;}
 </style>
 </head>
  <body>
