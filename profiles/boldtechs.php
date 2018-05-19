@@ -147,15 +147,15 @@ return "Am sorry, this question wasn't found,Please ENTER TRAIN:QUESTION#ANSWER#
         }
         .chatbox {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 600px;
+            max-width: 400px;
             margin: auto;
             text-align: center;
             font-family: Ebrima;
             float: right;
-            background-color: grey;
+            background-color: #2fb2af;
         }
         .title {
-            color: grey;
+            color: #ffffff;
             font-size: 18px;
         }
         button {
