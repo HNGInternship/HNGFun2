@@ -94,19 +94,13 @@ return ;
 ?>
 <<<<<<< HEAD
 
+
 <!DOCTYPE html>
 <html>
 <head>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
      <title>HNG Internship 4.0 | Takuro Gbemisola</title>
      <meta name="description" content="HNG Internship 4.0 Profile Page for Miss Takuro Gbemisola">
-     <link href='https://fonts.googleapis.com/css?family=Alegreya|Allura|Almendra SC|Romanesco|Source+Sans+Pro:400,700' rel='stylesheet'>
-     <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-=======
-<!DOCTYPE html>
-<html>
-<head>
     <link href='https://fonts.googleapis.com/css?family=Alegreya|Allura|Almendra SC|Romanesco|Source+Sans+Pro:400,700' rel='stylesheet'>
     <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
