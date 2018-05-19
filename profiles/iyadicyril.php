@@ -1,8 +1,8 @@
 <?php 
-	
+	 require_once "/header.php";
 	if(!defined('DB_USER')){
 		require "/config.example.php";	
-	   // include "/header.php";
+	   
 		try {
 			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 		} catch (PDOException $pe) {
@@ -561,8 +561,8 @@ hr{
 <script>	
 	$(document).ready(function(){
 		var questionForm = $('#question-form');
-		questionForm.submit(function(e){
-			e.preventDefault();
+		questionForm.submit(function(event){
+			event.preventDefault();
 			var questionBox = $('input[name=question]');
 			var question = questionBox.val();
 			//var question = $('#question-form').val();
@@ -579,7 +579,7 @@ hr{
 			$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
 			//send question to server
 			$.ajax({
-				url: "profiles/iyadicyril.php",
+				url: "profile/iyadicyril.php",
 				type: "post",
 				data: {question: question},
 				dataType: "json",
