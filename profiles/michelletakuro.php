@@ -246,7 +246,7 @@ return ;
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
                     data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
                     </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='https://res.cloudinary.com/uuujuuu/image/upload/v1526014279/IMG_06.jpg'" src="<?=$my_data['image_filename'] ?>" >
+                    <img class="img-fluid "  src="<?=$my_data['image_filename'] ?>" height="300" width="350" >
                 </div>
             </div>
             <div class="body0">
@@ -284,10 +284,10 @@ return ;
 
                 <div class="chat-input">
                         <input type="text" name="user-input" id="user-input" class="user-input" placeholder="Say something here">
-                        
+                        <button onclick="chat()" class="send_button" id="send">Send</button>
                 </div>
             
-                    <button onclick="chat()" class="send_button" id="send">Send</button>
+
             </div>
         </div>
     </div>
