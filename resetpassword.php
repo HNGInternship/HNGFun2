@@ -61,7 +61,7 @@ include_once("header.php");
             if(data=="1"){
              
              $("#notif").addClass('alert alert-success');
-            $("#notif").html("Password reset successful!");
+            $("#notif").html("Success! Please click on the link in the email to set a new password. ");
 
             $("#reset").html('DONE');      
             }
