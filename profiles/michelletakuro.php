@@ -1,10 +1,50 @@
 <?php
+
+
+
 	if(!defined('DB_USER')){
-		require "../../config.php";
+		require "../config.php";
 	}
-$conn = new PDO("mysql:host=".DB_HOST."; dbname=".DB_DATABASE, DB_USER, DB_PASSWORD);
+	try {
+		//print_r($_POST);
+		$conn = new PDO("mysql:host=".DB_HOST."; dbname=".DB_DATABASE, DB_USER, DB_PASSWORD);
 		// set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		$stmt = $conn->prepare("select * from secret_word limit 1");
+		$stmt->execute();
+
+		$secret_word = null;
+
+		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$rows = $stmt->fetchAll();
+		if(count($rows)>0){
+			$row = $rows[0];
+			$secret_word = $row['secret_word'];
+		}
+
+
+		$name = null;
+		$username = "michelletakuro";
+		$image_filename = null;
+
+		$stmt = $conn->prepare("select * from interns_data where username = :username");
+		$stmt->bindParam(':username', $username);
+		$stmt->execute();
+
+		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$rows = $stmt->fetchAll();
+		if(count($rows)>0){
+			$row = $rows[0];
+			$name = $row['name'];
+			$image_filename = $row['image_filename'];
+		}
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Connection failed: " . $e->getMessage();
+	}
 	  /**
  *  functions to define
  *  -- check question
@@ -121,8 +161,10 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
             $random_index = rand(0, count($rows)-1);
             $randomRow = $rows[$random_index];
-           return $randomRow['answer'];;
-			} else {
+            //var_dump($randomRow);
+            //die();
+            return $randomRow['answer'];
+		} else {
 				return "I am afraid I do not have the answer to your question but you can however train me using the following format <strong>train: question # answer # password</strong>";
 		
         }
@@ -154,6 +196,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
      //Bot Brain
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        ("Content-Type:application/json");
         //require "../answers.php";
         if(isset($_POST['question'])){
 			$question = trim($_POST['question']);
@@ -172,7 +215,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				exit;
 			}
 
-             //check if the question is "help" in which case return infoon help
+             //check if the question is "help" in which case return info on help
             elseif ($question == "#help"){
 				echo json_encode([
 					'status'=>1,
@@ -180,7 +223,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 ]);
                 exit;
 			}
-             //check if the question is "help" in which case return infoon help
+             //check if the question is "help" in which case return info on help
             elseif ($question == "#questions"){
 				echo json_encode([
 					'status'=>1,
@@ -208,6 +251,8 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 exit;
             }
 			else{
+                //var_dump(getAnswer($_POST['question'], $conn));
+                //die();
 				echo json_encode([
                     'status' => 1,
                     'answer' => getAnswer($_POST['question'], $conn)
@@ -218,45 +263,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		exit;
 		}
 		exit;
-	}
-	else{
-	try {
-		//print_r($_POST);
-
-		$stmt = $conn->prepare("select * from secret_word limit 1");
-		$stmt->execute();
-
-		$secret_word = null;
-
-		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$rows = $stmt->fetchAll();
-		if(count($rows)>0){
-			$row = $rows[0];
-			$secret_word = $row['secret_word'];
-		}
-
-
-		$name = null;
-		$username = "michelletakuro";
-		$image_filename = null;
-
-		$stmt = $conn->prepare("select * from interns_data where username = :username");
-		$stmt->bindParam(':username', $username);
-		$stmt->execute();
-
-		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$rows = $stmt->fetchAll();
-		if(count($rows)>0){
-			$row = $rows[0];
-			$name = $row['name'];
-			$image_filename = $row['image_filename'];
-		}
-
-	}
-	catch(PDOException $e)
-	{
-		echo "Connection failed: " . $e->getMessage();
-	}
+    }
 ?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -307,22 +314,28 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				console.log(question)
                 if(question !== "")
 				$.ajax({
-                    url: 'profiles/michelletakuro.php',
+                    url: 'profiles/michelletakuro',
                     type: 'POST',
                     data: {question: question},
                     dataType: 'json',
+                    /*complete: function(XHR, status) {
+                        console.log(XHR)
+                        console.log(status)
+                    }*/
 					success:function(response){
-                    $(".chatbox__body__message--right").append("<div id='cyclo'><img src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'><p>" + response.answer + "</p></div>");
+                        $(".chatbox__body").append(`<div class='chatbox__body__message chatbox__body__message--right'><div id='cyclo'><img src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'><p>${response.answer}</p></div></div>`);
+                    //$(".chatbox__body__message--right").append("<div id='cyclo'><img src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'><p>" + response.answer + "</p></div>");
 					$('.chatbox__body').scrollTop($('.chatbox__body')[0].scrollHeight);
 					$("#texts").empty();
 					   // console.log(response.result);
 						//alert(response.result.d);
 						//alert(answer.result);
+                        console.log(response[0])
 					},
 					error: function(error){
                         //console.log(error);
                         alert(JSON.stringify(error));
-                }
+                        }
 				});         
 				else
 					$(".chatbox__body__message--right").append("<div id='cyclo'><img src='http://res.cloudinary.com/michelletakuro/image/upload/v1526025467/DSC_0491.jpg'><p>Type a Question</p></div>");
@@ -903,5 +916,3 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     </body>
 </html>
-<?php 
-	}?>
