@@ -40,10 +40,10 @@ include_once("dashboard-header.php");
       color:#888888;
      }
  .b_infor {font-weight:bold;}
- .b_info_grid table,td,tr{
+ .b_info_grid table,tr,td{
             border:2px solid white;
             text-align:left;
-            padding:0px; matgin:0px;}
+            padding:0px; margin:0px;}
  .name, .b_info_grid{margin:0px; padding-top:0px; padding-bottom:0px;}
 </style>
  <title>HNG FUN Profile</title>
@@ -63,7 +63,7 @@ include_once("dashboard-header.php");
      <div class ="col-md-7 info">
        <div class="name col-md-12">
           <h4 style ="text-align:left">Oganji Ernest Paul (Epospiky)</h4>
-          <p style="color:#888888; text-align:left; font-size:12px; padding:0px" >Boston, Mars</p>
+          <p style="color:#888888; margin:0px; text-align:left; font-size:12px; padding:0px" >Boston, Mars</p>
           <hr style="padding:0px; color:#888">
        </div>
        <div class="b_info_grid col-md-12">
