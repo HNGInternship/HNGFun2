@@ -1,5 +1,16 @@
 <?php
 
+include_once("../answers.php"); 
+
+if(!defined('DB_USER')){
+     require "../../config.php";
+     try {
+         $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+     } catch (PDOException $pe) {
+         die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+     }
+   }
+
 try {
     $sql = 'SELECT * FROM secret_word LIMIT 1';
     $q = $conn->query($sql);
@@ -24,6 +35,83 @@ try {
 
     throw $e;
 }
+
+global $pass;
+  $pass = "password";
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
+  
+  function botAnswer($message){
+    $botAnswer = '<div class="chat bot chat-message">
+          <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526227579/Profile.jpg" alt="" width="32" height="32">
+          <div class="chat-message-content clearfix">
+            <p>' . $message . '</p>';
+      return $botAnswer;
+  }
+
+
+  function train($dbcon, $data){
+    $trainCheck = $dbcon->prepare("SELECT * FROM chatbot WHERE question LIKE :question and answer LIKE :answer");
+    $trainCheck->bindParam(':question', $data['question']);
+    $trainCheck->bindParam(':answer', $data['answer']);
+    $trainCheck->execute();
+    $result = $trainCheck->fetch(PDO::FETCH_ASSOC);
+    $rows = $trainCheck->rowCount();
+      if($rows === 0){
+      $trainQuery = $dbcon->prepare("INSERT INTO chatbot (id, question, answer) VALUES(null, :q, :a)");
+      $trainQuery->bindParam(':q', $data['question']);
+      $trainQuery->bindParam(':a', $data['answer']);
+      $trainQuery->execute();
+      $bot = botAnswer("Thanks for helping me get better.");
+
+    }elseif($rows !== 0){
+      $bot = botAnswer("I know this already. Please, ask me a different question or teach me something new.");
+    }
+    echo $bot;
+  }
+  
+    
+  
+    $userInput = strtolower(trim($_POST['question']));
+    if(isset($userInput)){
+      $user = $userInput;
+       //array_push($_SESSION['chat-log'] , $user);
+    }
+    
+    if(strpos($userInput , 'train:') ===0){
+      list($t, $r ) = explode(":", $userInput);
+      list($trainquestion, $trainanswer, $trainpassword) = explode("#", $r);
+      $data['question'] = $trainquestion;
+      $data['answer'] = $trainanswer;
+      if($trainpassword === $pass){
+        $bot = train($conn, $data);
+        //array_push($_SESSION['chat-log'] , $bot);
+      }else{
+        $bot = botAnswer("You have entered a wrong password. Please verify your password and try again!");
+        //array_push($_SESSION['chat-log'] , $bot);
+      }
+      
+    }elseif($userInput === 'about' || $userInput === 'aboutbot'){
+      $bot = botAnswer("JEDiBot Version 1.0");
+        //array_push($_SESSION['chat-log'] , $bot);
+    }else{
+       $userInputQuery = $conn->query("SELECT * FROM chatbot WHERE question like '".$userInput."' ");
+         $userInputs = $userInputQuery->fetchAll(PDO::FETCH_ASSOC);
+        $userInputRows = $userInputQuery->rowCount();
+         if($userInputRows == 0){
+          $bot = botAnswer("I am unable to respond to your query at the moment. But you can train me to answer this particular question. Use the format train: question #answer #password");
+         // array_push($_SESSION['chat-log'] , $bot);
+
+         }else{
+          $botAnswer = $userInputs[rand(0, count($userInputs)-1)]['answer'];
+          $bot = botAnswer($botAnswer);
+          //array_push($_SESSION['chat-log'] , botAnswer($botAnswer));
+         }
+      }
+      echo $bot;
+
+      exit();
+     }
 
 ?>
 
@@ -229,6 +317,14 @@ body.fullsingle p {
 
     }
 
+    #chat-box header {
+      background: #293239;
+      border-radius: 4px 4px 0 0;
+      color: #fff;
+      cursor: pointer;
+      padding: 16px 24px;
+    }
+
     #chat-box h4, #chat-box h5{
       line-height: 1.5em;
       margin: 0;
@@ -288,14 +384,14 @@ body.fullsingle p {
       float: left;
     }
     .bot .chat-message-content{
-      margin-left: 36px;
-      border-radius: 0 14px 14px 14px;
+      margin-left: 40px;
+      border-radius:0  10px 10px 10px;
       background: #e4e4e4;
       padding: 10px 10px;
     }
     .user .chat-message-content{
-      margin-right: 36px;
-      border-radius: 14px 0 14px 14px;
+      margin-right: 40px;
+      border-radius: 0px 10px 10px 10px;
       background: #e4e4e4;
       padding: 10px 10px;
     }
@@ -369,13 +465,10 @@ body.fullsingle p {
 
 			  </div>
 
-        <input type="button" id="btn" name="mybtn" value="Let's Chat" style=" color: white; font-size: 20px; width: 24%; padding: 12px 20px; margin: 16px 0; box-sizing: border-box; cursor: pointer; background-color: #47bec7; border:none" onclick="change();"></input>
 
-        <br>
-        <br>
 
 			  <div class="lists">
-
+				
 				<div class="list">
 					<h3><a href="https://web.facebook.com/jeddyel">
           <i class="fa fa-facebook iconn"></i>
@@ -420,20 +513,28 @@ body.fullsingle p {
 </div>
 
 <div id="chat-box"> 
+  <header class="clearfix" onclick="change()">
+      <h4>JEDiBot</h4>
+    </header>
     <div class="chat hide" id="chat">
       <div class="chatlogs" id="chatlogs">
+      
         <div class="chat bot chat-message">
           <img src="https://res.cloudinary.com/cupidy28/image/upload/v1526227579/Profile.jpg" alt="" width="32" height="32">
           <div class="chat-message-content clearfix">
-            <p>Hello. <br> I'm <span style="color: #2196F3;">JEDiBot</span>, here to help you.</p>
+            <p>Hello. 
+            <br> I'm <span style="color: #47bec7;">JEDiBot</span>, here to help you. 
+            <br> You can ask me any question, and I'll do my best to answer. You can also train me to answer specific questions
+            using the format train: question # answer # password.
             <br>
-            <p>You can ask me any question, and I'll do my best to answer. You can also train me to answer specific questions
-            using the format train: question # answer # password.</p>
-            <span class="chat-time"> </span>
+            (NOTE: Password:"password")
+            </p>
+            <span class="chat-time"></span>
           </div> 
-        </div>
-
+        </div>    
+         
         <div id="chat-content"></div>
+        
       </div> 
       <!-- end chat-history -->
 
