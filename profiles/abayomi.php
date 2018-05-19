@@ -565,7 +565,7 @@ class DBHelper{
                 }
             });
 //        };
-
+        
         $('#message_chat_form').submit(function (e) {
             e.preventDefault();
             chat.messageChat();
