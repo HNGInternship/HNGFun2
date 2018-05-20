@@ -16,7 +16,7 @@ $links = 8;
 $paginator = new Paginator( $mysqli, $query ); //__constructor is called
 $results = $paginator->getData( $limit, $page );
 ?>
-
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <style>
   h2 {
     font-family: 'work sans';
@@ -47,6 +47,7 @@ $results = $paginator->getData( $limit, $page );
    #caption{
      text-align:center;
    }*/
+   
 </style>
 <main class="container mt-5 mb-5 px-5">
   <h2>Our Interns</h2>
@@ -75,7 +76,7 @@ $results = $paginator->getData( $limit, $page );
 <br>
       
         
-        <?php echo $paginator->createLinks( $links, 'pagination ' );?>
+        <?php echo $paginator->createLinks( $links, 'pagination pagination-sm' );?>
         
     </nav>
     

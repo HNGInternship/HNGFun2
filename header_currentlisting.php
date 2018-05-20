@@ -38,7 +38,7 @@ $activeArray[$fileIndex]="active";
 
     <!-- Bootstrap core CSS -->
       <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
-	  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  
 
 
 
