@@ -103,7 +103,7 @@ if(!isset($_GET['id'])){
    </div>
    <div class="tag2">
         <?= $user->name; ?> <?= $user->username; ?></h1>
-      <br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>.
       <div class="row">
       <div class="col-md-4"><span class="det">BOOTSTRAP</span></div>
             	<div class="col-md-4"><span class="det">CodeIgniter</span> </div>
