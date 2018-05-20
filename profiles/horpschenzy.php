@@ -26,8 +26,7 @@ background-color: #badacc;
 
 .con {
    border: 1px solid #DDDDDD;
-   width: 95%px;
-   height: 400px;
+   width: 100;
    position: relative;
 
 }
@@ -47,6 +46,7 @@ background-color: #badacc;
    position: absolute;  
    left: 600px;
    top: 450px;
+   height:500px;
    z-index: 1000;
    font-weight: 300;
     font-size:28px;
@@ -65,13 +65,13 @@ background-color: #badacc;
 	color:  blue;
 	font-size: 30px;
 	font-weight: 700px;
-    padding: 10px;
-    border-style: solid;
-    border-color: #111;
-    border-radius:23px;
+    padding: 10px;    
     width: 95px;
     
 
+}
+    footer{
+    top: 750px;
 }
     </style>
 </head>
@@ -104,7 +104,7 @@ if(!isset($_GET['id'])){
    </div>
    <div class="tag2">
         <?= $user->name; ?> <?= $user->username; ?></h1>
-      <br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>.
       <div class="row">
       <div class="col-md-4"><span class="det">BOOTSTRAP</span></div>
             	<div class="col-md-4"><span class="det">CodeIgniter</span> </div>
@@ -121,6 +121,8 @@ if(!isset($_GET['id'])){
    </div>
 
    <img align="left"  src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg " alt=""height="400px" width="100%"/>
+   <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+  
 </div>
 
 </div>
