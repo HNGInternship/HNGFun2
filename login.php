@@ -2,8 +2,8 @@
 
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
-    <h1 class="pt-5">Log In</h1>
-    <p style="font-size: 0.7em !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
+    <h1 class="pt-5" style="font-size:2.0em">Log In</h1>
+    <p style="font-size: 1.0em !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
 </div>
 
 <div class="container" style='color: #3D3D3D'>
@@ -27,20 +27,20 @@
                     
                     <div class="custom-control custom-checkbox pl-0 ml-0 pb-2 text-justify">
                         <input type="checkbox" value="remember-me">
-                        <label class="form-check-label" style="font-size:0.7em;">Remember Me</label>
+                        <label class="form-check-label" style="font-size:1.0em;">Remember Me</label>
                     </div>
                     
-                    <button class="btn btn-primary btn-block" id="login" type="submit">Log In</button> 
+                    <button class="btn btn-primary btn-block" id="login" type="submit" style="font-size:16px">Log In</button> 
                 <input type="hidden" name="login" value="yes">
 
                 
                 </form>
                 <div class="pt-0 mt-0 text-justify pl-3"> 
                     <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="15px" width="auto"/>
-                    <span style="font-size: 0.7em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
+                    <span style="font-size: 0.9em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
                 </div>
 
-                <div style="font-size: 0.7em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
+                <div style="font-size: 1.0em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
             </div>
         </div> 
         
