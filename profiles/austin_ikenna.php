@@ -354,14 +354,14 @@ header h4{
 					<div class="chat-message-content clearfix">
 						<p>` + chats + `</p>
 						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
-					 </div>
-				</div>`;
+
 			}
 			chatContent.innerHTML += chat;
 		     
 		    setTimeout(function() {
 			    chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
-				
+					</div> 
+				</div>`;
 				document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight;	
 			}, 1000);
 		}
