@@ -1,5 +1,7 @@
 <?php
 
+include_once("../answers.php"); 
+
 if(!defined('DB_USER')){
      require "../../config.php";
      try {
@@ -20,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	
 	function botAnswer($message){
 		$botAnswer = '<div class="chat bot chat-message">
-					<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
 					<div class="chat-message-content clearfix">
 						<p>' . $message . '</p>';
 			return $botAnswer;
@@ -39,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			$trainQuery->bindParam(':q', $data['question']);
 			$trainQuery->bindParam(':a', $data['answer']);
 			$trainQuery->execute();
-			$bot = botAnswer("Thanks for helping!.");
+			$bot = botAnswer("Thanks for helping me be better.");
 
 		}elseif($rows !== 0){
 			$bot = botAnswer("I already know how to do that. You can ask me a new question, or teach me something else. Remember, the format is train: question # answer # password");
@@ -354,7 +356,8 @@ header h4{
 					<div class="chat-message-content clearfix">
 						<p>` + chats + `</p>
 						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
-
+					 </div>
+				</div>`;
 			}
 			chatContent.innerHTML += chat;
 		     
