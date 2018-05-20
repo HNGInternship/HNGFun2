@@ -150,10 +150,10 @@ $activeArray[$fileIndex]="active";
 		  <a class="nav-link" href="#"><strong>Buy HNGcoin</strong><span class="sr-only"></span></a>
           </li>
           <li class="nav-item <?= $activeArray[1] ?>">
-            <a class="nav-link" href="buyandsell.php">Sell HNGcoin</a>
+		  <a class="nav-link" href="buyandsell.php"><strong>Sell HNGcoin</strong></a>
           </li>
           <li class="nav-item <?= $activeArray[2] ?>" > 
-            <a class="nav-link" href="help.php">Help</a>
+		  <a class="nav-link" href="help.php"><strong>Help</strong></a>
           </li>
         </ul>
         <!-- <form class="form-inline my-2 my-lg-0">
