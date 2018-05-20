@@ -33,7 +33,7 @@ include_once("dashboard-header.php");
  table, tr, td{padding:0px;}
  .dp,.row, .info, .b_info_grid,.name {border:none;}
  .dp img{
-     width:200px;
+     width:100%;
      border-radius:50%;
     }
  .l-col{
