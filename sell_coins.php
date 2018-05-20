@@ -36,7 +36,7 @@ main{
     /*margin-right: 10%;
     margin-left: 10%;*/
     padding-bottom: 3.1%;
- box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+ box-shadow: none;
  
 }
 .input-form{
