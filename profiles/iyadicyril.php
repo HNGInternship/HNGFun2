@@ -686,7 +686,7 @@ hr{
 				        }
 		    		};
 
-		    		    xhttp.open("POST", "/profiles/iyadicyril.php", true);
+		    		    xhttp.open("POST", "/profiles/iyadicyril", true);
 						xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 						xhttp.send("question="+messageToBot);
 				}
