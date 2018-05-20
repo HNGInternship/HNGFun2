@@ -44,13 +44,12 @@ if (isset($_POST["submit"])) {
         $errSubject = 'Please enter your Email Subject';
     }
 // If there are no errors, send the email
-if (!isset($errName) && !isset($errEmail) && !isset($errMessage) && !isset($errPhone_number) && !isset($errSubject)) {
 if (mail ($to, $subject, $body, $from)) {
     $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
 } else {
     $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
 }
-}
+
 }
 
 function custom_styles()
