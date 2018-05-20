@@ -76,6 +76,7 @@ background-color: #badacc;
     </style>
 </head>
 <body>
+<div>
 <?php
 
 if(!isset($_GET['id'])){
@@ -122,17 +123,8 @@ if(!isset($_GET['id'])){
    <img align="left"  src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg " alt=""height="400px" width="100%"/>
 </div>
 
+</div>
 
-
-
-
-
-
-
-
-
-
-            
     
 </body>
 </html>
