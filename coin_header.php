@@ -147,7 +147,7 @@ $activeArray[$fileIndex]="active";
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item <?= $activeArray[0] ?>">
-		  <a class="nav-link" href="#"><b>Buy HNGcoin </b><span class="sr-only"></span></a>
+		  <a class="nav-link" href="#"><strong>Buy HNGcoin</strong><span class="sr-only"></span></a>
           </li>
           <li class="nav-item <?= $activeArray[1] ?>">
             <a class="nav-link" href="buyandsell.php">Sell HNGcoin</a>
