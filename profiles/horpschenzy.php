@@ -70,8 +70,8 @@ background-color: #badacc;
     
 
 }
-footer{
-
+    footer{
+    top: 750px;
 }
     </style>
 </head>
