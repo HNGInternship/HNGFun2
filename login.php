@@ -30,7 +30,7 @@
                         <label class="form-check-label" style="font-size:0.7em;">Remember Me</label>
                     </div>
                     
-                    <button class="btn btn-primary btn-block" id="login" type="submit" style="font-size:16px">Log In</button> 
+                    <button class="btn btn-primary btn-block" id="login" type="submit" style="font-size:1.0em">Log In</button> 
                 <input type="hidden" name="login" value="yes">
 
                 
