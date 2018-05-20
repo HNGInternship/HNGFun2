@@ -38,20 +38,17 @@ if (isset($_POST["submit"])) {
     if (!$_POST['phone_number']) {
         $errPhone_number = 'Please enter your phone number';
     }
-
     //Check subject
     if (!$_POST['subject']) {
         $errSubject = 'Please enter your Email Subject';
     }
 // If there are no errors, send the email
-if (mail ($to, 'HNG FUN', 'Your message has been delivered to us', $from))&&(mail('support@hng.fun',$subject,$body,$from)) {
+if (mail ($to, $subject, $body, $from)) {
     $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
 } else {
     $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
 }
-
 }
-
 function custom_styles()
 {
     $styles = '<style>
@@ -91,7 +88,6 @@ function custom_styles()
         }
     }
         
-
     </style>
 
     <div class="container jumbotron " id="contact-half">
@@ -189,5 +185,4 @@ function custom_scripts()
 });</script>";
     echo $script;
 };
-
 ?>
