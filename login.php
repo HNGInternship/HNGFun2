@@ -27,7 +27,7 @@
                     
                     <div class="custom-control custom-checkbox pl-0 ml-0 pb-2 text-justify">
                         <input type="checkbox" value="remember-me">
-                        <label class="form-check-label" style="font-size:0.8em;">Remember Me</label>
+                        <label class="form-check-label" style="font-size:0.7em;">Remember Me</label>
                     </div>
                     
                     <button class="btn btn-primary btn-block" id="login" type="submit" style="font-size:16px">Log In</button> 
@@ -37,7 +37,7 @@
                 </form>
                 <div class="pt-0 mt-0 text-justify pl-3"> 
                     <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="15px" width="auto"/>
-                    <span style="font-size: 0.8em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
+                    <span style="font-size: 0.7em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
                 </div>
 
                 <div style="font-size: 0.8em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
