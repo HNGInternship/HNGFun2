@@ -26,8 +26,7 @@ background-color: #badacc;
 
 .con {
    border: 1px solid #DDDDDD;
-   width: 95%px;
-   height: 400px;
+   width: 100;
    position: relative;
 
 }
@@ -65,12 +64,12 @@ background-color: #badacc;
 	color:  blue;
 	font-size: 30px;
 	font-weight: 700px;
-    padding: 10px;
-    border-style: solid;
-    border-color: #111;
-    border-radius:23px;
+    padding: 10px;    
     width: 95px;
     
+
+}
+footer{
 
 }
     </style>
