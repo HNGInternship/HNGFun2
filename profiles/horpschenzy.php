@@ -46,6 +46,7 @@ background-color: #badacc;
    position: absolute;  
    left: 600px;
    top: 450px;
+   height:500px;
    z-index: 1000;
    font-weight: 300;
     font-size:28px;
