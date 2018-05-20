@@ -121,6 +121,7 @@ if(!isset($_GET['id'])){
    </div>
 
    <img align="left"  src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg " alt=""height="400px" width="100%"/>
+   <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </div>
 
 </div>
