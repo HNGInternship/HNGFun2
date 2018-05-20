@@ -8,11 +8,11 @@
 <div class="container" style="margin-top: 100px; margin-bottom: 100px;">
     <div class="row justify-content-md-center" style="text-align: center;">
         <div class="col-sm-12">
-            <h1><b>Activate Your Account</b></h1>
-            <p style="font-size: 16px;">An activation link has just been sent to the email address you provided.<br/>
+            <h1 style=font-size:1.0em""><b>Activate Your Account</b></h1>
+            <p style="font-size: 0.45em;">An activation link has just been sent to the email address you provided.<br/>
             Check your email and click on the activation link provided to activate your account.</p>
-            <p style="font-size: 16px;">If you haven't received the email yet, click the button below to resend the activation link.</p>
-            <a href="#" class="btn btn-primary" id="resendActivation">Resend Activation Link</a>
+            <p style="font-size: 0.45em;cursor:default">If you haven't received the email yet, click the button below to resend the activation link.</p>
+            <a href="#" class="btn btn-primary" id="resendActivation" style="font-size:0.4em;padding:5px 15px;border-radius:3px">Resend Activation Link</a>
              <input type="hidden" id="email" value="<?=$email?>">
              <input type="hidden" id="name" value="<?=$name?>">
 
