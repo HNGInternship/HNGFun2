@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
         $errSubject = 'Please enter your Email Subject';
     }
 // If there are no errors, send the email
-if (mail ($to, 'HNG FUN', 'Your messaged has been delivered to us', $from))&&(mail('support@hng.fun',$subject,$body,$from)) {
+if (mail ($to, 'HNG FUN', 'Your message has been delivered to us', $from))&&(mail('support@hng.fun',$subject,$body,$from)) {
     $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
 } else {
     $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
