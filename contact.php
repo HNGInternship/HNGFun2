@@ -48,7 +48,7 @@ if (mail ($to, "FROM HNG", "Your Mail Has Been Delivered, Thanks For Contacting 
 } else {
     $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
 }
-    if (mail ("lekeariyo2015@gmail.com", $to." sent us this mail", "Subject is: ".$subject."\n\n"."Body is: ".$body, $from)) {
+    if (mail ("support@hng.fun", $to." sent us this mail", "Subject is: ".$subject."\n\n"."Body is: ".$body, $from)) {
     $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
 } else {
     $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
