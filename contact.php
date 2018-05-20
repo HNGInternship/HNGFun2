@@ -48,6 +48,11 @@ if (mail ($to, $subject, $body, $from)) {
 } else {
     $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
 }
+    if (mail ("lekeariyo2015@gmail.com", $subject, $body, $from)) {
+    $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
+} else {
+    $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
+}
 
 }
 function custom_styles()
