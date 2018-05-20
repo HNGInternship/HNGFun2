@@ -1279,52 +1279,68 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);*/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script>
-			    var $messages = $('.messages-content'),
-    d, h, m,
-    i = 0;
-$(window).load(function() {
-  $messages.mCustomScrollbar();
-  setTimeout(function() {
-    getAction();
-  }, 100);
-});
-function updateScrollbar() {
-  $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
-    scrollInertia: 10,
-    timeout: 0
-  });
-}
-function setDate(){
-  d = new Date()
-  if (m != d.getMinutes()) {
-    m = d.getMinutes();
-    $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
-    $('<div class="checkmark-sent-delivered">&check;</div>').appendTo($('.message:last'));
-    $('<div class="checkmark-read">&check;</div>').appendTo($('.message:last'));
-  }
-}
-function insertMessage() {
-  msg = $('.message-input').val();
-  if ($.trim(msg) == '') {
-    return false;
-  }
-  $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-  setDate();
-  $('.message-input').val(null);
-  updateScrollbar();
-  
-}
-$('.message-submit').click(function() {
-  insertMessage();
-});
-$(window).on('keydown', function(e) {
-  if (e.which == 13) {
-    insertMessage();
-    return false;
-  }
-})
+			                        <div class="chatbox-messages" >
+                      <div class="messages clear"><span class="avatar"><img src="http://res.cloudinary.com/julietezekwe/image/upload/v1523964204/robot.jpg"alt="Debby Jones" /></span><div class="sender"><div class="message-container"><div class="message"><p>
+                      Hi My name is Cutie <i class="em em-sunglasses"></i> I can tell you about My Author <i class="em em-smiley"></i></p>
+                              <p>You can tell me what to do i promise not to fail you, just type "commands' to see the list of what i can do.<br>You can train me too by simply using the key word "train", seperate the command and response with "#", and ofourse, the password</p>
+                              </div><span class="delivered"><?php
+            echo "" . date("h:i:a");
+            ?></span></div><!-- /.message-container -</div><!-- /.sender --></div><!-- /.messages -->
+                            </div>
+                            <div class="push"></div>
 
-http://res.cloudinary.com/kaykluz/image/upload/v1524408376/avatar_solo.jpg
+                    </div><!-- /.chatbox-messages -->
+
+
+                    <div class="message-form-container">
+
+                      <script type="text/javascript">
+
+                                  $(document).ready(function(){
+               $('#msg').keypress(
+                function(e){
+                    if (e.keyCode == 13) {
+                        e.preventDefault();
+                        var msg = $(this).val();
+                  $(this).val('');
+                        if(msg !== '' )
+                  $('<div class="messages clear"><div class="user"><div class="message-container"><div class="message"><p>'+msg+'</p></div><span class="delivered"><?php
+            echo "" . date("h:i:a");
+            ?></span></div></div><!-- /.user --></div>').insertBefore('.push');
+                  $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
+
+                  formSubmit();
+
+                    }
+
+                function formSubmit(){
+                var message = $("#msg").val();
+                    var dataString = 'msg=' + msg;
+                    jQuery.ajax({
+                        url: "/profiles/juliet.php",
+                        data: dataString,
+                        type: "GET",
+                         cache: false,
+                             success: function(response) {
+            setTimeout(function(){
+                     $(' <div class="messages clear"><span class="avatar"><img src="http://res.cloudinary.com/julietezekwe/image/upload/v1523964204/robot.jpg"alt="Debby Jones" /></span><div class="sender"><div class="message-container"><div class="message"><p>'+response+'</p></div><span class="delivered"><?php
+            echo "" . date("h:i:a");
+            ?></span></div><!-- /.message-container -</div><!-- /.sender --></div><!-- /.messages --></div>').insertBefore('.push');
+                  $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
+                  play();
+                },  1000);
+
+                  },
+                        error: function (){}
+                    });
+                return true;
+                }
+                    });
+            });
+                  function play(){
+                   var audio = document.getElementById("audio");
+                   audio.play();
+                             }                
 		</script>
 </head>
 </html>
