@@ -96,6 +96,7 @@
     }
     tbody > tr:hover {
     	background: #e5e5e5;
+      font-size: 18px;
     }
 
     th{
