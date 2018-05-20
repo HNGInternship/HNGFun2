@@ -106,6 +106,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 h1,h2,h3,h4,h5,h6 {
 	font-family:Lato,'Helvetica Neue',Helvetica, Arial,sans-serif;
 }
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.social {
+	word-spacing: 15px;
+}
 
 .card {
     background-color: #fff;
@@ -143,15 +151,6 @@ h1,h2,h3,h4,h5,h6 {
 .intro {
 	font-size: 100%;
 	margin-top: 22%;
-}
-
-a {
-	text-decoration: none;
-	color: black;
-}
-
-.social {
-	word-spacing: 15px;
 }
 
 /*===========================
@@ -313,59 +312,60 @@ header h4{
 // CHAT BOT MESSENGER////////////////////////
 
 	function change(){
-		document.getElementById("chat").classList.toggle('hide');     
+			document.getElementById("chat").classList.toggle('hide');
+			
     }
-    var btn = document.getElementsByClassName('form-data')[0];
-    var question = document.getElementById("question");
-    var chatLog = document.getElementById("chatlogs");
-    var chatContent = document.getElementById("chat-content");
-    var myTime = new Date().toLocaleTimeString(); 
-    document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
-    document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
-    document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
-    btn.addEventListener("submit", chat);
+     var btn = document.getElementsByClassName('form-data')[0];
+		var question = document.getElementById("question");
+		var chatLog = document.getElementById("chatlogs");
+		var chatContent = document.getElementById("chat-content");
+		var myTime = new Date().toLocaleTimeString(); 
+		document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
+		document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
+		document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
+		btn.addEventListener("submit", chat);
 
 
-    function chat(e){
-        if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
-			var xhttp = new XMLHttpRequest();
-		} else if (window.ActiveXObject) { // IE 6 and older
-			var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-       
-		xhttp.onreadystatechange = function() {
-            if(this.readyState == 4 && this.status == 200) {
-				// console.log(this.response);
-				userChat(question.value, this.response);
-				e.preventDefault();
-				question.value = '';
-            }
-        }
+		function chat(e){
+		    if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+			     var xhttp = new XMLHttpRequest();
+			} else if (window.ActiveXObject) { // IE 6 and older
+			  var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		   
+			xhttp.onreadystatechange = function() {
+	          if(this.readyState == 4 && this.status == 200) {
+	          	// console.log(this.response);
+	          	 userChat(question.value, this.response);
+     			e.preventDefault();
+	            question.value = '';
+	          }
+      	    }
         xhttp.open('POST', 'profiles/Abigail', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('question='+ question.value);
         e.preventDefault();
-    }
-
-    function userChat(chats, reply){
-		if(question.value !== ''){
-			var chat = `<div class="chat user chat-message">
-				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1526549963/users.png" alt="" width="32" height="32">
-				<div class="chat-message-content clearfix">
-					<p>` + chats + `</p>
-					<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
-				</div>
-			</div>`;
 		}
-		chatContent.innerHTML += chat;
-         
-        setTimeout(function() {
-			chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
-				</div> 
-			</div>`;
-			document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight; 
-		}, 1000);
-    }
+
+		function userChat(chats, reply){
+			if(question.value !== ''){
+				var chat = `<div class="chat user chat-message">
+					<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1526549963/users.png" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>` + chats + `</p>
+						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
+					 </div>
+				</div>`;
+			}
+			chatContent.innerHTML += chat;
+		     
+		    setTimeout(function() {
+			    chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
+					</div> 
+				</div>`;
+				document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight;	
+			}, 1000);
+		}
 </script>
 
 </body>
