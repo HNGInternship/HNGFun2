@@ -686,7 +686,7 @@ hr{
 				        }
 		    		};
 
-		    		    xhttp.open("POST", "https://hng.fun/profile?id=iyadicyril", true);
+		    		    xhttp.open("POST", "/profile?id=iyadicyril", true);
 						xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 						xhttp.send("question="+messageToBot);
 				}
