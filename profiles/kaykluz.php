@@ -1160,10 +1160,20 @@ $(window).on('keydown', function(e) {
   }
 })
 var Fake = [
-  "'Hi there, I\'m KluzBot 
-	You can tell me what to do, just type - commands - to see the list of what i can do.
-You can train me too by simply using the key word - train-, seperate the command and response with '#' and ofourse, the password'",
-  
+  'Hi there, I\'m Kaykluz and you?',
+  'Nice to meet you',
+  'How are you?',
+  'Not too bad, thanks',
+  'What do you do?',
+  'That\'s awesome',
+  'Its a great day',
+  'I think you\'re a nice person',
+  'Why do you think that?',
+  'Can you explain?',
+  'Anyway I\'ve gotta go now',
+  'It was a pleasure chat with you',
+  'later friend',
+  'Bye',
   ':)'
 ]
 function fakeMessage() {
