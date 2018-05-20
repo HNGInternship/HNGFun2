@@ -98,6 +98,10 @@
     	background: #e5e5e5;
     }
 
+    tbody{
+      font-size: 16px;
+    }
+
     th{
       font-family: 'Lato', 'work sans';
       font-size: 18px;
