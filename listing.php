@@ -75,7 +75,7 @@ $results = $paginator->getData( $limit, $page );
 <br>
       
         
-        <?php echo $paginator->createLinks( $links, 'pagination pagination-sm' );?>
+        <?php echo $paginator->createLinks( $links, 'pagination ' );?>
         
     </nav>
     
