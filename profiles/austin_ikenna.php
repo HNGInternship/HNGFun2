@@ -99,18 +99,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <meta charset="UTF-8" />
 <title>Austin Ikenna</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link id="css" rel="stylesheet" href="https://static.oracle.com/cdn/jet/v4.2.0/default/css/alta/oj-alta-min.css" type="text/css"/>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <!------ CSS Styling ---------->
 <style>
-body{
-	font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
-}
-
 h1,h2,h3,h4,h5,h6 {
-	font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
-	font-weight:700;
+	font-family:Lato,'Helvetica Neue',Helvetica, Arial,sans-serif;
 }
 
 .card {
@@ -118,8 +114,8 @@ h1,h2,h3,h4,h5,h6 {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 	font-size: 80%;
 	max-width: 400px;
-	height: 520px;
-	margin: 8% auto;
+	height: 530px;
+	margin: 2% auto;
 	padding: 0;
 	border-radius: 0.8em;
 	text-align: center;
@@ -147,13 +143,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .intro {
-	margin-top: 18%;
+	font-size: 100%;
+	margin-top: 22%;
 }
 
 a {
-	cursor:pointer;
 	text-decoration: none;
-	font-size: 22px;
 	color: black;
 }
 
@@ -203,11 +198,12 @@ a {
 	padding: 24px;
 }
 #chat-box input[type="text"] {
+	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 8px;
 	outline: none;
-	width: 230px;
+	width: 210px;
 }
 header h4{
 	color: #fff;
@@ -297,14 +293,7 @@ header h4{
 			<div class="chat bot chat-message">
 				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
 				<div class="chat-message-content clearfix">
-					<p>Ask me anything and if i can't answer train me using the following format "train: question # answer # password"</p>
-					<span class="chat-time"></span>
-				</div> 
-			</div>
-			<div class="chat user chat-message">
-				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1526549963/users.png" alt="" width="32" height="32">
-				<div class="chat-message-content clearfix">
-					<p>How are you?</p>
+					<p>Ask me anything and if i can't answer train me using the following format "train: question #answer #password"</p>
 					<span class="chat-time"></span>
 				</div> 
 			</div>
@@ -314,7 +303,7 @@ header h4{
 		
 		<form action="#" method="post" class="form-data">
 			<fieldset>
-				<input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
+				<input type="text" placeholder="Enter your message…" name="question" id="question" autofocus>
 				<input type="submit" name="bot-interface" value="SEND"/>
 			</fieldset>
 		</form>
