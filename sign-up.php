@@ -83,7 +83,7 @@ include_once("header.php");
 
              <div class="input-block mr-9 pb-2">
             <label class="label">Nationality</label>
-            <select class="form-control" name="nationality" id="nationality" required style="height: 42px;">
+            <select class="form-control" name="nationality" id="nationality" required style="height: 41px;">
                 <option value="">Select Country</option>
               <?php
                   foreach ($countrylist as $key => $country) {
