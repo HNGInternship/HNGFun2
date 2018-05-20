@@ -103,7 +103,7 @@ if(!isset($_GET['id'])){
 
    </div>
    <div class="tag2">
-        <?= $user->name; ?> <?= $user->username; ?></h1> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <?= $user->name; ?> <?= $user->username; ?></h1>
       <br><br>
       <div class="row">
       <div class="col-md-4"><span class="det">BOOTSTRAP</span></div>
@@ -121,6 +121,7 @@ if(!isset($_GET['id'])){
    </div>
 
    <img align="left"  src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg " alt=""height="400px" width="100%"/>
+   <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
   
 </div>
 
