@@ -8,24 +8,24 @@ body{
 
 	background-color: #badacc;
 }
-.container {
+.container2 {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
 @media (min-width: 768px) {
-  .container {
+  .container2 {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container {
+  .container2 {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .container {
+  .container2 {
     width: 1170px;
   }
 }
@@ -137,7 +137,7 @@ if(!isset($_GET['id'])){
    $user = $result2->fetch(PDO::FETCH_OBJ);
 ?>
 
-	<div class="container">
+	<div class="container2">
     <div class="fb-profile row">
         <img align="left" class="fb-image-lg thumbnail" src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg
 " alt=""/>
