@@ -130,6 +130,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:Regular|Lato:regular" rel="stylesheet"> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://hng.fun/js/jquery.min.js"></script>
 
  <style type="text/css">
 
@@ -631,6 +632,10 @@ hr{
 					<div class="col-md-2 col-sm-1"></div>
 				</div>
 		</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://hng.fun/js/jquery.min.js"></script>
+
 <script  type="text/javascript">
   window.addEventListener("keydown", function(e){
 	    		if (e.keyCode == 13){
