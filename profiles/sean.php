@@ -814,7 +814,7 @@ CHATBOT CSS
                     </div>
                 </div>
 
-                <div class="chat-input" style="padding: 20px; border: 1px solid #fff; border-bottom: 0; ">
+                <div class="chat-input" style="padding: 20px; border: 1px solid #fff; border-bottom: 0; background-color: #2d2c41; ">
                         <input type="text" name="user-input" id="user-input" class="user-input" placeholder="Say something here" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 8px; ">
                         <button onclick="chat()" class="send_button" id="send" style="width: 75px; height: 35px; padding: 5px; margin-top: 8px; color: black; border: none; border-radius: 5px; background-color: #1380FA; ">Send</button>
                 </div>
