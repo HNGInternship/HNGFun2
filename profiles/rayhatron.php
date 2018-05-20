@@ -215,7 +215,7 @@ footer{
             $(".rayMessage").val("");
             
             // Send the message via post to this same page along with the previousAnswer
-            $.post("/profile.php?id=rayhatron",
+            $.post("/profile?id=rayhatron",
                 {
                     message: message,
                     previousAnswer: storedPreviousAnswer
