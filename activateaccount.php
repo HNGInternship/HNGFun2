@@ -8,7 +8,7 @@
 <div class="container" style="margin-top: 100px; margin-bottom: 100px;">
     <div class="row justify-content-md-center" style="text-align: center;">
         <div class="col-sm-12">
-            <h1 style=font-size:1.0em""><b>Activate Your Account</b></h1>
+            <h1 style="font-size:1.0em"><b>Activate Your Account</b></h1>
             <p style="font-size: 0.45em;">An activation link has just been sent to the email address you provided.<br/>
             Check your email and click on the activation link provided to activate your account.</p>
             <p style="font-size: 0.45em;cursor:default">If you haven't received the email yet, click the button below to resend the activation link.</p>
