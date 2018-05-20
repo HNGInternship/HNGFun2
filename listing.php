@@ -16,7 +16,7 @@ $links = 8;
 $paginator = new Paginator( $mysqli, $query ); //__constructor is called
 $results = $paginator->getData( $limit, $page );
 ?>
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
   h2 {
     font-family: 'work sans';
