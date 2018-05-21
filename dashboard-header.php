@@ -1,4 +1,5 @@
 <?php
+require_once ("db.php);
 session_start ();
 $username = $_SESSION['user_id'];
 ?>
