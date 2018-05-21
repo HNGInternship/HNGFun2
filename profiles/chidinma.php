@@ -116,8 +116,8 @@
 		.mybot{background-color: #333333;
 			float: right;
 			width: 400px;
-			height: 450px;
-			margin-top: 12rem;
+			height: 500px;
+			margin-top: 10rem;
 
 		}
 
@@ -217,7 +217,7 @@
 					echo  date("d:m:Y | h:ia"); ?> </h5>
                 	</span>
 					<div class = "intro"><p><h4> Hi there!, welcome to Nma’s bot, I can answer<br/>
-					some of your questions but you have to train me first. To train type: the question # the answer # password(tpye "password" as password but without the quote though) </h4></p>
+					To train me, type "train: question # answer # password </h4></p>
 					</div>
 					
 					<div id = "chat_area">
@@ -288,7 +288,7 @@
         };
         xhttp.open("POST", "/profile.php?id=chidinma", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("message="+message.value);
+        xhttp.send("#message="+message.value);
     }
     </script>
 
