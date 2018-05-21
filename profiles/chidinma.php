@@ -13,7 +13,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
          
 
          if(!$conn){
-          die('Unable to connect');
+          {
+                echo json_encode([
+                'results'=> $query->fetch_all()
+                ]);
+                return;
         }
         $question = $_POST['message'];
         $pos = strpos($question, 'train:');
@@ -131,7 +135,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			float: right;
 			width: 400px;
 			height: 500px;
-			margin-top: 7rem;
+			margin-top: 9rem;
 
 		}
 
