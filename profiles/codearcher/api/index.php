@@ -11,7 +11,7 @@ class Bot
     {
 
         if (!defined('DB_USER')) {
-             require("db.php");
+            var_dump(require("/db.php"));
 
             try {
                 $this->conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
