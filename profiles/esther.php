@@ -1,60 +1,99 @@
 <!-- php code -->
 <?php
-error_reporting(0);
-if (empty($_SESSION)) {
-    session_start();
-}
-// if (file_exists('config.php')) {
-//     include 'config.php';
-// }
-// else if (file_exists('../config.php')) {
-//     include '../config.php';
-// }
-// else if (file_exists('../../config.php')) {
-//     include '../../config.php';
-// }
 if(!defined('DB_USER')){
-    require "../config.php";
+    require "../../config.php";
     try {
-        define('DB_CHARSET', 'utf8mb4');
-        $dsn = 'mysql:host='.DB_HOST.';dbname='.DB_DATABASE.';charset='.DB_CHARSET;
-        $opt = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => false
-        ];
-        $conn = new PDO($dsn, DB_USER, DB_PASSWORD, $opt);
+      $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
     } catch (PDOException $pe) {
         die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
     }
 }
-$intern_details_query = $conn->query(
-    "SELECT     interns_data.name,
-                interns_data.username,
-                interns_data.image_filename
-    FROM        interns_data
-    WHERE       interns_data.username = 'esther' LIMIT 1");
-$secret_word_query = $conn->query(
-    "SELECT     secret_word.secret_word
-    FROM        secret_word LIMIT 1");
-$intern_detail = $intern_details_query->fetch();
-$secret_word = $secret_word_query->fetch();
-// Secret Word
-$secret_word = $secret_word['secret_word'];
-// Profile Details
-$name = $intern_detail['name'];
-$username = $intern_detail['username'];
-$filename = $intern_detail['image_filename'];
-$padding = '50px 80px';
-$home_url = '';
-if (!stristr($_SERVER['REQUEST_URI'], 'id')) {
-    $padding = '80px 70px';
-    $home_url = '../';
-}
-?>
+  try {
+      $secret_word_db = $conn->query("SELECT * FROM secret_word LIMIT 1");
+      $secret_word_db = $secret_word_db->fetch(PDO::FETCH_OBJ);
+      $secret_word = $secret_word_db->secret_word;
+      $my_data = $conn->query("SELECT * FROM interns_data WHERE username = 'esther'");
+      $user = $my_data->fetch(PDO::FETCH_OBJ);
+    }
+    catch (PDOException $pe) {
+      die("Could not connect to the database " . $pe->getMessage());
+    }
+  ?>
+  <?php
+    if (isset($_POST['question'])) {
+      function train_bot($data){
+        $question = '';
+        $answer = '';
+        $password = 'password';
+        $response = '';
+        $train_bot_msg = substr($data, 6);
+        $train_bot_msg = preg_replace("([\s]+)", " ", trim($train_bot_msg));
+  		  $train_bot_msg = preg_replace("([?.'])", "", $train_bot_msg);
+        $split_train_msg = explode('#', $train_bot_msg);
+        $split_train_msg_count = count($split_train_msg);
+        if (isset($split_train_msg[0]) && strlen($split_train_msg[0]) > 0) {
+          $question = trim($split_train_msg[0]);
+        }
+        else {
+          echo $response = 'question not set';
+          return;
+        }
+        if(isset($split_train_msg[1]) && strlen($split_train_msg[1]) > 0) {
+          $answer = trim($split_train_msg[1]);
+        }
+        else {
+          echo $response = 'answer not set';
+          return;
+        }
+        if (isset($split_train_msg[2])) {
+          if (trim($split_train_msg[2]) !== $password) {
+            echo $response = 'Invalid password';
+          }
+          else {
+            //echo $response = 'valid pass';
+          }
+        }
+        if ($split_train_msg_count < 1 || $split_train_msg_count > 3) {
+          echo $response = 'Invalid training format';
+        }
+        else {
+          $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+          $sql = "INSERT INTO chatbot (question, answer) VALUES ('$question', '$answer')";
+          $conn->exec($sql);
+          echo 'Training successful. I am now smarter thanks to you!';
+        }
+        return;
+      }
+      function generate_response($data) {
+        $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
+        $query = "SELECT answer FROM chatbot WHERE question LIKE '%$data%' ORDER BY rand() LIMIT 1";
+        $result = $conn->query($query)->fetch_all();
+        if (!$result) {
+          echo 'I am unable to answer your question right now. But you can train me to answer this particular question. Use the format <br><br> train: question #answer #password';
+          return;
+        }
+        echo $result[0][0];
+        return;
+      }
 
-<?php if (empty($_POST['bot_query']) and empty($_POST['bot_train']) and empty($_POST['bot_command'])): ?>
+      $message = $_POST['question'];
+      $is_train = substr($message, 0, 6);
+      if($is_train === 'train:') {
+        train_bot($message);
+      }
+      else {
+        generate_response($message);
+      }
+      return;
+    }
+  ?>
 
+  <!DOCTYPE html>
+  <html>
+      <head>
+          <meta charset="utf-8">
+          <title><?php echo $user->name; ?>'s Profile</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style media="screen">
 #hero{
   background-image:url("https://res.cloudinary.com/esther/image/upload/v1525868384/pattern-3160023_1920.jpg");
@@ -190,6 +229,28 @@ footer {
     transition: box-shadow 0.3s ease;
     -webkit-box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
     box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+}
+.user-message {
+  width: 85%;
+  padding: 15px;
+  margin-top: 10px;
+  margin: 5p 10px 0;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  text-align: justify;;
+  background: #1adda4;
+}
+.bot-message {
+  width: 85%;
+  padding: 15px;
+  margin-top: 10px;
+  margin: 5p 10px 0;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  text-align: justify;
+  background: #1ddced;
 }
 .profile-card header a:hover > img {
     -webkit-box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
@@ -608,7 +669,6 @@ footer {
   .chatbot-menu-header {
     background-color: #007BFF;
     padding: 7px 25px;
-    margin: -8px 0 0 -8px;
     color: #FFFFFF;
     height: 40px;
   }
@@ -620,7 +680,7 @@ footer {
     }
   .fa-close, .fa-question-circle {
     font-size: 23px;
-    padding-left: 85px
+    padding-left: 120px
   }
   .chatbot-menu-header span {
     font-weight: bold;
@@ -681,7 +741,18 @@ footer {
     margin: 5p 10px 0;
     border-radius: 10px;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  .chat .self-message {
+    width: 85%;
+    padding: 15px;
+    margin-top: 10px;
+    margin: 5p 10px 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
     text-align: justify;
   }
 
@@ -689,18 +760,21 @@ footer {
     background: #1adda4;
   }
 
-  .self .chat-message{
+  .self .self-message{
     background: #1ddced;
-    order: -1;
+  }
+
+  .chat p {
+    line-height: 1.2;
   }
 
 
-  .chat-form{
+  #chat-form{
     display: flex;
     align-items: flex-start;
   }
 
-  .chat-form textarea{
+  #chat-form textarea{
     background: #fbfbfb;
     width: 75%;
     height: 43px;
@@ -712,20 +786,20 @@ footer {
     color: #333;
   }
 
-  .chat-form textarea:focus{
+  #chat-form textarea:focus{
     background: #fff;
   }
 
-  .chat-form textarea::-webkit-scrollbar{
+  #chat-form textarea::-webkit-scrollbar{
     width: 10px;
   }
 
-  .chat-form textarea::-webkit-scrollbar-thumb{
+  #chat-form textarea::-webkit-scrollbar-thumb{
     border-radius: 5 px;
     background: rgba(0,0,0,.1);
   }
 
-  .chat-form button{
+  #chat-form button{
     background: #007bff;
     padding: 5px 15px;
     font-size: 20px;
@@ -769,6 +843,9 @@ footer {
 }
 
 </style>
+
+<!-- Profile and Chatbot Interface -->
+<body>
 
 <div id="hero">
     <div class="header">
@@ -830,319 +907,91 @@ footer {
                          <a href="#" class="pull-right chatbot-close"><i class="fa fa-close" id="closechat"></i></a>
                      </div>
         <div class="chatlogs">
-          <p class="general-message">Hi there, I am Esty, a bot created by Kelvin Gobo.</p>
-          <p class="general-message">Am excited to meet you and also to answer your quetions</p>
-          <p class="general-message">Type "about HNG internship" without the quotes to know about the HNG internship</p>
+          <div id="chat-area" class="self chat">
+            <p class="self-message">Hi there, I am Esty.</p>
+            <p class="self-message">Am excited to meet you and also to answer your questions</p>
+            <p class="self-message">Type "about hng internship" without the quotes to know about the HNG internship</p>
           </div>
-          <div class="chat-form">
-            <input type="text" name="chatbot-input" id="" class="form-control" autofocus>
-            <button class="chatbot-send">Send</button>
+        </div>
+          <div id="chat-form">
+            <input type="text" name="chatbot-input" id="chat-send" class="form-control" placeholder="Type your question"autofocus>
+            <button class="chatbot-send" onclick="checkMessage()">Send</button>
           </div>
           </div>
     </div>
   </div>
+
   <!-- Javascript code -->
-  <script>
+     <script>
+     var chatArea = document.getElementById('chat-area');
+
       window.addEventListener('DOMContentLoaded', function() {
-          (function($) {
-              $(document).ready(function() {
-                $( "#chat-trigger" ).click(function() {
-                  $("#chatbot").removeClass("hidden");
+            (function($) {
+                $(document).ready(function() {
+                  $( "#chat-trigger" ).click(function() {
+                    $("#chatbot").removeClass("hidden");
+                  });
+                });
+                $(document).ready(function() {
+                  $( "#closechat" ).click(function() {
+                    $("#chatbot").addClass("hidden");
+                  });
+                });
                 });
               });
-              $(document).ready(function() {
-                $( "#closechat" ).click(function() {
-                  $("#chatbot").addClass("hidden");
-                });
-              });
-              // Chatbot send button handler
-              $(document).on('click', '.chatbot-send', function(e){
-                  e.preventDefault();
-                  bot_query = 'bot_query';
-                  message_string = $('input[name="chatbot-input"]').val();
-                  password = true;
-                  aboutbot = false;
-                  $('input[name="chatbot-input"]').val('');
-                  if (message_string.trim() === '') {
-                      message_string = '';
-                      payload = {'response':'empty', 'message':'Sorry, you cannot send an empty message.'};
-                      $('.chatlogs').append('<div class="chat friend"><div class="user-photo"><img src="https://res.cloudinary.com/esther/image/upload/v1525048014/woman-avatar.png"></div><p class="chat-message">'+payload.message+'</p></div></div>');
-                  }
-                  else {
-                      message_string = message_string.trim();
-                      payload = {'response':'success', 'message':message_string};
-                      $('.chatlogs').append('<div class="chat friend"><div class="user-photo"><img src="https://res.cloudinary.com/esther/image/upload/v1525082494/bald-male-avatar.png"></div><p class="chat-message">'+payload.message+'</p></div></div>');
-                  }
-                  if (message_string.split(':')[0].trim() === 'train') {
-                      bot_query = 'bot_train';
-                      if (!message_string.includes('# password') && !message_string.includes('#password')) {
-                          password = false;
-                          $('.chatbot-menu-content').append('<div class="chat friend"><div class="user-photo"><img src="https://res.cloudinary.com/esther/image/upload/v1525048014/woman-avatar.png"></div><p class="chat-message">credentials are required</p></div></div>');
-                      }
-                      else if (message_string.trim().slice(-8) !== 'password') {
-                          password = false;
-                          $('.chatbot-menu-content').append('<div class="chatbot-message-bot" id="last-message">Sorry, I do not recognize this password, try again.</p></div>');
-                      }
-                      else {
-                          array_words = message_string.trim().split(':');
-                          parse_colon_delimiter = array_words[0].trim() + ': ' + array_words[1].trim();
-                          parse_hash_delimiter = parse_colon_delimiter.split('#');
-                          payload.message = parse_hash_delimiter[0].trim() + ' # ' + parse_hash_delimiter[1].trim();
-                          console.log(payload.message);
-                      }
-                  }
-                  else if (message_string.trim() === 'help') {
-                      help_menu = $('.chatbot-message-bot:first').html();
-                      $('.chatbot-menu-content').append('<div class="chatbot-message-bot" id="last-message">'+help_menu+'</p></div>');
-                  }
-                  else if (message_string.trim() === 'aboutbot') {
-                      aboutbot = true;
-                      version = "<div><p><span class='bot-command'>Locato v1.0</span></p></div> <div><p>Hi! I'm Locato</p><p>I want to help you with find distances between any two locations in Nigeria, eg distance between two addresses or cities, get the duration to move from one location to the other and also show you direction on map.</p></div>";
-                      $('.chatbot-menu-content').append('<div class="chatbot-message-bot" id="last-message">'+version+'</div>');
-                  }
-                  else if (message_string.split(' : ').length === 2 && !message_string.includes('#')) {
-                      bot_query = 'bot_command';
-                  }
-                  if (message_string.slice(0, 6) === 'train:') {
-                      $('.chatbot-message-sender:last').addClass('chatbot-train-message');
-                  }
-                  content_height = $('.chatbot-menu-content').prop('scrollHeight');
-                  $('.chatbot-menu-content').scrollTop(content_height);
-                  url = './profiles/esther.php';
-                  if (location.pathname.includes('esther.php')) {
-                      url = '../profiles/esther.php'
-                  }
-
-                  // Use AJAX to query DB and look for matches to user's query
-                  if(message_string !== '' && message_string.trim() !== 'help' && password && !aboutbot) {
-                      $.ajax({
-                          url: url,
-                          data: bot_query+'='+payload.message,
-                          type: 'POST',
-                          dataType: 'JSON',
-                          beforeSend: function() {
-                              $('.chatbot-menu-content').append('<div class="chatbot-message-bot" id="last-message"><p>Give me some time, it takes some time for me to process...</p></div>');
-                              content_height = $('.chatbot-menu-content').prop('scrollHeight');
-                              $('.chatbot-menu-content').scrollTop(content_height);
-                              $('.chatbot-send').attr('disable');
-                          },
-                          success: function(data){
-                              console.log(data);
-                              $('.chatbot-message-bot:last > p').html(data.message);
-                              if (data.response === 'show_direction') {
-                                  $('.chatbot-message-bot:last > p').html('Click on <a href="'+data.message+'" target="_blank">'+data.message+'</a> to view directions on map');
-                              }
-                              if (data.response === 'training_error') {
-                                  training_menu = $('.training-menu').clone();
-                                  $('.chatbot-message-bot:last').html(data.message);
-                                  $('.chatbot-message-bot:last').append(training_menu);
-                              }
-                              $('.chatbot-send').removeAttr('disable');
-                          }
-                      });
-                  }
-              });
-          })(jQuery);
-      });
-  </script>
-<?php endif; ?>
-<?php
-// Check if there's a POST REQUEST from the bot
-if (!empty($_POST['bot_query']) or !empty($_POST['bot_train']) or !empty($_POST['bot_command'])) {
-    if (empty($conn)) {
-        $response = ['response'=>'connection_error', 'message'=>"Sorry, I could not connect to the database, someone must have crashed it again."];
-        echo json_encode($response);
-        exit;
-    }
-    // Function that parses a given location string and concatenates it with '+'
-    function parseLocation ($location_string) {
-        $parsed_location_string = preg_replace("#[^a-zA-Z0-9/_|+ -]#", '', $location_string);
-        $parsed_location_string = preg_replace("#[/_|+ -]+#", '+', $parsed_location_string);
-        $parsed_location_string = trim($parsed_location_string, '+');
-        return $parsed_location_string;
-    }
-    $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=";
-    $key = "AIzaSyCFtpq466EjoP-RImHD66upJV_OwjWL93k";
-    if ($_POST['bot_query']) {
-        $query_input = $_POST['bot_query'];
-        // Check if query matches a distance request pattern
-        if (preg_match('/(.+)(between|from)(.+)/', $query_input, $matches)) {
-            $question = $matches[1];
-            $question .= $matches[2];
-            $query_input = trim($question);
-        }
-
-        // Search db for question and return a random answer if question exists
-        $check_message_query = $conn->prepare(
-        'SELECT     chatbot.answer,
-                    chatbot.question
-        FROM        chatbot
-        WHERE       chatbot.question LIKE ?
-        ORDER BY    RAND() LIMIT 1');
-        $check_message_query->bindValue(1, "%$query_input%");
-        $check_message_query->execute();
-        $query_result = $check_message_query->fetch();
-        // If query doesn't match any question
-        if ($query_result === false) {
-            $error_messages = ["That seems rather complex, it's quite embarrasing that I can't answer that now. I would like you to train me further, Pleeaaase!!! <br /> <br />", "I used to think I knew it all, but I don't. Could you train me? <br /> <br />", "I don't have an answer to this yet, would you like to can train me, so I have an answer for you next time? <br /> <br />"];
-            $response = ['response'=>'training_error', 'message'=>$error_messages[rand(0, 2)]];
-            echo json_encode($response);
-        }
-        else {
-            // Check if it is a function call
-            if (preg_match('/(.+)\(([A-z_]+)\)/', $query_result['answer'], $matches)) {
-                $unparsed_location = substr($_POST['bot_query'], strlen($query_result['question']));
-                $parsed_location = preg_match('/(.+) (and|to) (.+)/', $unparsed_location, $location_data);
-                // Strip query of unwanted symbols
-                $location1      = parseLocation($location_data[1]);
-                $delimiter      = $location_data[2];
-                $location2      = parseLocation($location_data[3]);
-                $answer         = $matches[1];
-                $function_name  = $matches[2];
-                // Quick fix for duplicate preposition error
-                $array_words = explode(' ', $answer);
-                $words_length = count($array_words);
-                if ($array_words[$words_length - 2] == $array_words[$words_length - 3]) {
-                    array_pop($array_words);
-                    array_pop($array_words);
-                    $answer = trim(implode(' ', $array_words));
-                }
-                $_SESSION['location1'] = $location1."+Nigeria";
-                $_SESSION['location2'] = $location2."+Nigeria";
-
-                if ($parsed_location) {
-                    include './answers.php';
-                    if (function_exists($function_name)) {
-                        $distance = call_user_func($function_name, $key, $url, $location1, $location2);
-                        $response = ['response'=>'christoph_bot', 'message'=>"$answer $location_data[1] $delimiter $location_data[3] : <b>$distance</b>"];
-                        echo json_encode($response);
-                    }
-                    else {
-                        $response = ['response'=>'function_error', 'message'=>'Someone has tampered with my functions, check back in a bit'];
-                        echo json_encode($response);
-                    }
-                }
-                else {
-                    $response = ['response'=>'parse_error', 'message'=>"Sorry, I don't understand that delimiter, very soon I would though. <br /><br /> I'm learning really hard. But till then, you can only use the supported delimiters <span class='bot-command highlight'>and</span> or <span class='bot-command highlight'>to</span> <br /></br> Type <span class='bot-command'>help</span> for more guides."];
-                    echo json_encode($response);
-                }
+           function aboutBot() {
+            renderMessage(`The HNG is a 3-month remote internship program designed
+  to locate the most talented software developers in Nigeria and the whole
+             of Africa. Everyon e is welcome to participate (there is no entrance exam).
+              We create fun challenges every week on our slack channel. THose who
+              solve them stay on. Everyone gets to learn important concepts quickly,
+              and make connections with people they can work with in the future.
+              The intern coders are introduced to complex programming frameworks,
+              and get to work on real applications that scale. the finalist are
+              connected to the best companies in the tech ecosystem and get full
+              time jobs and contracts immediately.`, 'bot-message');
+          }
+          function renderMessage(msg, className) {
+            var messageNode = document.createElement('p');
+            messageNode.innerHTML = msg;
+            messageNode.classList.add(className);
+            chatArea.appendChild(messageNode);
+            chatArea.scrollTop = 3000;
+          }
+          function checkMessage() {
+            var msg = document.getElementById('chat-send').value;
+            console.log(msg)
+            if (msg.trim() === '' || msg.trim() === null || msg.trim() === undefined) {
+              return;
+            }
+            else if (msg.trim() === 'about hng internship') {
+              renderMessage(msg, 'user-message');
+              aboutBot();
             }
             else {
-                $response = ['response'=>'christoph_bot', 'message'=>$query_result['answer']];
-                echo json_encode($response);
+              console.log(msg)
+              renderMessage(msg, 'user-message');
+              sendMessage(msg);
             }
-        }
-    }
-    elseif (substr(strtolower(trim($_POST['bot_train'])), 0, 6) === 'train:') {
-        // Regular expression to check if the training command is correct
-        // Retrieve Questions, Location and Function Name
-        $simple_mode_pattern = '/train: (.+[^{}]) \# (.+[^{}])/';
-        $complex_mode_pattern = '/train: ?(.+) ?(between|from) ?{{(.+)}} ?(and|to) ?{{(.+)}} ?\# ?(.+) ?(between|from) ?{{(.+)}} ?(and|to) ?{{(.+)}} ?\(\((.+)\)\)/';
-        $train_command = $_POST['bot_train'];
-        $match_simple_mode = preg_match($simple_mode_pattern, $train_command, $match_simple);
-        $match_complex_mode = preg_match($complex_mode_pattern, $train_command, $matches);
-        if ($match_simple_mode or $match_complex_mode) {
-            if ($match_simple_mode) {
-                $question = $match_simple[1];
-                $answer   = $match_simple[2];
-                // Insert question into database
-                $save_message = $conn->prepare(
-                "INSERT INTO chatbot (question, answer) VALUES (?, ?)");
-                $save_message->bindParam(1, $question, PDO::PARAM_STR);
-                $save_message->bindParam(2, $answer, PDO::PARAM_STR);
-                $save_message->execute();
+          }
+          function sendMessage(msg) {
+            var form = document.getElementById('chat-form');
+            var formData = new FormData(form);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+              if (xhttp.readyState == 4 && xhttp.status == 200) {
+                console.log(xhttp.responseText);
+                getAnswer(xhttp.responseText);
+              }
+            };
+            xhttp.open("POST", "profiles/esther.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("question=" + msg.trim());
+          }
+          function getAnswer(msg) {
+            renderMessage(msg, 'bot-message');
+          }
 
-                // Concatenate random answer retrieved from database with the calculated distance
-                $array_responses = ["Thanks for teaching me, I'm a fast learner. Why don't you try asking me again.", "Now I've learnt this command, you can try asking me the same question again. Yaaay, thanks for teaching me."];
-
-                $response = ['response'=>'train_message', 'message'=>$array_responses[rand(0, 1)]];
-                echo json_encode($response);
-            }
-            elseif ($match_complex_mode) {
-                $question       = $matches[1];
-                $preposition    = $matches[2];
-                $location1      = parseLocation($matches[3]);
-                $delimiter      = $matches[4];
-                $location2      = parseLocation($matches[5]);
-                $answer         = $matches[6];
-                $function_name  = $matches[11];
-                $_SESSION['location1'] = $location1;
-                $_SESSION['location2'] = $location2;
-                // Include answers.php and call the calculate_distance function if it exists
-                include "./answers.php";
-                if (function_exists($function_name) or $match_simple_mode) {
-                    $distance = "<b>".call_user_func($function_name, $key, $url, $location1, $location2)."</br>";
-                    $location1 = str_replace('+', ' ', $location1);
-                    $location2 = str_replace('+', ' ', $location2);
-
-                    $concat_question = "$question $preposition";
-                    $concat_answer = "$answer ($function_name)";
-                    // Insert question into database
-                    $save_message = $conn->prepare(
-                    "INSERT INTO chatbot (question, answer) VALUES (?, ?)");
-                    $save_message->bindParam(1, $question, PDO::PARAM_STR);
-                    $save_message->bindParam(2, $concat_answer, PDO::PARAM_STR);
-                    $save_message->execute();
-
-                    // Concatenate random answer retrieved from database with the calculated distance
-                    $array_responses = ["Thanks for teaching me, I'm a fast learner. Why don't you try asking me again. <br /><br /> $answer $location1 $delimiter $location2 : $distance", "Now I've learnt this command, you can try asking me the same question again. Yaaay, thanks for teaching me. <br /><br /> $answer $location1 $delimiter $location2 : $distance"];
-                    $response = ['response'=>'train_message', 'message'=>$array_responses[rand(0, 1)]];
-                    echo json_encode($response);
-                }
-                else {
-                    $response = ['response'=>'train_command_error', 'message'=>'Sorry, that command does not exist, you can only use: <br /><br /> <span class="bot-command">((calculate_distance))</span> function with the <span class="bot-command">train: </span> command to get the distance between 2 locations <br /><br /> <span class="bot-command">get duration : [mode]</span> Command to get the estimated trip duration between the last 2 locations <br /><br /><br /> <span class="bot-command">show direction : [mode]</span> Command to display the direction between the last 2 locations<br /><br /><br /> You can type <span class="bot-command">help</span> to learn more'];
-                    echo json_encode($response);
-                }
-            }
-        }
-        else {
-            $error_messages = ["Sorry, I do not understand this training command, please try again <br /> <br />", "This training command is new, sure you're not missing anything? <br /> <br />", "Oops!, I've not been trained to learn that training command <br /> <br />"];
-            $response = ['response'=>'training_error', 'message'=>$error_messages[rand(0, 2)]];
-            echo json_encode($response);
-        }
-
-    }
-    if ($_POST['bot_command']) {
-        if (substr($_POST['bot_command'], 0, 12) === 'get duration') {
-            $get_command = explode(' : ', $_POST['bot_command']);
-            $mode = $get_command[1];
-            $location1 = $_SESSION['location1'];
-            $location2 = $_SESSION['location2'];
-            $function_name = trim(str_replace(' ', '_', strtolower($get_command[0])), '_');
-            include './answers.php';
-            if (function_exists($function_name)) {
-                $trip_duration = call_user_func($function_name, $key, $url, $location1, $location2, $mode);
-                $location1 = str_replace('Nigeria', '', str_replace('+', ' ', $location1));
-                $location2 = str_replace('Nigeria', '', str_replace('+', ' ', $location2));
-                $response = ['response'=>'trip_duration', 'message'=>"The $mode duration from $location1 to $location2 is estimated to be about <b>$trip_duration</b>"];
-                echo json_encode($response);
-            }
-            else {
-                $response = ['response'=>'command_error', 'message'=>'Sorry, that command does not exist.'];
-                echo json_encode($response);
-            }
-        }
-        elseif (substr($_POST['bot_command'], 0, 14) === 'show direction') {
-            $get_command = explode(' : ', $_POST['bot_command']);
-            $mode = $get_command[1];
-            $location1 = $_SESSION['location1'];
-            $location2 = $_SESSION['location2'];
-            $function_name = trim(str_replace(' ', '_', strtolower($get_command[0])), '_');
-            include './answers.php';
-            if (function_exists($function_name)) {
-                $map_url = call_user_func($function_name, $location1, $location2, $mode);
-                $response = ['response'=>'show_direction', 'message'=>$map_url];
-                echo json_encode($response);
-            }
-            else {
-                $response = ['response'=>'command_error', 'message'=>'Someone must have tampered with my functions file.'];
-                echo json_encode($response);
-            }
-        }
-        else {
-            $response = ['response'=>'train_command_error', 'message'=>'Sorry, that command does not exist, you can only use: <br /><br /> <span class="bot-command">((calculate_distance))</span> function with the train command to get the distance between 2 locations <br /><br /> <span class="bot-command">get duration : [mode]</span> Command to get the estimated trip duration between the last 2 locations <br /><br /> <span class="bot-command">show direction : [mode]</span> Command to display the direction between the last 2 locations'];
-            echo json_encode($response);
-        }
-    }
-}
-?>
+    </script>
+</body>
+</html>

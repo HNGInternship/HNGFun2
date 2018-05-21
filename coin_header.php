@@ -147,13 +147,13 @@ $activeArray[$fileIndex]="active";
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item <?= $activeArray[0] ?>">
-            <a class="nav-link" href="#">Buy HNGcoin <span class="sr-only"></span></a>
+		  <a class="nav-link" href="#"><strong>Buy HNGcoin</strong><span class="sr-only"></span></a>
           </li>
           <li class="nav-item <?= $activeArray[1] ?>">
-            <a class="nav-link" href="buyandsell.php">Sell HNGcoin</a>
+		  <a class="nav-link" href="buyandsell.php"><strong>Sell HNGcoin</strong></a>
           </li>
           <li class="nav-item <?= $activeArray[2] ?>" > 
-            <a class="nav-link" href="help.php">Help</a>
+		  <a class="nav-link" href="help.php"><strong>Help</strong></a>
           </li>
         </ul>
         <!-- <form class="form-inline my-2 my-lg-0">
@@ -164,7 +164,7 @@ $activeArray[$fileIndex]="active";
             <ul class="navbar-nav ml-auto navbar-row upper-navbar py-0 mt-2 mt-lg-0">
 
             
-            <li class="nav-item dropdown py-0 mt-3 mb-0 ">
+            <li class="nav-item dropdown py-0 mt-0 mb-0 ">
                 <a class="nav-link dropdown-toggle mr-3 remove-after notification" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-bell navbar-icon fa-lg"></i>
                 </a>
@@ -190,18 +190,18 @@ $activeArray[$fileIndex]="active";
 						
 										
 					</div>
-					<a class="dropdown-item hover-text text-center" href="#">See All</a>
+					<a class="dropdown-item hover-text text-center" href="/notification">See All</a>
                 </div>
             </li>
 
-            <li class="nav-item  pt-0 mt-3 mb-0 pl-2 pr-0 ">
-                <a class="nav-link  mr-3 " href="#" id="navbarSettings">
+            <li class="nav-item  pt-0 mt-4 mb-0 pl-2 pr-0 ">
+                <a class="nav-link  mr-4 " href="#" id="navbarSettings">
                     Wallet
                 </a>
             </li>
             <li class="nav-item dropdown py-0 my-0">
-                <a class="nav-link dropdown-toggle mr-3" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user-circle navbar-icon fa-3x"></i>
+                <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user-circle navbar-icon fa-lg"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarSettings">
                     <a class="dropdown-item py-3" href=" #">Admin Login</a>

@@ -1,5 +1,5 @@
 <?php
-include_once("header.php");
+include_once("header_currentlisting.php");
 include_once("../config.php");
 require ('paginator.php');
 
@@ -47,6 +47,7 @@ $results = $paginator->getData( $limit, $page );
    #caption{
      text-align:center;
    }*/
+   
 </style>
 <main class="container mt-5 mb-5 px-5">
   <h2>Our Interns</h2>
@@ -54,7 +55,7 @@ $results = $paginator->getData( $limit, $page );
   <p class="text-center my-1">HNG4.0 has been a life-transforming journey for interns across Africa.</p>
   <p class="text-center my-1">Don't take our word for it...take theirs.</p>
   <div class="row mx-0 mt-4 justify-space-between">
-  <?php for ($p = 0; $p < count($results->data); $p++): ?> 
+  <?php for($p = 0; $p < count($results->data); $p++): ?>  
     
     <?php 
     //store in $movie variable for easier reading
@@ -64,7 +65,7 @@ $results = $paginator->getData( $limit, $page );
       <div class="card0">
         <a href="profile.php?id=<?php echo $row['username'];?>"><img class="card-img-top" src='<?php echo $row['image_filename']?>' onerror="this.src='images/default.jpg'" alt="Profile Image"> </a>
         <div class="card-footer">
-          <a href="profile.php?id=<?php echo $row['username'];?>" class="my-0 py-0 btn btn-default">View Profile</a>
+         <center> <a href="profile.php?id=<?php echo $row['username'];?>" class="my-0 py-0 btn btn-default">View Profile</a></center>
         </div>
       </div>
       <h4 class="text-center mt-3"><?php echo $row['name'];?></h4>

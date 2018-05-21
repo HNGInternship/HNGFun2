@@ -33,6 +33,7 @@ include_once("header.php");
                       <img src="img/oracle-red.png" alt="oracle" srcset="" class="img-fluid ">
                   </div>
                   <div class="col-9 pt-4 ">
+
                       <h5 class="sponsorbg-text font-weight-bold">Oracle</h5>
                       <p class="sponsor-subbg-text mt-0 pt-0 f-1">Oracle remains a visionary in the world of databases. Oracle commits to educating developer teams on how best to design and deploy mission-critical solutions. Support for the HNG internship is just one of their educational outreaches globally.</p>
                   </div>
@@ -43,6 +44,7 @@ include_once("header.php");
                       <img src="img/bluechips.png" alt="blue chip technologies" srcset="" class="img-fluid ">
                   </div>
                   <div class="col-9 pt-4 ">
+
                       <h5 class="sponsorbg-text font-weight-bold">Blue Chip Technologies</h5>
                       <p class="sponsor-subbg-text mt-0 pt-0 f-1">The go-to firm for robust client data management solutions, Blue chip Technologies remains focused on driving business performance forward through the intricate leverage of strategy, people, process, metrics, applications, data, and architecture.</p>
                   </div>
@@ -54,6 +56,7 @@ include_once("header.php");
                   </div>
                   <div class="col-9 pt-4 ">
                       <h5 class="sponsorbg-text font-weight-bold">Hotels.ng</h5>
+
                       <p class="sponsor-subbg-text mt-0 pt-0 f-1">Hotels.ng has risen to become the *de facto* application for comparing hotel quality and price. Hotels.ng has spearheaded 4 remote internship schemes that have empowered budding developers to grow their portfolio and value across board.</p>
                   </div>
               </div></a><br>
@@ -65,6 +68,7 @@ include_once("header.php");
 Feel free to send an email to <span class="font-weight-bold">mark@hotels.ng</span></p>
 
     </div>
+
 <?php
 include_once("footer.php");
 ?>

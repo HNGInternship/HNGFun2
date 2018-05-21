@@ -37,14 +37,14 @@
       display: inline-block;
       padding: 5px 10px;
       border: 1px solid #e0e0e0;
-      background-color: #eee;
+      background-color: #FAFAFA;
       color: #333;
       cursor: pointer;
       transition: background 0.1s, color 0.1s;
       }
       .pagination-button:hover {
-        background-color: #85C1E9;
-        color: #f9f9f9;
+        background-color: #eee;
+        color: #000000;
         -moz-transition: all 0.5s linear;
         -webkit-transition: all 0.5s linear;
         -o-transition: all 0.5s linear;
@@ -96,6 +96,10 @@
     }
     tbody > tr:hover {
     	background: #e5e5e5;
+    }
+
+    tbody{
+      font-size: 16px;
     }
 
     th{
