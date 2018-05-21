@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: origin, content-type, accept");
 
 class Bot
 {
@@ -140,6 +142,11 @@ switch ($method) {
         crossorigin="anonymous">
     <title>Codearcher Bot</title>
     <link href="/profiles/codearcher/static/css/main.1cb28894.css" rel="stylesheet">
+<style>
+    nav {
+        display:none;
+        }
+</style>
 </head>
 
 <body>
