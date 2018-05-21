@@ -1,4 +1,4 @@
-updat bay and <?php
+<?php
 include_once("coin_header.php");
 //include_once("xconfig_slayers.php");
 ?>
