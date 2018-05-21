@@ -109,9 +109,22 @@ if(isset($_POST['submit']) ){
     }
     .form-label{
         color: #666;
+        margin-bottom: .5rem;
+        display: block;
+    font-weight: 400;
+    padding-left: 10px;
+    font-size: 75%;
+
+
+
+
+
     }
     input.form-control{
         font-size: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+  
     }
     input[type='submit']{
         border-radius: 0;

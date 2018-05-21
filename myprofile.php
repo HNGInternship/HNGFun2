@@ -33,7 +33,7 @@ include_once("dashboard-header.php");
  table, tr, td{padding:0px;}
  .dp,.row, .info, .b_info_grid,.name {border:none;}
  .dp img{
-     width:200px;
+     width:100%;
      border-radius:50%;
     }
  .l-col{
@@ -63,7 +63,7 @@ include_once("dashboard-header.php");
      <div class ="col-md-7 info">
        <div class="name col-md-12">
           <h4 style ="text-align:left">Oganji Ernest Paul (Epospiky)</h4>
-          <p style="color:#888888; margin:0px; text-align:left; font-size:12px; padding:0px" >Boston, Mars</p>
+          <p style="color:#888888; margin:0px; text-align:left; font-size:12px; padding:0px" >Boston, Massachusetts</p>
           <hr style="padding:5px 0px 5px 0px;  color:#888">
        </div>
        <div class="b_info_grid col-md-12">
@@ -71,8 +71,8 @@ include_once("dashboard-header.php");
           <tr ><td class="l-col col-md-4">Email </td><td class= "b_infor col-md-6">example@gmail.com</td></tr>
           <tr ><td class="l-col col-md-4"> Gender </td><td class= "b_infor col-md-6 ">Male</td></tr>
           <tr ><td class="l-col col-md-4"> Country </td><td class= "b_infor col-md-6 ">U. S. A</td></tr>
-          <tr ><td class="l-col col-md-4"> State </td> <td class= "b_infor col-md-6 ">Boston</td></tr>
-          <tr  ><td class="l-col col-md-4"> City </td><td class= "b_infor col-md-6 ">Mars</td></tr>
+          <tr ><td class="l-col col-md-4"> State </td> <td class= "b_infor col-md-6 ">Massachusetts</td></tr>
+          <tr  ><td class="l-col col-md-4"> City </td><td class= "b_infor col-md-6 ">Boston</td></tr>
           <tr ><td class="l-col col-md-4"> Phone </td> <td class= "b_infor col-md-6">+1(415) 452 0826</td></tr>
          </table>
          </div>

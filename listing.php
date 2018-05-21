@@ -47,6 +47,7 @@ $results = $paginator->getData( $limit, $page );
    #caption{
      text-align:center;
    }*/
+   
 </style>
 <main class="container mt-5 mb-5 px-5">
   <h2>Our Interns</h2>
