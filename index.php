@@ -15,7 +15,7 @@ include_once("header.php");
 		background-color: #2196f3 !important;
 	}
 	#btn-signup:hover{
-		background-color: #2196f3 !important;
+		background-color: #2196f300 !important;
          color: #000000 !important;
          box-shadow: 0 0 10px #dbf4ff, 0 0 2px #5bc0de;
 		-moz-transition: all 0.5s linear;
