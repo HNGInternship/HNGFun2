@@ -13,7 +13,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
          
 
          if(!$conn){
-          {
                 echo json_encode([
                 'results'=> $query->fetch_all()
                 ]);
