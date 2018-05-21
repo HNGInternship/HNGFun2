@@ -5,17 +5,17 @@ include_once("db.php");
 
 <?php
 
-	$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
-	$stmt = $db->prepare($sql);
-	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-	$stmt->execute();
-	$sell_requests = $stmt->fetchAll();
+// 	$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
+// 	$stmt = $db->prepare($sql);
+// 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+// 	$stmt->execute();
+// 	$sell_requests = $stmt->fetchAll();
 
-	$sql = "select buy_requests.id, amount, trade_limit, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
-	$stmt = $db->prepare($sql);
-	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-	$stmt->execute();
-	$buy_requests = $stmt->fetchAll();
+// 	$sql = "select buy_requests.id, amount, trade_limit, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
+// 	$stmt = $db->prepare($sql);
+// 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+// 	$stmt->execute();
+// 	$buy_requests = $stmt->fetchAll();
 	
 ?>
 
