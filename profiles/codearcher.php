@@ -134,18 +134,18 @@ switch ($method) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="./manifest.json">
-    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="manifest" href="/profiles/codearcher/manifest.json">
+    <link rel="shortcut icon" href="/profiles/codearcher/favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
     <title>Codearcher Bot</title>
-    <link href="./static/css/main.1cb28894.css" rel="stylesheet">
+    <link href="/profiles/codearcher/static/css/main.1cb28894.css" rel="stylesheet">
 </head>
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script type="text/javascript" src="./static/js/main.38bc426c.js"></script>
+    <script type="text/javascript" src="/profiles/codearcher/static/js/main.38bc426c.js"></script>
 </body>
 
 </html>
