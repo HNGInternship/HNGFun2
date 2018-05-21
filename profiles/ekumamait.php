@@ -563,7 +563,7 @@ a:active,a:focus,a:hover {
     <h3 class="profile-headline">Intern, Aspiring Rockstar Software Engineer.<br>Open Sourcerer</h3>
     <p class="profile-description">
         I am currently learning Design and Full-stack development at
-        <a target="_blank" rel="noopener" href="http://hng.com">Hotels.ng</a>.
+        <a target="_blank" rel="noopener" href="https://hotels.ng/">Hotels.ng</a>.
         <br>Learning how to collaborate and work remotely has been a wonderful experience for me.
         <br>Anytime, Anywhere. Get in touch.
     </p>
