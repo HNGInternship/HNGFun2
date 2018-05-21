@@ -29,6 +29,7 @@
             if($data[2] == 'password'){
                 $sql = "INSERT INTO chatbot (question, answer)
                 VALUES ('$data[0]', '$data[1]')";
+                
                 $query = $conn->query($sql);
                 if($query){
                     echo json_encode([
@@ -116,8 +117,8 @@
 		.mybot{background-color: #333333;
 			float: right;
 			width: 400px;
-			height: 500px;
-			margin-top: 10rem;
+			height: 480px;
+			margin-top: 12rem;
 
 		}
 
@@ -216,8 +217,8 @@
                     <?php date_default_timezone_set('Africa/lagos');
 					echo  date("d:m:Y | h:ia"); ?> </h5>
                 	</span>
-					<div class = "intro"><p><h4> Hi there!, welcome to Nma’s bot, I can answer<br/>
-					To train me, type "train: question # answer # password </h4></p>
+					<div class = "intro"><p><h4> Hi there!, welcome to Nma’s bot. To train me, <br/>
+					type "train: question # answer # password </h4></p>
 					</div>
 					
 					<div id = "chat_area">
@@ -288,7 +289,7 @@
         };
         xhttp.open("POST", "/profile.php?id=chidinma", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("#message="+message.value);
+        xhttp.send("message="+message.value);
     }
     </script>
 
