@@ -165,85 +165,100 @@
   </style>
   <?php
 
-    try {
-        $sql = 'SELECT * FROM secret_word';
-        $q = $conn->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
-        $data = $q->fetch();
-    } catch (PDOException $e) {
-        throw $e;
-    }
-    $secret_word = $data['secret_word'];
+  // PHP CONNECTION HERE
+  if(isset($_POST['input_text'])){
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $data = $_POST['input_text'];
-      //  $data = preg_replace('/\s+/', '', $data);
-        $temp = explode(':', $data);
-        $temp2 = preg_replace('/\s+/', '', $temp[0]);
-        
-        if($temp2 === 'train'){
-            train($temp[1]);
-        }elseif($temp2 === 'aboutbot') {
-            aboutbot();
-        }else{
-            getAnswer($temp[0]);
+    $chat = $_POST['input_text'];
+    $explosion = explode(':', $chat);
+    $oneWord = strtolower(trim($explosion[0]));
+    
+
+    echo '<div style="display: none;"class="chat friend">
+                <p class="chat-message" id="user">'. $chat .'</p>
+            </div>';
+
+    function aboutbot(){
+        echo '<div style="display: none;"class="chat friend">
+        <p class="chat-message" id="result">My  name is Le-Bot v1.0 - I\'m like human with fast brain of understanding, I get input and process it in other to display the result, if there is no result you can instruct me on how to get such result!</p>
+        </div>';
+    }
+
+    function getAnswer($question){
+
+        $sql = 'SELECT * FROM chatbot WHERE question = "'. $question . '"';
+        $stmt = $GLOBALS['conn']->query($sql);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $data = $stmt->fetchAll();
+
+        if(empty($data)){
+            echo '<div style="display: none;"class="chat friend">
+            <p class="chat-message" id="result">oops... I do not know that yet, kindly type "help"/p>
+            </div>';
+        } else {
+            $random = array_rand($data);
+            echo '<div style="display: none;"class="chat friend">
+            <p class="chat-message" id="result">'. $data[$random]["answer"]. '</p>
+            </div>';
         }
     }
 
-    function aboutbot() {
-        echo "<div id='result'>My  name is Le-Bot v1.0 - I'm like human with fast brain of understanding, I get input and process it in other to display the result, if there is no result you can instruct me on how to get such result!</div>";
-    }
-    function train($input) {
+    function train($input){
         $input = explode('#', $input);
         $question = trim($input[0]);
         $answer = trim($input[1]);
         $password = trim($input[2]);
-        if($password == 'password') {
-            $sql = 'SELECT * FROM chatbot WHERE question = "'. $question .'" and answer = "'. $answer .'" LIMIT 1';
-            $q = $GLOBALS['conn']->query($sql);
-            $q->setFetchMode(PDO::FETCH_ASSOC);
-            $data = $q->fetch();
 
-            if(empty($data)) {
-                $training_data = array(':question' => $question,
-                    ':answer' => $answer);
+        if ( $password == 'password') {
+            $sql = 'SELECT * FROM chatbot WHERE question = "'. $question . '" and answer = "'. $answer .'" LIMIT 1';
+            $stmt = $GLOBALS['conn']->query($sql);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $data = $stmt->fetchAll();
 
-                $sql = 'INSERT INTO chatbot ( question, answer)
-              VALUES (
-                  :question,
-                  :answer
-              );';
-
-                try {
-                    $q = $GLOBALS['conn']->prepare($sql);
-                    if ($q->execute($training_data) == true) {
-                        echo "<div id='result'>Thank you for teaching me new words, it seem you are very good in lecturing. I will like you to teach me more next time!</div>";
-                    };
-                } catch (PDOException $e) {
-                    throw $e;
-                }
-            }else{
-                echo "<div id='result'>I already understand this. Teach me something new!</div>";
+            if(empty($data)){
+                $trainsql = 'INSERT INTO chatbot(question,answer) VALUES(:question, :answer)';
+                $train = $GLOBALS['conn']->prepare($trainsql);
+                $train->execute(['question' => $question, 'answer' => $answer]);
+                echo '<div style="display: none;"class="chat friend">
+                <p class="chat-message" id="result">Thank you for teaching me new words, it seem you are very good in lecturing. I will like you to teach me more next time!</p>
+                </div>';
+            } else {
+                echo '<div style="display: none;"class="chat friend">
+                <p class="chat-message" id="result">oops... I already know this,
+                 you can teach me something else</p>
+                </div>';
             }
-        }else {
-            echo "<div id='result'>Invalid Password, Try Again!</div>";
 
+        } else {
+            echo '<div style="display: none;"class="chat friend">
+                <p class="chat-message" id="result">Invalid password or format..
+                 example: train:question#answer#password</p>
+                </div>';
+            
         }
+        
     }
 
-    function getAnswer($input) {
-        $question = $input;
-        $sql = 'SELECT * FROM chatbot WHERE question = "'. $question . '"';
-        $q = $GLOBALS['conn']->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
-        $data = $q->fetchAll();
-        if(empty($data)){
-            echo "<div id='result'>Sorry, I don not understand what you meant. You can teach me simply by using the format - 'train: question # answer # password' (without quote)</div>";
-        }else {
-            $rand_keys = array_rand($data);
-            echo "<div id='result'>". $data[$rand_keys]['answer'] ."</div>";
-        }
+    if ( $oneWord === 'aboutbot'){
+        aboutbot();
+
+    } elseif ( $oneWord === 'help'){
+        echo '<div style="display: none;"class="chat friend">
+                <p class="chat-message" id="result">Type \'aboutbot\' to see my current version.
+                 To train me type \'train:question#answer#password\'</p>
+                </div>';
+
+    } elseif( $oneWord === 'train'){
+        $second = strtolower(trim($explosion[1]));
+        train($second);
+
+    } else {
+        getAnswer($oneWord); 
     }
+}
+
+// CONNECTION END
+
+    
     ?>
 
   </head>
