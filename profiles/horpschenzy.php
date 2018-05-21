@@ -1,83 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>horpschenzy's Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-    <style>
-    body{
+	<title>horpschenzy's Profile</title>
+</head>
+<style type="text/css">
+body{
 
-background-color: #badacc;
-
+	background-color: #badacc;
 }
-.cont{
-    padding-right: 15px;
+.container2 {
+  padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-
 }
-.hdimg{
-    background:	#26272B;
+@media (min-width: 768px) {
+  .container2 {
+    width: 750px;
+  }
 }
-
-.con {
-   border: 1px solid #DDDDDD;
-   width: 100;
-   position: relative;
-
+@media (min-width: 992px) {
+  .container2 {
+    width: 970px;
+  }
 }
-.tag {
-   float: left;
-   position: absolute;  
-   left: 12%;
-   top: 36%;
-   z-index: 1000;
-   background-color: #badacc;
-   padding: 14px;
-   color: #FFFFFF;
-   font-weight: bold;
+@media (min-width: 1200px) {
+  .container2 {
+    width: 1170px;
+  }
 }
-.tag2 {
-   float: left;
-   position: absolute;  
-   left: 600px;
-   top: 450px;
-   height:500px;
-   z-index: 1000;
-   font-weight: 300;
-    font-size:28px;
-   padding: 5px;
-   color: #111111;
-   font-weight: bold;
-   margin-bottom: 30px;
+.tempp {
+    margin-right: -15px;
+    margin-left: -15px
 }
 
-.col-md-4 {
-	margin-bottom: 30px;
+helll img.fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+
+.fb-image-profile
+{
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%; 
+}
+
+@media (max-width:768px)
+{
+    
+.helll-text>h1{
+    font-weight: 700;
+    font-size:20px;
+}
+
+
+.helll-text>h3{
+    font-weight: 300;
+    font-size:18px;
+    color: #ffffff;
+}
+
+.fb-image-profile
+{
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%; 
+}
+
+.thumbnail132 {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out
+}
+
+.thumbnail132 a>img,
+.thumbnail132>img {
+    margin-right: auto;
+    margin-left: auto
+}
+
+a.thumbnail132.active,
+a.thumbnail132:focus,
+a.thumbnail132:hover {
+    border-color: #1e90ff
+}
+
+.thumbnail132 .caption2 {
+    padding: 9px;
+    color: #333
+}
+.listtinz {
+	
+	margin-left:  400px;
 	padding: 10px;
 }
-.det{
-    
+.detailed{
+
 	color:  blue;
 	font-size: 30px;
 	font-weight: 700px;
-    padding: 10px;    
-    width: 95px;
-    
-
+	font
 }
-    footer{
-    top: 750px;
-}
-    </style>
-</head>
+</style>
 <body>
-<div>
-<?php
+
+	<?php
 
 if(!isset($_GET['id'])){
        require '../db.php';
@@ -95,38 +131,30 @@ if(!isset($_GET['id'])){
    $user = $result2->fetch(PDO::FETCH_OBJ);
 ?>
 
-
-<div class="con">
-   <div class="tag">
-   
-    <img align="left"  src="<?= $user->image_filename; ?>" alt=""height="400px" width="399px"/>
-
-   </div>
-   <div class="tag2">
-        <?= $user->name; ?> <?= $user->username; ?></h1>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>.
-      <div class="row">
-      <div class="col-md-4"><span class="det">BOOTSTRAP</span></div>
-            	<div class="col-md-4"><span class="det">CodeIgniter</span> </div>
-                
-                <div class="col-md-4"><span class="det">HTML           </span></div>
-                <div class="col-md-4"><span class="det"> PHP       </span></div>
-            	
-            	<div class="col-md-4"><span class="det">CSS    </span></div>
-            	
-            	<div class="col-md-4"><span class="det">JS            </span></div>
+	<div class="container2">
+    <div class="helll tempp">
+        <img align="left" class="fb-image-lg thumbnail132" src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg
+" alt=""/>
+        <img align="left" class="fb-image-profile thumbnail132" src="<?= $user->image_filename; ?>" alt="Profile image example"/>
+        <div class="helll-text">
+            <h1><?= $user->name; ?> <?= $user->username; ?></h1>
+            <h3>Skills: </h3>
+        </div>
+            
+            <div class="tempp">
+            	<div class="listtinz"><span class="detailed">CodeIgniter</span> <span class="detailed"> PHP</span></div>
+            	<div class="listtinz"><span class="detailed">HTML</span></div>
+            	<div class="listtinz"><span class="detailed">CSS</span></div>
+            	<div class="listtinz"><span class="detailed">BOOTSTRAP</span></div>
+            	<div class="listtinz"><span class="detailed">JS</span></div>
             	
             </div>
-  
-   </div>
+            
 
-   <img align="left"  src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg " alt=""height="400px" width="100%"/>
-   <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-  
-</div>
 
-</div>
+    </div>
+</div> <!-- /container -->  
 
-    
+
 </body>
 </html>
