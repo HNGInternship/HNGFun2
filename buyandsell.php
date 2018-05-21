@@ -1,6 +1,6 @@
 <?php
 include_once("coin_header.php");
-include_once("db.php");
+include_once("xconfig_slayers.php");
 ?>
 
 <?php
@@ -16,6 +16,7 @@ include_once("db.php");
 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	$stmt->execute();
 	$buy_requests = $stmt->fetchAll();
+car_dump($sql);
 	
 ?>
 
