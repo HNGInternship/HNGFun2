@@ -1,4 +1,7 @@
- <?php include("header.php");?>
+ <?php 
+   session_start();
+    include("header.php");
+  ?>
 
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
