@@ -134,7 +134,7 @@ if(!isset($_GET['id'])){
 	<div class="container2">
     <div class="helll tempp">
         <img align="left" class="fb-image-lg thumbnail132" src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg
-" alt=""/>
+" alt="" height="400px" width="100%"/>
         <img align="left" class="fb-image-profile thumbnail132" src="<?= $user->image_filename; ?>" alt="Profile image example"/>
         <div class="helll-text">
             <h1><?= $user->name; ?> <?= $user->username; ?></h1>
