@@ -11,12 +11,12 @@ class Bot
     {
 
         if (!defined('DB_USER')) {
-            require "db.php";
+            // require "db.php";
 
             try {
                 $this->conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
             } catch (PDOException $e) {
-                $this->response("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+               die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
             }
         }
 
