@@ -424,7 +424,7 @@ text-decoration: none;
 
 
                             <div class="vc_single_image-wrapper   vc_box_border_grey">
-                              <img width="50" height="50" src="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg" class="vc_single_image-img attachment-full" alt="" srcset="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 509w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 150w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 300w" sizes="(max-width: 509px) 100vw, 509px" />
+                              <img width="100" height="100" src="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg" class="vc_single_image-img attachment-full" alt="" srcset="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 509w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 150w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 300w" sizes="(max-width: 509px) 100vw, 509px" />
                             </div>
 			</div>
 
