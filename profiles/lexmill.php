@@ -197,14 +197,12 @@ function askQuestion($input)
 
 <div>
     <h1 style="font-size:500%; font-weight:bold;font-family:Gothic;text-align:center;color:white">HNG INTERNSHIP 2018</h1>
-	<h2 style="font-size:300%;text-align:center;color:white">Lexmill's Page</h2>
+	<h2 style="font-size:300%;text-align:center;color:white">Lexmill's Page<br>I am a python, Java and php developer</h2>
 	<br><br><br><br><hr>
    <center><img style="border-radius:50%" class ="center" src="http://res.cloudinary.com/dtvv1oyyj/image/upload/c_fill,h_330,w_300/v1524842222/Snapchat-684128679.jpg"></center>
     <hr>
     <br><br><br><br><br>
-	<p style="font-size:310%;text-align:center;color:white;text-decoration-style:dashed"><i>Meet my chatbot, Smart!!!</i></p>
-	<center>
-<div class = "bot">
+	<div class = "bot">
     <div class="oj-panel oj-panel-oj-panel-shadow-md" id="center" z-index="1"><?php
         date_default_timezone_set('Africa/Lagos');
       $currentDate= date('d-m-Y'); 
@@ -213,6 +211,9 @@ function askQuestion($input)
 	
 		
         ?></div>
+	<p style="font-size:310%;text-align:center;color:white;text-decoration-style:dashed"><i>Meet my chatbot, Smart!!!</i></p>
+	<center>
+
 
  <br><br><br>
  <form method="post">
