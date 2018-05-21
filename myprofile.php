@@ -49,7 +49,14 @@ include_once("dashboard-header.php");
  <title>HNG FUN Profile</title>
 </head>
  <body>
-   
+   <?php 
+    $id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM users WHERE id = $id"; 
+$q = $conn->query($sql); 
+$q->setFetchMode(PDO::FETCH_ASSOC); 
+$data = $q->fetch();
+  $fullname = $data['firstname'] + $data['lastname'];
+  ?>
  <!-- wallet board -->
  <section id="board">
  <div class="container">
@@ -62,18 +69,18 @@ include_once("dashboard-header.php");
       <div class="clearfix"></div>
      <div class ="col-md-7 info">
        <div class="name col-md-12">
-          <h4 style ="text-align:left">Oganji Ernest Paul (Epospiky)</h4>
-          <p style="color:#888888; margin:0px; text-align:left; font-size:12px; padding:0px" >Boston, Massachusetts</p>
+          <h4 style ="text-align:left"><?php echo $fullname; (echo $data['username'];)?></h4>
+          <p style="color:#888888; margin:0px; text-align:left; font-size:12px; padding:0px" ><?php echo $data['state'];?> </p>
           <hr style="padding:5px 0px 5px 0px;  color:#888">
        </div>
        <div class="b_info_grid col-md-12">
         <table >
-          <tr ><td class="l-col col-md-4">Email </td><td class= "b_infor col-md-6">example@gmail.com</td></tr>
-          <tr ><td class="l-col col-md-4"> Gender </td><td class= "b_infor col-md-6 ">Male</td></tr>
-          <tr ><td class="l-col col-md-4"> Country </td><td class= "b_infor col-md-6 ">U. S. A</td></tr>
-          <tr ><td class="l-col col-md-4"> State </td> <td class= "b_infor col-md-6 ">Massachusetts</td></tr>
-          <tr  ><td class="l-col col-md-4"> City </td><td class= "b_infor col-md-6 ">Boston</td></tr>
-          <tr ><td class="l-col col-md-4"> Phone </td> <td class= "b_infor col-md-6">+1(415) 452 0826</td></tr>
+          <tr ><td class="l-col col-md-4">Email </td><td class= "b_infor col-md-6"><?php echo $data['email'];?></td></tr>
+         <!-- <tr ><td class="l-col col-md-4"> Gender </td><td class= "b_infor col-md-6 "><?php echo $data[];?></td></tr>-->
+          <tr ><td class="l-col col-md-4"> Country </td><td class= "b_infor col-md-6 "><?php echo $data['nationality'];?>  </td></tr>
+          <tr ><td class="l-col col-md-4"> State </td> <td class= "b_infor col-md-6 "><?php echo $data['state'];?> </td></tr>
+         <!-- <tr  ><td class="l-col col-md-4"> City </td><td class= "b_infor col-md-6 "><?php echo $data[];?>  </td></tr>-->
+          <tr ><td class="l-col col-md-4"> Phone </td> <td class= "b_infor col-md-6"><?php echo $data['phone'];?>  </td></tr>
          </table>
          </div>
      </div>
