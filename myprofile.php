@@ -1,5 +1,6 @@
 <?php
 include_once("dashboard-header.php");
+require_once ("db.php");
 ?>
 <head>
 <style>
