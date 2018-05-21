@@ -359,7 +359,7 @@ $(document).ready(function chargeBot() {
         pp.classList = 'user-message';
         inner.classList = 'message';
         pp.append(inner);
-        inner.innerHTML = message.value;
+        inner.innerHTML = "<div style= "background-color: grey"> + message.value + </div>;
         //console.log(message.value)
         chatOutput.appendChild(pp);
         //return
