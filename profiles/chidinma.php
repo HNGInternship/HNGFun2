@@ -1,95 +1,67 @@
+
 <?php
-// require 'conn.php';
-
-// try{
-//    $sql = 'SELECT * FROM secret_word';
-//    $q = $conn->query($sql);
-//    $q->setFetchMode(PDO::FETCH_ASSOC);
-//    $data = $q->fetch();
-//    $secret_word= $data['secret_word'];
-// } catch (PDOException $e){
-//        throw $e;
-//    }
-
-
-// $result2 = $conn->query("Select * from interns_data where username = 'chidinma'");
-// $user = $result2->fetch(PDO::FETCH_OBJ);
-
-
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            require '../../config.php';
-            //die('Hi');
-           $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
-            
-            if(!$conn){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+   require '../../config.php';
+        //die('Hi');
+        $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+        
+        if(!$conn){
+            die('Unable to connect');
+        }
+        $question = $_POST['message'];
+        $pos = strpos($question, 'train:');
+        if($pos === false){
+            $sql = "SELECT answer FROM chatbot WHERE question like '$question' ";
+            // $sql = "SELECT answer FROM chatbot WHERE question = ' ".$question." ' ";
+            $query = $conn->query($sql);
+            if($query){
                 echo json_encode([
-                'results'=> $query->fetch_all()
+                    'results'=> $query->fetch_all()
                 ]);
                 return;
             }
-            $question = $_POST['message'];
-            $pos = strpos($question, 'train:');
-    
-            if($pos === false){
-                $sql = "SELECT answer FROM chatbot WHERE question like '$question' ";
+        }else{
+            $trainer = substr($question,6 );
+            $data = explode('#', $trainer);
+            $data[0] = trim($data[0]);
+            $data[1] = trim($data[1]);
+            $data[2] = trim($data[2]);
+            if($data[2] == 'password'){
+                $sql = "INSERT INTO chatbot (question, answer)
+                VALUES ('$data[0]', '$data[1]')";
                 $query = $conn->query($sql);
                 if($query){
                     echo json_encode([
-                        'results'=> $query->fetch_all()
+                        'results'=> 'Trained Successfully'
                     ]);
                     return;
-                }
-            }else{
-                $trainer = substr($question,6 );
-                $data = explode('#', $trainer);
-                $data[0] = trim($data[0]);
-                $data[1] = trim($data[1]);
-                $data[2] = trim($data[2]);
-    
-                if($data[2] == 'password'){
-    
-                    $sql = "INSERT INTO chatbot (question, answer)
-                    VALUES ('$data[0]', '$data[1]')";
-    
-    
-                    $query = $conn->query($sql);
-                    if($query){
-                        echo json_encode([
-                            'results'=> 'Trained Successfully'
-                        ]);
-                        return;
-                    }else{
-                        echo json_encode([
-                            'results'=> 'Error training'
-                        ]);
-                        return;
-                    }
-                    
                 }else{
                     echo json_encode([
-                        'results'=> 'Wrong Password'
+                        'results'=> 'Error training'
                     ]);
                     return;
                 }
                 
+            }else{
+                echo json_encode([
+                    'results'=> 'Wrong Password'
+                ]);
+                return;
             }
             
-            echo json_encode([
-                'results'=>  'working'
-            ]);
-            
-        return ;
-        }else{
-            //echo 'HI';
-            //return;
         }
-
-
+        
+        echo json_encode([
+            'reply'=>  'working'
+        ]);
+        
+    return ;
+    }else{
+        //echo 'HI';
+        //return;
+    }
+    
 ?>
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -144,8 +116,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		.mybot{background-color: #333333;
 			float: right;
 			width: 400px;
-			height: 500px;
-			margin-top: 10rem;
+			height: 450px;
+			margin-top: 12rem;
 
 		}
 
@@ -251,7 +223,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 					<div id = "chat_area">
 						
 					</div>
-					<br/>
 
 					 <input type="text" name="message" id="message">
                 	<button class = "send"  onclick="loadDoc()">SEND</button>
