@@ -1,7 +1,19 @@
 <?php
 
-include_once("../answers.php"); 
-
+$username = "austin_ikenna";
+ 
+$sql = "SELECT `name`, `username`, `image_filename` FROM `interns_data` WHERE `username`='$username'";
+$sql0 = "SELECT * FROM `secret_word` LIMIT 1";
+$stmt0 = $conn->prepare($sql0);
+$stmt0->execute();
+$data = $stmt0->fetch(PDO::FETCH_ASSOC);
+$secret_word = $data['secret_word'];
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+	
+	
+	
 if(!defined('DB_USER')){
      require "../../config.php";
      try {
@@ -22,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	
 	function botAnswer($message){
 		$botAnswer = '<div class="chat bot chat-message">
-					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+					<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
 					<div class="chat-message-content clearfix">
 						<p>' . $message . '</p>';
 			return $botAnswer;
@@ -41,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			$trainQuery->bindParam(':q', $data['question']);
 			$trainQuery->bindParam(':a', $data['answer']);
 			$trainQuery->execute();
-			$bot = botAnswer("Thanks for helping me be better.");
+			$bot = botAnswer("Thanks for helping!.");
 
 		}elseif($rows !== 0){
 			$bot = botAnswer("I already know how to do that. You can ask me a new question, or teach me something else. Remember, the format is train: question # answer # password");
@@ -256,7 +268,7 @@ header h4{
 </style>
 </head>
 <body>
-  
+
 <div class="card">
 	<div class="profile-cover"><img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1526440656/graffiti-art.jpg" alt="profile-cover" style="width:100%" width="400" height="100%"></div>
 	<div class="profile-avater"><img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="Austin" style="width:45%" style="height:40%"></div>
@@ -275,7 +287,7 @@ header h4{
 	</div>
 </div>
 
-<!--======CHAT-BOX STRART=======-->
+<!--======CHAT-BOX START=======-->
 <div id="chat-box"> 
 	<header class="clearfix" onclick="change()">
 		<h4>Chat with me!</h4>
@@ -285,14 +297,21 @@ header h4{
 			<div class="chat bot chat-message">
 				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
 				<div class="chat-message-content clearfix">
-					<p>Hello! this is Austin's bot</p>
+					<p>Hello! welcome to Austin's bot</p>
 					<span class="chat-time"> </span>
 				</div> 
 			</div>
 			<div class="chat bot chat-message">
 				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
 				<div class="chat-message-content clearfix">
-					<p>Ask me anything and if i can't answer train me using the following format "train: question #answer #password"</p>
+					<p>Can we get to know each other?</p>
+					<span class="chat-time"></span>
+				</div> 
+			</div>
+			<div class="chat bot chat-message">
+				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
+				<div class="chat-message-content clearfix">
+					<p>If i can't answer train me using the following format "train: question #answer #password"</p>
 					<span class="chat-time"></span>
 				</div> 
 			</div>
@@ -343,7 +362,7 @@ header h4{
 	            question.value = '';
 	          }
       	    }
-        xhttp.open('POST', 'profiles/Abigail', true);
+        xhttp.open('POST', 'profiles/austin_ikenna', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('question='+ question.value);
         e.preventDefault();
