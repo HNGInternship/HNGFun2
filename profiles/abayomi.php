@@ -1,253 +1,115 @@
-   <?php
-	if(!defined('DB_USER')){
-            require "../config.php";
+  <?php
+session_start();
+if (!isset($_SESSION["all"])){
+    $_SESSION["all"] = [];
+}if(!defined('DB_USER')){
+    require_once "../config.php";
+    $servername = DB_HOST;
+    $username = DB_USER;
+    $password = DB_PASSWORD;
+    $dbname = DB_DATABASE;
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch(PDOException $e)
+    {
+        echo "Connection failed: " . $e->getMessage();
+    }}
+global $conn;
+$solution = '';
+if (isset($_POST['restart'])){
+    session_destroy();
+}if (isset($_POST['button'])) {
+    if (isset ($_POST['input']) && $_POST['input'] !== "") {
+
+        $asked_question_text = $_POST['input'];
+        $solution = askQuestion($asked_question_text) . "<br/>";
+        $_SESSION["all"][] = array($solution, $asked_question_text);
+
+    }
 }
-
-class Db{
-    
-	private static $_instance;
-	private $conn;
-	
-	protected function __construct(){		
-		$this->conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE . ";charset=utf8", DB_USER, DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-		$tz = (new DateTime('now', new DateTimeZone('Africa/Lagos')))->format('P');
-		$this->conn->query("SET time_zone='$tz';");
-		// Error handling
-		if (mysqli_connect_error()) {
-			trigger_error("Failed to connect to MySQL: " . mysqli_connect_error(),
-				E_USER_ERROR);
-		}	 
-	}
-
-	public static function getInstance(){
-		if (!self::$_instance) { 
-			self::$_instance = new self();
-		}
-		return self::$_instance->conn;
-	}  
-	
-	//  clone
-	public function __clone(){
-	}
-	
+function askQuestion($input)
+{$input = strtolower($input);
+    $input = trim($input);
+    $action = "train:";
+    $time = "time";
+    global $conn;
+    $train = strpos($input,$action);
+    if ($input!==""||$input!==" ") {
+        if ($train === 0) {
+            $explode = explode(':', $input, 2);
+            if (isset($explode[1])) {
+                $explode2 = explode('#', $explode[1], 2);
+                if (isset($explode2[1])) {
+                    $explode3 = explode('#', $explode2[1], 2);
+                    if (isset($explode3[1])){
+                        if (  $explode3[1] == "password") {
+                            $query = $conn->query("SELECT question, answer FROM chatbot WHERE LOWER(question) ='" . $explode2[0] . "' and LOWER(answer) =  '" . $explode3[0] . "'");
+                            $row_cnt = $query->rowCount();
+                            if ($row_cnt > 0) {
+                                return "QUESTION ALREADY EXISTS ";
+                            } else
+                                $the_queried = $conn->query("INSERT INTO chatbot(question, answer) VALUES ('" . $explode2[0] . "', '" . $explode3[0] . "')");
+                            if ($the_queried) {
+                                $saved_message = "Saved " . $explode2[0] . " -> " . $explode3[0];
+                                return $saved_message;
+                            } else
+                                return "Please try again";
+                        } else
+                            return "Please enter the right password";
+                    }else
+                        return "Please enter the password after your answer";
+                } else
+                    return "The right format is train:yourquestion#youranswer#password";
+            } else
+                return "The right format is train:yourquestion#youranswer#password";
+        } else {
+            if (preg_match('/\baboutbout\b/',$input)) {
+                return "Dragon shield v1.0";
+            } else if (preg_match("/\b($time)\b/",$input)) {
+                return gettTime();
+            }
+            else {
+                $input = $_POST['input'];
+                $question = strtolower($input);
+                $question = str_replace('?', '', $question);
+                $question = trim($question);
+                $query = "SELECT * FROM chatbot WHERE LOWER(question) like '$question'";
+                $result = $conn->query($query);
+                $row_cnt = $result->rowCount();
+                $records = $result->fetchAll(PDO::FETCH_ASSOC);
+                $rand = rand(0, $row_cnt - 1);
+                if ($row_cnt > 0) {
+                    return $records[$rand]['answer'];
+                } else
+                    return "Am sorry, this question wasn't found,Please ENTER train:question#answer#password to make me smarter";
+            }
+        }
+    }
 }
-
-class Response{
-	public $status;
-	public $data = array();
-	public $message;
-	
-	function __construct($status = '', $data = null, $message = ''){
-		$this->status = $status;
-		$this->data = $data;
-		$this->message = $message;
-	}
+function gettTime(){
+    date_default_timezone_set('Africa/Lagos');
+    return "The time is " . date("h:i:sa");
 }
-
-
-class DBHelper{
-	private $dbh;
-
-	public function __construct(){
-		$this->dbh = Db::getInstance();
-	}
-	
-	public function getSecret_Word(){	
-		try {
-			$query = $conn->prepare("SELECT * FROM secret_word LIMIT 1");
-			$query->execute();
-			$query->setFetchMode(PDO::FETCH_ASSOC);
-			$data = $query->fetch();
-			return $data['secret_word'];
-		} catch (PDOException $ex) {
-			return $ex->getMessage();
-		}
-	}
-	
-	public function getMyProfile($username = 'abayomi'){
-		try {
-			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-			$query = $conn->prepare("SELECT * FROM interns_data WHERE username='{$username}' LIMIT 1");			
-			$query->execute();
-			$query->setFetchMode(PDO::FETCH_OBJ);
-			return $name = $query->fetch();		
-		} catch (PDOException $ex) {
-			return $ex->getMessage();
-		}
-	}
-	
-	public function getQuestion($question){
-		$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-		try {
-			$query = $conn->prepare("SELECT * FROM chatbot ORDER BY RAND()");
-			$query->execute();
-			$query->setFetchMode(PDO::FETCH_ASSOC);
-			$data = $query->fetchAll();
-			return searchQuestion($question, $data);
-		} catch (PDOException $ex) {
-			return $ex->getMessage();
-		}
-	}
-    
-	public function PairExists($question, $answer){
-	$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-		try {
-			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-			$sql = $conn->prepare("SELECT * FROM chatbot WHERE question = :question AND answer = :answer");
-			$sql->execute([':question' => $question, ':answer' => $answer]);
-			$result = $sql->fetch(PDO::FETCH_ASSOC);
-			if ($result) return true;
-			return false;
-		} catch (PDOException $ex) {
-			return $ex->getMessage();
-		}
-	}
-	
-	public function trainMyBot($question, $answer){
-		$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-		try {
-			$stmt = $conn->prepare("INSERT INTO chatbot (question, answer) VALUES (:question, :answer)");
-			$stmt->execute(array(
-				":question" => $question,
-				":answer" => $answer,
-			));
-			return $insertId = $this->dbh->lastInsertId();
-		} catch (PDOException $ex) {
-			return $ex->getMessage();
-		}
-	}
-}
-
-	function neat_string($string){
-		if (is_array($string)) {
-			$data = [];
-			foreach ($string as $key => $value) {
-				$data[$key] =neat_string($value);
-			}
-		} else {
-			return strip_tags(trim(filter_var($string, FILTER_SANITIZE_STRING)));
-		}
-	}
-
-	function searchQuestion($question, $questions_array){
-		$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-		$keywords = explode(' ', $question); // explode to get words
-		$word_count = count($keywords);
-		$q_sorta = [];
-		if (!empty($questions_array)) { // loop through all the questions
-			foreach ($questions_array as $item) {
-				$question = $item['question'];
-				if (!empty($keywords)) {
-					$hit_count = 0;
-					foreach ($keywords as $word) {
-						// we log number of word hits in a question
-						if (strstr($question, $word) || strstr($word, $question)) {
-							$hit_count++;
-						}
-					}
-					if ($hit_count) {
-						$q_sorta[] = $item;
-					}
-					if($hit_count >= $word_count){
-					    // This stops the loop and returns the item
-	                    return $item;
-	                }
-				}
-			}
-		}
-		ksort($q_sorta);
-		return end($q_sorta);
-	}
-
-	function botMessage($message, $status = 'success'){
-		$myResponse = new Response();
-		$myResponse->status = $status;
-		$myResponse->message = $message;
-		return json_encode($myResponse);
-	}
-
-	function botAnswer($result){
-		$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-		if (empty($result)) $answer = 'I will understand you better, if you train me. To train me type; train: Question # Answer # Password';
-		else {
-			$question = $result['question'];
-			$answer = $result['answer'];
-			
-			$index_of_parentheses = stripos($answer, "((");
-			
-			if ($index_of_parentheses === false) {
-				return $answer;
-			} else {
-				$index_of_parentheses_closing = stripos($answer, "))");
-				if ($index_of_parentheses_closing !== false) {
-					$function_name = substr($answer, $index_of_parentheses + 2, $index_of_parentheses_closing - $index_of_parentheses - 2);
-					$function_name = trim($function_name);
-					if (stripos($function_name, ' ') !== false) { //if method name contains spaces, do not invoke method
-						$answer = str_replace("(($function_name))", $function_name(), $answer);
-					}
-				}
-			}
-		}
-		return $answer;
-	}
-
-	function messageBot(){
-		$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-		$m = new DBHelper();
-		$message =neat_string($_POST['message']);
-		
-		$if_training_mode = preg_match("/^train/", $message);
-		if ($if_training_mode) {
-			$message = str_replace('train:', '', $message);
-			
-			$message = preg_replace('([\s]+)', ' ', trim($message));
-			$message = preg_replace("([?.])", "", $message); 
-			
-			if (count($matches = explode('#', $message, 3)) === 3) {
-				$question =neat_string($matches[0]);
-				$answer =neat_string($matches[1]);
-				$password =neat_string($matches[2]);
-				
-				if ($password !== 'password') {
-					return botMessage('Please enter the correct password train me');
-				}if (empty($question)) {
-					return botMessage('Ask me anything');
-				}
-				if (empty($answer)) {
-					return botMessage('Include the answer please...');
-				}
-				if ($m->PairExists($question, $answer) !== false) {
-					return botMessage('Question exist. Please try something new?');
-				} else {
-					$m->trainMyBot($question, $answer);
-					return botMessage('ChatMe is awesome, I\'did love to learn more');
-				}
-			} else {
-				return botMessage('I\'d prefer, train: Question # Answer # Password');
-			}
-		} else {
-			$result = $m->getQuestion($message);
-			$answer = botAnswer($result);
-			return botMessage($answer);
-		}
-	}
-
-	if (!empty($_POST)) {
-		
-		if (!isset($_POST["function"])) {
-			$data = $_POST['json'];
-			$_POST = json_decode($data, true);
-		}
-		if (is_callable($_POST['function'])) {
-			echo $_POST['function']();
-		}
-		exit;
-	}
-	$name = (new DBHelper())->getMyProfile();
-
 ?>
-<?php if($_SERVER['REQUEST_METHOD'] === "GET"){ ?>
+<?php 
 
+$result = $conn->query("SELECT * FROM secret_word LIMIT 1");
+$result = $result->fetch(PDO::FETCH_OBJ);
+$secret_word = $result->secret_word;
+
+$result2 = $conn->query("SELECT * FROM interns_data where username = 'Adebayo'");
+$user = $result2->fetch(PDO::FETCH_ASSOC);
+
+$username = $user['username'];
+$name = $user['name'];
+$image_filename = $user['image_filename'];
+?>
+<?php
+include_once("header.php");
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -274,7 +136,7 @@ class DBHelper{
         }
         .main {
         width: 360px;
-        height: 600px;
+        height: 500px;
         left: 50%;
         top:55%;
         background: rgb(43, 108, 167);
@@ -356,114 +218,11 @@ class DBHelper{
         }
         
         /* ChatBot section */
-    .section-main{
-	 width: 330px; 
-    position: fixed; 
-    right:5px;
-     bottom:400px; 
-	}
-	.session-one:hover{
-	 	cursor: pointer; 
-	}
-	.open-more{
-	 	bottom:0px; 
-        transition:2; 
-	}
-	.chat-border{
-		 border:1px solid rgb(43, 108, 167);
-		  margin: 0px; 
-	}
-	.session-one{
-	 	background-color:rgb(43, 108, 167); 
-	}
-	.session-one p{
-        color:#fff; 
-        margin:0px;
-        padding: 0px; 
-        font-size: 15px; 
-        font-weight: bold; 
-	}
-	.session-one p:hover{
-		 color:#fff;
-		  cursor: pointer; 
-	}
-	.right-session-one{
-		 text-align: right;
-        position: absolute;
-        top: 10px;
-        left: 70%;
-	}
-	.right-session-one i{
-        color:#fff; 
-        font-size: 15px;
-        padding: 12px 3px; 
-	} 
-	.right-session-one i:hover{
-	 	color:red; 
-	} 
-	.session-two{
-		 padding: 0px;
-		 margin: 0px; 
-		 background-color: #F3F3F3; 
-		 height: 300px; 
-	}
-
-	.messages{
-		 overflow-y:scroll; 
-		 height:300px; 
-	}
-	.messages ul{
-		 padding: 0px;
-		
-	}
-	.messages ul li{
-		 list-style: none; 
-		 margin-top:-10px; 
-		 position: relative; 
-		 margin-left:10px; 
-	}
-	.session-three{
-	 	border-top: 2px solid #EEEEEE; 
-	}
-
-	.input-group{
-		margin-top: 5px; 
-		margin-bottom: -5px; 
-	}
-	input.form-control{
-		 height: 40px; 
-		 padding: 3px 6px; 
-		 border:1px solid #007bff; 
-	}
-	.btn{
-        position: absolute;
-        bottom: 16px;
-        left: 180px;
-		  padding:11px 15px;
-            border:none;
-            color:white;
-            font-size:20px;
-            background-color:cornflowerblue;
-	}
-	.textInput{
-		margin-bottom:16px;
-        margin-left: 5px;
-	}
-	.follow{
-		font-size: 24px;
-	}
-	.replies{
-        color: cornflowerblue;
-	}
-    .sent{
-        color:forestgreen;
-        position: relative;
-	}
-        @media (max-width: 700px){
-        .section-main{
-                position: relative;
-                margin: 180% auto 0px;
-            }
+        .main-bot {
+            margin-bottom: 500px;
+        }
+        .d-flex{
+            margin-left: 200px;
         }
 	</style>
 </head>
@@ -483,47 +242,30 @@ class DBHelper{
 <!--  Starting up the Chatbot Design  -->
 
          <!-- Chatbot Section -->
-	<div class="section-main">
-        <div class="row chat-border">
-            <div class="col-md-12 col-sm-12 col-xs-12 session-one bg-primary">
-                <div class="row">
-                    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 left-session-one">
-                        <p id="chatbot-heading" class="blink"><i class="fa fa fa-question-circle"></i> Let's Chat</p>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 right-session-one">
-                        <a href="#"><i class="fa fa-minus" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-clone" aria-hidden="true" id="maximize"></i></a>
-                        <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
+    <div class="main-bot"></div>
+<div class="d-flex justify-content-center align-items-center mt-5 pt-5 pl-5 ">
+    <div class="d-block w-50 mt-5 ml-10 main_bot">
+        <div class="w-50">
+            <h2 class="text-center my-0 py-0" style="margin-bottom: 10px">ChatMe</h2>
+            <p class="text-center text-lighte" style="font-size: 15px; opacity: 0.7">Hi, My name is ChatMe <br> How can I help you?</p>
         </div>
-        <div class="row chat-border">
-            <div class="col-md-12 col-sm-12 col-xs-12 session-two">
-                <div class="messages">
-                    <ul id="message-outlet">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row chat-border">
-            <div class="col-md-12 col-sm-12 col-xs-12 session-three">
-                <form id="message_chat_form" >
-                    <div class="input-group">
-                    	<div class="row">
-                    	 	<div class ="col-xs-9 textInput">
-                    	 		<input type="text" class="form-control custom-control" id="chat_message_text" autofocus="autofocus" rows="2" style="resize:none" width="50px" placeholder="Type your message here"> 
-                    	 	</div>	
-                    	 	<div class ="col-xs-3 sendBtn">
-                    	 		<button type="submit" class="btn btn-success btn-sm pull-right">Send</button>  
-                    	 	</div>
-                    	</div>
-                    </div>
-             	</form>
-         	</div>
-     	</div>
-    </div>
-    
+
+        <form class="w-50 mt-2" method = post>
+            <input name="input" type="text" class="form-control mb-3" id="chat bot" placeholder="Type your message here">
+            <input name="button" type="submit"  class="btn btn-blue w-100 rounded py-2"style="margin-bottom: 10px" id="button" value="SEND">
+            <input name="restart" type="submit"  class="btn btn-blue w-100 rounded py-2" style="margin-bottom: 10px" value="Restart">
+        </form>
+  </div>
+</div><div style="text-align: center;
+                     -o-text-overflow: ellipsis;
+                     text-overflow: ellipsis;
+                     width: 500px;
+                     height: auto;
+            margin: auto;"> <p>
+    <?php foreach($_SESSION["all"] as list($asked,$soln )){ ?>
+    <span style="color:midnightblue"><?=  "YOU : $soln <br/>";echo "</span>";echo "<span style=\"color:black\">";
+        echo "BOT : $asked<br/>" ?></span>
+<?php }?></p></div>
         <div class="footer-main">
           <?php include('../footer.php'); ?>
         </div>
@@ -534,139 +276,4 @@ class DBHelper{
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://use.fontawesome.com/477bc8d938.js"></script>
-<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
-<script type="text/javascript" src="../js/jquery.min.js"></script>s
-<script type="text/javascript">
-    var chat = chat || {};
-
-    (function () {
-        this.onReady = function () {
-            // send welcome messages
-            var strMessages = '<li class="replies"><p><small style="font-size: 15px;" >Hi, My name is ChatMe <br> How can I help you?</small></p></li><div class="clearfix"></div> ';
-            $('#message-outlet').append(strMessages);
-            $(".messages").scrollTop($("#message-outlet").outerHeight());
-        };
-
-//        this.postJSON = function (dataObject, abayomi, callback) {
-            $.ajax({
-                type: "POST",
-                url: "profiles/abayomi.php",
-                data: {"json": JSON.stringify(dataObject)},
-                dataType: 'json',
-                success: function (data) {
-                    callback(data);
-                    return true;
-                },
-                complete: function () {
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    return false;
-                }
-            });
-//        };
-
-        $('#message_chat_form').submit(function (e) {
-            e.preventDefault();
-            chat.messageChat();
-            $('#message_chat_form')[0].reset();
-        });
-
-        this.messageChat = function () {
-
-            var message = $("#chat_message_text").val();
-
-            var strMessages = '<li class="sent"><p><small>You:</small> ' +
-                ' ' + message + '</p></li><div class="clearfix"></div> ';
-            $('#message-outlet').append(strMessages);
-            $(".messages").scrollTop($("#message-outlet").outerHeight());
-
-            var data = {
-                "function": "messageBot",
-                "message": message,
-            };
-            this.postJSON(data, "../profiles/abayomi.php", function (response) {
-                $('#message_chat_form')[0].reset();
-                console.log(response);
-                var strMessages = '<li class="replies"><small style=" color:rgb(47, 136, 204);" >ChatMe:</small> ' +
-                    ' ' + response.message + '</p></li><div class="clearfix"></div> ';
-                $('#message-outlet').append(strMessages);
-                $(".messages").scrollTop($("#message-outlet").outerHeight());
-
-            });
-        };
-
-    }).apply(chat);
-
-
-    $(this).delay(800).queue(function () {
-        chat.onReady();
-        $(this).dequeue();
-    });   
-</script>
-
-<script>
-    //ON load of chat box page 
-    $(document).ready(function(){
-        $(".left-session-one").click(function(){
-                $("#chatbot-heading").removeClass('blink');
-                $('.section-main').toggleClass("open-more");
-        });
-        $(".fa-minus").click(function(){
-            $('.section-main').removeClass("open-more");
-        });
-
-         $(".fa-times").click(function(){
-            $('.section-main').removeClass("open-more");
-        });
-
-        $(".fa-clone").click(function(){
-  				$( "#maximize").resizable({
-				      maxHeight: 250,
-				      maxWidth: 350,
-				      minHeight: 150,
-				      minWidth: 200
-				    });
-				  } );
-                        
-        $('.section-main').addClass("open-more");
-        // welcome();
-        $("#textbox").keypress(function(event){
-            if( event.which == 13){
-                if( $("#send").click() ){
-                    $("#send").click();
-                    event.preventDefault();
-                }
-            }
-        });
-        $("#send").click(function(){
-            var usernameTag = "<li><div class='right-chat'><p><b>You: </b>";
-            
-            var prevState = $("#chatSection").html();
-            
-            if(prevState.length == 194){
-                var username = $("#textbox").val();
-                
-                if(prevState.length > prevState.length){
-                    prevState = prevState + "<br/>";
-                }
-                
-                $("#chatSection").html(prevState + usernameTag + username + "</p><span>" +botDate+ "</span></div></li>");
-                $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
-                $("#textbox").val("");
-                displayUsername(username);
-            }
-            else{
-                var userQuestion = $("#textbox").val();
-                if(prevState.length > prevState.length){
-                     prevState = prevState + "<br/>";
-                }
-                $("#chatSection").html(prevState + usernameTag + userQuestion + "</p></div></li>");
-                $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
-                $("#textbox").val("");
-                ai(userQuestion);
-                }
-        });                          
-    });
-</script>
-<?php } ?>
+<script type="text/javascript" src="../js/jquery.min.js"></script>

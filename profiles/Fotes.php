@@ -144,7 +144,7 @@ h1{
 }
 @keyframes blink {
 	0% {
-		color: #802D72;
+		color: royalblue;
 		opacity: 1;
 	}
 	100% {
@@ -158,7 +158,7 @@ h4{
 }
 @keyframes blink {
 	0% {
-		color: #802D72;
+		color: royalblue;
 		opacity: 1;
 	}
 	100% {
@@ -171,7 +171,7 @@ h4{
 	padding-top: 0px;
     font-size: 50px;
     font-family: cursive;
-    color: balck;
+    
 	text-align: center;
 
 }
@@ -182,11 +182,11 @@ img{
 			float: right;
 		 }
 		 #answer{
-			 color:darkmagenta;
+			 color: royalblue;
              float:right;
 		 }
             .accordion {
-    background-color: darkmagenta;
+    background-color: royalblue;
     color: white;
     cursor: pointer;
     width:50%;
@@ -214,16 +214,16 @@ img{
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: darkmagenta;
+  background-color: royalblue;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: darkmagenta}
+.button:hover {background-color: royalblue}
 
 .button:active {
-  background-color: darkmagenta;
+  background-color: royalblue;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }

@@ -18,8 +18,8 @@ if (isset($_POST["submit"])) {
     $message = $_POST['message'];
     $phone_number = $_POST['phone_number'];
     $subject = $_POST['subject'];
-    $from = 'From: $email \r\n'; 
-    $to = 'support@hng.fun'; 
+    $from = 'From: donotreply@hotels.ng'; 
+    $to = $email; 
     $body ="From: $name\n E-Mail: $email\n Phone Number: $phone_number\n Message:\n $message";
     // Check if name has been entered
     if (!$_POST['name']) {
@@ -38,21 +38,23 @@ if (isset($_POST["submit"])) {
     if (!$_POST['phone_number']) {
         $errPhone_number = 'Please enter your phone number';
     }
-
     //Check subject
     if (!$_POST['subject']) {
         $errSubject = 'Please enter your Email Subject';
     }
 // If there are no errors, send the email
-if (!isset($errName) && !isset($errEmail) && !isset($errMessage) && !isset($errPhone_number) && !isset($errSubject)) {
-if (mail ($to, $subject, $body, $from)) {
+if (mail ($to, "FROM HNG", "Your Mail Has Been Delivered, Thanks For Contacting Us", $from)) {
     $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
 } else {
     $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
 }
-}
+    if (mail ("support@hng.fun", $to." sent us this mail", "Subject is: ".$subject."\n\n"."Body is: ".$body, $from)) {
+    $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
+} else {
+    $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
 }
 
+}
 function custom_styles()
 {
     $styles = '<style>
@@ -92,7 +94,6 @@ function custom_styles()
         }
     }
         
-
     </style>
 
     <div class="container jumbotron " id="contact-half">
@@ -190,5 +191,4 @@ function custom_scripts()
 });</script>";
     echo $script;
 };
-
 ?>

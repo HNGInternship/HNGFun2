@@ -1,21 +1,22 @@
 <?php
 include_once("coin_header.php");
-include_once("db.php");
+//include_once("xconfig_slayers.php");
 ?>
 
 <?php
 
-	$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
-	$stmt = $db->prepare($sql);
-	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-	$stmt->execute();
-	$sell_requests = $stmt->fetchAll();
+// 	$sql = "select sell_requests.id, amount, trade_limit, price_per_coin, status, sell_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from sell_requests inner join interns_data on sell_requests.intern_id=interns_data.id";
+// 	$stmt = $db->prepare($sql);
+// 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+// 	$stmt->execute();
+// 	$sell_requests = $stmt->fetchAll();
 
-	$sql = "select buy_requests.id, amount, trade_limit, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
-	$stmt = $db->prepare($sql);
-	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-	$stmt->execute();
-	$buy_requests = $stmt->fetchAll();
+// 	$sql = "select buy_requests.id, amount, trade_limit, bid_per_coin, status, buy_requests.created_at, concat(interns_data.first_name, ' ', interns_data.last_name) as full_name, image_filename from buy_requests inner join interns_data on buy_requests.intern_id=interns_data.id";
+// 	$stmt = $db->prepare($sql);
+// 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+// 	$stmt->execute();
+// 	$buy_requests = $stmt->fetchAll();
+
 	
 ?>
 
@@ -161,7 +162,7 @@ h3{
 					<div class="listing">
 						<div class="row mx-auto">
 							<div class="col-1">
-								<img src="<?php echo $r['image_filename']; ?>" width="50">
+								<img src="<?php ///echo $r['image_filename']; ?>" width="50">
 							</div>
 							
 							<div class="col-2">
@@ -173,11 +174,11 @@ h3{
 							</div>
 							
 							<div class="col-3">
-							<?php echo $r['price_per_coin']; ?> <br/>NGN
+							<?php// echo $r['price_per_coin']; ?> <br/>NGN
 							</div>
 							
 							<div class="col-2">
-							<?php echo $r['trade_limit']; ?> <br/> NGN
+							<?php //echo $r['trade_limit']; ?> 3000 <br/> NGN
 							</div>
 							
 							<div class="col-1">

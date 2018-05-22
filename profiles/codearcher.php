@@ -457,9 +457,9 @@ $result = $conn->query("Select * from secret_word LIMIT 1");
                 <header>
                     <div class="App-header1">
                         <div class="social_inline">
-                            <button onclick="window.history.back()" class="btn">
-                                <i class="fa fa-arrow-left"></i>
-                                Go Back To Intern Listing
+                            <button onclick="window.location.href = '/profiles/codearcher'" class="btn">
+                                <i class="fa fa-chat"></i>
+                                Chat
                             </button>
                             <a href="https://github.com/thecodearcher" target="_blank" class="social_icon">
                                 <i class="fa fa-github"></i>

@@ -1,6 +1,8 @@
 <?php
+session_start();
+require_once ("db.php");
 
-$username = "Amy Xandra";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -145,7 +147,7 @@ $username = "Amy Xandra";
 				<div class="dropdown" id="">
 					<img class="acc-img" src="img/dashboard/amy.png">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true"><?php 
-					echo $username; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
+					echo $_SESSION['user_id'];; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
 					 
 					<ul class="dropdown-menu">
@@ -178,7 +180,7 @@ $username = "Amy Xandra";
             <li class="nav-item">
                 <a href="buyandsell.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
             </li> <li class="nav-item">
-                <a href="profile.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
+                <a href="myprofile.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
             </li> <li class="nav-item">
                 <a href="help.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/help.png">Help & Feedback</a>
             </li>
