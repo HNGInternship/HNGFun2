@@ -1,6 +1,6 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    if(!isset($conn)){
+    if(!defined('DB_USER')){
         require "../../config.php";
         global $conn;
         global $response;
