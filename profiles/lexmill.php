@@ -1,8 +1,8 @@
 <?php
 
-function getMyquote(){
+function getMypun(){
     $random = rand(0,11);
-    $quote = array("The past is always TENSE, the future PERFECT",
+    $pun = array("The past is always TENSE, the future PERFECT",
         "I will JOS go first because you play too much",
         "Why do virgins not like low men? Because they have HYMEN",
         "What if an atom says he's positive he lost an electron",
@@ -14,7 +14,7 @@ function getMyquote(){
         "If you jumped off the bridge in Paris, you will be in Seine",
         "A backward pet writes inverse",
         "The phone call interrupted my nap, I never did get the rest");
-    return $quote[$random];
+    return $pun[$random];
 }
 function getmyJoke(){
     $random = rand(0,6);
@@ -118,7 +118,7 @@ function askQuestion($input)
             }else if($input=="you are mad"||$input == "you're mad"){
                 return "YOU ARE NOT ETHICAL";
             }else if(preg_match("/\bpun\b/",$input)){
-                return getMyquote();
+                return getMypun();
             }else if(preg_match("/\bjoke\b/",$input)){
                 return getmyJoke();
             }
@@ -207,7 +207,8 @@ function askQuestion($input)
 	  $currentTime = date('H:i:s');
         echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime; ?>
 		</div>
-	<p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i><font color="white">Meet my chatbot, Smart!!!<br>To restart, click restart 'twice' as its our policy</font></i></p>
+	<p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i><font color="white">Meet my chatbot, Smart!!!<br>To restart, click restart 'twice' as its our policy<br>
+		Also, remember the scroll down as our answers can be rearranged to exercise you visually!</font></i></p>
 	
  <form method="post">
 <label>
