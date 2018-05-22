@@ -140,6 +140,7 @@ if(isset($_POST['registration'])){
             }
 
             $_SESSION["user_id"] = $row["id"];
+             $_SESSION["username'] = $row["username"];
             $_SESSION["email"] = $row["email"];
             echo "1";
            
