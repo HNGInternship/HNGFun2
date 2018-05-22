@@ -37,22 +37,22 @@ function getMyquote(){
 }
 session_start();
 if (!isset($_SESSION["all"])){
-    $_SESSION["all"] = [];
+ /  $_SESSION["all"] = [];
 }if(!defined('DB_USER')){
-    require_once "../../config.php";
-    $servername = DB_HOST;
-    $username = DB_USER;
-    $password = DB_PASSWORD;
+   require_once "../../config.php";
+   $servername = DB_HOST;
+   $username = DB_USER;
+   $password = DB_PASSWORD;
     $dbname = DB_DATABASE;
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch(PDOException $e)
-    {
-        echo "Connection failed: " . $e->getMessage();
-    }}
+   /try {
+       $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        //set the PDO error mode to exception
+       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   }
+  catch(PDOException $e)
+     {
+      echo "Connection failed: " . $e->getMessage();
+      }} 
 global $conn;
 $solution = '';
 if (isset($_POST['restart'])){
@@ -151,11 +151,22 @@ function askQuestion($input)
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-    <link id="css" rel="stylesheet" href="https://static.oracle.com/cdn/jet/v5.0.0/default/css/alta/oj-alta-min.css" type="text/css"/>
-    <!meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
+   <!-- <link id="css" rel="stylesheet" href="https://static.oracle.com/cdn/jet/v5.0.0/default/css/alta/oj-alta-min.css" type="text/css"/>-->
+    <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <style type="text/css">
         body{
-            background-color:#4169E1;
+            background-color:skyBlue;
+		#center{
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+		}
+		#time{
+			position:relative;
+			float: right;
+		}
+		
         }
         .sec1{
             margin-top: 300px;
@@ -166,28 +177,47 @@ function askQuestion($input)
                  {
                      text-shadow:1px 3px 1px rgba(255,255,255,1);font-weight:bold;text-transform:uppercase;color:#000000;border: 5px ridge #FFFFFF;letter-spacing:5pt;word-spacing:2pt;font-size:20px;text-align:center;font-family:arial, helvetica, sans-serif;line-height:1;
                  }
+				 
+		.bot{
+			width:80%;
+			padding:30px;
+			text-align: center;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			font-size: 160%;
+			color: #fff;
+		}
     </style>
 </head>
 <body>
 
 
 <div>
-    <h1>Stage 1</h1>
-    <br>
-    <img src="http://res.cloudinary.com/dtvv1oyyj/image/upload/c_fill,h_330,w_300/v1524842222/Snapchat-684128679.jpg">
+    <h1 style="font-size:500%; font-weight:bold;font-family:Gothic;text-align:center;color:white">HNG INTERNSHIP 2018</h1>
+	<h2 style="font-size:300%;text-align:center;color:white">Lexmill's Page</h2>
+	<br><br><br><br><hr>
+   <center><img style="border-radius:50%" class ="center" src="http://res.cloudinary.com/dtvv1oyyj/image/upload/c_fill,h_330,w_300/v1524842222/Snapchat-684128679.jpg"></center>
     <hr>
-    HNG Internship 2018<br>
-    <div class="oj-panel oj-panel-oj-panel-shadow-md"><?php
+    <br><br><br><br><br>
+	<p style="font-size:310%;text-align:center;color:white;text-decoration-style:dashed"><i>Meet my chatbot, Smart!!!</i></p>
+	<center>
+<div class = "bot">
+    <div class="oj-panel oj-panel-oj-panel-shadow-md" id="center" z-index="1"><?php
         date_default_timezone_set('Africa/Lagos');
-        $currentDateTime = date('Y-m-d H:i:s');
-        echo $currentDateTime;
-        ?></h1></div><p class="oj-align-content-center">My name is : <?= "Leke!"?><br />My HNG username is : <?= "lexmill"?><br/><div class = "oj-flex-item oj-sm-10 oj-md-6 oj-lg-4">
-        </div>
+      $currentDate= date('d-m-Y'); 
+	  $currentTime = date('H:i:s');
+        echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime;
+	
+		
+        ?></div>
 
-</div><form method="post">
+ <br><br><br>
+ <form method="post">
 <label>
-    <input name="input" type="text" class="tb5"  placeholder="Chat with Smart!">
+    <input name="input" type="text" class="tb5"  placeholder="Chat with Smart! He's smart">
 </label><br><label>
+<br>
     <input name="button" type="submit"  class="btn btn-primary mb-2" id="button" value="ASK">&nbsp&nbsp&nbsp<label>
        <input name="restart" type="submit"  class="btn btn-primary mb-2"  id="button" value="Restart Bot">
     </label>
@@ -202,6 +232,9 @@ function askQuestion($input)
     <span style="color:greenyellow"><?=  "YOU : $soln <br/>";echo "</span>";echo "<span style=\"color:white\">";
         echo "BOT : $asked<br/>" ?><br/></span></p>
 <?php }?>
+</div>
+</div>
+
 
 </body>
 </html>
