@@ -226,12 +226,12 @@ return ;
                 <div class="main"><span class="text"><?=$my_data['name'] ?></span></div>
                 <div class="under"><span>Front End Web Developer</span></div>
                 <div class="under1"><span>
-                        <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/mokunuga">
+                        <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/papuzzy">
                             <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
                                 <img style="width:40px; height: 40px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png">
                             </div></a>
 
-                            <a href="https://linkedin.com/in/mokunuga">
+                            <a href="https://linkedin.com/in/eniayomi">
                                  <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
                                     <img style="width:40px; height: 40px;" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-social-media/256/Linkedin-icon.png">
                                  </div>
