@@ -4,23 +4,13 @@
     
     <?php
 
-    if(!defined('DB_USER')){
-    require "../../config_slayer.php"; 
-    try {
-        $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-    } catch (PDOException $pe) {
-        die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-    }
-  }
+    
+        $sql = $conn->query("SELECT * FROM secret_word LIMIT 1");
+        $sql = $sql->fetch(PDO::FETCH_OBJ);
+        $secret_word = $sql->secret_word;
 
-    try {
-        $sql2 = 'SELECT * FROM interns_data WHERE username="Legendary"';
-        $q2 = $conn->query($sql2);
-        $q2->setFetchMode(PDO::FETCH_ASSOC);
-        $my_data = $q2->fetch();
-    } catch (PDOException $e) {
-        throw $e;
-    }
+        $result = $conn->query("SELECT * FROM interns_data WHERE username = 'Legendary'");
+        $user = $result->fetch(PDO::FETCH_OBJ);
     ?>
 
     <title>Internship 4</title>
@@ -274,14 +264,14 @@
       </p>
     </div>
     <div class="row wow fadeInLeft" data-wow-delay=".3s">
-      <div class="col-lg-6 col-xl-5 pr-lg-5 pb-5"><img class="img-fluid rounded z-depth-2" height="5" src="<?=$my_data['image_filename'] ?>"/></div>
+      <div class="col-lg-6 col-xl-5 pr-lg-5 pb-5"><img src="<?php echo $user->image_filename ?>" alt="" class="image"></div>
       <div class="col-lg-6 col-xl-7 pl-lg-5 pb-4">
         <div class="row mb-3">
           <div class="col-1 mr-1"><i class="fa fa-book fa-2x cyan-text"></i></div>
           <div class="col-10">
             <h5 class="font-bold">Name:</h5>
             <p class="grey-text">
-             <h1> <?=$my_data['name'] ?> </h1>
+             <h1 class="oj-header-border name"><?php echo $user->name ?></h1>
             </p>
           </div>
         </div>
