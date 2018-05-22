@@ -1,8 +1,5 @@
 <?php
-function gettTime(){
-    date_default_timezone_set('Africa/Lagos');
-    return "The time is " . date("h:i:sa");
-}
+
 function getMyquote(){
     $random = rand(0,11);
     $quote = array("The past is always TENSE, the future PERFECT",
