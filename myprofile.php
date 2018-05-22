@@ -63,7 +63,7 @@ $data = $q->fetch();
  <section id="board">
  <div class="container">
     <div class="box">
-        <h1><spa>PROFILE INFORMATION</spa> </h1>
+        <h1><spa>BASIC PROFILE</spa> </h1>
      <div class="row">
      <div class ="col-md-4 dp">
      <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" alt="epospiky" class="img-responsive"/>
