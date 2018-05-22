@@ -180,7 +180,7 @@ function askQuestion($input)
                      text-shadow:1px 3px 1px rgba(255,255,255,1);font-weight:bold;text-transform:uppercase;color:#000000;border: 5px ridge #FFFFFF;letter-spacing:5pt;word-spacing:2pt;font-size:20px;text-align:center;font-family:arial, helvetica, sans-serif;line-height:1;
                  }
 				 
-		.bot{
+		#bot{
 			width:80%;
 			padding:30px;
 			text-align: center;
@@ -203,15 +203,14 @@ function askQuestion($input)
     <hr>
     <br><br><br><br><br>
 	<div class = "bot">
-    <div class="oj-panel oj-panel-oj-panel-shadow-md" id="center" z-index="1"><?php
+    <div class="oj-panel oj-panel-oj-panel-shadow-md" id="bot">
+	    <?php
         date_default_timezone_set('Africa/Lagos');
       $currentDate= date('d-m-Y'); 
 	  $currentTime = date('H:i:s');
-        echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime;
-	
-		
-        ?></div>
-	<p style="font-size:310%;text-align:center;color:white;text-decoration-style:dashed"><i>Meet my chatbot, Smart!!!</i></p>
+        echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime; ?>
+		</div>
+	<p style="font-size:310%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i>Meet my chatbot, Smart!!!</i></p>
 	<center>
 
 
