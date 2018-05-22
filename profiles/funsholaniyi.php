@@ -357,7 +357,7 @@ function sendMessage()
 }
 
 if (!empty($_POST)) {
-	
+	ob_end_clean();
 	if (!isset($_POST["function"])) {
 		$data = $_POST['json'];
 		$_POST = json_decode($data, true);
