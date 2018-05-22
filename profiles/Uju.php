@@ -233,7 +233,7 @@ return ;
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
                     data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
                     </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='https://res.cloudinary.com/uuujuuu/image/upload/v1526014279/IMG_0681.jpg'" src="<?=$my_data['image_filename'] ?>" >
+                    <img class="img-fluid " onerror="this.src='http://res.cloudinary.com/eniayomi/image/upload/v1524007065/pe.png'" src="<?=$my_data['image_filename'] ?>" >
                 </div>
             </div>
             <div class="body0">
