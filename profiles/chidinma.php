@@ -1,8 +1,5 @@
 
-
-
 <?php
-
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         //die('Hi');
@@ -10,9 +7,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $conn =  mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
 
        // $conn = new mysqli('localhost', 'root', 'root', 'hng_fun');    
-
-         
-
          if(!$conn){
           die('Unable to connect');
         }
@@ -60,10 +54,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     'results'=> 'Wrong Password'
                 ]);
                 return;
-            }
-            
-        }
-        
+            }   
+        }  
         echo json_encode([
             'reply'=>  'working'
         ]);
@@ -73,10 +65,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //echo 'HI';
         //return;
     }
-    
-
-
-
 ?>
 
 <!DOCTYPE html>
