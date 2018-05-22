@@ -75,6 +75,9 @@ $activeArray[$fileIndex]="active";
             color: #3d3d3d;
             font-family: 'Lato', sans-serif;
         }
+      .active{
+          background-color:lightblue;
+      }
         .navbar{
           font-size: 15px;
           font-weight: bold;
@@ -196,3 +199,9 @@ $activeArray[$fileIndex]="active";
   </div>
 
     </nav>
+<script type="text/javascript">
+      $('.navbar-nav li').click(function(e){
+    $('.navbar-nav li').removeClass("active");
+    $(this).addClass("active");
+});
+    </script>
