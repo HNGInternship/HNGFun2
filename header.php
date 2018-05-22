@@ -162,7 +162,7 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li> 
+            </li>
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
             </li>
@@ -193,4 +193,3 @@ $activeArray[$fileIndex]="active";
   </div>
 
     </nav>
-

@@ -132,13 +132,13 @@
                 
 
             },
-           error : function(jqXHR,textStatus,errorThrown){
-                 if(textStatus ='error'){
-            $("#login").html('Log In');
+        //    error : function(jqXHR,textStatus,errorThrown){
+        //          if(textStatus ='error'){
+        //     $("#login").html('Log In');
 
-                    alert('Request not completed');
-                 }
-            },
+        //             alert('Request not completed');
+        //          }
+        //     },
             beforeSend :function(){
 
                  $("#message").hide();
