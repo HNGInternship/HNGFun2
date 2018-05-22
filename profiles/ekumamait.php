@@ -620,58 +620,6 @@ a:active,a:focus,a:hover {
     </div>
 </div>
     
-    <footer id="footer" class="footer">
-    Made in 2018 with <span class="text-red">♥</span> from Kampala, Uganda.
-
-     <div class="oj-flex">
-        <!-- Chatbot Section -->
-        <div class="main-section">
-          <div class="row border-chat">
-            <div class="col-md-12 col-sm-12 col-xs-12 first-section bg-primary">
-              <div class="row">
-                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 left-first-section">
-                  <p id="chatbot-heading" class="blink"><i class="fa fa fa-question-circle"></i> Chat with Eko</p>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 right-first-section">
-                  <a href="#"><i class="fa fa-minus" aria-hidden="true"></i></a>
-                  <a href="#"><i class="fa fa-clone" aria-hidden="true"></i></a>
-                  <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row border-chat">
-            <div class="col-md-12 col-sm-12 col-xs-12 second-section">
-              <div class="chat-section">
-                <ul id="chatSection">
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="row border-chat">
-            <div class="col-md-12 col-sm-12 col-xs-12 third-section">
-              <form class="message-box">
-                <div class="input-group">
-                  <textarea class="form-control custom-control" id="textbox" autofocus="autofocus" rows="2" style="resize:none" placeholder="Enter your question here"></textarea>     
-                  <span class="input-group-addon btn btn-primary" id="send"><i class="fa fa fa-paper-plane fa-lg" aria-hidden="true"></i></span>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" checked id="enter">Press Enter to Send</label>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-    </div>  
-  </div>
-</footer>
-</body>
-
  
   <script type="text/javascript" src="https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/require/require.js"></script>
   <script>
@@ -854,5 +802,55 @@ a:active,a:focus,a:hover {
     }
   </script>
 </body>
+   <footer id="footer" class="footer">
+    Made in 2018 with <span class="text-red">♥</span> from Kampala, Uganda.
+
+     <div class="oj-flex">
+        <!-- Chatbot Section -->
+        <div class="main-section">
+          <div class="row border-chat">
+            <div class="col-md-12 col-sm-12 col-xs-12 first-section bg-primary">
+              <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 left-first-section">
+                  <p id="chatbot-heading" class="blink"><i class="fa fa fa-question-circle"></i> Chat with Eko</p>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 right-first-section">
+                  <a href="#"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-clone" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row border-chat">
+            <div class="col-md-12 col-sm-12 col-xs-12 second-section">
+              <div class="chat-section">
+                <ul id="chatSection">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row border-chat">
+            <div class="col-md-12 col-sm-12 col-xs-12 third-section">
+              <form class="message-box">
+                <div class="input-group">
+                  <textarea class="form-control custom-control" id="textbox" autofocus="autofocus" rows="2" style="resize:none" placeholder="Enter your question here"></textarea>     
+                  <span class="input-group-addon btn btn-primary" id="send"><i class="fa fa fa-paper-plane fa-lg" aria-hidden="true"></i></span>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" checked id="enter">Press Enter to Send</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>  
+  </div>
+</footer>
 </html>
 <?php } ?>
