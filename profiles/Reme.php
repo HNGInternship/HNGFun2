@@ -424,7 +424,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			</form>
 		</div> <!-- end chat -->
 	</div> <!-- end chat-box -->
-//fixed bugs
+
 
 	<script >
 		
