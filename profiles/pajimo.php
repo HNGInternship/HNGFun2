@@ -248,14 +248,14 @@ try {
 }
             
             
-        .chat-output .user-message {
+        #chat-output {
             background: #0fb0df;
             color: white;
         }
-        .chat-output .bot-message {
+        #chat-output .bot-message {
             text-align: right;
         }
-        .chat-output .bot-message {
+        #chat-output .bot-message {
             background: #eee;
         }
         </style>
