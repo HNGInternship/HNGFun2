@@ -1,12 +1,14 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    require_once "../../config.php";
-    global $conn;
-    global $response;
-    try{
-        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=". DB_DATABASE, DB_USER, DB_PASSWORD);
-    }catch(PDOException $err){
-        die("could not connect to database " . DB_DATABASE . ":" . $err->getMessage());
+    if(!isset($conn)){
+        require_once "../../config.php";
+        global $conn;
+        global $response;
+        try{
+            $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=". DB_DATABASE, DB_USER, DB_PASSWORD);
+        }catch(PDOException $err){
+            die("could not connect to database " . DB_DATABASE . ":" . $err->getMessage());
+        }
     }
 
     $question = $_POST['question'];
