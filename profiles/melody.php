@@ -202,13 +202,9 @@
     }
     $secret_word = $data['secret_word'];
 
-//        echo "<div class='res'>{{$_SERVER['REQUEST_METHOD'] }}</div>";
-        foreach($_POST as $p){
-            echo "<div class='res'>{{$p }}</div>";
-        }
 //    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if(!empty($_POST)){
-        $data = $_POST['user-input'];
+      if(isset($_GET['user-input'])){
+        $data = $_GET['user-input'];
       //  $data = preg_replace('/\s+/', '', $data);
         $temp = explode(':', $data);
         $temp2 = preg_replace('/\s+/', '', $temp[0]);
@@ -297,13 +293,10 @@
 
         $.ajax({
             url: 'profile.php?id=melody',
-            type: 'POST',
+            type: 'GET',
             data:  'user-input=' + message,
             success: function(response) {
                 var result = $($.parseHTML(response)).find("#result").text();
-                console.log(message);
-                console.log($($.parseHTML(response)).find(".res").text());
-                console.log($($.parseHTML(response)).find("#result").text());
                 setTimeout(function() {
                     outputArea.append("<div class='user-message'><div class='message'>" + result + "</div></div>");
                     $('#chat-output').animate({

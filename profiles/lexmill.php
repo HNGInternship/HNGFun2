@@ -1,8 +1,5 @@
 <?php
-function gettTime(){
-    date_default_timezone_set('Africa/Lagos');
-    return "The time is " . date("h:i:sa");
-}
+
 function getMyquote(){
     $random = rand(0,11);
     $quote = array("The past is always TENSE, the future PERFECT",
@@ -180,7 +177,7 @@ function askQuestion($input)
                      text-shadow:1px 3px 1px rgba(255,255,255,1);font-weight:bold;text-transform:uppercase;color:#000000;border: 5px ridge #FFFFFF;letter-spacing:5pt;word-spacing:2pt;font-size:20px;text-align:center;font-family:arial, helvetica, sans-serif;line-height:1;
                  }
 				 
-		.bot{
+		#bot{
 			width:80%;
 			padding:30px;
 			text-align: center;
@@ -197,27 +194,24 @@ function askQuestion($input)
 
 <div>
     <h1 style="font-size:500%; font-weight:bold;font-family:Gothic;text-align:center;color:white">HNG INTERNSHIP 2018</h1>
-	<h2 style="font-size:300%;text-align:center;color:white">Lexmill's Page</h2>
+	<h2 style="font-size:300%;text-align:center;color:white">Lexmill's Page<br>I am a python, Java and php developer</h2>
 	<br><br><br><br><hr>
    <center><img style="border-radius:50%" class ="center" src="http://res.cloudinary.com/dtvv1oyyj/image/upload/c_fill,h_330,w_300/v1524842222/Snapchat-684128679.jpg"></center>
     <hr>
     <br><br><br><br><br>
-	<p style="font-size:310%;text-align:center;color:white;text-decoration-style:dashed"><i>Meet my chatbot, Smart!!!</i></p>
-	<center>
-<div class = "bot">
-    <div class="oj-panel oj-panel-oj-panel-shadow-md" id="center" z-index="1"><?php
+	<div class = "bot">
+    <div id="bot">
+	    <?php
         date_default_timezone_set('Africa/Lagos');
       $currentDate= date('d-m-Y'); 
 	  $currentTime = date('H:i:s');
-        echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime;
+        echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime; ?>
+		</div>
+	<center><p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i><font color="white">Meet my chatbot, Smart!!!</font></i></p>
 	
-		
-        ?></div>
-
- <br><br><br>
  <form method="post">
 <label>
-    <input name="input" type="text" class="tb5"  placeholder="Chat with Smart! He's smart">
+    <input name="input" type="text" class="tb5"  placeholder="Chat with Smart!">
 </label><br><label>
 <br>
     <input name="button" type="submit"  class="btn btn-primary mb-2" id="button" value="ASK">&nbsp&nbsp&nbsp<label>
@@ -237,6 +231,6 @@ function askQuestion($input)
 </div>
 </div>
 <?php }?>
-
+	</center>
 </body>
 </html>
