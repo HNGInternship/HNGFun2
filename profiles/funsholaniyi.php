@@ -423,7 +423,7 @@ $user = (new Model())->getProfile();
             </div>
 
             <div class="message-input">
-                <form id="message_chat_form">
+                <form id="message_chat_form" action="">
                     <div class="form-group">
                         <input type="text" class="form-control" style="width: 100%; font-size: 12px;"
                                id="chat_message_text"
@@ -488,7 +488,8 @@ $user = (new Model())->getProfile();
                 "function": "sendMessage",
                 "message": message,
             };
-            this.postJSON(data, "/profiles/funsholaniyi.php", function (response) {
+            var url = $('#message_chat_form').attr('action');
+            this.postJSON(data, url, function (response) {
                 $('#message_chat_form')[0].reset();
                 // console.log(response);
                 var strMessages = '<li class="replies"><img src="https://res.cloudinary.com/funsholaniyi/image/upload/v1524159157/default.jpg">' +
