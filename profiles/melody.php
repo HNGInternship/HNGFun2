@@ -201,6 +201,7 @@
         throw $e;
     }
     $secret_word = $data['secret_word'];
+
     echo "<div class='res'>AB</div>";
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
