@@ -71,9 +71,9 @@ $data = $q->fetch();
       <div class="clearfix"></div>
      <div class ="col-md-7 info">
        <div class="name col-md-12">
-          <h4 style ="text-align:left"><?php echo $fullname; echo " (@".strtolower($data['username']).")";?></h4>
+          <h4 style ="text-align:left"><?php echo $fullname;?> <span style="color:#888888; font-weight:light;"><?php echo " (".$data['username'].")";?></span></h4>
           <p style="color:#888888; margin:0px; text-align:left; font-size:12px; padding:0px" ><?php echo $data['state'];?> Lagos</p>
-          <hr style="padding:5px 0px 5px 0px; border-width:1px; color:#888">
+          <hr style="padding:5px 0px 5px 0px; border-width:2px; color:#888">
        </div>
        <div class="b_info_grid col-md-12">
         <table >
