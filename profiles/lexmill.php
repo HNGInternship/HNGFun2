@@ -200,14 +200,14 @@ function askQuestion($input)
     <hr>
     <br><br><br><br><br>
 	<div class = "bot">
-    <div id="bot">
+   <center> <div id="bot">
 	    <?php
         date_default_timezone_set('Africa/Lagos');
       $currentDate= date('d-m-Y'); 
 	  $currentTime = date('H:i:s');
         echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime; ?>
 		</div>
-	<center><p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i><font color="white">Meet my chatbot, Smart!!!</font></i></p>
+	<p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i><font color="white">Meet my chatbot, Smart!!!</font></i></p>
 	
  <form method="post">
 <label>
