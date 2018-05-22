@@ -171,7 +171,7 @@ h4{
 	padding-top: 0px;
     font-size: 50px;
     font-family: cursive;
-    color: black;
+    
 	text-align: center;
 
 }
