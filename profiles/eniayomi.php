@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
    }
    // require '../answers.php';
    global $conn;
-
    function train($question, $answer) {
       $question = trim($question);
       $answer = trim($answer);
@@ -25,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
          return "🤖 I'm sorry, An error occured while trying to store what i learnt 😔";
       }
    }
-
    function findThisPerson($user) {
       global $conn;
       $statement = $conn->prepare("select * from interns_data where username like :user or name like :user limit 1");
@@ -35,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       $rows = $statement->fetchObject();
       return $rows;
    }
-
    function searchRequest($request) {
       global $conn;
       $statement = $conn->prepare("select answer from chatbot where question like :request order by rand()");
@@ -66,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       }
       return $response;
    }
-
    function store($request, $response)
    {
       global $conn;
@@ -80,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
          return false;
       }
    }
-
    if (isset($_POST['new_request'])) {
       $bot_response['response'] = [];
       $user_request = "";
@@ -97,22 +92,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $question = trim(preg_replace("/(train:)/", "", $power_split[0]));
             $answer = trim($power_split[1]);
             $password = trim($power_split[2]);
-
             if ($password != "password") {
                $bot_response['response'] = "🤖 Training Access Denied!";
             } else {
                $bot_response['response'] = train($question, $answer);
             }
-
          } else if (preg_match('/(find:)/', $request)) {
             $ex = explode("find:", $request);
-
             if (!empty($users = findThisPerson($ex[1]))) {
                $bot_response['response'] = array('resultType' => 'find', 'users' => $users);
             } else {
                $bot_response['response'] = "🤖 I couldn't find a user by that username or name";
             }
-
          } else {
             $bot_response['response'] = "🤖 I  don't understand your request, I hope you wouldn't mind training me?";
          }
@@ -254,7 +245,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-
 function newElementsForUser(userRequest) {
    var chatArea = $("#chatarea");
    var messageElement = "<div class='form-control form-control2 text-right'>" + userRequest + "</div>";
@@ -264,7 +254,6 @@ function newElementsForUser(userRequest) {
    chatArea.html(chatArea.html() + timeElement);
    chatArea.scrollTop($("#chatarea")[0].scrollHeight);
 }
-
 function newElementsForBot(botResponse) {
    var chatArea = $("#chatarea");
    if (botResponse.response.resultType == "find") {
@@ -278,12 +267,10 @@ function newElementsForBot(botResponse) {
    chatArea.html(chatArea.html() + timeElement);
    chatArea.scrollTop($("#chatarea")[0].scrollHeight);
 }
-
 $(document).ready(function() {
    response = {"response" : "Hello there, I'm eniayomi Bot.<br/>Here's a couple of things i can do.<br/> 1. You can ask me anything<br/>2. You can find a friend who's in the dope HNGInternship<br/>syntax : find: username or find: name<br/>3. To train the bot(train: question # answer # password)"};
    newElementsForBot(response);
 });
-
 $(document).ready(function chargeBot() {
    $("#send").click(function () {
       var message = $("#message").val();
@@ -318,13 +305,11 @@ $(document).ready(function chargeBot() {
       $("#message").val("");
    });
 });
-
 document.body.addEventListener('keyup', function (e) {
    if (e.keyCode == "13") {
       $("#send").click();
    }
 });
-
 </script>
 
 </html>
