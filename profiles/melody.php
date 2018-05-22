@@ -202,7 +202,7 @@
     }
     $secret_word = $data['secret_word'];
 
-    echo "<div class='res'>AB</div>";
+        echo "<div class='res'>{{$_SERVER['REQUEST_METHOD'] }}</div>";
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data = $_POST['user-input'];
