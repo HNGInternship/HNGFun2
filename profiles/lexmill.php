@@ -200,7 +200,7 @@ function askQuestion($input)
     <hr>
     <br><br><br><br><br>
 	<div class = "bot">
-    <div class="oj-panel oj-panel-oj-panel-shadow-md" id="bot">
+    <div id="bot">
 	    <?php
         date_default_timezone_set('Africa/Lagos');
       $currentDate= date('d-m-Y'); 
