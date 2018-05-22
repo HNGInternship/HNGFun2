@@ -208,7 +208,7 @@ function askQuestion($input)
         echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime; ?>
 		</div>
 	<center><p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i>Meet my chatbot, Smart!!!</i></p>
-	</center>
+	
  <form method="post">
 <label>
     <input name="input" type="text" class="tb5"  placeholder="Chat with Smart!">
@@ -231,6 +231,6 @@ function askQuestion($input)
 </div>
 </div>
 <?php }?>
-
+	</center>
 </body>
 </html>
