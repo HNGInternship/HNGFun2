@@ -247,11 +247,11 @@ return ;
       <br>
       <br>
         <div class="oj-sm-12 oj-md-6 oj-flex-item">
-          <div class="under2"><span>Juu Bot</span></div>
+          <div class="under2"><span>Enny Bot</span></div>
             <div class="body1">
                 <div class="chat-output" id="chat-output">
                     <div class="user-message">
-                        <div class="message">Hello! My name is Juu bot.<br>I'm willing to assist you with any of your questions.<br>Type <span style="color: #FABF4B;"><strong> aboutbot</strong></span> to know more about me. </br>To train me, use this format - 'train: question # answer # password'. </br>To learn more about me, simply type - 'aboutbot'.</div>
+                        <div class="message">Hello! My name is Eny bot.<br>I'm willing to assist you with any of your questions.<br>Type <span style="color: #FABF4B;"><strong> aboutbot</strong></span> to know more about me. </br>To train me, use this format - 'train: question # answer # password'. </br>To learn more about me, simply type - 'aboutbot'.</div>
                     </div>
                 </div>
 
