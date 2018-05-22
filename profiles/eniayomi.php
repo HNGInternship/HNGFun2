@@ -217,21 +217,21 @@ return ;
             <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
                 <div role="img" class="oj-flex-item alignCenter">
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
-                    data-bind="attr:{'aria-label':'Avatar of oluwaseyi oluwapelumi'}">
+                    data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
                     </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='http://res.cloudinary.com/eniayomi/image/upload/v1524007065/pe.png'" src="<?=$my_data['image_filename'] ?>" >
+                    <img class="img-fluid " onerror="this.src='https://res.cloudinary.com/uuujuuu/image/upload/v1526014279/IMG_0681.jpg'" src="<?=$my_data['image_filename'] ?>" >
                 </div>
             </div>
             <div class="body0">
                 <div class="main"><span class="text"><?=$my_data['name'] ?></span></div>
                 <div class="under"><span>Front End Web Developer</span></div>
                 <div class="under1"><span>
-                        <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/papuzzy">
+                        <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/mokunuga">
                             <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
                                 <img style="width:40px; height: 40px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png">
                             </div></a>
 
-                            <a href="https://linkedin.com/in/eniayomi">
+                            <a href="https://linkedin.com/in/mokunuga">
                                  <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
                                     <img style="width:40px; height: 40px;" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-social-media/256/Linkedin-icon.png">
                                  </div>
@@ -247,11 +247,11 @@ return ;
       <br>
       <br>
         <div class="oj-sm-12 oj-md-6 oj-flex-item">
-          <div class="under2"><span>Eny Bot</span></div>
+          <div class="under2"><span>Juu Bot</span></div>
             <div class="body1">
                 <div class="chat-output" id="chat-output">
                     <div class="user-message">
-                        <div class="message">Hello! My name is Eny bot.<br>I'm willing to assist you with any of your questions.<br>Type <span style="color: #FABF4B;"><strong> aboutbot</strong></span> to know more about me. </br>To train me, use this format - 'train: question # answer # password'. </br>To learn more about me, simply type - 'aboutbot'.</div>
+                        <div class="message">Hello! My name is Juu bot.<br>I'm willing to assist you with any of your questions.<br>Type <span style="color: #FABF4B;"><strong> aboutbot</strong></span> to know more about me. </br>To train me, use this format - 'train: question # answer # password'. </br>To learn more about me, simply type - 'aboutbot'.</div>
                     </div>
                 </div>
 
@@ -338,7 +338,7 @@ return ;
         };
         
         
-        xhttp.open("POST", "/profiles/Eniayomi", true);
+        xhttp.open("POST", "/profiles/Uju", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
         $('#chat-output').animate({
