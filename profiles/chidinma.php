@@ -200,7 +200,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		#chat_area{
    			margin-top:10px;
-    		height:180px;
+    		height:185px;
     		overflow-y: scroll;
    
 		}
