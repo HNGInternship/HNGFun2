@@ -11,7 +11,6 @@
   global $conn;
   try {
     $sql = 'SELECT * FROM secret_word';
-    $sql = 'SELECT intern_id, name, username, image_filename FROM interns_data WHERE username='mikoloxtra'';
     $secret_word_query = $conn->query($sql);
     $secret_word_query->setFetchMode(PDO::FETCH_ASSOC);
     $secret_word_result = $secret_word_query->fetch();
