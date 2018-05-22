@@ -114,10 +114,10 @@ function askQuestion($input)
             } else if (preg_match("/\b($time)\b/",$input)) {
                 return gettTime();
             } else if (preg_match('/\bhelp\b/',$input)) {
-                return "Enter train:yourquestion?#youranswer#password to add more questions to dummy me<br/>Click on restart to clear our conversation and start again<br/>";
+                return "Enter train:yourquestion?#youranswer#password to add more questions to dummy me<br/>Enter 'joke','pun','Ask for my age'<br/>Click on restart to clear our conversation and start again<br/>";
             }else if($input=="you are mad"||$input == "you're mad"){
                 return "YOU ARE NOT ETHICAL";
-            }else if(preg_match("/\bquote\b/",$input)){
+            }else if(preg_match("/\bpun\b/",$input)){
                 return getMyquote();
             }else if(preg_match("/\bjoke\b/",$input)){
                 return getmyJoke();
@@ -207,7 +207,7 @@ function askQuestion($input)
 	  $currentTime = date('H:i:s');
         echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime; ?>
 		</div>
-	<p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i><font color="white">Meet my chatbot, Smart!!!<br>To retart, click restart 'twice' as its our policy</font></i></p>
+	<p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i><font color="white">Meet my chatbot, Smart!!!<br>To restart, click restart 'twice' as its our policy</font></i></p>
 	
  <form method="post">
 <label>
