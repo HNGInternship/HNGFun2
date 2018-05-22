@@ -429,12 +429,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         _response.make(inputNode.val()).send($('.bot-conversation'));
         inputNode.val("");
         $.ajax({
-            url: "/profiles/ionware.php",
+            url: "/profiles/ionware",
             data: { q: question.trim() },
             type: 'POST',
             success: function(data) {
                 var response = new Response("bot");
-                console.log(data.answer);
+                console.log(data);
                 if (!data.answer) {
                     response.make("iBot server is not responding properly").send($(".bot-conversation"));
                 } else {
@@ -443,6 +443,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $('.bot-conversation').animate({ 'scrollTop': $(".bot-conversation")[0].scrollHeight});
             },
             error: function(error) {
+                console.log(error);
                 var response = new Response("bot");
                 response.make("iBot server is not responding properly").send($(".bot-conversation"));
                 console.log(error);
