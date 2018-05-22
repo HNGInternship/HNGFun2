@@ -424,7 +424,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			</form>
 		</div> <!-- end chat -->
 	</div> <!-- end chat-box -->
-
+//fixed bugs
 
 	<script >
 		
@@ -482,6 +482,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			}, 1000);
 		}
 	</script>
-	
+
 </body>
 </html>
