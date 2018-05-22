@@ -217,7 +217,7 @@ return ;
             <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
                 <div role="img" class="oj-flex-item alignCenter">
                     <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
-                    data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
+                    data-bind="attr:{'aria-label':'Avatar of Oluwaseyi Oluwapelumi'}">
                     </oj-avatar>
                     <img class="img-fluid " onerror="this.src='http://res.cloudinary.com/eniayomi/image/upload/v1524007065/pe.png'" src="<?=$my_data['image_filename'] ?>" >
                 </div>
