@@ -297,7 +297,7 @@
             success: function(response) {
                 var result = $($.parseHTML(response)).find("#result").text();
                 console.log(message);
-                console.log(result);
+                console.log($($.parseHTML(response)).find("#result"));
                 setTimeout(function() {
                     outputArea.append("<div class='user-message'><div class='message'>" + result + "</div></div>");
                     $('#chat-output').animate({
