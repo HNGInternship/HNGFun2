@@ -207,11 +207,8 @@ function askQuestion($input)
 	  $currentTime = date('H:i:s');
         echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime; ?>
 		</div>
-	<p style="font-size:70%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i>Meet my chatbot, Smart!!!</i></p>
-	<center>
-
-
- <br><br><br>
+	<center><p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i>Meet my chatbot, Smart!!!</i></p>
+	</center>
  <form method="post">
 <label>
     <input name="input" type="text" class="tb5"  placeholder="Chat with Smart!">
