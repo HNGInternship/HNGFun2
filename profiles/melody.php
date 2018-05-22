@@ -203,9 +203,8 @@
     $secret_word = $data['secret_word'];
 
         echo "<div class='res'>{{$_SERVER['REQUEST_METHOD'] }}</div>";
-
 //    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if(isset($_POST)){
+        if(!empty($_POST)){
         $data = $_POST['user-input'];
       //  $data = preg_replace('/\s+/', '', $data);
         $temp = explode(':', $data);
@@ -301,7 +300,7 @@
                 var result = $($.parseHTML(response)).find("#result").text();
                 console.log(message);
                 console.log($($.parseHTML(response)).find(".res").text());
-                console.log($($.parseHTML(response)).find(".message").text());
+                console.log($($.parseHTML(response)).find("#result").text());
                 setTimeout(function() {
                     outputArea.append("<div class='user-message'><div class='message'>" + result + "</div></div>");
                     $('#chat-output').animate({
