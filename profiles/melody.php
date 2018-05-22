@@ -204,7 +204,8 @@
 
         echo "<div class='res'>{{$_SERVER['REQUEST_METHOD'] }}</div>";
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+//    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if(isset($_POST)){
         $data = $_POST['user-input'];
       //  $data = preg_replace('/\s+/', '', $data);
         $temp = explode(':', $data);
