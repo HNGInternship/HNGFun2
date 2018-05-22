@@ -13,15 +13,15 @@
  * PLEASE ENJOY THE SEARCH AND MATCH ALGORITHM, GIVE CREDITS IF U WANT TO USE IT, OPEN SOURCED
  */
 
-if(!defined('DB_USER')){
-	if (file_exists('../../config.php')) {
-		require_once '../../config.php';
-	} else if (file_exists('../config.php')) {
-		require_once '../config.php';
-	} elseif (file_exists('config.php')) {
-		require_once 'config.php';
-	}
-}
+//if(!defined('DB_USER')){
+//	if (file_exists('../../config.php')) {
+//		require_once '../../config.php';
+//	} else if (file_exists('../config.php')) {
+//		require_once '../config.php';
+//	} elseif (file_exists('config.php')) {
+//		require_once 'config.php';
+//	}
+//}
 
 /**
  * Class Database
@@ -39,7 +39,8 @@ class Database
 	protected function __construct()
 	{
 		
-		$this->connection =  new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+//		$this->connection =  new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+		$this->connection =  $GLOBALS['conn'];
 //		$tz = (new DateTime('now', new DateTimeZone('Africa/Lagos')))->format('P');
 //		$this->connection->query("SET time_zone='$tz';");
 		// Error handling
@@ -248,17 +249,17 @@ function smartSearch($question, $questions_array)
 				if ($hit_count && ($hit_count === count($question) || $hit_count > 2)) { // if count is more than 1 and greater that 2 or equal count of question
 					$q_sorta[] = $item;
 				}
-			
+				
 			}
 		}
 	}
 	ksort($q_sorta);
 	$item = end($q_sorta);
 	if($item){
-	    return $item;
-    }else{
-	    return [];
-    }
+		return $item;
+	}else{
+		return [];
+	}
 }
 
 /**
