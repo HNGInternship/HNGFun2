@@ -1,8 +1,8 @@
 
-	
-    <?php 
-	
-	
+
+    <?php
+
+
 	// readfile('profiles/' . $profile_name. '.php');
 
    include_once("header.php");
