@@ -246,13 +246,25 @@ try {
     position: absolute;
     top: 80px;
 }
+            
+            
+        .chat-output .user-message {
+            background: #0fb0df;
+            color: white;
+        }
+        .chat-output .bot-message {
+            text-align: right;
+        }
+        .chat-output .bot-message {
+            background: #eee;
+        }
         </style>
          
          <div style="width: 400px" id="child4" class = "bot round-corners">
           <div class="panel inner">
               <div>
                 <p style="overflow: scroll; height: 250px; width: 100%; margin: 0px;" id="chat-output"></p>
-                <input type="text" name="" style="width: 80%; height: 24px;" id="user-input" name="newrequest"Type">
+                <input type="text" name="" style="width: 80%; height: 24px;" id="user-input" name="newrequest"Type" placeholder="type here">
                 <button style="position: absolute; width: 19%; height: 26px" id="send">Send</button>
               </div>
           </div>
@@ -359,7 +371,7 @@ $(document).ready(function chargeBot() {
         pp.classList = 'user-message';
         inner.classList = 'message';
         pp.append(inner);
-        inner.innerHTML = "<div style= "background-color: grey"> + message.value + </div>;
+        inner.innerHTML = message.value;
         //console.log(message.value)
         chatOutput.appendChild(pp);
         //return
