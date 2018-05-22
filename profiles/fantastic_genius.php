@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!isset($conn)){
-        require_once "../../config.php";
+        require "../../config.php";
         global $conn;
         global $response;
         try{
