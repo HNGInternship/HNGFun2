@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
          echo ("🤖I couldn't connect to knowledge base : " . $pe->getMessage() . DB_DATABASE . ": " . $pe->getMessage());
       }
    }
-   // require '../answers.php';
+    require '../answers.php';
    global $conn;
 
    function train($question, $answer) {
