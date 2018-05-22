@@ -7,7 +7,7 @@
             $query->setFetchMode(PDO::FETCH_ASSOC);
             $data = $query->fetch();
 
-            $result2 = $conn->query("Select * from interns_data where username = 'ekumamait'");
+            $result2 = $conn->query("SELECT * from interns_data where username = 'ekumamait'");
             $user = $result2->fetch(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             throw $e;
@@ -210,7 +210,7 @@ body {
  text-align:center
 }
 img {
- display:inline-block;
+  display:inline-block; url(); 
  max-width:100%
 }
 h1,h2,h3,h4,h5,h6 {
@@ -294,7 +294,7 @@ a:active,a:focus,a:hover {
  text-decoration:underline
 }
 .profile {
- width:100%;
+  width:100%;
  margin:0 0 7rem;
  padding:0 1rem
 }
@@ -309,7 +309,7 @@ a:active,a:focus,a:hover {
  }
 }
 .profile-image-wrap {
- position:relative;
+  position:relative;
  width:10rem;
  height:10rem;
  margin:7.5% auto 1rem
@@ -554,11 +554,11 @@ a:active,a:focus,a:hover {
 
 <div class="profile">
     <div class="profile-image-wrap">
-        <noscript id="profile-image-noscript">
+        
             <img src="<?php echo $user->image_filename ?>" alt="Eric Ebulu">
-        </noscript>
+        
     </div>
-    <h1 class="profile-name"><?php echo $user->name ?></h1>
+    <h1 class="profile-name">ERIC <?php echo $user->name ?></h1>
     <h4>@<?php echo $user->username ?></h4>
     <h3 class="profile-headline">Intern, Aspiring Rockstar Software Engineer.<br>Open Sourcerer</h3>
     <p class="profile-description">
