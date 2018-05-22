@@ -1,96 +1,68 @@
 <?php
 session_start();
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-   if (!defined('DB_USER')) {
-      require "../../config.php";
-      try {
-         $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-      } catch (PDOException $pe) {
-         echo ("<p style='color:red'>bot</p> " + " I couldn't connect to knowledge base : " . $pe->getMessage() . DB_DATABASE . ": " . $pe->getMessage());
-      }
-   }
-    require '../answers.php';
-   global $conn;
-   function train($question, $answer) {
-      $question = trim($question);
-      $answer = trim($answer);
-      if (store($question, $answer)) {
-         return (  "<p style='color:red'>bot:</p> I just learnt something new, thanks to you ");
-      } else {
-         return ("<p style='color:red'>bot:</p> I'm sorry, An error occured while trying to store what i learnt ");
-      }
-   }
-   function searchRequest($request) {
-      global $conn;
-      $statement = $conn->prepare("select answer from chatbot where question like :request order by rand()");
-      $statement->bindValue(':request', "%$request%");
-      $statement->execute();
-      $statement->setFetchMode(PDO::FETCH_ASSOC);
-      $rows = $statement->fetch();
-      $response = $rows['answer'];
-      if (!empty($response)):
-         $response = "<p style='color:red'>bot</p> " . $response;
-      endif;
-      //check for function
-      try {
-         if (preg_match('/(\(+[a-zA-Z_]+\))/', $response, $match)) {
-            $functionName = $match[0];
-            $functionName = str_replace('(', '', $functionName);
-            $functionName = str_replace(')', '', $functionName);
-            if (function_exists($functionName)) {
-               $response = str_replace($functionName, $functionName(), $response);
-               $response = str_replace('(', '', $response);
-               $response = str_replace(')', '', $response);
-            } else {
-               $response = ("<p style='color:red'>bot</p> " + " I'm sorry, The function doesn't exist");
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        $data = preg_replace("([?.!])", "", $data);
+        $data = preg_replace("(['])", "\'", $data);
+        return $data;
+    }
+    require '../../config.php';
+    
+  $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
+    
+    if(!$conn){
+        die('Unable to connect');
+    }
+    $question = $_POST['message'];
+    $pos = strpos($question, 'train:');
+    if($pos === false){
+        $sql = "SELECT answer FROM chatbot WHERE question like '$question' ";
+        $query = $conn->query($sql);
+        if($query){
+            echo json_encode([
+                'results'=> $query->fetch_all()
+            ]);
+            return;
+        }
+    }else{
+        $trainer = substr($question,6 );
+        $data = explode('#', $trainer);
+        $data[0] = trim($data[0]);
+        $data[1] = trim($data[1]);
+        $data[2] = trim($data[2]);
+        if($data[2] == 'password'){
+            $sql = "INSERT INTO chatbot (question, answer)
+            VALUES ('$data[0]', '$data[1]')";
+            $query = $conn->query($sql);
+            if($query){
+                echo json_encode([
+                    'results'=> 'Successfully trained'
+                ]);
+                return;
+            }else{
+                echo json_encode([
+                    'results'=> 'Training error'
+                ]);
+                return;
             }
-         }
-      } catch (Exception $ex) {
-         echo $ex->getMessage();
-      }
-      return $response;
-   }
-   function store($request, $response)
-   {
-      global $conn;
-      $statement = $conn->prepare("insert into chatbot (question, answer) values (:request, :response)");
-      $statement->bindValue(':request', $request);
-      $statement->bindValue(':response', $response);
-      $statement->execute();
-      if ($statement->execute()) {
-         return true;
-      } else {
-         return false;
-      }
-   }
-   if (isset($_POST['new_request'])) {
-      $bot_response['response'] = [];
-      $user_request = "";
-      $bot_response['response'] = "";
-      $request = $_POST['new_request'];
-      $user_request = trim($request);
-      if (empty($user_request)) {
-         $bot_response['response'] = ("<p style='color:red'>bot</p> " + " You didnt write anything");
-      } else {
-         if (!empty(searchRequest($user_request))) {
-            $bot_response['response'] = searchRequest($user_request);
-         } else if (preg_match("/(train:)/", $user_request)) {
-            $power_split = explode("#", $request);
-            $question = trim(preg_replace("/(train:)/", "", $power_split[0]));
-            $answer = trim($power_split[1]);
-            $password = trim($power_split[2]);
-            if ($password != "password") {
-               $bot_response['response'] = " Training Access Denied!";
-            } else {
-               $bot_response['response'] = train($question, $answer);
-            } 
-         }else {
-            $bot_response['response'] =("<p style='color:red'>bot</p> " + " I  am lost! Can you train me please?");
-         }
-      }
-      send:
-      echo json_encode($bot_response);
-   }
+            
+        }else{
+            echo json_encode([
+                'results'=> 'Wrong Password'
+            ]);
+            return;
+        }
+        
+    }
+    
+    echo json_encode([
+        'results'=>  'Good to go'
+    ]);
+    
+return ;
 }
 if (!defined('DB_USER')){
             
@@ -279,8 +251,8 @@ try {
          <div style="width: 400px" id="child4" class = "bot round-corners">
           <div class="panel inner">
               <div>
-                <p style="overflow: scroll; height: 250px; width: 100%; margin: 0px;" id="chatarea"></p>
-                <input type="text" name="" style="width: 80%; height: 24px;" id="message" name="newrequest"Type">
+                <p style="overflow: scroll; height: 250px; width: 100%; margin: 0px;" id="chat-output"></p>
+                <input type="text" name="" style="width: 80%; height: 24px;" id="user-input" name="newrequest"Type">
                 <button style="position: absolute; width: 19%; height: 26px" id="send">Send</button>
               </div>
           </div>
@@ -365,6 +337,80 @@ $(document).ready(function chargeBot() {
    });
 });
 
+</script>
+            
+            
+<script>
+    window.addEventListener("keydown", function(e){
+            if(e.keyCode ==13){
+                if(document.querySelector("#user-input").value.trim()==""||document.querySelector("#user-input").value==null||document.querySelector("#user-input").value==undefined){
+                    //console.log("empty box");
+                }else{
+                    //this.console.log("Unempty");
+                    chat();
+                }
+            }
+        });
+    function chat() {
+        var message = document.querySelector('#user-input');
+        var chatOutput = document.querySelector('#chat-output');
+        var pp = document.createElement('div');
+        var inner = document.createElement('div');
+        pp.classList = 'user-message';
+        inner.classList = 'message';
+        pp.append(inner);
+        inner.innerHTML = message.value;
+        //console.log(message.value)
+        chatOutput.appendChild(pp);
+        //return
+        // alert(message.value);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+            var result = JSON.parse(xhttp.responseText);
+            //<div class='bot-message'><div class='message'>${message}</div></div>
+            message.value = '';
+            var p = document.createElement('div');
+            var inn = document.createElement('div');
+            p.classList = 'bot-message';
+            inn.classList = 'message';
+            p.append(inn);
+            //console.log(result.results.length);
+            
+            if(result.results.length === 0){
+                //alert('hello');
+                inn.innerHTML = 'Not in database. please train me';
+                chatOutput.append(p);
+                return;
+            }else{
+                //console.log(typeof(result.results)) 
+                if(typeof(result.results) == 'object' ){
+                    var res = Math.floor(Math.random() * result.results.length);
+                    
+                    inn.innerHTML = result.results[res];
+                    chatOutput.append(p)
+                }else{
+                    var res = Math.floor(Math.random() * result.results.length);
+                    inn.innerHTML = result.results;
+                    chatOutput.append(p)
+                }   
+            }
+            
+            
+            
+            }
+        };
+        
+        
+        xhttp.open("POST", "/profiles/pajimo", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("message="+message.value);
+        $('#chat-output').animate({
+                scrollTop: chatOutput.scrollHeight,
+                scrollLeft: 0
+            }, 500);
+    }
 </script>
 
 </html>
