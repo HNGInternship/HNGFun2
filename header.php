@@ -75,6 +75,9 @@ $activeArray[$fileIndex]="active";
             color: #3d3d3d;
             font-family: 'Lato', sans-serif;
         }
+      .active{
+          background-color:lightblue;
+      }
         .navbar{
           font-size: 15px;
           font-weight: bold;
@@ -86,8 +89,11 @@ $activeArray[$fileIndex]="active";
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
-        .nav-item:hover, .active {
+        .nav-item:hover{
             border-bottom: 3px solid #2196F3;
+        }
+        .nav-item:active{
+        	border-bottom: 3px solid #2196F3;
         }
         /* horizontal line learn page */
         hr.under-line {
@@ -193,3 +199,9 @@ $activeArray[$fileIndex]="active";
   </div>
 
     </nav>
+<script type="text/javascript">
+      $('.navbar-nav li').click(function(e){
+    $('.navbar-nav li').removeClass("active");
+    $(this).addClass("active");
+});
+    </script>
