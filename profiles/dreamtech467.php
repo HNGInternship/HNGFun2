@@ -1,5 +1,8 @@
 
 <?php
+
+
+	include_once("../answers.php"); 
 	if(!defined('DB_USER')){
 		if (file_exists('../../config.php')) {
 			require_once '../../config.php';
@@ -44,6 +47,10 @@
   
 		//chatBot
 	if($_SERVER['REQUEST_METHOD'] === "POST"){
+		
+		
+		
+		
 	
 		function stripquestion($question){
 			// remove whitespace first

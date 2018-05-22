@@ -7,6 +7,7 @@ try {
     }
     try {
         $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+    
       } catch (PDOException $pe) {
         die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
       }
@@ -51,6 +52,7 @@ try {
                     trainIfAuthorized($trainMessage);
                 }else{
                     echo json_encode(['status'=>200,"message"=>"Invalid format",'train']);  
+                    return;
                 }
             }else{
                 $answer = getAnswer($message);
@@ -58,6 +60,7 @@ try {
                     echo json_encode(['status'=>200,"message"=> "I don't know that","alert"=>'train']);  
                 }else{
                     echo json_encode(['status'=>200,"message"=> $answer]); 
+                    return;
                 }
                 
             }
@@ -133,14 +136,14 @@ try {
 
 ?>
 
+<?php
+	if($_SERVER['REQUEST_METHOD'] === "GET"){
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $intern_data['name']; ?></title>
+	<title>Victor Ugwueze's Profile</title>
 
     <style>
         *{
@@ -151,11 +154,8 @@ try {
 	-webkit-box-sizing: border-box;
   	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
-
-
-html{
+    }
+    html{
 	color: #555;
 	font-family: 'lato', 'Arial', 'sans-serif';
 	font-weight: 300;
@@ -297,11 +297,6 @@ h3{
     border-color: transparent transparent transparent whitesmoke;  
 }
   </style>
-
-
-
-</head>
-<body>
     <div class="wrap">
         <div class="img">
             <img src="<?php echo $intern_data['image_filename']; ?>" alt="Victor Ugwueze Profile Image">
@@ -355,11 +350,10 @@ h3{
             </div>
         </div>
     </div>
-
     <!-- Javascript tags -->
     <script>
         //handles show and hide for chat window 
-
+$(document).ready(function(){
         (function init(){
             let minimizeBot = document.querySelector('.minimize-bot');
             minimizeBot.addEventListener('click',chatAction);
@@ -415,8 +409,8 @@ h3{
             
             sendQuestion(input) 
         }
-
-        function sendQuestion(input){
+ 
+            function sendQuestion(input){
             console.log(input);
             $.ajax({
                 type:'POST',
@@ -433,6 +427,8 @@ h3{
             });
         }
 
+        
+
 
         function replyMessage(data){
             let messageBox = document.querySelector('.panel-body');
@@ -442,6 +438,8 @@ h3{
             messageBox.innerHTML += output;
             messageBox.scrollTop = messageBox.scrollHeight;
         }
+
+});
     </script>
-</body>
-</html>
+
+<?php }?>

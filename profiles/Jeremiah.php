@@ -304,7 +304,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<p style=" line-height: -100px;"> </p>
 			</div>
 			<div class="link">
-				<p><a href="wwww.jeremiahrighteous.com">jeremiahrighteous</a><br>Follow me:</p>
+				<p><a href="wwww.jeremiahrighteous.com">www.jeremiahrighteous.com</a><br>Follow me:</p>
 			</div>
 			<div>
 				<a href="https://github.com/jeremiahriz"><img src="https://res.cloudinary.com/jeremiahriz/image/upload/v1523631643/Hello-img/GitHub.png" style="width:40px"></a>
