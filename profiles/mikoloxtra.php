@@ -124,6 +124,12 @@
         //format the time
         return $datetime->format('h:i A');
     }
+
+
+		$name = $result["name"];
+		$username = $data["username"];
+		$imagelink = $data["image_filename"];
+	
 ?>
 <!DOCTYPE html>
 <html>
