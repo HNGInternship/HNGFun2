@@ -208,7 +208,7 @@ function askQuestion($input)
         echo 'Date: '.$currentDate.'<br>'.'Time: '.$currentTime; ?>
 		</div>
 	<p style="font-size:140%;text-align:center;color:white;text-decoration-style:dashed" id="bot"><i><font color="white">Meet my chatbot, Smart!!!<br><hr>To restart, click restart 'twice' as its our policy<br><hr>
-		Also, remember the scroll down as our answers can be rearranged to exercise you visually!</font></i></p>
+		Also, remember the scroll down as our answers can be rearranged to exercise you visually!</font></i></p><hr><br>
 	
  <form method="post">
 <label>
