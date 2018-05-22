@@ -211,7 +211,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		</style>	
 		
 	</head>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+	
 	<body>
 		<div class = "container">
 		
@@ -288,7 +288,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
     </script>
 	</body>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" ></script>
+	
 </html>
