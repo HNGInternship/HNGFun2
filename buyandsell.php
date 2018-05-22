@@ -1,6 +1,6 @@
 <?php
 include_once("coin_header.php");
-include_once("db.php");
+//include_once("xconfig_slayers.php");
 ?>
 
 <?php
@@ -16,6 +16,7 @@ include_once("db.php");
 // 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 // 	$stmt->execute();
 // 	$buy_requests = $stmt->fetchAll();
+
 	
 ?>
 
@@ -161,7 +162,7 @@ h3{
 					<div class="listing">
 						<div class="row mx-auto">
 							<div class="col-1">
-								<img src="<?php echo $r['image_filename']; ?>" width="50">
+								<img src="<?php ///echo $r['image_filename']; ?>" width="50">
 							</div>
 							
 							<div class="col-2">
@@ -173,11 +174,11 @@ h3{
 							</div>
 							
 							<div class="col-3">
-							<?php echo $r['price_per_coin']; ?> <br/>NGN
+							<?php// echo $r['price_per_coin']; ?> <br/>NGN
 							</div>
 							
 							<div class="col-2">
-							<?php echo $r['trade_limit']; ?> <br/> NGN
+							<?php //echo $r['trade_limit']; ?> 3000 <br/> NGN
 							</div>
 							
 							<div class="col-1">

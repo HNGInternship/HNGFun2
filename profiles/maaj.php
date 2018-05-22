@@ -418,7 +418,7 @@ else{
 				<div id="contain">
 					
 					<div class='bot'>
-						<img src='https://res.cloudinary.com/maaj/image/upload/v1524822457/bot.png' width='30px'/> Hi... i'm Maaj's assistant. My boss is away, but i am available to answer all your questions
+						<img src='https://res.cloudinary.com/maaj/image/upload/v1524822457/bot.png' width='30px'/> Hi... I'm Maaj's assistant. My boss is away, but i am available to answer all your questions
 					</div>
 					<div class='bot'>
 						<img src='https://res.cloudinary.com/maaj/image/upload/v1524822457/bot.png' width='30px'/> I can tell the current time and date with 'time' and i can tell you your current age with 'age # 23-01-1994'
