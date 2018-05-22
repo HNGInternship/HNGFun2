@@ -57,7 +57,7 @@ require_once ("db.php");
 $q = $conn->query($sql); 
 $q->setFetchMode(PDO::FETCH_ASSOC); 
 $data = $q->fetch();
-  $fullname = $data['firstname'] + $data['lastname'];
+  $fullname = $data['firstname'].$data['lastname'];
   ?>
  <!-- wallet board -->
  <section id="board">
