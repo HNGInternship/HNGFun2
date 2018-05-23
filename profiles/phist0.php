@@ -429,7 +429,8 @@ text-decoration: none;
     <div class="hng_internship">
       <p>   
          HNG 4.0 Internship 
-	  </p> 
+      </p> 
+    </div>
                                 
     <div class="need-info">
       <p><a  style="color: #990000;" href="#chat-box" onclick="change()">  Need Information ? Chat With The Bot Here     &gt;&gt;</a></p>
@@ -476,7 +477,8 @@ text-decoration: none;
           </fieldset>
         </form>
     </div> <!-- end chat -->
-			    
+  </div>    
+</div>
 <script>
     
 function change(){
