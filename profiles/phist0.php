@@ -392,12 +392,6 @@ CHAT CSS
       left: 200px;
 
 } 
-body{
-  overflow-x: hidden;
-  overflow-y: hidden;
-  padding: 20px;
-}
-
 
 div.need-info {
 text-decoration: none;
