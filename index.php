@@ -29,6 +29,9 @@ include_once("header.php");
     color: #000000 !important;
     border: none;
 }
+	body{
+		width: 100%;
+	}
 </style>
 <div class="container">
 	<div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent col-md-12 col-sm-12 col-xs-12">
