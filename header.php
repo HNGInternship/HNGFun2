@@ -1,5 +1,5 @@
 <?php
-//if(!isset($_SESSION)) { session_start(); }
+if(!isset($_SESSION)) { session_start(); }
 
 // for choosing active page on nav bar
 
@@ -75,6 +75,9 @@ $activeArray[$fileIndex]="active";
             color: #3d3d3d;
             font-family: 'Lato', sans-serif;
         }
+      .active{
+          background-color:lightblue;
+      }
         .navbar{
           font-size: 15px;
           font-weight: bold;
@@ -86,7 +89,7 @@ $activeArray[$fileIndex]="active";
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
-        .nav-item:hover, .active {
+        .nav-item:hover{
             border-bottom: 3px solid #2196F3;
         }
         /* horizontal line learn page */
@@ -162,7 +165,7 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li> 
+            </li>
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
             </li>
@@ -193,4 +196,9 @@ $activeArray[$fileIndex]="active";
   </div>
 
     </nav>
-
+<script type="text/javascript">
+      $('.navbar-nav li').click(function(e){
+    $('.navbar-nav li').removeClass("active");
+    $(this).addClass("active");
+});
+    </script>

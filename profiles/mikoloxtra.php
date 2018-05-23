@@ -1,22 +1,26 @@
- <?php
-    if(!defined('DB_USER')){
-        require_once "../../config.php";
-        //configs   
-        try {
-            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-        } catch (PDOException $pe) {
-            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-        }
-    }
-    $sql = "SELECT 'name', 'username', 'image_filename' FROM 'interns_data' WHERE 'username'='mikoloxtra'";
-    $sql0 = "SELECT * FROM 'secret_word' LIMIT 1";
-    $stmt0 = $conn->prepare($sql0);
-    $stmt0->execute();
-    $data = $stmt0->fetch(PDO::FETCH_ASSOC);
-    $secret_word = $data['secret_word'];
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+<?php
+  if(!defined('DB_USER')){
+    require "../config.php";
+  }
+  try {
+    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+  } catch (PDOException $pe) {
+    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+  }
+  $date_time = new DateTime('now', new DateTimezone('Africa/Lagos'));
+  global $conn;
+  try {
+    $sql = 'SELECT * FROM secret_word';
+    $secret_word_query = $conn->query($sql);
+    $secret_word_query->setFetchMode(PDO::FETCH_ASSOC);
+    $secret_word_result = $secret_word_query->fetch();
+  } catch (PDOException $e) {
+      throw $e;
+  }
+  $secret_word = $secret_word_result['secret_word'];
+  $name = $intern_data_result['name'];
+  $img_url = $intern_data_result['image_filename'];
+
     if($_SERVER['REQUEST_METHOD'] === "POST"){
         $quest = $_POST['question'];
         $quest_low = strtolower($quest);
@@ -123,6 +127,12 @@
         //format the time
         return $datetime->format('h:i A');
     }
+
+
+		$name = $result["name"];
+		$username = $data["username"];
+		$imagelink = $data["image_filename"];
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -592,11 +602,11 @@ button:focus,
 <div class="left-col-block blocks">
     <header class="header theiaStickySidebar">
         <div class="profile-img">
-            <img src="<?php echo $result['image_filename']; ?>" class="img-responsive" alt=""/>
+            <img src="<?php echo $img_url; ?>" class="img-responsive" alt=""/>
         </div>
         <div class="content">
-            <h1>slack: @ <?php echo $result['username']; ?></h1>
-            <span class="lead"><?php echo $result['name']; ?></span>
+            <h1>slack: @ mikoloxtra</h1>
+            <span class="lead"> <?php echo $name; ?></span>
 
             <div class="about-text">
                 <p>

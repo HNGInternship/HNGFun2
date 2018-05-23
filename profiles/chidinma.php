@@ -1,8 +1,5 @@
 
-
-
 <?php
-
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         //die('Hi');
@@ -10,9 +7,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $conn =  mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
 
        // $conn = new mysqli('localhost', 'root', 'root', 'hng_fun');    
-
-         
-
          if(!$conn){
           die('Unable to connect');
         }
@@ -60,10 +54,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     'results'=> 'Wrong Password'
                 ]);
                 return;
-            }
-            
-        }
-        
+            }   
+        }  
         echo json_encode([
             'reply'=>  'working'
         ]);
@@ -73,10 +65,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //echo 'HI';
         //return;
     }
-    
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +77,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		
 		body{
 			background-color:  #A394CD;
+			height: auto;
 		}
 		
 		img  {width: 100px;
@@ -129,17 +118,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 
 		.mybot{background-color: #333333;
-			float: right;
-			width: 400px;
-			height: 500px;
-			margin-top: 7rem;
+			float:right;
+			width: 380px;
+			height: 450px;
+			margin-top: 6%;
 
 		}
 
 		.title{
 			background-color: #C4C4C4;
-			width:400px;
-			height:50px;
+			width:380px;
+			height:40px;
 			align-self: center;
 			margin-top: -21px;
 		}
@@ -149,10 +138,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			background-color: #C4C4C4;
 			width:370px;
 			height:100px;
-			border-top: 25px;
-			border-left: 10px;
-			margin-top: 35px;
-			margin-left: 10px;
+			border-top: 5px;
+			border-left: 5px;
+			margin-top: 15px;
+			margin-left: 5px;
+			margin-right: 5px;
 		}
 		.text{
 			background-color: #C4C4C4;
@@ -198,7 +188,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		#chat_area{
    			margin-top:10px;
-    		height:220px;
+    		height:180px;
     		overflow-y: scroll;
    
 		}
@@ -207,7 +197,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			width: 250px;
 			margin-left: 15px;
 			height: 30px;
-			border-top: 20px;
+			border-top: 10px;
+			background-color: white;
 		}
 		
 		#time {color: white;}
@@ -220,10 +211,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		</style>	
 		
 	</head>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+	
 	<body>
 		<div class = "container">
-			<div>
+		
 				<div class = "mybot"> 
 					<div class = "title"> <h1> NMA'S BOT </h1>
 					</div>
@@ -231,8 +222,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <?php date_default_timezone_set('Africa/lagos');
 					echo  date("d:m:Y | h:ia"); ?> </h5>
                 	</span>
-					<div class = "intro"><p><h4> Hi there!, welcome to Nma’s bot, I can answer<br/>
-					some of your questions but you have to train me first. To train type: the question # the answer # password(tpye "password" as password but without the quote though) </h4></p>
+					<div class = "intro"><p><h4> Hi there!, welcome to Nma’s bot. To train me,type "train : question # answer # password</h4></p>
 					</div>
 					
 					<div id = "chat_area">
@@ -241,28 +231,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 					<br/>
 
 					 <input type="text" name="message" id="message">
-                	<button class = "send"  onclick="loadDoc()">SEND</button>
-					<!-- 
-					<p> <div class = "text"><p><h5> Here's my message </h5></p>
-					</div> </p>
-					<div class = "reply"><p> <h5> Your reply </h5> </p>
-					</div> -->
-					
-				</div>
+                	<button class = "send"  onclick="loadDoc()">SEND</button>	
+				</div>	
 				<img src = "http://res.cloudinary.com/chidinma/image/upload/v1525710987/IMG_20161231_171852.jpg" alt="Chidinma's_pix" width=200 height=200>
+				
 
 				<p><h2> ORJI CHIDINMA N. </h2></p>
 				<p><h4>Tech enthusiast, Intern @HNGInternship, <br/> web development student. </h4> <p>
-
-			</div>
 			
-			<p> <h5> email: <u>chypearlnel@gmail.com</u></h5></p>
-			<p><h5> Phone no: 09022181787 </h5></p>
-				
-			<p> <h5>Twitter<a href="https://twitter.com/Pearlynma"> <i class="fab fa-twitter-square" ></i> </a></h5></p>	
-			
+				<p> <h5> email: <u>chypearlnel@gmail.com</u></h5></p>
+				<p><h5> Phone no: 09022181787 </h5></p>
+					
+				<p> <h5>Twitter<a href="https://twitter.com/Pearlynma"> <i class="fab fa-twitter-square" ></i> </a></h5></p>	
 		</div>
-
 
     <script>
     function loadDoc() {
@@ -301,13 +282,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
             }
         };
-        xhttp.open("POST", "chidinma.php", true);
+        xhttp.open("POST", "/profiles/chidinma.php");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }
     </script>
 	</body>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" ></script>
+	
 </html>

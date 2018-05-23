@@ -1,5 +1,6 @@
 
 <?php
+
 	if(!defined('DB_USER')){
 		if (file_exists('../../config.php')) {
 			require_once '../../config.php';
@@ -12,7 +13,7 @@
 		try {
 			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);			
 		} catch (PDOException $e) {
-			die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+			die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
 		}
 	}
 
@@ -44,6 +45,10 @@
   
 		//chatBot
 	if($_SERVER['REQUEST_METHOD'] === "POST"){
+		
+		
+		
+		
 	
 		function stripquestion($question){
 			// remove whitespace first

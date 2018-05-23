@@ -134,6 +134,7 @@
         min-width: 400px;
         /* margin: auto; */
         margin-top: 150px;
+        margin-left: 50px;
         background-color: #aaa;
         border-radius: 30px;
         float: left;
@@ -244,7 +245,7 @@
 
       .bot-message, .my-message {
         text-align: left;
-        margin: 5px;
+        margin: 10px;
       }
 
       .bot-message {
