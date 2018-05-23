@@ -140,11 +140,11 @@ try {
 	if($_SERVER['REQUEST_METHOD'] === "GET"){
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Victor Ugwueze's Profile</title>
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <style>
         *{
 	margin: 0;
@@ -297,6 +297,7 @@ h3{
     border-color: transparent transparent transparent whitesmoke;  
 }
   </style>
+  <body>
     <div class="wrap">
         <div class="img">
             <img src="<?php echo $intern_data['image_filename']; ?>" alt="Victor Ugwueze Profile Image">
@@ -351,6 +352,7 @@ h3{
         </div>
     </div>
     <!-- Javascript tags -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
     <script>
         //handles show and hide for chat window 
 $(document).ready(function(){
@@ -414,7 +416,7 @@ $(document).ready(function(){
             console.log(input);
             $.ajax({
                 type:'POST',
-                url:'profiles/victorUgwueze.php',
+                url:'profiles/victorUgwueze',
                 dataType:'json',
                 data:{'message':input},
                 success:(data,status)=>{
@@ -441,5 +443,6 @@ $(document).ready(function(){
 
 });
     </script>
-
+    </body>
+</html>
 <?php }?>
