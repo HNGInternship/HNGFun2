@@ -1,7 +1,7 @@
 <?php
 	// Profile
 
-	require "../../config.php";
+	// require "../../config.php";
 	try {
 
 
