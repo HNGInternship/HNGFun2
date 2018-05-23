@@ -1,12 +1,14 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    require_once "../../config.php";
-    global $conn;
-    global $response;
-    try{
-        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=". DB_DATABASE, DB_USER, DB_PASSWORD);
-    }catch(PDOException $err){
-        die("could not connect to database " . DB_DATABASE . ":" . $err->getMessage());
+    if(!defined('DB_USER')){
+        require "../../config.php";
+        global $conn;
+        global $response;
+        try{
+            $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=". DB_DATABASE, DB_USER, DB_PASSWORD);
+        }catch(PDOException $err){
+            die("could not connect to database " . DB_DATABASE . ":" . $err->getMessage());
+        }
     }
 
     $question = $_POST['question'];
@@ -307,7 +309,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     <meta charset="utf-8" />
     <title>Fantastic Genius Profile</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" >
     
     
 

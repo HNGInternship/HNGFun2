@@ -113,8 +113,8 @@ footer,header {
         position: fixed;
         bottom: 0;
         z-index: 10000;
-        left: 65%;
-        width: 30%;
+        left: 80%;
+        width: 20%;
         right:5%;
       }
       #bot-container{
@@ -588,11 +588,8 @@ a:active,a:focus,a:hover {
     </div>
     Made in 2018 with <span class="text-red">♥</span> from Kampala, Uganda.
 </div>
-    
-    
-    
-
-     <div id="bot-wrapper">
+        
+        <div id="bot-wrapper">
         <div id="bot-container">
           <div id="chat-container" data-bot-active="false">
             <div style="padding: 5px 10px; box-shadow: 0px 10px 10px rgba(0,0,0,0.1)">
