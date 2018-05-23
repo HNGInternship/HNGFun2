@@ -471,10 +471,10 @@
 						$.ajax({
 							url: "/profiles/jane",
 							type: "POST",
-							data: {'chat': a},
-							success: function(data){
+							data: {chat: a},
+							success: function(data,status){
 								// var result = $($.parseHTML(data)).find(".container").text();
-								console.log(data);
+								console.log(status);
 								// if(data != ""){
 								// 	if (data.indexOf("::def") >= 0) {
 								// 		data = data.replace("::def","");
