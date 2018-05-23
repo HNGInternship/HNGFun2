@@ -29,7 +29,7 @@
 	?>
 	<?php
 		if(isset($_POST['chat'])){
-		$a = unserialize($_POST['chat']);
+		$a = $_POST['chat'];
 			$question = $answer = $password = "";
 			$wrong_password = ["You entered a wrong password",
 								"Enter the right password to teach me new things",
@@ -50,7 +50,41 @@
 
 
 
-			if (substr($a,0,7) == "train: ") {
+			if (substr($a,0,4) == "bmi[" && substr($a,strlen($a)-1,1) == "]") {
+				$array = explode('[', $a,2);
+				$stmt = substr($array[1],0,strlen($array[1])-1);
+				$array2 = explode(',', $stmt);
+				$weight = $array2[0];
+				$height = $array2[1];
+				if(is_numeric($weight) && is_numeric($height)){
+					$result = $weight/($height*$height);
+
+					if ($result <= 18.5) {
+						echo "Your BMI is ".round($result,3)."\n".$bmi_result[0];
+						exit;
+					} 
+
+					else if($result > 18.5 && $result <= 24.9){
+						echo "Your BMI is ".round($result,3)."\n".$bmi_result[1];
+						exit;
+					}
+
+					else if ($result >= 25 && $result <= 29.9) {
+						echo "Your BMI is ".round($result,3)."\n".$bmi_result[2];
+						exit;
+					}
+
+					else{
+						echo "Your BMI is ".round($result,3)."\n".$bmi_result[3];
+						exit;
+					}
+				}
+				else{
+					echo "Enter a valid input";
+					exit;
+				}
+			}
+			else if (substr($a,0,7) == "train: ") {
 				if(preg_match('/train: /', $a, $match)){
 					$string = substr($a, 7, strlen($a)-7);
 					$arr = explode("# ", $string);
@@ -90,40 +124,6 @@
 
 
 					
-				}
-			}
-			else if (substr($a,0,4) == "bmi[" && substr($a,strlen($a)-1,1) == "]") {
-				$array = explode('[', $a,2);
-				$stmt = substr($array[1],0,strlen($array[1])-1);
-				$array2 = explode(',', $stmt);
-				$weight = $array2[0];
-				$height = $array2[1];
-				if(is_numeric($weight) && is_numeric($height)){
-					$result = $weight/($height*$height);
-
-					if ($result <= 18.5) {
-						echo "Your BMI is ".round($result,3)."\n".$bmi_result[0];
-						exit;
-					} 
-
-					else if($result > 18.5 && $result <= 24.9){
-						echo "Your BMI is ".round($result,3)."\n".$bmi_result[1];
-						exit;
-					}
-
-					else if ($result >= 25 && $result <= 29.9) {
-						echo "Your BMI is ".round($result,3)."\n".$bmi_result[2];
-						exit;
-					}
-
-					else{
-						echo "Your BMI is ".round($result,3)."\n".$bmi_result[3];
-						exit;
-					}
-				}
-				else{
-					echo "Enter a valid input";
-					exit;
 				}
 			}
 
@@ -588,7 +588,6 @@
 
 			$send_btn.click(function(){
 				var a = $text_input.val();
-				var ser_a = $('#bot-form').serialize();
 
 				if(a != ""){
 					add_user_text(a);
@@ -604,7 +603,7 @@
 						$.ajax({
 							// url: "profiles/jane.php",
 							type: "POST",
-							data: {chat: ser_a},
+							data: {chat: a},
 							dateType: 'text',
 							success: function(data,status){
 								// var result = $($.parseHTML(data)).find(".container").text();
