@@ -1,4 +1,3 @@
-
 <?php
     if(!defined('DB_USER')){
         if (file_exists('../../config.php')) {
@@ -130,6 +129,7 @@
         }
 }
 ?>
+
 
 
 
@@ -386,7 +386,7 @@ p {
 }
 
 #footer {
-            transform: translateX(0%) translateY(430px);
+            transform: translateX(0%) translateY(10%);
             clear: both;
             background: #f7f7f7;
             padding-top: 10px;
@@ -426,7 +426,7 @@ h4 {
 }
 
 #foot-container {
-            padding-top: 59px;
+            padding-top: 20px;
 }
 
 #cent {
@@ -524,11 +524,11 @@ h4 {
 }
 
 .con {
-        transform: translateX(800px) translateY(-420%);
+        transform: translateX(430px) translateY(250%);
         clear: both;
-        height: 50px;
-        width: 90%;
-        position: fixed;
+        height: 10%;
+        width: 22%;
+        position: absolute;
         margin-right: 10px;
         text-align: center;
 }
@@ -536,7 +536,7 @@ h4 {
 </style>
 </head>
 
-<body >
+<body class="container">
 
     <div class="container">
             <div id="body">
@@ -612,8 +612,11 @@ h4 {
                                 </div>
                             </div>
                             <div>
-                                <img id="center" class="img-circle" src="https://res.cloudinary.com/dyuuulmg0/image/upload/v1523621000/sam1.jpg" alt="I am Achem Samuel"
+                                <div classs="container-fluid">
+                                    <img id="center" class="img-circle" src="https://res.cloudinary.com/dyuuulmg0/image/upload/v1523621000/sam1.jpg" alt="I am Achem Samuel"
                                     height="250" width="210" />
+                                <div>
+                                
                 
                                 <div id="like">
                                     <h5 style="text-align: justify">What I like</h5>
@@ -639,8 +642,8 @@ h4 {
                         </div>
 
 
-                        <div class="con">
-                            <div class="col-md-3">
+                        <div class="container">
+                            <div class="col-md-3 con">
                             
                                 <div class="chatBox">
                                     <div class="chatHead">
@@ -694,9 +697,7 @@ h4 {
 
 
                         <footer id="foot-container">
-                            <div id="footer">
-                                Copyright &copy; 2018 Achem Samuel. All rights reserved.
-                            </div>
+                           
                             
                         </footer>
                         
