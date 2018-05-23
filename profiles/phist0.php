@@ -1,5 +1,7 @@
 <?php
 
+/*
+
 if(!defined('DB_USER')){
      require "../../config.php";
      try {
@@ -87,6 +89,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         	exit();
         	}
         	
+*/
         	
         	?>
         
@@ -471,21 +474,17 @@ text-decoration: none;
           </div>
           <div id="chat-content"></div>
           
-          </div> <!-- end chat-history -->
-          <form action="#" method="post" class="form-data">
-            <fieldset>
-              <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
-              <input type="submit" class=" btn-primary" name="bot-interface" value="SEND"/>
-            </fieldset>
-          </form>
-          </div> <!-- end chat -->
-		  </div> <!-- end chat-box -->
-
+      </div> <!-- end chat-history -->
+        <form action="#" method="post" class="form-data">
+          <fieldset>
+            <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
+            <input type="submit" class=" btn-primary" name="bot-interface" value="SEND"/>
+          </fieldset>
+        </form>
+    </div> <!-- end chat -->
+//		  </div> <!-- end chat-box -->
 			    
-			    
-			    
-			    
-<script >
+<script>
     
 function change(){
   document.getElementById("chat").classList.toggle('hide');
