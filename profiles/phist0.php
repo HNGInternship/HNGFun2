@@ -279,7 +279,7 @@ CHAT CSS
     #chat-box {
                         font-size: 12px;
                         right: 304px;
-                        bottom: 150px;		
+                        bottom: 0px;		
                         position: fixed;
                         width: 300px;
                 }
