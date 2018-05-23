@@ -1,4 +1,5 @@
 <?php
+
 /*******************************Chat Bot Server Side Brain************************************/
 // This is where the chat message will be received, I'm using $_GET because i'll pass the message via AJAX
 if(isset($_GET['send_chat'])){//if chat was sent

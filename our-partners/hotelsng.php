@@ -72,7 +72,7 @@
 			<div class="col-md-7 bder">
 							<div class="row mt-5 cont1" >
 								
-									<div class="col-sm-4 bder" >
+									<div class="col" >
 										<img src="../img/hng-square.png">
 									</div> 
 

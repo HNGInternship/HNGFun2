@@ -3,7 +3,7 @@
  
     <head>
          <meta charset ="utf-8" />
-    <title> Linet profile </title>
+    <title> Linet's profile </title>
     
     </head>
     <style type="text/css">
@@ -27,9 +27,8 @@
 			border-radius: 25px;
 			border: 2px solid #ffffff;
 			position: center;
-			background: url (http://res.cloudinary.com/linet/image/upload/b_rgb:000000/c_scale,h_260,w_343/v1526504492/Image_20180331-000111.png);
-			background-repeat: no-repeat;
-          
+			 <img src="http://res.cloudinary.com/linet/image/upload/b_rgb:000000/v1526504492/Image_20180331_000111.png">
+			  
       
       
       }

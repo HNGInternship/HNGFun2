@@ -1,5 +1,19 @@
 <?php
 
+$username = "austin_ikenna";
+ 
+$sql = "SELECT `name`, `username`, `image_filename` FROM `interns_data` WHERE `username`='$username'";
+$sql0 = "SELECT * FROM `secret_word` LIMIT 1";
+$stmt0 = $conn->prepare($sql0);
+$stmt0->execute();
+$data = $stmt0->fetch(PDO::FETCH_ASSOC);
+$secret_word = $data['secret_word'];
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+	
+	
+	
 if(!defined('DB_USER')){
      require "../../config.php";
      try {
@@ -96,21 +110,23 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
 <title>Austin Ikenna</title>
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link id="css" rel="stylesheet" href="https://static.oracle.com/cdn/jet/v4.2.0/default/css/alta/oj-alta-min.css" type="text/css"/>
+
 <!------ CSS Styling ---------->
-<style>
-body{
-	font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
+<style type="text/css">
+h1,h2,h3,h4,h5,h6 {
+	font-family:Lato,'Helvetica Neue',Helvetica, Arial,sans-serif;
+}
+a {
+	text-decoration: none;
+	color: black;
 }
 
-h1,h2,h3,h4,h5,h6 {
-	font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
-	font-weight:700;
+.social {
+	word-spacing: 15px;
 }
 
 .card {
@@ -118,8 +134,8 @@ h1,h2,h3,h4,h5,h6 {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 	font-size: 80%;
 	max-width: 400px;
-	height: 520px;
-	margin: 8% auto;
+	height: 530px;
+	margin: 2% auto;
 	padding: 0;
 	border-radius: 0.8em;
 	text-align: center;
@@ -147,18 +163,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .intro {
-	margin-top: 18%;
-}
-
-a {
-	cursor:pointer;
-	text-decoration: none;
-	font-size: 22px;
-	color: black;
-}
-
-.social {
-	word-spacing: 15px;
+	font-size: 100%;
+	margin-top: 22%;
 }
 
 /*===========================
@@ -203,11 +209,12 @@ a {
 	padding: 24px;
 }
 #chat-box input[type="text"] {
+	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 8px;
 	outline: none;
-	width: 230px;
+	width: 210px;
 }
 header h4{
 	color: #fff;
@@ -261,7 +268,7 @@ header h4{
 </style>
 </head>
 <body>
-  
+
 <div class="card">
 	<div class="profile-cover"><img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1526440656/graffiti-art.jpg" alt="profile-cover" style="width:100%" width="400" height="100%"></div>
 	<div class="profile-avater"><img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="Austin" style="width:45%" style="height:40%"></div>
@@ -280,7 +287,7 @@ header h4{
 	</div>
 </div>
 
-<!--======CHAT-BOX STRART=======-->
+<!--======CHAT-BOX START=======-->
 <div id="chat-box"> 
 	<header class="clearfix" onclick="change()">
 		<h4>Chat with me!</h4>
@@ -290,21 +297,21 @@ header h4{
 			<div class="chat bot chat-message">
 				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
 				<div class="chat-message-content clearfix">
-					<p>Hello! this is Austin's bot</p>
+					<p>Hello! welcome to Austin's bot</p>
 					<span class="chat-time"> </span>
 				</div> 
 			</div>
 			<div class="chat bot chat-message">
 				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
 				<div class="chat-message-content clearfix">
-					<p>Ask me anything and if i can't answer train me using the following format "train: question # answer # password"</p>
+					<p>Can we get to know each other?</p>
 					<span class="chat-time"></span>
 				</div> 
 			</div>
-			<div class="chat user chat-message">
-				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1526549963/users.png" alt="" width="32" height="32">
+			<div class="chat bot chat-message">
+				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1524732786/austin.jpg" alt="" width="32" height="32">
 				<div class="chat-message-content clearfix">
-					<p>How are you?</p>
+					<p>If i can't answer train me using the following format "train: question #answer #password"</p>
 					<span class="chat-time"></span>
 				</div> 
 			</div>
@@ -314,7 +321,7 @@ header h4{
 		
 		<form action="#" method="post" class="form-data">
 			<fieldset>
-				<input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
+				<input type="text" placeholder="Enter your message…" name="question" id="question" autofocus>
 				<input type="submit" name="bot-interface" value="SEND"/>
 			</fieldset>
 		</form>
@@ -326,65 +333,61 @@ header h4{
 // CHAT BOT MESSENGER////////////////////////
 
 	function change(){
-		document.getElementById("chat").classList.toggle('hide');     
+			document.getElementById("chat").classList.toggle('hide');
+			
     }
-    var btn = document.getElementsByClassName('form-data')[0];
-    var question = document.getElementById("question");
-    var chatLog = document.getElementById("chatlogs");
-    var chatContent = document.getElementById("chat-content");
-    var myTime = new Date().toLocaleTimeString(); 
-    document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
-    document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
-    document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
-    btn.addEventListener("submit", chat);
+     var btn = document.getElementsByClassName('form-data')[0];
+		var question = document.getElementById("question");
+		var chatLog = document.getElementById("chatlogs");
+		var chatContent = document.getElementById("chat-content");
+		var myTime = new Date().toLocaleTimeString(); 
+		document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
+		document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
+		document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
+		btn.addEventListener("submit", chat);
 
 
-    function chat(e){
-        if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
-			var xhttp = new XMLHttpRequest();
-		} else if (window.ActiveXObject) { // IE 6 and older
-			var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-       
-		xhttp.onreadystatechange = function() {
-            if(this.readyState == 4 && this.status == 200) {
-				// console.log(this.response);
-				userChat(question.value, this.response);
-				e.preventDefault();
-				question.value = '';
-            }
-        }
-        xhttp.open('POST', 'profiles/Abigail', true);
+		function chat(e){
+		    if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+			     var xhttp = new XMLHttpRequest();
+			} else if (window.ActiveXObject) { // IE 6 and older
+			  var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		   
+			xhttp.onreadystatechange = function() {
+	          if(this.readyState == 4 && this.status == 200) {
+	          	// console.log(this.response);
+	          	 userChat(question.value, this.response);
+     			e.preventDefault();
+	            question.value = '';
+	          }
+      	    }
+        xhttp.open('POST', 'profiles/austin_ikenna', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('question='+ question.value);
         e.preventDefault();
-    }
-
-    function userChat(chats, reply){
-		if(question.value !== ''){
-			var chat = `<div class="chat user chat-message">
-				<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1526549963/users.png" alt="" width="32" height="32">
-				<div class="chat-message-content clearfix">
-					<p>` + chats + `</p>
-					<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
-				</div>
-			</div>`;
 		}
-		chatContent.innerHTML += chat;
-         
-        setTimeout(function() {
-			chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
-				</div> 
-			</div>`;
-			document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight; 
-		}, 1000);
-    }
-</script>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/jquery.form.min.js"></script>
-<script type="text/javascript" src="js/mail.js"></script>
+		function userChat(chats, reply){
+			if(question.value !== ''){
+				var chat = `<div class="chat user chat-message">
+					<img src="https://res.cloudinary.com/ikeyy2000/image/upload/v1526549963/users.png" alt="" width="32" height="32">
+					<div class="chat-message-content clearfix">
+						<p>` + chats + `</p>
+						<span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
+					 </div>
+				</div>`;
+			}
+			chatContent.innerHTML += chat;
+		     
+		    setTimeout(function() {
+			    chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
+					</div> 
+				</div>`;
+				document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight;	
+			}, 1000);
+		}
+</script>
 
 </body>
 </html>

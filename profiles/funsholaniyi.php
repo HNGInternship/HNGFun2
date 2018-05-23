@@ -13,15 +13,15 @@
  * PLEASE ENJOY THE SEARCH AND MATCH ALGORITHM, GIVE CREDITS IF U WANT TO USE IT, OPEN SOURCED
  */
 
-if(!defined('DB_USER')){
-	if (file_exists('../../config.php')) {
-		require_once '../../config.php';
-	} else if (file_exists('../config.php')) {
-		require_once '../config.php';
-	} elseif (file_exists('config.php')) {
-		require_once 'config.php';
-	}
-}
+//if(!defined('DB_USER')){
+//	if (file_exists('../../config.php')) {
+//		require_once '../../config.php';
+//	} else if (file_exists('../config.php')) {
+//		require_once '../config.php';
+//	} elseif (file_exists('config.php')) {
+//		require_once 'config.php';
+//	}
+//}
 
 /**
  * Class Database
@@ -39,7 +39,8 @@ class Database
 	protected function __construct()
 	{
 		
-		$this->connection =  new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+//		$this->connection =  new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+		$this->connection =  $GLOBALS['conn'];
 //		$tz = (new DateTime('now', new DateTimeZone('Africa/Lagos')))->format('P');
 //		$this->connection->query("SET time_zone='$tz';");
 		// Error handling
@@ -248,17 +249,17 @@ function smartSearch($question, $questions_array)
 				if ($hit_count && ($hit_count === count($question) || $hit_count > 2)) { // if count is more than 1 and greater that 2 or equal count of question
 					$q_sorta[] = $item;
 				}
-			
+				
 			}
 		}
 	}
 	ksort($q_sorta);
 	$item = end($q_sorta);
 	if($item){
-	    return $item;
-    }else{
-	    return [];
-    }
+		return $item;
+	}else{
+		return [];
+	}
 }
 
 /**
@@ -356,7 +357,7 @@ function sendMessage()
 }
 
 if (!empty($_POST)) {
-	
+	ob_end_clean();
 	if (!isset($_POST["function"])) {
 		$data = $_POST['json'];
 		$_POST = json_decode($data, true);
@@ -422,7 +423,7 @@ $user = (new Model())->getProfile();
             </div>
 
             <div class="message-input">
-                <form id="message_chat_form">
+                <form id="message_chat_form" action="">
                     <div class="form-group">
                         <input type="text" class="form-control" style="width: 100%; font-size: 12px;"
                                id="chat_message_text"
@@ -487,7 +488,8 @@ $user = (new Model())->getProfile();
                 "function": "sendMessage",
                 "message": message,
             };
-            this.postJSON(data, "/profiles/funsholaniyi.php", function (response) {
+            var url = $('#message_chat_form').attr('action');
+            this.postJSON(data, url, function (response) {
                 $('#message_chat_form')[0].reset();
                 // console.log(response);
                 var strMessages = '<li class="replies"><img src="https://res.cloudinary.com/funsholaniyi/image/upload/v1524159157/default.jpg">' +

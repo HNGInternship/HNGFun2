@@ -37,7 +37,7 @@ $activeArray[$fileIndex]="active";
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -75,6 +75,9 @@ $activeArray[$fileIndex]="active";
             color: #3d3d3d;
             font-family: 'Lato', sans-serif;
         }
+      .active{
+          background-color:lightblue;
+      }
         .navbar{
           font-size: 15px;
           font-weight: bold;
@@ -86,7 +89,7 @@ $activeArray[$fileIndex]="active";
             padding: 24px 15px;
             border-bottom: 3px solid #f4f4f4;
         }
-        .nav-item:hover, .active {
+        .nav-item:hover{
             border-bottom: 3px solid #2196F3;
         }
         /* horizontal line learn page */
@@ -162,7 +165,7 @@ $activeArray[$fileIndex]="active";
             </li>
             <li class="nav-item <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li> 
+            </li>
             <li class="nav-item <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
             </li>
@@ -182,7 +185,7 @@ $activeArray[$fileIndex]="active";
               }
             </style>
 
-            <li class="dropdown nav-item <?= $activeArray[8] ?>" style="">
+            <li class="dropdown nav-item<?= $activeArray[8] ?>" style="">
                   <a href="#" class="dropdown-togge" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="" aria-hidden="true"></span><span style="color:#888888;">Account</span> <span class="caret"></span></a>
                   <ul class="dropdown-menu" style="width: 120px;">
                     <li><a href="sign-up" class="nav-link" id="dropaccount">Sign Up</a></li>
@@ -193,4 +196,9 @@ $activeArray[$fileIndex]="active";
   </div>
 
     </nav>
-
+<script type="text/javascript">
+      $('.navbar-nav li').click(function(e){
+    $('.navbar-nav li').removeClass("active");
+    $(this).addClass("active");
+});
+    </script>

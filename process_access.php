@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('db.php');
 
 
@@ -76,14 +77,14 @@ if(isset($_POST['registration'])){
          $subject = "Verify your account";
          $txt = 'Hi '. $firstname.',
             <br/>
-           You are receiving this message because you have just registered on the HNGI website on <a href="https://hng.fun">https://hng.fun</a><br/>
+           You are receiving this message because you have just registered on the HNG website on <a href="https://hng.fun">https://hng.fun</a><br/>
            Please, follow this link to verify your new account:<br/>
            <a href="https://hng.fun/verifyEmail?token='.$token.'&email='.$email.'">Account Verification Link</a>
            <br/> <br/>
            <p>If you have not registered on our site, you can just delete this email.</p>
            <br/>
            Thank you ,<br/>
-           HNGI Team';
+           HNG Team';
 
          $headers = "From: noreply@hng.fun" . "\r\n" ;
          $headers .= "MIME-Version: 1.0\r\n";
@@ -139,6 +140,7 @@ if(isset($_POST['registration'])){
             }
 
             $_SESSION["user_id"] = $row["id"];
+             $_SESSION["username"] = $row["username"];
             $_SESSION["email"] = $row["email"];
             echo "1";
            

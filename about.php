@@ -38,7 +38,7 @@ include_once("header.php");
 		border-radius:5px;
 	}
 	.btn-custom-primary:hover{
-		background-color: #dbf4ff !important;
+		background-color: #dee2e6f0 !important;
 		color:#000000 !important;
     	-moz-transition: all 0.5s linear;
     	-webkit-transition: all 0.5s linear;

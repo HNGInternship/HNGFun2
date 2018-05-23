@@ -1,5 +1,7 @@
 <?php
+session_start();
 include_once("dashboard-header.php");
+require_once ("db.php");
 ?>
 <head>
 <style>
@@ -30,10 +32,11 @@ include_once("dashboard-header.php");
     
     
  }
+ .row{padding-top:50px}
  table, tr, td{padding:0px;}
  .dp,.row, .info, .b_info_grid,.name {border:none;}
  .dp img{
-     width:200px;
+     width:100%;
      border-radius:50%;
     }
  .l-col{
@@ -49,12 +52,19 @@ include_once("dashboard-header.php");
  <title>HNG FUN Profile</title>
 </head>
  <body>
-   
+   <?php 
+    $id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM users WHERE id = $id"; 
+$q = $conn->query($sql); 
+$q->setFetchMode(PDO::FETCH_ASSOC); 
+$data = $q->fetch();
+  $fullname = $data['firstname']." ".$data['lastname'];
+  ?>
  <!-- wallet board -->
  <section id="board">
  <div class="container">
     <div class="box">
-        <h1><spa>PROFILE INFORMATION</spa> </h1>
+        <h1><spa>BASIC PROFILE</spa> </h1>
      <div class="row">
      <div class ="col-md-4 dp">
      <img src="http://res.cloudinary.com/epospiky/image/upload/v1523739075/epo.png" alt="epospiky" class="img-responsive"/>
@@ -62,18 +72,18 @@ include_once("dashboard-header.php");
       <div class="clearfix"></div>
      <div class ="col-md-7 info">
        <div class="name col-md-12">
-          <h4 style ="text-align:left">Oganji Ernest Paul (Epospiky)</h4>
-          <p style="color:#888888; margin:0px; text-align:left; font-size:12px; padding:0px" >Boston, Mars</p>
-          <hr style="padding:5px 0px 5px 0px;  color:#888">
+          <h4 style ="text-align:left"><?php echo $fullname;?> <span style="color:#888888; font-weight:light;"><?php echo " (".$data['username'].")";?></span></h4>
+          <p style="color:#888888; margin:0px; text-align:left; font-size:14px; padding:0px" ><?php echo $data['state'];?> Lagos</p>
+          <hr style="padding:5px 0px 5px 0px; border-width:2px; color:#888">
        </div>
        <div class="b_info_grid col-md-12">
         <table >
-          <tr ><td class="l-col col-md-4">Email </td><td class= "b_infor col-md-6">example@gmail.com</td></tr>
-          <tr ><td class="l-col col-md-4"> Gender </td><td class= "b_infor col-md-6 ">Male</td></tr>
-          <tr ><td class="l-col col-md-4"> Country </td><td class= "b_infor col-md-6 ">U. S. A</td></tr>
-          <tr ><td class="l-col col-md-4"> State </td> <td class= "b_infor col-md-6 ">Boston</td></tr>
-          <tr  ><td class="l-col col-md-4"> City </td><td class= "b_infor col-md-6 ">Mars</td></tr>
-          <tr ><td class="l-col col-md-4"> Phone </td> <td class= "b_infor col-md-6">+1(415) 452 0826</td></tr>
+          <tr ><td class="l-col col-md-4">Email </td><td class= "b_infor col-md-6"><?php echo $data['email'];?></td></tr>
+         <!-- <tr ><td class="l-col col-md-4"> Gender </td><td class= "b_infor col-md-6 "><?php echo $data[''];?></td></tr>-->
+          <tr ><td class="l-col col-md-4"> Country </td><td class= "b_infor col-md-6 "><?php echo $data['nationality'];?>  </td></tr>
+          <tr ><td class="l-col col-md-4"> State </td> <td class= "b_infor col-md-6 "><?php echo $data['state'];?> Lagos</td></tr>
+         <!-- <tr  ><td class="l-col col-md-4"> City </td><td class= "b_infor col-md-6 "><?php echo $data[''];?>  </td></tr>-->
+          <tr ><td class="l-col col-md-4"> Phone </td> <td class= "b_infor col-md-6"><?php echo $data['phone'];?>  </td></tr>
          </table>
          </div>
      </div>

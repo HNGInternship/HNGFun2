@@ -1,4 +1,7 @@
- <?php include("header.php");?>
+ <?php 
+   session_start();
+    include("header.php");
+  ?>
 
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
@@ -7,7 +10,6 @@
 </div>
 
 <div class="container" style='color: #3D3D3D'>
-    <!-- /*<div id="message" style="color:black; font-weight:bold;"></div>*/ -->
             <h6 style="text-align: center" class="text-danger" id="message"></h6>
 
 
@@ -113,7 +115,7 @@
 
                 $("#message").attr("class", 'text-danger');
             
-                 $("#message").html('Your Username or Password is incorrect');
+                 $("#message").html('You entered an incorrect email or password');
              }
 
              else{
@@ -128,13 +130,6 @@
             $("#login").html('Log In');
                 
 
-            },
-           error : function(jqXHR,textStatus,errorThrown){
-                 if(textStatus ='error'){
-            $("#login").html('Log In');
-
-                    alert('Request not completed');
-                 }
             },
             beforeSend :function(){
 
