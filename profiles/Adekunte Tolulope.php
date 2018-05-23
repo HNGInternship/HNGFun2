@@ -1,28 +1,18 @@
 <?php
-if(!defined('DB_USER')){
-    require "../../config.php";   //change config details when pushing
-    try {
-        $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-    } catch (PDOException $pe) {
-        die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-    }
-  }
- 
-  
-?>
-<?php
-$result = $conn->query("SELECT * FROM secret_word LIMIT 1");
- $res = $result->fetch(PDO::FETCH_OBJ);
-  $secret_word = $res->secret_word;
- $result2 = $conn->query("SELECT * FROM interns_data WHERE username = 'Adekunte Tolulope'");
- $user = $result2->fetch(PDO::FETCH_OBJ);
-$name = $user-> name;
-$image = $user-> image_filename;
-$username = $user-> username;
-?>
-
-
-<?php
+if (!defined('DB_USER'))
+	{
+	require"../../config.php";
+	}
+try
+	{
+	$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
+	}
+catch(PDOException $pe)
+	{
+	die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+	}
+global $conn;
+$diffAns ='';
 if (isset($_POST['bot_adekunte'])) {
 	
 	$data = $_POST['bot_adekunte'];
@@ -87,6 +77,18 @@ if (isset($_POST['bot_adekunte'])) {
 }
 ?>
 
+<?php
+$result = $conn->query("SELECT * FROM secret_word LIMIT 1");
+ $res = $result->fetch(PDO::FETCH_OBJ);
+  $secret_word = $res->secret_word;
+ $result2 = $conn->query("SELECT * FROM interns_data WHERE username = 'Adekunte Tolulope'");
+ $user = $result2->fetch(PDO::FETCH_OBJ);
+$name = $user-> name;
+$image = $user-> image_filename;
+$username = $user-> username;
+?>
+
+
 <!Doctype html>
 <html>
    <head>
@@ -98,6 +100,7 @@ if (isset($_POST['bot_adekunte'])) {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: auto;
+	margin-top:70px;
   text-align: center;
   font-family: arial;
 }
@@ -128,7 +131,7 @@ button:hover, a:hover {
 #Chatbot-holder{
 		position: fixed;
 		right:5px;
-		bottom:-330px;
+		bottom:-345px;
 		z-index: 4;
 		height:410px;
 		transition: 1s;
@@ -140,7 +143,6 @@ button:hover, a:hover {
 	#botImg{
 		border-radius:100%;
 		padding:6px;
-		border:ridge 1px gray;
 		width:50px;
 		height:50px;
 		text-align: center;
@@ -152,12 +154,10 @@ button:hover, a:hover {
 		border:solid 1px black;
 		border-radius: 100%;
 	}
-
 	#content{
 		
 		padding:10px 8px;
 		margin-top: 2px;
-
 	}
 	#content > #head {
 		background-color: #cccccc;
@@ -208,7 +208,6 @@ button:hover, a:hover {
 		text-align: right;
 		border-radius: 8px;
 		padding-right: 1px;
-
 	}
 	#body #inpBut input{
 		width:100%;
@@ -243,9 +242,9 @@ button:hover, a:hover {
 
 
 <div class="card">
-  <img src="http://res.cloudinary.com/de8awjxjn/image/upload/v1525561300/26219902_1872730456371316_8732891365608479809_n_1.jpg" alt="Profile Pic">
-  <h1>Adekunte Tolulope David</h1>
-  <p class="slack username">Adekunte Tolulope</p>
+  <img src="<?php echo $image; ?>" alt="Profile Pic">
+  <h1><?php echo $name; ?></h1>
+  <p class="slack username"><?php echo $username; ?></p>
   <p class="title">Programmer</p>
   <p>HNG Internship</p>
   <div style="margin: 24px 0;">
@@ -261,7 +260,7 @@ button:hover, a:hover {
 
 <div id="Chatbot-holder">
 	<div id="botImg">
-		<img src="img/rob.png">
+		<img src="http://pitdesk.com/vi/jkh/images/top-img.png">
 	</div>
 	<div id="content">
 		<div id="head">
@@ -284,10 +283,11 @@ button:hover, a:hover {
 			</div>
 		</div>
 		<div id="foot">
-		<kbd>ADREX</kbd>
+		<kbd>ADTREX</kbd>
 		</div>
 	</div>
 </div>
+
 <script type="text/javascript">
 var no = 0;
 	function processR(){
@@ -316,7 +316,5 @@ var no = 0;
 		}
 }
 </script>	
-
+</body>
 </html>
-
-<?php }?>
