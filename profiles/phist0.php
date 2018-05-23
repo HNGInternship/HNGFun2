@@ -415,7 +415,6 @@ text-decoration: none;
 
 <div class="main-wrapper">
 
-  <div class="page-content">
 <!-- Header Start -->
     
     <div class="wpb_wrapper">
@@ -429,7 +428,8 @@ text-decoration: none;
     <div class="hng_internship">
       <p>   
          HNG 4.0 Internship 
-	  </p> 
+      </p> 
+    </div>
                                 
     <div class="need-info">
       <p><a  style="color: #990000;" href="#chat-box" onclick="change()">  Need Information ? Chat With The Bot Here     &gt;&gt;</a></p>
@@ -438,6 +438,9 @@ text-decoration: none;
     <div class="vc_single_image-wrapper   vc_box_border_grey">
       <img width="100" height="100" src="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg" class="vc_single_image-img attachment-full" alt="" srcset="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 509w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 150w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 300w" sizes="(max-width: 509px) 100vw, 509px" />
     </div>
+</div>
+
+
 
     <div id="chat-box">
       <header class="clearfix" onclick="change()">
@@ -476,7 +479,6 @@ text-decoration: none;
           </fieldset>
         </form>
     </div> <!-- end chat -->
-			    
 <script>
     
 function change(){
