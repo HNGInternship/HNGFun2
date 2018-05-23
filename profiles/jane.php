@@ -597,6 +597,7 @@
 							// url: "profiles/jane.php",
 							type: "POST",
 							data: {chat: ser_a},
+							dateType: 'text',
 							success: function(data,status){
 								// var result = $($.parseHTML(data)).find(".container").text();
 								console.log(data);
