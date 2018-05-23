@@ -4,7 +4,7 @@ if(!defined('DB_USER')){
   require_once('../config.php');
 }
 
-global $conn;
+//global $conn;
 
 try {
     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
