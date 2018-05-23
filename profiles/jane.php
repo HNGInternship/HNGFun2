@@ -470,8 +470,8 @@
 					else{
 						$.ajax({
 							url: "/profiles/jane",
-							type: "GET",
-							data: {chat: a},
+							type: "POST",
+							data: {'chat': a},
 							success: function(data){
 								// var result = $($.parseHTML(data)).find(".container").text();
 								console.log(data);
@@ -645,8 +645,8 @@
 </html>
 
 	<?php
-		if(isset($_GET['chat'])){
-		$a = $_GET['chat'];
+		if(isset($_POST['chat'])){
+		$a = $_POST['chat'];
 			$question = $answer = $password = "";
 			$wrong_password = ["You entered a wrong password",
 								"Enter the right password to teach me new things",
