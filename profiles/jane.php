@@ -57,6 +57,7 @@
 					if(sizeof($arr) != 3){
 						$answer = $no_answer[rand(0,3)]."::def";
 						echo $answer;
+						exit;
 						
 					}
 					else{
@@ -76,12 +77,13 @@
 							}
 
 							echo $train_success;
+							exit;
 							
 						}
 
 						else{
 							echo $wrong_password[rand(0,2)];
-							
+							exit;
 						}
 
 					}
@@ -101,22 +103,27 @@
 
 					if ($result <= 18.5) {
 						echo "Your BMI is ".round($result,3)."\n".$bmi_result[0];
+						exit;
 					} 
 
 					else if($result > 18.5 && $result <= 24.9){
 						echo "Your BMI is ".round($result,3)."\n".$bmi_result[1];
+						exit;
 					}
 
 					else if ($result >= 25 && $result <= 29.9) {
 						echo "Your BMI is ".round($result,3)."\n".$bmi_result[2];
+						exit;
 					}
 
 					else{
 						echo "Your BMI is ".round($result,3)."\n".$bmi_result[3];
+						exit;
 					}
 				}
 				else{
 					echo "Enter a valid input";
+					exit;
 				}
 			}
 
@@ -148,6 +155,7 @@
 					$answer = $no_answer[rand(0,4)]."::def";
 				}
 				echo $answer;
+				exit;
 			}
 		}
 ?>
