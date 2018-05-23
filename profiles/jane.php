@@ -28,9 +28,6 @@
 	}
 	?>
 
-	<?php
-		if(!isset($_POST['chat'])){
-	?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -647,9 +644,8 @@
 
 </html>
 
-<?php
-	}
-	else{
+	<?php
+		if(isset($_POST['chat'])){
 		$a = $_POST['chat'];
 			$question = $answer = $password = "";
 			$wrong_password = ["You entered a wrong password",
