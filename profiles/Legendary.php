@@ -389,7 +389,7 @@ if(isset($_POST['chat'])){
           <div class="col-10">
             <h5 class="font-bold">Name:</h5>
             <p class="grey-text">
-             <h1 class="oj-header-border name"><?php echo $user->name ?></h1>
+             <h1><?php echo $user->name ?></h1>
             </p>
           </div>
         </div>
