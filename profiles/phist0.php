@@ -87,6 +87,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         	exit();
         	}
         	
+        	
         	?>
         
 
@@ -123,6 +124,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   <script type="text/javascript">	</script>
 
   <style>
+
+<!--
 
     .card {
     /* Add shadows to create the "card" effect */
@@ -244,6 +247,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         text-align: center;
      }
 
+-->
+
+
+
    /***********************
 CHAT CSS
 
@@ -270,9 +277,9 @@ CHAT CSS
     }
 
     #chat-box {
-                        bottom: 0;
                         font-size: 12px;
-                        right: 24px;		
+                        right: 34px;
+                        bottom: 0px;		
                         position: fixed;
                         width: 300px;
                 }
@@ -372,7 +379,7 @@ CHAT CSS
     div.vc_single_image-wrapper  {
   position: relative;
   left: 300px;
-  bottom: 195px;
+  bottom: 150px;
 
 
 }
@@ -385,153 +392,162 @@ CHAT CSS
 body{
   overflow-x: hidden;
   overflow-y: hidden;
+  padding: 20px;
 }
 
 
 div.need-info {
 text-decoration: none;
 }
+
+.main-wrapper {
+  background-color: blue;
+}
+
+.page-content {
+  background-color: white;
+  padding: 30px;
+  z-index: 10;
+}
   </style>
   
 </head>
-<body class="home page-template-default page page-id-2 stretched custom-font-enabled single-author wpb-js-composer js-comp-ver-5.0.1 vc_responsive">
+<body class="home page-template-default ">
 
 <!-- Main Wrapper Start -->
 
 <div class="main-wrapper">
 
+  <div class="page-content">
 <!-- Header Start -->
-
-                        <div class="wpb_wrapper">
-			  <h1 class="red-title" style="color: #990000; font-size: 4em;">Papa Charlie </h1>
-                        </div>
+    
+    <div class="wpb_wrapper">
+	  <h1 class="red-title" style="color: #990000; font-size: 2em;">Papa Charlie </h1>
+    </div>
   
-
-
-                          <div class="social-media" style="font-size: 18px;">
+    <div class="social-media" style="font-size: 18px;">
 			   <p><a style="color: #990000;" href="https://www.linkedin.com/in/phist0">LinkedIn </a> | <a style="color: #990000;" href="https://twitter.com/phist0"> Twitter </a> | <a style="color: #990000;" href="https://www.facebook.com/phist0"> Facebook </a></p>
-                          </div>
+    </div>
  
-                          <div class="hng_internship">
-                           <p>   
-                              HNG 4.0 Internship 
-			   </p> 
-                           </div>
+    <div class="hng_internship">
+      <p>   
+         HNG 4.0 Internship 
+	  </p> 
                                 
-                          <div class="need-info">
-                           <p><a  style="color: #990000;" href="#chat-box" onclick="change()">  Need Information ? Chat With The Bot Here     &gt;&gt;</a></p>
-                          </div>
+    <div class="need-info">
+      <p><a  style="color: #990000;" href="#chat-box" onclick="change()">  Need Information ? Chat With The Bot Here     &gt;&gt;</a></p>
+    </div>
 
+    <div class="vc_single_image-wrapper   vc_box_border_grey">
+      <img width="100" height="100" src="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg" class="vc_single_image-img attachment-full" alt="" srcset="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 509w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 150w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 300w" sizes="(max-width: 509px) 100vw, 509px" />
+    </div>
 
-                            <div class="vc_single_image-wrapper   vc_box_border_grey">
-                              <img width="100" height="100" src="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg" class="vc_single_image-img attachment-full" alt="" srcset="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 509w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 150w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 300w" sizes="(max-width: 509px) 100vw, 509px" />
-                            </div>
-
-
-
-                        <div id="chat-box">
-                          <header class="clearfix" onclick="change()">
-                            <h4>ChatBot Online</h4>
-                          </header>
-                          <div class="chat hide" id="chat">
-                            <div class="chatlogs" id="chatlogs">
-                              <div class="chat bot chat-message">
-                                <img src="https://res.cloudinary.com/phisto/image/upload/v1526618309/chatbot.jpg" alt="" width="32" height="32">
-                                <div class="chat-message-content clearfix">
-                                  <p>Welcome.</p>
-                                  <span class="chat-time"> </span>
-                                </div>
-                              </div>
-                              <div class="chat bot chat-message">
-                                <img src="https://res.cloudinary.com/phisto/image/upload/v1526618309/chatbot.jpg" alt="" width="32" height="32">
-                                <div class="chat-message-content clearfix">
-                                  <p>I am here to help you.</p>
-                                  <span class="chat-time"></span>
-                                </div>
-                              </div>    
-                              <div class="chat bot chat-message">
-                                <img src="https://res.cloudinary.com/phisto/image/upload/v1526618309/chatbot.jpg" alt="" width="32" height="32">
-                                <div class="chat-message-content clearfix">
-                                  <p>You can ask me questions, and I will do my best to answer. You can train me to answer specific questions. Just make use of the format train: question # answer # password.</p>
-                                  <span class="chat-time"></span>
-                                </div>
-                              </div>
-                                <div id="chat-content"></div>
-                              </div> <!-- end chat-history -->
-                              <form action="#" method="post" class="form-data">
-                                <fieldset>
-                                  <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
-                                  <input type="submit" class=" btn-primary" name="bot-interface" value="SEND"/>
-                                </fieldset>
-                              </form>
-                              </div> <!-- end chat -->
-			    </div> <!-- end chat-box -->
+    <div id="chat-box">
+      <header class="clearfix" onclick="change()">
+        <h4>ChatBot Online</h4>
+      </header>
+      <div class="chat hide" id="chat">
+        <div class="chatlogs" id="chatlogs">
+          <div class="chat bot chat-message">
+            <img src="https://res.cloudinary.com/phisto/image/upload/v1526618309/chatbot.jpg" alt="" width="32" height="32">
+            <div class="chat-message-content clearfix">
+              <p>Welcome.</p>
+              <span class="chat-time"> </span>
+            </div>
+          </div>
+          <div class="chat bot chat-message">
+            <img src="https://res.cloudinary.com/phisto/image/upload/v1526618309/chatbot.jpg" alt="" width="32" height="32">
+            <div class="chat-message-content clearfix">
+              <p>I am here to help you.</p>
+              <span class="chat-time"></span>
+            </div>
+          </div>    
+          <div class="chat bot chat-message">
+            <img src="https://res.cloudinary.com/phisto/image/upload/v1526618309/chatbot.jpg" alt="" width="32" height="32">
+            <div class="chat-message-content clearfix">
+              <p>You can ask me questions, and I will do my best to answer. You can train me to answer specific questions. Just make use of the format train: question # answer # password.</p>
+              <span class="chat-time"></span>
+            </div>
+          </div>
+          <div id="chat-content"></div>
+          
+          </div> <!-- end chat-history -->
+          <form action="#" method="post" class="form-data">
+            <fieldset>
+              <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
+              <input type="submit" class=" btn-primary" name="bot-interface" value="SEND"/>
+            </fieldset>
+          </form>
+          </div> <!-- end chat -->
+		  </div> <!-- end chat-box -->
 
 			    
-                            <script >
-                
-                
-                function change(){
-                        document.getElementById("chat").classList.toggle('hide');
+			    
+			    
+			    
+<script >
+    
+function change(){
+  document.getElementById("chat").classList.toggle('hide');
                         
+}
+var btn = document.getElementsByClassName('form-data')[0];
+var question = document.getElementById("question");
+var chatLog = document.getElementById("chatlogs");
+var chatContent = document.getElementById("chat-content");
+var myTime = new Date().toLocaleTimeString(); 
+document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
+document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
+document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
+btn.addEventListener("submit", chat);
+
+function chat(e){
+  if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+    var xhttp = new XMLHttpRequest();
+    } else if (window.ActiveXObject) { // IE 6 and older
+    var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-     var btn = document.getElementsByClassName('form-data')[0];
-                var question = document.getElementById("question");
-                var chatLog = document.getElementById("chatlogs");
-                var chatContent = document.getElementById("chat-content");
-                var myTime = new Date().toLocaleTimeString(); 
-                document.getElementsByClassName('chat-time')[0].innerHTML = myTime;
-                document.getElementsByClassName('chat-time')[1].innerHTML = myTime;
-                document.getElementsByClassName('chat-time')[2].innerHTML = myTime;
-                btn.addEventListener("submit", chat);
-
-
-                function chat(e){
-                    if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
-                             var xhttp = new XMLHttpRequest();
-                        } else if (window.ActiveXObject) { // IE 6 and older
-                          var  xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                        }
-                    xhttp.onreadystatechange = function() {
-                        if(this.readyState == 4 && this.status == 200) {
+xhttp.onreadystatechange = function() {
+  if(this.readyState == 4 && this.status == 200) {
                               // console.log(this.response);
-                               userChat(question.value, this.response);
-                              e.preventDefault();
-                          question.value = '';
-                        }
-                  }
-              xhttp.open('POST', 'profiles/phist0.php', true);
-              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              xhttp.send('question='+ question.value);
-              e.preventDefault();
-                      }
+    userChat(question.value, this.response);
+    e.preventDefault();
+    question.value = '';
+  }
+}
+xhttp.open('POST', 'profiles/phist0.php', true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send('question='+ question.value);
+e.preventDefault();
 
-                      function userChat(chats, reply){
-                              if(question.value !== ''){
-                                      var chat = `<div class="chat user chat-message">
-                                              <img src="http://placehold.it/45/000000/fff&text=YOU" alt="" width="32" height="32">
-                                              <div class="chat-message-content clearfix">
-                                                      <p>` + chats + `</p>
-                                                      <span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
-                                               </div>
-                                      </div>`;
-                              }
-                              chatContent.innerHTML += chat;
-                              
-                              setTimeout(function() {
-                                      chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
-                                                  </div> 
-                                          </div>`;
-                                          document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight;       
-                                  }, 1000);
-                          }
-                           </script>
-                         </div>
-                       </div>
-                     </div>
-                   </div>
+}
+
+function userChat(chats, reply){
+  if(question.value !== ''){
+    var chat = `<div class="chat user chat-message">
+      <img src="http://placehold.it/45/000000/fff&text=YOU" alt="" width="32" height="32">
+      <div class="chat-message-content clearfix">
+        <p>` + chats + `</p>
+        <span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
+      </div>
+        </div>`;
+                }
+chatContent.innerHTML += chat;
+
+setTimeout(function() {
+  chatContent.innerHTML += reply + `<span class="chat-time">`+ new Date().toLocaleTimeString(); +` </span>
+            </div> 
+            </div>`;
+document.getElementById('chatlogs').scrollTop = document.getElementById('chatlogs').scrollHeight;       
+    }, 1000);
+    }
+</script>
+   </div>
+ </div>
+   </div>
+ </div>
 		 </div><!-- .entry-content -->
-
+                </div>
 			</div>
 		 
 </body>

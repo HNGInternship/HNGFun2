@@ -16,138 +16,64 @@
 ?>
 
 <?php
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if(!defined('DB_USER')){
-      require "../../config.php"; 
-      //require "../config.php";  
-      try {
+/*******************************Chat Bot Server Side Brain************************************/
+// This is where the chat message will be received, I'm using $_GET because i'll pass the message via AJAX
+if(isset($_GET['send_chat'])){//if chat was sent
+  require('../../config.php');
+  try {
           $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-        } catch (PDOException $pe) {
-            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+      } catch (PDOException $e) {
+          die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
       }
+ if(isset($_GET['q'])&& isset($_GET['a'])&& isset($_GET['p'])){//For training
+  $question = $_GET['q'];
+  $answer = $_GET['a'];
+  $password = $_GET['p'];
+  if($password == 'password'){
+    $stmt = $conn->prepare("INSERT INTO chatbot (question,answer) VALUES(:q,:a)");
+    $stmt->bindValue(':q',$question,PDO::PARAM_STR);
+    $stmt->bindValue(':a',$answer,PDO::PARAM_STR);
+    $stmt->execute();
+    if($stmt->rowCount() == 1){
+      echo "You just trained me to respond to <strong>$question</strong>, Next time I'm been asked, I'll answer <strong>$answer</strong>";
     }
-    require "../answers.php";
-    date_default_timezone_set("Africa/Lagos");
-      
-    $userQuestion = $_POST['userQuestion'];
-    $checkVersionQuestion  = "aboutbot";
-    //$checkVersionQuestion = "%$checkVersionQuestion%";
-    //check if input entered is to get chatbot version
-    if($userQuestion == $checkVersionQuestion){
-      $chatBotVersion = "Eko v 1.0";
-      echo $chatBotVersion;
-      return;
-    }
-      
-    /*Check if chatbot is in training mode*/
-    $indexOfQuestion = stripos($userQuestion, "train:");
-    if($indexOfQuestion === false){
-
-      //i.e it is in question answering mode
-
-      $userQuestion = preg_replace('([\s]+)', ' ', trim($userQuestion)); //remove all extra white spaces from the question
-      $userQuestion = preg_replace('([?.])', '', $userQuestion); //remove '?' and '.'
-              
-      $userQuestion = "%$userQuestion%";
-      
-      $query = "SELECT * FROM chatbot WHERE question like :question";
-      $sth = $conn->prepare($query);
-      $sth->bindParam(':question', $userQuestion);
-      $sth->execute();
-      $sth->setFetchMode(PDO::FETCH_ASSOC);
-      $result = $sth->fetchAll();
-      $count = count($result);
-              
-      if($count > 0){
-        $index = rand(0, $count-1);
-        $resultRow = $result[$index];
-        $userQuestionAnswer = $resultRow['answer'];
-
-        //check if the userQuestionAnswer is to call a function
-        $indexOfOpeningBrackets = stripos($userQuestionAnswer, "((");
-        if($indexOfOpeningBrackets === false){
-          echo "$userQuestionAnswer";
-        }
-        else{
-          $indexOfClosingBrackets = stripos($userQuestionAnswer, "))");
-
-          if($indexOfClosingBrackets !== false){
-            $functionName = substr($userQuestionAnswer, $indexOfOpeningBrackets+2, $indexOfClosingBrackets-$indexOfOpeningBrackets-2);
-            $functionName = trim($functionName);
-            if(stripos($functionName, ' ') !== false){ //if method name contains spaces, do not invoke method
-              echo "The function name should not have any white spaces";
-              return;
-            }
-            if(!function_exists($functionName)){
-              echo "Oops! Sorry! Function could not be found";
-            }
-            else{
-              echo str_replace("(($functionName))", $functionName(), $userQuestionAnswer);
-            }
-            return;
-          }
-
-        }
-      }  
-      else{
-        echo "Oops! Sorry! I couldn't understand your question. Try asking another question. <br/>
-         Or type <b style = 'color: #d16027;'>train: question # answer </b> to train me to more kinds of questions.";
-      }   
-    }
-      
     else{
-      //i.e The chatbot is in training mode
-      
-      $trainingString = substr($userQuestion, 6); //get the trainingString from the textarea
-      $trainingString = preg_replace('([\s]+)', ' ', trim($trainingString)); //remove extra white spaces in the trainingString
-      $trainingString = preg_replace("([?.])", "", $trainingString); //remove '?' and '.' to ensure recognization of questions without those symbols in the trainingString
-      
-      $splitTrainingString = explode("#", $trainingString);
-      $splitTrainingStringCount = count($splitTrainingString);
-      if($splitTrainingStringCount == 1){
-          echo "Sorry, you entered an invalid training format. Type <b style = 'color: #d16027;'> train: question # answer </b> to do this again";
-          return;
-      }
-      
-      $question = trim($splitTrainingString[0]);
-      $answer = trim($splitTrainingString[1]);
-      
-      if($splitTrainingStringCount < 3){
-        echo "You need to enter a password to train me. Type <b style = 'color: #d16027;'>train: question # answer # password</b>";
-        return;
-      }
-      $trainingPassword = trim($splitTrainingString[2]);
-      
-      //verification of password entered
-      define('Training_Password', 'password');
-      
-      if($trainingPassword != Training_Password){
-        echo "Invalid Password. Try again";
-      }
-      
-      else{
-          // If everything is in place i.e training string is in order and password is correct insert into the database
-          $query = "INSERT INTO chatbot (question, answer) values (:question, :answer)";
-          $sth = $conn->prepare($query);
-          $sth->bindParam(':question', $question);
-          $sth->bindParam(':answer', $answer);
-          $sth->execute();
-          $sth->setFetchMode(PDO::FETCH_ASSOC);
-        
-          //insert is successful, prompt user to ask that question.
-          echo "Yay! Training Successful. Try asking me the same question now.";
-        }
-
-      }
+      echo "My brain could not process that training for now";
     }
+  }
+  else{
+    echo "That's not the correct password to my brain, the password is <strong>password</strong>";
+  }
+}
+else if(isset($_GET['message'])){//Normal chat
+  $msg = str_replace('?','',trim($_GET['message'])); // remove question mark
+  $getAnswer = $conn->prepare("SELECT answer FROM chatbot WHERE question LIKE :q ");
+  $getAnswer->bindValue(':q',"%$msg%",PDO::PARAM_STR);
+  $getAnswer->execute();
+  if($getAnswer->rowCount() == 1){
+    $answer = $getAnswer->fetch(PDO::FETCH_ASSOC);
+    echo $answer['answer'];
+  }
+  else if($getAnswer->rowCount() > 1){//If there is more than one answer
+    $answers = array(); 
+    $a = 0;
+    while($answer = $getAnswer->fetch(PDO::FETCH_ASSOC)){
+      $answers[$a] =  $answer['answer'];//store the answers in an array
+      $a++;
+    }
+    //echo "There are ".count($answers)." answers for you";
+    echo $answers[rand(0,count($answers)-1)]; // randomize the answer to be served
+  }
+  else{
+    echo "I don't understand what you meant, you can train me to respond to <strong>'$msg'</strong> with the command <strong class=\"command\">train: #$msg #answer #password</strong>";
+  }
+}
+  
+  die();
+}
+
 ?>
 
-<?php
-
-if ($_SERVER["REQUEST_METHOD"] == "GET"){
-
-
-?>
 
 
 <!DOCTYPE html>
@@ -182,57 +108,99 @@ html {
 footer,header {
  display:block
 }
- button{
-                border: none;
-                margin: 5px;
-                padding: 2px 10px;
-                text-align: center;
-            }
-            .send-button{
-              background-color: #FFCC29;
-              border: none;
-              color: #000000 !important;
-              padding: 5px 15px;
-              margin: 0;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
-              /* border-radius: 7px; */
-              width: 100%;
-            }
-            .main-section{ width: 330px; position: fixed; right:5px; /*bottom:0px;*/bottom:-380px; }
-    .first-section:hover{ cursor: pointer; }
-    .open-more{ bottom:0px; transition:2s; }
-            .border-chat{ border:1px solid #a4abba; margin: 0px; }
-            .first-section{ background-color:#727885; }
-    .first-section p{ color:#a4abba; margin:0px; padding: 10px 0px; font-size: 15px; font-weight: bold; }
-    .first-section p:hover{ color:#603c99; cursor: pointer; }
-    .right-first-section{ text-align: right; float:right;}
-    .right-first-section i{ color:#fff; font-size: 15px; padding: 12px 3px; } 
-    .right-first-section i:hover{ color:#fff; } 
+ /**************Chat Bot Styling*******************/
+      #bot-wrapper{
+        position: fixed;
+        bottom: 0;
+        z-index: 10000;
+        left: 80%;
+        width: 20%;
+        right:5%;
+      }
+      #bot-container{
+        font-size: 14px;
+        background-color: #FFF;
+        border-radius:5px 5px 0px 0px ;
+        box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1);
+      }
+      #chat-toggler{
+        height: 60px;
+        color: #FFF;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      #chat-toggler[data-chat-role='open'],#manage-chat[data-chat-role='restore']{
+        background-color: #959eaf;
+      }
+      #chat-toggler[data-chat-role='close'],#manage-chat[data-chat-role='clear']{
+        background-color: #727885;
+      }
 
-    .second-section{ padding: 0px; margin: 0px; background-color: #a4abba; height: 300px; }
-    .chat-section{ overflow-y:scroll; height:300px; }
-    .chat-section ul{ padding: 0px; }
-    .chat-section ul li{ list-style: none; margin-top:10px; position: relative; }
-    .left-chat,.right-chat{ overflow: hidden; }
-    .left-chat p,.right-chat p{ background-color:#727885; padding: 10px; color:#fff; border-radius: 5px;  float:left;  width:60%; margin-bottom:20px; }
-    .right-chat p{ float:right; background-color: #FFFFFF; color:#727885; }
-    .left-chat i,.right-chat i{ width:50px; height:20px; float:left; margin:0px 10px; }
-    .left-chat i{color: #727885;}
-    .right-chat i{ float:right; color: #727885;}
-  .left-chat span,.right-chat span{ position: absolute; left:70px; top:40px; color:#B7BCC5; }
-  .right-chat span{ left:65px; }
-    .left-chat:before{ content: " "; position:absolute; top:0px; left:55px; bottom:150px; border:15px solid transparent; border-top-color:#727885; }
-    .right-chat:before{content: " "; position:absolute; top:0px; right:55px; bottom:150px;border:15px solid transparent; border-top-color:#fff; }
-        
-    .third-section{ border-top: 2px solid #a4abba; }
-    .input-group{margin-top: 5px; margin-bottom: -5px; }
-    textarea.form-control{ height: 40px; padding: 3px 6px; border:1px solid #727885; }
-    .input-group-addon{ background-color: #727885; border: #727885; color: #727885}
-    input[type=checkbox]{margin: 2px 0 -5px; }
-           
+      #chat-area{
+        padding: 10px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      input#message-input{
+        width: 100%;
+        border-radius: 5px;
+        padding: 8px 10px;
+      }
+      .incoming-chat,.outgoing-chat{
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      .outgoing-chat{
+        margin-right: 40px;
+        background-color: rgba(0,200,0,0.2);
+      }
+      .incoming-chat{
+        margin-left: 40px;
+        background-color: #E3E3E3;
+      }
+      
+      #chat-container[data-bot-active = 'true']{
+        display: block;
+      }
+      #chat-container[data-bot-active = 'false']{
+        display: none;
+      }
+      #message-input-area{
+        padding: 10px;
+      }
+      #chat-log{
+        font-size: 12px;
+        color: grey;
+        font-style: italic;
+        margin: 0px;
+        margin-bottom: 5px;
+      }
+      #manage-chat{
+        color: #FFF;
+        border: none;
+        border-radius: 3px;
+      }
+      .command{
+         font-family:Consolas; 
+        background-color: rgba(0,0,0,0.5);
+        color: #FFF;
+        padding: 2px 5px;
+      }
+      .messenger-name{
+        color: grey;
+        font-size: 10px;
+      }
+      @media all and (max-width: 768px){/*In mobile view*/
+        #bot-wrapper{
+          width: 100%;
+          left: 0;
+          right:0;
+        }
+      }
 body {
  margin:0;
  color:#727885;
@@ -618,239 +586,439 @@ a:active,a:focus,a:hover {
             <svg width="511.626" height="511.627" viewBox="0 0 511.626 511.627"><path d="M498.208 68.235c-8.945-8.947-19.701-13.418-32.261-13.418H45.682c-12.562 0-23.318 4.471-32.264 13.418C4.471 77.18 0 87.935 0 100.499v310.633c0 12.566 4.471 23.312 13.418 32.257 8.945 8.953 19.701 13.422 32.264 13.422h420.266c12.56 0 23.315-4.469 32.261-13.422 8.949-8.945 13.418-19.697 13.418-32.257V100.499c-.001-12.564-4.469-23.319-13.419-32.264zm-23.13 342.89c0 2.475-.903 4.616-2.714 6.424-1.81 1.81-3.949 2.706-6.42 2.706H45.679c-2.474 0-4.616-.896-6.423-2.706-1.809-1.808-2.712-3.949-2.712-6.424V191.858a167.121 167.121 0 0 0 19.7 18.843c51.012 39.209 91.553 71.374 121.627 96.5 9.707 8.186 17.607 14.561 23.697 19.13 6.09 4.571 14.322 9.185 24.694 13.846 10.373 4.668 20.129 6.991 29.265 6.991h.571c9.134 0 18.894-2.323 29.263-6.991 10.376-4.661 18.613-9.274 24.701-13.846 6.089-4.569 13.99-10.944 23.698-19.13 30.074-25.126 70.61-57.291 121.624-96.5a166.295 166.295 0 0 0 19.694-18.843v219.267zm0-303.205v3.14c0 11.229-4.421 23.745-13.271 37.543-8.851 13.798-18.419 24.792-28.691 32.974a43121.052 43121.052 0 0 0-114.495 90.506c-1.14.951-4.474 3.757-9.996 8.418-5.514 4.668-9.894 8.241-13.131 10.712-3.241 2.478-7.471 5.475-12.703 8.993-5.236 3.518-10.041 6.14-14.418 7.851-4.377 1.707-8.47 2.562-12.275 2.562h-.571c-3.806 0-7.895-.855-12.275-2.562-4.377-1.711-9.185-4.333-14.417-7.851-5.231-3.519-9.467-6.516-12.703-8.993-3.234-2.471-7.614-6.044-13.132-10.712-5.52-4.661-8.854-7.467-9.995-8.418a42000.437 42000.437 0 0 0-114.487-90.506c-27.981-22.076-41.969-49.106-41.969-81.083 0-2.472.903-4.615 2.712-6.421 1.809-1.809 3.949-2.714 6.423-2.714H465.95c1.52.855 2.854 1.093 3.997.715 1.143-.385 1.998.331 2.566 2.138.571 1.809 1.095 2.664 1.57 2.57.477-.096.764 1.093.859 3.571.089 2.473.137 3.718.137 3.718v3.849h-.001z"/></svg>
         </a>
     </div>
-</div>
-    
- 
-  <script type="text/javascript" src="https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/require/require.js"></script>
-  <script>
-    requirejs.config({
-      // Path mappings for the logical module names
-            paths: {
-              'knockout': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/knockout/knockout-3.4.0',
-              'jquery': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/jquery/jquery-3.1.1.min',
-              'jqueryui-amd': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/jquery/jqueryui-amd-1.12.0.min',
-              'ojs': 'https://static.oracle.com/cdn/jet/v4.1.0/default/js/min',
-              'ojL10n': 'https://static.oracle.com/cdn/jet/v4.1.0/default/js/ojL10n',
-              'ojtranslations': 'https://static.oracle.com/cdn/jet/v4.1.0/default/js/resources',
-              'text': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/require/text',
-              'promise': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/es6-promise/es6-promise.min',
-              'hammerjs': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/hammer/hammer-2.0.8.min',
-              'signals': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/js-signals/signals.min',
-              'ojdnd': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/dnd-polyfill/dnd-polyfill-1.0.0.min',
-              'css': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/require-css/css.min',
-              'customElements': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/webcomponents/custom-elements.min',
-              'proj4js': 'https://static.oracle.com/cdn/jet/v4.1.0/3rdparty/proj4js/dist/proj4'
-            },
-                  
-            // Shim configuration
-            shim: {
-                'jquery': {
-                    exports: ['jQuery', '$']
-                }
-            }
-    });
-
-    require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodule', 'ojs/ojrouter'],
-    function (oj, ko, app) { // this callback gets executed when all required modules are loaded
-      
-      $(function() {
-        $("#send").click(function(){
-          var usernameTag = "<li><div class='right-chat'><i class='fa fa-user-circle-o fa-3x'></i><p><b>You: </b>";
-          
-          var prevState = $("#chatSection").html();
-          
-          if(prevState.length == 189){
-            var username = $("#textbox").val();
-            
-            if(prevState.length > prevState.length){
-              prevState = prevState + "<br/>";
-            }
-            
-            $("#chatSection").html(prevState + usernameTag + username + "</p><span>" +botDate+ "</span></div></li>");
-            $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
-            $("#textbox").val("");
-
-            displayUsername(username);
-          }
-          else{
-            var userQuestion = $("#textbox").val();
-            if(prevState.length > prevState.length){
-                  prevState = prevState + "<br/>";
-            }
-
-            $("#chatSection").html(prevState + usernameTag + userQuestion + "</p><span>" +botDate+ "</span></div></li>");
-            $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
-            $("#textbox").val("");
-
-            ai(userQuestion);
-            }
-        });
-
-        //initialization function
-        function init() {
-          oj.Router.sync().then(
-            function () {
-              // Bind your ViewModel for the content of the whole page body.
-              ko.applyBindings(app, document.getElementById('globalBody'));
-
-              $(".left-first-section").click(function(){
-                  $("#chatbot-heading").removeClass('blink');
-                  $('.main-section').toggleClass("open-more");
-              });
-
-              $(".fa-minus").click(function(){
-                $('.main-section').removeClass("open-more");
-              });
-                      
-              $('.main-section').addClass("open-more");
-
-              welcome();
-              $("#textbox").keypress(function(event){
-                if( event.which == 13){
-                  if( $("#enter").prop("checked") ){
-                    $("#send").click();
-                    event.preventDefault();
-                  }
-                }
-              });
-            },
-            function (error) {
-              oj.Logger.error('Error in root start: ' + error.message);
-            }
-          );
-        }
-  
-        // If running in a hybrid (e.g. Cordova) environment, we need to wait for the deviceready 
-        // event before executing any code that might interact with Cordova APIs or plugins.
-        if ($(document.body).hasClass('oj-hybrid')) {
-          document.addEventListener("deviceready", init);
-        } else {
-          init();
-        }
-  
-      });
-      
-      
-      
-    }
-  );
-
-
-  var username = "";
-
-    //function to add extra zeros for my botdate
-    function pad(number){
-      return (number < 10 ? '0' : '') + number;
-    }
-    var myDate = new Date();
-    var d = myDate.getDate();
-    var m = pad(myDate.getMonth());
-    var y = myDate.getFullYear();
-    var min = pad(myDate.getMinutes());
-    var hr = myDate.getHours();
-    var botDate = d+'/'+m+'/'+y+' '+hr+':'+min+'';
-
-    var welcome_message = "Hi there! I am Eko. What is your name?";
-
-    //chatbots welcome message
-    function welcome() {
-      send_message(welcome_message);           
-    }
-
-    //function to append users username in introductory greeting
-    function displayUsername(message) {
-      if(username.length < 6){
-        username = message;
-        send_message("Nice to meet you " + username + ". <br/>You could ask me a question right now, see my list of commands by typing <b style = 'color: #d16027'>pinky commands</b> or train me with a question of your own." +
-        "<br/> To do that, do the following: In your text field type this: <b style = 'color: #d16027'> train: question # answer </b>");
-          }
-    }
-
-    //function to return bot's message
-    function send_message(message) {
-      $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
-      var prevState = $("#chatSection").html();
-      if(prevState.length > prevState.length){
-          prevState = prevState + "<br/>";
-      }
-      $("#chatSection").html(prevState + "<li class='current_message'><div class='left-chat'><i class='fa fa-user-circle fa-3x'></i><p><b>Pinky: </b>" + message + "</p></div></li>");   
-      $(".current_message").hide();
-          $(".current_message").delay(600).fadeIn();
-          $(".current_message").removeClass("current_message");
-      $(".chat-section").scrollTop($(".chat-section").prop("scrollHeight"));
-    }
-
-    //fuction to send the message received from the user to the php script
-    function ai(message) {
-      var prevState =$("#chatSection").html();
-      var userQuestion = "";
-      if(userQuestion.length < prevState.length){ 
-        var form_data = {userQuestion : message}
-        $.ajax({
-                  type: "POST",
-                  url: "profiles/ekumamait.php",
-                  data: form_data,
-                  success: function(data){
-            send_message(data);
-                  },
-          error: function(){
-            alert("Unable to retrieve answer!");
-          }
-              });
-      }
-      
-    }
-  </script>
-</body>
-   <footer id="footer" class="footer">
     Made in 2018 with <span class="text-red">♥</span> from Kampala, Uganda.
-
-     <div class="oj-flex">
-        <!-- Chatbot Section -->
-        <div class="main-section">
-          <div class="row border-chat">
-            <div class="col-md-12 col-sm-12 col-xs-12 first-section bg-primary">
-              <div class="row">
-                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 left-first-section">
-                  <p id="chatbot-heading" class="blink"><i class="fa fa fa-question-circle"></i> Chat with Eko</p>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 right-first-section">
-                  <a href="#"><i class="fa fa-minus" aria-hidden="true"></i></a>
-                  <a href="#"><i class="fa fa-clone" aria-hidden="true"></i></a>
-                  <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                </div>
+</div>
+        
+        <div id="bot-wrapper">
+        <div id="bot-container">
+          <div id="chat-container" data-bot-active="false">
+            <div style="padding: 5px 10px; box-shadow: 0px 10px 10px rgba(0,0,0,0.1)">
+              <p class="help-text text-left" style="font-size:20px;margin: 0px; color: #959eaf">MODE:  <strong id="bot-mode">Chat</strong></p>
+            </div>
+            <div id="chat-area" >
+              <div id="chats">
+                <noscript>
+                  <div class="outgoing-chat">
+                    Ooops! I'm sorry, i can't talk to you without JavaScript enabled on your browser
+                  </div>
+                </noscript>
+              </div>
+            </div>
+            <div id="message-input-area">
+              <p id="chat-log"></p>
+              <form id="chat-msg" action="<?php $_PHP_SELF ?>" method="POST">
+                <input type="text" name="message"  placeholder="Enter your message here" id="message-input">
+                <input type="submit" name="send_chat" value="send" style="visibility: hidden;background-color: rgb(0,200,0); color: #FFF; width: 20%">
+                <p class="help-text text-center" style="margin: 2px 0px">Press <strong>Enter</strong> to send message</p>
+              </form> 
+              <div class="text-right">
+                <button id="manage-chat" data-chat-role="clear"> &times clear chats </button>
               </div>
             </div>
           </div>
-
-          <div class="row border-chat">
-            <div class="col-md-12 col-sm-12 col-xs-12 second-section">
-              <div class="chat-section">
-                <ul id="chatSection">
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="row border-chat">
-            <div class="col-md-12 col-sm-12 col-xs-12 third-section">
-              <form class="message-box">
-                <div class="input-group">
-                  <textarea class="form-control custom-control" id="textbox" autofocus="autofocus" rows="2" style="resize:none" placeholder="Enter your question here"></textarea>     
-                  <span class="input-group-addon btn btn-primary" id="send"><i class="fa fa fa-paper-plane fa-lg" aria-hidden="true"></i></span>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" checked id="enter">Press Enter to Send</label>
-                </div>
-              </form>
-            </div>
-          </div>
+          <div id="chat-toggler" data-chat-role="open">Chat with Eko</div>
         </div>
       </div>
 
       
     </div>  
-  </div>
-</footer>
+
+
+ 
+  <script>
+      USER = "";
+      CLEAREDCHATS = "";
+      RETURNING = false;
+      MODE = 'Chat';
+    
+    /*initializing AJAX*/
+      var AJAX = function(url){
+        this.connect = function(){
+        ajax = null;
+          try{
+          //opera 8+, firefox,safari,chrome
+          ajax = new XMLHttpRequest();
+        }
+        catch(e){
+          //Internet Explorer
+          try{
+            ajax = new ActiveXObject('Msxml2.XMLHTTP');
+          }
+        catch(e){
+          try{
+          ajax = new ActiveXObject('Microsoft.XMLHTTP');
+          }
+          catch(e){
+            console.log("This browser does not support AJAX");
+            }
+          } 
+        } 
+        return ajax;
+        };
+      this.load = function(callback){
+          ajaxObject = this.connect();
+        if(ajaxObject != null){
+          ajaxObject.onreadystatechange = function(){
+            if(ajaxObject.status == 200){//if url is found
+                switch(ajaxObject.readyState){
+                  case 0:
+                  console.log("Request not yet initialized. initializing...");
+                  trackCode = 0;
+                  trackMsg = "Your request is intializing...";
+                  break;
+                  case 1:
+                  console.log("Request set up!");
+                  trackCode = 1;
+                  trackMsg = "Your request is set up!";
+                  break;
+                  case 2:
+                  console.log("Request sent!");
+                  trackCode = 2;
+                  trackMsg = "Your request is sent!";
+                  break;
+                  case 3: 
+                  console.log("Request in process...");
+                  trackCode = 3;
+                  trackMsg = "Your request is processing...";
+                  break;
+                  case 4:
+                  trackCode = 204;
+                  trackMsg = "Response ready!";
+                  console.log("Request completed!");
+                  break;
+                }
+                
+      if(typeof(callback) == 'function'){//if there is a valid callback function
+              try{
+                callback(trackCode,ajaxObject.responseText);
+                }catch(err){
+                  console.log("The function "+callback+" did not execute well: "+err);
+            }
+          }
+        
+       }
+        else if(ajaxObject.status == 404){
+            console.log("The ajax returns a status code of 404."+url+" is not found");
+            }
+          
+          
+          }
+         ajaxObject.open("GET",url, true);
+         ajaxObject.send(); 
+          }
+        };
+
+      };
+/*AJAX ends*/
+
+var GAME = function(){
+  this.GAMEREADY = false;
+  this.PUZZLESERVED = false;
+  this.PUZZLESERVED = null;
+  this.puzzleBank = ['oby','tthwema','glogoe','teloh','ernnit','tobthac','potlap','ptscrivaja','aavj','yglonotehc','oofaeckb'];
+  this.answerBank = ['boy','matthew','google','hotel','intern','chatbot','laptop','javascript','java','technology','facebook'];
+  
+  this.startGame = function(){
+    MODE = "Game";
+    reply("<strong>Eko Puzzle</strong><br/> "+"Hey <strong>"+USER+"</strong> , you really want to play my game, Ok, i have got this <strong>Word Game</strong> for you.");
+    slowReply("This is how it works, I'll give you scrabbled letters, and let's see how many words you can make out of it.",3000);
+    slowReply("Ready huh???",3000);
+    slowReply("Reply with <strong class=\"command\">ready:</strong> if you are ready to play",3000);
+    clearStatusIn(8000);
+    }
+  
+  this.proceed = function(message){
+    if(message == 'gameoff:'){
+          this.endGame();
+          setMode('Chat');
+    }
+    else if(this.isON() && this.isReady() && this.puzzleServed()){
+      this.checkAnswer(message)
+    }
+    else if(this.isON() && this.isReady()){
+      if(isNaN(parseInt(message))){
+        reply("Invalid response");
+      }
+      else{
+        reply("You chose the number <strong>"+(message)+"</strong>");
+        var puzzleIndex = parseInt(message);
+        this.PUZZLESERVED = puzzleIndex;
+        reply("For your chosen number, your puzzle world is <strong>"+this.puzzleBank[puzzleIndex]+"</strong>, rearrange the letters to get the correct world");
+      }
+    }
+    
+    else if(this.isON()){
+      if(message == 'ready:'){
+        this.GAMEREADY = true;
+        reply("You are now set for the game,reply with a number from 0 to "+(this.puzzleBank.length - 1)+" to select puzzle");
+      }
+      else{
+        reply("Guess you are not ready for this game yet, you can quit the game mode by reply <strong class=\"command\">gameoff:</strong>");
+      }
+    }
+    else{
+      reply("I don't understand that, we are currently in Game Mode, maybe when you leave game mode with the command <strong class=\"command\">gameoff:</strong>, i'll understand");
+      reply("But for now, i'm enjoying this word game with you <strong>"+USER+"</strong>");
+    }
+  }
+  
+  this.checkAnswer = function(answer){
+    if(this.answerBank[this.PUZZLESERVED] == answer){
+      reply("Yeah! <strong>"+USER+"</strong> that was correct, <strong>"+this.answerBank[this.PUZZLESERVED]+"</strong> is the correct arrangement for <strong>"+this.puzzleBank[this.PUZZLESERVED]+"</strong>");
+      reply("Reply with another number from 0 to "+(this.puzzleBank.length - 1)+" to select another puzzle or <strong class=\"command\">gameoff:</strong> to quit playing");
+      this.PUZZLESERVED = null;
+    }
+    else{
+      reply("No <strong>"+USER+"</strong>, <strong>"+answer+"</strong> is not the correct arrangement for <strong>"+this.puzzleBank[this.PUZZLESERVED]+"</strong>");
+      reply("Try again");
+    }
+  }
+  this.endGame = function(){
+    if(!this.isON()){
+      slowReply("Common <strong>"+USER+"!</strong>, Game mode was never on before, reply with <strong class=\"command\">GAMEON</strong> to turn game mode on",3000);
+      clearStatusIn(2000);
+    }
+    else{
+      this.GAMEREADY = false;
+      this.PUZZLESERVED = false;
+      this.PUZZLESERVED = '';
+      reply("Game turned off!");
+      slowReply("So you want some serious talk?",3000);
+      slowReply("Let's talk!",3000);
+      slowReply("What's on your mind",3000);
+      setMode('Chat');
+      clearStatusIn(8000);
+    }
+  }
+  
+  this.isON = function(){
+    return (MODE == 'Game' ? true : false);
+  }
+
+  this.isReady = function(){
+    return this.GAMEREADY;
+  }
+  this.puzzleServed = function(){
+    return (this.PUZZLESERVED == null ? false : true );
+  }
+}
+/*Game Mode*/
+
+
+/*Game Mode ends*/
+
+/*Chat Bot non-server brain */
+      var chatForm = document.querySelector('form#chat-msg');
+      var game = new GAME();
+      chatForm.addEventListener('submit',function(event){
+        event.preventDefault();
+        var message = document.querySelector("input#message-input").value;
+        if(message !== ''){ //if message is not empty
+        send(message);
+        clearMessage();
+        
+        if(message.substring(0,5) == 'name:'){ //telling the bot user name
+            if(USER == ''){
+            USER = message.substring(5);
+            reply("Nice to meet you <strong>"+ USER+"</strong>");
+            }
+            else{//if name was already mentioned, change the user name
+            var newName = message.substring(5);
+            reply("Hmmm...you earlier mentioned that your name was <strong>"+ USER+"</strong>, and now you're mentioning <strong>"+newName+"</strong>");
+            reply("Anyways, I have changed your name in my brain to <strong>"+newName+"</strong>");
+            status("Name changed from <strong>"+USER+"</strong> to <strong>"+newName+"</strong>");
+            USER = newName;
+            }
+          }
+          else if(message == 'aboutbot'){
+            status("About Eko");
+            reply("<strong>About Eko</strong><ul><li>Bot Version: 1.0.0</li><li>Designed and Built by : Eric Ebulu</li><li>Slack username on hnginternship4.slack.com : ekumamait</li></ul>");
+          }
+          else if(message == 'commands:'){
+            reply("So great to have you want to learn about my commands");
+            slowReply("You have first learnt the <strong class=\"command\">commands:</strong> command, other commands include",3000);
+            slowReply("<ul><li><strong class=\"command\">aboutbot</strong> to know abot Eko</li><li><strong class=\"command\">train: #question #answer #password</strong> to train me to answer a particular question</li><li><strong class=\"command\">gameon:</strong> to play word game with me</li><li><strong class=\"command\">gameoff:</strong> to quit playing word game with me</li></ul>",3000);
+            clearStatusIn(5000);
+          }
+          else if(message.substring(0,6) == 'train:'){ //training the bot
+            reply("Yay! I love to train!");
+            var train = message.substring(6).split('#'); //Split the command to qustion,answer and password.
+            status("Processing your training, just a moment...");
+              //var url = "https://hng.fun/profiles/Matt.php?send_chat=send&q="+train[1]+"&a="+train[2]+"&p="+train[3];
+              var url = "profiles/Matt.php?send_chat=send&q="+train[1]+"&a="+train[2]+"&p="+train[3];
+                var ajax = new AJAX(url);
+                ajax.load(function(responseCode,responseText){
+                  if(responseCode == 204){
+                    reply(responseText);
+                    status("");
+                  }
+                });           
+          }
+          else{
+            if(game.isON()){//In game mode
+              game.proceed(message);
+            }
+            // for other messagess
+            else{
+              switch(message){
+              case 'gameon:': //command GAMEON
+                setMode('Game');
+                game.startGame();
+              break;
+              case 'gameoff:':
+                game.endGame();
+              break;
+              default: 
+                var url = "profiles/Matt.php?send_chat=send&message="+message;
+                var ajax = new AJAX(url);
+                status("Eko is typing...");
+                ajax.load(function(responseCode,responseText){
+                  if(responseCode == 204){
+                    reply(responseText);
+                    status("");
+                  }
+                });
+              break;
+              }
+            }
+          }
+
+        }
+        else{
+          if(GAME == true){
+          reply("<strong>"+USER+"</strong> Seems like you don't want to play, reply with GAMEOFF to stop playing");
+          }else{
+          reply("<strong>"+USER+"</strong> You are sending me an empty message, let's talk!");
+          }
+        }
+        document.querySelector('#bot-mode').innerHTML = MODE;
+      });
+
+/**Chat Bot non-server brain **/
+      CHATS = document.querySelector('#chats');
+      function openChat(){
+        document.querySelector('#chat-container').setAttribute('data-bot-active','true');
+          if(RETURNING == false){
+          slowReply("Hey there, I am Eko, can i meet you? If you don't mind, reply your name with this command <br/> <strong class=\"command\">name:your name</strong>",2000);
+          slowReply("You can play word game here, check out how by replying with <strong class=\"command\">commands:</strong> and to see other cool stuffs i can do",2000);
+          slowReply("You should also know something about me <strong>I am case sensitive</strong>",2000);
+          clearStatusIn(3000);
+          }
+          else{
+          reply("Welcome back, I missed you already within that few seconds you closed our chat?");
+          if(USER == ""){
+            slowReply("You still haven't told me your name",3000);
+            clearStatusIn(2000);
+          }
+          else{
+            slowReply("Do i still remember your name?",3000);
+            slowReply("....",3000);
+            slowReply("Of course YES!, just messing with you.",3000);
+            slowReply("<strong>"+USER+"</strong>",3000);
+            clearStatusIn(11000);
+          }
+          slowReply("Forgotten my commands? just reply me with <strong class=\"command\">commands:</strong> and I'll teach you again, I'm very nice",3000);
+          clearStatusIn(200);
+        }
+      }
+      
+      function closeChat(){
+        document.querySelector('#chat-container').setAttribute('data-bot-active','false');
+        RETURNING = true;
+      }
+      function clearChats(){
+        CLEAREDCHATS = document.querySelector('#chats').innerHTML; //save up the chats for restoration
+        document.querySelector('#chats').innerHTML = '';
+      }
+      function status(msg){
+        document.querySelector('#chat-log').innerHTML = msg;
+      }
+      function clearStatusIn(sec){
+        setTimeout(function(){status("")},sec);
+      }
+
+      function reply(msg){
+        CHATS.innerHTML += "<div class=\"outgoing-chat\"><div class=\"messenger-name\">Eko</div>"+msg+"</div>";
+        inputFocus();
+        scrollDown();
+        //document.querySelector('#chat-container').scrollBy(100,100);
+      }
+      function slowReply(msg,sec){
+        status("Eko is typing...");
+        setTimeout(function(){
+          CHATS.innerHTML += "<div class=\"outgoing-chat\"><div class=\"messenger-name\">Eko</div>"+msg+"</div>";
+          scrollDown();
+          },sec);
+          inputFocus();
+        //document.querySelector('#chat-container').scrollBy(100,100);
+      }
+      
+      function send(msg){
+        CHATS.innerHTML += "<div class=\"incoming-chat\"><div class=\"messenger-name\">"+(USER != '' ? USER : 'You')+"</div>"+msg+"</div>";
+        inputFocus();
+        scrollDown();
+        //document.querySelector('#chat-container').scrollBy(100,100);
+      }
+      function clearMessage(){
+        document.querySelector("input#message-input").value = "";
+      }
+      function restoreChats(){
+        if(CLEAREDCHATS != ""){
+          var currentChats = document.querySelector('#chats').innerHTML;
+          document.querySelector('#chats').innerHTML = CLEAREDCHATS + currentChats;
+          scrollDown();
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+      function setMode(mode){
+        MODE = mode;
+      }
+      function scrollDown(){
+        document.querySelector('#chat-area').scrollBy(0,document.querySelector('#chats').clientHeight);
+      }
+      function inputFocus(){
+        document.querySelector("input#message-input").focus();
+      }
+        var chatToggler = document.querySelector('#chat-toggler');
+        chatToggler.addEventListener('click', function(event){
+          if(chatToggler.getAttribute('data-chat-role') == 'open'){
+          openChat();
+          chatToggler.innerHTML = "Close Chat";
+          chatToggler.setAttribute('data-chat-role','close');           
+          }
+          else if(chatToggler.getAttribute('data-chat-role') == 'close'){
+          closeChat();
+          chatToggler.innerHTML = "Open Chat";
+          chatToggler.setAttribute('data-chat-role','open');
+          }
+        });
+        
+        var chatManager = document.querySelector('#manage-chat');
+        chatManager.addEventListener('click', function(event){
+          if(chatManager.getAttribute('data-chat-role') == 'clear'){
+            clearChats();
+            var msg = (USER == "" ? "" : "Hey <strong>"+USER+"</strong>")+" You just cleared our chats, I hope no problem, you can restore our chats though down there";
+            reply(msg);
+            chatManager.setAttribute('data-chat-role','restore');
+            chatManager.innerHTML = 'Restore Chats';
+            status("chats cleared");
+          }
+          else if(chatManager.getAttribute('data-chat-role') == 'restore'){
+            var msg = (USER == "" ? "" : "Hey <strong>"+USER+"</strong>");
+            if(restoreChats()){
+              msg += " So glad to have you back, our chat have been restored back, YAY!";
+                status("chats restored");
+            }else{
+              msg += " We never had any chat before, so there is no chat to retore";
+            }
+            reply(msg);
+            chatManager.setAttribute('data-chat-role','clear');
+            chatManager.innerHTML = " &times Clear Chats";
+          }
+        });
+    </script>
+</body>
 </html>
-<?php } ?>

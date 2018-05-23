@@ -1,5 +1,5 @@
 <?php
-//if(!isset($_SESSION)) { session_start(); }
+if(!isset($_SESSION)) { session_start(); }
 
 // for choosing active page on nav bar
 
@@ -91,9 +91,6 @@ $activeArray[$fileIndex]="active";
         }
         .nav-item:hover{
             border-bottom: 3px solid #2196F3;
-        }
-        .nav-item:active{
-        	border-bottom: 3px solid #2196F3;
         }
         /* horizontal line learn page */
         hr.under-line {
