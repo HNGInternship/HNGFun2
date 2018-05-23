@@ -476,7 +476,6 @@ text-decoration: none;
           </fieldset>
         </form>
     </div> <!-- end chat -->
-//		  </div> <!-- end chat-box -->
 			    
 <script>
     
