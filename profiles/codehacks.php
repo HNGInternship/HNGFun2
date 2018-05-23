@@ -147,7 +147,7 @@ if(!defined('DB_USER')){
         .show-bot {
           position: fixed;
           right:10px;
-          bottom: 10px;
+          bottom: 11px;
           z-index: 5;
           background-color: #FFC107;
           padding: 20px;
