@@ -599,7 +599,7 @@
 							data: {chat: ser_a},
 							success: function(data,status){
 								// var result = $($.parseHTML(data)).find(".container").text();
-								console.log(status);
+								console.log(data);
 								// if(data != ""){
 								// 	if (data.indexOf("::def") >= 0) {
 								// 		data = data.replace("::def","");
