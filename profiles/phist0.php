@@ -1,5 +1,5 @@
 <?php
-/*
+
 if(!defined('DB_USER')){
      require "../../config.php";
      try {
@@ -86,7 +86,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         	
         	exit();
         	}
-*/
+        	
+        	
         	?>
         
 
@@ -276,10 +277,9 @@ CHAT CSS
     }
 
     #chat-box {
-                        bottom: 0;
                         font-size: 12px;
                         right: 304px;
-                        bottom: 200px;		
+                        bottom: 150px;		
                         position: fixed;
                         width: 300px;
                 }
@@ -422,7 +422,7 @@ text-decoration: none;
 <!-- Header Start -->
     
     <div class="wpb_wrapper">
-	  <h1 class="red-title" style="color: #990000; font-size: 4em;">Papa Charlie </h1>
+	  <h1 class="red-title" style="color: #990000; font-size: 2em;">Papa Charlie </h1>
     </div>
   
     <div class="social-media" style="font-size: 18px;">
