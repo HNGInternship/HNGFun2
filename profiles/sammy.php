@@ -644,7 +644,7 @@ h4 {
                         </div>
 
 
-                        <div class="container">
+                        <div class="container-fluid">
                             <div class="col-md-3 con">
                             
                                 <div class="chatBox">
