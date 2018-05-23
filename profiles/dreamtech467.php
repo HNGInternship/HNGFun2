@@ -1,45 +1,42 @@
 
 <?php
-	if(!defined('DB_USER')){
-		if (file_exists('../../config.php')) {
-			require_once '../../config.php';
-		} else if (file_exists('../config.php')) {
-			require_once '../config.php';
-		} elseif (file_exists('config.php')) {
-			require_once 'config.php';
-		}
-			
-		try {
-			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);			
-		} catch (PDOException $e) {
-			die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
-		}
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require "../answers.php";
+   
+    if(!defined('DB_USER')){
+        require "../../config.php";		
+        try {
+            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+        } catch (PDOException $pe) {
+            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+        }
+    }
+
+	  try {
+		  $sql = "SELECT * FROM interns_data WHERE username ='dreamtech467'";
+		  $q = $conn->query($sql);
+		  $q->setFetchMode(PDO::FETCH_ASSOC);
+		  $data = $q->fetch();
+	  } catch (PDOException $e) {
+		  throw $e;
+	  }
+	  $names = $data['name'];
+	  $username = $data['username'];
+	  $profile_img = $data['image_filename'];
+
+
+	  try {
+		  $sql2 = 'SELECT * FROM secret_word';
+		  $q2 = $conn->query($sql2);
+		  $q2->setFetchMode(PDO::FETCH_ASSOC);
+		  $data2 = $q2->fetch();
+	  } catch (PDOException $e) {
+		  throw $e;
+	  }
+	  $secret_word = $data2['secret_word'];
+
 	}
-
-  try {
-      $sql = "SELECT * FROM interns_data WHERE username ='dreamtech467'";
-      $q = $conn->query($sql);
-      $q->setFetchMode(PDO::FETCH_ASSOC);
-      $data = $q->fetch();
-  } catch (PDOException $e) {
-      throw $e;
-  }
-  $names = $data['name'];
-  $username = $data['username'];
-  $profile_img = $data['image_filename'];
-
-
-  try {
-      $sql2 = 'SELECT * FROM secret_word';
-      $q2 = $conn->query($sql2);
-      $q2->setFetchMode(PDO::FETCH_ASSOC);
-      $data2 = $q2->fetch();
-  } catch (PDOException $e) {
-      throw $e;
-  }
-  $secret_word = $data2['secret_word'];
-
-  
   
   
 		//chatBot
