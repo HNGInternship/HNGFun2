@@ -297,11 +297,6 @@ h3{
     border-color: transparent transparent transparent whitesmoke;  
 }
   </style>
-
-
-
-</head>
-<body>
     <div class="wrap">
         <div class="img">
             <img src="<?php echo $intern_data['image_filename']; ?>" alt="Victor Ugwueze Profile Image">
@@ -355,7 +350,6 @@ h3{
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Javascript tags -->
     <script>
         //handles show and hide for chat window 
@@ -447,5 +441,3 @@ $(document).ready(function(){
 
 });
     </script>
-</body>
-</html>
