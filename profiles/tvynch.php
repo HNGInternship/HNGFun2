@@ -1,7 +1,7 @@
 <?php
 ini_set("display_errors",1);
 if(!defined('DB_USER')){
-  require_once('../../config.php');
+  require_once('../config.php');
 }
 
 global $conn;
