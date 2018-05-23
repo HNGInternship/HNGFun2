@@ -8234,7 +8234,7 @@ input.textarea {
 
               data = {message:chat_message};  
 
-             $.ajax('profiles/Chibuokem.php',{
+             $.ajax('',{
             type : 'post',
             data : data,
             success: function(data){
