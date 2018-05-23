@@ -250,7 +250,7 @@
 <style type="text/css">
 body {
             background-size: cover;
-            margin-top: 20px;
+            margin-top: 10px;
             height: 100%;
             font:normal 12px/1.6em Arial, Helvetica, 'San serif';
             
@@ -691,18 +691,6 @@ h4 {
                     
                 </div>
                 
-
-
-
-
-
-
-
-
-                        <footer id="//foot-container">
-                           
-                            
-                        </footer>
                         
                 
             </div>
