@@ -388,7 +388,7 @@
 
 				<div>
 					<div class="col-xs-6 col-sm-4 col-md-7"></div>
-					<div id="bot" class="col-xs-12 col-sm-8 col-md-6">
+					<div id="bot" class="col-xs-12 col-sm-8 col-md-5">
 						<div class="row">
 							<div id="bot-header" class="col-xs-12">
 								<span>HNG CHAT BOT</span>
@@ -477,18 +477,18 @@
 							data: {chat: a},
 							success: function(data){
 								// var result = $($.parseHTML(data)).find(".container").text();
-								// console.log(data);
-								if(data != ""){
-									if (data.indexOf("::def") >= 0) {
-										data = data.replace("::def","");
-										add_bot_text(data);
-										add_bot_default();
-									}
-									else{
-										add_bot_text(data);
-									}
+								console.log(data);
+								// if(data != ""){
+								// 	if (data.indexOf("::def") >= 0) {
+								// 		data = data.replace("::def","");
+								// 		add_bot_text(data);
+								// 		add_bot_default();
+								// 	}
+								// 	else{
+								// 		add_bot_text(data);
+								// 	}
 									
-								}					
+								// }					
 							}
 						});
 					}
