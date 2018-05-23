@@ -1,7 +1,7 @@
 <?php
 ini_set("display_errors",1);
 if(!defined('DB_USER')){
-  require_once('../db.php');
+  require_once('../../config.php');
 }
 
 //global $conn;
@@ -775,7 +775,7 @@ try {
                     users(txt);
 
                     $.ajax({
-                        url   :'profiles/tvynch.php',
+                        url   :'/profiles/tvynch.php',
                         type  :"POST",
                         data  :{query:txt},
                         success : function(response){
