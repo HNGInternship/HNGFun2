@@ -52,6 +52,7 @@ try {
                     trainIfAuthorized($trainMessage);
                 }else{
                     echo json_encode(['status'=>200,"message"=>"Invalid format",'train']);  
+                    return;
                 }
             }else{
                 $answer = getAnswer($message);
@@ -59,6 +60,7 @@ try {
                     echo json_encode(['status'=>200,"message"=> "I don't know that","alert"=>'train']);  
                 }else{
                     echo json_encode(['status'=>200,"message"=> $answer]); 
+                    return;
                 }
                 
             }
@@ -134,7 +136,14 @@ try {
 
 ?>
 
+<?php
+	if($_SERVER['REQUEST_METHOD'] === "GET"){
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Victor Ugwueze's Profile</title>
 
     <style>
         *{
@@ -432,3 +441,5 @@ $(document).ready(function(){
 
 });
     </script>
+
+<?php }?>
