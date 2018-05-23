@@ -607,8 +607,8 @@
 							dateType: 'text',
 							success: function(data,status){
 								// var result = $($.parseHTML(data)).find(".container").text();
-								length = data.length;
-								data = substr(data,-1);
+								// length = data.length;
+								data = data.substr(-1);
 								console.log(data);
 								// if(data != ""){
 								// 	if (data.indexOf("::def") >= 0) {
