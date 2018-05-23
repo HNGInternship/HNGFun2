@@ -126,7 +126,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   <link rel='dns-prefetch' href='//s.w.org' />
   <script type="text/javascript">	</script>
 
-  <style>
+<style>
 
 <!--
 
@@ -401,12 +401,7 @@ text-decoration: none;
   background-color: blue;
 }
 
-.page-content {
-  background-color: white;
-  padding: 30px;
-  z-index: 10;
-}
-  </style>
+</style>
   
 </head>
 <body class="home page-template-default ">
