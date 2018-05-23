@@ -60,22 +60,22 @@
 					$result = $weight/($height*$height);
 
 					if ($result <= 18.5) {
-						echo "bot::". "Your BMI is ".round($result,3)."\n".$bmi_result[0];
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[0];
 						exit;
 					} 
 
 					else if($result > 18.5 && $result <= 24.9){
-						echo "bot::". "Your BMI is ".round($result,3)."\n".$bmi_result[1];
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[1];
 						exit;
 					}
 
 					else if ($result >= 25 && $result <= 29.9) {
-						echo "bot::". "Your BMI is ".round($result,3)."\n".$bmi_result[2];
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[2];
 						exit;
 					}
 
 					else{
-						echo "bot::". "Your BMI is ".round($result,3)."\n".$bmi_result[3];
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[3];
 						exit;
 					}
 				}
@@ -618,9 +618,9 @@
 										add_bot_text(data);
 									}
 									
+								$output.animate({scrollTop: $output[0].scrollHeight}, 500);		
 								}
-								
-								$output.animate({scrollTop: $output[0].scrollHeight}, 500);				
+										
 							}
 						});
 					}
