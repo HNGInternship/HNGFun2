@@ -1,3 +1,5 @@
+
+
 <?php
     if(!defined('DB_USER')){
         if (file_exists('../../config.php')) {
@@ -129,8 +131,6 @@
         }
 }
 ?>
-
-
 
 
 
@@ -526,13 +526,20 @@ h4 {
 }
 
 .con {
-        transform: translateX(430px) translateY(250%);
+        transform: translateX(430px) translateY(240%);
         clear: both;
         height: 10%;
         width: 22%;
         position: absolute;
         margin-right: 10px;
         text-align: center;
+}
+.mebot {
+    transform: translateX(400px) translateY(-5%);
+    clear: both;
+    position: relative;
+    width: 300px;
+
 }
 
 </style>
@@ -644,8 +651,8 @@ h4 {
                         </div>
 
 
-                        <div class="container-fluid">
-                            <div class="col-md-3 con">
+                        <div class="container mebot">
+                            <div class="col-md-3">
                             
                                 <div class="chatBox">
                                     <div class="chatHead">
