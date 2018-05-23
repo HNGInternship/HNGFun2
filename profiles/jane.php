@@ -41,10 +41,10 @@
 							"I can't help you with that, if only you could teach me",
 							"This is so embarrassing....and I thought I was the smart one"];
 
-			$bmi_result = ["You are underweight\nLooks like you need to put on some extra weight",
-							"You are within good range\nNice!! you're on track",
-							"You are overweight\nLooks like you need a little work on your weight",
-							"OMG!! You are obese\nYou need a complete transformation"];
+			$bmi_result = ["<br>You are underweight<br>Looks like you need to put on some extra weight",
+							"<br>You are within good range<br>Nice!! you're on track",
+							"<br>You are overweight<br>Looks like you need a little work on your weight",
+							"<br>OMG!! You are obese<br>You need a complete transformation"];
 
 			$train_success = "Training successful!";
 
