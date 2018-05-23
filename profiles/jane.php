@@ -469,7 +469,7 @@
 
 					else{
 						$.ajax({
-							url: "/profiles/jane.php",
+							url: "../profiles/jane",
 							type: "POST",
 							data: {chat: a},
 							success: function(data,status){
