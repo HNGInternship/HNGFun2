@@ -137,6 +137,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html>
 
@@ -249,7 +250,7 @@
 <style type="text/css">
 body {
             background-size: cover;
-            margin-top: 50px;
+            margin-top: 20px;
             height: 100%;
             font:normal 12px/1.6em Arial, Helvetica, 'San serif';
             
@@ -698,7 +699,7 @@ h4 {
 
 
 
-                        <footer id="foot-container">
+                        <footer id="//foot-container">
                            
                             
                         </footer>
