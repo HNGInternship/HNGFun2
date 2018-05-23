@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
 
 if (!defined(DB_USER))
     require_once __DIR__."/../../config.php";
