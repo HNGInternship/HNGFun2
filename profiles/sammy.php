@@ -137,7 +137,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html>
 
@@ -423,7 +422,7 @@ h4 {
             border-right: 1px solid #5e5c5c46;
             border-top: 1px solid #5e5c5c46;
             border-bottom: 1px solid #5e5c5c46;
-            height: 900px;
+            height: 970px;
             width: 802px;
             
 }
