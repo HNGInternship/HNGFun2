@@ -355,11 +355,14 @@ h3{
             </div>
         </div>
     </div>
-
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <!-- Javascript tags -->
     <script>
         //handles show and hide for chat window 
-
+$(document).ready(function(){
         (function init(){
             let minimizeBot = document.querySelector('.minimize-bot');
             minimizeBot.addEventListener('click',chatAction);
@@ -415,8 +418,8 @@ h3{
             
             sendQuestion(input) 
         }
-
-        function sendQuestion(input){
+ 
+            function sendQuestion(input){
             console.log(input);
             $.ajax({
                 type:'POST',
@@ -433,6 +436,8 @@ h3{
             });
         }
 
+        
+
 
         function replyMessage(data){
             let messageBox = document.querySelector('.panel-body');
@@ -442,6 +447,8 @@ h3{
             messageBox.innerHTML += output;
             messageBox.scrollTop = messageBox.scrollHeight;
         }
+
+});
     </script>
 </body>
 </html>
