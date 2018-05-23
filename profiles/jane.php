@@ -519,7 +519,7 @@
 							<div id="output" class="col-xs-12"></div>
 
 							<div id="user-input" class="col-xs-12">
-								<form action="" method="post" onsubmit="return false">
+								<form action="" method="post" onsubmit="return false" id='bot-form'>
 									<div id="text-input">
 										<input name="user_text" type="text">
 									</div>
@@ -580,7 +580,7 @@
 
 			$send_btn.click(function(){
 				var a = $text_input.val();
-				var ser_a = a.serialize();
+				var ser_a = $('#bot-form').serialize();
 
 				if(a != ""){
 					add_user_text(a);
