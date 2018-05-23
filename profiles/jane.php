@@ -1,22 +1,22 @@
 <?php
 	// Profile
 
-	require_once "../../config.php";
+	// require_once "../../config.php";
 	try {
 
 
-		$sql = "SELECT * FROM interns_data WHERE username = 'jane' LIMIT 1";
-		$stmt = $conn->query($sql);
+		// $sql = "SELECT * FROM interns_data WHERE username = 'jane' LIMIT 1";
+		// $stmt = $conn->query($sql);
 
 		$sql2 = "SELECT secret_word FROM secret_word LIMIT 1";
 		$stmt2 = $conn->query($sql2);
 
-		foreach ($stmt as $row) {
-			# code...
-			$name = $row['name'];
-			$username = $row['username'];
-			$image_filename = $row['image_filename'];
-		}
+		// foreach ($stmt as $row) {
+		// 	# code...
+		// 	$name = $row['name'];
+		// 	$username = $row['username'];
+		// 	$image_filename = $row['image_filename'];
+		// }
 
 		foreach ($stmt2 as $row) {
 			# code...
