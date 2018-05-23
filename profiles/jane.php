@@ -60,27 +60,27 @@
 					$result = $weight/($height*$height);
 
 					if ($result <= 18.5) {
-						echo "Your BMI is ".round($result,3)."\n".$bmi_result[0];
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[0];
 						exit;
 					} 
 
 					else if($result > 18.5 && $result <= 24.9){
-						echo "Your BMI is ".round($result,3)."\n".$bmi_result[1];
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[1];
 						exit;
 					}
 
 					else if ($result >= 25 && $result <= 29.9) {
-						echo "Your BMI is ".round($result,3)."\n".$bmi_result[2];
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[2];
 						exit;
 					}
 
 					else{
-						echo "Your BMI is ".round($result,3)."\n".$bmi_result[3];
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[3];
 						exit;
 					}
 				}
 				else{
-					echo "Enter a valid input";
+					echo "bot::". "Enter a valid input";
 					exit;
 				}
 			}
@@ -90,7 +90,7 @@
 					$arr = explode("# ", $string);
 					if(sizeof($arr) != 3){
 						$answer = $no_answer[rand(0,3)]."::def";
-						echo $answer;
+						echo "bot::". $answer;
 						exit;
 						
 					}
@@ -106,17 +106,17 @@
 								$stmt = $conn->query($sql);
 								
 							} catch (PDOException $e) {
-								echo $e->getMessage();
+								echo "bot::". $e->getMessage();
 								
 							}
 
-							echo $train_success;
+							echo "bot::". $train_success;
 							exit;
 							
 						}
 
 						else{
-							echo $wrong_password[rand(0,2)];
+							echo "bot::". $wrong_password[rand(0,2)];
 							exit;
 						}
 
@@ -147,14 +147,14 @@
 					}
 					
 				} catch (PDOException $e) {
-					echo $e->getMessage();
+					echo "bot::". $e->getMessage();
 						
 				}
 
 				if($answer == ""){
 					$answer = $no_answer[rand(0,4)]."::def";
 				}
-				echo $answer;
+				echo "bot::". $answer;
 				exit;
 			}
 		}
@@ -606,19 +606,21 @@
 							data: {chat: a},
 							dateType: 'text',
 							success: function(data,status){
-								// var result = $($.parseHTML(data)).find(".container").text();
-								console.log(data);
-								// if(data != ""){
-								// 	if (data.indexOf("::def") >= 0) {
-								// 		data = data.replace("::def","");
-								// 		add_bot_text(data);
-								// 		add_bot_default();
-								// 	}
-								// 	else{
-								// 		add_bot_text(data);
-								// 	}
+								if(data != ""){
+									data = data.substr(data.indexOf("bot::"));
+									data = data.replace("bot::","");
+									if (data.indexOf("::def") >= 0) {
+										data = data.replace("::def","");
+										add_bot_text(data);
+										add_bot_default();
+									}
+									else{
+										add_bot_text(data);
+									}
 									
-								// }					
+								$output.animate({scrollTop: $output[0].scrollHeight}, 500);		
+								}
+										
 							}
 						});
 					}
