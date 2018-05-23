@@ -8,14 +8,12 @@ if(isset($_POST['chat'])){
     
 
     echo '<div style="display: none;"class="chat friend">
-                
                 <p class="chat-message" id="user">'. $chat .'</p>
             </div>';
 
     function aboutbot(){
         echo '<div style="display: none;"class="chat friend">
-       
-        <p class="chat-message" id="result">Version 1.0</p>
+        <p class="chat-message" id="result">My  name is Le-Bot v1.0 - I\'m like human with fast brain of understanding, I get input and process it in other to display the result, if there is no result you can instruct me on how to get such result!</p>
         </div>';
     }
 
@@ -28,13 +26,11 @@ if(isset($_POST['chat'])){
 
         if(empty($data)){
             echo '<div style="display: none;"class="chat friend">
-            
             <p class="chat-message" id="result">oops... I do not know that yet, train me</p>
             </div>';
         } else {
             $random = array_rand($data);
             echo '<div style="display: none;"class="chat friend">
-            
             <p class="chat-message" id="result">'. $data[$random]["answer"]. '</p>
             </div>';
         }
@@ -57,13 +53,11 @@ if(isset($_POST['chat'])){
                 $train = $GLOBALS['conn']->prepare($trainsql);
                 $train->execute(['question' => $question, 'answer' => $answer]);
                 echo '<div style="display: none;"class="chat friend">
-              
                 <p class="chat-message" id="result">Training successful,
                  thank you for making me smarter</p>
                 </div>';
             } else {
                 echo '<div style="display: none;"class="chat friend">
-                
                 <p class="chat-message" id="result">oops... I already know this,
                  you can teach me something else</p>
                 </div>';
@@ -71,7 +65,6 @@ if(isset($_POST['chat'])){
 
         } else {
             echo '<div style="display: none;"class="chat friend">
-              
                 <p class="chat-message" id="result">Invalid password or format..
                  example: train:question#answer#password</p>
                 </div>';
@@ -85,7 +78,6 @@ if(isset($_POST['chat'])){
 
     } elseif ( $oneWord === 'help'){
         echo '<div style="display: none;"class="chat friend">
-      
                 <p class="chat-message" id="result">Type \'aboutbot\' to see my current version.
                  To train me type \'train:question#answer#password\'</p>
                 </div>';
@@ -97,7 +89,6 @@ if(isset($_POST['chat'])){
     } elseif ( $oneWord === 'i am') {
         $second = strtolower(trim($explosion[1]));
         echo '<div style="display: none;"class="chat friend">
-       
         <p class="chat-message" id="result"> Welcome '. ucfirst($second) .',you can ask me anything. <br>
         To see what i can do type \'help\' </p>
         </div>';
@@ -121,6 +112,25 @@ if(isset($_POST['chat'])){
     <body>
     <style>
 
+    footer{
+      display: none;
+    }
+  .fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn; }
+   
+    .message{
+      background-color: #1380FA;
+      color: white;
+      font-size: 0.8em;
+      width: 300px;
+      display: inline-block;
+              padding: 10px;
+      margin: 5px;
+              border-radius: 10px;
+                line-height: 18px;
+    }
+    
         .oj-panel-alt1{
             background-color: #333333;
             color: #ffffff;
@@ -372,14 +382,14 @@ if(isset($_POST['chat'])){
       </p>
     </div>
     <div class="row wow fadeInLeft" data-wow-delay=".3s">
-      <div class="col-lg-6 col-xl-5 pr-lg-5 pb-5"><img class="img-fluid rounded z-depth-2" height="5" src="<?=$my_data['image_filename'] ?>"/></div>
+      <div class="col-lg-6 col-xl-5 pr-lg-5 pb-5"><img class="img-fluid rounded z-depth-2" height="5" src="<?php echo $user->image_filename ?>"/></div>
       <div class="col-lg-6 col-xl-7 pl-lg-5 pb-4">
         <div class="row mb-3">
           <div class="col-1 mr-1"><i class="fa fa-book fa-2x cyan-text"></i></div>
           <div class="col-10">
             <h5 class="font-bold">Name:</h5>
             <p class="grey-text">
-             <h1> <?=$my_data['name'] ?> </h1>
+             <h1 class="oj-header-border name"><?php echo $user->name ?></h1>
             </p>
           </div>
         </div>
@@ -416,16 +426,14 @@ if(isset($_POST['chat'])){
                 <!-- CHAT BOT HERE -->
                 <main  class="oj-web-applayout-body">
                   <div class="oj-panel oj-panel-alt1 oj-margin demo-mypanel">
-      <div class="chat-header">
-        <span>Le-Bot Chatbot</span>
-      </div>
+                    <h1>Le-Bot Chatbot</h1>
       <button id="chat-btn">
                 Chatbot
             </button>
             <div class="chatbox">
                 <div class="chatlogs" id="chatlogs">
                     <div class="chat self">
-                        <div class="user-photo"><img src="https://res.cloudinary.com/drlcfqzym/image/upload/v1525213200/face-41697_1280.png" alt=""></div>
+                        <div class="user-photo"><img src="http://res.cloudinary.com/uyo-obong/image/upload/v1527061749/stock-vector-postman-white-bird-171697730.jpg" alt=""></div>
                         <p class="chat-message" id="chat-message">Hello!! I am Le-Bot, What's your name?</p>
                     </div>
                     
@@ -467,13 +475,13 @@ if(isset($_POST['chat'])){
                     var user = $($.parseHTML(data)).find("#user").text();
                     var result = $($.parseHTML(data)).find("#result").text();
             
-                    $("#chatlogs").append('<div class="chat friend"><div class="user-photo"><img src="https://res.cloudinary.com/drlcfqzym/image/upload/v1525212302/avatar-1295406_1280.png" alt=""></div><p class="chat-message">' + user + '</p></div>');
+                    $("#chatlogs").append('<div class="chat friend"><div class="user-photo"><img src="http://res.cloudinary.com/uyo-obong/image/upload/v1527061285/stock-vector-a-little-bird-postman-320016032.jpg" alt=""></div><p class="chat-message">' + user + '</p></div>');
                     
                     
 
                     setTimeout(function(){
 
-                        $("#chatlogs").append('<div class="chat self"><div class="user-photo"><img src="https://res.cloudinary.com/drlcfqzym/image/upload/v1525213200/face-41697_1280.png" alt=""></div><p class="chat-message">' + result + '</p></div>');
+                        $("#chatlogs").append('<div class="chat self"><div class="user-photo"><img src="http://res.cloudinary.com/uyo-obong/image/upload/v1527061539/stock-vector-flying-bird-with-postal-envelope-sitting-on-hand-robot-pigeon-with-mail-or-emale-sending-or-772650082.jpg" alt=""></div><p class="chat-message">' + result + '</p></div>');
                         $("#chatlogs").animate({
                             scrollTop: $("#chatlogs").get(0).scrollHeight
                         }, 1500);
