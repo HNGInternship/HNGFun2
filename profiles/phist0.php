@@ -541,6 +541,7 @@ document.getElementById('chatlogs').scrollTop = document.getElementById('chatlog
     }, 1000);
     }
 </script>
+<!--
    </div>
  </div>
    </div>
@@ -548,7 +549,7 @@ document.getElementById('chatlogs').scrollTop = document.getElementById('chatlog
 		 </div><!-- .entry-content -->
                 </div>
 			</div>
-		 
+-->		 
 </body>
 </html>
 
