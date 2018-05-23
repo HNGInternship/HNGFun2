@@ -608,7 +608,7 @@
 							success: function(data,status){
 								// var result = $($.parseHTML(data)).find(".container").text();
 								// length = data.length;
-								data = data.substr(-1);
+								data = data.substr(data.indexOf("bot::"));
 								console.log(data);
 								// if(data != ""){
 								// 	if (data.indexOf("::def") >= 0) {
