@@ -92,9 +92,6 @@ $activeArray[$fileIndex]="active";
         .nav-item:hover{
             border-bottom: 3px solid #2196F3;
         }
-        .nav-link:active{
-        	border-bottom: 3px solid #2196F3;
-        }
         /* horizontal line learn page */
         hr.under-line {
             width: 10%;
