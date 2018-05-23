@@ -1,206 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link href='https://fonts.googleapis.com/css?family=Alegreya|Allura|Almendra SC|Romanesco|Source+Sans+Pro:400,700' rel='stylesheet'>
-    <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-
-    <style type="text/css">
-
-        .container{
-            width: 100%;
-            min-height: 100%
-        }
-        .body0 {
-            height: 100%;
-        }
-
-        span {
-            display: inline-block;
-            vertical-align: middle;
-            line-height: normal;
-        }
-
-        .main {
-            position: relative;
-            /*top:20px;*/
-            width: 100%;
-            /*padding-top: 300px;*/
-            max-height: 230px;
-            font-family: "Romanesco";
-            line-height: 150px;
-            font-size: 96px;
-            text-align: center;
-        }
-        .text {
-            background: -webkit-linear-gradient(0deg, #FF0F00, rgba(17, 26, 240, 0.55), #EC0F13);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .under {
-            position: relative;
-            /*top:450px;*/
-            max-height: 100px;
-            width: 100%;
-            font-family: "Alegreya";
-            line-height: normal;
-            font-size: 32px;
-            text-align: center;
-            color: #000830;
-        }
-        .under1 {
-            position: relative;
-            /*top:500px;*/
-            height: 40px;
-            width: 100%;
-            font-family: "Alegreya";
-            line-height: normal;
-            font-size: 32px;
-            text-align: center;
-            color: #000830;
-        }
-        .under2 {
-            position: relative;
-            /*top:540px;*/
-            height: 49.71px;
-            width: 100%;
-            font-family: "Alegreya";
-            line-height: normal;
-            font-size: 32px;
-            text-align: center;
-            color: #000830;
-        }
-        body, html {
-            margin: 0px;
-            background-color: skyblue; !important;
-            height: 100%;
-        }
-        .body1 {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 75%;
-            display: flex;
-            flex-direction: column;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .chat-output {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            background: white;
-            flex-direction: column;
-            overflow-y: scroll;
-            max-height: 500px;
-        }
-        .chat-output > div {
-            margin: 0 0 20px 0;
-        }
-        .chat-output .user-message .message {
-            background: #0fb0df;
-            color: white;
-        }
-        .chat-output .bot-message {
-            text-align: right;
-        }
-        .chat-output .bot-message .message {
-            background: #eee;
-        }
-        .chat-output .message {
-            display: inline-block;
-            padding: 12px 20px;
-            border-radius: 10px;
-        }
-        .chat-input {
-            padding: 20px;
-            background: #eee;
-            border: 1px solid #ccc;
-            border-bottom: 0;
-        }
-        .chat-input .user-input {
-            width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 8px;
-        }
-
-
-
-    </style>
-</head>
-<body>
-<div class="container">
-    <?php
-
-    global $conn;
-
-    try {
-        $sql2 = 'SELECT * FROM interns_data WHERE username="Legendary"';
-        $q2 = $conn->query($sql2);
-        $q2->setFetchMode(PDO::FETCH_ASSOC);
-        $my_data = $q2->fetch();
-    } catch (PDOException $e) {
-        throw $e;
-    }
-    ?>
-
-    <div class="oj-flex oj-flex-items-pad oj-contrast-marker">
-        <div class="oj-sm-12 oj-md-6 oj-flex-item">
-            <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
-                <div role="img" class="oj-flex-item alignCenter">
-                    <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
-                    data-bind="attr:{'aria-label':'Avatar of Melody Okunuga'}">
-                    </oj-avatar>
-                    <img class="img-fluid " onerror="this.src='images/default.jpg'" src="<?=$my_data['image_filename'] ?>" >
-                </div>
-            </div>
-            <div class="body0">
-                <div class="main"><span class="text"><?=$my_data['name'] ?></span></div>
-                <div class="under"><span>Full Stack Web Developer</span></div>
-                <div class="under1"><span>
-                        <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/mokunuga">
-                            <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
-                                <img style="width:40px; height: 40px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png">
-                            </div></a>
-
-                            <a href="https://linkedin.com/in/mokunuga">
-                                 <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
-                                    <img style="width:40px; height: 40px;" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-social-media/256/Linkedin-icon.png">
-                                 </div>
-                            </a>
-                        </div></span>
-                </div>
-                <div class="under2"><span>Aks | NG</span></div>
-            </div>
-        </div>
-        <div class="oj-sm-12 oj-md-6 oj-flex-item">
-            <div class="body1">
-                <div class="chat-output" id="chat-output">
-                    <div class="user-message">
-                        <div class="message">Hi there! I'm Le-Bot! Say something and I'll try my possible best to answer you! </br>To train me, use this format - 'train: question # answer # password'. </br>To learn more about me, simply type - 'aboutbot'.</div>
-                    </div>
-                </div>
-
-                <div class="chat-input">
-                    <form action="" method="post" id="user-input-form">
-                        <input type="text" name="user-input" id="user-input" class="user-input" placeholder="Say something here">
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <?php
-
-    try {
-        $sql = 'SELECT * FROM secret_word';
-        $q = $conn->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
-        $data = $q->fetch();
-    } catch (PDOException $e) {
-        throw $e;
-    }
-    $secret_word = $data['secret_word'];
+<?php
 
 if(isset($_POST['chat'])){
 
@@ -210,13 +8,13 @@ if(isset($_POST['chat'])){
     
 
     echo '<div style="display: none;"class="chat friend">
-                <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+                
                 <p class="chat-message" id="user">'. $chat .'</p>
             </div>';
 
     function aboutbot(){
         echo '<div style="display: none;"class="chat friend">
-        <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+       
         <p class="chat-message" id="result">Version 1.0</p>
         </div>';
     }
@@ -230,13 +28,13 @@ if(isset($_POST['chat'])){
 
         if(empty($data)){
             echo '<div style="display: none;"class="chat friend">
-            <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+            
             <p class="chat-message" id="result">oops... I do not know that yet, train me</p>
             </div>';
         } else {
             $random = array_rand($data);
             echo '<div style="display: none;"class="chat friend">
-            <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+            
             <p class="chat-message" id="result">'. $data[$random]["answer"]. '</p>
             </div>';
         }
@@ -259,13 +57,13 @@ if(isset($_POST['chat'])){
                 $train = $GLOBALS['conn']->prepare($trainsql);
                 $train->execute(['question' => $question, 'answer' => $answer]);
                 echo '<div style="display: none;"class="chat friend">
-                <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+              
                 <p class="chat-message" id="result">Training successful,
                  thank you for making me smarter</p>
                 </div>';
             } else {
                 echo '<div style="display: none;"class="chat friend">
-                <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+                
                 <p class="chat-message" id="result">oops... I already know this,
                  you can teach me something else</p>
                 </div>';
@@ -273,7 +71,7 @@ if(isset($_POST['chat'])){
 
         } else {
             echo '<div style="display: none;"class="chat friend">
-                <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+              
                 <p class="chat-message" id="result">Invalid password or format..
                  example: train:question#answer#password</p>
                 </div>';
@@ -287,7 +85,7 @@ if(isset($_POST['chat'])){
 
     } elseif ( $oneWord === 'help'){
         echo '<div style="display: none;"class="chat friend">
-                <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+      
                 <p class="chat-message" id="result">Type \'aboutbot\' to see my current version.
                  To train me type \'train:question#answer#password\'</p>
                 </div>';
@@ -299,7 +97,7 @@ if(isset($_POST['chat'])){
     } elseif ( $oneWord === 'i am') {
         $second = strtolower(trim($explosion[1]));
         echo '<div style="display: none;"class="chat friend">
-        <div class="user-photo"><img src="img/friend.jpg" alt=""></div>
+       
         <p class="chat-message" id="result"> Welcome '. ucfirst($second) .',you can ask me anything. <br>
         To see what i can do type \'help\' </p>
         </div>';
@@ -308,43 +106,387 @@ if(isset($_POST['chat'])){
     }
 }
 
-    ?>
 
-</div>
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Internship 4</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Ubuntu" rel="stylesheet">
+    </head>
+    <body>
+    <style>
 
-</body>
+        .oj-panel-alt1{
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            background: -webkit-linear-gradient(top, #aaaaaa 0%, #333333);
+            background: -moz-linear-gradient(top, #aaaaaa 0%, #333333);
+            background: -o-linear-gradient(top, #aaaaaa 0%, #333333);
+            background: -ms-linear-gradient(top, #aaaaaa 0%, #333333);
+            background-color: white;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .image{
+            display: block;
+            width: 20%;
+            height: 20%;
+            border-style: groove;
+            border-width: 2px;
+            border-radius: 100%;
+            margin:0 auto;
+            opacity: 0.8;
+        }
+
+        .name{
+            font-family: verdana;
+            font-size: 2em;
+            margin-top: 7px;
+            color: #ffffff;
+        }
+
+        .username{
+            font-family: verdana;
+            font-size: 2em;
+            color: #ffffff;
+        }
+
+        section{
+            background-color: rgba(255,255,255,0.5);
+            font-family: verdana;
+
+        }
+
+        section h3{
+            font-size: 1.5em;
+            background: -webkit-linear-gradient(top, #aaaaaa 0%, #333333);
+        }
+
+        
+        .chatbox {
+            font-family: tahoma, sans-serif;
+            text-align: start;
+            box-sizing: border-box;
+            width: 500px;
+            min-width: 100px;
+            height: 600px;
+            background-color: rgba(255, 255, 255, 0.4);
+            padding: 25px;
+            margin: 20px auto;
+            box-shadow: 0 3px #cccccc;
+            display: none;
+        }
+
+        .chatlogs{
+            padding: 10px;
+            width: 100%;
+            height: 450px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .chatlogs::-webkit-scrollbar{
+            width: 10px;
+        }
+
+        .chatlogs::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: rgba(0, 0, 0, .1);
+        }
+
+        .chat {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .chat .user-photo {
+            width: 60px;
+            height: 60px;
+            background: #cccccc;
+            border-radius: 50%;
+            overflow: hidden; 
+        }
+
+        .chat .user-photo img {
+            width: 100%;
+        }
+
+        .chat .chat-message{
+            width: 70%;
+            padding: 15px;
+            margin: 5px 10px 0;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 20px;
+            overflow-x: auto;
+        }
+
+        .chat-message::-webkit-scrollbar{
+            width: 10px;
+        }
+
+        .chat-message::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: rgba(0, 0, 0, .1);
+        }
+
+        .friend .chat-message{
+            background: -webkit-linear-gradient(top, #ffffff 0%, #aaaaaa);
+            color: #333333;
+        }
+
+        .self .chat-message{
+            background: -webkit-linear-gradient(top, #aaaaaa 0%, #333333);
+            order: -1;
+        }
+
+        .chat-form {
+            margin-top: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .chat-form #chat {
+            background: #fbfbfb;
+            width: 75%;
+            height: 50px;
+            border: 2px solid #eee;
+            border-radius: 3px;
+            resize: none;
+            padding: 10px;
+            font-size: 18px;
+            color: #333333;
+        }
+
+        .chat-form #chat:focus{
+            background: #ffffff;
+        }
+
+        .chat-form #chat::-webkit-scrollbar{
+            width: 10px;
+        }
+
+        .chat-form #chat::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: rgba(0, 0, 0, .1);
+        }
+
+        #button, #chat-btn {
+            background: -webkit-linear-gradient(top, #aaaaaa 0%, #ed1d2e);
+            padding: 5px 15px;
+            font-size: 30px;
+            color: #ffffff;
+            border: none;
+            margin: 0 10px;
+            border-radius: 3px;
+            box-shadow: 0 3px 0 #fa1a2c;
+            cursor: pointer;
+
+            -webkit-transition: background .2s ease;
+            -moz-transition: background .2s ease;
+            -o-transition: background .2s ease;
+        }
 
 
-<script>
-    var outputArea = $("#chat-output");
+        .chat-form #button:hover {
+            background: #fa1a2c;
+        }
 
-    $("#user-input-form").on("submit", function(e) {
+        #chat-btn:hover{
+            background: -webkit-linear-gradient(top, #ffffff 0%, #ed1d2e);
+        }
 
-        e.preventDefault();
+        @media only screen and (max-width: 768px) {
 
-        var message = $("#user-input").val();
-
-        outputArea.append(`<div class='bot-message'><div class='message'>${message}</div></div>`);
-
-
-        $.ajax({
-            url: 'profile.php?id=Legendary',
-            type: 'GET',
-            data:  'user-input=' + message,
-            success: function(response) {
-                var result = $($.parseHTML(response)).find("#result").text();
-                setTimeout(function() {
-                    outputArea.append("<div class='user-message'><div class='message'>" + result + "</div></div>");
-                    $('#chat-output').animate({
-                        scrollTop: $('#chat-output').get(0).scrollHeight
-                    }, 1500);
-                }, 250);
+            .chatbox {
+                font-family: tahoma, sans-serif;
+                text-align: start;
+                box-sizing: border-box;
+                width: 300px;
+                min-width: 100px;
+                height: 400px;
+                background-color: rgba(255, 255, 255, 0.4);
+                padding: 10px;
+                margin: 10px auto;
+                box-shadow: 0 3px #cccccc;
             }
+
+            .chatlogs{
+                padding: 10px;
+                width: 100%;
+                height: 70%;
+                overflow-x: hidden;
+                overflow-y: scroll;
+            }
+            
+            .chatlogs::-webkit-scrollbar{
+                width: 10px;
+            }
+
+            .chatlogs::-webkit-scrollbar-thumb {
+                border-radius: 5px;
+                background: rgba(0, 0, 0, .6);
+            }
+            .user-photo{
+                display: none;
+            }
+            .chat .chat-message{
+                width: 70%;
+                padding: 15px;
+                margin: 5px 10px 0;
+                border-radius: 10px;
+                color: #ffffff;
+                font-size: 20px;
+                overflow-x: auto;
+            }
+        }
+        
+    </style>
+    <?php      
+
+
+        $sql = $conn->query("SELECT * FROM secret_word LIMIT 1");
+        $sql = $sql->fetch(PDO::FETCH_OBJ);
+        $secret_word = $sql->secret_word;
+
+        $result = $conn->query("SELECT * FROM interns_data WHERE username = 'Legendary'");
+        $user = $result->fetch(PDO::FETCH_OBJ);
+
+    ?>
+    <section class="py-5" id="projects">
+  <div class="container">
+    <div class="fadeIn">
+      <h2 class="text-center h1 my-4">Internship Program</h2>
+      <p class="px-5 mb-5 pb-3 lead blue-grey-text text-center">
+       Internship (4) program is the best program so far, it allow me to rethink about my career as a developer right after my examination at Federal Polytechnic, Ukana. I will never forget to thank Mr David Iyang-Etoh because without him I wouldn't have know any thing about INTERNSHIP. My big thanks to INTERNSHIP for this opportunity that they created in other to blow up my brain to discover new shit as a developer, to share knowledge, Teach and Research. I REMAIN LEGENDARY, A BIG THANKS.
+      </p>
+    </div>
+    <div class="row wow fadeInLeft" data-wow-delay=".3s">
+      <div class="col-lg-6 col-xl-5 pr-lg-5 pb-5"><img class="img-fluid rounded z-depth-2" height="5" src="<?=$my_data['image_filename'] ?>"/></div>
+      <div class="col-lg-6 col-xl-7 pl-lg-5 pb-4">
+        <div class="row mb-3">
+          <div class="col-1 mr-1"><i class="fa fa-book fa-2x cyan-text"></i></div>
+          <div class="col-10">
+            <h5 class="font-bold">Name:</h5>
+            <p class="grey-text">
+             <h1> <?=$my_data['name'] ?> </h1>
+            </p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-1 mr-1"><i class="fa fa-code fa-2x red-text"></i></div>
+          <div class="col-10">
+            <h5 class="font-bold">Technology</h5>
+            <div class="grey-text"><strong>
+              CEO & Founder, of <a href="https//excellentloaded.com" _target="blank"> Excellentloaded.com </a>
+              </strong></div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr/>
+
+
+
+
+     <div class="container">
+    <div class="row wow fadeInLeft" data-wow-delay=".3s">
+      <div class="col-lg-6 col-xl-5 pr-lg-5 pb-5"><div class="bot_chat">
+        <div class="message">
+          <p class="grey-text">It wasn't  possible, until I put on my Laptop. It can take days to research for a particular thing, when you realize, you gonna be happy. <b>Remember, programmers are not robot, but they are researchers. A good programmer is a good researcher!!! </b></p>
+      </div></div> </b></div>
+      <div class="col-lg-6 col-xl-7 pl-lg-5 pb-4">
+        <div class="row mb-3">
+          <div class="col-10">
+            <p class="grey-text">
+             <div class="chatbot-container">
+
+                <!-- CHAT BOT HERE -->
+                <main  class="oj-web-applayout-body">
+                  <div class="oj-panel oj-panel-alt1 oj-margin demo-mypanel">
+      <div class="chat-header">
+        <span>Le-Bot Chatbot</span>
+      </div>
+      <button id="chat-btn">
+                Chatbot
+            </button>
+            <div class="chatbox">
+                <div class="chatlogs" id="chatlogs">
+                    <div class="chat self">
+                        <div class="user-photo"><img src="https://res.cloudinary.com/drlcfqzym/image/upload/v1525213200/face-41697_1280.png" alt=""></div>
+                        <p class="chat-message" id="chat-message">Hello!! I am Le-Bot, What's your name?</p>
+                    </div>
+                    
+                    
+                </div>
+                <form action="" class="chat-form" id="chat-form" method="post">
+                    <input name="chat" id="chat" type="text" value="I am:">
+                    
+                    <input type="submit" name="submit" value="send" id="button">
+                </form>
+            </div>
+          </main>
+        </div>
+  </div>  
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#chat-btn").click(function(){
+                $(".chatbox").slideToggle("slow");
+            });
+
+            $("#chat-form").submit(function(event){
+                event.preventDefault();
+
+                var $form = $(this),
+                term = $form.find( "input[name='chat']").val(),
+                url = $form.attr("action");
+
+                var forming = $(this).serialize();
+                
+
+                var posting = $.post( url, { chat: term});
+                // var posting = $.post( url, forming);
+
+                posting.done(function(data){
+                    var user = $($.parseHTML(data)).find("#user").text();
+                    var result = $($.parseHTML(data)).find("#result").text();
+            
+                    $("#chatlogs").append('<div class="chat friend"><div class="user-photo"><img src="https://res.cloudinary.com/drlcfqzym/image/upload/v1525212302/avatar-1295406_1280.png" alt=""></div><p class="chat-message">' + user + '</p></div>');
+                    
+                    
+
+                    setTimeout(function(){
+
+                        $("#chatlogs").append('<div class="chat self"><div class="user-photo"><img src="https://res.cloudinary.com/drlcfqzym/image/upload/v1525213200/face-41697_1280.png" alt=""></div><p class="chat-message">' + result + '</p></div>');
+                        $("#chatlogs").animate({
+                            scrollTop: $("#chatlogs").get(0).scrollHeight
+                        }, 1500);
+
+                    }, 250);
+                    
+                });
+                $('#chat').val('');
+
+            });
         });
-
-
-        $("#user-input").val("");
-
-    });
-</script>
-
+  </script>
+    
+        
+    </body>
+</html>
