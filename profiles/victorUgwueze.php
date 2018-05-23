@@ -7,6 +7,7 @@ try {
     }
     try {
         $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+    
       } catch (PDOException $pe) {
         die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
       }
@@ -134,13 +135,6 @@ try {
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $intern_data['name']; ?></title>
 
     <style>
         *{
@@ -151,11 +145,8 @@ try {
 	-webkit-box-sizing: border-box;
   	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
-
-
-html{
+    }
+    html{
 	color: #555;
 	font-family: 'lato', 'Arial', 'sans-serif';
 	font-weight: 300;
