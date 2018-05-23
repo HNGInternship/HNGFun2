@@ -643,8 +643,7 @@
 	</script>
 
 </html>
-
-	<?php
+<?php
 		if(isset($_POST['chat'])){
 		$a = $_POST['chat'];
 			$question = $answer = $password = "";
