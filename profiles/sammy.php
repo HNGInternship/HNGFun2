@@ -135,6 +135,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html>
 
@@ -294,8 +296,8 @@ span {
 }
 
 #center {
-            position: absolute;
-            top: 15%;
+            position: fixed;
+            top: 30%;
             float: left;
             padding-left: 20px;
 }
