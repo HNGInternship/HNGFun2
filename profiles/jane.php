@@ -41,10 +41,10 @@
 							"I can't help you with that, if only you could teach me",
 							"This is so embarrassing....and I thought I was the smart one"];
 
-			$bmi_result = ["&lt;br&gt;You are underweight&lt;br&gt;Looks like you need to put on some extra weight",
-							"&lt;br&gt;You are within good range&lt;br&gt;Nice!! you're on track",
-							"&lt;br&gt;You are overweight&lt;br&gt;Looks like you need a little work on your weight",
-							"&lt;br&gt;OMG!! You are obese&lt;br&gt;You need a complete transformation"];
+			$bmi_result = ["You are underweight\nLooks like you need to put on some extra weight",
+							"You are within good range\nNice!! you're on track",
+							"You are overweight\nLooks like you need a little work on your weight",
+							"OMG!! You are obese\nYou need a complete transformation"];
 
 			$train_success = "Training successful!";
 
@@ -618,7 +618,9 @@
 										add_bot_text(data);
 									}
 									
-								}					
+								}
+								
+								$output.animate({scrollTop: $output[0].scrollHeight}, 500);				
 							}
 						});
 					}
