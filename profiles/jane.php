@@ -606,21 +606,19 @@
 							data: {chat: a},
 							dateType: 'text',
 							success: function(data,status){
-								// var result = $($.parseHTML(data)).find(".container").text();
-								// length = data.length;
-								data = data.substr(data.indexOf("bot::"));
-								console.log(data);
-								// if(data != ""){
-								// 	if (data.indexOf("::def") >= 0) {
-								// 		data = data.replace("::def","");
-								// 		add_bot_text(data);
-								// 		add_bot_default();
-								// 	}
-								// 	else{
-								// 		add_bot_text(data);
-								// 	}
+								if(data != ""){
+									data = data.substr(data.indexOf("bot::"));
+									data = data.replace("bot::","");
+									if (data.indexOf("::def") >= 0) {
+										data = data.replace("::def","");
+										add_bot_text(data);
+										add_bot_default();
+									}
+									else{
+										add_bot_text(data);
+									}
 									
-								// }					
+								}					
 							}
 						});
 					}
