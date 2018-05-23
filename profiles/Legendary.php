@@ -192,7 +192,7 @@
 
         if(empty($data)){
             echo '<div style="display: none;"class="chat friend">
-            <p class="chat-message" id="result">oops... I do not know that yet, kindly type "help"/p>
+            <p class="chat-message" id="result">oops... I do not know that yet, kindly type "help"</p>
             </div>';
         } else {
             $random = array_rand($data);
@@ -325,7 +325,7 @@
             </div>
             
         </div>
-      </div>
+    
       <div class="chat-footer">
         <div class="input-text-container">
           <form action="" method="post" id="chat-input-form">
