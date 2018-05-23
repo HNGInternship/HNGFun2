@@ -467,7 +467,36 @@
 						$text_input.focus();
 					}
 
-					
+					else{
+						// $.ajax({
+						// 	url: "/profiles/jane",
+						// 	type: "POST",
+						// 	data: {chat: a},
+						// 	success: function(data){
+						// 		// var result = $($.parseHTML(data)).find(".container").text();
+						// 		console.log(data);
+						// 		// if(data != ""){
+						// 		// 	if (data.indexOf("::def") >= 0) {
+						// 		// 		data = data.replace("::def","");
+						// 		// 		add_bot_text(data);
+						// 		// 		add_bot_default();
+						// 		// 	}
+						// 		// 	else{
+						// 		// 		add_bot_text(data);
+						// 		// 	}
+									
+						// 		// }					
+						// 	}
+						// });
+						$.ajax({
+							url: '/profiles/jane',
+							type: 'POST',
+							data: {chat: a},
+							success: function(response){
+								alert(response);
+							}
+						});
+					}
 					
 
 					$text_input.val("");
