@@ -1,14 +1,20 @@
 
 <?php
-
 	if(!defined('DB_USER')){
-			require "../../config.php";		
-			try {
-			    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-			} catch (PDOException $pe) {
-			    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-			}
+		if (file_exists('../../config.php')) {
+			require_once '../../config.php';
+		} else if (file_exists('../config.php')) {
+			require_once '../config.php';
+		} elseif (file_exists('config.php')) {
+			require_once 'config.php';
 		}
+			
+		try {
+			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);			
+		} catch (PDOException $e) {
+			die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+		}
+	}
 
   try {
       $sql = "SELECT * FROM interns_data WHERE username ='dreamtech467'";
@@ -38,18 +44,6 @@
   
 		//chatBot
 	if($_SERVER['REQUEST_METHOD'] === "POST"){
-		
-		if(!defined('DB_USER')){
-			require "../../config.php";		
-			try {
-			    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-			} catch (PDOException $pe) {
-			    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-			}
-		}
-
-		
-		
 	
 		function stripquestion($question){
 			// remove whitespace first
