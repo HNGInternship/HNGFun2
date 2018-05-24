@@ -1,100 +1,211 @@
 <?php
-include_once("../answers.php");
-if (!defined('DB_USER'))
-	{
-	require"../../config.php";
-	}
-try
-	{
-	$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-	}
-catch(PDOException $pe)
-	{
-	die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-	}
-global $conn;
-$diffAns ='';
-if (isset($_GET['bot_adekunte'])) {
-	
-	$data = $_GET['bot_adekunte'];
-	if ($data == 'aboutbot') {
-		echo "V 1.0";
-		exit();
-	}else if(strstr($data, 'train:') && strstr($data, '#')){
-		$exp = explode(':', $data);
-		$exp = explode('#', $exp[1]);
-		if (count($exp) == 3) {
-			if ($exp[2] == 'password') {
-				//PDO INSERT
-				try{
-					$sql = "INSERT INTO chatbot(question,answer)VALUES('$exp[0]','$exp[1]')";
-					$conn -> query($sql);
-					echo "Training Successful. Now i know $exp[0]";
-					exit();
-				}catch(PDOException $e){
-					echo "I refused to be trained!".$e->getMessage();
-					exit();
-				}
-			
-		}else{
-			echo "Your password is incorrect.<br>Try again later!";
-				exit();
-		}
-		}else{
-			echo "Invalid strings!<br><br><b><i>train:question #answer #password</i></b>";
-			exit();
-		}
-	}
-	else{
-		try{
-			$sql = "SELECT answer FROM chatbot WHERE question LIKE '%$data%' ";
-			$query = $conn -> query($sql);
-			if (count($query -> fetchAll()) > 0) {
-				$query2 = $conn -> query($sql);
-				while ($val = $query2 -> fetch()) {
-					$diffAns .= $val[0].',';
-			}
-			$diff = explode(',', $diffAns);
-			if (count($diff) > 1) {
-				//$rand = array_rand($diff);
-				$rand = rand(0, count($diff)-1);
-				$shwval =$diff[$rand];
-				echo $shwval;
-				exit();
-			}else{
-				echo $diff[0];
-				exit();
-			}			
-		}else{
-			echo "Sorry I do not have that command  but you can train by entering the following <br><b><i>train:question #answer #password</i></b>";
-			exit();
-		}			
-		}catch(PDOException $e){
-			echo "Error 002".$e->getMessage();
-			exit();
-		}
-		
-	}
+include_once("../answers.php"); 
+if (!defined('DB_USER')){
+            
+  require "../../config.php";
 }
+try {
+  $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+} catch (PDOException $pe) {
+  die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+}
+ global $conn;
+ try {
+  $sql = 'SELECT * FROM secret_word LIMIT 1';
+  $q = $conn->query($sql);
+  $q->setFetchMode(PDO::FETCH_ASSOC);
+  $data = $q->fetch();
+  $secret_word = $data['secret_word'];
+} catch (PDOException $e) {
+  throw $e;
+}    
+try {
+  $sql = "SELECT * FROM interns_data WHERE `username` = 'juliet' LIMIT 1";
+  $q = $conn->query($sql);
+  $q->setFetchMode(PDO::FETCH_ASSOC);
+  $my_data = $q->fetch();
+} catch (PDOException $e) {
+  throw $e;
+}
+function decider($string){
+  
+  if (strpos($string, ":") !== false)
+  {
+    $field = explode (":", $string, 2);
+    $key = $field[0];
+    $key = strtolower(preg_replace('/\s+/', '', $key));
+  if(($key == "train")){
+     $password ="password";
+     $trainer =$field[1];
+     $result = explode ("#", $trainer);
+  if($result[2] && $result[2] == $password){
+    echo"<br>Training mode<br>";
+    return $result;
+  } 
+  else echo "opssss!!! Looks like you are trying to train me without permission";   
+  }
+   }
+}
+function assistant($string)
+{    $reply = "";
+    if ($string == 'what is my location') {
+       
+      
+      $ip=$_SERVER['REMOTE_ADDR'];
+      $reply =unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
+      $reply =var_export('you are in '. $reply['geoplugin_regionName'] .' in '. $reply['geoplugin_countryName']);
+      return $reply;
+        
+    }
+    elseif ($string == 'tell me about your author') {
+        $reply= 'Her name is <i class="em em-sunglasses"></i> Chidimma Juliet Ezekwe, she is Passionate, gifted and creative backend programmer who love to create appealing Web apps solution from concept through to completion. An enthusiastic and effective team player and always challenge the star to quo by taking up complex responsibilities. Social account ';
+        return $reply;    
+    }
+    elseif ($string == 'open facebook') {
+        $reply= "<p>Facebook opened successfully </p> <script language='javascript'> window.open(
+    'https://www.facebook.com/',
+    '_blank' //
+    );
+    </script>
+    ";
+    return $reply;
+    }
+    elseif ($string == 'open twitter') {
+        $reply = "<p>Twitter opened successfully </p> <script language='javascript'> window.open(
+    'https://twitter.com/',
+    '_blank' //
+    );
+    </script>
+    ";
+    return $reply;
+    }elseif ($string == 'open linkedin') {
+        $reply= "<p>Linkedin opened successfully </p> <script language='javascript'> window.open(
+    'https://www.linkedin.com/jobs/',
+    '_blank' //
+    );
+    </script>
+    ";
+    return $reply;
+    }
+    elseif ($string == 'shutdown my pc') {
+        $reply =  exec ('shutdown -s -t 0');
+        return $reply;
+    }elseif ($string == 'get my pc name') {
+        $reply = getenv('username');
+        return $reply;
+    }
+    else{
+        $reply = "";
+        return $reply;
+    }
+  
+}
+$existError =false;
+$reply = "";//process starts
+//echo "This is the POST message " + $_POST['msg'];
+if(isset($_GET['msg'])){ 
+  if ($_GET['msg'] == 'commands') {
+    $reply = 'These are my commands <p>1. what is my location, 2. tell me about your author, 3. open facebook, 6. open twitter, 7. open linkedin, 8. shutdown my pc, 9. get my pc name.</p>';
+    echo $reply;
+  } 
+      if($reply==""){
+       $reply = assistant($_GET['msg']);
+       echo $reply;
+       
+     }
+  if($reply =="") {
+    $post= $_GET['msg'];
+    $result = decider($post);
+    if($result){
+      $question=$result[0]; 
+      $answer= $result[1];
+      $sql = "SELECT * FROM chatbot WHERE question = '$question' And answer = '$answer'";
+      $stm = $conn->query($sql);
+      $stm->setFetchMode(PDO::FETCH_ASSOC);
+      $result = $stm->fetchAll();
+        
+        if (count(($result))> 0) {
+              
+          // while($result) {
+          //   $strippedQ = strtolower(preg_replace('/\s+/', '', $question));
+          //   $strippedA = strtolower(preg_replace('/\s+/', '', $answer));
+          //   $strippedRowQ = strtolower(preg_replace('/\s+/', '', $result['question']));
+          //   $strippedRowA = strtolower(preg_replace('/\s+/', '', $result['answer']));
+          //   if(($strippedRowQ == $strippedQ) && ($strippedRowA == $strippedA)){
+          //   $reply = "I know this already, but you can make me smarter by giving another response to this command";
+          //   $existError = true;
+          //   break;
+            
+          //   }
+              
+          // }  
+          $existError = true; 
+          echo "I know this already, but you can make me smarter by giving another response to this command";
+            
+        } 
+      else
+        if(!($existError)){
+          $sql = "INSERT INTO chatbot(question, answer)
+          VALUES(:quest, :ans)";
+          $stm =$conn->prepare($sql);
+          $stm->bindParam(':quest', $question);
+          $stm->bindParam(':ans', $answer);
+          $saved = $stm->execute();
+            
+          if ($saved) {
+              echo  "Thanks to you, I am smarter now";
+          } else {
+              echo "Error: could not understand";
+          }
+            
+          
+        }  
+  }
+  else{
+    $input = trim($post); 
+ 
+  if($input){
+    
+    $sql = "SELECT * FROM chatbot WHERE question = '$input'";
+    $stm = $conn->query($sql);
+    $stm->setFetchMode(PDO::FETCH_ASSOC);
+    $res = $stm->fetchAll();
+    
+    if (count($res) > 0) {
+    
+      $index = rand(0, count($res)-1);
+      $response = $res[$index]['answer'];  
+      echo $response;
+    
+    }
+    else{
+       echo "I did'nt get that, please rephrase or try again later";
+    }       
+  }
+}
+          
+      
+    
+      }       
+  
+ 
+return;
+}
+  
 ?>
 
-<?php
-$result = $conn->query("SELECT * FROM secret_word LIMIT 1");
- $res = $result->fetch(PDO::FETCH_OBJ);
-  $secret_word = $res->secret_word;
- $result2 = $conn->query("SELECT * FROM interns_data WHERE username = 'Adekunte Tolulope'");
- $user = $result2->fetch(PDO::FETCH_OBJ);
-$name = $user-> name;
-$image = $user-> image_filename;
-$username = $user-> username;
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link id="css" rel="stylesheet" href="https://static.oracle.com/cdn/jet/v4.2.0/default/css/alta/oj-alta-min.css" type="text/css"/>
 
-
-<!Doctype html>
-<html>
-   <head>
-       <!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
 .card {
@@ -280,7 +391,7 @@ button:hover, a:hover {
 			</div>
 			<div id="inpBut">
 				<input type="text" id="botInp" placeholder="Enter Question">
-				<button onclick="processR()">Submit</button>
+				<button>Submit</button>
 			</div>
 		</div>
 		<div id="foot">
@@ -288,35 +399,117 @@ button:hover, a:hover {
 		</div>
 	</div>
 </div>
+                    <div class="chatbox-messages" >
+                      <div class="messages clear"><span class="avatar"><img src="http://res.cloudinary.com/julietezekwe/image/upload/v1523964204/robot.jpg"alt="Debby Jones" /></span><div class="sender"><div class="message-container"><div class="message"><p>
+                      Hi My name is Cutie <i class="em em-sunglasses"></i> I can tell you about My Author <i class="em em-smiley"></i></p>
+                              <p>You can tell me what to do i promise not to fail you, just type "commands' to see the list of what i can do.<br>You can train me too by simply using the key word "train", seperate the command and response with "#", and ofourse, the password</p>
+                              </div><span class="delivered"><?php
+            echo "" . date("h:i:a");
+            ?></span></div><!-- /.message-container -</div><!-- /.sender --></div><!-- /.messages -->
+                            </div>
+                            <div class="push"></div>
+
+                    </div><!-- /.chatbox-messages -->
 
 
-	<script type="text/javascript">
-var no = 0;
-	function processR(){
-		
-		if (document.getElementById('botInp').value != '') {
-			var x = new XMLHttpRequest();
-		var url = '/profiles/Adekunte Tolulope.php';
-		var data = document.getElementById("botInp").value;
-		var vars = "bot_adekunte="+data;no++;
-		document.getElementById('ans').innerHTML+='<div><div class="ques">'+data+'</div></div>';
-		document.getElementById('ans').innerHTML+='<div><div class="ans" id="id'+no+'"></div></div>';
-		x.open("GET", url, true);
-		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		x.onreadystatechange = function(){
-			if (x.readyState == 4 && x.status == 200) {
-				var return_data = x.responseText;
-				setTimeout(function(){
-					document.getElementById("id"+no).innerHTML= return_data;
-				document.getElementById("botInp").value = '';
-				},1000);
-				
-			}
-		}
-			x.send(vars);
-			document.getElementById("id"+no).innerHTML="loading..."
-		}
-}
-</script>	
+                    <div class="message-form-container">
+
+                      <script type="text/javascript">
+                                  $(document).ready(function(){
+               $('#msg').keypress(
+                function(e){
+                    if (e.keyCode == 13) {
+                        e.preventDefault();
+                        var msg = $(this).val();
+                  $(this).val('');
+                        if(msg !== '' )
+                  $('<div class="messages clear"><div class="user"><div class="message-container"><div class="message"><p>'+msg+'</p></div><span class="delivered"><?php
+            echo "" . date("h:i:a");
+            ?></span></div></div><!-- /.user --></div>').insertBefore('.push');
+                  $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
+                  formSubmit();
+                    }
+                function formSubmit(){
+                var message = $("#msg").val();
+                    var dataString = 'msg=' + msg;
+                    jQuery.ajax({
+                        url: "/profiles/Adekunte Tolulope.php",
+                        data: dataString,
+                        type: "GET",
+                         cache: false,
+                             success: function(response) {
+            setTimeout(function(){
+                     $(' <div class="messages clear"><span class="avatar"><img src="http://res.cloudinary.com/julietezekwe/image/upload/v1523964204/robot.jpg"alt="Debby Jones" /></span><div class="sender"><div class="message-container"><div class="message"><p>'+response+'</p></div><span class="delivered"><?php
+            echo "" . date("h:i:a");
+            ?></span></div><!-- /.message-container -</div><!-- /.sender --></div><!-- /.messages --></div>').insertBefore('.push');
+                  $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
+                  play();
+                },  1000);
+                  },
+                        error: function (){}
+                    });
+                return true;
+                }
+                    });
+            });
+                  function play(){
+                   var audio = document.getElementById("audio");
+                   audio.play();
+                             }                
+            </script>
+            <audio id="audio" src="https://res.cloudinary.com/julietezekwe/video/upload/v1523964158/beep.mp3" ></audio>
+
+                      <form class="message-form" method="POST" action="" >
+                        <textarea id="msg" name="msg" value=""  placeholder="Type a message here..."></textarea>
+                          </form><!-- /.search-form -->
+
+
+                    </div><!-- /.message-form-container -->
+
+                  </div><!-- /.chatbox -->
+
+                </div><!-- /.content -->
+
+              </div><!-- /.wrapper -->
+
+
+        </div>
+      </div>
+      <!-- /.row -->
+
+    
+
+    </div>
+    <!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/hng.min.js"></script>
+  
+</div><!-- /ko --><div data-bind="_ojNodeStorage_" style="display: none;" class="oj-subtree-hidden">
+        </div></oj-module>
+      </div>
+      </div>
+ </div>
 </body>
+<!-- end jet -->
+
+
+  <body>
+
+  
+
+        
+
+      
+   
+          
+            
+
+  </body>
+
 </html>
