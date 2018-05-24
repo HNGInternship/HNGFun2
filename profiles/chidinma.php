@@ -236,7 +236,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <?php date_default_timezone_set('Africa/lagos');
 					echo  date("d:m:Y | h:ia"); ?> </h5>
                 	</span>
-					<div class = "intro"><p><h4> Hi there!, welcome to Nma’s bot. To train me,type "train : question # answer # password</h4></p>
+					<div class = "intro"><p><h5> Hi there!, welcome. Type "aboutbot" to learn about me. To train me,type "train : question # answer # password</h5></p>
 					</div>
 					
 					<div id = "chat_area">
@@ -296,7 +296,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
             }
         };
-        xhttp.open("GET", "profiles/chidinma.php");
+        xhttp.open("POST", "profiles/chidinma.php/");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }
