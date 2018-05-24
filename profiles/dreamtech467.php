@@ -1,4 +1,4 @@
-
+    
 <?php
 
 	 
@@ -43,10 +43,9 @@
 
   
   
-  if(isset($_GET['answer'])){
+ 
 		//chatBot
-	if($_SERVER['REQUEST_METHOD'] === "GET"){
-	
+	 if(isset($_GET['answer'])){
 		function stripquestion($question){
 			// remove whitespace first
 			$strippedquestion = trim(preg_replace("([\s+])", " ", $question));
@@ -89,8 +88,9 @@
 				return "An detect error: ". $e->getMessage();
 			}
 		}
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		if (isset($_GET['message']) && $_GET['message']!=null) {
+	 }else if(isset($_GET['question'])){
+		
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$question = $_GET['message'];
 			$strippedquestion = stripquestion($question);
 			$array_data = explode(':', $strippedquestion);
@@ -130,8 +130,8 @@
 				}
 			}
 		}
-}
-}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
