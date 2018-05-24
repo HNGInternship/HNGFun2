@@ -289,49 +289,7 @@ button:hover, a:hover {
 	</div>
 </div>
 
-<script type="text/javascript">
-                                  $(document).ready(function(){
-               $('#msg').keypress(
-                function(e){
-                    if (e.keyCode == 13) {
-                        e.preventDefault();
-                        var msg = $(this).val();
-                  $(this).val('');
-                        if(msg !== '' )
-                  $('<div class="messages clear"><div class="user"><div class="message-container"><div class="message"><p>'+msg+'</p></div><span class="delivered"><?php
-            echo "" . date("h:i:a");
-            ?></span></div></div><!-- /.user --></div>').insertBefore('.push');
-                  $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
-                  formSubmit();
-                    }
-                function formSubmit(){
-                var message = $("#msg").val();
-                    var dataString = 'msg=' + msg;
-                    jQuery.ajax({
-                        url: "/profiles/Adekunte Tolulope.php",
-                        data: dataString,
-                        type: "GET",
-                         cache: false,
-                             success: function(response) {
-            setTimeout(function(){
-                     $(' <div class="messages clear"><span class="avatar"><img src="http://res.cloudinary.com/julietezekwe/image/upload/v1523964204/robot.jpg"alt="Debby Jones" /></span><div class="sender"><div class="message-container"><div class="message"><p>'+response+'</p></div><span class="delivered"><?php
-            echo "" . date("h:i:a");
-            ?></span></div><!-- /.message-container -</div><!-- /.sender --></div><!-- /.messages --></div>').insertBefore('.push');
-                  $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
-                  play();
-                },  1000);
-                  },
-                        error: function (){}
-                    });
-                return true;
-                }
-                    });
-            });
-                  function play(){
-                   var audio = document.getElementById("audio");
-                   audio.play();
-                             }                
-            </script>
+
 	<script type="text/javascript">
 var no = 0;
 	function processR(){
@@ -339,7 +297,7 @@ var no = 0;
 		if (document.getElementById('botInp').value != '') {
 			var x = new XMLHttpRequest();
 		var url = '/profiles/Adekunte Tolulope.php';
-		var data = document.getElementById("botInp").value;
+		var data = document.getElementById("botInp").value != '';
 		var vars = "bot_adekunte="+data;no++;
 		document.getElementById('ans').innerHTML+='<div><div class="ques">'+data+'</div></div>';
 		document.getElementById('ans').innerHTML+='<div><div class="ans" id="id'+no+'"></div></div>';
