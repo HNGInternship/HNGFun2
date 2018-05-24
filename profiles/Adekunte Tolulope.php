@@ -14,9 +14,9 @@ catch(PDOException $pe)
 	}
 global $conn;
 $diffAns ='';
-if (isset($_POST['bot_adekunte'])) {
+if (isset($_GET['bot_adekunte'])) {
 	
-	$data = $_POST['bot_adekunte'];
+	$data = $_GET['bot_adekunte'];
 	if ($data == 'aboutbot') {
 		echo "V 1.0";
 		exit();
