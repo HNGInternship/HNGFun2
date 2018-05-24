@@ -241,8 +241,8 @@
             $("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
             //send question to server
             $.ajax({
-                url: "/profiles/balqees",
-                type: "post",
+                url: "/profiles/balqees.php",
+                type: "get",
                 data: {question: question},
                 dataType: "json",
                 success: function(response){
