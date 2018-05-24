@@ -1,95 +1,22 @@
 
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>HNG FUN</title>
-
-    <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-      <!-- Custom fonts for this template -->
-  <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-
-    <!-- Custom styles for this template -->
-      <link href="css/style2.css" rel="stylesheet">
-      <link href="css/style1.css" rel="stylesheet">
-      <link href="css/style.css" rel="stylesheet">
-      <link href="css/learn.css" rel="stylesheet">
-<!--    <link href="css/carousel.css" rel="stylesheet">-->
-      <link href="css/landing-page.min.css" rel="stylesheet">
-
-   <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="stylesheet" href="css/custom.css" type="text/css">
-
-    <!-- Custom styles for this template -->
+<?php
+   include_once('header.php');
+    require 'db.php';
     
-    <!-- <link href="css/custom.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/signout.css">
-    <link href="css/shield-invite.css" rel="stylesheet">
-    <link href="css/404.css" rel="stylesheet">
-    <link href="css/contact.css" rel="stylesheet">
-    <!-- <link href="css/carousel.css" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Qwigley" rel="stylesheet">
-    <!-- for the dropdown in particular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   $profile_name = $_GET['id'];
+    $secret_word = "sample_secret_word";
+
+    require 'db.php';
+
+  require('profiles/' . $profile_name. '.php');
+
+?>
 
 
 
 
-  </head>
 
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="index.php">HNG FUN</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="learn.php">Learn</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="listing.php">Interns</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="admin.php">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimonies.php">Testimonies</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+
 
 <!-- Page Content -->
 
@@ -360,26 +287,8 @@
             })
         });
     });
-</script>
 
+<?php
+include_once('footer.php');
+?>
 
-
-
-
-
-
-
- <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/jquery.form.min.js"></script>
-    <script type="text/javascript" src="js/mail.js"></script>
-    <!--script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script-->
-
-    <!-- Custom scripts for this template -->
-    <script src="js/hng.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-</body>
-</html>
