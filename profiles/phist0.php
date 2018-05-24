@@ -280,7 +280,6 @@ text-decoration: none;
 
 .social-media {
   position: relative;
-  left: 20px; 
 }
 
 </style>
