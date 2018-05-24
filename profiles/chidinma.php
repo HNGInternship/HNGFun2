@@ -296,7 +296,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
             }
         };
-        xhttp.open("POST", "profiles/chidinma");
+        xhttp.open("POST", "profile.php?id=chidinma");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }
