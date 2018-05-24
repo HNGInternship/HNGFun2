@@ -2,12 +2,6 @@
 <?php
    include_once('header.php');
     require 'db.php';
-
-   $profile_name = $_GET['id'];
-    $secret_word = "sample_secret_word";
-
-  require('profiles/' . $profile_name);
-
 ?>
 
 
