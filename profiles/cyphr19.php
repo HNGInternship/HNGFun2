@@ -179,14 +179,15 @@ h5{
 <body>
 
 <?php
-        $result = $conn->query("Select * from secret_word LIMIT 1");
-        $result = $result->fetch(PDO::FETCH_OBJ);
-        $secret_word = $result->secret_word;
-        $result2 = $conn->query("Select * from interns_data where username = 'cyphr19'");
-        $user = $result2->fetch(PDO::FETCH_OBJ);
-		
-		
-		if($_SERVER['REQUEST_METHOD'] === 'POST'){
+//error_reporting(E_ALL);
+  //require '../db.php';
+//header('Content-Type: text/plain; charset=UTF-8;');
+  if(!defined('DB_USER')){
+    require "../../config.php";
+  }
+  
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  //var_dump($_REQUEST);
     $msg = $_POST['msg'];
     $train = stripos($msg, 'train:');
     echo $train;
@@ -198,7 +199,7 @@ h5{
     }
 }
 function fetchans($msg){
-    include '../db.php';
+    include 'db.php';
     $msg = preg_replace('([\s]+)', ' ', trim($msg));
     $sql = "SELECT * FROM chatbot WHERE question='$msg' ORDER BY rand() LIMIT 1";
     $q = $conn->query($sql);
@@ -206,13 +207,13 @@ function fetchans($msg){
     $ans = $q->fetch();
     $ans1 = $ans['answer'];
     if ($ans1 == ''){
-        $ans1 = 'Sorry, I cant find an answer. You can train me though.';
+        $ans1 = 'Sorry, I cant find an answer. You can train me though :D.';
     } 
     echo $ans1;
     exit();
 } 
     function trainbot($msg) {
-     include '../db.php';
+     include 'db.php';
        $msg = preg_replace("([\s]+)", " ", trim($msg));
        $msg = substr(strstr($msg," "), 1);
         $msg = explode('#', $msg);
@@ -245,7 +246,15 @@ function fetchans($msg){
         echo $ans2;
         exit();
     }
-    ?>
+     $res = $conn->query("SELECT * FROM  interns_data WHERE username = 'Damilola' ");
+  $row = $res->fetch(PDO::FETCH_BOTH);
+  $name = $row['name'];
+  $img = $row['image_filename'];
+  $username =$row['username'];
+  $res1 = $conn->query("SELECT * FROM secret_word");
+  $res2 = $res1->fetch(PDO::FETCH_ASSOC);
+  $secret_word = $res2['secret_word'];
+?>
 
 
     <div id="cover">
@@ -342,7 +351,7 @@ function fetchans($msg){
 
 
  <script>
-            $(function(){
+             $(function(){
               var name='PEARL:';
                function bot_chat(reply){
                     $('#cbox').append('<div class="outputa"><p>PEARL: ' + reply + '<p></div>');
@@ -366,17 +375,17 @@ function fetchans($msg){
                     return false;
                     } else{
                         $.ajax({
-                       url: 'profiles/cyphr19', //This is the current doc
+                          url: 'profile?id=cyphr19', //This is the current doc
                           type: "POST",
+                          dataType: "text",
                           //dataType:'json', // add json datatype to get json
                           data: ({msg: message}),
                         success: function(data){
-                            bot_chat(data);
-                            reset;
+                            $('#cbox').append('<div class="outputa"><p>PEARL: ' + data + '<p></div>');
+                    $('#cbox').scrollTop($('#cbox').height());
                         }
-						
                     }) .done(function(data,textStatus,jqXHR){
-                        alert("response with: " + data);
+                        //alert("response with: " + data);
                         })
                         .fail(function(data,textStatus,errorThrown){ alert("Request failed!"); console.log('FAILURE: ' + textStatus); })
                         .always(function(data,textStatus,errorThrown){});
@@ -384,7 +393,6 @@ function fetchans($msg){
                     }
                })
             })
-            
         </script>
 
 </body>

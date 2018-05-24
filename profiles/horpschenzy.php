@@ -8,33 +8,33 @@ body{
 
 	background-color: #badacc;
 }
-.container {
+.container2 {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
 @media (min-width: 768px) {
-  .container {
+  .container2 {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container {
+  .container2 {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .container {
+  .container2 {
     width: 1170px;
   }
 }
-.row {
+.tempp {
     margin-right: -15px;
     margin-left: -15px
 }
 
-fb-profile img.fb-image-lg{
+helll img.fb-image-lg{
     z-index: 0;
     width: 100%;  
     margin-bottom: 10px;
@@ -50,13 +50,13 @@ fb-profile img.fb-image-lg{
 @media (max-width:768px)
 {
     
-.fb-profile-text>h1{
+.helll-text>h1{
     font-weight: 700;
     font-size:20px;
 }
 
 
-.fb-profile-text>h3{
+.helll-text>h3{
     font-weight: 300;
     font-size:18px;
     color: #ffffff;
@@ -68,14 +68,8 @@ fb-profile img.fb-image-lg{
     z-index: 9;
     width: 20%; 
 }
-}
-img{
-  max-width: 100%;
-  border: 1px solid red;
-  width: 100%;
-  height: 300px;  // adjust it based on your need
-}
-.thumbnail {
+
+.thumbnail132 {
     display: block;
     padding: 4px;
     margin-bottom: 20px;
@@ -88,28 +82,28 @@ img{
     transition: border .2s ease-in-out
 }
 
-.thumbnail a>img,
-.thumbnail>img {
+.thumbnail132 a>img,
+.thumbnail132>img {
     margin-right: auto;
     margin-left: auto
 }
 
-a.thumbnail.active,
-a.thumbnail:focus,
-a.thumbnail:hover {
+a.thumbnail132.active,
+a.thumbnail132:focus,
+a.thumbnail132:hover {
     border-color: #1e90ff
 }
 
-.thumbnail .caption {
+.thumbnail132 .caption2 {
     padding: 9px;
     color: #333
 }
-.col-md-4 {
+.listtinz {
 	
 	margin-left:  400px;
 	padding: 10px;
 }
-.det{
+.detailed{
 
 	color:  blue;
 	font-size: 30px;
@@ -120,7 +114,15 @@ a.thumbnail:hover {
 <body>
 
 	<?php
-	require_once ('../db.php');
+
+if(!isset($_GET['id'])){
+       require '../db.php';
+     }else{
+        require 'db.php';
+     }
+    
+
+	// require_once ('../db.php');
    $result = $conn->query("SELECT * from secret_word LIMIT 1");
    $result = $result->fetch(PDO::FETCH_OBJ);
    $secret_word = $result->secret_word;
@@ -129,22 +131,22 @@ a.thumbnail:hover {
    $user = $result2->fetch(PDO::FETCH_OBJ);
 ?>
 
-	<div class="container">
-    <div class="fb-profile row">
-        <img align="left" class="fb-image-lg thumbnail" src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg
-" alt=""/>
-        <img align="left" class="fb-image-profile thumbnail" src="<?= $user->image_filename; ?>" alt="Profile image example"/>
-        <div class="fb-profile-text">
+	<div class="container2">
+    <div class="helll tempp">
+        <img align="left" class="fb-image-lg thumbnail132" src="http://res.cloudinary.com/hostnownow/image/upload/v1523974290/1.jpg
+" alt="" height="400px" width="100%"/>
+        <img align="left" class="fb-image-profile thumbnail132" src="<?= $user->image_filename; ?>" alt="Profile image example"/>
+        <div class="helll-text">
             <h1><?= $user->name; ?> <?= $user->username; ?></h1>
             <h3>Skills: </h3>
         </div>
             
-            <div class="row">
-            	<div class="col-md-4"><span class="det">CodeIgniter</span> <span class="det"> PHP</span></div>
-            	<div class="col-md-4"><span class="det">HTML</span></div>
-            	<div class="col-md-4"><span class="det">CSS</span></div>
-            	<div class="col-md-4"><span class="det">BOOTSTRAP</span></div>
-            	<div class="col-md-4"><span class="det">JS</span></div>
+            <div class="tempp">
+            	<div class="listtinz"><span class="detailed">CodeIgniter</span> <span class="detailed"> PHP</span></div>
+            	<div class="listtinz"><span class="detailed">HTML</span></div>
+            	<div class="listtinz"><span class="detailed">CSS</span></div>
+            	<div class="listtinz"><span class="detailed">BOOTSTRAP</span></div>
+            	<div class="listtinz"><span class="detailed">JS</span></div>
             	
             </div>
             

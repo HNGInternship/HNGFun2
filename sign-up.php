@@ -1,14 +1,7 @@
 <?php
 require_once('country-array.php');
 include_once("header.php");
-<<<<<<< HEAD
     
-=======
-
-    
-
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
 ?>
 
 <style>
@@ -41,11 +34,6 @@ include_once("header.php");
   .label{
     color:#5F5F5F !important;
   }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
 </style>
 
 
@@ -86,43 +74,17 @@ include_once("header.php");
             <div class="input-block mr-9 pb-2">
             <label class="label" for="userName">Username</label>
             <input type="text" style="height: 40px;" id="userName" name="userName" class="form-control" placeholder="" required>
-<<<<<<< HEAD
-=======
             </div>
 
             <div class="input-block pb-2">
-            <label class="label" for="email">Email Address</label>
-            <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required>
-            </div>
-
-
-
-             <div class="input-block mr-9 pb-2">
-            <label class="label">Nationality</label>
-            <select class="form-control" name="nationality" id="nationality" required>
-              <option value="">Select Country</option>
-              <?php
-                  foreach ($countrylist as $key => $country) {
-                    echo "<option id='".strtolower($country)."'>$country</option>";
-                  }
-                ?>
-            </select>
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
-            </div>
-
-
-            <div class="input-block pb-2">
-<<<<<<< HEAD
             <label class="label" for="email">Email Address</label>
             <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required value="<?php echo $_POST['email']; ?>">
             </div>
 
-
-
              <div class="input-block mr-9 pb-2">
             <label class="label">Nationality</label>
-            <select class="form-control" name="nationality" id="nationality" required>
-              <option value="">Select Country</option>
+            <select class="form-control" name="nationality" id="nationality" required style="height: 41.5px;">
+                <option value="">Select Country</option>
               <?php
                   foreach ($countrylist as $key => $country) {
                     echo "<option id='".strtolower($country)."'>$country</option>";
@@ -133,47 +95,29 @@ include_once("header.php");
 
 
             <div class="input-block pb-2">
-=======
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
-<!-- <<<<<<< HEAD -->
             <label class="label" for="phone">Phone number</label>
             <input type="tel" id="phone" style="height: 40px;" name="phone" class="form-control" placeholder="" required>
-<!-- =======
-            <label class="label">Email</label>
-            <input type="text" name="email" class="form-control" placeholder="" required value="<?php if (isset($_POST['email']) && !empty($_POST['email'])){ echo $_POST['email'];} ?>">
->>>>>>> d530f7f4dc913fd97f9de97a0b808cfb28f97970 -->
             </div>
-            
-         <!--    <div class="input-block mr-9 pb-2">
-            <label class="label">Nationality</label>
-            <select class="form-control" name="nationality" required>
-              <option value=""></option>
-              <?php
-                  foreach ($countrylist as $key => $country) {
-                    echo "<option id='".strtolower($country)."'>$country</option>";
-                  }
-                ?>
-            </select>
-            </div>
-            <div class="input-block pb-2">
-            <label class="label">City</label>
-            <select class="form-control" id="state" name="state" required>
+
+            <div class="input-block mr-9 pb-2">
+            <label class="label">State</label>
+            <select class="form-control" id="state" name="state" required style="height: 40px;">
               <option value=""></option>
               <?php
                   foreach ($states as $key => $state) { ?>
-                    <option value="<?php echo $key;?>"><?php echo $state?></option>"
+                    <option value="<?php echo $key;?>"><?php echo $state?></option>
                   <?php }
                   ?>
              </select>
              <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
             </div>
-             -->
-            <div class="input-block mr-9 pb-2">
+            
+            <div class="input-block pb-2">
             <label class="label" for="password">Password</label>
             <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
             </div>
 
-            <div class="input-block pb-2">
+            <div class="input-block mr-9 pb-2">
             <label class="label" for="passwordCheck">Retype Password</label>
             <input type="password" id="passwordCheck"  style="height: 40px;" name="passwordCheck" class="form-control" placeholder="" required>
             </div>
@@ -181,7 +125,7 @@ include_once("header.php");
                 <input type="hidden" name="registration" value="yes">
 
             
-            <button class="btn btn-primary signup-btn mt-4" id="register" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" style="font-weight: bold; font-size: 18px" id="register" type="submit">Sign Up</button>
 
             <!-- <button type="submit" name="register" class="btn btn-signup" id="register">Sign Up </button> -->
 
@@ -202,32 +146,16 @@ include_once("header.php");
         $('#signUpInfo').hide();
     $("#register_form").submit(function(e){
         e.preventDefault();
-<<<<<<< HEAD
          $("#password").removeClass('is-invalid');
             $("#passwordCheck").removeClass('is-invalid');
         $('#signUpInfo').hide();
-=======
-
-         $("#password").removeClass('is-invalid');
-            $("#passwordCheck").removeClass('is-invalid');
-        $('#signUpInfo').hide();
-
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
         var firstname = $("#firstName").val();
          var lastname = $("#lastName").val();
         var email = $("#email").val();
          var password = $("#password").val();
          var password2 = $("#passwordCheck").val();
-<<<<<<< HEAD
         
         // var terms = $('#terms').is(':checked'); 
-=======
-
-        
-        // var terms = $('#terms').is(':checked'); 
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
         if(password !==password2){
             $("#password").addClass('is-invalid');
             $("#passwordCheck").addClass('is-invalid');
@@ -235,37 +163,18 @@ include_once("header.php");
             $("#signUpInfo").attr("class","text-danger");
         $('#signUpInfo').show();
         return;
-<<<<<<< HEAD
-=======
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
         }
        
               
       // $("#signUpInfo").html('Registering...');
       //       $("#signUpInfo").attr("class","text-warning");
-<<<<<<< HEAD
       //   $('#signUpInfo').show();
              var data = $("#register_form").serialize();
-=======
-
-      //   $('#signUpInfo').show();
-
-
-             var data = $("#register_form").serialize();
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
              $.ajax('process_access',{
             type : 'post',
             data : data,
             success: function(data){
-<<<<<<< HEAD
       $("#register").html('Sign Up');
-=======
-
-      $("#register").html('Sign Up');
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
               if(data==="1"){
                 $("#signUpInfo").html("Account created successfully");
             $("#signUpInfo").attr("class","text-success");
@@ -274,21 +183,10 @@ include_once("header.php");
                 return;
               }
             
-<<<<<<< HEAD
             $("#signUpInfo").html(data);
             $("#signUpInfo").attr("class","text-danger");
             $("#signUpInfo").show();
             // $("#register").html('Registration successful');
-=======
-
-            $("#signUpInfo").html(data);
-            $("#signUpInfo").attr("class","text-danger");
-            $("#signUpInfo").show();
-
-
-            // $("#register").html('Registration successful');
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
             // window.location.href ="https://hng.fun/activateaccount";
              // }  
              // else{
@@ -297,28 +195,14 @@ include_once("header.php");
                 //  $("#register").html('Failed');
              // } 
             
-<<<<<<< HEAD
-=======
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
                     // alert('Request not completed');
       $("#register").html('Sign Up');
-<<<<<<< HEAD
                  $("#signUpInfo").html('An error occured, please try again later ');
             $("#signUpInfo").attr("class","text-danger");
         $('#signUpInfo').show();
-=======
-
-                 $("#signUpInfo").html('An error occured, please try again later ');
-            $("#signUpInfo").attr("class","text-danger");
-
-        $('#signUpInfo').show();
-
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
                  }
                 // $("#register").html('Failed');
             },
@@ -327,32 +211,15 @@ include_once("header.php");
       // $("#signUpInfo").html('Registering...');
       //       $("#signUpInfo").attr("class","text-warning");
       //   $('#signUpInfo').show();
-<<<<<<< HEAD
-=======
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
          
             },
         });
     
-<<<<<<< HEAD
         
      });
-=======
-
-        
-     });
-
-
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
     });
     
 </script>
 <?php
-<<<<<<< HEAD
-=======
-
->>>>>>> 276f2a5fd6c391c063187d24205da91ccc00c90f
 include_once("footer.php");
 ?>

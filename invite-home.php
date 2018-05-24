@@ -3,17 +3,7 @@ include_once("header.php");
 ?>
     <div class="container-fluid">
         <div class="row">
-            <div id="left-pan" class="col-md-6">
-                <div id="shield-invite-lpanel">
-                    <div class="shield-invite-head">Invite Your Friends</div>
-                    <div class="shield-invite-text">
-                        <p>When summer comes around, however, the reality can present itself somewhat differently. 
-                    Holidaying as a single person when many friends have settled down can often mean sacrif</p>
-                    </div>
-                    <button class="btn shield-invite-btn">Send invites</button>
-                </div>
-            </div>
-            <div id="right-pan" class="col-md-6">
+            <div id="right-pan" class="col-md-6 col-xs-12 order-md-2">
                 <div id="shield-envelope">
                     <div class="shield-circle">
                         <img src="img/invite/large-envelope.png" alt="" id="shield-lg-env">
@@ -28,6 +18,16 @@ include_once("header.php");
 
                     
                     </div>
+                </div>
+            </div>
+            <div id="left-pan" class="col-md-6 col-xs-12 order-md-1">
+                <div id="shield-invite-lpanel">
+                    <div class="shield-invite-head">Invite Your Friends</div>
+                    <div class="shield-invite-text">
+                        <p>When summer comes around, however, the reality can present itself somewhat differently. 
+                    Holidaying as a single person when many friends have settled down can often mean sacrif</p>
+                    </div>
+                    <button onclick="window.location.href='http://hng.fun/invite'" class="btn shield-invite-btn">Send invites</button>
                 </div>
             </div>
         </div>

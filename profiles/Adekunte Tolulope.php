@@ -1,4 +1,5 @@
 <?php
+include_once("../answers.php");
 if (!defined('DB_USER'))
 	{
 	require"../../config.php";
@@ -13,9 +14,9 @@ catch(PDOException $pe)
 	}
 global $conn;
 $diffAns ='';
-if (isset($_POST['bot_adekunte'])) {
+if (isset($_GET['bot_adekunte'])) {
 	
-	$data = $_POST['bot_adekunte'];
+	$data = $_GET['bot_adekunte'];
 	if ($data == 'aboutbot') {
 		echo "V 1.0";
 		exit();
@@ -288,18 +289,19 @@ button:hover, a:hover {
 	</div>
 </div>
 
-<script type="text/javascript">
+
+	<script type="text/javascript">
 var no = 0;
 	function processR(){
 		
 		if (document.getElementById('botInp').value != '') {
 			var x = new XMLHttpRequest();
-		var url = 'profiles/Adekunte Tolulope.php';
+		var url = '/profiles/Adekunte Tolulope.php';
 		var data = document.getElementById("botInp").value;
 		var vars = "bot_adekunte="+data;no++;
 		document.getElementById('ans').innerHTML+='<div><div class="ques">'+data+'</div></div>';
 		document.getElementById('ans').innerHTML+='<div><div class="ans" id="id'+no+'"></div></div>';
-		x.open("POST", url, true);
+		x.open("GET", url, true);
 		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		x.onreadystatechange = function(){
 			if (x.readyState == 4 && x.status == 200) {

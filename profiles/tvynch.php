@@ -1,17 +1,16 @@
 <?php
 ini_set("display_errors",1);
 if(!defined('DB_USER')){
-  require_once('../config.php');
-}
-
-global $conn;
-
-try {
+  require_once('../../config.php');
+  
+  try {
     $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-} catch (PDOException $pe) {
+  } catch (PDOException $pe) {
     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+  }
 }
 
+//global $conn;
   $result = $conn->query("Select * from secret_word LIMIT 1");
   $result = $result->fetch(PDO::FETCH_OBJ);
   $secret_word = $result->secret_word;
@@ -340,13 +339,13 @@ try {
           if(!getMessage($query)){
             echo "I do not understand you. You could train me so i'd understand"; exit();
           }else{
-            getMessage($query);
+            getMessage($query); exit();
           }
         }else{
           if(!getMessage($query)){
             echo "I do not understand you. You could train me so i'd understand"; exit();
           }else{
-            getMessage($query);
+            getMessage($query); exit();
           }
         }
         exit();
@@ -356,7 +355,7 @@ try {
       exit();
   }
 // end of chatbot
-
+  else{
   ?>
 
 <!DOCTYPE html>
@@ -803,3 +802,4 @@ try {
 
   </body>
 </html>
+<?php } ?>

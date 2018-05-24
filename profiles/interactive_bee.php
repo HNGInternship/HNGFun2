@@ -2,7 +2,7 @@
 
 if($_SERVER['REQUEST_METHOD'] !== "POST"){
     if(!defined('DB_USER')){
-        require "../config.php";
+        require_once __DIR__."/../../config.php";
         try {
             $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
         } catch (PDOException $e) {
@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] !== "POST"){
 <?php
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     if(!defined('DB_USER')){
-        require "../config.php";
+        require_once __DIR__."/../../config.php";
         try {
             $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
         } catch (PDOException $e) {
@@ -410,7 +410,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 
             //send question to server
             $.ajax({
-                url: "../profiles/interactive_bee.php",
+                url: "/profiles/interactive_bee",
                 type: "post",
                 data: {question: question},
                 dataType: "json",

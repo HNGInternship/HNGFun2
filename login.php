@@ -1,13 +1,15 @@
- <?php include("header.php");?>
+ <?php 
+   session_start();
+    include("header.php");
+  ?>
 
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
-    <h1 class="pt-5">Log In</h1>
-    <p style="font-size: 0.7em !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
+    <h1 class="pt-5" style="font-size:2.0em">Log In</h1>
+    <p style="font-size: 1.0em !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
 </div>
 
 <div class="container" style='color: #3D3D3D'>
-    <!-- /*<div id="message" style="color:black; font-weight:bold;"></div>*/ -->
             <h6 style="text-align: center" class="text-danger" id="message"></h6>
 
 
@@ -30,7 +32,7 @@
                         <label class="form-check-label" style="font-size:0.7em;">Remember Me</label>
                     </div>
                     
-                    <button class="btn btn-primary btn-block" id="login" type="submit">Log In</button> 
+                    <button class="btn btn-primary btn-block" id="login" type="submit" style="font-size:1.0em">Log In</button> 
                 <input type="hidden" name="login" value="yes">
 
                 
@@ -40,7 +42,7 @@
                     <span style="font-size: 0.7em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
                 </div>
 
-                <div style="font-size: 0.7em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
+                <div style="font-size: 0.8em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
             </div>
         </div> 
         
@@ -97,7 +99,7 @@
 
              if(data=="1"){
                 $("#message").attr("class",'text-success');
-            $("#message").html("Login successful");
+            $("#message").html("Login Successful");
 
             $("#login").html('Redirecting..');
 
@@ -106,14 +108,14 @@
              else if(data=="2"){
                 $("#message").attr("class", 'text-danger');
             
-                $("#message").html("Account has not been verified yet");
+                $("#message").html("Your Account has not been verified yet");
              } 
 
              else if(data="0"){
 
                 $("#message").attr("class", 'text-danger');
             
-                 $("#message").html('Error Invalid Email or password');
+                 $("#message").html('You entered an incorrect email or password');
              }
 
              else{
@@ -128,13 +130,6 @@
             $("#login").html('Log In');
                 
 
-            },
-           error : function(jqXHR,textStatus,errorThrown){
-                 if(textStatus ='error'){
-            $("#login").html('Log In');
-
-                    alert('Request not completed');
-                 }
             },
             beforeSend :function(){
 

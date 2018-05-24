@@ -1,332 +1,351 @@
 <?php
-// ob_start();
-session_start();
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-   if (!defined('DB_USER')) {
-      //live server
-      require "../../config.php";
-      //   localhost
-      // require "../config.example.php";
-      try {
-         $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-      } catch (PDOException $pe) {
-         echo ("🤖I couldn't connect to knowledge base : " . $pe->getMessage() . DB_DATABASE . ": " . $pe->getMessage());
-      }
-   }
-   // require '../answers.php';
-   global $conn;
-
-   function train($question, $answer) {
-      $question = trim($question);
-      $answer = trim($answer);
-      if (store($question, $answer)) {
-         return "🤖 I just learnt something new, thanks to you 😎";
-      } else {
-         return "🤖 I'm sorry, An error occured while trying to store what i learnt 😔";
-      }
-   }
-
-   function findThisPerson($user) {
-      global $conn;
-      $statement = $conn->prepare("select * from interns_data where username like :user or name like :user limit 1");
-      $statement->bindValue(':user', "%$user%");
-      $statement->execute();
-      $statement->setFetchMode(PDO::FETCH_ASSOC);
-      $rows = $statement->fetchObject();
-      return $rows;
-   }
-
-   function searchRequest($request) {
-      global $conn;
-      $statement = $conn->prepare("select answer from chatbot where question like :request order by rand()");
-      $statement->bindValue(':request', "%$request%");
-      $statement->execute();
-      $statement->setFetchMode(PDO::FETCH_ASSOC);
-      $rows = $statement->fetch();
-      $response = $rows['answer'];
-      if (!empty($response)):
-         $response = "🤖 " . $response;
-      endif;
-      //check for function
-      try {
-         if (preg_match('/(\(+[a-zA-Z_]+\))/', $response, $match)) {
-            $functionName = $match[0];
-            $functionName = str_replace('(', '', $functionName);
-            $functionName = str_replace(')', '', $functionName);
-            if (function_exists($functionName)) {
-               $response = str_replace($functionName, $functionName(), $response);
-               $response = str_replace('(', '', $response);
-               $response = str_replace(')', '', $response);
-            } else {
-               $response = "🤖 I'm sorry, The function doesn't exist";
-            }
-         }
-      } catch (Exception $ex) {
-         echo $ex->getMessage();
-      }
-      return $response;
-   }
-
-   function store($request, $response)
-   {
-      global $conn;
-      $statement = $conn->prepare("insert into chatbot (question, answer) values (:request, :response)");
-      $statement->bindValue(':request', $request);
-      $statement->bindValue(':response', $response);
-      $statement->execute();
-      if ($statement->execute()) {
-         return true;
-      } else {
-         return false;
-      }
-   }
-
-   if (isset($_POST['new_request'])) {
-      $bot_response['response'] = [];
-      $user_request = "";
-      $bot_response['response'] = "";
-      $request = $_POST['new_request'];
-      $user_request = trim($request);
-      if (empty($user_request)) {
-         $bot_response['response'] = "🤖 You haven't made any request";
-      } else {
-         if (!empty(searchRequest($user_request))) {
-            $bot_response['response'] = searchRequest($user_request);
-         } else if (preg_match("/(train:)/", $user_request)) {
-            $power_split = explode("#", $request);
-            $question = trim(preg_replace("/(train:)/", "", $power_split[0]));
-            $answer = trim($power_split[1]);
-            $password = trim($power_split[2]);
-
-            if ($password != "password") {
-               $bot_response['response'] = "🤖 Training Access Denied!";
-            } else {
-               $bot_response['response'] = train($question, $answer);
-            }
-
-         } else if (preg_match('/(find:)/', $request)) {
-            $ex = explode("find:", $request);
-
-            if (!empty($users = findThisPerson($ex[1]))) {
-               $bot_response['response'] = array('resultType' => 'find', 'users' => $users);
-            } else {
-               $bot_response['response'] = "🤖 I couldn't find a user by that username or name";
-            }
-
-         } else {
-            $bot_response['response'] = "🤖 I  don't understand your request, I hope you wouldn't mind training me?";
-         }
-      }
-      send:
-      echo json_encode($bot_response);
-   }
+if($_SERVER['REQUEST_METHOD'] === 'GET'){
+    try {
+        $sql = 'SELECT * FROM secret_word';
+        $q = $conn->query($sql);
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $data = $q->fetch();
+    } catch (PDOException $e) {
+        throw $e;
+    }
+    $secret_word = $data['secret_word'];
 }
-if ($_SERVER['REQUEST_METHOD'] == "GET") {
-   $result = $conn->query("Select * from secret_word LIMIT 1");
-   $result = $result->fetch(PDO::FETCH_OBJ);
-   $secret_word = $result->secret_word;
-   $result2 = $conn->query("Select * from interns_data where username = 'eniayomi'");
-   $user = $result2->fetch(PDO::FETCH_OBJ);
-}?>
-<?php if ($_SERVER['REQUEST_METHOD'] == "GET") {?>
-   <style>
-   body {
-      background: #DAE3E7;
-      padding: 10px;
-      /* border: 25px solid; */
-      font-family: 'Lato', arial, sans-serif;
-      margin: 20px;
-   }
-   a{
-      color: #434343;
-   }
-   #top {
-      background-color: #DAE3E7;
-      background: white;
-      height: 35%;
-      margin: 20px;
-      border-radius: 20px;
-   }
-   #intro{
-      margin: 29px;
-      display: block;
-      font-size: 16px;
-      padding: 20px;
-   }
-   h1{
-      color: #434343;
-      font-size: 38px;
-      margin-bottom: 5px;
-      margin-top: 30px;
-      padding-top: 10px;
-      font-family: 'Montserrat', sans-serif;
-   }
-   h2{
-      color: #778492;
-      font-size: 26px
-   }
-   img {
-      border-radius: 50%;
-      float: left;
-      width: 15%;
-      margin: 15px;
-   }
-   li{
-      padding-right: 25px;
-      margin-right: 9px;
-      list-style: none;
-      display: inline;
-      font-size: 30px;
-      padding-top: 10px;
-      border-radius: 50%;
-      color: #fff;
-      text-align: center;
-   }
-   .round-corners{
-      border-radius: 20px;
-      /* background-color: #DAE3E7; */
-      background: white;
-      margin: 20px;
-   }
-   .inner{
-      padding: 20px;
-   }
-   #id{
-      border:2px black;
-   }
-   p,i,li{
-      font-family:'Lato', arial, sans-serif;
-   }
-   #all_content{
-      padding-top:21px
-   }
-   .form-control2{
-      margin-bottom:20px;
-   }
-   .timeEl{color:#495057;font-size:12px}
-</style>
-<!DOCTYPE HTML5>
-<head>
-   <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css' />
-   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
-</head>
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        $data = preg_replace("([?.!])", "", $data);
+        $data = preg_replace("(['])", "\'", $data);
+        return $data;
+    }
+    require '../../config.php';
+    
+  $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
+    
+    if(!$conn){
+        die('Unable to connect');
+    }
+    $question = $_POST['message'];
+    $pos = strpos($question, 'train:');
+    if($pos === false){
+        $sql = "SELECT answer FROM chatbot WHERE question like '$question' ";
+        $query = $conn->query($sql);
+        if($query){
+            echo json_encode([
+                'results'=> $query->fetch_all()
+            ]);
+            return;
+        }
+    }else{
+        $trainer = substr($question,6 );
+        $data = explode('#', $trainer);
+        $data[0] = trim($data[0]);
+        $data[1] = trim($data[1]);
+        $data[2] = trim($data[2]);
+        if($data[2] == 'password'){
+            $sql = "INSERT INTO chatbot (question, answer)
+            VALUES ('$data[0]', '$data[1]')";
+            $query = $conn->query($sql);
+            if($query){
+                echo json_encode([
+                    'results'=> 'Successfully trained'
+                ]);
+                return;
+            }else{
+                echo json_encode([
+                    'results'=> 'Training error'
+                ]);
+                return;
+            }
+            
+        }else{
+            echo json_encode([
+                'results'=> 'Wrong Password'
+            ]);
+            return;
+        }
+        
+    }
+    
+    echo json_encode([
+        'results'=>  'Good to go'
+    ]);
+    
+return ;
+}
+?>
+<!DOCTYPE html>
 <html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya|Allura|Almendra SC|Romanesco|Source+Sans+Pro:400,700' rel='stylesheet'>
+    <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <style type="text/css">
+        .container{
+            width: 100%;
+            min-height: 100%
+        }
+        .body0 { 
+            height: 100%;
+        }
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+        }
+        .main {
+            position: relative;
+            /*top:20px;*/
+            width: 100%;
+            /*padding-top: 300px;*/
+            max-height: 230px;
+            font-family: "Romanesco";
+            line-height: 150px;
+            font-size: 96px;
+            text-align: center;
+        }
+        .text {
+            background: -webkit-linear-gradient(0deg, #FF0F00, rgba(17, 26, 240, 0.55), #EC0F13);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .under {
+            position: relative;
+            /*top:450px;*/
+            max-height: 100px;
+            width: 100%;
+            font-family: "Alegreya";
+            line-height: normal;
+            font-size: 32px;
+            text-align: center;
+            color: #000830;
+        }
+        .under1 {
+            position: relative;
+            /*top:500px;*/
+            height: 40px;
+            width: 100%;
+            font-family: "Alegreya";
+            line-height: normal;
+            font-size: 32px;
+            text-align: center;
+            color: #000830;
+        }
+        .under2 {
+            position: relative;
+            /*top:540px;*/
+            height: 49.71px;
+            width: 100%;
+            font-family: "Alegreya";
+            line-height: normal;
+            font-size: 32px;
+            text-align: center;
+            color: #000830;
+            background-color: #1380FA;
+        }
+        body{
+            background-image: url(boats.jpg);
+            background-size: cover;
+        }
+        }
+        .body1 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 75%;
+            display: flex;
+            flex-direction: column;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .chat-output {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            background: white;
+            flex-direction: column;
+            overflow-y: scroll;
+            max-height: 500px;
+        }
+        .chat-output > div {
+            margin: 0 0 20px 0;
+        }
+        .chat-output .user-message .message {
+            background: #0fb0df;
+            color: white;
+        }
+        .chat-output .bot-message {
+            text-align: right;
+        }
+        .chat-output .bot-message .message {
+            background: #eee;
+        }
+        .chat-output .message {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 10px;
+        }
+        .chat-input {
+            padding: 20px;
+            background: #eee;
+            border: 1px solid #ccc;
+            border-bottom: 0;
+        }
+        .chat-input .user-input {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+        }
+        .send_button{
+      width: 75px;
+      height: 35px;
+      padding: 5px;
+      margin-top: 8px;
+      color: black;
+      border:none;
+      border-radius: 5px;
+      background-color: #1380FA;
+    }
+        
+    </style>
+</head>
 <body>
-   <div id="all_content">
-      <div id="top">
-         <img src="http://res.cloudinary.com/eniayomi/image/upload/v1524007065/pe.png" alt="Oluwaseyi Oluwapelumi">
-         <div id="intro">
-            <h1><?php echo $user->name; ?></h1>
-            <h2 style="text-align:left">Backend Developer</h2>
-            <ul class="list-inline">
-               <li><a target="_blank" title="Twitter" href="https://twitter.com/techteel"><i class="fa fa-twitter"></i></a></li>
-               <li><a target="_blank" title="Github/eniayomi" href="https://github.com/eniayomi"><i class="fa fa-github-alt"></i></a></li>
-               <li><a style="font-size:20px;" class="btn btn-cta-primary pull-right" href="mailto:nathanoluwaseyi@gmail.com" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a></li>
-            </ul>
-         </div>
-      </div>
-      <div class="round-corners">
-         <div style="font-size: 17px" class="inner">
-            <h2>About Me</h2>
-            <p>Frontend Developer, Java && MySQL. Currently learning core JavaScript.</p>
-            <p>The things i like aren't so much: #peace #solitude #mylaptop</p>
-         </div>
-      </div>
-      <div class="bot round-corners">
-         <div class="inner">
-            <h2>Eniayomi's Bot 🤖</h2>
-            <div id="chatarea" style="overflow: auto; height:300px; border:1px solid whitesmoke; border-radius:5px"></div>
-            <div class="input-group">
-               <input type="text" class="form-control" id="message" type="text" placeholder="Message" name="newrequest" />
-               <div class="input-group-btn">
-                  <button class="btn btn-success pull-right" id="send" type="button">Send 💬</button>
-               </div>
+<div class="container">
+    <div class="oj-flex oj-flex-items-pad oj-contrast-marker">
+        <div class="oj-sm-12 oj-md-6 oj-flex-item">
+            <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
+                <div role="img" class="oj-flex-item alignCenter">
+                    <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
+                    data-bind="attr:{'aria-label':'Avatar of Oluwaseyi Oluwapelumi'}">
+                    </oj-avatar>
+                    <img class="img-fluid " onerror="this.src='http://res.cloudinary.com/eniayomi/image/upload/v1524007065/pe.png'" src="<?=$my_data['image_filename'] ?>" >
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+            <div class="body0">
+                <div class="main"><span class="text"><?=$my_data['name'] ?></span></div>
+                <div class="under"><span>Front End Web Developer</span></div>
+                <div class="under1"><span>
+                        <div class="oj-flex oj-md-align-items-center"><a href="https://github.com/papuzzy">
+                            <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
+                                <img style="width:40px; height: 40px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png">
+                            </div></a>
+
+                            <a href="https://linkedin.com/in/eniayomi">
+                                 <div class="oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-2x">
+                                    <img style="width:40px; height: 40px;" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-social-media/256/Linkedin-icon.png">
+                                 </div>
+                            </a>
+                        </div></span>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+        
+      <br>
+      <br>
+      <br>
+        <div class="oj-sm-12 oj-md-6 oj-flex-item">
+          <div class="under2"><span>Enny Bot</span></div>
+            <div class="body1">
+                <div class="chat-output" id="chat-output">
+                    <div class="user-message">
+                        <div class="message">Hello! My name is Eny bot.<br>I'm willing to assist you with any of your questions.<br>Type <span style="color: #FABF4B;"><strong> aboutbot</strong></span> to know more about me. </br>To train me, use this format - 'train: question # answer # password'. </br>To learn more about me, simply type - 'aboutbot'.</div>
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                        <input type="text" name="user-input" id="user-input" class="user-input" placeholder="Say something here">
+                        <button onclick="chat()" class="send_button" id="send">Send</button>
+                </div>
+            
+
+            </div>
+        </div>
+    </div>
+  
+
+
+
+   
+
 </div>
-<footer style="margin-bottom:0px; text-align:center; padding-top:25px;" id="footer">
-   <p>Eniayomi @ 2018 HNG</p>
-</footer>
+
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
 
-function newElementsForUser(userRequest) {
-   var chatArea = $("#chatarea");
-   var messageElement = "<div class='form-control form-control2 text-right'>" + userRequest + "</div>";
-   chatArea.html(chatArea.html() + messageElement);
-   var time = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
-   var timeElement = "<p class='timeEl text-right'>" + time + "</p>";
-   chatArea.html(chatArea.html() + timeElement);
-   chatArea.scrollTop($("#chatarea")[0].scrollHeight);
-}
-
-function newElementsForBot(botResponse) {
-   var chatArea = $("#chatarea");
-   if (botResponse.response.resultType == "find") {
-      var messageElement = "<div class='form-control form-control2 text-left'>Intern ID => " + botResponse.response.users.intern_id + "<br/>Name => " + botResponse.response.users.name + "<br/>Intern Username => " + botResponse.response.users.username + "<br/>Intern Profile Picture => " + botResponse.response.users.image_filename + "</div>";
-   } else { 
-      var messageElement = "<div class='form-control form-control2 text-left'>" + botResponse.response + "</div>";
-   }
-   chatArea.html(chatArea.html() + messageElement);
-   var time = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true , milliseconds: true});
-   var timeElement = "<p class='timeEl text-left'>" + time + "</p>";
-   chatArea.html(chatArea.html() + timeElement);
-   chatArea.scrollTop($("#chatarea")[0].scrollHeight);
-}
-
-$(document).ready(function() {
-   response = {"response" : "Hello there, I'm eniayomi Bot.<br/>Here's a couple of things i can do.<br/> 1. You can ask me anything<br/>2. You can find a friend who's in the dope HNGInternship<br/>syntax : find: username or find: name<br/>3. To train the bot(train: question # answer # password)"};
-   newElementsForBot(response);
-});
-
-$(document).ready(function chargeBot() {
-   $("#send").click(function () {
-      var message = $("#message").val();
-      newElementsForUser(message);
-      if (message == "" || message == null) {
-         response = { 'response': 'Please type something' };
-         newElementsForBot(response);
-      }else if (message.includes('open:')) {
-         url = message.split('open:');
-         window.open('http://' + url[1]);
-      } else if (message.includes("randomquote:") || message.includes("random quotes:")) {
-         $.getJSON("https://talaikis.com/api/quotes/random/", function (json) {
-            response = json['quote'] + '<br/> Author : ' + json['author'];
-            botResponse = { 'response': response };
-            newElementsForBot(botResponse);
-         });
-         $("#chatarea").scrollTop($("#chatarea")[0].scrollHeight);
-      } else if (message.includes("aboutbot") || message.includes("about bot") || message.includes("aboutbot:")) {
-         response = { 'response': 'Version 4.0' };
-         newElementsForBot(response);
-      } else {
-         $.ajax({
-            url: "profiles/eniayomi.php",
-            type: "POST",
-            data: { new_request: message },
-            dataType: "json",
-            success: function (botResponse) {
-               newElementsForBot(botResponse);
+<script>
+    window.addEventListener("keydown", function(e){
+            if(e.keyCode ==13){
+                if(document.querySelector("#user-input").value.trim()==""||document.querySelector("#user-input").value==null||document.querySelector("#user-input").value==undefined){
+                    //console.log("empty box");
+                }else{
+                    //this.console.log("Unempty");
+                    chat();
+                }
             }
-         });
-      }
-      $("#message").val("");
-   });
-});
-
-document.body.addEventListener('keyup', function (e) {
-   if (e.keyCode == "13") {
-      $("#send").click();
-   }
-});
-
+        });
+    function chat() {
+        var message = document.querySelector('#user-input');
+        var chatOutput = document.querySelector('#chat-output');
+        var pp = document.createElement('div');
+        var inner = document.createElement('div');
+        pp.classList = 'user-message';
+        inner.classList = 'message';
+        pp.append(inner);
+        inner.innerHTML = message.value;
+        //console.log(message.value)
+        chatOutput.appendChild(pp);
+        //return
+        // alert(message.value);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+            var result = JSON.parse(xhttp.responseText);
+            //<div class='bot-message'><div class='message'>${message}</div></div>
+            message.value = '';
+            var p = document.createElement('div');
+            var inn = document.createElement('div');
+            p.classList = 'bot-message';
+            inn.classList = 'message';
+            p.append(inn);
+            //console.log(result.results.length);
+            
+            if(result.results.length === 0){
+                //alert('hello');
+                inn.innerHTML = 'Not in database. please train me';
+                chatOutput.append(p);
+                return;
+            }else{
+                //console.log(typeof(result.results)) 
+                if(typeof(result.results) == 'object' ){
+                    var res = Math.floor(Math.random() * result.results.length);
+                    
+                    inn.innerHTML = result.results[res];
+                    chatOutput.append(p)
+                }else{
+                    var res = Math.floor(Math.random() * result.results.length);
+                    inn.innerHTML = result.results;
+                    chatOutput.append(p)
+                }   
+            }
+            
+            
+            
+            }
+        };
+        
+        
+        xhttp.open("POST", "/profiles/Uju", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("message="+message.value);
+        $('#chat-output').animate({
+                scrollTop: chatOutput.scrollHeight,
+                scrollLeft: 0
+            }, 500);
+    }
 </script>
 
 </html>
-
-<?php }?>
