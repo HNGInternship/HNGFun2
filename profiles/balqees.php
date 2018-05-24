@@ -41,13 +41,10 @@
     <link rel="stylesheet" href="css/custom.css" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="css/style2.css" rel="stylesheet">
-    <link href="css/style1.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    
     <!-- <link href="css/custom.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/signout.css">
-    <link href="css/landing-page.min.css" rel="stylesheet">
     <link href="css/shield-invite.css" rel="stylesheet">
     <link href="css/404.css" rel="stylesheet">
     <link href="css/contact.css" rel="stylesheet">
@@ -117,7 +114,7 @@
   img{
     width: 10rem;
     border-radius: 30%;
-    margin-left: 300px;
+    margin-left: 100px;
 
   }
 </style>
