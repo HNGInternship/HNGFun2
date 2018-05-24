@@ -311,9 +311,9 @@ if(!defined('DB_USER')){
   }
 
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-    $query = isset($_POST['query'])? $_POST['query'] : 'error';
+    $query = isset($_GET['query'])? $_GET['query'] : 'error';
     $query = strtolower($query);
     $query = filter_var($query,FILTER_SANITIZE_STRING);
 
@@ -779,7 +779,7 @@ if(!defined('DB_USER')){
 
                     $.ajax({
                         url   :'profiles/tvynch.php',
-                        type  :"POST",
+                        type  :"GET",
                         data  :{query:txt},
                         success : function(response){
                          sendMessage(response);
