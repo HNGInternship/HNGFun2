@@ -211,7 +211,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			max-width: 200px;
 
 			}
-		#bot{color: red;
+		#bot{color: white;
 			margin-left: 15px;
 			border-left: 2px;
 			background-color: #A394CD;
