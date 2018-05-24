@@ -278,6 +278,11 @@ text-decoration: none;
   height: 900px;
 }
 
+.social-media {
+  position: relative;
+  left: 20px; 
+}
+
 </style>
   
 </head>
