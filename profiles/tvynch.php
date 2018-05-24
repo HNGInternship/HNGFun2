@@ -311,9 +311,9 @@ if(!defined('DB_USER')){
   }
 
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_GET['query']) {
 
-    $query = isset($_GET['query'])? $_GET['query'] : 'error';
+    $query = $_GET['query'];
     $query = strtolower($query);
     $query = filter_var($query,FILTER_SANITIZE_STRING);
 
