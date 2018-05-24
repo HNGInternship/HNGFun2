@@ -251,7 +251,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				
 
 				<p><h2> ORJI CHIDINMA N. </h2></p>
-				<p><h4>Tech enthusiast, Intern @HNGInternship 4.0, <br/> web development student. </h4> <p>
+				<p><h4>Tech enthusiast, Intern @HNGInternship 4.0, <br/> learner. </h4> <p>
 			
 				<p> <h5> email: <u>chypearlnel@gmail.com</u></h5></p>
 				<p><h5> Phone no: 09022181787 </h5></p>
@@ -296,7 +296,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
             }
         };
-        xhttp.open("POST", "profile.php?id=chidinma");
+        xhttp.open("POST", "/profiles/chidinma");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }
