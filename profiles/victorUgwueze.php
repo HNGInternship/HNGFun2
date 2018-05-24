@@ -52,6 +52,7 @@ try {
                     trainIfAuthorized($trainMessage);
                 }else{
                     echo json_encode(['status'=>200,"message"=>"Invalid format",'train']);  
+                    return;
                 }
             }else{
                 $answer = getAnswer($message);
@@ -59,6 +60,7 @@ try {
                     echo json_encode(['status'=>200,"message"=> "I don't know that","alert"=>'train']);  
                 }else{
                     echo json_encode(['status'=>200,"message"=> $answer]); 
+                    return;
                 }
                 
             }
@@ -134,8 +136,15 @@ try {
 
 ?>
 
+<?php
+	if($_SERVER['REQUEST_METHOD'] === "GET"){
+?>
 
-
+<html lang="en">
+<head>
+	<title>Victor Ugwueze's Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <style>
         *{
 	margin: 0;
@@ -235,6 +244,7 @@ h3{
 
 .input{
     height:50px;
+    margin-bottom:8px;
     width:100%;
 }
 .minimize-bot{
@@ -288,6 +298,7 @@ h3{
     border-color: transparent transparent transparent whitesmoke;  
 }
   </style>
+  <body>
     <div class="wrap">
         <div class="img">
             <img src="<?php echo $intern_data['image_filename']; ?>" alt="Victor Ugwueze Profile Image">
@@ -329,12 +340,12 @@ h3{
                 <div class="bot-message row">To train me use this format<br> train: question #answer #password</div>
                 <div class ="bot-message row">Ask me anything</div>
             </div>
-            <div class="input" style="position:absolute; bottom:0;">
+            <div class="input" style="position:absolute; bottom:-2%; right:2%;">
             <form action="" class="form-inline">
-                    <div class="input-group mb-2 mr-sm-2">
-                        <input type="text" class="form-control question-input" id="inlineFormInputGroupUsername2" placeholder="type your message">
-                        <div class="input-group-append">
-                            <div class="input-group-text btn-primary"><input class="btn-primary" id="send" type="submit" onclick="return false;"></div>
+                    <div class="input-group mb-2 mr-sm-2" style="width:75%">
+                        <input type="text" class="ml-2 pb-2 form-control question-input" id="inlineFormInputGroupUsername2" placeholder="type your message">
+                        <div class="input-group-append mr-2 mb-4">
+                            <div class="btn-primary"><input class="btn-primary input-group-text" id="send" type="submit" onclick="return false;" style="background:#0062cc;color:#fff;"></div>
                         </div>
                     </div>
             </form>
@@ -342,6 +353,7 @@ h3{
         </div>
     </div>
     <!-- Javascript tags -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
     <script>
         //handles show and hide for chat window 
 $(document).ready(function(){
@@ -405,7 +417,7 @@ $(document).ready(function(){
             console.log(input);
             $.ajax({
                 type:'POST',
-                url:'profiles/victorUgwueze.php',
+                url:'profiles/victorUgwueze',
                 dataType:'json',
                 data:{'message':input},
                 success:(data,status)=>{
@@ -432,3 +444,6 @@ $(document).ready(function(){
 
 });
     </script>
+    </body>
+</html>
+<?php }?>

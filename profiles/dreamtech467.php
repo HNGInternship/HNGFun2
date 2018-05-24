@@ -1,5 +1,7 @@
 
 <?php
+
+	 
 	if(!defined('DB_USER')){
 		if (file_exists('../../config.php')) {
 			require_once '../../config.php';
@@ -12,7 +14,7 @@
 		try {
 			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);			
 		} catch (PDOException $e) {
-			die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+			die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
 		}
 	}
 
@@ -41,28 +43,9 @@
 
   
   
-  
+  if(isset($_GET['answer'])){
 		//chatBot
-	if($_SERVER['REQUEST_METHOD'] === "POST"){
-		
-		if(!defined('DB_USER')){
-		if (file_exists('../../config.php')) {
-			require_once '../../config.php';
-		} else if (file_exists('../config.php')) {
-			require_once '../config.php';
-		} elseif (file_exists('config.php')) {
-			require_once 'config.php';
-		}
-			
-		try {
-			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);			
-		} catch (PDOException $e) {
-			die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
-		}
-	}
-		
-		
-		
+	if($_SERVER['REQUEST_METHOD'] === "GET"){
 	
 		function stripquestion($question){
 			// remove whitespace first
@@ -107,8 +90,8 @@
 			}
 		}
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		if (isset($_POST['message']) && $_POST['message']!=null) {
-			$question = $_POST['message'];
+		if (isset($_GET['message']) && $_GET['message']!=null) {
+			$question = $_GET['message'];
 			$strippedquestion = stripquestion($question);
 			$array_data = explode(':', $strippedquestion);
 			if (is_training($array_data[0])) { 
@@ -148,6 +131,7 @@
 			}
 		}
 }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -157,6 +141,8 @@
 		<meta name="viewport" content="width=device-width, initail-scale=1">
 		<title>Abraham Profile</title>
 		
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-git.min.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>

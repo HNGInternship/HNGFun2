@@ -37,7 +37,7 @@ $activeArray[$fileIndex]="active";
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
 
 
@@ -75,9 +75,17 @@ $activeArray[$fileIndex]="active";
             color: #3d3d3d;
             font-family: 'Lato', sans-serif;
         }
-      .active{
+
+      .nav-item:hover, .active{
+            border-bottom: 3px solid #2196F3;
+        }
+
+     /* a:active{
           background-color:lightblue;
-      }
+      } */
+      a:visted{
+          color:green;
+      } 
         .navbar{
           font-size: 15px;
           font-weight: bold;
@@ -87,7 +95,7 @@ $activeArray[$fileIndex]="active";
 
         .nav-item{
             padding: 24px 15px;
-            border-bottom: 3px solid #f4f4f4;
+            /* border-bottom: 3px solid #f4f4f4; */
         }
         .nav-item:hover{
             border-bottom: 3px solid #2196F3;
@@ -160,22 +168,22 @@ $activeArray[$fileIndex]="active";
 
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item <?= $activeArray[0] ?>">
-                <a href="index" class="nav-link">Home</a>
+            <li class="nav-item  <?= $activeArray[0] ?>">
+                <a href="index" class="nav-link ">Home</a>
             </li>
-            <li class="nav-item <?= $activeArray[1] ?>">
+            <li class="nav-item  <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
             </li>
-            <li class="nav-item <?= $activeArray[2] ?>">
+            <li class="nav-item  <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
             </li>
-            <li class="nav-item <?= $activeArray[3] ?>">
+            <li class="nav-item  <?= $activeArray[3] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>
             </li>
             <li class="nav-item <?= $activeArray[4] ?>">
                 <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
-            <li class="nav-item <?= $activeArray[5] ?>">
+            <li class="nav-item  <?= $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
 
@@ -198,7 +206,7 @@ $activeArray[$fileIndex]="active";
     </nav>
 <script type="text/javascript">
       $('.navbar-nav li').click(function(e){
-    $('.navbar-nav li').removeClass("active");
+    $('.navbar-nav li').removeClass("");
     $(this).addClass("active");
 });
     </script>
