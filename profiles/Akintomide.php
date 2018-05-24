@@ -92,6 +92,15 @@ h2{
 		border-radius: 50%;
 	}
 	
+	.clear {
+			clear: both;
+		}
+		.bottom {
+			margin-bottom: 50px;}
+
+		
+		.top {
+			margin-top: 50px;}
 
 #bodybox {
   margin: auto;
@@ -132,17 +141,7 @@ h2{
   height: 22px;
   width: 100%;
 }
-	 #main {
-    position: relative;
-    max-width: 100%;
-    min-width: 27em;
-    padding: 4.5em 3em 3em 3em;
-    background: #ffffff;
-    border-radius: 4px;
-    cursor: default;
-    opacity: 0.95;
-    text-align: center;
-  }
+	
  #wrapper {
     perspective: 1000px;
     position: relative;
@@ -156,7 +155,8 @@ h2{
 </head>
 
 <body>
-<div id="wrapper">
+<div class="top clear"></div>
+
 <div style="margin-top: 30px;">
  <h2 align="center">My Profile</h2>
  </div>
@@ -198,7 +198,7 @@ $username =$my_data['username'];
   </div>
 </div>
 </div>
-</div>
+  <div class="bottom clear"></div>
 </body>
 		
 <script>
