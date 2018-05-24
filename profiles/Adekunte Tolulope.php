@@ -385,7 +385,7 @@ button:hover, a:hover {
             $("#chats").scrollTop($("#chats")[0].scrollHeight);
             //send question to server
             $.ajax({
-                url: "/profiles/interactive_bee",
+                url: "/profiles/Adekunte Tolulope.php",
                 type: "post",
                 data: {question: question},
                 dataType: "json",
@@ -421,5 +421,33 @@ button:hover, a:hover {
         });
     });
 </script>
+	<script type="text/javascript">
+var no = 0;
+	function processR(){
+		
+		if (document.getElementById('botInp').value != '') {
+			var x = new XMLHttpRequest();
+		var url = '/profiles/Adekunte Tolulope.php';
+		var data = document.getElementById("botInp").value;
+		var vars = "bot_adekunte="+data;no++;
+		document.getElementById('ans').innerHTML+='<div><div class="ques">'+data+'</div></div>';
+		document.getElementById('ans').innerHTML+='<div><div class="ans" id="id'+no+'"></div></div>';
+		x.open("POST", url, true);
+		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		x.onreadystatechange = function(){
+			if (x.readyState == 4 && x.status == 200) {
+				var return_data = x.responseText;
+				setTimeout(function(){
+					document.getElementById("id"+no).innerHTML= return_data;
+				document.getElementById("botInp").value = '';
+				},1000);
+				
+			}
+		}
+			x.send(vars);
+			document.getElementById("id"+no).innerHTML="loading..."
+		}
+}
+</script>	
 </body>
 </html>
