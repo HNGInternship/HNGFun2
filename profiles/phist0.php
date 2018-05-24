@@ -347,7 +347,7 @@ text-decoration: none;
             </div>
           </div>
           <div id="chat-content"></div>
-          
+        </div>  
       </div> <!-- end chat-history -->
         <form action="#" method="post" class="form-data">
           <fieldset>
