@@ -311,7 +311,7 @@ if(!defined('DB_USER')){
   }
 
 
-  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = isset($_GET['query'])? $_GET['query'] : 'error';
     $query = strtolower($query);
@@ -667,7 +667,7 @@ if(!defined('DB_USER')){
 
 
                    <div class="chatbot-input">
-                    <form id="chatbotForm">
+                    <form id="chatbotForm" method="get">
                         <input type="text" name="query" id="textbox" placeholder="Enter Message" autocomplete="off" />
                         <button type="submit" id="send">Send</button>
                     </form>
