@@ -80,12 +80,12 @@ $activeArray[$fileIndex]="active";
             border-bottom: 3px solid #2196F3;
         }
 
-      /* a:active{
+     /* a:active{
           background-color:lightblue;
-      }
-      a:visted{
-          color:red;
       } */
+      a:visted{
+          color:green;
+      } 
         .navbar{
           font-size: 15px;
           font-weight: bold;
@@ -156,7 +156,7 @@ $activeArray[$fileIndex]="active";
         <img src="img/logo.png" alt="HNG logo" class="img-fluid">
         </a> -->
 
-      <a class="navbar-brand" href="../index.php">
+      <a class="navbar-brand" href="../">
         <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
 
