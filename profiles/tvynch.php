@@ -773,7 +773,7 @@ if(!defined('DB_USER')){
                     users(txt);
 
                     $.ajax({
-                        url   :'profiles/tvynch.php',
+                      //  url   :'profiles/tvynch.php',
                         type  :"POST",
                         data  :{query:txt},
                         success : function(response){
