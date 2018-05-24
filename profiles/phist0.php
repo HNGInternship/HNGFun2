@@ -1,5 +1,7 @@
 <?php
 
+
+
 if(!defined('DB_USER')){
      require "../../config.php";
      try {
@@ -87,8 +89,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         	exit();
         	}
         	
+
         	
-        	?>
+?>
         
 
 
@@ -123,131 +126,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   <link rel='dns-prefetch' href='//s.w.org' />
   <script type="text/javascript">	</script>
 
-  <style>
-
-<!--
-
-    .card {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
-}
-
-       .header-top{
-           height: 500px;
-           background-color: #0A356F;
-
-       }
-
-          /* Custom, iPhone Retina */
-    @media only screen and (min-width : 320px) {
-        .header-top{
-            height: 400px;
-        }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px) {
-    .header-top{
-            height: 400px;
-        }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-    .header-top{
-            height: 480px;
-        }
-}
-       
-       .top-5{
-        margin-top: 5rem!important;
-       }
-
-
-       .full-bio{
-        position: absolute;
-        width: 80%;
-        /* margin-top: 10rem; */
-        text-align: center;
-       }
-
-
-       .profile img{
-           height: 200px ;
-           width: 200px ;
-           border: 6px solid rgba(0, 0, 0, 0.4);
-       }
-
-                /* Custom, iPhone Retina */
-        @media only screen and (min-width : 320px) {
-            .profile img {
-        height: 120px;
-        width: 120px ;
-    }
-}
-       .full-name {
-        font-family: Federant;
-        font-style: normal;
-        font-weight: normal;
-        line-height: normal;
-        font-size: 50px;
-        color: #FFFFFF;
-     }
-
-
-        @media only screen and (min-width : 320px) {
-            .full-name {
-           font-size: 25px;
-    }
-        }
-     .ux{
-        font-family: Didact Gothic;
-        font-style: normal;
-        font-weight: normal;
-        line-height: normal;
-        font-size: 25px;
-        color: #FFFFFF;
-     }
-     .location{
-        font-family: Galada;
-        font-style: normal;
-        font-weight: normal;
-        line-height: normal;
-        font-size: 20px;
-
-        color: #FFFFFF;
-     }
-     .about{
-
-     }
-      .about p{
-         padding: 5px;
-     }
-
-     .title{
-        font-family: Franklin Gothic Medium;
-        font-style: normal;
-        font-weight: normal;
-        line-height: normal;
-        font-size: 30px;
-        color: #000000;
-        border-bottom: 0px dotted #000000;
-        border-bottom-width: 6px;
-        text-align: center;
-     }
-
--->
+<style>
 
 
 
@@ -389,12 +268,6 @@ CHAT CSS
       left: 200px;
 
 } 
-body{
-  overflow-x: hidden;
-  overflow-y: hidden;
-  padding: 20px;
-}
-
 
 div.need-info {
 text-decoration: none;
@@ -402,14 +275,15 @@ text-decoration: none;
 
 .main-wrapper {
   background-color: blue;
+  height: 900px;
 }
 
-.page-content {
-  background-color: white;
-  padding: 30px;
-  z-index: 10;
+.social-media {
+  position: relative;
+  right: 10px;
 }
-  </style>
+
+</style>
   
 </head>
 <body class="home page-template-default ">
@@ -418,7 +292,6 @@ text-decoration: none;
 
 <div class="main-wrapper">
 
-  <div class="page-content">
 <!-- Header Start -->
     
     <div class="wpb_wrapper">
@@ -432,7 +305,8 @@ text-decoration: none;
     <div class="hng_internship">
       <p>   
          HNG 4.0 Internship 
-	  </p> 
+      </p> 
+    </div>
                                 
     <div class="need-info">
       <p><a  style="color: #990000;" href="#chat-box" onclick="change()">  Need Information ? Chat With The Bot Here     &gt;&gt;</a></p>
@@ -441,6 +315,9 @@ text-decoration: none;
     <div class="vc_single_image-wrapper   vc_box_border_grey">
       <img width="100" height="100" src="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg" class="vc_single_image-img attachment-full" alt="" srcset="https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 509w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 150w, http://https://res.cloudinary.com/phisto/image/upload/v1526342621/26757b44659c7309fd0c152b1ed9ab64_400x400.jpg 300w" sizes="(max-width: 509px) 100vw, 509px" />
     </div>
+</div>
+
+
 
     <div id="chat-box">
       <header class="clearfix" onclick="change()">
@@ -470,22 +347,16 @@ text-decoration: none;
             </div>
           </div>
           <div id="chat-content"></div>
-          
-          </div> <!-- end chat-history -->
-          <form action="#" method="post" class="form-data">
-            <fieldset>
-              <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
-              <input type="submit" class=" btn-primary" name="bot-interface" value="SEND"/>
-            </fieldset>
-          </form>
-          </div> <!-- end chat -->
-		  </div> <!-- end chat-box -->
-
-			    
-			    
-			    
-			    
-<script >
+        </div>  
+        <form action="#" method="post" class="form-data">
+          <fieldset>
+            <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
+            <input type="submit" class=" btn-primary" name="bot-interface" value="SEND"/>
+          </fieldset>
+        </form>
+      </div> <!-- end chat-history -->
+    </div> <!-- end chat -->
+<script>
     
 function change(){
   document.getElementById("chat").classList.toggle('hide');
@@ -525,7 +396,7 @@ e.preventDefault();
 function userChat(chats, reply){
   if(question.value !== ''){
     var chat = `<div class="chat user chat-message">
-      <img src="http://placehold.it/45/000000/fff&text=YOU" alt="" width="32" height="32">
+      <img src="https://placehold.it/45/000000/fff&text=YOU" alt="" width="32" height="32">
       <div class="chat-message-content clearfix">
         <p>` + chats + `</p>
         <span class="chat-time">` + new Date().toLocaleTimeString(); + `</span>
@@ -542,14 +413,7 @@ document.getElementById('chatlogs').scrollTop = document.getElementById('chatlog
     }, 1000);
     }
 </script>
-   </div>
- </div>
-   </div>
- </div>
-		 </div><!-- .entry-content -->
-                </div>
-			</div>
-		 
+
 </body>
 </html>
 
