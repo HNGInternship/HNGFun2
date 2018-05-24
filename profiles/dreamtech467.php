@@ -43,7 +43,7 @@
 
   
   
-  
+  if(isset($_GET['answer'])){
 		//chatBot
 	if($_SERVER['REQUEST_METHOD'] === "GET"){
 	
@@ -130,6 +130,7 @@
 				}
 			}
 		}
+}
 }
 ?>
 <!DOCTYPE html>
