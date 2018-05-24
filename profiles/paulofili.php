@@ -427,7 +427,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
                 $.ajax 
                 ({
                     type: "POST",
-                    url: "profiles/paulofili.php",   
+                    url: "/profiles/paulofili",   
                     data: 
                     { 
                         message: message
