@@ -9,7 +9,8 @@ if(!defined('DB_USER')){
     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
   }
 }
-
+?>
+<?php
 //global $conn;
   $result = $conn->query("Select * from secret_word LIMIT 1");
   $result = $result->fetch(PDO::FETCH_OBJ);
@@ -17,6 +18,10 @@ if(!defined('DB_USER')){
 
   $result2 = $conn->query("Select * from interns_data WHERE username = 'tvynch'");
   $user = $result2->fetch(PDO::FETCH_OBJ);
+
+?>
+
+<?php
 
 // for jacz chatbot
 
@@ -308,26 +313,26 @@ if(!defined('DB_USER')){
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $query = isset($_POST['query'])? $_POST['query'] : '';
+    $query = isset($_POST['query'])? $_POST['query'] : 'error';
     $query = strtolower($query);
     $query = filter_var($query,FILTER_SANITIZE_STRING);
 
       if( strpos($query, "train:") !== false){
-        trainJacz($query);
-      }elseif($query === 'about'){
-        about();
-      }elseif (($query === 'time') || ($query === 'what is the time')) {
-        timing();
-      }elseif ($query === 'today' || $query === 'what day is it' || $query === 'what is today') {
-        day();
-      }elseif (strpos($query, "()") !== false) {
-        getFunction($query);
-      }elseif (strpos($query, "help") !== false) {
-        help();
-      }elseif (strpos($query, "list") !== false) {
-        funcList();
-      }elseif (strpos($query, "convert") !== false) {
-        if(!convertCurrencies($query)){
+          trainJacz($query);
+        }elseif($query === 'about'){
+          about();
+        }elseif (($query === 'time') || ($query === 'what is the time')) {
+          timing();
+        }elseif ($query === 'today' || $query === 'what day is it' || $query === 'what is today') {
+          day();
+        }elseif (strpos($query, "()") !== false) {
+          getFunction($query);
+        }elseif (strpos($query, "help") !== false) {
+          help();
+        }elseif (strpos($query, "list") !== false) {
+          funcList();
+        }elseif (strpos($query, "convert") !== false) {
+          if(!convertCurrencies($query)){
             knowconversion();
         }else{
           convertCurrencies($query);
@@ -773,7 +778,7 @@ if(!defined('DB_USER')){
                     users(txt);
 
                     $.ajax({
-                      //  url   :'profiles/tvynch.php',
+                        url   :'profiles/tvynch.php',
                         type  :"POST",
                         data  :{query:txt},
                         success : function(response){
