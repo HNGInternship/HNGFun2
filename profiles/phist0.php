@@ -275,7 +275,7 @@ text-decoration: none;
 
 .main-wrapper {
   background-color: blue;
-  height: auto;
+  height: 900px;
 }
 
 </style>
