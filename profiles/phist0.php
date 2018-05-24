@@ -348,13 +348,13 @@ text-decoration: none;
           </div>
           <div id="chat-content"></div>
         </div>  
-      </div> <!-- end chat-history -->
         <form action="#" method="post" class="form-data">
           <fieldset>
             <input type="text" placeholder="Type your message…" name="question" id="question" autofocus>
             <input type="submit" class=" btn-primary" name="bot-interface" value="SEND"/>
           </fieldset>
         </form>
+      </div> <!-- end chat-history -->
     </div> <!-- end chat -->
 <script>
     
