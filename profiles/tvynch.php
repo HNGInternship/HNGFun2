@@ -2,26 +2,22 @@
 ini_set("display_errors",1);
 if(!defined('DB_USER')){
   require_once('../../config.php');
-  
-  try {
-    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-  } catch (PDOException $pe) {
-    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-  }
 }
-?>
-<?php
-//global $conn;
+
+global $conn;
+
+try {
+    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+} catch (PDOException $pe) {
+    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+}
+
   $result = $conn->query("Select * from secret_word LIMIT 1");
   $result = $result->fetch(PDO::FETCH_OBJ);
   $secret_word = $result->secret_word;
 
   $result2 = $conn->query("Select * from interns_data WHERE username = 'tvynch'");
   $user = $result2->fetch(PDO::FETCH_OBJ);
-
-?>
-
-<?php
 
 // for jacz chatbot
 
@@ -311,28 +307,28 @@ if(!defined('DB_USER')){
   }
 
 
-  if (isset($_GET['query']) {
+  if (isset($_GET['query'])) {
 
     $query = $_GET['query'];
     $query = strtolower($query);
     $query = filter_var($query,FILTER_SANITIZE_STRING);
 
       if( strpos($query, "train:") !== false){
-          trainJacz($query);
-        }elseif($query === 'about'){
-          about();
-        }elseif (($query === 'time') || ($query === 'what is the time')) {
-          timing();
-        }elseif ($query === 'today' || $query === 'what day is it' || $query === 'what is today') {
-          day();
-        }elseif (strpos($query, "()") !== false) {
-          getFunction($query);
-        }elseif (strpos($query, "help") !== false) {
-          help();
-        }elseif (strpos($query, "list") !== false) {
-          funcList();
-        }elseif (strpos($query, "convert") !== false) {
-          if(!convertCurrencies($query)){
+        trainJacz($query);
+      }elseif($query === 'about'){
+        about();
+      }elseif (($query === 'time') || ($query === 'what is the time')) {
+        timing();
+      }elseif ($query === 'today' || $query === 'what day is it' || $query === 'what is today') {
+        day();
+      }elseif (strpos($query, "()") !== false) {
+        getFunction($query);
+      }elseif (strpos($query, "help") !== false) {
+        help();
+      }elseif (strpos($query, "list") !== false) {
+        funcList();
+      }elseif (strpos($query, "convert") !== false) {
+        if(!convertCurrencies($query)){
             knowconversion();
         }else{
           convertCurrencies($query);
@@ -344,13 +340,13 @@ if(!defined('DB_USER')){
           if(!getMessage($query)){
             echo "I do not understand you. You could train me so i'd understand"; exit();
           }else{
-            getMessage($query); exit();
+            getMessage($query);
           }
         }else{
           if(!getMessage($query)){
             echo "I do not understand you. You could train me so i'd understand"; exit();
           }else{
-            getMessage($query); exit();
+            getMessage($query);
           }
         }
         exit();
@@ -360,6 +356,7 @@ if(!defined('DB_USER')){
       exit();
   }
 // end of chatbot
+
   ?>
 
 <!DOCTYPE html>
@@ -667,7 +664,7 @@ if(!defined('DB_USER')){
 
 
                    <div class="chatbot-input">
-                    <form id="chatbotForm" method="get">
+                    <form id="chatbotForm">
                         <input type="text" name="query" id="textbox" placeholder="Enter Message" autocomplete="off" />
                         <button type="submit" id="send">Send</button>
                     </form>
