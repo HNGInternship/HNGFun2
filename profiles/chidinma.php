@@ -236,7 +236,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <?php date_default_timezone_set('Africa/lagos');
 					echo  date("d:m:Y | h:ia"); ?> </h5>
                 	</span>
-					<div class = "intro"><p><h4> Hi there!, welcome to Nma’s bot. To train me,type "train : question # answer # password</h4></p>
+					<div class = "intro"><p><h5> Hi there!, welcome. Type "aboutbot" to learn about me. To train me,type "train : question # answer # password</h5></p>
 					</div>
 					
 					<div id = "chat_area">
@@ -251,7 +251,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				
 
 				<p><h2> ORJI CHIDINMA N. </h2></p>
-				<p><h4>Tech enthusiast, Intern @HNGInternship 4.0, <br/> web development student. </h4> <p>
+				<p><h4>Tech enthusiast, Intern @HNGInternship 4.0, <br/> learner. </h4> <p>
 			
 				<p> <h5> email: <u>chypearlnel@gmail.com</u></h5></p>
 				<p><h5> Phone no: 09022181787 </h5></p>
@@ -296,7 +296,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
             }
         };
-        xhttp.open("POST", "chidinma.php");
+        xhttp.open("POST", "/profiles/chidinma");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }

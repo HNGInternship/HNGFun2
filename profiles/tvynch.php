@@ -355,7 +355,6 @@ if(!defined('DB_USER')){
       exit();
   }
 // end of chatbot
-  else{
   ?>
 
 <!DOCTYPE html>
@@ -802,4 +801,3 @@ if(!defined('DB_USER')){
 
   </body>
 </html>
-<?php } ?>
