@@ -5,6 +5,17 @@ include_once("header.php");
 ?>
 
 <style>
+
+ #img1 {
+    width: 30px;
+    height: 30px;
+}
+
+
+ #img2 {
+    height: 30px;
+}
+
   .signup-jumbotron{
     padding-top:4% !important;
   }
@@ -34,6 +45,9 @@ include_once("header.php");
   .label{
     color:#5F5F5F !important;
   }
+
+
+
 </style>
 
 
@@ -43,14 +57,14 @@ include_once("header.php");
       <div class="container signup ">
           <div class="row">
           <div class="col-md-6 signup-text" >
-            <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/mtraeogklpzkytbhmh9g.svg" class="pl-0 ml-0 signup-img"  >
-            <div class="pl-5 pr-5 ml-5 mr-5" style="text-align: center; font-size:1em; line-height: 250%;">
+            <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/mtraeogklpzkytbhmh9g.svg" class="pl-0 ml-0 signup-img" id="img1" >
+            <div class="row style="text-align: center; font-size:1em; line-height: 250%;">
                 <span style="color: grey ">
-                   The HNG Internship is a remote training program, it centres on picking out indiviuals with relevant software development skills. For a period of about 3 months these skills are developed. Fill the form to join the biggest and best remote software internship in the world!
+                   The HNG Internship is a remote training program, it centres on picking out indiviuals with relevant software development skills. For a period of about 3 months these skills are developed. The internship holds annually. Its organised by Hotels.ng in partnership with top companies around the globe. Fill the form to join the biggest and best remote software internship in the world!
                 </span>
             </div> 
-            <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/fn3ncrihrqwsqzutwh58.svg" class="pl-5 ml-5 signup-img2"  >                 
-            <p class="pt-0 mt-0" style="font-size: 2em !important; text-align: center; color: #2196F3; font-family: 'Qwigley', cursive;">Mark Essien</p>
+            <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/fn3ncrihrqwsqzutwh58.svg" class="pl-5 ml-5 signup-img2" id="img2" >                 
+            <p class="pt-0 mt-0" style="font-size: 3em !important; text-align: center; color: #2196F3; font-family: 'Qwigley', cursive;">Mark Essien</p>
         </div> 
 
           <div class="col-md-6 pt-0">
