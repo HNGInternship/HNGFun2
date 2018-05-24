@@ -45,7 +45,7 @@
   
   
 		//chatBot
-	if($_SERVER['REQUEST_METHOD'] === "POST"){
+	if($_SERVER['REQUEST_METHOD'] === "GET"){
 	
 		function stripquestion($question){
 			// remove whitespace first
@@ -90,8 +90,8 @@
 			}
 		}
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		if (isset($_POST['message']) && $_POST['message']!=null) {
-			$question = $_POST['message'];
+		if (isset($_GET['message']) && $_GET['message']!=null) {
+			$question = $_GET['message'];
 			$strippedquestion = stripquestion($question);
 			$array_data = explode(':', $strippedquestion);
 			if (is_training($array_data[0])) { 
