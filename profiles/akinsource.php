@@ -17,7 +17,7 @@
 ?>
 
 <?php
-
+if (isset($_GET["inputw"])){
 	function tryout($str,$dbcon) {
 		$tryout = $dbcon->query("Select * from chatbot where question like '$str'");
 		$tryout = $tryout->fetch(PDO::FETCH_OBJ);
@@ -132,9 +132,9 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
 			require "../answers.php";
-			$name = test_input($_POST["inputw"]);
+			$name = test_input($_GET["inputw"]);
 			date_default_timezone_set("Africa/Lagos");
 	// collect value of input field
     try {
@@ -241,7 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	    	exit();
 	}
 	}
-	
+}	
 	?>
 <!DOCTYPE html>
 <html>
@@ -465,7 +465,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var inputw = $("#add").val();
 		$( "#view" ).append('<p class = "chat1">'+inputw+'</p>');
-		$.post("profiles/akinsource.php",
+		$.get("profiles/akinsource.php",
 			{inputw:inputw},
 			function(response, status){
 				//alert(response);

@@ -4,7 +4,7 @@ include_once("header.php");
 
 <head>
   <title>Help Center</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
   <!-- custom style -->
   <style type="text/css">
   @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
@@ -155,6 +155,7 @@ include_once("header.php");
       transform: rotate(180deg);
       transition: all 0.5s;
     }
+
   </style>  
 </head>
 <body>
@@ -194,7 +195,7 @@ include_once("header.php");
             <h4 class="text-right">FAQs</h4>
           </div>
           <div class="row">
-            <div class="col-md-3" id="left">
+            <div class="col-md-3 pb-4" id="left">
               <button class="btn btn-primary btn-block">Private Key</button>
               <button class="btn btn-default btn-block">Accolades</button>
             </div>
@@ -225,11 +226,7 @@ include_once("header.php");
     </div>
   </main>
 
-  <!-- scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
 <?php
 include_once("footer.php");
 
