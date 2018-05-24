@@ -181,7 +181,7 @@
 					
 				  $.ajax({
 						url: "/profiles/dreamtech467.php",
-						type: "post",
+						type: "get",
 						data: {message: message},
 						dataType: "json",
 						success: function(response){
