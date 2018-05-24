@@ -204,8 +204,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		#time {color: white;}
 
 		#user {color: white;
+			background-color: #A394CD;
 			margin-left: 15px;
+			border-left: 2px;
+			border-radius: 10px;
+			max-width: 200px;
+
 			}
+		#bot{color: red;
+			margin-left: 15px;
+			border-left: 2px;
+			background-color: #A394CD;
+			border-radius: 10px;
+			max-width: 200px;
+
+			}
+
 	
 
 		</style>	
@@ -237,7 +251,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				
 
 				<p><h2> ORJI CHIDINMA N. </h2></p>
-				<p><h4>Tech enthusiast, Intern @HNGInternship, <br/> web development student. </h4> <p>
+				<p><h4>Tech enthusiast, Intern @HNGInternship 4.0, <br/> web development student. </h4> <p>
 			
 				<p> <h5> email: <u>chypearlnel@gmail.com</u></h5></p>
 				<p><h5> Phone no: 09022181787 </h5></p>
@@ -282,7 +296,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
             }
         };
-        xhttp.open("POST", "/profiles/chidinma.php");
+        xhttp.open("POST", "profiles/chidinma.php");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }
