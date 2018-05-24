@@ -1,83 +1,156 @@
 <?php
-include_once("../answers.php");
-if (!defined('DB_USER'))
-	{
-	require"../../config.php";
-	}
-try
-	{
-	$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
-	}
-catch(PDOException $pe)
-	{
-	die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-	}
-global $conn;
-$diffAns ='';
-if (isset($_POST['bot_adekunte'])) {
-	
-	$data = $_POST['bot_adekunte'];
-	if ($data == 'aboutbot') {
-		echo "V 1.0";
-		exit();
-	}else if(strstr($data, 'train:') && strstr($data, '#')){
-		$exp = explode(':', $data);
-		$exp = explode('#', $exp[1]);
-		if (count($exp) == 3) {
-			if ($exp[2] == 'password') {
-				//PDO INSERT
-				try{
-					$sql = "INSERT INTO chatbot(question,answer)VALUES('$exp[0]','$exp[1]')";
-					$conn -> query($sql);
-					echo "Training Successful. Now i know $exp[0]";
-					exit();
-				}catch(PDOException $e){
-					echo "I refused to be trained!".$e->getMessage();
-					exit();
-				}
-			
-		}else{
-			echo "Your password is incorrect.<br>Try again later!";
-				exit();
-		}
-		}else{
-			echo "Invalid strings!<br><br><b><i>train:question #answer #password</i></b>";
-			exit();
-		}
-	}
-	else{
-		try{
-			$sql = "SELECT answer FROM chatbot WHERE question LIKE '%$data%' ";
-			$query = $conn -> query($sql);
-			if (count($query -> fetchAll()) > 0) {
-				$query2 = $conn -> query($sql);
-				while ($val = $query2 -> fetch()) {
-					$diffAns .= $val[0].',';
-			}
-			$diff = explode(',', $diffAns);
-			if (count($diff) > 1) {
-				//$rand = array_rand($diff);
-				$rand = rand(0, count($diff)-1);
-				$shwval =$diff[$rand];
-				echo $shwval;
-				exit();
-			}else{
-				echo $diff[0];
-				exit();
-			}			
-		}else{
-			echo "Sorry I do not have that command  but you can train by entering the following <br><b><i>train:question #answer #password</i></b>";
-			exit();
-		}			
-		}catch(PDOException $e){
-			echo "Error 002".$e->getMessage();
-			exit();
-		}
-		
-	}
+if($_SERVER['REQUEST_METHOD'] !== "POST"){
+    if(!defined('DB_USER')){
+        require_once __DIR__."/../../config.php";
+        try {
+            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+        } catch (PDOException $e) {
+            die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+        }
+    }
+    try{
+        $result = $conn->query("Select * from secret_word LIMIT 1");
+        $result = $result->fetch(PDO::FETCH_OBJ);
+        $result2 = $conn->query("Select * from interns_data where username='Adekunte Tolulope'");
+        $user = $result2->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $e){
+        throw $e;
+    }
+    $secret_word = $result->secret_word;
 }
 ?>
 
+<?php
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    if(!defined('DB_USER')){
+        require_once __DIR__."/../../config.php";
+        try {
+            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+        } catch (PDOException $e) {
+            die("Could not connect to the database " . DB_DATABASE . ": " . $e->getMessage());
+        }
+    }
+    //require "../answers.php"; // This is the offending line that caused all the problem. I need to figure out how to use it correctly.
+    date_default_timezone_set("Africa/Lagos");
+    // header('Content-Type: application/json');
+    if(!isset($_POST['question'])){
+        echo json_encode([
+            'status' => 1,
+            'answer' => "Please type in a question"
+        ]);
+        return;
+    }
+    $question = $_POST['question']; //get the entry into the chatbot text field
+    //check if in training mode
+    $index_of_train = stripos($question, "train:");
+    if($index_of_train === false){//then in question mode
+        $question = preg_replace('([\s]+)', ' ', trim($question)); //remove extra white space from question
+        $question = preg_replace("([?.])", "", $question); //remove ? and .
+        //check if answer already exists in database
+        $question = "%$question%";
+        $sql = "select * from chatbot where question like :question";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':question', $question);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll();
+        if(count($rows)>0){
+            $index = rand(0, count($rows)-1);
+            $row = $rows[$index];
+            $answer = $row['answer'];
+            //check if the answer is to call a function
+            $index_of_parentheses = stripos($answer, "((");
+            if($index_of_parentheses === false){ //then the answer is not to call a function
+                echo json_encode([
+                    'status' => 1,
+                    'answer' => $answer
+                ]);
+            }else{//otherwise call a function. but get the function name first
+                $index_of_parentheses_closing = stripos($answer, "))");
+                if($index_of_parentheses_closing !== false){
+                    $function_name = substr($answer, $index_of_parentheses+2, $index_of_parentheses_closing-$index_of_parentheses-2);
+                    $function_name = trim($function_name);
+                    if(stripos($function_name, ' ') !== false){ //if method name contains whitespaces, do not invoke any method
+                        echo json_encode([
+                            'status' => 0,
+                            'answer' => "The function name should be without white spaces"
+                        ]);
+                        return;
+                    }
+                    if(!function_exists($function_name)){
+                        echo json_encode([
+                            'status' => 0,
+                            'answer' => "I am unable to find the function you require"
+                        ]);
+                    }else{
+                        echo json_encode([
+                            'status' => 1,
+                            'answer' => str_replace("(($function_name))", $function_name(), $answer)
+                        ]);
+                    }
+                    return;
+                }
+            }
+        }else{
+            echo json_encode([
+                'status' => 0,
+                'answer' => "I can't answer that right now, please train me.The format...<br> <b>train: question#answer#password</b>"
+            ]);
+        }
+        return;
+    }else{
+        //in training mode
+        //get the question and answer
+        $question_and_answer_string = substr($question, 6);
+        //remove excess white space in $question_and_answer_string
+        $question_and_answer_string = preg_replace('([\s]+)', ' ', trim($question_and_answer_string));
+        $question_and_answer_string = preg_replace("([?.])", "", $question_and_answer_string); //remove ? and . so that questions missing ? (and maybe .) can be recognized
+        $split_string = explode("#", $question_and_answer_string);
+        if(count($split_string) == 1){
+            echo json_encode([
+                'status' => 0,
+                'answer' => "I can't answer that right now, please train me.The format...<br> <b>train: question#answer#password</b>"
+            ]);
+            return;
+        }
+        $que = trim($split_string[0]);
+        $ans = trim($split_string[1]);
+        if(count($split_string) < 3){
+            echo json_encode([
+                'status' => 0,
+                'answer' => "training password required"
+            ]);
+            return;
+        }
+        $password = trim($split_string[2]);
+        //verify if training password is correct
+        define('TRAINING_PASSWORD', 'password');
+        if($password !== TRAINING_PASSWORD){
+            echo json_encode([
+                'status' => 0,
+                'answer' => "invalid training password"
+            ]);
+            return;
+        }
+        //insert into database
+        $sql = "insert into chatbot (question, answer) values (:question, :answer)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':question', $que);
+        $stmt->bindParam(':answer', $ans);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        echo json_encode([
+            'status' => 1,
+            'answer' => "Thank you, I am now smarter"
+        ]);
+        return;
+    }
+    echo json_encode([
+        'status' => 0,
+        'answer' => "I can't answer that right now, please train me.The format...<br> <b>train: question#answer#password</b>"
+    ]);
+}
+?>
 <?php
 $result = $conn->query("SELECT * FROM secret_word LIMIT 1");
  $res = $result->fetch(PDO::FETCH_OBJ);
@@ -287,35 +360,66 @@ button:hover, a:hover {
 		<kbd>ADTREX</kbd>
 		</div>
 	</div>
+	<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </div>
-
-<script type="text/javascript">
-var no = 0;
-	function processR(){
-		
-		if (document.getElementById('botInp').value != '') {
-			var x = new XMLHttpRequest();
-		var url = '/profiles/Adekunte Tolulope.php';
-		var data = document.getElementById("botInp").value;
-		var vars = "bot_adekunte="+data;no++;
-		document.getElementById('ans').innerHTML+='<div><div class="ques">'+data+'</div></div>';
-		document.getElementById('ans').innerHTML+='<div><div class="ans" id="id'+no+'"></div></div>';
-		x.open("POST", url, true);
-		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		x.onreadystatechange = function(){
-			if (x.readyState == 4 && x.status == 200) {
-				var return_data = x.responseText;
-				setTimeout(function(){
-					document.getElementById("id"+no).innerHTML= return_data;
-				document.getElementById("botInp").value = '';
-				},1000);
-				
-			}
-		}
-			x.send(vars);
-			document.getElementById("id"+no).innerHTML="loading..."
-		}
-}
-</script>	
+<script>
+    $(document).ready(function(){
+        $('#submit-button').click(function(){
+            $('#bot-interface').stop().animate({scrollTop: $('#bot-interface')[0].scrollHeight}, 1000);
+        });
+        var questionForm = $('#bot-interface');
+        questionForm.submit(function(e){
+            e.preventDefault();
+            console.log($("#chats")[0].scrollHeight);
+            var questionBox = $('#question');
+            var question = questionBox.val();
+            //display question in the message frame as a chat entry
+            var messageFrame = $('#chat-interface');
+            var chatToBeDisplayed = '<div class="row message" id="user-message">'+
+                '<div class="col-md-12">'+
+                '<p>'+question+'</p>'+
+                '</div>'+
+                '</div>';
+            messageFrame.html(messageFrame.html()+chatToBeDisplayed);
+            $("#chats").scrollTop($("#chats")[0].scrollHeight);
+            //send question to server
+            $.ajax({
+                url: "/profiles/interactive_bee",
+                type: "post",
+                data: {question: question},
+                dataType: "json",
+                success: function(response){
+                    if(response.status == 1){
+                        var chatToBeDisplayed = '<div class="row message"id="bot-message">'+
+                            '<div class="col-md-1 " >'+
+                            '<p>Bot:</p>'+
+                            '</div>'+
+                            '<div class="col-md-11 ">'+
+                            '<p>'+response.answer+'</p>'+
+                            '</div>'+
+                            '</div>';
+                        messageFrame.html(messageFrame.html()+chatToBeDisplayed);
+                        questionBox.val("");
+                    }else if(response.status == 0){
+                        var chatToBeDisplayed = '<div class="row message" id="bot-message">'+
+                            '<div class="col-md-1 " >'+
+                            '<p>Bot:</p>'+
+                            '</div>'+
+                            '<div class="col-md-11 ">'+
+                            '<p>'+response.answer+'</p>'+
+                            '</div>'+
+                            '</div>';
+                        messageFrame.html(messageFrame.html()+chatToBeDisplayed);
+                        $("#chats").scrollTop($("#chats")[0].scrollHeight);
+                    }
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            })
+        });
+    });
+</script>
 </body>
 </html>
