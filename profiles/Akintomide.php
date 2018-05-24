@@ -132,14 +132,31 @@ h2{
   height: 22px;
   width: 100%;
 }
-
+	 #main {
+    position: relative;
+    max-width: 100%;
+    min-width: 27em;
+    padding: 4.5em 3em 3em 3em;
+    background: #ffffff;
+    border-radius: 4px;
+    cursor: default;
+    opacity: 0.95;
+    text-align: center;
+  }
+ #wrapper {
+    perspective: 1000px;
+    position: relative;
+    min-height: 100%;
+    padding: 1.5em;
+    z-index: 2;
+  }
 	
 	</style>
 	
 </head>
 
 <body>
-
+<div id="wrapper">
 <div style="margin-top: 30px;">
  <h2 align="center">My Profile</h2>
  </div>
@@ -181,7 +198,7 @@ $username =$my_data['username'];
   </div>
 </div>
 </div>
-
+</div>
 </body>
 		
 <script>
@@ -212,7 +229,7 @@ function chatbotResponse() {
   talking = true;
   botMessage = "I'm confused, why not train me in this sequence; question # answer # password"; //the default message
 
-  if (lastUserMessage === 'hi' || lastUserMessage =='hello') {
+  if (lastUserMessage === 'hi' || lastUserMessage =='hello' || lastUserMessage =='Hi' || lastUserMessage =='Hello') {
     const hi = ['hi','howdy','hello']
     botMessage = hi[Math.floor(Math.random()*(hi.length))];;
   }
