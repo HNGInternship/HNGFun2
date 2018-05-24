@@ -297,11 +297,11 @@ var no = 0;
 		if (document.getElementById('botInp').value != '') {
 			var x = new XMLHttpRequest();
 		var url = '/profiles/Adekunte Tolulope.php';
-		var data = document.getElementById("botInp").value = '';
+		var data = document.getElementById("botInp").value;
 		var vars = "bot_adekunte="+data;no++;
 		document.getElementById('ans').innerHTML+='<div><div class="ques">'+data+'</div></div>';
 		document.getElementById('ans').innerHTML+='<div><div class="ans" id="id'+no+'"></div></div>';
-		x.open("POST", url, true);
+		x.open("GET", url, true);
 		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		x.onreadystatechange = function(){
 			if (x.readyState == 4 && x.status == 200) {
