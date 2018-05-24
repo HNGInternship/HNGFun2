@@ -305,7 +305,7 @@ return ;
             
             }
         };
-        xhttp.open("POST", "/profiles/nene");
+        xhttp.open("POST", "/profiles/chidinma");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }
