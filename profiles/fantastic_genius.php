@@ -1,5 +1,5 @@
 <?php
-//if($_SERVER['REQUEST_METHOD'] === 'POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!defined('DB_USER')){
         require "../../config.php";
         global $conn;
@@ -46,9 +46,9 @@
     }
     
     echo $response;
-}
+    }
 
-//}
+}
 
 function isTraining($data){
     if(strpos($data, 'train:') !== false){
@@ -278,7 +278,7 @@ function isHelp($question){
 }
 
 
-if($_SERVER['REQUEST_METHOD'] === 'GET'){
+if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     try{
         $sql = "SELECT * FROM secret_word LIMIT 1" ;
         $query = $conn->query($sql);
