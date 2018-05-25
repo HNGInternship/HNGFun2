@@ -79,7 +79,7 @@ require_once ("db.php");
         ul.navbar-nav {
             height: auto !important;
         }
-	      .acc{display:inline;}
+	      .dropdown{display:inherit;}
   <?php if (function_exists('custom_styles')) {
       custom_styles();
     }
