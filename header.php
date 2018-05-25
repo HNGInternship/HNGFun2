@@ -177,22 +177,22 @@ $activeArray[$fileIndex]="active";
 
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item  <?= $activeArray[0] ?>">
+            <li class="nav-item  <?php echo $activeArray[0] ?>">
                 <a href="index" class="nav-link ">Home</a>
             </li>
-            <li class="nav-item  <?= $activeArray[1] ?>">
+            <li class="nav-item  <?php echo $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
             </li>
-            <li class="nav-item  <?= $activeArray[2] ?>">
+            <li class="nav-item  <?php echo $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
             </li>
-            <li class="nav-item  <?= $activeArray[3] ?>">
+            <li class="nav-item  <?php echo $activeArray[3] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>
             </li>
-            <li class="nav-item <?= $activeArray[4] ?>">
+            <li class="nav-item <?php echo $activeArray[4] ?>">
                 <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
-            <li class="nav-item  <?= $activeArray[5] ?>">
+            <li class="nav-item  <?php echo $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
 
@@ -202,7 +202,7 @@ $activeArray[$fileIndex]="active";
               }
             </style>
 
-            <li class="dropdown nav-item<?= $activeArray[8] ?>" style="">
+            <li class="dropdown nav-item<?php echo $activeArray[8] ?>" style="">
                   <a href="#" class="dropdown-togge" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="" aria-hidden="true"></span><span style="color:#888888;">Account</span> <span class="caret"></span></a>
                   <ul class="dropdown-menu" style="width: 120px;">
                     <li><a href="sign-up" class="nav-link" id="dropaccount">Sign Up</a></li>
@@ -214,8 +214,7 @@ $activeArray[$fileIndex]="active";
 
     </nav>
 <script type="text/javascript">
-      $('.navbar-nav li').click(function(e){
-    $('.navbar-nav li').removeClass("navlink");
-    $(this).addClass("active");
-});
+    var activeUrl = window.location.href.split('/')
+    var active =activeUrl[activeUrl.length-1];
+    console.log(active)
     </script>
