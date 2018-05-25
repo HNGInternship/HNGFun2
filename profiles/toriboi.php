@@ -357,7 +357,7 @@
             messageArea.scrollTop = messageArea.scrollHeight;
           }
         }
-        xhttp.open('POST', 'profiles/toriboi.php', true);
+        xhttp.open('POST', 'profiles/toriboi', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('q='+ text);
 
