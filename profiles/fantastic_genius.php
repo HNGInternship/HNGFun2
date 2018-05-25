@@ -1,5 +1,5 @@
 <?php
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
+//if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!defined('DB_USER')){
         require "../../config.php";
         global $conn;
@@ -10,9 +10,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             die("could not connect to database " . DB_DATABASE . ":" . $err->getMessage());
         }
     }
-
+    if(isset($_POST['question'])){
     $question = $_POST['question'];
 
+    //var_dump($question);
     $question = strtolower($question);
 
     if(preg_match('([?.])', $question)){
@@ -45,8 +46,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
     
     echo $response;
-
 }
+
+//}
 
 function isTraining($data){
     if(strpos($data, 'train:') !== false){
