@@ -1,6 +1,6 @@
 <?php
 
- 	if($_SERVER['REQUEST_METHOD'] === 'POST')
+ 	if($_SERVER['REQUEST_METHOD'] === 'GET')
  {
            if (!defined('DB_USER')){
                require "../../config.php";
@@ -10,7 +10,7 @@
              } catch (PDOException $pe) {
                die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
              }
-      $mesuu = $_POST['question'];
+      $mesuu = $_GET['question'];
       $message=strtolower($mesuu);
       trim($message);
       $statusTrain = stripos($message, "rain:");
