@@ -331,7 +331,7 @@
             </div>
           </div>
           <form id="t-form">
-            <input type="text" id="text" name="text" value="" placeholder="Chat with me!">
+            <input type="text" id="text" name="text" value="<?php echo ""; ?>" placeholder="Chat with me!">
             <input type="submit" id="submit" name="submit" value="Send">
           </form>
         </div>
