@@ -163,6 +163,7 @@
 		<meta name="viewport" content="width=device-width, initail-scale=1">
 		<title>Abraham Profile</title>
 		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-git.min.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
