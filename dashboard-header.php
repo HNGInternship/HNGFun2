@@ -79,6 +79,7 @@ require_once ("db.php");
         ul.navbar-nav {
             height: auto !important;
         }
+	      .acc{display:inline;}
   <?php if (function_exists('custom_styles')) {
       custom_styles();
     }
