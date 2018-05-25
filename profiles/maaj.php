@@ -28,9 +28,9 @@ $image_url = $row['image_filename'];
 ?>
 <?php
 // chatbot
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if(isset($_GET['text_in'])) {
 	
-	$question = $_POST['text_in'];
+	$question = $_GET['text_in'];
 	
 	
 	 // bot version
@@ -459,8 +459,8 @@ else{
 	       	message.scrollTop(message[0].scrollHeight);
 			//send question to server
 			$.ajax({
-				url: 'profiles/maaj', //location
-				type: 'POST',
+				url: 'profiles/maaj.php', //location
+				type: 'GET',
 				data: {text_in: text_in},
 				dataType: 'json',
 				success: (response) => {
