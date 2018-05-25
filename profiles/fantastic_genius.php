@@ -13,7 +13,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_POST['question'])){
     $question = $_POST['question'];
 
-    //var_dump($question);
     $question = strtolower($question);
 
     if(preg_match('([?.])', $question)){
@@ -654,7 +653,7 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
                 $('.user-input').val("");
 
                 $.ajax({
-                    url: "./profiles/fantastic_genius.php",
+                    url: "./profiles/fantastic_genius.php/",
                     type: 'POST',
                     dataType: 'json',
                     data: {question: question},
