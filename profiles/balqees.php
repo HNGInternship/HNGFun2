@@ -6,8 +6,6 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
-
 
 
 <!-- Page Content -->
@@ -215,12 +213,6 @@
 
 
 
-<!--<script src="../vendor/jquery/jquery.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>-->
-<!--
-    <link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
 
 
@@ -249,8 +241,8 @@
             $("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
             //send question to server
             $.ajax({
-                url: "/profiles/balqees.php",
-                type: "post",
+                url: "/profiles/balqees",
+                type: "get",
                 data: {question: question},
                 dataType: "json",
                 success: function(response){
