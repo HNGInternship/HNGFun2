@@ -1,4 +1,5 @@
 <?php
+include_once("../answers.php");
 if (!defined('DB_USER'))
 	{
 	require"../../config.php";
@@ -294,7 +295,7 @@ var no = 0;
 		
 		if (document.getElementById('botInp').value != '') {
 			var x = new XMLHttpRequest();
-		var url = 'profile/Adekunte Tolulope.php';
+		var url = '/profiles/Adekunte Tolulope.php';
 		var data = document.getElementById("botInp").value;
 		var vars = "bot_adekunte="+data;no++;
 		document.getElementById('ans').innerHTML+='<div><div class="ques">'+data+'</div></div>';

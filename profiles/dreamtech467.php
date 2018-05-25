@@ -1,47 +1,54 @@
 
 <?php
 
-	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require "../answers.php";
-   
-    if(!defined('DB_USER')){
-        require "../../config.php";		
-        try {
-            $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-        } catch (PDOException $pe) {
-            die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-        }
-    }
+	include_once("../answers.php"); 
+	if(!defined('DB_USER')){
+			require "../../config.php";		
+			try {
+			    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+			} catch (PDOException $pe) {
+			    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+			}
+		}
 
-	  try {
-		  $sql = "SELECT * FROM interns_data WHERE username ='dreamtech467'";
-		  $q = $conn->query($sql);
-		  $q->setFetchMode(PDO::FETCH_ASSOC);
-		  $data = $q->fetch();
-	  } catch (PDOException $e) {
-		  throw $e;
-	  }
-	  $names = $data['name'];
-	  $username = $data['username'];
-	  $profile_img = $data['image_filename'];
+  try {
+      $sql = "SELECT * FROM interns_data WHERE username ='dreamtech467'";
+      $q = $conn->query($sql);
+      $q->setFetchMode(PDO::FETCH_ASSOC);
+      $data = $q->fetch();
+  } catch (PDOException $e) {
+      throw $e;
+  }
+  $names = $data['name'];
+  $username = $data['username'];
+  $profile_img = $data['image_filename'];
 
 
-	  try {
-		  $sql2 = 'SELECT * FROM secret_word';
-		  $q2 = $conn->query($sql2);
-		  $q2->setFetchMode(PDO::FETCH_ASSOC);
-		  $data2 = $q2->fetch();
-	  } catch (PDOException $e) {
-		  throw $e;
-	  }
-	  $secret_word = $data2['secret_word'];
+  try {
+      $sql2 = 'SELECT * FROM secret_word';
+      $q2 = $conn->query($sql2);
+      $q2->setFetchMode(PDO::FETCH_ASSOC);
+      $data2 = $q2->fetch();
+  } catch (PDOException $e) {
+      throw $e;
+  }
+  $secret_word = $data2['secret_word'];
 
-	}
+  
   
   
 		//chatBot
 	if($_SERVER['REQUEST_METHOD'] === "POST"){
-	
+		
+		if(!defined('DB_USER')){
+			require "../../config.php";		
+			try {
+			    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+			} catch (PDOException $pe) {
+			    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+			}
+		}
+		
 		function stripquestion($question){
 			// remove whitespace first
 			$strippedquestion = trim(preg_replace("([\s+])", " ", $question));
@@ -72,6 +79,7 @@
 			}
 			return array('question' => $array_data[0], 'answer' => $array_data[1], 'password'=> $array_data[2]);
 		}
+		
 		function train($question, $answer){
 			global $conn;
 			try {
@@ -104,7 +112,12 @@
 				$answer_stmt = $conn->prepare("SELECT answer FROM chatbot where question LIKE :question ORDER BY RAND() LIMIT 1");
 				$answer_stmt->bindParam(':question', $strippedquestion);
 				$answer_stmt->execute();
-				$results = $answer_stmt->fetch();
+				
+				$answer_stmt->setFetchMode(PDO::FETCH_ASSOC);
+				$results = $answer_stmt->fetchAll();
+			
+				
+				
 				if(($results)!=null){
 					$answer = $results['answer'];
 					echo json_encode([
@@ -135,6 +148,7 @@
 		<meta name="viewport" content="width=device-width, initail-scale=1">
 		<title>Abraham Profile</title>
 		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-git.min.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>

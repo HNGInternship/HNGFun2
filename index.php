@@ -29,11 +29,14 @@ include_once("header.php");
     color: #000000 !important;
     border: none;
 }
+	body{
+		width: 100%;
+	}
 </style>
 <div class="container">
 	<div class="jumbotron jumbotron-fluid hero-div text-center bg-transparent col-md-12 col-sm-12 col-xs-12">
-	  <p class="hero-main-text font-weight-bold"> hng</p>
-	  <p class="hero-sub-text-1 font-weight-bold"> Internship</p>
+	  <p class="hero-main-text font-weight-bold"> HNG</p>
+	  <p class="hero-sub-text-1 font-weight-bold" style="font-size: 60px"> Internship</p>
 	  <p class="hero-sub-text-2 text-primary"> Become a better Software Developer</p>
 	</div>
 	<div class="row">

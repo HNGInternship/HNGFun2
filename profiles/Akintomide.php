@@ -53,7 +53,7 @@ h2{
 	margin: 0 0 22px 0;
 	color: #000;
 	}
-	.profile {
+	.profilee {
 		box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.2 );
 		max-width: 500px;
 		margin: auto;
@@ -92,6 +92,15 @@ h2{
 		border-radius: 50%;
 	}
 	
+	.clear {
+			clear: both;
+		}
+		.bottom {
+			margin-bottom: 50px;}
+
+		
+		.top {
+			margin-top: 50px;}
 
 #bodybox {
   margin: auto;
@@ -132,20 +141,28 @@ h2{
   height: 22px;
   width: 100%;
 }
-
+	
+ #wrapper {
+    perspective: 1000px;
+    position: relative;
+    min-height: 100%;
+    padding: 1.5em;
+    z-index: 2;
+  }
 	
 	</style>
 	
 </head>
 
 <body>
+<div class="top clear"></div>
 
 <div style="margin-top: 30px;">
  <h2 align="center">My Profile</h2>
  </div>
 
 
-<div class="profile">
+<div class="profilee">
 <img src="https://res.cloudinary.com/akintomide/image/upload/v1523798928/michael.png" style="width: 100%">
 <!--<img src="michael.png" style="width: 100%">-->
 <?php
@@ -181,7 +198,7 @@ $username =$my_data['username'];
   </div>
 </div>
 </div>
-
+  <div class="bottom clear"></div>
 </body>
 		
 <script>
@@ -212,7 +229,7 @@ function chatbotResponse() {
   talking = true;
   botMessage = "I'm confused, why not train me in this sequence; question # answer # password"; //the default message
 
-  if (lastUserMessage === 'hi' || lastUserMessage =='hello') {
+  if (lastUserMessage === 'hi' || lastUserMessage =='hello' || lastUserMessage =='Hi' || lastUserMessage =='Hello') {
     const hi = ['hi','howdy','hello']
     botMessage = hi[Math.floor(Math.random()*(hi.length))];;
   }

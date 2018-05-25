@@ -27,7 +27,7 @@
 			border-radius: 25px;
 			border: 2px solid #ffffff;
 			position: center;
-			background: <img src="http://res.cloudinary.com/linet/image/upload/b_rgb:000000/v1526504492/Image_20180331_000111.png">
+			 <img src="http://res.cloudinary.com/linet/image/upload/b_rgb:000000/v1526504492/Image_20180331_000111.png">
 			  
       
       

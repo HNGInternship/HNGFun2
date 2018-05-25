@@ -2,15 +2,16 @@
 ini_set("display_errors",1);
 if(!defined('DB_USER')){
   require_once('../../config.php');
-  
-  try {
-    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-  } catch (PDOException $pe) {
-    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-  }
 }
 
-//global $conn;
+global $conn;
+
+try {
+    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+} catch (PDOException $pe) {
+    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+}
+
   $result = $conn->query("Select * from secret_word LIMIT 1");
   $result = $result->fetch(PDO::FETCH_OBJ);
   $secret_word = $result->secret_word;
@@ -306,9 +307,9 @@ if(!defined('DB_USER')){
   }
 
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_GET['query'])) {
 
-    $query = isset($_POST['query'])? $_POST['query'] : '';
+    $query = $_GET['query'];
     $query = strtolower($query);
     $query = filter_var($query,FILTER_SANITIZE_STRING);
 
@@ -339,13 +340,13 @@ if(!defined('DB_USER')){
           if(!getMessage($query)){
             echo "I do not understand you. You could train me so i'd understand"; exit();
           }else{
-            getMessage($query); exit();
+            getMessage($query);
           }
         }else{
           if(!getMessage($query)){
             echo "I do not understand you. You could train me so i'd understand"; exit();
           }else{
-            getMessage($query); exit();
+            getMessage($query);
           }
         }
         exit();
@@ -355,7 +356,7 @@ if(!defined('DB_USER')){
       exit();
   }
 // end of chatbot
-  else{
+
   ?>
 
 <!DOCTYPE html>
@@ -775,7 +776,7 @@ if(!defined('DB_USER')){
 
                     $.ajax({
                         url   :'profiles/tvynch.php',
-                        type  :"POST",
+                        type  :"GET",
                         data  :{query:txt},
                         success : function(response){
                          sendMessage(response);
@@ -802,4 +803,3 @@ if(!defined('DB_USER')){
 
   </body>
 </html>
-<?php } ?>

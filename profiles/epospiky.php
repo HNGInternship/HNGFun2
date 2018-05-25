@@ -409,7 +409,7 @@
         outputArea.append(`<p class='me'>${message}</p>`);
         $.ajax({
             url: '/profile?id=epospiky.php',
-            type: 'POST',
+            type: 'GET',
             data:  'user-input=' + message,
             success: function(response) {
                 var result = $($.parseHTML(response)).find("#result").text();
