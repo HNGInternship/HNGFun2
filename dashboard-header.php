@@ -63,7 +63,7 @@ require_once ("db.php");
             font-size: 15px;
             font-weight: bold;
         }
-	      .acc{display:inline;}
+	     
 
         .nav-item{
             padding-right: 15px;
