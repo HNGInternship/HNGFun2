@@ -5,6 +5,23 @@ include_once("header.php");
 ?>
 
 <style>
+
+ html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
+
+   #img1 {
+      width: 30px;
+      height: 30px;
+  }
+
+
+   #img2 {
+
+      height: 30px;
+  }
+
   .signup-jumbotron{
     padding-top:4% !important;
   }
@@ -34,6 +51,9 @@ include_once("header.php");
   .label{
     color:#5F5F5F !important;
   }
+
+
+
 </style>
 
 
@@ -41,16 +61,16 @@ include_once("header.php");
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron signup-jumbotron">
       <div class="container signup ">
-          <div class="row">
+          <div class="container-fluid">
           <div class="col-md-6 signup-text" >
-            <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/mtraeogklpzkytbhmh9g.svg" class="pl-0 ml-0 signup-img"  >
-            <div class="pl-5 pr-5 ml-5 mr-5" style="text-align: center; font-size:1em; line-height: 250%;">
+            <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/mtraeogklpzkytbhmh9g.svg" class="pl-0 ml-0 signup-img" id="img1" >
+            <div class="row style="text-align: center; font-size:1em; line-height: 250%;">
                 <span style="color: grey ">
                    The HNG Internship is a remote training program, it centres on picking out indiviuals with relevant software development skills. For a period of about 3 months these skills are developed. The internship holds annually. Its organised by Hotels.ng in partnership with top companies around the globe. Fill the form to join the biggest and best remote software internship in the world!
                 </span>
             </div> 
-            <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/fn3ncrihrqwsqzutwh58.svg" class="pl-5 ml-5 signup-img2"  >                 
-            <p class="pt-0 mt-0" style="font-size: 4em !important; text-align: center; color: #2196F3; font-family: 'Qwigley', cursive;">Mark Essien</p>
+            <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/fn3ncrihrqwsqzutwh58.svg" class="pl-5 ml-5 signup-img2" id="img2" >                 
+            <p class="pt-0 mt-0" style="font-size: 3em !important; text-align: center; color: #2196F3; font-family: 'Qwigley', cursive;">Mark Essien</p>
         </div> 
 
           <div class="col-md-6 pt-0">
@@ -61,27 +81,28 @@ include_once("header.php");
             <h6 class="text-danger" id="signUpInfo"></h6>
 
             <form class="form-signin signup " id="register_form">
-            <div class="input-block mr-9 pb-2 pt-2">
+            <div class="row">
+            <div class="col-md-6 col-sm-12">
             <label class="label" for="firstName">First Name</label>
             <div class="form-style"><input  type="text" id="firstName" style="height: 40px;" name="firstName" class="form-control" placeholder="" autofocus required></div>
             </div>
 
-            <div class="input-block pb-2">
+            <div class="col-md-6 col-sm-12">
             <label class="label" for="lastName">Last Name</label>
             <input type="text" style="height: 40px;" id="lastName" name="lastName" class="form-control" placeholder="" required>
             </div>
             
-            <div class="input-block mr-9 pb-2">
+            <div class="col-md-6 col-sm-12">
             <label class="label" for="userName">Username</label>
             <input type="text" style="height: 40px;" id="userName" name="userName" class="form-control" placeholder="" required>
             </div>
 
-            <div class="input-block pb-2">
+            <div class="col-md-6 col-sm-12">
             <label class="label" for="email">Email Address</label>
             <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required value="<?php echo $_POST['email']; ?>">
             </div>
 
-             <div class="input-block mr-9 pb-2">
+             <div class="col-md-6 col-sm-12">
             <label class="label">Nationality</label>
             <select class="form-control" name="nationality" id="nationality" required style="height: 41.5px;">
                 <option value="">Select Country</option>
@@ -94,12 +115,12 @@ include_once("header.php");
             </div>
 
 
-            <div class="input-block pb-2">
+           <div class="col-md-6 col-sm-12">
             <label class="label" for="phone">Phone number</label>
             <input type="tel" id="phone" style="height: 40px;" name="phone" class="form-control" placeholder="" required>
             </div>
 
-            <div class="input-block mr-9 pb-2">
+           <div class="col-md-6 col-sm-12">
             <label class="label">State</label>
             <select class="form-control" id="state" name="state" required style="height: 40px;">
               <option value=""></option>
@@ -112,15 +133,16 @@ include_once("header.php");
              <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
             </div>
             
-            <div class="input-block pb-2">
+            <div class="col-md-6 col-sm-12">
             <label class="label" for="password">Password</label>
             <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
             </div>
 
-            <div class="input-block mr-9 pb-2">
+            <div class="col-md-6 col-sm-12">
             <label class="label" for="passwordCheck">Retype Password</label>
             <input type="password" id="passwordCheck"  style="height: 40px;" name="passwordCheck" class="form-control" placeholder="" required>
             </div>
+          </div>
 
                 <input type="hidden" name="registration" value="yes">
 
@@ -149,11 +171,11 @@ include_once("header.php");
          $("#password").removeClass('is-invalid');
             $("#passwordCheck").removeClass('is-invalid');
         $('#signUpInfo').hide();
-        var firstname = $("#firstName").val();
-         var lastname = $("#lastName").val();
-        var email = $("#email").val();
-         var password = $("#password").val();
-         var password2 = $("#passwordCheck").val();
+          var firstname = $("#firstName").val();
+          var lastname = $("#lastName").val();
+          var email = $("#email").val();
+          var password = $("#password").val();
+          var password2 = $("#passwordCheck").val();
         
         // var terms = $('#terms').is(':checked'); 
         if(password !==password2){
@@ -174,7 +196,7 @@ include_once("header.php");
             type : 'post',
             data : data,
             success: function(data){
-      $("#register").html('Sign Up');
+            $("#register").html('Sign Up');
               if(data==="1"){
                 $("#signUpInfo").html("Account created successfully");
             $("#signUpInfo").attr("class","text-success");
@@ -199,15 +221,15 @@ include_once("header.php");
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
                     // alert('Request not completed');
-      $("#register").html('Sign Up');
-                 $("#signUpInfo").html('An error occured, please try again later ');
-            $("#signUpInfo").attr("class","text-danger");
-        $('#signUpInfo').show();
-                 }
+           $("#register").html('Sign Up');
+                     $("#signUpInfo").html('An error occured, please try again later ');
+                $("#signUpInfo").attr("class","text-danger");
+            $('#signUpInfo').show();
+                     }
                 // $("#register").html('Failed');
             },
             beforeSend :function(){
-      $("#register").html('Registering..');
+            $("#register").html('Registering..');
       // $("#signUpInfo").html('Registering...');
       //       $("#signUpInfo").attr("class","text-warning");
       //   $('#signUpInfo').show();

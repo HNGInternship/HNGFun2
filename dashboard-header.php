@@ -1,6 +1,7 @@
 <?php
+session_start();
 require_once ("db.php");
-session_start ();
+
 
 ?>
 <!DOCTYPE html>
@@ -62,6 +63,7 @@ session_start ();
             font-size: 15px;
             font-weight: bold;
         }
+	     
 
         .nav-item{
             padding-right: 15px;
@@ -78,6 +80,7 @@ session_start ();
         ul.navbar-nav {
             height: auto !important;
         }
+	      
   <?php if (function_exists('custom_styles')) {
       custom_styles();
     }
@@ -144,13 +147,15 @@ session_start ();
 			<div class="navbar-right acc">
 				
 				<div class="dropdown" id="">
-					<img class="acc-img" src="img/dashboard/amy.png">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true"><?php 
-					echo $_SESSION['user_id'];; ?><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
+					<span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
+				
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true">
+						<span><?php echo $_SESSION['username']; ?></span>
+						<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
 					 
 					<ul class="dropdown-menu">
-							<li><span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="profile.php">Your Profile</a>
+							<li><span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="myprofile.php">Your Profile</a>
 							</span></li>
 
 							<li><span class="dropdown-item">

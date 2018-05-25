@@ -1,4 +1,5 @@
 
+
 <?php
     if(!defined('DB_USER')){
         if (file_exists('../../config.php')) {
@@ -135,6 +136,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html>
 
@@ -247,7 +249,7 @@
 <style type="text/css">
 body {
             background-size: cover;
-            margin-top: 50px;
+            margin-top: 10px;
             height: 100%;
             font:normal 12px/1.6em Arial, Helvetica, 'San serif';
             
@@ -294,8 +296,8 @@ span {
 }
 
 #center {
-            position: absolute;
-            top: 15%;
+            position: fixed;
+            top: 30%;
             float: left;
             padding-left: 20px;
 }
@@ -386,7 +388,7 @@ p {
 }
 
 #footer {
-            transform: translateX(0%) translateY(430px);
+            transform: translateX(0%) translateY(10%);
             clear: both;
             background: #f7f7f7;
             padding-top: 10px;
@@ -420,13 +422,13 @@ h4 {
             border-right: 1px solid #5e5c5c46;
             border-top: 1px solid #5e5c5c46;
             border-bottom: 1px solid #5e5c5c46;
-            height: 900px;
+            height: 970px;
             width: 802px;
             
 }
 
 #foot-container {
-            padding-top: 59px;
+            padding-top: 20px;
 }
 
 #cent {
@@ -524,19 +526,26 @@ h4 {
 }
 
 .con {
-        transform: translateX(800px) translateY(-420%);
+        transform: translateX(430px) translateY(240%);
         clear: both;
-        height: 50px;
-        width: 90%;
-        position: fixed;
+        height: 10%;
+        width: 22%;
+        position: absolute;
         margin-right: 10px;
         text-align: center;
+}
+.mebot {
+    transform: translateX(400px) translateY(-5%);
+    clear: both;
+    position: relative;
+    width: 300px;
+
 }
 
 </style>
 </head>
 
-<body >
+<body class="container">
 
     <div class="container">
             <div id="body">
@@ -612,8 +621,11 @@ h4 {
                                 </div>
                             </div>
                             <div>
-                                <img id="center" class="img-circle" src="https://res.cloudinary.com/dyuuulmg0/image/upload/v1523621000/sam1.jpg" alt="I am Achem Samuel"
+                                <div classs="container-fluid">
+                                    <img id="center" class="img-circle" src="https://res.cloudinary.com/dyuuulmg0/image/upload/v1523621000/sam1.jpg" alt="I am Achem Samuel"
                                     height="250" width="210" />
+                                <div>
+                                
                 
                                 <div id="like">
                                     <h5 style="text-align: justify">What I like</h5>
@@ -639,7 +651,7 @@ h4 {
                         </div>
 
 
-                        <div class="con">
+                        <div class="container mebot">
                             <div class="col-md-3">
                             
                                 <div class="chatBox">
@@ -685,20 +697,6 @@ h4 {
                     
                 </div>
                 
-
-
-
-
-
-
-
-
-                        <footer id="foot-container">
-                            <div id="footer">
-                                Copyright &copy; 2018 Achem Samuel. All rights reserved.
-                            </div>
-                            
-                        </footer>
                         
                 
             </div>

@@ -1,84 +1,81 @@
 
-
-
 <?php
-
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        $data = preg_replace("([?.!])", "", $data);
+        $data = preg_replace("(['])", "\'", $data);
+        return $data;
+    }
+    require '../../config.php';
+    
+  $conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
 
-        //die('Hi');
-          require('../../config.php"');
-        $conn =  mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE );
+    
+    if(!$conn){
+        die('Unable to connect');
+    }
+    $question = $_POST['message'];
 
-       // $conn = new mysqli('localhost', 'root', 'root', 'hng_fun');    
+    $pos = strpos($question, 'train:');
 
-         
-
-         if(!$conn){
-          die('Unable to connect');
+    if($pos === false){
+        $sql = "SELECT answer FROM chatbot WHERE question like '$question' ";
+        $query = $conn->query($sql);
+        if($query){
+            echo json_encode([
+                'results'=> $query->fetch_all()
+            ]);
+            return;
         }
-        $question = $_POST['message'];
-        $pos = strpos($question, 'train:');
+    }else{
+        $trainer = substr($question,6 );
+        $data = explode('#', $trainer);
+        $data[0] = trim($data[0]);
+        $data[1] = trim($data[1]);
+        $data[2] = trim($data[2]);
+
+        if($data[2] == 'password'){
+
+            $sql = "INSERT INTO chatbot (question, answer)
+            VALUES ('$data[0]', '$data[1]')";
 
 
-        if($pos === false){
-            $sql = "SELECT answer FROM chatbot WHERE question like '$question' ";
             $query = $conn->query($sql);
             if($query){
                 echo json_encode([
-                    'results'=> $query->fetch_all()
+                    'results'=> 'Successfully trained'
                 ]);
                 return;
-            }
-        }else{
-            $trainer = substr($question,6 );
-            $data = explode('#', $trainer);
-            $data[0] = trim($data[0]);
-            $data[1] = trim($data[1]);
-            $data[2] = trim($data[2]);
-
-            if($data[2] == 'password'){
-
-                $sql = "INSERT INTO chatbot (question, answer)
-                VALUES ('$data[0]', '$data[1]')";
-
-
-                $query = $conn->query($sql);
-                if($query){
-                    echo json_encode([
-                        'results'=> 'Trained Successfully'
-                    ]);
-                    return;
-                }else{
-                    echo json_encode([
-                        'results'=> 'Error training'.$conn->error
-                    ]);
-                    return;
-                }
-                
             }else{
                 echo json_encode([
-                    'results'=> 'Wrong Password'
+                    'results'=> 'Training error'
                 ]);
                 return;
             }
             
+        }else{
+            echo json_encode([
+                'results'=> 'Wrong Password'
+            ]);
+            return;
         }
         
-        echo json_encode([
-            'reply'=>  'working'
-        ]);
-        
-    return ;
-    }else{
-        //echo 'HI';
-        //return;
     }
     
+    echo json_encode([
+        'results'=>  'Good to go'
+    ]);
+    
+return ;
+
+}
 
 
 
 ?>
-
 <!DOCTYPE html>
 
 <html>
@@ -216,14 +213,28 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		#time {color: white;}
 
 		#user {color: white;
+			background-color: #A394CD;
 			margin-left: 15px;
+			border-left: 2px;
+			border-radius: 10px;
+			max-width: 200px;
+
 			}
+		#bot{color: white;
+			margin-left: 15px;
+			border-left: 2px;
+			background-color: #A394CD;
+			border-radius: 10px;
+			max-width: 200px;
+
+			}
+
 	
 
 		</style>	
 		
 	</head>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+	
 	<body>
 		<div class = "container">
 		
@@ -234,7 +245,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <?php date_default_timezone_set('Africa/lagos');
 					echo  date("d:m:Y | h:ia"); ?> </h5>
                 	</span>
-					<div class = "intro"><p><h4> Hi there!, welcome to Nma’s bot. To train me,type "train : question # answer # password</h4></p>
+					<div class = "intro"><p><h5> Hi there!, welcome. Type "aboutbot" to learn about me. To train me,type "train : question # answer # password</h5></p>
 					</div>
 					
 					<div id = "chat_area">
@@ -249,7 +260,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				
 
 				<p><h2> ORJI CHIDINMA N. </h2></p>
-				<p><h4>Tech enthusiast, Intern @HNGInternship, <br/> web development student. </h4> <p>
+				<p><h4>Tech enthusiast, Intern @HNGInternship 4.0, <br/> learner. </h4> <p>
 			
 				<p> <h5> email: <u>chypearlnel@gmail.com</u></h5></p>
 				<p><h5> Phone no: 09022181787 </h5></p>
@@ -294,13 +305,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
             }
         };
-        xhttp.open("POST", "chidinma.php", true);
+        xhttp.open("POST", "/profiles/chidinma");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }
     </script>
 	</body>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" ></script>
+	
 </html>

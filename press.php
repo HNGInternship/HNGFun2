@@ -126,11 +126,13 @@
 
 <section>
 	<div class="update-container">
-		<div class="sidebar" style="padding:20px;">
+		<div class="sidebar" style="padding:55px;">
+            <div class="row offset-1">
 			<a href="#top" class="btn btn-default">Press Release</a>
 			<br><a href="#mid1" class="btn btn-default">Press Release</a>
 			<br><a href="#mid2" class="btn btn-default">Press Release</a>
 			<br><a href="#last" class="btn btn-default">Press Release</a>
+        </div>
 		</div>
 	    <div id="boxes">
 	    	<h2 style="text-align: left;">Live Updates</h2>

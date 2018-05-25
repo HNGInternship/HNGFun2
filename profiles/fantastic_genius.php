@@ -1,14 +1,16 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    require_once "../../config.php";
-    global $conn;
-    global $response;
-    try{
-        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=". DB_DATABASE, DB_USER, DB_PASSWORD);
-    }catch(PDOException $err){
-        die("could not connect to database " . DB_DATABASE . ":" . $err->getMessage());
+    if(!defined('DB_USER')){
+        require "../../config.php";
+        global $conn;
+        global $response;
+        try{
+            $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=". DB_DATABASE, DB_USER, DB_PASSWORD);
+        }catch(PDOException $err){
+            die("could not connect to database " . DB_DATABASE . ":" . $err->getMessage());
+        }
     }
-
+    if(isset($_POST['question'])){
     $question = $_POST['question'];
 
     $question = strtolower($question);
@@ -43,6 +45,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
     
     echo $response;
+    }
 
 }
 
@@ -274,7 +277,7 @@ function isHelp($question){
 }
 
 
-if($_SERVER['REQUEST_METHOD'] === 'GET'){
+if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     try{
         $sql = "SELECT * FROM secret_word LIMIT 1" ;
         $query = $conn->query($sql);
@@ -307,7 +310,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     <meta charset="utf-8" />
     <title>Fantastic Genius Profile</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" >
     
     
 
@@ -650,7 +653,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
                 $('.user-input').val("");
 
                 $.ajax({
-                    url: "./profiles/fantastic_genius.php",
+                    url: "./profiles/fantastic_genius.php/",
                     type: 'POST',
                     dataType: 'json',
                     data: {question: question},

@@ -1,7 +1,7 @@
 <?php
 ini_set("display_errors",1);
 if(!defined('DB_USER')){
-  require_once('../config.php');
+  require_once('../../config.php');
 }
 
 global $conn;
@@ -307,9 +307,9 @@ try {
   }
 
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_GET['query'])) {
 
-    $query = isset($_POST['query'])? $_POST['query'] : '';
+    $query = $_GET['query'];
     $query = strtolower($query);
     $query = filter_var($query,FILTER_SANITIZE_STRING);
 
@@ -776,7 +776,7 @@ try {
 
                     $.ajax({
                         url   :'profiles/tvynch.php',
-                        type  :"POST",
+                        type  :"GET",
                         data  :{query:txt},
                         success : function(response){
                          sendMessage(response);

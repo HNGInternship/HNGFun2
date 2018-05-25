@@ -43,11 +43,11 @@ include_once("header.php");
             
                </div>
                
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
             <form action="" class="text-center" name="register_form" id="register_form">
-=======
-            <form action="" method="post" class="text-center" name="register_form" id="register_form">
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+<!-- =======
+ -->            <form action="" method="post" class="text-center" name="register_form" id="register_form">
+<!-- >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570 -->
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
@@ -60,7 +60,7 @@ include_once("header.php");
             <input type="hidden" name="username" id="username" class="form-control" placeholder="User Name">
 
              
-            <br />
+            <br/>
             <div class="form-row">
                 <div class="form-group col-md-6" style="padding-right:50px">
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
@@ -69,9 +69,9 @@ include_once("header.php");
                     <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number">
                 </div>
             </div>
-            <br />
-<<<<<<< HEAD
-=======
+            <br/>
+<!-- <<<<<<< HEAD
+======= -->
             <!--
 >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
             <div class="form-row">
@@ -86,9 +86,9 @@ include_once("header.php");
 
 =======
             -->
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
-            
-            <br />
+<!-- >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+ -->            
+            <br/>
              <div class="form-row">
                         <div class="form-group col-md-6" style="padding-right:50px">
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password">
@@ -100,7 +100,7 @@ include_once("header.php");
                 <input type="hidden" name="registration" value="yes">
 
             
-            <br />
+            <br/>
             <div class="form-group">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms" name="terms">
@@ -117,52 +117,52 @@ include_once("header.php");
     </div>
 </div>
 </div>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 
-=======
+<!-- ======= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.0/stellar-sdk.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
-<script type="text/javascript">
+<!-- >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+ --><script type="text/javascript">
        $( document ).ready(function() {
     $("#register").click(function(e){
         e.preventDefault();
 
         var firstname = $("#firstname").val();
-         var lastname = $("#lastname").val();
+        var lastname = $("#lastname").val();
         var email = $("#email").val();
         var phone = $("#phone").val(); 
         var password = $("#password").val();
         var password_confirm = $("#password_confirm").val();
-<<<<<<< HEAD
+// <<<<<<< HEAD
         var state = $("#state").val();
-=======
+// =======
         // var state = $("#state").val();
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+// >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
         var country = $("#country").val();
 
         var terms = $('#terms').is(':checked'); 
         
         if(firstname ==""){
-<<<<<<< HEAD
+// <<<<<<< HEAD
             alert('please enter your firstname');
-=======
+// =======
             //alert('please enter your firstname');
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+// >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter your firstname');
         }
         else if(lastname ==""){
-<<<<<<< HEAD
+// <<<<<<< HEAD
             alert('please enter your lastname');
-=======
+// =======
             //alert('please enter your lastname');
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+// >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter your lastname');
         }
        else if(email ==""){
-<<<<<<< HEAD
+// <<<<<<< HEAD
             alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
@@ -181,7 +181,7 @@ include_once("header.php");
 
          else if(phone ==""){
             alert('Please enter Phone Number');
-=======
+// =======
             //alert('please enter email');
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter email');
@@ -200,35 +200,35 @@ include_once("header.php");
 
          else if(phone ==""){
             //alert('Please enter Phone Number');
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+// >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter Phone Number');
         }
         else if(password ==""){
-<<<<<<< HEAD
+// <<<<<<< HEAD
             alert('Please enter password');
-=======
+// =======
            // alert('Please enter password');
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+// >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
         }
 
         else if(password != password_confirm){
-<<<<<<< HEAD
+// <<<<<<< HEAD
             alert('Passwords dont match');
-=======
+// =======
            // alert('Passwords dont match');
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+// >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
             $("#message").addClass('alert alert-danger');
             $("#message").html('Passwords dont match');
         }
         else if(terms == false){
-<<<<<<< HEAD
+// <<<<<<< HEAD
             alert('You must accept our terms and conditions to register');
-=======
+// =======
            // alert('You must accept our terms and conditions to register');
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+// >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
             $("#message").addClass('alert alert-danger');
             $("#message").html('Terms and conditions not accepted by you');
         }
@@ -238,10 +238,10 @@ include_once("header.php");
             
             $("#register").html('Registering..');
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
              var data = $("#register_form").serialize();
 
-            
+            }
 
              $.ajax('process.php',{
             type : 'post',
@@ -277,12 +277,13 @@ include_once("header.php");
 
             $("#register").html('Registering..');
             },
-=======
+// =======
             var data = $("#register_form").serialize();
             
             const pair = StellarSdk.Keypair.random();
             const secret_key = pair.secret();
             const public_key = pair.publicKey();
+        };
 
             // use public key to create account
             axios
@@ -326,17 +327,13 @@ include_once("header.php");
                 }).catch(function(error){
                     console.error(error);
                 });
->>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
+// >>>>>>> ca09930071e7c6a39ee8b1b0693ba9c769329570
         });
+
+     });
     
 
-        }
-        
-     });
-
-
-
-    });
+    
 </script>
 <?php
     include_once("footer.php");
