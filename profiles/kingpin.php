@@ -1,6 +1,6 @@
 <?php
 
- 	if($_SERVER['REQUEST_METHOD'] === 'GET')
+ 	if($_SERVER['REQUEST_METHOD'] === 'POST')
  {
            if (!defined('DB_USER')){
                require "../../config.php";
@@ -10,7 +10,7 @@
              } catch (PDOException $pe) {
                die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
              }
-      $mesuu = $_GET['question'];
+      $mesuu = $_POST['question'];
       $message=strtolower($mesuu);
       trim($message);
       $statusTrain = stripos($message, "rain:");
@@ -333,7 +333,7 @@ if (!defined('DB_USER')){
     $("#async").append(resusr+" "+valnext2+" </p></div>");
       $.ajax({
         url: 'profiles/kingpin.php',
-        type: 'GET',
+        type: 'POST',
         data: {question: question},
         dataType: 'json',
         success: function(response){
