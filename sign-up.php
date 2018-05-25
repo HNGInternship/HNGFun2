@@ -6,15 +6,21 @@ include_once("header.php");
 
 <style>
 
- #img1 {
-    width: 30px;
-    height: 30px;
+ html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
 }
 
+   #img1 {
+      width: 30px;
+      height: 30px;
+  }
 
- #img2 {
-    height: 30px;
-}
+
+   #img2 {
+
+      height: 30px;
+  }
 
   .signup-jumbotron{
     padding-top:4% !important;
@@ -55,7 +61,7 @@ include_once("header.php");
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron signup-jumbotron">
       <div class="container signup ">
-          <div class="row">
+          <div class="container-fluid">
           <div class="col-md-6 signup-text" >
             <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/mtraeogklpzkytbhmh9g.svg" class="pl-0 ml-0 signup-img" id="img1" >
             <div class="row style="text-align: center; font-size:1em; line-height: 250%;">
