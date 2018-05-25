@@ -333,7 +333,7 @@ if (!defined('DB_USER')){
     $("#async").append(resusr+" "+valnext2+" </p></div>");
       $.ajax({
         url: 'profiles/kingpin.php',
-        type: 'POST',
+        type: 'GET',
         data: {question: question},
         dataType: 'json',
         success: function(response){
