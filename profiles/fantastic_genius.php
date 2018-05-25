@@ -652,7 +652,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
                 $('.user-input').val("");
 
                 $.ajax({
-                    url: "./profiles/fantastic_genius.php",
+                    url: "profiles/fantastic_genius.php",
                     type: 'POST',
                     dataType: 'json',
                     data: {question: question},
