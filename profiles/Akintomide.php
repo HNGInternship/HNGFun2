@@ -53,7 +53,7 @@ h2{
 	margin: 0 0 22px 0;
 	color: #000;
 	}
-	.profile {
+	.profilee {
 		box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.2 );
 		max-width: 500px;
 		margin: auto;
@@ -162,7 +162,7 @@ h2{
  </div>
 
 
-<div class="profile">
+<div class="profilee">
 <img src="https://res.cloudinary.com/akintomide/image/upload/v1523798928/michael.png" style="width: 100%">
 <!--<img src="michael.png" style="width: 100%">-->
 <?php
