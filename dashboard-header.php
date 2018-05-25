@@ -80,7 +80,7 @@ require_once ("db.php");
         ul.navbar-nav {
             height: auto !important;
         }
-	      .dropdown{display:inherit;}
+	      
   <?php if (function_exists('custom_styles')) {
       custom_styles();
     }
@@ -145,10 +145,10 @@ require_once ("db.php");
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
 			<div class="navbar-right acc">
-				<span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
-				<span><?php echo $_SESSION['username']; ?></span>
+				
 				<div class="dropdown" id="">
-					
+					<span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
+				<span><?php echo $_SESSION['username']; ?></span>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true"><span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
 					 
