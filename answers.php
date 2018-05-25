@@ -890,7 +890,9 @@ function getUSSD($bankName){
         return '*919#';
 
         case 'wema bank':
-return '*945#';}}
+        return '*945#';
+    }
+}
 
 // End of functions by @Bukola
  // chibuokems functions starts here
