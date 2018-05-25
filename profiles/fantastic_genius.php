@@ -13,6 +13,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $question = $_POST['question'];
 
+    var_dump($question);
     $question = strtolower($question);
 
     if(preg_match('([?.])', $question)){

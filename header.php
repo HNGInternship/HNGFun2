@@ -120,8 +120,17 @@ $activeArray[$fileIndex]="active";
     .btn-primary:active,
     .btn-primary:visited,
     .btn-primary:focus {
-        background-color: #0475CE !important;
+        background-color: #2196F3!important;
     }
+
+        @media only screen and (max-width: 400px) {
+            .navbar-brand{
+            width:40px;
+            height: 25px;
+
+     }
+}
+       
 
       /*for footer*/
     .contact-icon{
@@ -160,8 +169,8 @@ $activeArray[$fileIndex]="active";
         <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class=" navbar-toggler ml-auto hidden-sm- float-xs-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span> 
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -206,7 +215,7 @@ $activeArray[$fileIndex]="active";
     </nav>
 <script type="text/javascript">
       $('.navbar-nav li').click(function(e){
-    $('.navbar-nav li').removeClass("");
+    $('.navbar-nav li').removeClass("navlink");
     $(this).addClass("active");
 });
     </script>
