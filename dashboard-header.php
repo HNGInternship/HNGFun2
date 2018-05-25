@@ -63,6 +63,7 @@ require_once ("db.php");
             font-size: 15px;
             font-weight: bold;
         }
+	      .acc{display:inline;}
 
         .nav-item{
             padding-right: 15px;
@@ -152,7 +153,7 @@ require_once ("db.php");
 					</a>
 					 
 					<ul class="dropdown-menu">
-							<li><span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="profile.php">Your Profile</a>
+							<li><span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="myprofile.php">Your Profile</a>
 							</span></li>
 
 							<li><span class="dropdown-item">
