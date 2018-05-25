@@ -206,7 +206,7 @@ $activeArray[$fileIndex]="active";
     </nav>
 <script type="text/javascript">
       $('.navbar-nav li').click(function(e){
-    $('.navbar-nav li').removeClass("");
+    $('.navbar-nav li').removeClass("navlink");
     $(this).addClass("active");
 });
     </script>
