@@ -1,8 +1,9 @@
    <?php
      
   require 'config.php';
+    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
 try {
-			$conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+			
 			$query = $conn->prepare("SELECT * FROM interns_data WHERE username='abayomi' LIMIT 1");			
 			$result = $conn->query("Select * from secret_word LIMIT 1");
            $result = $result->fetch(PDO::FETCH_OBJ);
@@ -549,7 +550,7 @@ class DBHelper{
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/477bc8d938.js"></script>
 <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
-<script type="text/javascript" src="../js/jquery.min.js"></script>s
+<script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript">
     var chat = chat || {};
 

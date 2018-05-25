@@ -37,7 +37,7 @@ $activeArray[$fileIndex]="active";
     <title>HNG FUN</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
 
 
@@ -75,9 +75,17 @@ $activeArray[$fileIndex]="active";
             color: #3d3d3d;
             font-family: 'Lato', sans-serif;
         }
-      .active{
+
+      .nav-item:hover, .active{
+            border-bottom: 3px solid #2196F3;
+        }
+
+     /* a:active{
           background-color:lightblue;
-      }
+      } */
+      a:visted{
+          color:green;
+      } 
         .navbar{
           font-size: 15px;
           font-weight: bold;
@@ -87,7 +95,7 @@ $activeArray[$fileIndex]="active";
 
         .nav-item{
             padding: 24px 15px;
-            border-bottom: 3px solid #f4f4f4;
+            /* border-bottom: 3px solid #f4f4f4; */
         }
         .nav-item:hover{
             border-bottom: 3px solid #2196F3;
@@ -112,8 +120,17 @@ $activeArray[$fileIndex]="active";
     .btn-primary:active,
     .btn-primary:visited,
     .btn-primary:focus {
-        background-color: #0475CE !important;
+        background-color: #2196F3!important;
     }
+
+        @media only screen and (max-width: 400px) {
+            .navbar-brand{
+            width:40px;
+            height: 25px;
+
+     }
+}
+       
 
       /*for footer*/
     .contact-icon{
@@ -152,30 +169,30 @@ $activeArray[$fileIndex]="active";
         <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class=" navbar-toggler ml-auto hidden-sm- float-xs-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span> 
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item <?= $activeArray[0] ?>">
-                <a href="index" class="nav-link">Home</a>
+            <li class="nav-item  <?= $activeArray[0] ?>">
+                <a href="index" class="nav-link ">Home</a>
             </li>
-            <li class="nav-item <?= $activeArray[1] ?>">
+            <li class="nav-item  <?= $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
             </li>
-            <li class="nav-item <?= $activeArray[2] ?>">
+            <li class="nav-item  <?= $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
             </li>
-            <li class="nav-item <?= $activeArray[3] ?>">
+            <li class="nav-item  <?= $activeArray[3] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>
             </li>
             <li class="nav-item <?= $activeArray[4] ?>">
                 <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
-            <li class="nav-item <?= $activeArray[5] ?>">
+            <li class="nav-item  <?= $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
 
@@ -198,7 +215,7 @@ $activeArray[$fileIndex]="active";
     </nav>
 <script type="text/javascript">
       $('.navbar-nav li').click(function(e){
-    $('.navbar-nav li').removeClass("active");
+    $('.navbar-nav li').removeClass("navlink");
     $(this).addClass("active");
 });
     </script>

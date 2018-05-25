@@ -23,8 +23,10 @@
     }
     $secret_word = $data['secret_word'];
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $data = $_POST['user-input'];
+ 
+
+      if(isset($_GET['user-input'])){
+        $data = $_GET['user-input'];
         $temp = explode(':', $data);
         $temp2 = preg_replace('/\s+/', '', $temp[0]);
         
@@ -272,9 +274,8 @@
 
 
         $.ajax({
-		<!-- change page to noel obaseki later -->
             url: 'profile.php?id=Noel_Obaseki',
-            type: 'POST',
+            type: 'GET',
             data:  'user-input=' + message,
             success: function(response) {
                 var result = $($.parseHTML(response)).find("#result").text();
