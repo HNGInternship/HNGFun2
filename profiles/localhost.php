@@ -323,7 +323,7 @@ body{
         $(".cover").append(msg);
          $(".form").val("");
          $.ajax({
-        url:"./profiles/localhost.php",
+        url:"./profiles/localhost.php/",
         type:"POST",
         data:{msg : user_input},
         dataType: 'json',
