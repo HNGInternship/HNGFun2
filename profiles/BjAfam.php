@@ -392,7 +392,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 						</div>
 						`);
 						$.ajax({
-					url: 'profiles/BjAfam.php',
+					url: 'profiles/BjAfam',
 					type: 'POST',
 					data: {question: question},
 					dataType: 'json',

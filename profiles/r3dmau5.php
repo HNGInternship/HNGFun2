@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require "../answers.php";
+   // require "../answers.php";
    
     if(!defined('DB_USER')){
         require "../../config.php";		
@@ -106,11 +106,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                       ]);
                       return;
                     }
+                }else{
+
                 }
     
             }
             catch (PDOException $e) {
-                throw $e;
+                echo json_encode([
+                    'status' => 1,
+                    'reply' => "$e->getMessage()",
+                  ]);
+                  return;
             }
            }
             
@@ -142,10 +148,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } 
         .card{
             max-width: 25%;
-            margin-top: 10%;
+            margin-top: 10px;
+            float: left;
+            padding: 10px;
             /* border-radius: 20%; */
             height: 450px;
-            
+            margin-left: 100px;
             
         }     
         .card-top{
@@ -158,6 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-width: 30%;
             margin-top: 50%;
             border-radius: 60%;
+            
         }
 
         .chatbotbox {
@@ -289,7 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     return false;
                 }
                 $.ajax({
-				url: "/profiles/r3dmau5.php",
+				url: "/profiles/r3dmau5",
 				type: "post",
 				data: {question: question},
                 dataType: "json",
@@ -302,10 +311,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 },          
                     error: function(error){
-                    console.error(error);
-                    var servertext = document.createElement('div');
-                    servertext.innerHTML = "<br>"  + "<span class= 'bot' > J4rvis: </span>" + "Sorry, I'm having a hard time understanding you right now, you could offer to train me" + "<br>";
-                    client.appendChild(servertext); 
+                    console.error(error.status);
+                     var servertext = document.createElement('div');
+                     servertext.innerHTML = "<br>"  + "<span class= 'bot' > J4rvis: </span>" + "Sorry, I'm having a hard time understanding you right now, Could you try again some time?" + "<br>";
+                     client.appendChild(servertext); 
                     
 				}                               
                    
@@ -326,16 +335,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 
                 <?php
-                require_once 'db.php';
-                try {
-                    $select = 'SELECT * FROM secret_word';
-                    $query = $conn->query($select);
-                    $query->setFetchMode(PDO::FETCH_ASSOC);
-                    $data = $query->fetch();
-                } catch (PDOException $e) {
-                    throw $e;
-                }
-                $secret_word = $data['secret_word'];        
+                //require_once 'db.php';
+                // try {
+                //     $select = 'SELECT * FROM secret_word';
+                //     $query = $conn->query($select);
+                //     $query->setFetchMode(PDO::FETCH_ASSOC);
+                //     $data = $query->fetch();
+                // } catch (PDOException $e) {
+                //     throw $e;
+                // }
+                // $secret_word = $data['secret_word'];        
             ?>
 
         

@@ -1,6 +1,6 @@
 <?php 
     date_default_timezone_set('Africa/Lagos');
-
+    header("Access-Control-Allow-Origin: *");
         if (!defined('DB_USER')){
             
             require "../../config.php";
@@ -10,7 +10,7 @@
           } catch (PDOException $pe) {
             die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
           }
-
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            global $conn;
 
         try {
@@ -457,7 +457,7 @@
                                 // alert(message);
                                 $.ajax({
                                     type: 'POST',
-                                    url: '/profiles/oriechinedu.php',
+                                    url: '/profiles/oriechinedu',
                                     dataType: 'json',
                                     data: {chat_message: message},
                                     success: function(data) {
