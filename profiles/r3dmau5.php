@@ -298,7 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     return false;
                 }
                 $.ajax({
-				url: "profiles/r3dmau5.php",
+				url: "/profiles/r3dmau5",
 				type: "post",
 				data: {question: question},
                 dataType: "json",
