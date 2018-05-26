@@ -168,11 +168,7 @@
           max-height: 400px; 
           resize: none;
       }
-      .text-box {
-          overflow-y: scroll;
-          resize: none;
-          max-height: 200px;
-      }
+    
       .button {
             background-color: #4CAF50; 
             border: none;
@@ -350,7 +346,7 @@
       document.getElementById("chatbox").placeholder = "";
     }
 
-        xhttp.open("POST", "/profiles/enyioma.php", true);
+        xhttp.open("POST", "/profiles/enyioma", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }

@@ -62,45 +62,41 @@
 			</div>
 								
 			<div class="col-md-7 bder">
-							<div class="row mt-5 cont1" >
-								
-									<div class="col" >
-										<img src="../img/bluechips.png">
-									</div> 
-
-									<div class="col-sm-4 bder">
-										<span class="listing"><h6>Headquarters:</h6>Ikoyi, Lagos</span>
-										<span class="listing"><h6>Address:</h6> Plot No. 9B, Onikoyi Lane, Parkview Estate, Ikoyi, Lagos</span>  
-										<span class="listing"><h6>Industry:</h6>Data Management</span>
-									</div>
-									
-									<div class="col-sm-2 bder"> 
-										<div class="listing"><h6>Phone:</h6>01 454 9539</div>
-										<div class="listing"><h6>Founded:</h6></div> 
-									</div>
-									
-									
-									
-									
-									
-									
-									
-									
-								
+						
+						<div class="row" >
+								<div class="col-md-12 mt-3 cont1">
+									<ul class="list-inline">
+									  <li class="list-inline-item copyleft">
+										<img src="../img/bluechips.png" class="smImg">
+									  </li>
+									  <li class="list-inline-item copyleft">
+										<h6>Headquarters:</h6>Ikoyi, Lagos
+										<h6>Address:</h6> Plot No. 9B, Onikoyi Lane, Parkview Estate,<br> Ikoyi, Lagos  
+										<h6>Industry:</h6>Data Management
+									  </li>
+									  <li class="list-inline-item copyleft">
+										<div><h6>Phone:</h6>01 454 9539</div>
+										<div><h6>Founded:</h6></div> 
+									  </li>
+									</ul>
+								</div>
 							</div>
+			
+			
+							
 							<div class="row">
 								<div class="col-md-12 mt-5 cont1">
 									<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:70px; "> Contributions</h3>
 
 									
-									<p>Blue Chip Technologies is a major patner in HNG internship 4.0. Some of their major contributions are:</p>
+									<p class="text-justify">Blue Chip Technologies is a major patner in HNG internship 4.0. Some of their major contributions are:</p>
 
 									<ul class="listStyle">
 									<li class="mt-3">
-										<span>Monetary rewards for successfully completed projects in the internship</span>
+										<span class="text-justify">Monetary rewards for successfully completed projects in the internship</span>
 									</li>
 									<li class="mt-3">
-										<span>Monetary support for purchase of internet data by interns with outstanding performances in the internship</span>
+										<span class="text-justify">Monetary support for purchase of internet data by interns with outstanding performances in the internship</span>
 									</li>
 									</ul>  
 
