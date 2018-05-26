@@ -168,11 +168,7 @@
           max-height: 400px; 
           resize: none;
       }
-     <!-- .text-box {
-          overflow-y: scroll;
-          resize: none;
-          max-height: 200px;
-      } -->
+    
       .button {
             background-color: #4CAF50; 
             border: none;
