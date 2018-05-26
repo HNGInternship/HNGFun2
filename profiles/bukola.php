@@ -310,9 +310,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.2/qs.js"></script>
     <script>
-
+    
         // el is for the element we want to attach Vue.js to
         new Vue({
             el: '.bot',
@@ -348,7 +347,7 @@
                     params.append('password', 'password');
                     params.append('question', query);
 
-                    axios.post('/profiles/bukola.php', Qs.stringify(params))
+                    axios.post('/profiles/bukola.php', params)
                         .then(response => {
                             console.log(response);
                             this.messages.pop();
