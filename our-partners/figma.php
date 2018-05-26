@@ -21,9 +21,7 @@
 		</header>
 	
 	
-	
-	
-	<section class="mx-auto col-md-10 mt-5 mb-5 head2">
+	<section class="mx-auto col-md-10 head2">
 		<div class="row">
 			<div class="col-md-4 bder">
 				<div class="cont voffset">
@@ -65,26 +63,28 @@
 			</div>
 								
 			<div class="col-md-7 bder">
-							<div class="row mt-5 cont1" >
-								
-									<div class="col" >
-										<img src="../img/figma-dark.png">
-									</div> 
-
-									<div class="col-sm-4 bder">
-										<span class="listing"><h6>Headquarters:</h6>San Francisco, California</span>
-										<span class="listing"><h6>Address:</h6>142 Minna St, Floor 2 San Francisco, CA 94105</span>
-										<span class="listing"><h6>Industry:</h6>Design</span>
-									</div>
-									
-									<div class="col-sm-2 bder"> 
-										<div class="listing"><h6>Phone:</h6></div>
-										<div class="listing"><h6>Founded:</h6>2012</div>
-									</div>
-								
+			
+			
+							<div class="row" >
+								<div class="col-md-12 mt-3 cont1">
+									<ul class="list-inline">
+									  <li class="list-inline-item copyleft">
+										<img src="../img/figma-dark.png" class="smImg">
+									  </li>
+									  <li class="list-inline-item copyleft">
+										<h6>Headquarters:</h6>San Francisco, California
+										<h6>Address:</h6>142 Minna St, Floor 2 San Francisco,<br> CA 94105
+										<h6>Industry:</h6>Design
+									  </li>
+									  <li class="list-inline-item copyleft">
+										<div><h6>Phone: </h6>0806 621 2033</div>
+										<div><h6>Founded:</h6>2012</div>
+									  </li>
+									</ul>
+								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-12 mt-5 cont1">
+								<div class="col-md-12 mt-3 cont1">
 									<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:70px; "> Contributions</h3>
 
 									<p>The Figma team with its passion for design education is keen on crafting a one-stop shop for all design needs. With much than than regular interface design, local font integration, multi-device catering, rapid prototyping, and real-time collaboration. Figma is one of the Software tool partners for HNG internship 4.0, and as such figma -the tool - is the official design tool for the HNG 4 internship.</p>
