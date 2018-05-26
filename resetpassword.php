@@ -39,7 +39,6 @@ include_once("header.php");
         var email = $("#email").val();
              
         if(email ==""){
-            alert('please enter email');
             $("#notif").addClass(' alert alert-danger');
             $("#notif").html('Please enter email');
         }
@@ -77,7 +76,7 @@ include_once("header.php");
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
-                    alert('Request not completed');
+                    //alert('Request not completed');
                  }
                 $("#reset").html('Failed');
             },

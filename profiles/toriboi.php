@@ -331,7 +331,7 @@
             </div>
           </div>
           <form id="t-form">
-            <input type="text" id="text" name="text" value="" placeholder="Chat with me!">
+            <input type="text" id="text" name="text" value="<?php echo ""; ?>" placeholder="Chat with me!">
             <input type="submit" id="submit" name="submit" value="Send">
           </form>
         </div>
@@ -357,7 +357,7 @@
             messageArea.scrollTop = messageArea.scrollHeight;
           }
         }
-        xhttp.open('POST', 'profiles/toriboi.php', true);
+        xhttp.open('POST', 'profiles/toriboi', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('q='+ text);
 

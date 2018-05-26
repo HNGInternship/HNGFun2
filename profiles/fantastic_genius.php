@@ -1,5 +1,5 @@
 <?php
-//if($_SERVER['REQUEST_METHOD'] === 'POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!defined('DB_USER')){
         require "../../config.php";
         global $conn;
@@ -13,7 +13,6 @@
     if(isset($_POST['question'])){
     $question = $_POST['question'];
 
-    //var_dump($question);
     $question = strtolower($question);
 
     if(preg_match('([?.])', $question)){
@@ -46,9 +45,9 @@
     }
     
     echo $response;
-}
+    }
 
-//}
+}
 
 function isTraining($data){
     if(strpos($data, 'train:') !== false){
@@ -278,7 +277,7 @@ function isHelp($question){
 }
 
 
-if($_SERVER['REQUEST_METHOD'] === 'GET'){
+if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     try{
         $sql = "SELECT * FROM secret_word LIMIT 1" ;
         $query = $conn->query($sql);
@@ -654,7 +653,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
                 $('.user-input').val("");
 
                 $.ajax({
-                    url: "./profiles/fantastic_genius.php",
+                    url: "./profiles/fantastic_genius.php/",
                     type: 'POST',
                     dataType: 'json',
                     data: {question: question},
