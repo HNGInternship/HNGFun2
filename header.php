@@ -211,7 +211,7 @@ $activeArray[$fileIndex]="active";
         </ul>
   </div>
 
-    </nav>
+</nav>
 <script type="text/javascript">
     var activeUrl = window.location.href.split('/')
     var active =activeUrl[activeUrl.length-1];
