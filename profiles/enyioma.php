@@ -346,7 +346,7 @@
       document.getElementById("chatbox").placeholder = "";
     }
 
-        xhttp.open("POST", "/profiles/enyioma.php", true);
+        xhttp.open("POST", "/profiles/enyioma", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("message="+message.value);
     }
