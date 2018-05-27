@@ -71,14 +71,14 @@
 									  </li>
 										
 										
-									<li class="list-inline-item copyleft" style="float: left;>
+									<li class="list-inline-item copyleft" style="float: left;">
 										<h6 class="mb-0">Headquarters:</h6><span class="mb-1 text-muted">Ikoyi, Lagos</span>
-										<h6 class="mb-0">Address:</h6> <span class="mb-1 text-muted"> Plot No. 9B, Onikoyi Lane, Parkview Estate,<br> Ikoyi, Lagos</span>
-										<h6 class="mb-0">Industry:</h6> <span class="mb-1 text-muted">Data Management</span>
+										<h6 class="mb-0 mt-2">Address:</h6> <span class="mb-1 text-muted"> Plot No. 9B, Onikoyi Lane, Parkview Estate,<br> Ikoyi, Lagos</span>
+										<h6 class="mb-0 mt-2">Industry:</h6> <span class="mb-1 text-muted">Data Management</span>
 									  </li>
 									  <li class="list-inline-item copyleft">
 										<div><h6 class="mb-0">Phone:</h6><span class="mb-1 text-muted">01 454 9539</span></div>
-										<div><h6 class="mb-0">Founded:</h6><span class="mb-1 text-muted">2012</span></div> 
+										<div><h6 class="mb-0 mt-2">Founded:</h6><span class="mb-1 text-muted">2012</span></div> 
 									  
 									  </li>	
 									</ul>
