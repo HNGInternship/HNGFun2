@@ -74,7 +74,7 @@
 								<div class="col-md-12 mt-3 cont1">
 									<ul class="list-inline">
 									  <li class="list-inline-item copyleft"  style="float: left;">
-										<img src="../img/oracle-red.png" class="smImg">
+										<img src="../img/oracle-red.png" width="200px">
 									  </li>
 									  <li class="list-inline-item copyleft"  style="float: left;">
 										<h6>Headquarters:</h6><span>Redwood Shores, Carlifornia</span>
