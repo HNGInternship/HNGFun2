@@ -66,17 +66,18 @@
 						<div class="row" >
 								<div class="col-md-12 mt-3 cont1">
 									<ul class="list-inline">
-									  <li class="list-inline-item copyleft">
-										<img src="../img/bluechips.png" class="smImg">
+									  <li class="list-inline-item copyleft"  style="float: left;">
+										<img src="../img/bluechips.png" width="200px">
 									  </li>
-									  <li class="list-inline-item copyleft">
-										<h6>Headquarters:</h6>Ikoyi, Lagos
-										<h6>Address:</h6> Plot No. 9B, Onikoyi Lane, Parkview Estate,<br> Ikoyi, Lagos  
-										<h6>Industry:</h6>Data Management
+										
+									 <li class="list-inline-item copyleft"  style="float: left;">
+										<h6>Headquarters:</h6><span>Ikoyi, Lagos</span>
+										<h6>Address:</h6> <span> Plot No. 9B, Onikoyi Lane, Parkview Estate,<br> Ikoyi, Lagos</span>
+										<h6>Industry:</h6> <span>Data Management</span>
 									  </li>
-									  <li class="list-inline-item copyleft">
-										<div><h6>Phone:</h6>01 454 9539</div>
-										<div><h6>Founded:</h6></div> 
+									  <li class="list-inline-item copyleft"  style="float: left;">
+										<div><h6>Phone:</h6><span>01 454 9539</span></div>
+										<div><h6>Founded:</h6><span>2012</span></div> 
 									  </li>
 									</ul>
 								</div>

@@ -69,49 +69,41 @@
 			</div>
 								
 			<div class="col-md-7 bder">
-							<div class="row mt-5 cont1" >
-								
-									<div class="col" >
-										<img src="../img/oracle-red.png">
-									</div> 
-
-									<div class="col-sm-4 bder">
-										<span class="listing"><h6>Headquarters:</h6>Redwood Shores, Carlifornia</span>
-										<span class="listing"><h6>Address:</h6> Office Avenue Towers, 1391 Tiamiyu Savage St, Victoria Island, Lagos</span>  
-										<span class="listing"><h6>Industry:</h6>Database Management Services</span>
-									
-									</div>
-									
-									<div class="col-sm-2 bder">
-										<div class="listing"><h6>Phone:</h6>01 448 8010</div>
-										<div class="listing"><h6>Founded:</h6>1977</div> 
-									</div>
-									
-									
-									
-								
-									
-									
-									
-									
-									
-								
+			
+						<div class="row" >
+								<div class="col-md-12 mt-3 cont1">
+									<ul class="list-inline">
+									  <li class="list-inline-item copyleft"  style="float: left;">
+										<img src="../img/oracle-red.png" width="200px">
+									  </li>
+									  <li class="list-inline-item copyleft"  style="float: left;">
+										<h6>Headquarters:</h6><span>Redwood Shores, Carlifornia</span>
+										<h6>Address:</h6> <span> Office Avenue Towers, 1391 Tiamiyu Savage St,<br> Victoria Island, Lagos</span>
+										<h6>Industry:</h6> <span>Database Management Services</span>
+									  </li>
+									  <li class="list-inline-item copyleft" style="float: left;">
+										<div><h6>Phone:</h6><span>01 448 8010</span></div>
+										<div><h6>Founded:</h6><span>1977</span></div> 
+									  </li>
+									</ul>
+								</div>
 							</div>
+			
 							<div class="row">
 								<div class="col-md-12 mt-5 cont1">
 									<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:70px; "> Contributions</h3>
 
-									<p>Oracle is not just relevant for its products, it commits heavily to educating developer teams on how best to design and deploy mission-critical solutions. Support for the HNG internship is just one of their numerous educational outreaches across the globe and while Oracle has done this for decades on the Indian subcontinent, it realises the emerging potential on the African frontier and is taking a quietly bullish approach in supporting initiatives like the HNG Internship.</p>
+									<p class="text-justify">Oracle is not just relevant for its products, it commits heavily to educating developer teams on how best to design and deploy mission-critical solutions. Support for the HNG internship is just one of their numerous educational outreaches across the globe and while Oracle has done this for decades on the Indian subcontinent, it realises the emerging potential on the African frontier and is taking a quietly bullish approach in supporting initiatives like the HNG Internship.</p>
 
 									<ul class="listStyle">
 									<li class="mt-3">
-										<span>Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+										<span class="text-justify">Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 									</li>
 									<li class="mt-3">
-										<span>Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+										<span class="text-justify">Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 									</li>
 									<li class="mt-3">
-										<span>Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
+										<span class="text-justify">Oracle has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</span>
 									</li>
 									</ul>  
 

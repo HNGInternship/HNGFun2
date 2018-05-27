@@ -68,17 +68,18 @@
 							<div class="row" >
 								<div class="col-md-12 mt-3 cont1">
 									<ul class="list-inline">
-									  <li class="list-inline-item copyleft">
-										<img src="../img/figma-dark.png" class="smImg">
+									  <li class="list-inline-item copyleft"  style="float: left;">
+										<img src="../img/figma-dark.png" width="200px">
 									  </li>
-									  <li class="list-inline-item copyleft">
-										<h6>Headquarters:</h6>San Francisco, California
-										<h6>Address:</h6>142 Minna St, Floor 2 San Francisco,<br> CA 94105
-										<h6>Industry:</h6>Design
+										
+									<li class="list-inline-item copyleft"  style="float: left;">
+										<h6>Headquarters:</h6><span>San Francisco, California</span>
+										<h6>Address:</h6><span>142 Minna St, Floor 2 San Francisco,<br> CA 94105</span>
+										<h6>Industry:</h6><span>Design</span>
 									  </li>
-									  <li class="list-inline-item copyleft">
-										<div><h6>Phone: </h6>0806 621 2033</div>
-										<div><h6>Founded:</h6>2012</div>
+									  <li class="list-inline-item copyleft"  style="float: left;">
+										<div><h6>Phone: </h6><span>0806 621 2033</span></div>
+										<div><h6>Founded:</h6><span>2012</span></div>
 									  </li>
 									</ul>
 								</div>
