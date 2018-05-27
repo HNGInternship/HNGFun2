@@ -76,15 +76,18 @@
 									  <li class="list-inline-item copyleft"  style="float: left;">
 										<img src="../img/oracle-red.png" width="200px">
 									  </li>
-									  <li class="list-inline-item copyleft"  style="float: left;">
-										<h6>Headquarters:</h6><span>Redwood Shores, Carlifornia</span>
-										<h6>Address:</h6> <span> Office Avenue Towers, 1391 Tiamiyu Savage St,<br> Victoria Island, Lagos</span>
-										<h6>Industry:</h6> <span>Database Management Services</span>
+										
+										
+									<li class="list-inline-item copyleft" style="float: left;">
+										<h6 class="mb-0">Headquarters:</h6><span class="mb-1 text-muted">Redwood Shores, Carlifornia</span>
+										<h6 class="mb-0 mt-2">Address:</h6> <span class="mb-1 text-muted"> Office Avenue Towers, 1391 Tiamiyu Savage St,<br> Victoria Island, Lagos</span>
+										<h6 class="mb-0 mt-2">Industry:</h6> <span class="mb-1 text-muted">Database Management Services</span>
 									  </li>
-									  <li class="list-inline-item copyleft" style="float: left;">
-										<div><h6>Phone:</h6><span>01 448 8010</span></div>
-										<div><h6>Founded:</h6><span>1977</span></div> 
+									  <li class="list-inline-item copyleft">
+										<div><h6 class="mb-0">Phone:</h6><span class="mb-1 text-muted">01 448 8010</span></div>
+										<div><h6 class="mb-0 mt-2">Founded:</h6 class="mb-1 text-muted"><span>1977</span></div> 
 									  </li>
+										
 									</ul>
 								</div>
 							</div>
