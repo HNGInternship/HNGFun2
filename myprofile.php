@@ -3,7 +3,6 @@ session_start();
 include_once("dashboard-header.php");
 require_once ("db.php");
 ?>
-<head>
 <style>
  .box{
         box-shadow: 2px 0px 2px 1px #888888;
@@ -49,9 +48,7 @@ require_once ("db.php");
             padding:0px; margin:0px;}
  .name, .b_info_grid{margin:0px; padding-top:0px; padding-bottom:0px;}
 </style>
- <title>HNG FUN Profile</title>
-</head>
- <body>
+ 
    <?php 
     $id = $_SESSION['user_id'];
     $sql = "SELECT * FROM users WHERE id = $id"; 
