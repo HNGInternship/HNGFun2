@@ -73,15 +73,15 @@
 						<div class="row" >
 								<div class="col-md-12 mt-3 cont1">
 									<ul class="list-inline">
-									  <li class="list-inline-item copyleft">
+									  <li class="list-inline-item copyleft"  style="float: left;">
 										<img src="../img/oracle-red.png" width="200px">
 									  </li>
-									  <li class="list-inline-item copyleft">
+									  <li class="list-inline-item copyleft"  style="float: left;">
 										<h6>Headquarters:</h6><span>Redwood Shores, Carlifornia</span>
 										<h6>Address:</h6> <span> Office Avenue Towers, 1391 Tiamiyu Savage St,<br> Victoria Island, Lagos</span>
 										<h6>Industry:</h6> <span>Database Management Services</span>
 									  </li>
-									  <li class="list-inline-item copyleft">
+									  <li class="list-inline-item copyleft" style="float: left;">
 										<div><h6>Phone:</h6><span>01 448 8010</span></div>
 										<div><h6>Founded:</h6><span>1977</span></div> 
 									  </li>
