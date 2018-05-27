@@ -67,7 +67,7 @@
 								<div class="col-md-12 mt-3 cont1">
 									<ul class="list-inline">
 									  <li class="list-inline-item copyleft"  style="float: left;">
-										<img src="../img/bluechips.png" class="smImg">
+										<img src="../img/bluechips.png" width="200px">
 									  </li>
 										
 									 <li class="list-inline-item copyleft"  style="float: left;">
