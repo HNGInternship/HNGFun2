@@ -72,15 +72,15 @@
 										<img src="../img/figma-dark.png" width="200px">
 									  </li>
 										
-									<li class="list-inline-item copyleft"  style="float: left;">
-										<h6>Headquarters:</h6><span>San Francisco, California</span>
-										<h6>Address:</h6><span>142 Minna St, Floor 2 San Francisco,<br> CA 94105</span>
-										<h6>Industry:</h6><span>Design</span>
+									 <li class="list-inline-item copyleft" style="float: left;">
+										<h6 class="mb-0">Headquarters:</h6><span class="mb-1 text-muted">San Francisco, California</span>
+										<h6 class="mb-0 mt-2">Address:</h6><span class="mb-1 text-muted">142 Minna St, Floor 2 San Francisco,<br> CA 94105</span>
+										<h6 class="mb-0 mt-2">Industry:</h6><span class="mb-1 text-muted">Design</span>
 									  </li>
-									  <li class="list-inline-item copyleft"  style="float: left;">
-										<div><h6>Phone: </h6><span>0806 621 2033</span></div>
-										<div><h6>Founded:</h6><span>2012</span></div>
-									  </li>
+									  <li class="list-inline-item copyleft">
+										<div><h6 class="mb-0">Phone: </h6><span class="mb-1 text-muted">0806 621 2033</span></div>
+										<div><h6 class="mb-0 mt-2">Founded:</h6 class="mb-1 text-muted"><span>2012</span></div>
+									  </li>	
 									</ul>
 								</div>
 							</div>
