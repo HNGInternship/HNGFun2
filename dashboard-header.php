@@ -80,7 +80,7 @@ require_once ("db.php");
         ul.navbar-nav {
             height: auto !important;
         }
-        .dropdown-menu{position:relative}
+        .dropdown-menu{position:fixed}
 	      
   <?php if (function_exists('custom_styles')) {
       custom_styles();
