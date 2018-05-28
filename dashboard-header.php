@@ -141,7 +141,7 @@ require_once ("db.php");
   <body>
     <!-- Navigation -->
    <div class="row">
-    <div id="navbar-fixed" class="navbar-fixed">
+    <div id="navbar-fixed" class="col-md-12 navbar-fixed">
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
@@ -177,7 +177,7 @@ require_once ("db.php");
         </nav>
     </div>
 
-    <div class="dash-b">
+    <div class="dash-b col-md-12">
         <ul class="navbar-nav collapse ml-auto dashmenu">
             <li class="nav-item active">
                 <a href="index.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
