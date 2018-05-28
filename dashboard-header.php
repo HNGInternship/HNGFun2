@@ -80,6 +80,7 @@ require_once ("db.php");
         ul.navbar-nav {
             height: auto !important;
         }
+        .dropdown-menu{position:absolute}
 	      
   <?php if (function_exists('custom_styles')) {
       custom_styles();
@@ -180,7 +181,7 @@ require_once ("db.php");
     <div class="dash-b col-md-12">
         <ul class="navbar-nav collapse ml-auto dashmenu">
             <li class="nav-item active">
-                <a href="index.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
+                <a href="dashboard.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
             </li>
             <li class="nav-item">
                 <a href="buyandsell.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
