@@ -140,6 +140,7 @@ require_once ("db.php");
 
   <body>
     <!-- Navigation -->
+   <div class="row">
     <div id="navbar-fixed" class="navbar-fixed">
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
@@ -191,3 +192,4 @@ require_once ("db.php");
         </ul>
 </div>
  
+</div>
