@@ -155,7 +155,7 @@ require_once ("db.php");
 						<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
 					 
-					<ul class="dropdown-menu">
+					<ul class="dropdown-menu dropdown-menu-right">
 							<li><span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="myprofile.php">Your Profile</a>
 							</span></li>
 
