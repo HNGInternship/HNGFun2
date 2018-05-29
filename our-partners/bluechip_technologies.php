@@ -27,7 +27,7 @@
 		<div class="row">
 			<div class="col-md-4 bder">
 				<div class="cont voffset">
-						<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:55px; ">ABOUT</h3>
+						<h5 style="border-bottom: 5px solid #2196F3; display: inline block; width:40px; ">ABOUT</h5>
 							<p class="text-justify">A gentle giant in the provision of full-service business applications, Bluechip Technologies is the firm many other firms rely on for robust client data management solutions. They remain focused on their core competence of driving business performance forward through the intricate leverage of strategy, people, process, metrics, applications, data, and architecture.</p>
 							<p class="text-justify">Bluechip's commitment to clients is multifaceted in an industry where the norm is probably to limit as much overhead as possible.</p>
 							<p class="text-justify">Their value for client goals remains unparalleled in an age of carefree business practice.</p>
@@ -88,10 +88,9 @@
 			
 							
 							<div class="row">
-								<div class="col-md-12 mt-5 cont1">
-									<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:65px; "> CONTRIBUTIONS</h3>
+								<div class="col-md-12 mt-3 cont1">
+									<h5 style="border-bottom: 5px solid #2196F3; display: inline block; width:45px;"> CONTRIBUTIONS</h5>
 
-									
 									<p class="text-justify">Blue Chip Technologies is a major patner in HNG internship 4.0. Some of their major contributions are:</p>
 
 									<ul class="listStyle">
@@ -102,11 +101,7 @@
 										<span class="text-justify">Monetary support for purchase of internet data by interns with outstanding performances in the internship</span>
 									</li>
 									</ul>  
-
 								</div>
-								
-								
-								
 							</div>
 			</div>
 					

@@ -17,7 +17,7 @@
 						<div class="col-md-6 headTxt bder">
 							<ul class="list-inline">
 							  <li class="list-inline-item copyleft mt-3 mt-0">
-								<h3>Hotels.ng</h3>
+								<h2>Hotels.ng</h2>
 								<h6>Yaba, Lagos, Nigeria</h6>
 							  </li>
 							  <li class="list-inline-item copyleft  ">
@@ -38,7 +38,7 @@
 		<div class="row">
 			<div class="col-md-4 bder">
 				<div class="cont voffset">
-						<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:55px; ">ABOUT</h3>
+						<h5 style="border-bottom: 5px solid #2196F3; display: inline block; width:40px;">ABOUT</h5>
 
 						<p class="text-justify"> An online travel agency specialising in hotel bookings withing Nigeria. 
 							The HNG Internship program was started by Hotels.ng CEO Mark Essien and was designed to 
@@ -96,8 +96,8 @@
 							</div>
 			
 							<div class="row">
-								<div class="col-md-12 mt-5 cont1">
-									<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:60px; "> CONTRIBUTIONS</h3>
+								<div class="col-md-12 mt-3 cont1">
+									<h5 style="border-bottom: 5px solid #2196F3; display: inline block; width:45px;"> CONTRIBUTIONS</h5>
 
 									
 									<p class="text-justify">Hotels.ng has been a major partner in HNG internships with the dollpwing contributions, they are dedicated to ensuring that talentes youths in Africa aregiven the opportunity to maximize their potentials</p>
