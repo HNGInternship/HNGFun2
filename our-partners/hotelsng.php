@@ -17,7 +17,7 @@
 						<div class="col-md-6 headTxt bder">
 							<ul class="list-inline">
 							  <li class="list-inline-item copyleft mt-3 mt-0">
-								<h2>Hotels.ng</h2>
+								<h2 style="color:#ffffff;">Hotels.ng</h2>
 								<h6>Yaba, Lagos, Nigeria</h6>
 							  </li>
 							  <li class="list-inline-item copyleft  ">
