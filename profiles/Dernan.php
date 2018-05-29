@@ -450,7 +450,7 @@ try {
                 }
     
                  $.ajax({
-                     url: '/profiles/Dernan.php',
+                     url: '/profiles/Dernan',
                      type: 'POST',
                      dataType: 'json',
                      data : {message: message},

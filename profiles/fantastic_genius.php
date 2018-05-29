@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             die("could not connect to database " . DB_DATABASE . ":" . $err->getMessage());
         }
     }
-
+    if(isset($_POST['question'])){
     $question = $_POST['question'];
 
     $question = strtolower($question);
@@ -45,6 +45,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
     
     echo $response;
+    }
 
 }
 
@@ -276,7 +277,7 @@ function isHelp($question){
 }
 
 
-if($_SERVER['REQUEST_METHOD'] === 'GET'){
+if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     try{
         $sql = "SELECT * FROM secret_word LIMIT 1" ;
         $query = $conn->query($sql);
@@ -652,7 +653,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
                 $('.user-input').val("");
 
                 $.ajax({
-                    url: "./profiles/fantastic_genius.php",
+                    url: "./profiles/fantastic_genius.php/",
                     type: 'POST',
                     dataType: 'json',
                     data: {question: question},

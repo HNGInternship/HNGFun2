@@ -80,6 +80,7 @@ require_once ("db.php");
         ul.navbar-nav {
             height: auto !important;
         }
+        .dropdown-menu{position:absolute}
 	      
   <?php if (function_exists('custom_styles')) {
       custom_styles();
@@ -140,7 +141,8 @@ require_once ("db.php");
 
   <body>
     <!-- Navigation -->
-    <div id="navbar-fixed" class="navbar-fixed">
+   <div class="row">
+    <div id="navbar-fixed" class="col-md-12 navbar-fixed">
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
@@ -154,7 +156,7 @@ require_once ("db.php");
 						<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
 					 
-					<ul class="dropdown-menu">
+					<ul class="dropdown-menu dropdown-menu-right">
 							<li><span class="dropdown-item"><img class="dashb-icons" src="img/dashboard/profile.png"><a href="myprofile.php">Your Profile</a>
 							</span></li>
 
@@ -176,10 +178,10 @@ require_once ("db.php");
         </nav>
     </div>
 
-    <div class="dash-b">
+    <div class="dash-b col-md-12">
         <ul class="navbar-nav collapse ml-auto dashmenu">
             <li class="nav-item active">
-                <a href="index.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
+                <a href="dashboard.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
             </li>
             <li class="nav-item">
                 <a href="buyandsell.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
@@ -191,3 +193,4 @@ require_once ("db.php");
         </ul>
 </div>
  
+</div>

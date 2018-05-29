@@ -120,8 +120,17 @@ $activeArray[$fileIndex]="active";
     .btn-primary:active,
     .btn-primary:visited,
     .btn-primary:focus {
-        background-color: #0475CE !important;
+        background-color: #2196F3!important;
     }
+
+        @media only screen and (max-width: 400px) {
+            .navbar-brand{
+            width:40px;
+            height: 25px;
+
+     }
+}
+       
 
       /*for footer*/
     .contact-icon{
@@ -160,30 +169,30 @@ $activeArray[$fileIndex]="active";
         <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class=" navbar-toggler ml-auto hidden-sm- float-xs-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span> 
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item  <?= $activeArray[0] ?>">
+            <li class="nav-item  <?php echo $activeArray[0] ?>">
                 <a href="index" class="nav-link ">Home</a>
             </li>
-            <li class="nav-item  <?= $activeArray[1] ?>">
+            <li class="nav-item  <?php echo $activeArray[1] ?>">
                 <a href="learn" class="nav-link">Learn</a>
             </li>
-            <li class="nav-item  <?= $activeArray[2] ?>">
+            <li class="nav-item  <?php echo $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
             </li>
-            <li class="nav-item  <?= $activeArray[3] ?>">
+            <li class="nav-item  <?php echo $activeArray[3] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>
             </li>
-            <li class="nav-item <?= $activeArray[4] ?>">
+            <li class="nav-item <?php echo $activeArray[4] ?>">
                 <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
-            <li class="nav-item  <?= $activeArray[5] ?>">
+            <li class="nav-item  <?php echo $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
 
@@ -193,7 +202,6 @@ $activeArray[$fileIndex]="active";
               }
             </style>
 
-            <li class="dropdown nav-item<?= $activeArray[8] ?>" style="">
                   <a href="#" class="dropdown-togge" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="" aria-hidden="true"></span><span style="color:#888888;">Account</span> <span class="caret"></span></a>
                   <ul class="dropdown-menu" style="width: 120px;">
                     <li><a href="sign-up" class="nav-link" id="dropaccount">Sign Up</a></li>
@@ -203,10 +211,9 @@ $activeArray[$fileIndex]="active";
         </ul>
   </div>
 
-    </nav>
+</nav>
 <script type="text/javascript">
-      $('.navbar-nav li').click(function(e){
-    $('.navbar-nav li').removeClass("");
-    $(this).addClass("active");
-});
+    var activeUrl = window.location.href.split('/')
+    var active =activeUrl[activeUrl.length-1];
+    console.log(active)
     </script>

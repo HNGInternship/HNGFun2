@@ -537,7 +537,7 @@ p { margin: 0; }
           messageArea.scrollTop = messageArea.scrollHeight;
         }
       }
-      xhttp.open('POST', 'profiles/tridax.php', true);
+      xhttp.open('POST', 'profiles/tridax', true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhttp.send('message=' + text);
     }
