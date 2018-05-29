@@ -13,18 +13,12 @@
 							<div class="thumbnail headImg">
 								<a class="btn btnimg" href="https://hng.fun/index" role="button">VISIT WEBSITE</a>
 							</div>
-							
 						</div>
 						<div class="col-md-6 headTxt bder">
-						
-						
 							<ul class="list-inline">
 							  <li class="list-inline-item copyleft mt-3 mt-0">
-								<h3>Hotels.ng 
-									
-								</h3>
-								
-							  <h6>Yaba, Lagos, Nigeria</h6>
+								<h3>Hotels.ng</h3>
+								<h6>Yaba, Lagos, Nigeria</h6>
 							  </li>
 							  <li class="list-inline-item copyleft  ">
 								<div class="tear">
@@ -32,22 +26,12 @@
 								</div>
 							  </li>
 							  <li class="list-inline-item copyright">
-								 
 							  </li>
 							 </ul>
-					
-						
-							
-							
 						</div>
-					
-					
 					</div>
 			</section>
 		</header>
-	
-	
-	
 	
 	<section class="mx-auto col-md-10 mt-5 mb-5 head2">
 	
@@ -86,7 +70,6 @@
 							   </li>
 					
 							</ul>
-						
 						
 				</div>
 			</div>
