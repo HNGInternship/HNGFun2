@@ -11,7 +11,7 @@
   text-align:center;
 }
 .smImg{
-	width:180px;
+	width:200px;
 }
 
 .btnimg{
@@ -86,10 +86,10 @@
 	.bder{
 		border: 0;
 		font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-
+		
 	}
 	
-h1,
+	h1,
 h2,
 h3,
 h4,
