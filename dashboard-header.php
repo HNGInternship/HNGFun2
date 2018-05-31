@@ -49,6 +49,11 @@ require_once ("db.php");
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+</script>
 
       <style>
         body{
@@ -146,12 +151,13 @@ require_once ("db.php");
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
-			<div class="navbar-right acc">
+			<ul class="nav navbar-right acc">
 				
-				<div class="dropdown" id="">
-					<span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
+				<li class="dropdown" id="">
+					
 				
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true">
+                        <span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
 						<span><?php echo $_SESSION['username']; ?></span>
 						<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
@@ -167,13 +173,13 @@ require_once ("db.php");
 							<img class="dashb-icons" src="img/dashboard/settings.png">Settings</span></li>
 
 							<span href="logout.php" class="dropdown-item">
-							<img class="dashb-icons" src="img/dashboard/logout.png">Logout</span>
+							<img class="dashb-icons" src="img/dashboard/logout.png"><a href="logout.php">Logout</a></span>
 
 					</ul>
 					
-				</div>
+				</li>
 
-			</div>
+			</ul>
 
         </nav>
     </div>

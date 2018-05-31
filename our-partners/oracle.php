@@ -27,7 +27,7 @@
 		<div class="row">
 			<div class="col-md-4 bder">
 				<div class="cont voffset">
-						<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:70px; ">About</h3>
+						<h5 style="border-bottom: 5px solid #2196F3; display: inline block; width:40px;">ABOUT</h5>
 							
 							<p class="text-justify">Oracle remains a visionary in the ever-growing world of databases 
 							by not just being one solution, but by being an ecosystem that integrates quite easily and 
@@ -93,8 +93,8 @@
 							</div>
 			
 							<div class="row">
-								<div class="col-md-12 mt-5 cont1">
-									<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:70px; "> Contributions</h3>
+								<div class="col-md-12 mt-3 cont1">
+									<h5 style="border-bottom: 5px solid #2196F3; display: inline block; width:45px; "> CONTRIBUTIONS</h5>
 
 									<p class="text-justify">Oracle is not just relevant for its products, it commits heavily to educating developer teams on how best to design and deploy mission-critical solutions. Support for the HNG internship is just one of their numerous educational outreaches across the globe and while Oracle has done this for decades on the Indian subcontinent, it realises the emerging potential on the African frontier and is taking a quietly bullish approach in supporting initiatives like the HNG Internship.</p>
 

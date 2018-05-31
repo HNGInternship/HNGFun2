@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-md-4 bder">
 				<div class="cont voffset">
-						<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:70px; ">About</h3>
+						<h5 style="border-bottom: 5px solid #2196F3; display: inline block; width:40px;">ABOUT</h5>
 							<p class="text-justify">Anyone who knows design will understand Figma's commitment to play David against the Goliath behemoths that have existed for decades and built billion-dollar businesses. Whether Figma will survive is not the issue, it is how well the competition responds to the threat of Figma.</p>
 							<p class="text-justify">In essence, Figma is a browser-based Photoshop, but rather than overload on redundant tools, it encourages interaction design. Every change is tracked and recorded to the cloud (which is how we do things today) and version control ensures we can rewind a project to previous states</p>
 							<p class="text-justify">So the solo software experience that UI work was touted and nurtured to be is rapidly becoming a thing of the past, time is being saved and creativity is on the rise.</p>
@@ -86,7 +86,7 @@
 							</div>
 							<div class="row">
 								<div class="col-md-12 mt-3 cont1">
-									<h3 style="border-bottom: 5px solid #2196F3; display: inline block; width:70px; "> Contributions</h3>
+									<h5 style="border-bottom: 5px solid #2196F3; display: inline block; width:45px;"> CONTRIBUTIONS</h5>
  
 									<p class="text-justify">The Figma team with its passion for design education is keen on crafting a one-stop shop for all design needs. With much than than regular interface design, local font integration, multi-device catering, rapid prototyping, and real-time collaboration. Figma is one of the Software tool partners for HNG internship 4.0, and as such figma -the tool - is the official design tool for the HNG 4 internship.</p>
 
@@ -96,18 +96,10 @@
 								
 										</li>
 										<li class="mt-3">
-											<span class="text-justify">Figms has been dedicated to ensuring that talents youths in Africa are given the opportunity to maximize their potentials</span>
-								
+											<span class="text-justify">Figms has been dedicated to ensuring that talents youths in Africa are given the opportunity to maximize their potentials</span>							
 										</li>
 									</ul>
-
 								</div>
-								
-								
-								
-								
-								
-								
 							</div>
 			</div>
 					
