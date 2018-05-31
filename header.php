@@ -196,13 +196,9 @@ $activeArray[$fileIndex]="active";
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
 
-            <style type="text/css">
-              #dropaccount{
-                font-size: 18px;
-              }
-            </style>
 
-                  <a href="#" class="dropdown-togge" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="" aria-hidden="true"></span><span style="color:#888888;">Account</span> <span class="caret"></span></a>
+
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="" aria-hidden="true"></span><span style="color:#888888;">Account</span> <span class="caret"></span></a>
                   <ul class="dropdown-menu" style="width: 120px;">
                     <li><a href="sign-up" class="nav-link" id="dropaccount">Sign Up</a></li>
                     <li><a href="login" class="nav-link" id="dropaccount">LogIn</a></li>
