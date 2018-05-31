@@ -146,9 +146,9 @@ require_once ("db.php");
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
         <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
 
-			<div class="navbar-right acc">
+			<ul class="nav navbar-right acc">
 				
-				<div class="dropdown" id="">
+				<li class="" id="">
 					<span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
 				
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true">
@@ -171,9 +171,9 @@ require_once ("db.php");
 
 					</ul>
 					
-				</div>
+				</li>
 
-			</div>
+			</ul>
 
         </nav>
     </div>
