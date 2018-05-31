@@ -184,7 +184,7 @@ $activeArray[$fileIndex]="active";
                 <a href="learn" class="nav-link">Learn</a>
             </li>
             <li class="nav-item  <?php echo $activeArray[2] ?>">
-                <a href="listing" class="nav-link">Our Interns</a>
+                <a href="interns_" class="nav-link">Our Interns</a>
             </li>
             <li class="nav-item  <?php echo $activeArray[3] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>
