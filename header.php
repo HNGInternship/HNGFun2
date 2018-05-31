@@ -195,16 +195,15 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item  <?php echo $activeArray[5] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
-
-
-
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="" aria-hidden="true"></span><span style="color:#888888;">Account</span> <span class="caret"></span></a>
-                  <ul class="dropdown-menu" style="width: 120px;">
-                    <li><a href="sign-up" class="nav-link" id="dropaccount">Sign Up</a></li>
-                    <li><a href="login" class="nav-link" id="dropaccount">LogIn</a></li>
+            <li class="nav-item dropdown <?php echo $activeArray[6]?>">
+             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color:#888888;">Account</span> </a>
+                  <ul class="dropdown-menu dropdown-menu-right" style="width: 120px;">
+                    <li><a href="sign-up" class="nav-link dropdown-item" id="dropaccount">Sign Up</a></li>
+                    <li><a href="login" class="nav-link dropdown-item" id="dropaccount">LogIn</a></li>
                   </ul>
             </li>
         </ul>
+        </li>
   </div>
 
 </nav>
