@@ -148,10 +148,11 @@ require_once ("db.php");
 
 			<ul class="nav navbar-right acc">
 				
-				<li class="" id="">
-					<span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
+				<li class="dropdown" id="">
+					
 				
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true">
+                        <span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
 						<span><?php echo $_SESSION['username']; ?></span>
 						<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
