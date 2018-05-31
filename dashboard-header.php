@@ -173,7 +173,7 @@ require_once ("db.php");
 							<img class="dashb-icons" src="img/dashboard/settings.png">Settings</span></li>
 
 							<span href="logout.php" class="dropdown-item">
-							<img class="dashb-icons" src="img/dashboard/logout.png">Logout</span>
+							<img class="dashb-icons" src="img/dashboard/logout.png"><a href="logout.php">Logout</a></span>
 
 					</ul>
 					
