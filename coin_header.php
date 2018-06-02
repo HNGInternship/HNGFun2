@@ -165,7 +165,7 @@ $activeArray[$fileIndex]="active";
 
             
             <li class="nav-item dropdown py-0 mt-0 mb-0 ">
-                <a class="nav-link dropdown-toggle mr-3 remove-after notification" href="#" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle mr-3 remove-after notification" href="/notification" id="navbarSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-bell navbar-icon fa-lg"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-notification" aria-labelledby="navbarSettings">
