@@ -52,6 +52,7 @@ include_once("dashboard-header.php");
     <br>
 
 <!-- Transaction board -->
+<!--
 <Section id="Transaction">
  <div class ="container">
     <div class="row">
@@ -106,7 +107,7 @@ include_once("dashboard-header.php");
  </div>
  </Section>
     <br>
- <!-- Activity -->
+  Activity 
  <section id="Activity">
     <div class="container">
         <div class="row">
@@ -150,6 +151,7 @@ include_once("dashboard-header.php");
         </div>
     </div>
  </section>
+-->
 
 
 <?php

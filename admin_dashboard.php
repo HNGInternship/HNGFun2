@@ -456,7 +456,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © HNG FUN 2018</small>
+          <small>Copyright © 2018 HNG Internship</small>
         </div>
       </div>
     </footer>
