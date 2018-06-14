@@ -90,11 +90,11 @@
     	margin-top: 0;
     }
 
-    .box .btn{
-    	width: 120px;
-    }
+    
+    	
 
-    @media screen and (max-width: 780px) {
+
+@media screen and (max-width: 780px) {
     	.banner{
     		background-size: 100% 400px;
     	}
