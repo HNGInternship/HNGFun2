@@ -5,7 +5,7 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF'], ".php");
 
-$files = array('/','learn','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
+$files = array('/','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
 
 $activeArray = array_fill(0, count($files), '');
 
@@ -179,9 +179,6 @@ $activeArray[$fileIndex]="active";
         <ul class="navbar-nav ml-auto">
             <li class="nav-item  <?php echo $activeArray[0] ?>">
                 <a href="/" class="nav-link ">Home</a>
-            </li>
-            <li class="nav-item  <?php echo $activeArray[1] ?>">
-                <a href="learn" class="nav-link">Learn</a>
             </li>
             <li class="nav-item  <?php echo $activeArray[2] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
