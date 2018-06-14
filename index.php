@@ -70,7 +70,7 @@ include_once("header.php");
 			<div class="container container-fluid bg-transparent text-center col-md-12 col-sm-12 col-xs-12">
 				<h2 class="mt-5">Why the HNG Internship ?</h2>
 				<p class="text-secondary m-2 text-desc">We needed developers in Africa, and there were just not enough. We found 
-				that telent was hiding in different small locations all over the country - but they needed training  
+				that talents was hiding in different small locations all over the continent - but they needed training  
 				and exposure to best practices. The initial idea was to simply do a remote internship to find coders. 
 				We did not expect 1000+ people would apply to the internship. But we saw strongly people wanted to develop 
 				their skills, and it became a mission for us to make this happen.
