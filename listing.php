@@ -1,6 +1,6 @@
 <?php
 include_once("header_currentlisting.php");
-include_once 'config.php';
+include_once '../config.php';
 require ('paginator.php');
 
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_DATABASE); 
