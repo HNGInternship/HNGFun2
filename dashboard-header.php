@@ -184,8 +184,7 @@ require_once ("db.php");
         </nav>
     </div>
 
-    <div class="dash-b col-md-12" style="
-    height: 85px;">
+    <div class="dash-b col-md-12">
         <ul class="navbar-nav collapse ml-auto dashmenu">
             <li class="nav-item active">
                 <a href="dashboard.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
