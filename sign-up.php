@@ -81,29 +81,29 @@ include_once("header.php");
             <h6 class="text-danger" id="signUpInfo"></h6>
 
             <form class="form-signin signup " id="register_form">
-            <div class="row">
-            <div class="col-md-6 col-sm-12">
-            <label class="label" for="firstName">First Name</label>
+            <div class="row px-0">
+            <div class="col-md-6 col-sm-12 px-0">
+            <label class="label px-0" for="firstName">First Name</label>
             <div class="form-style"><input  type="text" id="firstName" style="height: 40px;" name="firstName" class="form-control" placeholder="" autofocus required></div>
             </div>
 
             <div class="col-md-6 col-sm-12">
-            <label class="label" for="lastName">Last Name</label>
+            <label class="label px-0" for="lastName">Last Name</label>
             <input type="text" style="height: 40px;" id="lastName" name="lastName" class="form-control" placeholder="" required>
             </div>
             
-            <div class="col-md-6 col-sm-12">
-            <label class="label" for="userName">Username</label>
+            <div class="col-md-6 col-sm-12  px-0">
+            <label class="label px-0" for="userName">Username</label>
             <input type="text" style="height: 40px;" id="userName" name="userName" class="form-control" placeholder="" required>
             </div>
 
             <div class="col-md-6 col-sm-12">
-            <label class="label" for="email">Email Address</label>
-            <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required value="<?php echo $_POST['email']; ?>">
+            <label class="label px-0" for="email">Email Address</label>
+            <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="jj" required value="<?php echo $_POST['email']; ?>">
             </div>
 
-             <div class="col-md-6 col-sm-12">
-            <label class="label">Nationality</label>
+             <div class="col-md-6 col-sm-12  px-0">
+            <label class="label px-0">Nationality</label>
             <select class="form-control" name="nationality" id="nationality" required style="height: 41.5px;">
                 <option value="">Select Country</option>
               <?php
@@ -116,7 +116,7 @@ include_once("header.php");
 
 
             <div class="col-md-6 col-sm-12">
-            <label class="label" for="password">Password</label>
+            <label class="label px-0" for="password">Password</label>
             <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
             </div>
 
