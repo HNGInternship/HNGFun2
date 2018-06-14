@@ -64,7 +64,7 @@ include_once("header.php");
           <div class="container-fluid">
           <div class="col-md-6 signup-text" >
             <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/mtraeogklpzkytbhmh9g.svg" class="pl-0 ml-0 signup-img" id="img1" >
-            <div class="row style="text-align: center; font-size:1em; line-height: 250%;">
+            <div class="row" style="text-align: center; font-size:1em; line-height: 250%;">
                 <span style="color: grey ">
                    The HNG Internship is a remote training program, it centres on picking out indiviuals with relevant software development skills. For a period of about 3 months these skills are developed. The internship holds annually. Its organised by Hotels.ng in partnership with top companies around the globe. Fill the form to join the biggest and best remote software internship in the world!
                 </span>
