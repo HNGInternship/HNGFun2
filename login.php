@@ -98,10 +98,10 @@
 
 
              if(data=="1"){
-                $("#message").attr("class",'text-success');
-            $("#message").html("Login Successful");
+//                 $("#message").attr("class",'text-success');
+//             $("#message").html("Login Successful");
 
-            $("#login").html('Redirecting..');
+//             $("#login").html('Redirecting..');
 
             window.location.href ="dashboard";
              }  
