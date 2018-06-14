@@ -270,7 +270,7 @@ include_once("header.php");
                 </div>
              </div>
         </div>
-        <div class="carousel-item">
+        <!-- <div class="carousel-item">
             <div class="row">
                 <div class="col-md-3" style="margin-left:70px">
                     <iframe width="250" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/DkwQnsJvwNI"></iframe>
@@ -279,7 +279,7 @@ include_once("header.php");
 
                 <div class="col-md-3"></div>
                 <div class="col-md-3"></div>
-                <!-- <div class="col-md-3" style="margin-left:60px">
+                 <div class="col-md-3" style="margin-left:60px">
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
                 </div>
@@ -287,16 +287,16 @@ include_once("header.php");
                     <iframe width="300" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         <p>I learnt something new, Thanks to HNG Internship 4</p>
                 </div> -->
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> --> 
 
   <!-- Left and right controls -->
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </a>
         <a class="carousel-control-next" href="#demo" data-slide="next">
             <span class="carousel-control-next-icon"></span>
-        </a>
+        </a> -->
 
    </div>
 </section>
