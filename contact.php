@@ -161,9 +161,9 @@ function custom_styles()
                 </div>
 
                   <div class="social-media">
-                    <i class="fa fa-twitter"><a href="https://twitter.com/hnginternship"></a></i>
-                    <i class="fa fa-facebook"><a href="#"></a></i>
-                    <i class="fa fa-github"><a href="https://github.com/HNGInternship"></a></i>
+                     <a href="https://twitter.com/hnginternship" target="_blank" ><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/hotelsng" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://github.com/HNGInternship" target="_blank"><i class="fa fa-github"></i></a>
                 </div>
                 </div>
             </section>
