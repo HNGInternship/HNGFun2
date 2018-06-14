@@ -65,7 +65,7 @@
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/help">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="javascript:void">
                     Help
                   </a>
                </li>
@@ -74,15 +74,11 @@
                     Our Core Values
                   </a>
                </li>
-               <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/index">
-                    Current Internship
-                  </a>
-               </li>
+               
 
             </ul>
             <div style="text-align: center">
-                <p class="copyright text-muted">Copyright &copy; HNG FUN <?= date("Y")?></p>
+                <p class="copyright text-muted">Copyright &copy; <?= date("Y")?> HNG Internship</p>
             </div>
 
          </div>

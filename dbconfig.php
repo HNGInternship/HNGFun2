@@ -5,7 +5,7 @@ class Database
     private $host = "localhost";
     private $db_name = "hng_fun";
     private $username = "root";
-    private $password = "oluwabigi32";
+    private $password = "";
     public $conn;
 
     public function dbConnection()

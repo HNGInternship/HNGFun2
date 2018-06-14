@@ -58,7 +58,7 @@ include_once("header.php");
 			<div class="container container-fluid bg-transparent text-center col-md-12 col-sm-12 col-xs-12">
 				<h2>What is HNG Internship ?</h2>
 				<p class="text-secondary m-2 text-desc">The HNG is a 3-month remote internship program designed to locate the most 
-				talented software developers in Nigeria and the whole of Africa. Everyone is welcome to participate 
+				talented software developers in Africa. Everyone is welcome to participate 
 				(there is no entrance exam). We create fun challenges every week on our slack channel. Those who solve 
 				them stay on. Everyone gets to learn important concepts quickly, and make connections with people they 
 				can work with in the future. The intern coders are introduced to complex programming frameworks, and get 
@@ -68,9 +68,9 @@ include_once("header.php");
 			</div>
 
 			<div class="container container-fluid bg-transparent text-center col-md-12 col-sm-12 col-xs-12">
-				<h2 class="mt-3">Why the HNG Internship ?</h2>
-				<p class="text-secondary m-2 text-desc">We needed developers in Nigeria, and there were just not enough. We found 
-				that telent was hiding in different small locations all over the country - but they needed training 
+				<h2 class="mt-5">Why the HNG Internship ?</h2>
+				<p class="text-secondary m-2 text-desc">We needed developers in Africa, and there were just not enough. We found 
+				that talents was hiding in different small locations all over the continent - but they needed training  
 				and exposure to best practices. The initial idea was to simply do a remote internship to find coders. 
 				We did not expect 1000+ people would apply to the internship. But we saw strongly people wanted to develop 
 				their skills, and it became a mission for us to make this happen.
