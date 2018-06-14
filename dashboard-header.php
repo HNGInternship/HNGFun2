@@ -186,11 +186,11 @@ require_once ("db.php");
 
     <div class="dash-b col-md-12">
         <ul class="navbar-nav collapse ml-auto dashmenu">
-		<li class="nav-item active">
+		<li class="nav-item">
                 <a href="myprofile.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
             </li>
-            <li class="nav-item">
-                <a href="dashboard.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Dashboard</a>
+            <li class="nav-item active">
+                <a href="dashboard.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Coin</a>
             </li>
 <!--             <li class="nav-item">
                 <a href="buyandsell.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
