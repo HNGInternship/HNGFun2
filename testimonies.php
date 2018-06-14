@@ -257,15 +257,15 @@ include_once("header.php");
           <div class="carousel-item active">
              <div class="row">
                 <div class="col-md-3" style="margin-left:70px; max-width: 300px;">
-                    <iframe width="250" frameborder="0" scrolling="no" id="iframe" src="https://youtube.com/embed/mnl4IddBlVk"></iframe>
+                    <iframe  allowfullscreen="allowfullscreen" width="250" frameborder="0" scrolling="no" id="iframe" src="https://youtube.com/embed/mnl4IddBlVk"></iframe>
                         <p style="text-align: center;">Mercy Ikpe</p>
                 </div>
                 <div class="col-md-3" style="margin-left:70px; max-width: 300px">
-                    <iframe width="250" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/ljqJjV5pWC0"></iframe>
+                    <iframe allowfullscreen="allowfullscreen" width="250" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/ljqJjV5pWC0"></iframe>
                         <p style="text-align: center;">Blessing Akpan</p>
                 </div>
                 <div class="col-md-3" style="margin-left:70px; max-width:300px;">
-                    <iframe width="250" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/ScIL-vPXpD0"></iframe>
+                    <iframe allowfullscreen="allowfullscreen" width="250" frameborder="0" scrolling="no" id="iframe" src="https://www.youtube.com/embed/ScIL-vPXpD0"></iframe>
                         <p style="text-align: center;">Abigail Adeboga</p>
                 </div>
              </div>
