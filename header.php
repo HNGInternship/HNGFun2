@@ -199,7 +199,7 @@ $activeArray[$fileIndex]="active";
              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color:#888888;">Account</span> </a>
                   <ul class="dropdown-menu dropdown-menu-right" style="width: 120px;">
                     <li><a href="sign-up" class="nav-link dropdown-item" id="dropaccount">Sign Up</a></li>
-                    <li><a href="login" class="nav-link dropdown-item" id="dropaccount">LogIn</a></li>
+                    <li><a href="login" class="nav-link dropdown-item" id="dropaccount">Login</a></li>
                   </ul>
             </li>
         </ul>

@@ -180,7 +180,7 @@ $activeArray[$fileIndex]="active";
                 <a href="sign-up" class="nav-link">SignUp</a>
             </li>
             <li class="nav-item <?php echo $activeArray[9] ?>">
-                <a href="login" class="nav-link">LogIn</a>
+                <a href="login" class="nav-link">Login</a>
             </li>
     </ul>
   </div>
