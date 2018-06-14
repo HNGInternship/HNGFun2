@@ -115,34 +115,10 @@ include_once("header.php");
             </div>
 
 
-           <div class="col-md-6 col-sm-12">
-            <label class="label" for="phone">Phone number</label>
-            <input type="tel" id="phone" style="height: 40px;" name="phone" class="form-control" placeholder="" required>
-            </div>
-
-           <div class="col-md-6 col-sm-12">
-            <label class="label">State</label>
-            <select class="form-control" id="state" name="state" required style="height: 40px;">
-              <option value=""></option>
-              <?php
-                  foreach ($states as $key => $state) { ?>
-                    <option value="<?php echo $key;?>"><?php echo $state?></option>
-                  <?php }
-                  ?>
-             </select>
-             <input type="text" class="form-control d-none" id="enter_state" placeholder="Enter your state" name="state">
-            </div>
-            
             <div class="col-md-6 col-sm-12">
             <label class="label" for="password">Password</label>
             <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
             </div>
-
-            <div class="col-md-6 col-sm-12">
-            <label class="label" for="passwordCheck">Retype Password</label>
-            <input type="password" id="passwordCheck"  style="height: 40px;" name="passwordCheck" class="form-control" placeholder="" required>
-            </div>
-          </div>
 
                 <input type="hidden" name="registration" value="yes">
 
