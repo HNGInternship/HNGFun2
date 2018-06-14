@@ -74,7 +74,7 @@ function custom_styles()
 
     <div class="jumbotron contact bg-cover">
         <div class="overlay"></div>
-        <div class="container contact">
+        <div class="container contact" style="text-align: center; margin-top: 29px">
             <h1>Get In Touch</h1>
             <p>Showing up is 80% percent of life</p>
 
