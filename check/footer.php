@@ -27,7 +27,7 @@
     
             </ul>
             <div style="text-align: center">
-                <p class="copyright text-muted">Copyright &copy; HNG FUN 2018</p> 
+                <p class="copyright text-muted">Copyright &copy; 2018 HNG Internship</p> 
             </div>
          </div>
       </div>
