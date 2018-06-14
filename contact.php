@@ -57,18 +57,23 @@ if (mail ($to, "FROM HNG", "Your Mail Has Been Delivered, Thanks For Contacting 
 }
 function custom_styles()
 {
-    $styles = '<style>
+$styles = <<<STYLING
     body{
         background:#e5e5e5;
     }
     .form-control {
         border-radius: none !important;
+        box-shadow: none !important;
+    }
+    input.form-control:focus {
+        box-shadow: none !important;
     }
     footer {
         padding-bottom: 0;
     }
-    </style>';
-    echo $styles;
+STYLING;
+
+echo $styles;
 };
 ?>
 
