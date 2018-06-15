@@ -127,7 +127,7 @@ include_once("header.php");
 		</div>
 	</div>
 
-	<div class="row clip-bottom py-5 text-center d-flex justify-content-around">
+	<div class="row clip-bottom py-5 text-center d-flex justify-content-around" style="margin:0">
 		<div class="col-sm-3 col-6">
 			<h1 class="text-primary">4200</h1>
 			Registered interns
