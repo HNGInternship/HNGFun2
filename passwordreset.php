@@ -107,6 +107,7 @@
             $("#message").html("Password successfully reset");
 
             $("#reset").html('Done');
+            window.location.href ="login";
 
              }
              else{
