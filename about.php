@@ -95,15 +95,18 @@ include_once("header.php");
 
 	.img-bg div{
 		position: absolute;
-		width: 70%;
-    	top: 33%;
+		max-width: 400px;
+		left: 5%;
+		transform: translateY(-50%);
+		top: 50%;
+		text-align: left;
 	}
 </style>
 
 <main>
 	<div class="text-white img-bg">
         <img src="./img.png" alt="">
-		<div style="text-align: center;">
+		<div>
 			<h1 class="mb-2">What is HNG all about?</h1>
 			<p style='margin:0'>The HNG is a 3-month remote internship program designed to locate the most talented software developers in Nigeria and the whole of Africa</p>
 		</div>
@@ -184,13 +187,13 @@ include_once("header.php");
 			<h4 class="text-right">Start Learning Now</h4>
 		</div>
 		<div class="col-sm-7">
-			<h4 class="text-center mb-2">Would you you like get our resgular updates? Subscribe Now! </h4>
+			<h4 class="text-center mb-2">Ready to get started? Register Now! </h4>
 			<form class="form-inline row d-flex justify-content-center">
 				<div class="col-7 form-group pr-0 mr-0">
 					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
 				</div>
 				<div class="col-4 form-group">
-					<button class="btn btn-custom-primary py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #000000">Subscribe</button>
+					<button class="btn btn-custom-primary py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #000000">Sign Up </button>
 				</div>
 			</form>
 		</div>
