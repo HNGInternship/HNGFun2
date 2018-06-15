@@ -188,11 +188,11 @@ if(isset($_POST['login'])){
 
 				//send the message, check for errors
 				
-				if (! mail($email, 'Password Reset', $Body) {
+				if (mail($email, 'Password Reset', $Body, 'hnginternship@hotels.ng') {
 				    //echo "Mailer Error: " . $mail->ErrorInfo;
-				    echo '0';
+				    echo '1';
 				} else {
-				    echo "1";
+				    echo "0";
 
 				}
       		
