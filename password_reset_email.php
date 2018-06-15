@@ -21,14 +21,14 @@
     <div class="right-column">
          <div class="div1">
              <h3 class ="head1"> RESET PASSWORD REQUEST </h3>
-                <p > Hi, you requested a password for @interactivebee <br />
+                <p > Hi, <br />
                  click the button below to reset your password</p>
 
-                <button> RESET PASSWORD</button> <br />
+                <a href="https://hng.fun/passwordreset?token=urltoken">Reset Password</a> <br />
 
              <h4 class = "bottom"> Getting a lot of Password Reset Emails?</h4>
                 <p class = "bottom1"> You could change your <a href="#">Account Settings</a> to require personal information to reset your password <br />
-                                   We sent this mail to interactivebee@gmail.com because you have requested for a <br />
+                                   We sent this mail to you because you have requested for a <br />
                                    a password change, if you did not request for this kindly ignore.</p>
                    <hr class = "line">
                    <p class = "bottom2"> This is an automated message please do not reply.</p>

@@ -125,8 +125,7 @@ if(isset($_POST['login'])){
 
       }
       else{
-	      echo "1";
-	      exit();
+	      
       	//update password reset token
       	
       	$reset_token_check =  $member->update_token($email,$token,$conn);
@@ -191,9 +190,9 @@ if(isset($_POST['login'])){
 				
 				if (!$mail->send()) {
 				    //echo "Mailer Error: " . $mail->ErrorInfo;
-				    "Error occured while sending mail";
+				    echo '0';
 				} else {
-				    echo "Message sent";
+				    echo "1";
 
 				}
       		
