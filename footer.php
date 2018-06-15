@@ -78,7 +78,7 @@
 
             </ul>
             <div style="text-align: center">
-                <p class="copyright text-muted">Copyright &copy; <?= date("Y")?> HNG Internship</p>
+                <p class="copyright text-muted"> &copy; <?= date("Y")?> HNG Internship</p>
             </div>
 
          </div>
