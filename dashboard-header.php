@@ -2,6 +2,13 @@
 session_start();
 require_once ("db.php");
 
+function gravater($email, $fallback = null)
+{
+    $email = md5($email);
+    $fallback = $fallback ? $fallback : 'http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png';
+
+    return "http://www.gravatar.com/avatar.php?gravatar_id={$email}&default={$fallback}&size=50&rating=G";
+}
 
 ?>
 <!DOCTYPE html>
@@ -157,7 +164,7 @@ require_once ("db.php");
 					
 				
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true">
-                        <span><img class="acc-img" src="<?=$userimage?>" onerror="this.src='http://res.cloudinary.com/epospiky/image/upload/v1525365549/human.png'" ></span>
+                        <span><img class="acc-img" src="<?=gravater($_SESSION['email'])?>" onerror="this.src=<?php echo gravater($_SESSION['email']); ?>" ></span>
 						<span><?php echo $_SESSION['username']; ?></span>
 						<span><img class="dashb-icons" src="img/dashboard/arrow-down.png"></span>
 					</a>
