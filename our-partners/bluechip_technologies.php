@@ -1,7 +1,6 @@
 <?php
 	include('header.php');
 ?>
-	
 	<link href="../css/our-partners.css" rel="stylesheet">
 	
 		<header class="masthead" style="background-image: url('../img/head-part.png'); height: 406px; opacity:.7;">
