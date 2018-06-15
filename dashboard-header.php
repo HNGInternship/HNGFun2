@@ -156,7 +156,7 @@ function gravater($email, $fallback = null)
    <div class="row">
     <div id="navbar-fixed" class="col-md-12 navbar-fixed">
         <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f2f2f2;">
-        <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" alt="" class="navbar-logo"></a>
+        <a class="navbar-brand" href="../"><img src="./img/full-logo.svg" alt="" class="navbar-logo"></a>
 
 			<ul class="nav navbar-right acc">
 				
