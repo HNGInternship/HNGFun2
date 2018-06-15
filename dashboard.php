@@ -32,6 +32,19 @@ include_once("dashboard-header.php");
             position: relative;
             right: -20px;
         }
+        .description {
+            display: inline-block;
+            max-width: 680px;
+            position: relative;
+            top: -20px;
+        }
+        .form-control {
+            display: inline-block;
+            width: 370px;
+        }
+        .form-control:focus {
+            box-shadow: none;
+        }
     </style>
 </head>
 <body>
@@ -44,13 +57,18 @@ include_once("dashboard-header.php");
                 <h1 class="header-text header-text-2x">5</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-3 col-xs-offset-3">
-                <p>
-                    Cobaltums sunt mensas de albus zeta. Ubi est rusticus particula?
-                    Paluss resistere in antenna! Ubi est mirabilis animalis?
-                    Vae, lotus calcaria! Cum resistentia favere, omnes lunaes quaestio azureus, noster rectores.
-                </p>
+        <p class="description">
+            Cobaltums sunt mensas de albus zeta. Ubi est rusticus particula?
+            Paluss resistere in antenna! Ubi est mirabilis animalis?
+            Vae, lotus calcaria! Cum resistentia favere, omnes lunaes quaestio azureus, noster rectores.
+        </p>
+        <div>
+            <div class="col-xs-12">
+                <h5 style="color: #2196F3;">Be the first to receive the HNG Internship 5 date</h5>
+                <form action="dashboard.php" method="get">
+                    <input type="text" placeholder="Your Email" name="email" class="form-control" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
             </div>
         </div>
     </section>
