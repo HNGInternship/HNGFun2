@@ -84,14 +84,11 @@ include_once("header.php");
         position: relative;
 		display: flex;
 		justify-content: center;
-		overflow: none;
+		overflow: hidden;
 		height: 400px;
         width: 100%;
         margin: auto
     }
-	.img-bg img{
-		flex: none
-	}
 
 	.img-bg div{
 		position: absolute;
