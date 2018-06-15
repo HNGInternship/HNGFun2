@@ -251,7 +251,7 @@ if(isset($_POST['login'])){
 	
 	require_once('db.php');
 
-	$query = "INSERT INTO email_lists(email) 
+	$query = "INSERT INTO mail_lists(email) 
 			  VALUES (:email)";
 	$stmt = $conn->prepare($query);
 
