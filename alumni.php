@@ -6,6 +6,7 @@
     <style>
     body {
       background: #ffffff;
+      min-width: 610px
     }
     .body-font{
       font-family: 'Lato', 'work sans';}
@@ -60,9 +61,10 @@
     .heading { text-align: center; max-width: 500px;  }
     .article-loop {
       display: block;
-      width: 80%;
-      padding: 0px 2em;
-      margin: 0px auto;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 800px;
     }
     .top {
       width: 74%;
@@ -74,6 +76,7 @@
     }
     .table, thead {
       margin-top: 0px;
+      width: auto
     }
     .in {
       display: inline-flex;
@@ -82,7 +85,7 @@
     }
     table {
       border: 1px solid lightgrey;
-      margin: 0 auto;
+      margin: 0 1rem;
     }
     tbody > tr:hover {
     	background: #e5e5e5;
@@ -101,7 +104,8 @@
       	width: 100%;
       }
       table {
-      	margin-left: -2em;
+      	/* margin-left: -2em; */
+        width: auto;
         padding: 0px;
         font-size: 70%;
         border-style: solid;
