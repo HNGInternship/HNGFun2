@@ -33,9 +33,9 @@ include_once("header.php");
                         <!--Grid column-->
                         <div class="chat-history">
                             <div class="row">
-                                <div class="offset-md-1 col-sm-10">
+                                <div class="offset-sm-1 col-sm-10">
                                     <div class="row">
-                                        <div class="col-sm col-xs-12 testimonial">
+                                        <div class="col-sm-12 col-md col-xs-12 testimonial">
                                             <div class="message" style="font-size: small;">
                                                 It's been a great opportunity working with different people and using various tools in accomplishing the tasks given.
                                                 Thanks to hng internship I can now use Figma for designs and TeamViewer also.
@@ -46,7 +46,7 @@ include_once("header.php");
                                                 <h5>TechHajiya<br/><small>Nasarawa, Nigeria</small></h5>
                                             </div>
                                         </div>
-                                        <div class="col-sm col-xs-12 testimonial">
+                                        <div class="col-sm-12 col-md col-xs-12 testimonial">
                                             <div class="message" style="font-size: small;">
                                                 Phew!!! Learnt how to be precise in the way I ask questions. Thanks to all who have helped me thus far.
                                             </div>
@@ -57,7 +57,7 @@ include_once("header.php");
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm  col-xs-12 testimonial">
+                                        <div class="col-sm-12 col-md col-xs-12 testimonial">
                                             <div class="message" style="font-size: small;">
                                                 I learnt how to design a web page with Figma, implement the designs in HTML, CSS and PHP.
                                                 <br /><br />
@@ -70,7 +70,7 @@ include_once("header.php");
                                             </div>
                                         </div>
 
-                                        <div class="col-sm  col-xs-12 testimonial">
+                                        <div class="col-sm-12 col-md col-xs-12 testimonial">
                                             <div class="message" style="font-size: small;">
                                                 It is getting more interesting... I learnt how to push code to git for the first time.
                                                 I'm now using that knowledge to push other codes I had left vulnerable.
@@ -101,7 +101,7 @@ include_once("header.php");
                             <div class="row">
                                 <div class="offset-sm-1 col-sm-10">
                                     <div class="row">
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm-12 col-md col-xs-12 testimonial">
                                             <div class="message" style="font-size: small;">
                                                 I hadn't heard about Figma until this Internship.
                                                 I've been playing around with designs since then.
@@ -114,7 +114,7 @@ include_once("header.php");
                                                 <h5>Adetutu<br/><small>Nigeria</small></h5>
                                             </div>
                                         </div>
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm-12 col-md col-xs-12 testimonial">
                                             <div class="message" style="font-size: small;">
                                                 This internship has been WOW.
                                                 I've been able to greatly improve my html/css and design skills, and I now know how to use github.                                          </div>
@@ -125,7 +125,7 @@ include_once("header.php");
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm-12 col-md col-xs-12 testimonial">
                                             <div class="message" style="font-size: small;">
                                                 I got to work with Figma for first time.
                                                 As a designer, this is definitely a nice tool to add to my toolbox.
@@ -136,7 +136,7 @@ include_once("header.php");
                                                 <h5>Osawaru<br/><small>Nigeria</small></h5>
                                             </div>
                                         </div>
-                                        <div class="col-sm testimonial">
+                                        <div class="col-sm-12 col-md col-xs-12 testimonial">
                                             <div class="message" style="font-size: small;">
                                                 I wrote my first php code!
                                                 I've had github but I never used it or bothered to learn it.
@@ -166,7 +166,7 @@ include_once("header.php");
                                 <div class="row">
                                     <div class="offset-sm-1 col-sm-10">
                                         <div class="row">
-                                            <div class="col-sm testimonial">
+                                            <div class="col-sm-12 col-md col-xs-12 testimonial">
                                                 <div class="message" style="font-size: small;">
                                                     This internship has been WOW.
                                                     I've learnt how to clone, push, pull to <a href="https://www.github.com" target="NEW">github</a>,
@@ -178,7 +178,7 @@ include_once("header.php");
                                                     <h5>Admiral <br/><small>Port Harcourt, Rivers State</small></h5>
                                                 </div>
                                             </div>
-                                            <div class="col-sm testimonial">
+                                            <div class="col-sm-12 col-md col-xs-12 testimonial">
                                                 <div class="message" style="font-size: small;">
                                                     Definitely took me out of my comfort zone.
                                                     Was wonderful to learn how to use Docker.

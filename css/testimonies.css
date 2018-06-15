@@ -28,13 +28,8 @@
 }
 
 .testimonial{
-    height: 400px;
+    height: 350px;
      position: 100%;
-}
-@media(max-width: 780px){
-    .testimonial{
-        height: 585px;
-    }
 }
 
 .testimonial-avatar {
@@ -51,6 +46,19 @@
     position: absolute;
     left: 55%;
     width: 10px;
+}
+@media screen and (max-width: 768px){
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        height: 40px;
+        width: 100px;
+        border-radius: 60%;
+        padding: 0 10px 0 10px;
+
+    }
+    .testimonial {
+        margin: 10px;
+    }
 }
 @media (max-width: 780px) {
     .testimonial-name{
