@@ -153,17 +153,17 @@ include_once("header.php");
           var lastname = $("#lastName").val();
           var email = $("#email").val();
           var password = $("#password").val();
-          var password2 = $("#passwordCheck").val();
+          // var password2 = $("#passwordCheck").val();
         
         // var terms = $('#terms').is(':checked'); 
-        if(password !==password2){
-            $("#password").addClass('is-invalid');
-            $("#passwordCheck").addClass('is-invalid');
-            $("#signUpInfo").html('Password mismatch');
-            $("#signUpInfo").attr("class","text-danger");
-        $('#signUpInfo').show();
-        return;
-        }
+        // if(password !==password2){
+        //     $("#password").addClass('is-invalid');
+        //     $("#passwordCheck").addClass('is-invalid');
+        //     $("#signUpInfo").html('Password mismatch');
+        //     $("#signUpInfo").attr("class","text-danger");
+        // $('#signUpInfo').show();
+        // return;
+        // }
        
               
       // $("#signUpInfo").html('Registering...');
@@ -179,8 +179,9 @@ include_once("header.php");
                 $("#signUpInfo").html("Account created successfully");
             $("#signUpInfo").attr("class","text-success");
             $("#signUpInfo").show();
-                window.location.href="activateaccount?email="+email+"&name="+firstname;
-                return;
+            $("#signUpInfo").html('Redirecting..');
+
+              window.location.href ="dashboard";
               }
             
             $("#signUpInfo").html(data);
@@ -199,6 +200,8 @@ include_once("header.php");
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
                     // alert('Request not completed');
+                    alert(errorThrown);
+                    console.log(errorThrown);
            $("#register").html('Sign Up');
                      $("#signUpInfo").html('An error occured, please try again later ');
                 $("#signUpInfo").attr("class","text-danger");

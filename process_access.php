@@ -66,30 +66,34 @@ if(isset($_POST['registration'])){
          VALUES (:email,:phone,:firstname,:username,:password,:nationality,:lastname,:verified,:verification_token)");
 
       $result= $stmt->execute(array(
-          ':email'=>$email,':phone'=>$phone,':firstname'=>$firstname,':username'=>$username,':password'=>md5($password),':nationality'=>$nationality,':lastname'=>$lastname,':verified'=>0,':verification_token'=>$rand_no
+          ':email'=>$email,':phone'=>$phone,':firstname'=>$firstname,':username'=>$username,':password'=>md5($password),':nationality'=>$nationality,':lastname'=>$lastname,':verified'=>1,':verification_token'=>$rand_no
        ));
          $token=md5($email.$rand_no);
 
        if($result){
+
+        $_SESSION["user_id"] = $conn->lastInsertId();
+        $_SESSION["username"] = $row["username"];
+       $_SESSION["email"] = $row["email"];
         // header("Location: learn.php");
 
-         $to = "".$email."";
-         $subject = "Verify your account";
-         $txt = 'Hi '. $firstname.',
-            <br/>
-           You are receiving this message because you have just registered on the HNG website on <a href="https://hng.fun">https://hng.fun</a><br/>
-           Please, follow this link to verify your new account:<br/>
-           <a href="https://hng.fun/verifyEmail?token='.$token.'&email='.$email.'">Account Verification Link</a>
-           <br/> <br/>
-           <p>If you have not registered on our site, you can just delete this email.</p>
-           <br/>
-           Thank you ,<br/>
-           HNG Team';
+        //  $to = "".$email."";
+        //  $subject = "Verify your account";
+        //  $txt = 'Hi '. $firstname.',
+        //     <br/>
+        //    You are receiving this message because you have just registered on the HNG website on <a href="https://hng.fun">https://hng.fun</a><br/>
+        //    Please, follow this link to verify your new account:<br/>
+        //    <a href="https://hng.fun/verifyEmail?token='.$token.'&email='.$email.'">Account Verification Link</a>
+        //    <br/> <br/>
+        //    <p>If you have not registered on our site, you can just delete this email.</p>
+        //    <br/>
+        //    Thank you ,<br/>
+        //    HNG Team';
 
-         $headers = "From: noreply@hng.fun" . "\r\n" ;
-         $headers .= "MIME-Version: 1.0\r\n";
-         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-         mail($to,$subject,$txt,$headers);
+        //  $headers = "From: noreply@hng.fun" . "\r\n" ;
+        //  $headers .= "MIME-Version: 1.0\r\n";
+        //  $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        //  mail($to,$subject,$txt,$headers);
 
 
         // header("Location: learn.php");

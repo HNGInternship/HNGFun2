@@ -136,8 +136,15 @@ global $db;
         `updated_at` DATETIME DEFAULT NULL,
         PRIMARY KEY (id))";
 
+    $sql10 = "CREATE TABLE IF NOT EXISTS `mail_lists` (
+        `id` int(20) NOT NULL AUTO_INCREMENT,
+        `email` varchar(100) NOT NULL,
+        `created_at` DATETIME NOT NULL DEFAULT NOW(),
+        `updated_at` DATETIME DEFAULT NULL,
+        PRIMARY KEY (id))";
 
-    $sqls = [$sql1, $sql2, $sql3, $sql4, $sql5,$sql6, $sql7, $sql8, $sql9];
+
+    $sqls = [$sql1, $sql2, $sql3, $sql4, $sql5,$sql6, $sql7, $sql8, $sql9, $sql10];
 
     foreach ($sqls as $sql) {
         try {
