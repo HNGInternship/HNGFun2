@@ -3,8 +3,8 @@
     include("header.php");
   ?>
 <style>
-    .form-signin input[type="email"]{
-        font-size: 15px;
+    .form-signin input[type="email"], .form-signin input[type="password"],{
+        font-size: 0.7em;
     }
 </style>
 
@@ -46,7 +46,7 @@
                     <span style="font-size: 0.7em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
                 </div>
 
-                <div style="font-size: 0.7rem; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
+                <div style="font-size: 0.7em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
             </div>
         </div> 
         
