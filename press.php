@@ -7,11 +7,11 @@
 	}
 
     .banner{
-    	background-image:url('img/coffee.jpg') ;
+    	background-image:url('img/News-Banner.jpg') ;
     	background-repeat: no-repeat;
     	background-size: 100% 406px;
     	width: 100%;
-    	height: 406px;
+    	height: 300px;
     	padding-bottom: 0;
     }
     .update-container{
@@ -128,10 +128,13 @@
 	<div class="update-container">
 		<div class="sidebar" style="padding:55px;">
             <div class="row offset-1">
-			<a href="#top" class="btn btn-default">Press Release</a>
-			<br><a href="#mid1" class="btn btn-default">Press Release</a>
-			<br><a href="#mid2" class="btn btn-default">Press Release</a>
-			<br><a href="#last" class="btn btn-default">Press Release</a>
+			<!-- <a href="#top" class="btn btn-default">Key People</a>
+			<br><a href="#mid1" class="btn btn-default">Branding and Media</a>
+			<br><a href="#mid2" class="btn btn-default"> Press Pack</a> -->
+			<a href="#" class="btn btn-default">Key People</a>
+			<br><a href="#" class="btn btn-default">Branding and Media</a>
+			<br><a href="#" class="btn btn-default"> Press Pack</a>
+			<!-- <br><a href="#last" class="btn btn-default">Press Release</a> -->
         </div>
 		</div>
 	    <div id="boxes">
