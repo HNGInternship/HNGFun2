@@ -7,11 +7,11 @@
 	}
 
     .banner{
-    	background-image:url('img/coffee.jpg') ;
+    	background-image:url('img/News-Banner.jpg') ;
     	background-repeat: no-repeat;
     	background-size: 100% 406px;
     	width: 100%;
-    	height: 406px;
+    	height: 300px;
     	padding-bottom: 0;
     }
     .update-container{
@@ -90,11 +90,11 @@
     	margin-top: 0;
     }
 
-    .box .btn{
-    	width: 120px;
-    }
+    
+    	
 
-    @media screen and (max-width: 780px) {
+
+@media screen and (max-width: 780px) {
     	.banner{
     		background-size: 100% 400px;
     	}
@@ -128,10 +128,13 @@
 	<div class="update-container">
 		<div class="sidebar" style="padding:55px;">
             <div class="row offset-1">
-			<a href="#top" class="btn btn-default">Press Release</a>
-			<br><a href="#mid1" class="btn btn-default">Press Release</a>
-			<br><a href="#mid2" class="btn btn-default">Press Release</a>
-			<br><a href="#last" class="btn btn-default">Press Release</a>
+			<!-- <a href="#top" class="btn btn-default">Key People</a>
+			<br><a href="#mid1" class="btn btn-default">Branding and Media</a>
+			<br><a href="#mid2" class="btn btn-default"> Press Pack</a> -->
+			<a href="#" class="btn btn-default">Key People</a>
+			<br><a href="#" class="btn btn-default">Branding and Media</a>
+			<br><a href="#" class="btn btn-default"> Press Pack</a>
+			<!-- <br><a href="#last" class="btn btn-default">Press Release</a> -->
         </div>
 		</div>
 	    <div id="boxes">
@@ -144,7 +147,7 @@
 				<hr>
 				<p>So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseOne" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More </a>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseOne">Read More on Medium</a>
 		        </div>
 				
 
@@ -155,7 +158,7 @@
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseTwo" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseTwo">Read More </a>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseTwo">Read More on Medium</a>
 			</div>
 
 			<div class="box" id="mid1" >
@@ -165,7 +168,7 @@
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseThree" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseThree">Read More </a>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseThree">Read More on Medium</a>
 			</div>
 
 			<div class="box" >
@@ -175,7 +178,7 @@
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseFour" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseFour">Read More </a>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseFour">Read More on Medium </a>
 			</div>
 
 			<div class="box">
@@ -185,7 +188,7 @@
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseFive" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseFive">Read More </a>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseFive">Read More on Medium</a>
 			</div>
 
 			<div class="box" id="last" >
@@ -195,7 +198,7 @@
 				<hr>
 				So while we are being very nice now, remember that we will disable people in the future, and it can affect you. We want you to show that you are willing to learn fast and push to become the best.
 				<span id="collapseSix" class="collapse show"> Our training model is different from everyone elses, because our incentive is also different. We are looking for people who can be productive in the real world, not people who are good at passing exam </span> .</p>
-				<a class="btn btn-default" data-toggle="collapse" href="#collapseSix">Read More </a>
+				<a class="btn btn-default" data-toggle="collapse" href="#collapseSix">Read More on Medium</a>
 			</div>
 
 

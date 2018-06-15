@@ -65,7 +65,7 @@
                   </a>
                </li>
                <li class="list-inline-item footer-li">
-                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="/help">
+                  <a class="text-muted" style="font-size:15px; padding:0px 10px;" href="javascript:void">
                     Help
                   </a>
                </li>

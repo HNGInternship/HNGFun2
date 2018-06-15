@@ -158,29 +158,29 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item <?php echo $activeArray[0] ?>">
                 <a href="/" class="nav-link">Home</a>
             </li>
-            <li class="nav-item <?php echo $activeArray[1] ?>">
+            <!-- <li class="nav-item <?php ?>">
                 <a href="learn" class="nav-link">Learn</a>
-            </li> 
-            <li class="nav-item <?php echo $activeArray[7] ?>">
+            </li>  -->
+            <!-- <li class="nav-item <?php  ?>">
                 <a href="admin" class="nav-link">Register</a>
-            </li>
-            <li class="nav-item <?php echo $activeArray[2] ?>">
+            </li> -->
+            <li class="nav-item <?php echo $activeArray[1] ?>">
                 <a href="listing" class="nav-link">Current Intern</a>
             </li>
-            <li class="nav-item <?php echo $activeArray[3] ?>">
+            <li class="nav-item <?php echo $activeArray[2] ?>">
                 <a href="testimonies" class="nav-link">Testimonies</a>
             </li>
-            <li class="nav-item <?php echo $activeArray[4] ?>">
+            <li class="nav-item <?php echo $activeArray[3] ?>">
                 <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
-            <li class="nav-item <?php echo $activeArray[5] ?>">
+            <li class="nav-item <?php echo $activeArray[4] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
-             <li class="nav-item <?php echo $activeArray[8] ?>">
+             <li class="nav-item <?php echo $activeArray[5] ?>">
                 <a href="sign-up" class="nav-link">SignUp</a>
             </li>
-            <li class="nav-item <?php echo $activeArray[9] ?>">
-                <a href="login" class="nav-link">Login</a>
+            <li class="nav-item <?php echo $activeArray[6] ?>">
+                <a href="login" class="nav-link">LogIn</a>
             </li>
     </ul>
   </div>
