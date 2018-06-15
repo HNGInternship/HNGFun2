@@ -7,11 +7,11 @@
 	}
 
     .banner{
-    	background-image:url('img/coffee.jpg') ;
+    	background-image:url('img/News-Banner.jpg') ;
     	background-repeat: no-repeat;
     	background-size: 100% 406px;
     	width: 100%;
-    	height: 406px;
+    	height: 300px;
     	padding-bottom: 0;
     }
     .update-container{

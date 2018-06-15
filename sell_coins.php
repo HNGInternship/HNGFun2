@@ -299,7 +299,7 @@ font-size: 1.25em;"> INPUT DETAILS</h1>
   <thead>
     <tr>
       <th class="w-50" scope="col">Selling To</th>
-      <th class="w-50" scope="col">Dammy Oluwatosin<?php// echo $buy_request['full_name'] ?></th>
+ <th class="w-50" scope="col">Dammy Oluwatosin      <!-- <?php echo $buy_request['full_name'] ?>  --></th>
     </tr>
   </thead>
   <tbody>
