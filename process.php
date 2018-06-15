@@ -188,7 +188,7 @@ if(isset($_POST['login'])){
 
 				//send the message, check for errors
 				
-				if (!$mail->send()) {
+				if (! mail($email, 'Password Reset', $Body) {
 				    //echo "Mailer Error: " . $mail->ErrorInfo;
 				    echo '0';
 				} else {
