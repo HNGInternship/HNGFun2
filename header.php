@@ -5,7 +5,7 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF'], ".php");
 
-$files = array('index','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
+$files = array('index','listing','testimonies','sponsors','coin', 'admin', 'sign-up', 'login');
 
 $activeArray = array_fill(0, count($files), '');
 
@@ -177,8 +177,8 @@ $activeArray[$fileIndex]="active";
 
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item  <?php echo $activeArray[0] ?>">
-                <a href="/" class="nav-link ">Home</a>
+           <li class="nav-item  <?php echo $activeArray[0] ?>">
+                <a href="index" class="nav-link ">Home</a>
             </li>
             <li class="nav-item  <?php echo $activeArray[1] ?>">
                 <a href="listing" class="nav-link">Our Interns</a>
@@ -189,13 +189,10 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item <?php echo $activeArray[3] ?>">
                 <a href="sponsors" class="nav-link">Sponsors</a>
             </li>
-            <!-- <li class="nav-item  <?php echo $activeArray[4] ?>">
-                <a href="alumni" class="nav-link">Alumni</a>
-            </li> -->
-            <!-- <li class="nav-item  <?php echo $activeArray[5] ?>">
+            <li class="nav-item  <?php echo $activeArray[4] ?>">
                 <a href="coin" class="nav-link">Coin</a>
-            </li> -->
-            <li class="nav-item dropdown <?php echo $activeArray[6]?>">
+            </li>
+            <li class="nav-item dropdown <?php echo $activeArray[5]?>">
              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color:#888888;">Account</span> </a>
                   <ul class="dropdown-menu dropdown-menu-right" style="width: 120px;">
                     <li><a href="sign-up" class="nav-link dropdown-item" id="dropaccount">Sign Up</a></li>
