@@ -185,18 +185,75 @@ include_once("header.php");
 		</div>
 		<div class="col-sm-7">
 			<h4 class="text-center mb-2">Would you you like get our resgular updates? Subscribe Now! </h4>
-			<form class="form-inline row d-flex justify-content-center">
+			<form class="form-inline row d-flex  " id="subscribe-form">
 				<div class="col-7 form-group pr-0 mr-0">
 					<input type="email" name="email" id="email" placeholder="Enter your email" class="form-control w-100 py-2" style= "border-top-right-radius: 0; border-bottom-right-radius: 0" >
 				</div>
 				<div class="col-4 form-group">
-					<button class="btn btn-custom-primary py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #000000">Subscribe</button>
+					<button type="submit" class="btn btn-custom-primary py-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0; font-size: 1.1rem; min-width: 90%; color: #000000">Subscribe</button>
 				</div>
+				<span id="fbk" class="d-none text-center"><strong></strong></span>
 			</form>
+			
 		</div>
 
 	</div>
 </main>
+<script>
+	$('document').ready(function(){
+
+		
+		$('#subscribe-form').submit(function(e){
+
+			e.preventDefault();
+
+			var email = $('#email').val();
+
+			 if (!validateEmail(email) || email == '') {
+			    $("#fbk").html("Invalid Email");
+                $("#fbk").attr("class","text-danger");
+                $("#fbk").show();
+			 }
+			 else {
+
+				 $.ajax({
+
+					 url: 'process',
+					 type: 'post',
+					 data: { email: email, subscribe: true},
+					 success: function(data){
+						 if (data == "1") {
+
+							 $('#email').val('');
+							$("#fbk strong").html("Thanks for subscribing, we\'ll keep you updated");
+                            $("#fbk").attr("class","alert alert-success");
+                            $("#fbk").show();
+				
+						 }
+						 else{
+							$("#fbk").html("Oops, an error occurred, please try again");
+                            $("#fbk").attr("class","alert alert-danger");
+                            $("#fbk").show();
+						 }
+					 },
+					 error: function(err){
+						 console.log(err);
+						
+					 }
+
+				 })
+				
+			 }
+
+			 
+		});
+
+		function validateEmail(email) {
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+}
+	})
+</script>
 <?php
 include_once("footer.php");
 ?>
