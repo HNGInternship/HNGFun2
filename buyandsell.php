@@ -174,7 +174,7 @@ h3{
 							</div>
 							
 							<div class="col-3">
-							<?php// echo $r['price_per_coin']; ?> <br/>NGN
+							<!-- <?php echo $r['price_per_coin']; ?> <br/>NGN -->
 							</div>
 							
 							<div class="col-2">

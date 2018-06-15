@@ -38,7 +38,7 @@
                        <?php  echo '<a class="newshead" id="button2" href=newsletter.php?news_id='.$result['news_id'].'> '.$result['news_name'].'</a>';
                         echo "<p class='news_content'>".$result['news_content']."</p>";?>
                         </div>
-                        <?php } ?>
+                      
 			</div>
 
 </section>
