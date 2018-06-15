@@ -166,7 +166,7 @@ $activeArray[$fileIndex]="active";
         </a> -->
 
       <a class="navbar-brand" href="../">
-        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
+        <img src="img/full-logo.svg" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
 
       <button class=" navbar-toggler ml-auto hidden-sm- float-xs-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
@@ -178,19 +178,19 @@ $activeArray[$fileIndex]="active";
 
         <ul class="navbar-nav ml-auto">
            <li class="nav-item  <?php echo $activeArray[0] ?>">
-                <a href="index" class="nav-link ">Home</a>
+                <a href="/" class="nav-link "> <i class="fa fa-home mr-1"></i>Home</a>
             </li>
             <li class="nav-item  <?php echo $activeArray[1] ?>">
-                <a href="listing" class="nav-link">Our Interns</a>
+                <a href="listing" class="nav-link"> <i class="fa fa-user mr-1"></i>Our Interns</a>
             </li>
             <li class="nav-item  <?php echo $activeArray[2] ?>">
-                <a href="testimonies" class="nav-link">Testimonies</a>
+                <a href="testimonies" class="nav-link"> <i class="fa fa-quote-left mr-1"></i>Testimonies</a>
             </li>
             <li class="nav-item <?php echo $activeArray[3] ?>">
-                <a href="sponsors" class="nav-link">Sponsors</a>
+                <a href="sponsors" class="nav-link"> <i class="fa fa-handshake-o mr-1"></i>Sponsors</a>
             </li>
             <li class="nav-item  <?php echo $activeArray[4] ?>">
-                <a href="coin" class="nav-link">Coin</a>
+                <a href="coin" class="nav-link"><i class="fa fa-bitcoin mr-1"></i> Coin</a>
             </li>
             <li class="nav-item dropdown <?php echo $activeArray[5]?>">
              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color:#888888;">Account</span> </a>

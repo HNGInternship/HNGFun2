@@ -89,7 +89,7 @@
         else{
             
             
-            $("#login").html('Logging in..');
+//             $("#login").html('Logging in..');
 
              var data = $("#login_form").serialize();
 
