@@ -179,18 +179,11 @@ include_once("header.php");
 
               window.location.href ="dashboard";
               }
-            
-            $("#signUpInfo").html(data);
+            else{
+            $("#signUpInfo").html('An error occurred, please try again');
             $("#signUpInfo").attr("class","text-danger");
             $("#signUpInfo").show();
-            // $("#register").html('Registration successful');
-            // window.location.href ="https://hng.fun/activateaccount";
-             // }  
-             // else{
-                // alert(data);
-                // $("#message").html(data);
-                //  $("#register").html('Failed');
-             // } 
+            }
             
             },
            error : function(jqXHR,textStatus,errorThrown){
