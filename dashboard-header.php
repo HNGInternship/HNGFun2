@@ -127,7 +127,7 @@ function gravater($email, $fallback = null)
     }
     nav.navbar {
         padding: 0 16px 0 50px !important;
-        height: 100px;
+        height: 90px;
     }
     .navbar-logo {
         width: auto !important;
@@ -177,7 +177,7 @@ function gravater($email, $fallback = null)
 							<img class="dashb-icons" src="img/dashboard/invite.png"><a href="invite2.php">Invite to HNG</a></span></li>
 
 							<li><span class="dropdown-item">
-							<img class="dashb-icons" src="img/dashboard/settings.png">Settings</span></li>
+							<img class="dashb-icons" src="img/dashboard/settings.png"><a href="settings.php">Settings</a></span></li>
 
 							<span href="logout.php" class="dropdown-item">
 							<img class="dashb-icons" src="img/dashboard/logout.png"><a href="logout.php">Logout</a></span>
