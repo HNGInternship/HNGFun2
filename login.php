@@ -3,14 +3,14 @@
     include("header.php");
   ?>
 <style>
-    .form-signin input[type="email"], .form-signin input[type="password"],{
+    .form-signin input[type="email"], .form-signin input[type="password"]{
         font-size: 0.7em;
     }
 </style>
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
     <h1 class="pt-5" style="font-size:1.9em">Log In</h1>
-    <p style="font-size: 16px !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
+    <p style="font-size: 0.8em !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
 </div>
 
 <div class="container" style='color: #3D3D3D'>
