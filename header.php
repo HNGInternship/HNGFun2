@@ -5,7 +5,7 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF'], ".php");
 
-$files = array('index','listing','testimonies','sponsors','alumni','coin','partners', 'admin', 'sign-up', 'login');
+$files = array('index','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
 
 $activeArray = array_fill(0, count($files), '');
 
@@ -192,9 +192,9 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item  <?php echo $activeArray[4] ?>">
                 <a href="alumni" class="nav-link">Alumni</a>
             </li>
-            <li class="nav-item  <?php echo $activeArray[5] ?>">
+            <!-- <li class="nav-item  <?php echo $activeArray[5] ?>">
                 <a href="coin" class="nav-link">Coin</a>
-            </li>
+            </li> -->
             <li class="nav-item dropdown <?php echo $activeArray[6]?>">
              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color:#888888;">Account</span> </a>
                   <ul class="dropdown-menu dropdown-menu-right" style="width: 120px;">
