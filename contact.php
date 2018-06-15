@@ -152,17 +152,17 @@ echo $styles;
             <div class="contact-info">
                 <div class="form-group">
                     <p class="contact-icon location"><img src="./img/location.png" alt="location"></p>
-                    <p>3 Birrel Avenue, off Herbert Macaulay Way, Sabo, Yaba, Lagos.</p>
+                    <p class="info">3 Birrel Avenue, off Herbert Macaulay Way, Sabo, Yaba, Lagos.</p>
                 </div>
 
                 <div class="form-group">
                     <p class="contact-icon phone"><img src="./img/phone.png" alt=""></p>
-                    <p>+234 700 880 8800</p>
+                    <p class="info">+234 700 880 8800</p>
                 </div>
 
                 <div class="form-group">
                     <p class="contact-icon mail"><img src="./img/envelope.png" alt=""></p>
-                    <p><a style="color:white;" href="mailto:support@hng.fun?Subject=Contact HNGInternship">support@hng.fun</a></p>
+                    <p class="info"><a style="color:white;" href="mailto:support@hng.fun?Subject=Contact HNGInternship">support@hng.fun</a></p>
                 </div>
 
                   <div class="social-media">
