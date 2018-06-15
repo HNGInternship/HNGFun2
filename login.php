@@ -138,7 +138,7 @@
             beforeSend :function(){
 
                  $("#message").hide();
-            $("#login").html('Logging in..');
+//             $("#login").html('Logging in..');
             },
         });
     
