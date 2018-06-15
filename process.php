@@ -247,5 +247,25 @@ if(isset($_POST['login'])){
 
   }
 
+  if (isset($_POST['subscribe'])) {
+	
+	require_once('db.php');
+
+	$query = "INSERT INTO mail_lists(email) 
+			  VALUES (:email)";
+	$stmt = $conn->prepare($query);
+
+	$stmt->bindParam(':email', $_POST['email']);
+
+	if ( $stmt->execute())
+
+	   echo "1";
+	else{
+		echo '2';
+	}
+
+	exit();
+  }
+
 	
 ?>
