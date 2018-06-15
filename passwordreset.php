@@ -97,7 +97,7 @@
 
 
 
-             $.ajax('process.php',{
+             $.ajax('process',{
             type : 'post',
             data : data,
             success: function(data){
