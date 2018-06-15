@@ -9,8 +9,8 @@
 </style>
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
-    <h1 class="pt-5" style="font-size:2.0em">Log In</h1>
-    <p style="font-size: 16pxd !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
+    <h1 class="pt-5" style="font-size:1.9em">Log In</h1>
+    <p style="font-size: 16px !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
 </div>
 
 <div class="container" style='color: #3D3D3D'>
