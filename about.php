@@ -178,7 +178,7 @@ include_once("header.php");
 		</div>
 	</div>
     <div class="row bg-footer-top py-2" ></div>
-	<div class="row bg-footer-lower py-2 justify-content-center text-white">
+	<div class="row bg-footer-lower py-2 justify-content-center text-white" style="margin-left:0;margin-right:0">
 		<div class="col-sm-3 d-flex align-items-center" style=" border-right: 2px solid #fff; max-width: 200px;">
 			<div class="rounded-circle bg-primary d-flex justify-content-center align-items-center mr-1" style="min-width: 50px; height: 50px;"><span class="fa fa-envelope float-left"></span></div>
 			<h4 class="text-right">Start Learning Now</h4>
