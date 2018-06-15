@@ -62,7 +62,8 @@ include_once("header.php");
     <div class="jumbotron signup-jumbotron">
       <div class="container signup ">
           <div class="container-fluid">
-          <div class="col-md-6 signup-text" >
+		  <div class="row">
+          <div class="col-md-6 col-sm-12 col-lg-6 signup-text" >
             <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/mtraeogklpzkytbhmh9g.svg" class="pl-0 ml-0 signup-img" id="img1" >
             <div class="row" style="text-align: center; font-size:1em; line-height: 250%;">
                 <span style="color: grey ">
@@ -72,37 +73,38 @@ include_once("header.php");
             <img src="http://res.cloudinary.com/dikethelma/image/upload/v1526104829/fn3ncrihrqwsqzutwh58.svg" class="pl-5 ml-5 signup-img2" id="img2" >                 
             <p class="pt-0 mt-0" style="font-size: 3em !important; text-align: center; color: #2196F3; font-family: 'Qwigley', cursive;">Mark Essien</p>
         </div> 
-
-          <div class="col-md-6 pt-0">
+		  <div class="col-md-1 col-sm-1 col-lg-1">
+		  </div>
+          <div class="col-md-5 col-sm-12 mt-5 col-lg-5 px-0">
             <div class="signup-form">
                   <h2 class="text-justify">Sign Up</h2>
             <p class="text-justify mt-2" style="color:#ADADAD;">Already have an account? <span><a href="login.php" style="text-decoration:none; color:#008DDD;">Log In</a></span></p>
 
             <h6 class="text-danger" id="signUpInfo"></h6>
 
-            <form class="form-signin signup " id="register_form">
+            <form class="form-signin signup" id="register_form">
             <div class="row px-0">
-            <div class="col-md-6 col-sm-12 px-0">
+            <div class="col-md-5 col-sm-12 px-0">
             <label class="label px-0" for="firstName">First Name</label>
             <div class="form-style"><input  type="text" id="firstName" style="height: 40px;" name="firstName" class="form-control" placeholder="" autofocus required></div>
             </div>
-
-            <div class="col-md-6 col-sm-12">
+			<div class="col-1"></div>
+            <div class="col-md-5 col-sm-12 px-0">
             <label class="label px-0" for="lastName">Last Name</label>
             <input type="text" style="height: 40px;" id="lastName" name="lastName" class="form-control" placeholder="" required>
             </div>
             
-            <div class="col-md-6 col-sm-12  px-0">
+            <div class="col-md-5 col-sm-12  px-0">
             <label class="label px-0" for="userName">Username</label>
             <input type="text" style="height: 40px;" id="userName" name="userName" class="form-control" placeholder="" required>
             </div>
-
-            <div class="col-md-6 col-sm-12">
+			<div class="col-1"></div>
+            <div class="col-md-5 col-sm-12 px-0">
             <label class="label px-0" for="email">Email Address</label>
             <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="jj" required value="<?php echo $_POST['email']; ?>">
             </div>
 
-             <div class="col-md-6 col-sm-12  px-0">
+             <div class="col-md-5 col-sm-12 px-0">
             <label class="label px-0">Nationality</label>
             <select class="form-control" name="nationality" id="nationality" required style="height: 41.5px;">
                 <option value="">Select Country</option>
@@ -114,8 +116,8 @@ include_once("header.php");
             </select>
             </div>
 
-
-            <div class="col-md-6 col-sm-12">
+			<div class="col-1"></div>
+            <div class="col-md-5 col-sm-12 px-0">
             <label class="label px-0" for="password">Password</label>
             <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
             </div>
@@ -123,7 +125,7 @@ include_once("header.php");
                 <input type="hidden" name="registration" value="yes">
 
             
-            <button class="btn btn-primary signup-btn mt-4" style="font-weight: bold; font-size: 18px" id="register" type="submit">Sign Up</button>
+            <button class="btn btn-primary signup-btn mt-4" style="font-weight: bold; font-size: 18px; border-radius: 5px;" id="register" type="submit">Sign Up</button>
 
             <!-- <button type="submit" name="register" class="btn btn-signup" id="register">Sign Up </button> -->
 
@@ -134,7 +136,7 @@ include_once("header.php");
           </div><!-- /row -->
             
             </div>
-
+		</div>
         </div> <!-- /container -->
     </div>
   </div>
