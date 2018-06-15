@@ -2,11 +2,15 @@
    session_start();
     include("header.php");
   ?>
-
+<style>
+    .form-signin input[type="email"]{
+        font-size: 15px;
+    }
+</style>
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
     <h1 class="pt-5" style="font-size:2.0em">Log In</h1>
-    <p style="font-size: 1.0em !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
+    <p style="font-size: 16pxd !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
 </div>
 
 <div class="container" style='color: #3D3D3D'>
@@ -32,7 +36,7 @@
                         <label class="form-check-label" style="font-size:0.7em;">Remember Me</label>
                     </div>
                     
-                    <button class="btn btn-primary btn-block" id="login" type="submit" style="font-size:1.0em">Log In</button> 
+                    <button class="btn btn-primary btn-block" id="login" type="submit" style="font-size:0.9em">Log In</button> 
                 <input type="hidden" name="login" value="yes">
 
                 
@@ -42,7 +46,7 @@
                     <span style="font-size: 0.7em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
                 </div>
 
-                <div style="font-size: 0.8em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
+                <div style="font-size: 0.7rem; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
             </div>
         </div> 
         
@@ -98,10 +102,10 @@
 
 
              if(data=="1"){
-//                 $("#message").attr("class",'text-success');
-//             $("#message").html("Login Successful");
+                $("#message").attr("class",'text-success');
+            $("#message").html("Login Successful");
 
-//             $("#login").html('Redirecting..');
+            $("#login").html('Redirecting..');
 
             window.location.href ="dashboard";
              }  
