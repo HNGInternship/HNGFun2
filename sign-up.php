@@ -31,9 +31,9 @@ include_once("header.php");
     margin-top:0 !important;
   }
   .signup-btn{
-    width:50%;
+    /* width:50%; */
     /*font-size:0.8em;*/
-    padding:2%;
+   
     border-radius:3px;
   }
   .signup-img{
@@ -86,9 +86,9 @@ include_once("header.php");
             <div class="row px-0">
             <div class="col-md-5 col-sm-12 px-0">
             <label class="label px-0" for="firstName">First Name</label>
-            <div class="form-style"><input  type="text" id="firstName" style="height: 40px;" name="firstName" class="form-control" placeholder="" autofocus required></div>
+              <div class="form-style"><input  type="text" id="firstName" style="height: 40px;" name="firstName" class="form-control" placeholder="" autofocus required></div>
             </div>
-			<div class="col-1"></div>
+			      <div class="col-1"></div>
             <div class="col-md-5 col-sm-12 px-0">
             <label class="label px-0" for="lastName">Last Name</label>
             <input type="text" style="height: 40px;" id="lastName" name="lastName" class="form-control" placeholder="" required>
@@ -98,10 +98,10 @@ include_once("header.php");
             <label class="label px-0" for="userName">Username</label>
             <input type="text" style="height: 40px;" id="userName" name="userName" class="form-control" placeholder="" required>
             </div>
-			<div class="col-1"></div>
+		        <div class="col-1"></div>
             <div class="col-md-5 col-sm-12 px-0">
             <label class="label px-0" for="email">Email Address</label>
-            <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="jj" required value="<?php echo $_POST['email']; ?>">
+            <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required value="<?php echo $_POST['email']; ?>">
             </div>
 
              <div class="col-md-5 col-sm-12 px-0">
@@ -116,20 +116,16 @@ include_once("header.php");
             </select>
             </div>
 
-			<div class="col-1"></div>
+			      <div class="col-1"></div>
             <div class="col-md-5 col-sm-12 px-0">
-            <label class="label px-0" for="password">Password</label>
-            <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
+              <label class="label px-0" for="password">Password</label>
+              <input type="password" id="password"  style="height: 40px;" name="password" class="form-control" placeholder="" required>
             </div>
-
-                <input type="hidden" name="registration" value="yes">
-
-            
-            <button class="btn btn-primary signup-btn mt-4" style="font-weight: bold; font-size: 18px; border-radius: 5px;" id="register" type="submit">Sign Up</button>
-
-            <!-- <button type="submit" name="register" class="btn btn-signup" id="register">Sign Up </button> -->
-
-          
+            <input type="hidden" name="registration" value="yes">
+            <div class="col-3"></div>
+            <div class="col-md-5  col-sm-12 px-0">
+            <button class="btn btn-primary signup-btn mt-2 form-control" style="font-weight: bold; font-size: 18px; border-radius: 5px;" id="register" type="submit">Sign Up</button>  
+            </div>
           </form>
 
           </div><!-- /col -->
@@ -183,18 +179,11 @@ include_once("header.php");
 
               window.location.href ="dashboard";
               }
-            
-            $("#signUpInfo").html(data);
+            else{
+            $("#signUpInfo").html('An error occurred, please try again');
             $("#signUpInfo").attr("class","text-danger");
             $("#signUpInfo").show();
-            // $("#register").html('Registration successful');
-            // window.location.href ="https://hng.fun/activateaccount";
-             // }  
-             // else{
-                // alert(data);
-                // $("#message").html(data);
-                //  $("#register").html('Failed');
-             // } 
+            }
             
             },
            error : function(jqXHR,textStatus,errorThrown){
