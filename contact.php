@@ -13,6 +13,7 @@
 // }
 include_once("header.php");
 if (isset($_POST["submit"])) {
+    $errors = [];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
@@ -24,36 +25,44 @@ if (isset($_POST["submit"])) {
     // Check if name has been entered
     if (!$_POST['name']) {
         $errName = 'Please enter your name';
+        array_push($errors,$errName);
     }
     // Check if email has been entered and is valid
     if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errEmail = 'Please enter a valid email address';
+        array_push($errors,$errEmail);
     }
     
     //Check if message has been entered
     if (!$_POST['message']) {
         $errMessage = 'Please enter your message';
+        array_push($errors,$errMessage);
     }
     //Check phone number
     if (!$_POST['phone_number']) {
         $errPhone_number = 'Please enter your phone number';
+        array_push($errors,$errPhone_number);
     }
     //Check subject
     if (!$_POST['subject']) {
         $errSubject = 'Please enter your Email Subject';
+        array_push($errors,$errSubject);
     }
 // If there are no errors, send the email
-if (mail ($to, "FROM HNG", "Your Mail Has Been Delivered, Thanks For Contacting Us", $from)) {
-    $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
-} else {
-    $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
-}
-    if (mail ("support@hng.fun", $to." sent us this mail", "Subject is: ".$subject."\n\n"."Body is: ".$body, $from)) {
-    $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
-} else {
-    $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
-}
-
+    if (count($errors)>0){
+        $result='<div class="alert alert-danger" style="color: black">Please fill in the empty fields</div>';
+    }else {
+        if (mail($to, "FROM HNG", "Your Mail Has Been Delivered, Thanks For Contacting Us", $from)) {
+            $result = '<div class="alert alert-success">Thank You! We will be in touchl</div>';
+        } else {
+            $result = '<div class="alert alert-danger" style="color: black">Sorry there was an error sending your message. Please try again later.</div>';
+        }
+        if (mail("support@hng.fun", $to . " sent us this mail", "Subject is: " . $subject . "\n\n" . "Body is: " . $body, $from)) {
+            $result = '<div class="alert alert-success">Thank You! We will be in touch</div>';
+        } else {
+            $result = '<div class="alert alert-danger" style="color: black">Sorry there was an error sending your message. Please try again later.</div>';
+        }
+    }
 }
 function custom_styles()
 {
@@ -104,12 +113,12 @@ echo $styles;
     <div class="container jumbotron " id="contact-half">
         <div class="row" >
              <section id="contact-left" class="col-md-6  contact-form">
-             <?php if(isset($result)) echo $result; ?>	
+
                 <h3 class="text-left"> Send us a message</h3>
                 <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span>
-                 <form method="post" action="https://hng.fun/contact">
+                 <form method="post" action="http://localhost/HNGFun2/HNGFun2/contact">
                         <div class="form-group row">
-                            <div class="col">
+                            <div class="col"><?php if(isset($result)) echo $result; ?>
                                 <label for="name" class="col-form-label-sm">Your Name</label>
                                 <input type="text" name="name" class="form-control"/>
                                 <?php if(isset($errName)) echo "<p class='text-danger'>$errName</p>";?>
