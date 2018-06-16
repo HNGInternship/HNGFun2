@@ -102,6 +102,7 @@ include_once("header.php");
 		transform: translateY(-50%);
 		top: 50%;
 		text-align: left;
+		opacity: 0.9;
 	}
 </style>
 
