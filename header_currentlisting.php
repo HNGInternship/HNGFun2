@@ -5,7 +5,7 @@ if(!isset($_SESSION)) { session_start(); }
 
 $fileName=basename($_SERVER['PHP_SELF'], ".php");
 
-$files = array('/','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
+$files = array('index','listing','testimonies','sponsors','alumni','partners', 'admin', 'sign-up', 'login');
 
 $activeArray = array_fill(0, count($files), '');
 
@@ -144,7 +144,7 @@ $activeArray[$fileIndex]="active";
         </a> -->
 
       <a class="navbar-brand" href="../">
-        <img src="img/approved_HNG_logo.png" alt="HNG logo" width="128" height="52" class="img-fluid">
+        <img src="img/full-logo.svg" alt="HNG logo" width="128" height="52" class="img-fluid">
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,7 +156,7 @@ $activeArray[$fileIndex]="active";
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item <?php echo $activeArray[0] ?>">
-                <a href="/" class="nav-link">Home</a>
+                <a href="/" class="nav-link"><i class="fa fa-home mr-1"></i>Home</a>
             </li>
             <!-- <li class="nav-item <?php ?>">
                 <a href="learn" class="nav-link">Learn</a>
@@ -165,22 +165,22 @@ $activeArray[$fileIndex]="active";
                 <a href="admin" class="nav-link">Register</a>
             </li> -->
             <li class="nav-item <?php echo $activeArray[1] ?>">
-                <a href="listing" class="nav-link">Current Intern</a>
+                <a href="listing" class="nav-link"><i class="fa fa-user mr-1"></i>Current Intern</a>
             </li>
             <li class="nav-item <?php echo $activeArray[2] ?>">
-                <a href="testimonies" class="nav-link">Testimonies</a>
+                <a href="testimonies" class="nav-link"><i class="fa fa-quote-left mr-1"></i>Testimonies</a>
             </li>
             <li class="nav-item <?php echo $activeArray[3] ?>">
-                <a href="sponsors" class="nav-link">Sponsors</a>
+                <a href="sponsors" class="nav-link"> <i class="fa fa-handshake-o mr-1"></i>Sponsors</a>
             </li>
             <li class="nav-item <?php echo $activeArray[4] ?>">
-                <a href="alumni" class="nav-link">Alumni</a>
+                <a href="alumni" class="nav-link"><i class="fa fa-graduation-cap mr-1"></i> Alumni</a>
             </li>
              <li class="nav-item <?php echo $activeArray[5] ?>">
-                <a href="sign-up" class="nav-link">SignUp</a>
+                <a href="sign-up" class="nav-link"><i class="fa fa-user-plus mr-1"></i>SignUp</a>
             </li>
             <li class="nav-item <?php echo $activeArray[6] ?>">
-                <a href="login" class="nav-link">LogIn</a>
+                <a href="login" class="nav-link"><i class="fa fa-sign-in mr-1"></i>LogIn</a>
             </li>
     </ul>
   </div>
