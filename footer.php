@@ -41,7 +41,7 @@
                <li class="list-inline-item footer-li">
                   <a id="github" href="https://github.com/HNGInternship/" target="_blank">
                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-github fa-stack-1x"></i> -->
+                        <i class="fa fa-github fa-stack-1x"></i>
 
                      </span>
                   </a>
