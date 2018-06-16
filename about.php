@@ -92,7 +92,7 @@ include_once("header.php");
 		height: 400px;
         width: 100%;
         margin: auto;
-		background: #333
+		background: #222
     }
 
 	.img-bg div{
