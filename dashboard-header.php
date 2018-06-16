@@ -36,7 +36,7 @@ function gravater($email, $fallback = null)
     <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../assets/css/custom.css" type="text/css"> -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="img/fav-icon.png">
 
     <!-- Custom styles for this template -->
       <link href="css/style2.css" rel="stylesheet">
