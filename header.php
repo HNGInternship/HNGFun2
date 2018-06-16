@@ -195,8 +195,8 @@ $activeArray[$fileIndex]="active";
             <li class="nav-item dropdown <?php echo $activeArray[5]?>">
              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color:#888888;">Account</span> </a>
                   <ul class="dropdown-menu dropdown-menu-right" style="width: 120px;">
-                    <li><a href="sign-up" class="nav-link dropdown-item" id="dropaccount">Sign Up</a></li>
-                    <li><a href="login" class="nav-link dropdown-item" id="dropaccount">Login</a></li>
+                    <li><a href="sign-up" class="nav-link dropdown-item" id="dropaccount"><i class="fa fa-user-plus mr-1"></i>Sign Up</a></li>
+                    <li><a href="login" class="nav-link dropdown-item" id="dropaccount"><i class="fa fa-sign-in mr-1"></i>Login</a></li>
                   </ul>
             </li>
         </ul>
