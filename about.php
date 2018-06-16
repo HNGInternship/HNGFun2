@@ -97,7 +97,7 @@ include_once("header.php");
 
 	.img-bg div{
 		position: absolute;
-		max-width: 400px;
+		max-width: 500px;
 		left: 5%;
 		transform: translateY(-50%);
 		top: 50%;
