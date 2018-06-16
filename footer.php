@@ -24,7 +24,7 @@
                         <i class="fa fa-github fa-lg"></i> -->
 
 
-               <!-- <li class="list-inline-item footer-li">
+                <li class="list-inline-item footer-li">
                   <a id="twitter" href="https://twitter.com/hnginternship?lang=en" target="_blank">
                      <span class="fa-stack fa-lg">
                         <i class="fa fa-twitter fa-stack-1x"></i>
