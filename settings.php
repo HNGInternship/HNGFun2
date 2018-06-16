@@ -109,7 +109,7 @@ if (isset($_POST['update_password'])) {
                     elseif (isset($status) && !($status))
                         echo "<p class='text-danger'>{$message}</p>";
                 ?>
-                <form action="/settings.php" method="post">
+                <form action="/settings" method="post">
                     <input type="hidden" name="update_info" value="true">
                     <div class="form-row">
                         <div class="col">
@@ -157,7 +157,7 @@ if (isset($_POST['update_password'])) {
                 elseif (isset($p_status) && !($p_status))
                     echo "<p class='text-danger'>{$p_message}</p>";
                 ?>
-                <form action="settings.php" method="post">
+                <form action="settings" method="post">
                     <div class="form-row">
                         <input type="hidden" name="update_password" value="true">
                         <div class="col">
