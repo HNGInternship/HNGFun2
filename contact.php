@@ -116,7 +116,7 @@ echo $styles;
 
                 <h3 class="text-left"> Send us a message</h3>
                 <span class="sendmail"><img src="./img/sendemail.png" alt="sendmail"></span>
-                 <form method="post" action="http://localhost/HNGFun2/HNGFun2/contact">
+                 <form method="post" action="https://hng.fun/contact">
                         <div class="form-group row">
                             <div class="col"><?php if(isset($result)) echo $result; ?>
                                 <label for="name" class="col-form-label-sm">Your Name</label>
