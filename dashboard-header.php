@@ -200,7 +200,7 @@ function gravater($email, $fallback = null)
                 <a href="myprofile.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/profile.png">Profile</a>
             </li>
             <li class="nav-item">
-                <a href="coin.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/dashboard-active.png">Coin</a>
+                <a href="coin.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/bitcoin.png">Coin</a>
             </li>
 <!--             <li class="nav-item">
                 <a href="buyandsell.php" class="nav-link"><img class="dashb-icons" src="img/dashboard/trade.png">Trade</a>
