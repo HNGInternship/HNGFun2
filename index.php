@@ -1,5 +1,25 @@
 <?php
 include_once("header.php");
+if (isset($_POST['mail']) && !empty($_POST['email'])){
+    ini_set('display_errors', 1);
+  //  $email = $_POST['email'];
+//$filename = 'suscribers.txt';
+//$somecontent = "$email\n";
+
+// Let's make sure the file exists and is writable first.
+
+    $txt = $_POST['email'].'  ';
+    $file = fopen('mailing_list.csv','a+');
+    if ($file){
+        fwrite($file,$txt);
+        fclose($file);
+        // fwrite($file,$txt);
+        $message= "Success!. You have been added to our email list.";
+    }
+    else
+        $message= "Please try again later, there seems to be an error";
+
+}
 ?>
 
 <style>
@@ -13,6 +33,7 @@ include_once("header.php");
 
 	.btn-blue{
 		background-color: #2196f3 !important;
+        margin-bottom: 0px !important;
 	}
 	#btn-signup:hover{
 		background-color: #2AADFF !important;
@@ -79,21 +100,20 @@ include_once("header.php");
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="container container-fluid bg-transparent">
-						<h3 class="text-center mt-5">Ready to get started?</h3>
+						<h3 class="text-center mt-5">Ready to get started, Signup for our mailing list</h3>
 						<div class="d-flex justify-content-center mt-3">
-							<form action="send.php" method="post" id="newsletter" name="newsletter" class="">
+							<form action="" method="post"  name="newsletter" class="">
 								<label class="sr-only">Email:</label>
 									<div class="input-group mb-2">
-										<div class="input-group-prepend">
-											<span class="input-group-text bg-transparent font-icon" id="basic-addon1">@</span>
-										</div>
-
-										<input type="text" class="form-control rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
-										<a href="https://join.slack.com/t/hnginternship4/shared_invite/enQtMzQwOTU4NzAwNjExLWQ0NWFlZDBmNjRkMTRkNGZmYjQ5MzA0YmUzZDBiZDEzOTBkZGE1ZWUxZTI1YjkxMTQ5N2MyZTMyMzBmMTEyOWM" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0" id="btn-signup">
-										<p class="font-weight-normal mb-0 pt-2 mt-1 text-capitalize">Sign Up</p>
-										</a>
+										<input type="email" name="email" class="form-control rounded-right bg-transparent" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid #bdbdbd;">
+										<button type="submit" name="mail" class="home-signup-email-btn btn btn-blue btn-lg ml-3 rounded py-0">Sign Up</button>
 									</div>
 							</form>
+                            <?php
+                             if (isset($message)){
+                                 echo $message;
+                             }
+                            ?>
 						<!-- <a href="./sign-up.php">
 							<button class="home-signup">
 								SIGN UP

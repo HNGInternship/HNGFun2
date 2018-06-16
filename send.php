@@ -1,46 +1,31 @@
 <?php
-$email = $_POST['signup-email'];
-$filename = 'suscribers.txt';
-$somecontent = "$email\n";
+ini_set('display_errors', 1);
+$email = $_POST['email'];
+//$filename = 'suscribers.txt';
+//$somecontent = "$email\n";
 
 // Let's make sure the file exists and is writable first.
-if (is_writable($filename)) {
 
-    // In our example we're opening $filename in append mode.
-    // The file pointer is at the bottom of the file hence
-    // that's where $somecontent will go when we fwrite() it.
-    if (!$handle = fopen($filename, 'a')) {
-     
-		 //echo "Cannot open file ($filename)";
-         exit;
-		 
-    $message= "An error occurred, please try agains.";
-	$status  = "error";
-	$data = array(
-                'status'  => $status,
-                'message' => $message
-            );
+    $txt = $_POST['email'].'  ';
+    $file = fopen('mailing_list.csv','a+');
+    if ($file){
 
-            echo json_encode($data);
-    }
-
-    // Write $somecontent to our opened file.
-    if (fwrite($handle, $somecontent) === FALSE) {
-        echo "Cannot write to file ($filename)";
-        //exit;
-    }
-
+fwrite($file,$txt);
+fclose($file);
+   // fwrite($file,$txt);
     $message= "Success!. You have been added to our email list.";
 	$status  = "success";
 	$data = array(
                 'status'  => $status,
                 'message' => $message
             );
-
+        header("index.php");
             echo json_encode($data);
-    fclose($handle);
 
-} else {
+    }
+            else
+                echo "fail";
+/*} else {
        $message= "An error occurred, please try agains.";
 	$status  = "error";
 	$data = array(
@@ -49,5 +34,5 @@ if (is_writable($filename)) {
             );
 
             echo json_encode($data);
-}
+}*/
 ?>
