@@ -177,7 +177,7 @@ function gravater($email, $fallback = null)
 							<img class="dashb-icons" src="img/dashboard/invite.png"><a href="invite2.php">Invite to HNG</a></span></li>
 
 							<li><span class="dropdown-item">
-							<img class="dashb-icons" src="img/dashboard/settings.png"><a href="settings.php">Settings</a></span></li>
+							<img class="dashb-icons" src="img/dashboard/settings.png"><a href="settings">Settings</a></span></li>
 
 							<span href="logout.php" class="dropdown-item">
 							<img class="dashb-icons" src="img/dashboard/logout.png"><a href="logout.php">Logout</a></span>
