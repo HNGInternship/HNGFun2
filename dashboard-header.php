@@ -128,7 +128,7 @@ function gravater($email, $fallback = null)
     }
     nav.navbar {
         padding: 0 16px 0 50px !important;
-        height: 90px;
+        height: 85px;
     }
     .navbar-logo {
         width: auto !important;
