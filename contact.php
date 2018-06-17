@@ -168,7 +168,7 @@ echo $styles;
                 </div>
 
                 <div class="form-group">
-                    <p class="contact-icon phone"><img src="./img/phone.png" alt="" style="padding-top: 7px;"></p>
+                    <p class="contact-icon phone"><img src="./img/phone.png" alt="" style="padding-top: 7px; padding-left: 2px;"></p>
                     <p class="info">+234 700 880 8800</p>
                 </div>
 
