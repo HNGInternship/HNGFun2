@@ -162,13 +162,13 @@ echo $styles;
               <!--   </div> -->
             <div class="contact-info">
                 <div class="form-group">
-                    <p class="contact-icon location"><img src="./img/location.png" alt="location" style="    padding-top: 4px;
+                    <p class="contact-icon location"><img src="./img/location.png" alt="location" style="    padding-top: 9px;
     padding-left: 6px;"></p>
                     <p class="info">3 Birrel Avenue, off Herbert Macaulay Way, Sabo, Yaba, Lagos.</p>
                 </div>
 
                 <div class="form-group">
-                    <p class="contact-icon phone"><img src="./img/phone.png" alt="" style="padding-top: 7px; padding-left: 2px;"></p>
+                    <p class="contact-icon phone"><img src="./img/phone.png" alt="" style="padding-top: 7px; padding-left: 4px;"></p>
                     <p class="info">+234 700 880 8800</p>
                 </div>
 
