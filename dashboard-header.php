@@ -112,6 +112,7 @@ function gravater($email, $fallback = null)
     }
     .navbar-brand {
     width: auto !important;
+    margin-top: -12px;
     }
     @media (min-width: 992px){
     .navbar-expand-lg .navbar-nav .nav-link {
@@ -160,7 +161,7 @@ function gravater($email, $fallback = null)
 
 			<ul class="nav navbar-right acc">
 				
-				<li class="dropdown" id="">
+				<li class="dropdown" id="" style="margin-top: -12px;">
 					
 				
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="note" aria-haspopup="true">
