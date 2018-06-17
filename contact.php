@@ -148,7 +148,9 @@ echo $styles;
                                 <?php if(isset($errMessage)) echo "<p class='text-danger'>$errMessage</p>";?>
                             </div>
                         </div>
-                    <button class="send-button" name="submit" type="submit"><img src="./img/send.png" alt="envelope" ></button>
+                    <button class="send-button" name="submit" type="submit"><img src="./img/send.png" alt="envelope" style="    padding-top: 0px;
+    padding-bottom: 2px;
+    padding-left: 3px;" ></button>
                 </form>
             </section>
               <!-- <section class="col-md-6"> -->
@@ -160,17 +162,19 @@ echo $styles;
               <!--   </div> -->
             <div class="contact-info">
                 <div class="form-group">
-                    <p class="contact-icon location"><img src="./img/location.png" alt="location"></p>
+                    <p class="contact-icon location"><img src="./img/location.png" alt="location" style="    padding-top: 4px;
+    padding-left: 6px;"></p>
                     <p class="info">3 Birrel Avenue, off Herbert Macaulay Way, Sabo, Yaba, Lagos.</p>
                 </div>
 
                 <div class="form-group">
-                    <p class="contact-icon phone"><img src="./img/phone.png" alt=""></p>
+                    <p class="contact-icon phone"><img src="./img/phone.png" alt="" style="padding-top: 7px;"></p>
                     <p class="info">+234 700 880 8800</p>
                 </div>
 
                 <div class="form-group">
-                    <p class="contact-icon mail"><img src="./img/envelope.png" alt=""></p>
+                    <p class="contact-icon mail"><img src="./img/envelope.png" alt="" style="    padding-top: 3px;
+    padding-left: 4px;"></p>
                     <p class="info"><a style="color:white;" href="mailto:support@hng.fun?Subject=Contact HNGInternship">support@hng.fun</a></p>
                 </div>
 

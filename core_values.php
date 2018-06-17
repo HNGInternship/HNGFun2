@@ -7,7 +7,7 @@ include_once("header.php");
     <title></title>
   </head>
   <body style="font-family:lato;">
-    <div class="container-fluid" style="background-color:#2196F3;  padding:90px 0px 85px 0px;">
+    <div class="container-fluid" style="background-color:#2196F3;  padding:70px 0px 70px 0px;">
       <h1 style="color:#fff; text-align:center; font-family:lato; font-size:2.5rem;"><b>Our Core Values</b></h1>
       <p style="color:#fff;margin-left: auto;margin-right: auto;max-width: 700px;text-align:center;padding: 0px 15px;font-size: 20px !important;">We provide a fun environment where our interns work together to hone their innovative problem solving skills while working hard to attain personal excellence</p>
     </div>
