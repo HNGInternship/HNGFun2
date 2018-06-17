@@ -162,8 +162,8 @@ echo $styles;
               <!--   </div> -->
             <div class="contact-info">
                 <div class="form-group">
-                    <p class="contact-icon location"><img src="./img/location.png" alt="location" style="    padding-top: 9px;
-    padding-left: 6px;"></p>
+                    <p class="contact-icon location"><img src="./img/location.png" alt="location" style="    padding-top: 4px;
+    padding-left: 9px;"></p>
                     <p class="info">3 Birrel Avenue, off Herbert Macaulay Way, Sabo, Yaba, Lagos.</p>
                 </div>
 
