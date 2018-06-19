@@ -6,7 +6,6 @@ require_once('db.php');
 
 if(isset($_POST['registration'])){
 
-
   $firstname = $_POST['firstName'];
   $lastname = $_POST['lastName'];
   $email = $_POST['email'];
@@ -14,8 +13,7 @@ if(isset($_POST['registration'])){
   $nationality= $_POST['nationality'];
   $phone=$_POST['phone'];
   $username=$_POST['userName'];
-
-
+  $wallet=$_POST['wallet'];
   
 
   if($firstname == ""){
@@ -41,6 +39,10 @@ if(isset($_POST['registration'])){
     exit();
 
   }
+  elseif($wallet == ""){
+    echo "Please enter your ethereum wallet address";
+    exit();
+	}
   
 
   $stmt = $conn->prepare("SELECT * FROM users WHERE email=:email");
@@ -62,11 +64,11 @@ if(isset($_POST['registration'])){
 
             $rand_no=rand(0,1000);
 
-       $stmt = $conn->prepare("INSERT INTO users (email,phone,firstname,username,password,nationality,lastname,verified,verification_token)
-         VALUES (:email,:phone,:firstname,:username,:password,:nationality,:lastname,:verified,:verification_token)");
+       $stmt = $conn->prepare("INSERT INTO users (email,phone,firstname,username,password, wallet, nationality,lastname,verified,verification_token)
+         VALUES (:email,:phone,:firstname,:username,:password, :wallet, :nationality,:lastname,:verified,:verification_token)");
 
       $result= $stmt->execute(array(
-          ':email'=>$email,':phone'=>$phone,':firstname'=>$firstname,':username'=>$username,':password'=>md5($password),':nationality'=>$nationality,':lastname'=>$lastname,':verified'=>1,':verification_token'=>$rand_no
+          ':email'=>$email,':phone'=>$phone,':firstname'=>$firstname,':username'=>$username,':password'=>md5($password), 'wallet'=>$wallet, ':nationality'=>$nationality,':lastname'=>$lastname,':verified'=>1,':verification_token'=>$rand_no
        ));
          $token=md5($email.$rand_no);
 
