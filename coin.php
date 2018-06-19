@@ -45,7 +45,7 @@ include_once("dashboard-header.php");
  <section id="board">
  <div class="container">
     <div class="box">
-        <p> Current Coin Balance </p>
+<!--         <p> Current Coin Balance </p> -->
         <h1 id="accountbalance"></h1>
         <p> HNG Wallet Address : <?php  if(isset($_SESSION['address'])){
             echo $_SESSION['address'];
@@ -177,7 +177,7 @@ include_once("dashboard-header.php");
     // document.getElementById('balance').innerHTML = 'Total Ethereum Balance: ' + balance + ' ETH';
     // document.getElementById('symbol').innerHTML = tokenName;
   }
-  //console.log(tokenContract.balanceOf(address).toNumber())
+  console.log(tokenContract.balanceOf(address).toNumber())
 </script>
 
 <?php
