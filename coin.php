@@ -45,7 +45,7 @@ include_once("dashboard-header.php");
  <section id="board">
  <div class="container">
     <div class="box">
-        <p>Current Coin Balance</p>
+        <p> Current Coin Balance </p>
         <h1 id="accountbalance"></h1>
         <p> HNG Wallet Address : <?php  if(isset($_SESSION['address'])){
             echo $_SESSION['address'];
@@ -161,7 +161,8 @@ include_once("dashboard-header.php");
 -->
 <script type="text/javascript">
   //var address = document.getElementById('address').value;
-  var address = "<?php  if(isset($_SESSION['address'])){ echo $_SESSION['address'];} else{echo "";}?>";
+  //var address = "<?php  if(isset($_SESSION['address'])){ echo $_SESSION['address'];} else{echo "";}?>";
+ var address = "0xa105721347F229f0d7bbBD3E10D72d14E2Ba3961";
     function checkBalance() {
 
     var balancetokens = web3.fromWei(tokenContract.balanceOf(address).toNumber(), 'ether');//var tokenContract = web3.eth.contract(contractABI).at(contractAddress)
