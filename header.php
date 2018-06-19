@@ -123,12 +123,14 @@ $activeArray[$fileIndex]="active";
         background-color: #2196F3!important;
     }
 
-        @media only screen and (max-width: 400px) {
+        @media only screen and (max-width: 600px) {
             .navbar-brand{
-            width:40px;
-            height: 25px;
+            width: 90px;
+            height: 50px;
 
      }
+	 
+	 
 }
        
 
@@ -166,7 +168,7 @@ $activeArray[$fileIndex]="active";
         </a> -->
 
       <a class="navbar-brand" href="../">
-        <img src="img/full-logo.svg" alt="HNG logo" width="128" height="52" class="img-fluid">
+        <img src="img/full-logo.svg" alt="HNG logo" width="128px" height="52px" class="img-fluid">
       </a>
 
       <button class=" navbar-toggler ml-auto hidden-sm- float-xs-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >

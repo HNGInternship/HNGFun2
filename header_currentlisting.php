@@ -124,6 +124,15 @@ $activeArray[$fileIndex]="active";
       .footer-li .fa-stack-1x:hover{
             color: #0465be !important;
       }
+	  @media only screen and (max-width: 600px) {
+            .navbar-brand{
+            width: 90px;
+            height: 50px;
+
+     }
+	 
+	 
+}
 
     <?php if (function_exists('custom_styles')) {
         custom_styles();
