@@ -7,10 +7,10 @@
 	}
 
     .banner{
-    	background-image:url('img/blog-head.jpeg') ;
+    	background-image:url('img/News.png') ;
     	background-repeat: no-repeat;
     	background-size: cover;
-		background-position: fixed;
+		background-position: bottom;
     	width: 100%;
     	height: 300px;
     	padding-bottom: 0;
