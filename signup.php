@@ -25,8 +25,8 @@ include_once("header.php");
 </style>
 <div class="container">
 <div class="row">
-    <div class="col-md-5" >
-        <div style="padding: 80px 80px 0px 80px; text-align: center; line-height: 35px;">
+    <div class="col-md-6" >
+        <div style="padding: 110px 80px 0px 110px; text-align: center; line-height: 35px;">
             <span style="font-size: 16px; color: grey">
                 <strong>''</strong> The HNG Internship is a remote training program, it centres on picking out indiviuals with relevant software development skills. For a period of about 3 months these skills are developed. The internship holds annually. Its organised by Hotels.ng in partnership with top companies around the globe. Fill the form to join the biggest and best remote software internship in the world! <strong>''</strong>
             </span>
@@ -66,7 +66,7 @@ include_once("header.php");
                 <div class="form-group col-md-6" style="padding-right:25px">
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 </div>
-                <div class="form-group col-md-6" style="padding-right:25px">
+                <div class="form-group col-md-12" style="padding-right:25px">
                     <input type="text" name="wallet" id="wallet" class="form-control" placeholder="Ethereum Wallet">
                 </div>
             </div>
