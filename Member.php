@@ -43,7 +43,11 @@ public function __construct(){
             return ob_get_contents();
        }
 
+<<<<<<< HEAD
      public function register($firstname,$lastname,$email,$password, $wallet, $db){
+=======
+     public function register($firstname,$lastname,$email,$password,$db){
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
         
         $this->table = 'users';
         
@@ -53,8 +57,13 @@ public function __construct(){
         $timee=date('Y-m-d H:i:s');
 
                 try {
+<<<<<<< HEAD
             $query = "INSERT INTO ".$this->table."(firstname,lastname,email,password, wallet, timee ) 
         VALUES ('$firstname','$lastname','$email','$password_hash', '$wallet' ,'$timee')";
+=======
+            $query = "INSERT INTO ".$this->table."(firstname,lastname,email,password,timee ) 
+        VALUES ('$firstname','$lastname','$email','$password_hash','$timee')";
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 
             $db->exec($query);
           return true;

@@ -1,6 +1,6 @@
 <?php
 
- include_once("../answers.php"); 
+include_once("../answers.php"); 
 
 if (!defined('DB_USER')){
             
@@ -113,20 +113,21 @@ function assistant($string)
 
 $existError =false;
 $reply = "";//process starts
-if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
+//echo "This is the POST message " + $_POST['msg'];
+if(isset($_GET['msg'])){ 
 
-  if ($_POST['msg'] == 'commands') {
+  if ($_GET['msg'] == 'commands') {
     $reply = 'These are my commands <p>1. what is my location, 2. tell me about your author, 3. open facebook, 6. open twitter, 7. open linkedin, 8. shutdown my pc, 9. get my pc name.</p>';
     echo $reply;
   } 
       if($reply==""){
-       $reply = assistant($_POST['msg']);
+       $reply = assistant($_GET['msg']);
        echo $reply;
        
      }
   if($reply =="") {
 
-    $post= $_POST['msg'];
+    $post= $_GET['msg'];
     $result = decider($post);
     if($result){
       $question=$result[0]; 
@@ -205,9 +206,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
       }       
   
  
-
+return;
 }
-else{
+
   
 ?>
 
@@ -238,7 +239,7 @@ else{
 html {
   font-size:75%;
 }
-body {
+.body {
   font: 400 normal 14px/1.4 'Lato', sans-serif;
   color: #706c72;
   background: #0bc3f7;
@@ -256,7 +257,7 @@ body {
 .clear {
     *zoom: 1;
 }
-img {
+.img {
   width: 100%;
   vertical-align: bottom;
 }
@@ -542,6 +543,7 @@ a:focus {
 
 <!-- jet -->
 <body class="oj-web-applayout-body">
+	<div class="body">
     <!-- Template for rendering navigation items shared between nav bar and nav list -->
     <script type="text/html" id="navTemplate">
       <li><a href="#">
@@ -573,7 +575,7 @@ a:focus {
           <div class="profile mx-auto">
           <div class="oj-flex">
             <div class="oj-md-3 oj-lg-3 oj-xl-3 oj-flex-item"></div>
-            <div class="oj-md-6 oj-lg-6 oj-xl-6 oj-flex-item"><img class="profile-img mx-auto" src="http://res.cloudinary.com/julietezekwe/image/upload/v1523643285/juliet.png" alt="my-profile">
+            <div class="oj-md-6 oj-lg-6 oj-xl-6 oj-flex-item"><img class="profile-img img mx-auto" src="http://res.cloudinary.com/julietezekwe/image/upload/v1523643285/juliet.png" alt="my-profile">
 </div>
             <div class="oj-md-3 oj-lg-3 oj-xl-3 oj-flex-item"></div>
         </div>
@@ -703,7 +705,7 @@ a:focus {
                     jQuery.ajax({
                         url: "/profiles/juliet.php",
                         data: dataString,
-                        type: "POST",
+                        type: "GET",
                          cache: false,
                              success: function(response) {
             setTimeout(function(){
@@ -763,7 +765,7 @@ a:focus {
         </div></oj-module>
       </div>
       </div>
- 
+ </div>
 </body>
 <!-- end jet -->
 
@@ -782,6 +784,3 @@ a:focus {
   </body>
 
 </html>
-
-<?php 
-}?>

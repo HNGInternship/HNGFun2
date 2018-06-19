@@ -26,6 +26,18 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`hng_fun` /*!40100 DEFAULT CHARACTER SET
 
 USE `hng_fun`;
 
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  
+  
+
+)ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
 /*Table structure for table `chatbot` */
 
 DROP TABLE IF EXISTS `chatbot`;
@@ -107,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `secret_word` (
 --
 
 INSERT INTO `secret_word` (`id`, `secret_word`) VALUES
-(1, 'sample_secret_word');
+(1, 'secret_word');
 
 
 

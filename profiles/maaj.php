@@ -1,6 +1,13 @@
 <?php
 
-require 'db.php';
+require_once '../config.php';
+
+
+try {
+    $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+} catch (PDOException $pe) {
+    die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+}
 
 $sec = $conn->query("Select * from secret_word LIMIT 1");
 $sec = $sec->fetch(PDO::FETCH_OBJ);
@@ -21,9 +28,9 @@ $image_url = $row['image_filename'];
 ?>
 <?php
 // chatbot
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if(isset($_GET['text_in'])) {
 	
-	$question = $_POST['text_in'];
+	$question = $_GET['text_in'];
 	
 	
 	 // bot version
@@ -33,16 +40,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'answer' => "Hello, I am maaj's assistant. Version 1.0, currently running on PHP 5.7."
       ]);
       return;
-    };
+    }
 	
-	//greeting
-	if((stripos($question,'hey') !== false) || (stripos($question,'hi') !== false) || (stripos($question,'hello') !== false)){
-      echo json_encode([
-        'status' => 1,
-        'answer' => "Hello, how are you?"
-      ]);
-      return;
-    };
+	//age
+	if(stripos($question, 'age') !== false){
+	
+	$question = preg_replace('([\s]+)', ' ', trim($question));
+	$question = preg_replace("([?.])", "", $question);
+	$question = $question;
+	$age_string  = preg_replace('([\s]+)', ' ', trim($question));
+	    $age_string  = preg_replace("([?.])", "",  $age_string); 
+	    //get the question and answer by removing the 'train'
+	    
+	    $age_string = explode("#", $age_string);
+        //get the index of the user question
+        $dateofbirth = trim($age_string[1]);
+		$today = date("Y-m-d");
+		$diff = date_diff(date_create($dateofbirth), date_create($today));
+		   
+		echo json_encode([
+		  'status' => 1,
+		  'answer' => "Age is ".$diff->format('%y')
+		]);
+	return; 
+	     
+	
+	
+	}
+	
 	
 	// time
 	if(stripos($question,'time') !== false){
@@ -77,12 +102,117 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		
 	
 	}
+	//training
+	$check_train = stripos($question, "train:");
+    if($check_train === false){ //then user is asking a question
+	
+	//remove extra white space, ? and . from question
+	$question = preg_replace('([\s]+)', ' ', trim($question));
+	$question = preg_replace("([?.])", "", $question); 
+	
+	 //check database for the question and return the answer
+	$question = $question;
+        $sql = 'SELECT * FROM chatbot WHERE question = "'. $question . '"';
+        $q = $GLOBALS['conn']->query($sql);
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $data = $q->fetchAll();
+        if(empty($data)){ //That means your answer was not found on the database
+            echo json_encode([
+        		'status' => 1,
+       			 'answer' =>  "I dont have answers to your question! Please train me by typing-->  train: question #answer #password"
+     		 ]);
+          return;
+        }else {
+            $rand_keys = array_rand($data);
+            $answer = $data[$rand_keys]['answer'];
+            echo json_encode([
+        		'status' => 1,
+       			 'answer' => $answer,  //return one of the the answers to client
+     		 ]);
+           return;
+        	}      
+	    
+	    
+	}else{		  
+		//train the chatbot to be more smarter 
+		//remove extra white space, ? and . from question
+	    $train_string  = preg_replace('([\s]+)', ' ', trim($question));
+	    $train_string  = preg_replace("([?.])", "",  $train_string); 
+	    //get the question and answer by removing the 'train'
+	    $train_string = substr( $train_string, 6);
+	    $train_string = explode("#", $train_string);
+        //get the index of the user question
+        $user_question = trim($train_string[0]);
+	        if(count($train_string) == 1){ //then the user only enter question and did'nt enter answer and password
+		        echo json_encode([
+		          'status' => 1,
+		          'answer' => "Oooh! sorry....you entered an invalid training format. Please the correct format its-->  train: question #answer #password"
+		        ]);
+	        return; 
+	        }
+	        //get the index of the user answer
+	        $user_answer = trim($train_string[1]);    
+	        if(count($train_string) < 3){ //then the user only enter question and answer But did'nt enter password
+		        echo json_encode([
+		          'status' => 1,
+		          'answer' => "Please enter training password to train me. The password is--> password"
+		        ]);
+	        return;
+	        }
+	         //get the index of the user password
+		    $user_password = trim($train_string[2]);
+	        //verify if training password is correct
+	        define('TRAINING_PASSWORD', 'password'); //this is a constant variable
+	        if($user_password !== TRAINING_PASSWORD){ //the password is incorrect
+		        echo json_encode([
+		          'status' => 1,
+		          'answer' => "The password you entered is wrong! Please enter the correct password which is-->  password "
+		        ]);
+	     	return;
+	    	}
+		    //check database if answer exist already
+		    $user_answer = "$user_answer"; 
+		    $sql = "select * from chatbot where answer like :user_answer";
+		    $stmt = $conn->prepare($sql);
+		    $stmt->bindParam(':user_answer', $user_answer);
+		    $stmt->execute();
+		    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+		 	$rows = $stmt->fetchAll();
+		    if(empty($rows)){// then it means the database could not fetch any existing question and answer, so	we can insect the query.      
+			    $sql = "insert into chatbot (question, answer) values (:question, :answer)";  //insert into database
+			    $stmt = $conn->prepare($sql);
+			    $stmt->bindParam(':question', $user_question);
+			    $stmt->bindParam(':answer', $user_answer);
+			    $stmt->execute();
+			    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+			    
+			    echo json_encode([
+			    	'status' => 1,
+			        'answer' => "Cool. I just got smarter. Thanks a lot! You can ask me that same question right now and i will tell you the answer OR just keep training me "
+			      ]);			
+	     	return;
+	     	
+	     	}else{ //then it means the the question already in the database and no need to insert it again
+	     		 echo json_encode([
+			    	'status' => 1,
+			        'answer' => "Sorry! Answer already exist. Try train me again with the same question AND provide an altanative answer different from the previous one you entered OR just train me with a new question and a new answer."
+			      ]);
+			return;		
+	     	}
+	    return;
+	 	}
 	
 	
-	}
+	
+	  
+} 
 	
 	
-	else{
+
+	
+	
+	
+else{
 	
 	
 	
@@ -122,8 +252,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel="icon" href="css/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <!-- This is the main css file for the default Alta theme -->
 <!-- injector:theme -->
 <link rel="stylesheet" href="css/alta/5.0.0/web/alta.css" id="css"/>
@@ -133,6 +263,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<link href="https://static.oracle.com/cdn/jet/v4.0.0/default/css/alta/oj-alta-min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://static.oracle.com/cdn/jet/v4.0.0/3rdparty/require-css/css.min" type="text/css"/>
     
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"type="text/javascript"></script>	
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
         .oj-web-applayout-body{
             background-color: #153643;
@@ -229,24 +368,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		.username{
 			margin:5px;
 			padding:10px;
+			font-size:14px;
 			background-color: #f1f1f1;
 			border-radius:5px;
 			height: auto;
 			float: right;
 			width: 70%;
 			color:blue;
-			font-weight: bold;
+			font-weight: regular;
 			}
 			
 		.bot{
 			margin: 5px;
 			padding:10px;
 			background-color: #ddd;
+			font-size:14px;
 			border-radius:5px;
 			height: auto;
 			float: left;
 			color:green;
-			font-weight: bold;
+			font-weight: regular;
 			width: 70%;
 			}	
 		
@@ -279,14 +420,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<h1>Maaj's bot</h1>
 			</div>
 				<div id="contain">
-				
+					
+					<div class='bot'>
+						<img src='https://res.cloudinary.com/maaj/image/upload/v1524822457/bot.png' width='30px'/> Hi... I'm Maaj's assistant. My boss is away, but i am available to answer all your questions
+					</div>
+					<div class='bot'>
+						<img src='https://res.cloudinary.com/maaj/image/upload/v1524822457/bot.png' width='30px'/> I can tell the current time and date with 'time' and i can tell you your current age with 'age # 23-01-1994'
+					</div>
+					
 				</div>
 				<div id ="controls">
-					<form method="POST" action="" id= "chat">
-					<input type="text" id="textbox"></input>
+					<form method="post" action="" id="chat">
+					<input type="text" id="textbox" name="text_in" required class="text_in"></input>
 					<input id="send" type="submit" value="Send"></input>
 					</form>
-
+					
 				</div>
 	
           </div>
@@ -301,7 +449,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
 	  
      
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-json/2.6.0/jquery.json.min.js"></script>
+	 
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="../js/hng.min.js"></script>
  <script>
     var message = $("#contain");
 		
@@ -314,29 +464,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	       	message.scrollTop(message[0].scrollHeight);
 			//send question to server
 			$.ajax({
-				url: '/profiles/maaj.php', //location
-				type: 'POST',
+				url: 'profiles/maaj.php', //location
+				type: 'GET',
 				data: {text_in: text_in},
 				dataType: 'json',
 				success: (response) => {
-					
-			        response.answer = response.answer.replace(/(?:\r\n|\r|\n)/g, '<br />'); 
-			        let response_answer = response.answer;
-			        message.append("<div class='bot'><div class='message'><img src='https://res.cloudinary.com/maaj/image/upload/v1524822457/bot.png' width='30px'/>" +response_answer+ "</div></div>");      
+					var message = $("#contain");
+			        //response.answer = response.answer.replace(/(?:\r\n|\r|\n)/g, '<br />'); 
+			        //let response_answer = response.answer;
+			        message.append("<div class='bot'><div class='message'><img src='https://res.cloudinary.com/maaj/image/upload/v1524822457/bot.png' width='30px'/>" + response.answer + "</div></div>");      
 			       	$('#contain').animate({scrollTop: $('#contain').get(0).scrollHeight}, 1100);     
 				},
 				error: (error) => {
-	          		alert('error occured')
+	          		alert(JSON.stringify(error));
 						console.log(error);
+						
 				}
 				
 			});
 			$("#textbox").val("");
 			}
 		});
+		
 
 </script>
   </body>
 
 </html>
+
 

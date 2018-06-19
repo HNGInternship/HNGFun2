@@ -387,6 +387,9 @@ function get_bot_version(){
     $bot_version=1.9;
    return "Merlin Version : ".$bot_version;
 }
+
+
+
 //****************************************************************************************************************************************************************
 //****************************************************************************************************************************************************************
 //****************************************************************************************************************************************************************
@@ -420,6 +423,8 @@ function getBotMenu(){
 function getTime(){
   return date("h:i:s");
 }
+
+
 function simpleMaths($operation, $expression){
     switch ($operation) {
       case 'factor':
@@ -462,7 +467,57 @@ function simpleMaths($operation, $expression){
         'answer' =>"Your answer is: ".$response['result']
     ]);
 }
+
 /******** End Adroit Bot Funct ********/
+
+
+#####################################################################################################
+#                                                                                                   #
+#           CHRISTOPH'S FUNCTION BEGINS HERE    |    DON'T TAMPER WITH THE FUNCTIONS BELOW          #
+#                                                                                                   #
+#####################################################################################################
+
+function calculate_distance($key, $url, $location1, $location2) {
+    $request_distance = $url.$location1."+Nigeria&destinations=$location2+Nigeria"."&key=".$key;
+    $response  = json_decode(file_get_contents($request_distance), 1);
+    $status = $response['status'];
+    if ($status === 'OK' and $response['rows'][0]['elements'][0]['status'] === 'OK') {
+        $distance = $response['rows'][0]['elements'][0]['distance']['text'];
+        return $distance;
+    }
+    // If no match, return error message
+    else {
+        $message = ["I couldn't calculate the distance for given location, could you be more specific? \n \n You could add City name or State or Country to be more accurate", "The addresses you gave me are quite complex. \n \n Why don't you add a city or state or even a country for me to get it correctly", "I couldn't really calculate this. \n \n Why? the addresses you gave me are rather too complex. \n \n You can include the city, state or country and watch me do magic"];
+        return nl2br($message[rand(0, 2)]);
+    }
+}
+
+function show_direction ($location1, $location2, $mode) {
+    return "https://www.google.com/maps/dir/?api=1&origin=$location1&destination=$location2&travelmode=$mode";
+
+}
+
+function get_duration ($key, $url, $location1, $location2, $mode) {
+    $request_duration = $url.$location1."&destinations=$location2"."&key=".$key."&mode=".$mode."&departure_time=now";
+    $response = json_decode(file_get_contents($request_duration), 1);
+    $status = $response['status'];
+    if ($status === 'OK' and $response['rows'][0]['elements'][0]['status'] === 'OK') {
+        $duration = $response['rows'][0]['elements'][0]['duration_in_traffic']['text'];
+        return $duration;
+    }
+    // If no match, return error message
+    else {
+        $message = ["Sorry, I currently can't retrieve the duration for this trip as I don't have enough information"];
+        return $message;
+    }
+}
+
+#####################################################################################################
+#                                                                                                   #
+#           CHRISTOPH'S FUNCTION ENDS HERE    |    DON'T TAMPER WITH THE FUNCTIONS ABOVE            #
+#                                                                                                   #
+#####################################################################################################
+
 /*
 // end of functions by johnayeni
 //////////////////////////// BROWN SAMSON DO NOT MODIFY ////////////////////////////////////
@@ -525,36 +580,6 @@ function getRandomQuote(){
     //A.M.A
 }
 
-
-function bot_answer($check) {
-
-
-
-// Create connection
-//$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-//if ($conn->connect_error) {
- //   die("Connection failed: " . $conn->connect_error);
-//}
-
-
-
-$stmt = $conn->prepare("SELECT answer FROM chatbot WHERE question='$check' ORDER BY rand() LIMIT 1");
-$stmt->execute();
-if($stmt->rowCount() > 0)
-{
-  while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-  {
-		echo $row["answer"];
-  }
-} else {
-    echo "Well i couldnt understand what you asked. But you can teach me.";
-	echo "Type ";
-	echo "train: write a question | write the answer.  ";
-	echo "to teach me.";
-}
-}
-
 function getMotivationalQuoteForTheDay(){
 	$randomQuoteJson =file_get_contents("http://quotes.rest/qod.json?category=inspire");
 	$randomQuote = json_decode($randomQuoteJson, true);
@@ -588,6 +613,37 @@ function getPinkyCommands(){
     NB. All or some of the words in bold should be included in your message. Please try to follow these patterns as I am still learning.";
     //A.M.A
 }
+
+///////////////////////////////
+//End Aniuchi A. M's Functions/
+///////////////////////////////
+
+function bot_answer($check) {
+
+// Create connection
+//$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+//if ($conn->connect_error) {
+ //   die("Connection failed: " . $conn->connect_error);
+//}
+
+$stmt = $conn->prepare("SELECT answer FROM chatbot WHERE question='$check' ORDER BY rand() LIMIT 1");
+$stmt->execute();
+if($stmt->rowCount() > 0)
+{
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+  {
+		echo $row["answer"];
+  }
+} else {
+    echo "Well i couldnt understand what you asked. But you can teach me.";
+	echo "Type ";
+	echo "train: write a question | write the answer.  ";
+	echo "to teach me.";
+}
+}
+
+
 
 function train_bot ($message) {
 function multiexplode ($delimiters,$string) {
@@ -650,60 +706,6 @@ function get_browser_name($user_agent)
 
     return 'Other';
 }
-
-
-///////////////////////////////
-//End Aniuchi A. M's Functions/
-///////////////////////////////
-
-
-
-#####################################################################################################
-#                                                                                                   #
-#           CHRISTOPH'S FUNCTION BEGINS HERE    |    DON'T TAMPER WITH THE FUNCTIONS BELOW          #
-#                                                                                                   #
-#####################################################################################################
-
-function calculate_distance($key, $url, $location1, $location2) {
-    $request_distance = $url.$location1."+Nigeria&destinations=$location2+Nigeria"."&key=".$key;
-    $response  = json_decode(file_get_contents($request_distance), 1);
-    $status = $response['status'];
-    if ($status === 'OK' and $response['rows'][0]['elements'][0]['status'] === 'OK') {
-        $distance = $response['rows'][0]['elements'][0]['distance']['text'];
-        return $distance;
-    }
-    // If no match, return error message
-    else {
-        $message = ["I couldn't calculate the distance for given location, could you be more specific? \n \n You could add City name or State or Country to be more accurate", "The addresses you gave me are quite complex. \n \n Why don't you add a city or state or even a country for me to get it correctly", "I couldn't really calculate this. \n \n Why? the addresses you gave me are rather too complex. \n \n You can include the city, state or country and watch me do magic"];
-        return nl2br($message[rand(0, 2)]);
-    }
-}
-
-function show_direction ($location1, $location2, $mode) {
-    return "https://www.google.com/maps/dir/?api=1&origin=$location1&destination=$location2&travelmode=$mode";
-
-}
-
-function get_duration ($key, $url, $location1, $location2, $mode) {
-    $request_duration = $url.$location1."&destinations=$location2"."&key=".$key."&mode=".$mode."&departure_time=now";
-    $response = json_decode(file_get_contents($request_duration), 1);
-    $status = $response['status'];
-    if ($status === 'OK' and $response['rows'][0]['elements'][0]['status'] === 'OK') {
-        $duration = $response['rows'][0]['elements'][0]['duration_in_traffic']['text'];
-        return $duration;
-    }
-    // If no match, return error message
-    else {
-        $message = ["Sorry, I currently can't retrieve the duration for this trip as I don't have enough information"];
-        return $message;
-    }
-}
-
-#####################################################################################################
-#                                                                                                   #
-#           CHRISTOPH'S FUNCTION ENDS HERE    |    DON'T TAMPER WITH THE FUNCTIONS ABOVE            #
-#                                                                                                   #
-#####################################################################################################
 
 
 function get_device_name($user_agent)
@@ -888,7 +890,9 @@ function getUSSD($bankName){
         return '*919#';
 
         case 'wema bank':
-return '*945#';}}
+        return '*945#';
+    }
+}
 
 // End of functions by @Bukola
  // chibuokems functions starts here
@@ -1080,7 +1084,7 @@ $dataa = json_decode(file_get_contents($url_location), true);
  }
 
  //////////////////////////// BROWN SAMSON DO NOT MODIFY ////////////////////////////////////
-if ($_REQUEST["qsam"]){
+if (isset($_REQUEST["qsam"])){
     $qsam = $_REQUEST["qsam"];
     samsonjnrBot($qsam);
 }
@@ -1213,6 +1217,12 @@ if ($_REQUEST["qsam"]){
                                 'Am all good. and how are you too?');
         $index = mt_rand(0, 2);
         return $anwerSam = $respondGreeting[$index];
+     }
+
+     function getLocationAPI() {
+         $ip = gethostbyname(gethostname());
+         $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+         return $query;
      }
 
      function checkDatabaseToo($question){
@@ -1599,6 +1609,16 @@ function getBotManual() {
     'train: question # answer # password'";
 }
 
+//////////////////////////////////////////////	Iyadi Cyril////////////////////////////////////////////////
+function getReviews(){
+	$curl = curl_init();
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $query = array( "api-key" => "9ecd2e12bc244c42a684f37df0d21443");
+    curl_setopt($curl, CURLOPT_URL,  "https://api.nytimes.com/svc/movies/v2/reviews/search.json" . "?" . http_build_query($query));
+    $result = json_decode(curl_exec($curl));
+    echo json_encode($result);
+	
+}
 
 
 

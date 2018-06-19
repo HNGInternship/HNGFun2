@@ -178,7 +178,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
     <style>
 
-      body{
+      .body{
         font-family: 'roboto';
         background-image: url('https://res.cloudinary.com/dzbxciyvo/image/upload/v1524148027/imageedit_1_9203304264.gif');
         background-size: cover;
@@ -186,7 +186,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         background-attachment: fixed;
       }
 
-      .profile{
+      .profileimg{
         width: 95%;
         margin-left: auto;
         margin-right: auto;
@@ -286,7 +286,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     </style>
 </head>
 <body class="oj-web-applayout-body">
-    <div id="globalBody" class="oj-web-applayout-page">
+    <div id="globalBody" class="oj-web-applayout-page body">
       
 
       <div role="main" class="oj-web-applayout-max-width oj-web-applayout-content">

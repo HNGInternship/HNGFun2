@@ -2,7 +2,7 @@
 
 if($_SERVER['REQUEST_METHOD'] !== "POST"){
     if(!defined('DB_USER')){
-        require "../config.php";
+        require_once __DIR__."/../../config.php";
         try {
             $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
         } catch (PDOException $e) {
@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] !== "POST"){
 <?php
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     if(!defined('DB_USER')){
-        require "../config.php";
+        require_once __DIR__."/../../config.php";
         try {
             $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
         } catch (PDOException $e) {
@@ -262,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             text-align: center;
             color: #000830;
         }
-        body, html {
+        .body {
             margin: 0px;
             background-color: skyblue; !important;
             height: 100%;
@@ -283,7 +283,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             font-style:bold;
             color:Coral;
         }
-        img{
+        .img{
             border-radius: 10px;
             background-color: beige;
             width:350px;
@@ -327,7 +327,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     </style>
 </head>
 <body>
-<div class="container">
+<div class="container body">
 <div class="oj-flex oj-flex-items-pad oj-contrast-marker">
 <div class="oj-sm-12 oj-md-6 oj-flex-item">
     <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x">
@@ -335,7 +335,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             <oj-avatar role="img" size="[[avatarSize]]" initials='[[initials]]'
             data-bind="attr:{'aria-label':'Avatar of Akpan, Blessing Michael'}">
             </oj-avatar>
-            <img class="img-fluid " onerror="this.src='images/default.jpg'" src="http://res.cloudinary.com/dlvlxep3r/image/upload/v1523715773/interactive_bee.jpg">
+            <img class="img-fluid img" onerror="this.src='images/default.jpg'" src="http://res.cloudinary.com/dlvlxep3r/image/upload/v1523715773/interactive_bee.jpg">
         </div>
     </div>
     <div class="body0">
@@ -410,7 +410,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 
             //send question to server
             $.ajax({
-                url: "../profiles/interactive_bee.php",
+                url: "/profiles/interactive_bee",
                 type: "post",
                 data: {question: question},
                 dataType: "json",

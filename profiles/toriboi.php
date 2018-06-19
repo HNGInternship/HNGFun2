@@ -134,6 +134,7 @@
         min-width: 400px;
         /* margin: auto; */
         margin-top: 150px;
+        margin-left: 50px;
         background-color: #aaa;
         border-radius: 30px;
         float: left;
@@ -244,7 +245,7 @@
 
       .bot-message, .my-message {
         text-align: left;
-        margin: 5px;
+        margin: 10px;
       }
 
       .bot-message {
@@ -330,7 +331,7 @@
             </div>
           </div>
           <form id="t-form">
-            <input type="text" id="text" name="text" value="" placeholder="Chat with me!">
+            <input type="text" id="text" name="text" value="<?php echo ""; ?>" placeholder="Chat with me!">
             <input type="submit" id="submit" name="submit" value="Send">
           </form>
         </div>
@@ -356,7 +357,7 @@
             messageArea.scrollTop = messageArea.scrollHeight;
           }
         }
-        xhttp.open('POST', 'profiles/toriboi.php', true);
+        xhttp.open('POST', 'profiles/toriboi', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send('q='+ text);
 

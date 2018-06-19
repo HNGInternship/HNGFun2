@@ -480,7 +480,7 @@ button{
             $("#chatMessages").append('<div id="messageSent">' + message + '</div>');
 
             $.ajax({
-                url: "/profiles/pearl.php",
+                url: "/profiles/pearl",
                 type: "POST",
                 data: {displayMessage: message},
                 dataType: "json"

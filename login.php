@@ -1,113 +1,154 @@
-<?php
-$erros = [];
-$username = '';
-$password = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-	$username = $_POST['username'] ?? '';
-	$password = $_POST['password'] ?? '';
-
-	// Simple validation
-	if(is_blank($username)) {
-		$erros[] = "Username cannot be blank.";
-	}
-
-	if(is_blank($username)) {
-		$erros[] = "Password cannot be blank.";
-	}
-
-	//
-	if(empty($errors)) {
-
-		$user = find_user_by_id($username);
-		$login_failure = "Log in was unsuccessful.";
-		
-		if($user) {
-			
-			if(password_verify($password, $user['hashed_password'])) {
-				// password matches
-				login_user($user);
-				redirect_to(url_for('/dashboard/index.php'));
-			} else {
-				// username found, but password does not match
-				$errors[] = $login_failure;
-			}
-		} else {
-			// no user 
-			$errors[] = $login_failure;
-		}
-	}
-	
-}
-
-function find_user_by_id($id) {
-	// global conn;
-
-	$sql = "SELECT * from users WHERE user_id = '".$id."' LIMIT 1";
-	  try {
-         $query = $conn->query($sql);
-            $user = $query->fetch(PDO::FETCH_OBJ);
-    } catch (PDOException $e) {
-        throw $e;
+ <?php 
+   session_start();
+    include("header.php");
+  ?>
+<style>
+    .form-signin input[type="email"], .form-signin input[type="password"]{
+        font-size: 0.7em;
     }
-}
- 
-//Check for blank input
-function is_blank($val) {
-	$input = trim($val);
-	if($input === '' || null) {
-		return false;
-	}
+</style>
 
-	return true;
-}
-
-//Redirect pages
-function redirect_to($location) {
-	header("Location: " . $location);
-	exit;
-}
-
-//Perform all login 
-function login_user($user) {
-
-	session_regenerate_id();
-	$_SESSION['user_id'] = $user['id'];
-	$_SESSION['username'] = $user['username'];
-	$_SESSION['last_login'] = time();
-
-	return true;
-}
-
-?>
-<?php
-include_once("header.php");
-?>
-
-<div class="d-flex justify-content-center align-items-center mt-5 pt-5 pl-5">
-	<div class="d-block w-50 mt-5 ml-10">
-		<div class="w-50">
-			<h2 class="text-center my-0 py-0" style="margin-bottom: 10px">Log In</h2>
-			<p class="text-center text-lighte" style="font-size: 15px; opacity: 0.7">Login to access your dashboard and manage your account.</p>
-		</div>
-
-		<form class="w-50 mt-2">
-			<input type="text" name="username" class="form-control mb-3" placeholder="Username or Email">
-			<input type="text" name="password" class="form-control mb-3" placeholder="Password">
-			<input type="checkbox" name="" class="" placeholder="Password"><span style="font-size: 14px;"> Remember me</span> 
-			<button class="btn btn-blue w-100 rounded py-2" style="margin-bottom: 10px">Log In</button>
-		</form>
-
-		<small>Not yet registered?
-			<span><a href="signup.php" class="text-primary text-lighter">SignUp</a></span>
-		</small>
-	</div>
+<div style="text-align: center; padding-top: 20px; padding-bottom: 10px">
+    <h1 class="pt-5" style="font-size:1.9em">Log In</h1>
+    <p style="font-size: 0.8em !important; color: #3D3D3D !important;" class="pt-0 mt-0 pb-0 mb-0">Login to access your dashboard and manage your account.</p>
 </div>
 
-<?php
-include_once("footer.php");
-?>
+<div class="container" style='color: #3D3D3D'>
+            <h6 style="text-align: center" class="text-danger" id="message"></h6>
 
 
-   
+    <div class="row justify-content-md-center" style="text-align: center">
+        <div class="col-lg-4">
+            <div >
+                <form class="form-signin" id="login_form">
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Username or Email address" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    
+                    <div class="custom-control custom-checkbox pl-0 ml-0 pb-2 text-justify">
+                        <input type="checkbox" value="remember-me">
+                        <label class="form-check-label" style="font-size:0.7em;">Remember Me</label>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-block" id="login" type="submit" style="font-size:0.9em">Log In</button> 
+                <input type="hidden" name="login" value="yes">
+
+                
+                </form>
+                <div class="pt-0 mt-0 text-justify pl-3"> 
+                    <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png" height="15px" width="auto"/>
+                    <span style="font-size: 0.7em; color: grey"><a href="resetpassword.php"> Forgot Password?</a></span>
+                </div>
+
+                <div style="font-size: 0.7em; color: #ADADAD" class="pt-3">Don't have an account?&nbsp; <a href="sign-up" style="color: #008DDD">Get Started</a></div>
+            </div>
+        </div> 
+        
+        
+    </div>
+    
+</div>
+<script type="text/javascript">
+       $( document ).ready(function() {
+
+    $("#login_form").submit(function(e){
+        e.preventDefault();
+
+       
+        var email = $("#email").val();
+       
+        var password = $("#password").val();
+
+
+        
+        
+        if(email ==""){
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Please enter email');
+                 $("#message").show();
+            $("#login").html('Log In');
+
+            
+        }
+       
+        else if(password ==""){
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Please enter password');
+                 $("#message").show();
+
+
+        }
+
+       
+        else{
+            
+            
+//             $("#login").html('Logging in..');
+
+             var data = $("#login_form").serialize();
+
+            
+
+            $.ajax('process_access',{
+            type : 'post',
+            data : data,
+            success: function(data){
+
+
+             if(data=="1"){
+//                 $("#message").attr("class",'text-success');
+//             $("#message").html("Login Successful");
+
+//             $("#login").html('Redirecting..');
+
+            window.location.href ="dashboard";
+             }  
+             else if(data=="2"){
+                $("#message").attr("class", 'text-danger');
+            
+                $("#message").html("Your Account has not been verified yet");
+             } 
+
+             else if(data="0"){
+
+                $("#message").attr("class", 'text-danger');
+            
+                 $("#message").html('You entered an incorrect email or password');
+             }
+
+             else{
+
+                 $("#message").attr("class", 'text-danger');
+            
+                 $("#message").html(data);
+             }
+                 $("#message").show();
+
+
+            $("#login").html('Log In');
+                
+
+            },
+            beforeSend :function(){
+
+                 $("#message").hide();
+//             $("#login").html('Logging in..');
+            },
+        });
+    
+
+        }
+        
+     });
+
+
+
+    });
+</script>
+ <?php include("footer.php");?>

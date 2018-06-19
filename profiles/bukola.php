@@ -1,6 +1,6 @@
 <?php
     if(!defined('DB_USER')){
-        require "../../config.php";		
+        require "../config.php";		
         try {
             $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
         } catch (PDOException $pe) {
@@ -141,7 +141,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>My HNG Profile</title>
     <!-- css stylesheet -->
-    <link id="css" rel="stylesheet" href="https://static.oracle.com/cdn/jet/v5.0.0/default/css/alta/oj-alta-min.css" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,700" rel="stylesheet">
     
     <style>
@@ -312,7 +311,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-
+    
         // el is for the element we want to attach Vue.js to
         new Vue({
             el: '.bot',
@@ -344,7 +343,7 @@
                 answerQuery(query) {
                     this.messages.push({ sender: 'bot', data: 'Coming up...' });
 
-                    var params = new URLSearchParams();
+                    const params = new URLSearchParams();
                     params.append('password', 'password');
                     params.append('question', query);
 
@@ -359,6 +358,7 @@
                             this.messages.push({ sender: 'bot', data: 'Your internet connection is down.'
                         });
                     });
+
                 },
             },
             template: `

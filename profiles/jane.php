@@ -1,14 +1,7 @@
 <?php
-
-	// $servername = "localhost";
-	// $dbname = "hng_fun";
-	// $conn = new PDO("mysql:host=$servername;dbname=$dbname", "root", "");
-	// $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	// $name = $username = $image_filename = $secret_word = "";
-
-
 	// Profile
 
+	// require "../../config.php";
 	try {
 
 
@@ -33,12 +26,10 @@
 	} catch (PDOException $e) {
 		echo $e->getMessage();
 	}
-
-
-	// Chat Bot
-	if($_SERVER['REQUEST_METHOD'] === "POST"){
+	?>
+	<?php
 		if(isset($_POST['chat'])){
-			$a = $_POST['chat'];
+		$a = $_POST['chat'];
 			$question = $answer = $password = "";
 			$wrong_password = ["You entered a wrong password",
 								"Enter the right password to teach me new things",
@@ -51,54 +42,15 @@
 							"This is so embarrassing....and I thought I was the smart one"];
 
 			$bmi_result = ["You are underweight\nLooks like you need to put on some extra weight",
-							"You are within good range\nNice!!, you're on track",
+							"You are within good range\nNice!! you're on track",
 							"You are overweight\nLooks like you need a little work on your weight",
-							"You are obese\nOMG!! You need a complete transformation"];
+							"OMG!! You are obese\nYou need a complete transformation"];
 
 			$train_success = "Training successful!";
 
 
 
-			if (substr($a,0,7) == "train: ") {
-				if(preg_match('/train: /', $a, $match)){
-					$string = substr($a, 7, strlen($a)-7);
-					$arr = explode("# ", $string);
-					if(sizeof($arr) != 3){
-						$answer = $no_answer[rand(0,3)]."::def";
-						echo $answer;
-					}
-					else{
-						$question = $arr[0];
-						$answer = $arr[1];
-						$password = $arr[2];
-
-						if ($password == "password") {
-							try {
-
-								$sql = "INSERT INTO chat_bot(question,answer) VALUES('$question','$answer')";
-								$stmt = $conn->query($sql);
-								
-							} catch (PDOException $e) {
-								echo $e->getMessage();
-								exit();
-							}
-
-							print_r($train_success);
-							exit();
-						}
-
-						else{
-							print_r($wrong_password[rand(0,2)]);
-							exit();
-						}
-
-					}
-
-
-					
-				}
-			}
-			else if (substr($a,0,14) == "calculate_bmi[" && substr($a,strlen($a)-1,1) == "]") {
+			if (substr($a,0,4) == "bmi[" && substr($a,strlen($a)-1,1) == "]") {
 				$array = explode('[', $a,2);
 				$stmt = substr($array[1],0,strlen($array[1])-1);
 				$array2 = explode(',', $stmt);
@@ -108,28 +60,70 @@
 					$result = $weight/($height*$height);
 
 					if ($result <= 18.5) {
-						echo $bmi_result[0];
-						exit();
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[0];
+						exit;
 					} 
 
 					else if($result > 18.5 && $result <= 24.9){
-						echo $bmi_result[1];
-						exit();
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[1];
+						exit;
 					}
 
 					else if ($result >= 25 && $result <= 29.9) {
-						echo $bmi_result[2];
-						exit();
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[2];
+						exit;
 					}
 
 					else{
-						echo $bmi_result[3];
-						exit();
+						echo "bot::". "Your BMI is ".round($result,3)."!\n".$bmi_result[3];
+						exit;
 					}
 				}
 				else{
-					echo "Enter a valid input";
-					exit();
+					echo "bot::". "Enter a valid input";
+					exit;
+				}
+			}
+			else if (substr($a,0,7) == "train: ") {
+				if(preg_match('/train: /', $a, $match)){
+					$string = substr($a, 7, strlen($a)-7);
+					$arr = explode("# ", $string);
+					if(sizeof($arr) != 3){
+						$answer = $no_answer[rand(0,3)]."::def";
+						echo "bot::". $answer;
+						exit;
+						
+					}
+					else{
+						$question = $arr[0];
+						$answer = $arr[1];
+						$password = $arr[2];
+
+						if ($password == "password") {
+							try {
+
+								$sql = "INSERT INTO chatbot(question,answer) VALUES('$question','$answer')";
+								$stmt = $conn->query($sql);
+								
+							} catch (PDOException $e) {
+								echo "bot::". $e->getMessage();
+								
+							}
+
+							echo "bot::". $train_success;
+							exit;
+							
+						}
+
+						else{
+							echo "bot::". $wrong_password[rand(0,2)];
+							exit;
+						}
+
+					}
+
+
+					
 				}
 			}
 
@@ -137,32 +131,35 @@
 
 				try {
 
-					$sql = "SELECT * FROM chat_bot WHERE question = '$a'";
+					$sql = "SELECT * FROM chatbot WHERE question = '$a'";
 					$stmt = $conn->query($sql);
 
 					if($stmt){
 						foreach($stmt as $row){
-							$answer = $row['answer'];
+							$response[] = $row['answer'];
+						}
+						if(is_array($response)){
+							$answer = $response[rand(0,sizeof($response))];
+						}
+						else{
+							$answer = $response;
 						}
 					}
 					
 				} catch (PDOException $e) {
-					echo $e->getMessage();
-					exit();
+					echo "bot::". $e->getMessage();
+						
 				}
 
 				if($answer == ""){
 					$answer = $no_answer[rand(0,4)]."::def";
 				}
-
-				echo $answer;
-				exit();
+				echo "bot::". $answer;
+				exit;
 			}
 		}
-			return;
-	}
+?>
 
-?>		
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -187,14 +184,6 @@
 
 			body{
 				background: #fff;
-			}
-
-			.container{
-				height: 100vh;
-				margin: 0px;
-				padding: 0px;
-				min-height: 800px;
-				position: relative;
 			}
 
 			#whole{
@@ -222,18 +211,18 @@
 			#imgbox{
 				display: block;
 				margin-top: 50px;
-				width: 150px;
+				/* width: 150px; */
 				height: 150px;
 				overflow: hidden;
-				margin-right: auto;
-				margin-left: auto;
+				padding-right: 0;
+				padding-left: 0;
 				text-align: center;
-				border-radius: 50%;
+				/* border-radius: 50%; */
 				padding-bottom: 20px;
 			}
 
 			#imgbox img{
-				image-orientation: from-image;
+				transform: rotate(-90deg);
 			}
 
 			@media (min-width:768px){
@@ -250,13 +239,13 @@
 				#imgbox{
 					display: block;
 					margin-top: 100px;
-					width: 150px;
+					/* width: 150px; */
 					height: 150px;
 					overflow: hidden;
-					margin-right: auto;
-					margin-left: auto;
+					padding-right: 0;
+					padding-left: 0;
 					text-align: center;
-					border-radius: 50%;
+					/* border-radius: 50%; */
 					padding-bottom: 20px;
 				}
 
@@ -452,8 +441,8 @@
 				border: 1px solid #FFF1FD;
 				border-radius: 3px 10px 10px 3px;
 				float: left;
-				padding: 10px;
-				padding-bottom: 2px;
+				padding: 10px!important;
+				padding-bottom: 2px!important;
 				margin-bottom: 5px;
 			}
 
@@ -463,8 +452,8 @@
 				border: 1px solid #CEE7F1;
 				border-radius: 10px 3px 3px 10px;
 				float: right;
-				padding: 10px;
-				padding-bottom: 2px;
+				padding: 10px!important;
+				padding-bottom: 2px!important;
 				margin-top: 15px;
 				margin-bottom: 20px;
 			}
@@ -484,7 +473,7 @@
 	<body>
 
 
-		<div class="container">
+		<!-- <div class="container"> -->
 			<div id="whole">
 				<div class="row">
 					<div class="hidden-xs col-md-2"></div>
@@ -528,7 +517,7 @@
 
 				<div>
 					<div class="col-xs-6 col-sm-4 col-md-7"></div>
-					<div id="bot" class="col-xs-6 col-sm-8 col-md-5">
+					<div id="bot" class="col-xs-12 col-sm-8 col-md-5">
 						<div class="row">
 							<div id="bot-header" class="col-xs-12">
 								<span>HNG CHAT BOT</span>
@@ -538,7 +527,7 @@
 							<div id="output" class="col-xs-12"></div>
 
 							<div id="user-input" class="col-xs-12">
-								<form action="" method="post" onsubmit="return false">
+								<form action="" method="post" onsubmit="return false" id='bot-form'>
 									<div id="text-input">
 										<input name="user_text" type="text">
 									</div>
@@ -555,7 +544,7 @@
 					</div>
 				</div>
 				
-			</div>
+			<!-- </div> -->
 			
 	</body>
 
@@ -565,7 +554,6 @@
 	<script type="text/javascript">
 		
 		$(function(){
-
 			$bot = $("#bot");
 			$user_input = $("#user-input");
 			$output = $("#output");
@@ -600,6 +588,7 @@
 
 			$send_btn.click(function(){
 				var a = $text_input.val();
+
 				if(a != ""){
 					add_user_text(a);
 
@@ -612,13 +601,15 @@
 
 					else{
 						$.ajax({
+							// url: "profiles/jane.php",
 							type: "POST",
-							dataType: "html",
 							data: {chat: a},
+							dateType: 'text',
 							success: function(data,status){
 								if(data != ""){
+									data = data.substr(data.indexOf("bot::"));
+									data = data.replace("bot::","");
 									if (data.indexOf("::def") >= 0) {
-										
 										data = data.replace("::def","");
 										add_bot_text(data);
 										add_bot_default();
@@ -627,7 +618,9 @@
 										add_bot_text(data);
 									}
 									
-								}										
+								$output.animate({scrollTop: $output[0].scrollHeight}, 500);		
+								}
+										
 							}
 						});
 					}
@@ -696,7 +689,7 @@
 
 				var a = "Hi there! I'm jane...my friends call me dusty";
 				var b = "I can calculate your Body Mass Index(BMI) if you simply enter your weight(in kg) and your height(in metres). Kindly follow the format:";
-				var c1 = "calculate_bmi[weight,height]";
+				var c1 = "bmi[weight,height]";
 				var c2 = "";
 				var c3 = "";
 				var c4 = "";

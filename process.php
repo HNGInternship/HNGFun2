@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 set_time_limit(0);
 if(!isset($_SESSION)) { session_start(); }
@@ -12,32 +13,65 @@ require_once "vendor/autoload.php";
 // https://github.com/sendgrid/sendgrid-php
 //for registration 
 if(isset($_POST['registration'])){
+=======
+<?php session_start();
+//this file is for processsin requests  
+
+
+//class file required here 
+
+//require_once('classes/Member.php');
+require_once('Member.php');
+
+
+//for registration 
+
+if(isset($_POST['registration'])){
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
 	
 	$password = $_POST['password'];
+<<<<<<< HEAD
 	$wallet = $_POST['wallet'];
 	
 	if($firstname == ""){
 		echo "Please enter your Firstname";
 	}
 	elseif($lastname == ""){
+=======
+	
+
+	
+
+	if($firstname == ""){
+
+		echo "Please enter your Firstname";
+	}
+	elseif($lastname == ""){
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 		echo "Please enter your Lastname";
 	}
 	
 	elseif($email == ""){
 		echo "Please enter your email";
 	}
+<<<<<<< HEAD
 	elseif($wallet == ""){
 		echo "Please enter your ethereum wallet address";
 	}
+=======
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 	
 	elseif($password == ""){
 		echo "Please enter your Password";
 	}
 	
 	else{
+<<<<<<< HEAD
 				//connect to database
 			require_once('db.php');
 			//instantiate the member class
@@ -119,6 +153,24 @@ if(isset($_POST['registration'])){
 				
 				$login_check = $member->check($email,$password,$conn);
 				if($login_check == true){
+=======
+
+				//connect to database
+			require_once('db.php');
+
+			//instantiate the member class
+			$member = new Member();
+			//try to register user
+			$register_check = $member->register($firstname,$lastname,$email,$password,$conn);
+
+			//check for response 
+			if($register_check==true){
+				
+				$login_check = $member->check($email,$password,$conn);
+
+				if($login_check == true){
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 				die(true);	
 				}
 				else{
@@ -129,13 +181,27 @@ if(isset($_POST['registration'])){
 			else{
 				die("Registration failed");
 			}
+<<<<<<< HEAD
 	}
 }
 }
+=======
+
+	}
+
+
+}
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 //for login
 if(isset($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 	if($email ==""){
 		echo "Please enter your email";
 	}
@@ -143,6 +209,7 @@ if(isset($_POST['login'])){
 		echo "Please enter your password";
 	}
 	else{
+<<<<<<< HEAD
 		//connect to database
 			require_once('db.php');
 			//instantiate the member class
@@ -155,6 +222,15 @@ if(isset($_POST['login'])){
 		else{
 			echo "Invalid email or password";
 		}
+=======
+
+		//connect to database
+			require_once('db.php');
+
+			//instantiate the member class
+			$member = new Member();
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 			$login_check = $member->check($email,$password,$conn);
 			if($login_check == true){
 				echo true;
@@ -163,6 +239,7 @@ if(isset($_POST['login'])){
 				echo "Invalid email or password";
 			}
 	}
+<<<<<<< HEAD
 }
 	
 	
@@ -171,10 +248,27 @@ if(isset($_POST['login'])){
 		//set reset password token 
       $hash = md5( rand(0,1000) );
       $token = "reset".$hash;
+=======
+
+}
+
+	
+	
+	if(isset ($_POST['reset_password_token'])){
+
+		$email = $_POST['email'];
+
+		//set reset password token 
+      $hash = md5( rand(0,1000) );
+
+      $token = "reset".$hash;
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
       //check if email exists 
       require_once('db.php');
       $member = new Member();
       $member_response = $member->check_email($email,$conn);
+<<<<<<< HEAD
       if($member_response==false){
       die("Email doesnt exist..check the email you typed well"); 
       }
@@ -185,6 +279,26 @@ if(isset($_POST['login'])){
       	if($reset_token_check ==true){
       		//sending email starts here 
       		require_once ('phpmailer/PHPMailerAutoload.php');
+=======
+
+      if($member_response==false){
+
+       echo "0";
+	      exit();
+
+      }
+      else{
+	      
+      	//update password reset token
+      	
+      	$reset_token_check =  $member->update_token($email,$token,$conn);
+
+      	if($reset_token_check ==true){
+
+      		//sending email starts here 
+      		require_once ('phpmailer/PHPMailerAutoload.php');
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 				//Create a new PHPMailer instance
 				$mail = new PHPMailer;
 				// Set PHPMailer to use the sendmail transport
@@ -211,6 +325,10 @@ if(isset($_POST['login'])){
 					$mail->Username = "teamdragonrevenge@gmail.com";
 					//Password to use for SMTP authentication
 					$mail->Password = "dragonrevenge2018";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 				//Set who the message is to be sent from
 				$mail->setFrom('internship@hngfun.com', 'Hng');
 				//Set an alternative reply-to address
@@ -223,6 +341,10 @@ if(isset($_POST['login'])){
 				//convert HTML into a basic plain-text alternative body
 				//$htmlContent = $member->render_email($token);
 				$_SESSION['token'] = $token;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 				$Body = file_get_contents('password_reset_email.php');
 				$Body = str_replace('urltoken', $token, $Body);
 				
@@ -233,10 +355,15 @@ if(isset($_POST['login'])){
 				$mail->AltBody = 'Your Password reset  link is http://revenge.hng.fun/passwordreset.php?token='.$token;
 				//Attach an image file
 				//$mail->addAttachment('images/phpmailer_mini.png');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 				//send the message, check for errors
 				
 				if (!$mail->send()) {
 				    //echo "Mailer Error: " . $mail->ErrorInfo;
+<<<<<<< HEAD
 				    "Error occured while sending mail";
 				} else {
 				    echo "Message sent";
@@ -323,6 +450,12 @@ if(isset($_POST['login'])){
 							'message' => 'An Email containing password reset token has been sent to you'	
 						]);
 					}
+=======
+				    echo '0';
+				} else {
+				    echo "1";
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 				}
       		
       	}
@@ -331,6 +464,7 @@ if(isset($_POST['login'])){
       		
       		die('Error occured while setting reset token');
       	}
+<<<<<<< HEAD
       }
 	}	
 	//for password change
@@ -380,11 +514,21 @@ if(isset($_POST['login'])){
 			]);
 		}
 	}
+=======
+
+      }
+
+
+	}	
+
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
 	if(isset ($_POST['reset_password'])){
 		 require_once('db.php');
      
       //get data from post array
       $id = $_POST['id'];
+<<<<<<< HEAD
       $password= $_POST['password'];
       $password2=$_POST['password_confirm'];
       if($password !== $password2){
@@ -392,11 +536,32 @@ if(isset($_POST['login'])){
       }
       else if($password==""){
       die("Fill in your password");
+=======
+
+      $password= $_POST['password'];
+
+      $password2=$_POST['password_confirm'];
+
+      if($password !== $password2){
+
+      die("Passwords do not match");
+
+      }
+
+      else if($password==""){
+
+      die("Fill in your password");
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
       }
         
        else{
      //instantiate the member class
       $member_class = new Member();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
       $reset_response=$member_class->update_password($id,$password,$conn);
           if($reset_response==true){
            die(true); 
@@ -405,7 +570,35 @@ if(isset($_POST['login'])){
           die("Error occured while reseting password");  
           }
      }
+<<<<<<< HEAD
   }
 }
 	
 ?>
+=======
+
+  }
+
+  if (isset($_POST['subscribe'])) {
+	
+	require_once('db.php');
+
+	$query = "INSERT INTO mail_lists(email) 
+			  VALUES (:email)";
+	$stmt = $conn->prepare($query);
+
+	$stmt->bindParam(':email', $_POST['email']);
+
+	if ( $stmt->execute())
+
+	   echo "1";
+	else{
+		echo '2';
+	}
+
+	exit();
+  }
+
+	
+?>
+>>>>>>> 9c517d19f1298f2398adc90fab46cefce2080ba0
