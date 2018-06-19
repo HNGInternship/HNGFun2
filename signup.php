@@ -326,6 +326,7 @@ include_once("header.php");
             },
            error : function(jqXHR,textStatus,errorThrown){
                  if(textStatus ='error'){
+                     console.log("Error: ", errorThrown);
                     alert('Request not completed');
                  }
                 $("#register").html('Failed');
