@@ -46,7 +46,7 @@ include_once("dashboard-header.php");
  <div class="container">
     <div class="box">
         <p>Current Coin Balance</p>
-        <h1>9.0000 <spa>HNG</spa> </h1>
+        <h1 id="accountbalance"></h1>
         <p> HNG Wallet Address : <?php  if(isset($_SESSION['address'])){
             echo $_SESSION['address'];
         } else{
@@ -171,7 +171,7 @@ include_once("dashboard-header.php");
     //transactions = web3.eth.getTransaction();
     var decimal = tokenContract.decimals();
     var tokenName = tokenContract.name();
-    document.getElementById('accountbalance').innerHTML = '<h1>' + balancetokens + '&nbsp;<spa>' + symbol + '</spa>&nbsp;' + balance + '&nbsp;<spa>ETH</spa> &nbsp;'  ;
+    document.getElementById('accountbalance').innerHTML = balancetokens + '&nbsp;<spa>' + symbol + '</spa>&nbsp;' + balance + '&nbsp;<spa>ETH</spa> &nbsp;'  ;
     // document.getElementById('supply').innerHTML = 'Total supply: ' + supply + '&nbsp;' + symbol;
     // document.getElementById('balance').innerHTML = 'Total Ethereum Balance: ' + balance + ' ETH';
     // document.getElementById('symbol').innerHTML = tokenName;
