@@ -39,7 +39,7 @@ include_once("dashboard-header.php");
 
 </style>
 </head>
- <body onload="checkBalance()>
+ <body onload="checkBalance()">
    
  <!-- wallet board -->
  <section id="board">
