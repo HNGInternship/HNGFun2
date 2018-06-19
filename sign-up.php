@@ -103,7 +103,7 @@ include_once("header.php");
             <label class="label px-0" for="email">Email Address</label>
             <input type="email" style="height: 40px;" id="email" name="email" class="form-control" placeholder="" required value="<?php echo $_POST['email']; ?>">
             </div>
-            <div class="col-md-12 col-sm-12 px-0">
+            <div class="col-md-11 col-sm-12 px-0">
             <label class="label px-0" for="email">Ethereum Wallet</label>
                     <input type="text" name="wallet" id="wallet" class="form-control" placeholder="Ethereum Wallet">
                 </div>
