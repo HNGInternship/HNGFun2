@@ -44,7 +44,11 @@ include_once("dashboard-header.php");
     <div class="box">
         <p>HNG Coin Wallet</p>
         <h1>9.0000 <spa>HNG</spa> </h1>
-        <p> HNG Wallet Address : 1NBpecSgZ86hAPje2Rc7oFz</p>
+        <p> HNG Wallet Address : <?php  if(isset($_SESSION['address'])){
+            echo $_SESSION['address'];
+        } else{
+           echo "You have not set an address yet";
+        }?></p>
     <div>
  </div>
  </div>

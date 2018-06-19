@@ -77,6 +77,7 @@ if(isset($_POST['registration'])){
         $_SESSION["user_id"] = $conn->lastInsertId();
         $_SESSION["username"] = $row["username"];
        $_SESSION["email"] = $row["email"];
+       $_SESSION["address"] = $row["wallet"];
         // header("Location: learn.php");
 
         //  $to = "".$email."";
@@ -148,6 +149,7 @@ if(isset($_POST['registration'])){
             $_SESSION["user_id"] = $row["id"];
              $_SESSION["username"] = $row["username"];
             $_SESSION["email"] = $row["email"];
+            $_SESSION["address"] = $row["wallet"];
             echo "1";
            
             exit();
