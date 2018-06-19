@@ -113,7 +113,7 @@ include_once("header.php");
 		</div>
 	</div>
 	<div class="row">
-		<p class="text-center w-100 mb-0">About Us</p>
+		<h2 class="text-center w-100 mb-0 pt-4">About Us</h2>
 		<hr class="paddedhr">
 	</div>
 

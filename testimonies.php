@@ -15,7 +15,7 @@ include_once("header.php");
 <!--Section: Testimonials v.4-->
 <section class="pb-4 container">
     <div class="header text-center">
-        <h1>Testimonies</h1>
+        <h2>Testimonies</h2>
         <hr class="head-hr" width="6%">
         <p>HNG 4.0 has been a life-transforming journey for interns across Africa. <br/> Don’t take our word for it... Take theirs.</p>
     </div>

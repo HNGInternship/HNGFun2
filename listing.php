@@ -18,9 +18,7 @@ $results = $paginator->getData( $limit, $page );
 ?>
 
 <style>
-  h2 {
-    font-family: 'work sans';
-  }
+
   .profile {
     width: 250px;
   }

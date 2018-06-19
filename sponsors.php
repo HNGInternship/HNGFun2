@@ -8,7 +8,7 @@ include_once("header.php");
   }
 </style>
     <div class="container sponsor-container">
-            <h1 class="sponsorsbg-text pt-5 text-center hero-text">Our Sponsors</h1>
+            <h2 class="pt-5 text-center">Our Sponsors</h2>
             <div class="d-flex justify-content-center">
               <div class="bd-top"></div>
             </div>
