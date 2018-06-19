@@ -3,6 +3,18 @@ session_start();
 $_SESSION["user_id"];
 require_once('db.php');
 include_once("dashboard-header.php");
+$stmt = $conn->prepare("SELECT * FROM users WHERE id=:userId");
+
+          $result= $stmt->execute(array(
+             ':userId'=>$_SESSION["user_id"]
+           ));
+
+           while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+
+
+            $_SESSION["address"] = $row["wallet"];
+           }
+           
 ?>
 <head>
 <style>
