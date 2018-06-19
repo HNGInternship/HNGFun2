@@ -9,11 +9,7 @@
       min-width: 610px
     }
     @media only screen and (max-width: 400px) {
-      .navbar-brand{
-      width:40px;
-      height: auto;
-
-     }
+      
     .body-font{
       font-family: 'Lato', 'work sans';}
     h1 {
