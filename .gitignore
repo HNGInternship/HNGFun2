@@ -6,3 +6,4 @@ config.php
 .vscode/
 .idea/
 phpmyadmin/
+vendor/
