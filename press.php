@@ -97,7 +97,11 @@
 
 @media screen and (max-width: 780px) {
     	.banner{
-    		background-size: 100% 400px;
+			padding: 0px;
+			margin: 0px;
+			background-size: 100% 200px;
+			height: 200px;
+			background-position: top;
     	}
 
   .sidebar{
