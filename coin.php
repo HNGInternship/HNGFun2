@@ -3,19 +3,10 @@ session_start();
 $_SESSION["user_id"];
 require_once('db.php');
 include_once("dashboard-header.php");
-$stmt = $conn->prepare("SELECT * FROM users WHERE id=:userId");
-
-          $result= $stmt->execute(array(
-             ':userId'=>$_SESSION["user_id"]
-           ));
-
-           while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-
-
-            $_SESSION["address"] = $row["wallet"];
-           }
-           
 ?>
+<script type="text/javascript" src="./web3.min.js"></script>
+  <script type="text/javascript" src="./human_standard_token_abi.js"></script>
+  <script type="text/javascript" src="./coin.js"></script>
 <head>
 <style>
  .box{
@@ -48,13 +39,13 @@ $stmt = $conn->prepare("SELECT * FROM users WHERE id=:userId");
 
 </style>
 </head>
- <body>
+ <body onload="checkBalance()>
    
  <!-- wallet board -->
  <section id="board">
  <div class="container">
     <div class="box">
-        <p>HNG Coin Wallet</p>
+        <p>Current Coin Balance</p>
         <h1>9.0000 <spa>HNG</spa> </h1>
         <p> HNG Wallet Address : <?php  if(isset($_SESSION['address'])){
             echo $_SESSION['address'];
@@ -168,7 +159,25 @@ $stmt = $conn->prepare("SELECT * FROM users WHERE id=:userId");
     </div>
  </section>
 -->
+<script type="text/javascript">
+  //var address = document.getElementById('address').value;
+  var address = "<?php  if(isset($_SESSION['address'])){ echo $_SESSION['address'];} else{echo "";}?>";
+    function checkBalance() {
 
+    var balancetokens = web3.fromWei(tokenContract.balanceOf(address).toNumber(), 'ether');//var tokenContract = web3.eth.contract(contractABI).at(contractAddress)
+    var supply = web3.fromWei(tokenContract.totalSupply().toNumber(), 'ether');
+    var balance = web3.fromWei( web3.eth.getBalance(address).toNumber(), 'ether');
+    var symbol = tokenContract.symbol();
+    //transactions = web3.eth.getTransaction();
+    var decimal = tokenContract.decimals();
+    var tokenName = tokenContract.name();
+    document.getElementById('accountbalance').innerHTML = '<h1>' + balancetokens + '&nbsp;<spa>' + symbol + '</spa>&nbsp;' + balance + '&nbsp;<spa>ETH</spa> &nbsp;'  ;
+    // document.getElementById('supply').innerHTML = 'Total supply: ' + supply + '&nbsp;' + symbol;
+    // document.getElementById('balance').innerHTML = 'Total Ethereum Balance: ' + balance + ' ETH';
+    // document.getElementById('symbol').innerHTML = tokenName;
+  }
+  //console.log(tokenContract.balanceOf(address).toNumber())
+</script>
 
 <?php
 include_once("footer.php");
