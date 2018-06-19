@@ -17,7 +17,7 @@ if(isset($_POST['registration'])){
 	$email = $_POST['email'];
 	
 	$password = $_POST['password'];
-	
+	$wallet = $_POST['wallet'];
 	
 	if($firstname == ""){
 		echo "Please enter your Firstname";
@@ -28,6 +28,9 @@ if(isset($_POST['registration'])){
 	
 	elseif($email == ""){
 		echo "Please enter your email";
+	}
+	elseif($wallet == ""){
+		echo "Please enter your ethereum wallet address";
 	}
 	
 	elseif($password == ""){
@@ -40,7 +43,7 @@ if(isset($_POST['registration'])){
 			//instantiate the member class
 			$member = new Member();
 			//try to register user
-			$register_check = $member->register($firstname,$lastname,$email,$password,$conn);
+			$register_check = $member->register($firstname,$lastname,$email,$password, $wallet, $conn);
 			//check for response 
 			if($register_check=='true'){
 				$_SESSION['email'] = $email;

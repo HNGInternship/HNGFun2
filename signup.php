@@ -24,9 +24,9 @@ include_once("header.php");
     
 </style>
 <div class="container">
-<div class="row h-100">
-    <div class="col-md-6" >
-        <div style="padding: 80px 110px 0px 110px; text-align: center; line-height: 35px;">
+<div class="row">
+    <div class="col-md-5" >
+        <div style="padding: 80px 80px 0px 80px; text-align: center; line-height: 35px;">
             <span style="font-size: 16px; color: grey">
                 <strong>''</strong> The HNG Internship is a remote training program, it centres on picking out indiviuals with relevant software development skills. For a period of about 3 months these skills are developed. The internship holds annually. Its organised by Hotels.ng in partnership with top companies around the globe. Fill the form to join the biggest and best remote software internship in the world! <strong>''</strong>
             </span>
@@ -34,7 +34,7 @@ include_once("header.php");
         </div>
         
     </div>
-    <div class="col-md-6  mx-auto">
+    <div class="col-md-6 mx-auto">
         <div style='text-align: left'>
         <h1 class="login-title" style="padding-top: 20px; color: #3D3D3D;">Sign Up</h1>
         <p style="font-size: 16px">Just a few clicks away from joining the biggest software development internship in Africa
@@ -46,7 +46,7 @@ include_once("header.php");
                </div>
                
             <form action="" class="text-center" name="register_form" id="register_form">
-            <div class="form-row">
+            <div class="form-row text-center">
                 <div class="form-group col-md-6" style="padding-right:25px">
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
                 </div>
@@ -66,17 +66,13 @@ include_once("header.php");
                 <div class="form-group col-md-6" style="padding-right:25px">
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 </div>
+                <div class="form-group col-md-6" style="padding-right:25px">
+                    <input type="text" name="wallet" id="wallet" class="form-control" placeholder="Ethereum Wallet">
+                </div>
             </div>
             <br />
-            <!-- <div class="form-row">
-                    <div class="form-group col-md-6" style="padding-right:50px">
-                        <input type="text" name="state" id="state" class="form-control" placeholder="Enter your state ">
-                    </div>
-            </div> -->
-
-            
-            <br />
-                
+                      
+                            
                 <input type="hidden" name="registration" value="yes">
 
             
@@ -290,7 +286,11 @@ include_once("header.php");
             $("#message").addClass('alert alert-danger');
             $("#message").html('Please enter password');
         }
-
+        else if(wallet ==""){
+            alert('Please enter your ethereum wallet address');
+            $("#message").addClass('alert alert-danger');
+            $("#message").html('Please enter your ethereum wallet address');
+        }
         else if(terms == false){
             alert('You must accept our terms and conditions to register');
             $("#message").addClass('alert alert-danger');

@@ -43,7 +43,7 @@ public function __construct(){
             return ob_get_contents();
        }
 
-     public function register($firstname,$lastname,$email,$password,$db){
+     public function register($firstname,$lastname,$email,$password, $wallet, $db){
         
         $this->table = 'users';
         
@@ -53,8 +53,8 @@ public function __construct(){
         $timee=date('Y-m-d H:i:s');
 
                 try {
-            $query = "INSERT INTO ".$this->table."(firstname,lastname,email,password,timee ) 
-        VALUES ('$firstname','$lastname','$email','$password_hash','$timee')";
+            $query = "INSERT INTO ".$this->table."(firstname,lastname,email,password, wallet, timee ) 
+        VALUES ('$firstname','$lastname','$email','$password_hash', '$wallet' ,'$timee')";
 
             $db->exec($query);
           return true;
