@@ -57,7 +57,8 @@ if(isset($_GET['text_in'])) {
         $dateofbirth = trim($age_string[1]);
 		$today = date("Y-m-d");
 		$diff = date_diff(date_create($dateofbirth), date_create($today));
-		   
+		
+		header('Content-Type: application/json');
 		echo json_encode([
 		  'status' => 1,
 		  'answer' => "Age is ".$diff->format('%y')
@@ -273,7 +274,7 @@ else{
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
-        .oj-web-applayout-body{
+        .j-web-applayout-body{
             background-color: #153643;
             vertical-align: middle;
             color: #FFFFFF;
@@ -282,37 +283,44 @@ else{
             
 			width: 100%;
         }
-		.oj-web-applayout-page{
-			background-color: #153643;
-            vertical-align: middle;
+		.page{
+			vertical-align: middle;
             color: #FFFFFF;
             align-content: left;
             margin: auto;
             
-			width: 100%;
+			width: 40%;
 		}
         .oj-profile{
             background-image: url('https://res.cloudinary.com/maaj/image/upload/v1523621615/profile.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            width: 400px;
-			height: 400px;
+            width: 200px;
+			height: 200px;
             border-radius: 50%;
-			text-align: center;
+			float: center;
+			margin: 20px 30%;
+			box-shadow: 3px 4px 8px #888888;
         }
         .oj-title{
-            color: #ffffff;
-            text-align: left;
-			margin-left: 40px; 
+            color: #000000;
+            text-align: center;
+			font-family: Lato;
+			 
 			
             
         }
 		.oj-links{
-			text-align: left;
-			margin-left: 80px;
+			text-align: center;
+			margin: 5px 30px;
+			width: 100%;
 			
 		}
+		table, th, td {
+			border: 1px solid #ffffff;
+		}
+		
         .oj-head{
             color: #ffffff;
             text-align: center;
@@ -326,44 +334,41 @@ else{
 			
 		}
 		#header{
-			width: 350px;
-			height: 60px;
+			width: 40%;
+			padding: 10px;
 			margin: 0px auto;
-			background-color:#00AFEF;
-			border: 1px solid #00AFEF;
+			background-color:#dce354;
+			border: 1px solid #dce354;
 			color:#ffffff;
 		}
-		#header h1{
-			margin: 0 0 0 30%;
+		#header h3{
+			margin: 0px;
+			padding: 0px;
 			color:#ffffff;
 		}
 		#contain{
-			width:350px; 
+			width:40%; 
 			height: 400px;
 			margin-top:10px;
 			margin:0px auto;
 			
-			background-color:white;
-			border:1px solid #00AFEF;
+			background-color:#403f45;
+			border:1px solid #dce354;
 			overflow:scroll;
 		}
 		#controls{
-			width:350px;
+			width:40%;
 			margin:0px auto;
 			
 		}
 		#textbox{
 			margin:0 0 0 0;
 			width:82%;
-			
+			border: 1px solid #403f45;			
 		}
 		#send{
-		background-color: #00AFEF;
-		width="100%";
-		color: #ffffff;
-		font-weight: bold;
-		height="5%";
-		font-size: 16px;}
+
+		}
 		
 		.username{
 			margin:5px;
@@ -389,7 +394,23 @@ else{
 			color:green;
 			font-weight: regular;
 			width: 70%;
-			}	
+			}
+		.oj-flex{
+			margin: 0px 100px !important;
+		}
+		.list{
+			border: 1px solid #ffffff;
+			width: 100%;
+			color: #ffffff !important;
+		}
+		table{
+			border-collapse: collapse;
+			background-color: #403f45;
+		}
+		
+		td:nth-child(odd){
+			background-color: #dce354;
+		}
 		
      </style>
 
@@ -398,26 +419,66 @@ else{
 
   <body class="oj-web-applayout-body">
 	<div class="oj-web-applayout-page">
-	<div>
-		<h1 class="oj-head">Hello....</h1>
-	</div>
-      
-	  <div class="oj-flex">
-		
+	
+	<div class=" oj-flex oj-lg-align-self-center">
 		<div class="oj-flex-item">
-          
-		  <div class="oj-profile"></div>
+		<div class="oj-profile"></div>
 		  <div class="oj-title">
-                  <h2 class="oj-title"><?php echo $name;?></h2>
-                  <h2 class="oj-title">Slack username: <?php echo $username;?></h2>
-                  
+                  <h3 class="oj-title"><?php echo $name;?></h3>
+				  <span>Hi, I am a Front-End and Backend software developer. I also develop mobile apps. <br/> </span>
+                  <span class="oj-title">HNG Internship Slack username: <?php echo $username;?></span>
+				  </div>
+			</div>
+		  </div>
+		  
+		  <div class="oj-flex oj-lg-align-self-center page">
+		  
+			<div class="oj-links oj-align-self-center">
+				  <table class="list">
+				  <tr>
+				<td>
+				  <a href="https://github.com/dmaaj"><i class="fa fa-2x fa-github"></i></a></td>
+				  <td>https://github.com/dmaaj </td>
+				  </tr>
+				  <tr>
+				<td>
+				  <a href="https://instagram.com/wale_j"><i class="fa fa-2x fa-instagram"></i></a></td>
+				  <td>www.instagram.com/wale_j </td>
+				  </tr>
+				  <tr>
+				<td>
+				  <a href="https://www.twitter.com/kng_maaj"><i class="fa fa-2x fa-twitter"></i></a></td>
+				  <td>www.twitter.com/kng_maaj </td>
+				  </tr>
+				  <tr>
+				<td>
+				  <a href="https://www.facebook.com/jimohmuheezadewale"><i class="fa fa-2x fa-facebook"></i></a></td>
+				  <td>www.facebook.com/jimohmuheezadewale </td>
+				  </tr>
+				  <tr>
+				<td>
+				  <a href="https://www.linkedin.com/in/jimoh-muheez-09640480/"><i class="fa fa-2x fa-linkedin"></i></a></td>
+				  <td>https://www.linkedin.com/in/jimoh-muheez-09640480/</td>
+				  </tr>
+				  
+				<tr>
+				<td>
+				  <a href=""><i class="fa fa-2x fa-envelope"></i></a></td>
+				  <td>jamuheez2009@gmail.com </td>
+				  </tr>
+          </table>
+		  <button class="btn btn-secondary" id="toggle" style="float: right !important;"> <i class="fa fa-circle" style="color: #00FF00;"></i> Chat now</button>
+		</div>
               </div>
-
-          </div>
-		  <div class="oj-flex-item">
+			  
+	
+      
+	  <div class="oj-flex oj-lg-align-self-center">
+		
+		  <div class="oj-flex-item" id="dmaaj">
 			<div id ="header">
 
-				<h1>Maaj's bot</h1>
+				<h3 class="text-center">Maaj's bot</h3>
 			</div>
 				<div id="contain">
 					
@@ -432,19 +493,14 @@ else{
 				<div id ="controls">
 					<form method="post" action="" id="chat">
 					<input type="text" id="textbox" name="text_in" required class="text_in"></input>
-					<input id="send" type="submit" value="Send"></input>
+					<input id="send" class="btn btn-secondary" type="submit" value="Send"></input>
 					</form>
 					
 				</div>
 	
           </div>
 		  </div>
-                            <div class="oj-links"><a href="https://instagram.com/wale_j"><i class="fa fa-instagram"></i></a>
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-    <a href="https://github.com/dmaaj"><i class="fa fa-github"></i></a>
-          
-		</div>  
+                            
     
       </div>
 	  
@@ -452,6 +508,19 @@ else{
 	 
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="../js/hng.min.js"></script>
+<script>
+$(document).ready(function(){
+		
+	$('#dmaaj').hide();	
+	
+	$('#toggle').click(function(){
+		$('#dmaaj').toggle();
+	});
+
+});
+
+
+</script>
  <script>
     var message = $("#contain");
 		
@@ -487,7 +556,9 @@ else{
 		});
 		
 
+
 </script>
+
   </body>
 
 </html>
