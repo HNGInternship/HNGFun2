@@ -1,0 +1,262 @@
+html{
+font-family: 'Lato', sans-serif;
+
+}
+.banner{
+	height: 677px;
+	width: 100%;
+	background:url('../img/coin_banner.png') no-repeat;
+	background-size: cover;
+	position: relative;
+	}
+
+	.layer {
+    background-color:rgba(0, 0, 0, 0.58);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+}
+
+.navbar-nav .nav-item{
+	margin-right: 42px;
+}
+
+
+
+.dropdown-nav{
+
+width: 119px;
+height: 31px;
+text-align: center;
+background-blend-mode: darken;
+border: 1px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 4px;
+
+}
+
+.banner-text-colour{
+	color: #ffffff;
+}
+
+.banner-header{
+font-style: normal;
+font-weight: bold;
+line-height: normal;
+font-size: 42px;
+text-align: center;
+letter-spacing: 0.02em;
+margin-top: 15%;
+}
+
+.banner-subheader{
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 36px;
+text-align: center;
+letter-spacing: 0.02em;
+}
+
+.banner-button{
+width: 202px;
+height: 41px;
+background: #2196F3;
+border-radius: 25px;
+border:0;
+}
+
+.banner-button> span {
+font-style: normal;
+font-weight: bold;
+line-height: normal;
+font-size: 14px;
+letter-spacing: 0.02em;
+
+color: #FFFFFF;
+}
+
+.body-header{
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+font-size: 36px;
+text-align: center;
+letter-spacing: 0.02em;
+
+}
+
+.body-normal-font{
+font-style: normal;
+font-weight: 500;
+line-height: 37px;
+font-size: 24px;
+letter-spacing: 0.02em;
+}
+
+.body-small-font{
+	font-style: normal;
+font-weight: normal;
+line-height: 25px;
+font-size: 16px;
+text-align: justify;
+letter-spacing: 0.02em;
+}
+
+
+.body-black-deep{
+color: #333333;
+}
+
+.body-black-normal{
+	color: rgba(51, 51, 51, 0.8);
+
+}
+
+.body-black-light{
+
+	color: rgba(33, 37, 41, 0.7);
+
+}
+
+.left-phone{
+position: absolute;
+left:-10px;
+top: 10px;
+z-index: -1;
+}
+
+
+.wallet-ellipse{
+width: 256px;
+height: 256px;
+background: rgba(33, 150, 243, 0.06);
+border-radius: 50%;
+text-align: center;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.text-left{
+	text-align: left;
+}
+
+.text-right{
+	text-align: right;
+}
+
+
+.small-icons{
+	width: 24px;
+	height: 24px;
+}
+
+
+.blue-number{
+	width: 47px;
+height: 47px;
+background: #2196F3;
+border-radius: 	50%;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+font-size: 24px;
+
+color: #FFFFFF;
+
+}
+
+.big-section{
+	padding: 0 10%;
+	background: url('../img/triangle-left.png') no-repeat;
+	background-position:right center;
+}
+
+.phone-section{
+
+	background: url('../img/right-phone.png') no-repeat;
+	background-position:right bottom;
+	background-size: auto 630px;
+}
+
+
+.card-avi{
+
+	border-radius: 50%;
+	width: 140px;
+	height: 140px
+}
+
+.card-main-text{
+	font-style: normal;
+font-weight: 600;
+line-height: 26px;
+font-size: 18px;
+text-align: center;
+letter-spacing: 0.02em;
+
+color: #212529;
+
+}
+
+.card-small-text{
+
+	font-style: normal;
+font-weight: normal;
+line-height: 20px;
+font-size: 14px;
+text-align: center;
+letter-spacing: 0.02em;
+
+color: rgba(33, 37, 41, 0.7);
+
+}
+
+.card-contacts{
+	color: #504E4E;
+}
+
+.card{
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+	width: 230px;
+}
+
+
+.grey-bg{
+	background-color:#FBFAFA;
+}
+
+
+.footer{
+	background-color: #F5F7FA;
+}
+
+.coin-logo{
+	width:132px;
+	 height:34px;
+}
+
+
+.footer-text{
+	font-style: normal;
+font-weight: normal;
+line-height: 23px;
+font-size: 16px;
+letter-spacing: 0.02em;
+color: #212529;
+opacity: 0.6;
+}
+
+.socials{
+	color: #2196F3;
+}
