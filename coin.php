@@ -196,7 +196,7 @@
 
 
 
-        <div class="col-3 mx-5 mb-5"><img src="img/coin-phone" width="100%" height="617px"></div>
+        <div class="col-3 mx-5 mb-5"><img src="img/coin-phone.png" width="100%" height="617px"></div>
 
 
 
@@ -240,7 +240,7 @@
 
     <section class="row">
         <div class="col-sm-12 col-md-5 offset-md-1">
-            <img src="img/mark-essien-coin" width="100%" height="100%">
+            <img src="img/mark-essien-coin.png" width="100%" height="100%">
         </div>
 
         <div class="col-md-5 col-sm-12 ml-4 mt-5 pt-4" style="background:url('img/grey-square.png');background-repeat: no-repeat space;background-position: right bottom">
@@ -263,7 +263,7 @@
 
            <div class="row justify-content-center">
             <div class="col-2 py-2 mr-3" style="padding: 0">
-            <img src="img/add-chain-person" width= "58.67px" height= "42.67px">
+            <img src="img/add-chain-person.png" width= "58.67px" height= "42.67px">
         </div>
             <div class="col-9 pl-4" style="padding: 0">
 
@@ -279,7 +279,7 @@
            <div class="row mb-4 justify-content-center"> <div class="blue-number text-center py-2">2</div></div>
            <div class="row align-items-start justify-content-center">
             <div class="col-2 py-2 mr-3" style="padding: 0">
-            <img src="img/us-dollar" width= "56px" height= "56px">
+            <img src="img/us-dollar.png" width= "56px" height= "56px">
         </div>
             <div class="col-9 pl-4" style="padding: 0">
 
@@ -295,7 +295,7 @@
            <div class="row mb-4 justify-content-center"> <div class="blue-number text-center py-2">3</div></div>
            <div class="row align-items-start justify-content-center">
             <div class="col-2 py-2 mr-3" style="padding: 0">
-            <img src="img/us-dollar-sack" width= "57px" height= "57px">
+            <img src="img/us-dollar-sack.png" width= "57px" height= "57px">
         </div>
             <div class="col-9 pl-4" style="padding: 0">
 
