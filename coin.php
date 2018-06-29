@@ -240,7 +240,7 @@
 
     <section class="row">
         <div class="col-sm-12 col-md-5 offset-md-1">
-            <img src="img/mark-essien-coin.png" width="100%" height="100%">
+            <img src="img/mark-essien-coin-2.png" width="100%" height="100%">
         </div>
 
         <div class="col-md-5 col-sm-12 ml-4 mt-5 pt-4" style="background:url('img/grey-square.png');background-repeat: no-repeat space;background-position: right bottom">
