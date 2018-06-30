@@ -121,10 +121,10 @@
 
 
     
-    <h1 class="banner-text-colour banner-header mb-3">THE CRYPTOCURRENCY FOR PAYMENTS</h1>
-    <h2 class="banner-text-colour banner-subheader mb-5">Based on Ethereum Technology</h2>
+    <h1 class="banner-text-colour banner-header mb-3">The HNG Crypt-Token</h1>
+    <h2 class="banner-text-colour banner-subheader mb-5">A token that is used to support the development of software developers in Africa through the HNG Internship</h2>
     <div class="d-flex justify-content-center mt-3 mb-5">
-<a href="#"><button class="banner-button"><span class="button-text" href="#">BUY TOKENS</span></button></a></div>
+<a href="#"><button class="banner-button"><span class="button-text" href="#">Support the mission</span></button></a></div>
     </div>
 
         
@@ -158,7 +158,7 @@
 
     <section class="row py-5 justify-content-center grey-bg phone-section">
 
-        <h2 class="body-header text-center col-12 mb-5 pb-5">Features</h2>
+        <h2 class="body-header text-center col-12 mb-5 pb-5">What's this all about?</h2>
 
 
         <div class="col-4 text-right pt-5 justify-content-end">
@@ -173,7 +173,7 @@
                 <img src="img/chain-doctor.png" class="small-icons" width="100%">
         </div>
 
-            <h3 class="row justify-content-end body-normal-font body-black-normal text-right" style="font-size: 18px">Professional Blockchain Profile</h3>
+            <h3 class="row justify-content-end body-normal-font body-black-normal text-right" style="font-size: 18px">Proof of Improvement</h3>
            <p class="row body-small-font body-black-light text-right mb-5 justify-content-end"><span  style="width:72%;">Make your professional profile accessible anytime anywhere on the blockchain. Stand out by visualizing your individual career path in a stunning way.</span></p>
 
             <div class="py-2 text-center mb-3 mt-5"  style="width: 50px;
@@ -187,7 +187,7 @@
                 <img src="img/chain-person.png" class="small-icons" width="100%">
         </div>
 
-            <h3 class="row justify-content-end body-normal-font body-black-normal text-right" style="font-size: 18px">Skill Validation</h3>
+            <h3 class="row justify-content-end body-normal-font body-black-normal text-right" style="font-size: 18px">Make the world better</h3>
             <p class="row body-small-font body-black-light text-right mb-5 justify-content-end"><span  style="width:76%;">Get your skills validated in an anonymous, simple and objective way. Through consensus of other expert users or by interacting with AI based systems like chatbots</span></p>
             
         </div>
@@ -213,7 +213,7 @@
                 <img src="img/chain-doctor.png" class="small-icons" width="100%">
         </div>
 
-            <h3 class="row justify-content-start body-normal-font body-black-normal text-left" style="font-size: 18px">Professional Blockchain Profile</h3>
+            <h3 class="row justify-content-start body-normal-font body-black-normal text-left" style="font-size: 18px">Technology</h3>
            <p class="row body-small-font body-black-light text-left mb-5 justify-content-start"><span  style="width:72%;">Make your professional profile accessible anytime anywhere on the blockchain. Stand out by visualizing your individual career path in a stunning way.</span></p>
 
             <div class="py-2 text-center mb-3 mt-5"  style="width: 50px;
@@ -227,7 +227,7 @@
                 <img src="img/chain-person.png" class="small-icons" width="100%">
         </div>
 
-            <h3 class="row justify-content-start body-normal-font body-black-normal text-left" style="font-size: 18px">Skill Validation</h3>
+            <h3 class="row justify-content-start body-normal-font body-black-normal text-left" style="font-size: 18px">Exchange listing</h3>
             <p class="row body-small-font body-black-light text-left mb-5 justify-content-start"><span  style="width:76%;">Get your skills validated in an anonymous, simple and objective way. Through consensus of other expert users or by interacting with AI based systems like chatbots</span></p>
         </div>
 
@@ -244,18 +244,18 @@
         </div>
 
         <div class="col-md-5 col-sm-12 ml-4 mt-5 pt-4" style="background:url('img/grey-square.png');background-repeat: no-repeat space;background-position: right bottom">
-            <h3 class="banner-subheader body-black-deep text-left mb-4">Message from our CEO</h3>
-            <p class="body-normal-font body-black-normal text-left">Listen to Mark Essien, a cryptocurrency industry veteran, talk about the current problems and how hngcoin is trying to solve these problems.</p>
-            <p class="body-small-font body-black-light text-left mb-4">Read Whitepaper and In Depth Details:</p>
+            <h3 class="banner-subheader body-black-deep text-left mb-4">Understand the HNG Internship</h3>
+            <p class="body-normal-font body-black-normal text-left">We have built one of the best ways to rapidly increase the number of coders in African Eco-system.</p>
+            <p class="body-small-font body-black-light text-left mb-4">We have reached over 10,000 people so far, and expect more to come in the coming years.</p>
             <div class="d-flex  mt-3 mb-5">
-<a href="#"><button class="banner-button"><span class="button-text" href="#">Read WhitePaper</span></button></a></div>
+<a href="#"><button class="banner-button"><span class="button-text" href="#">Read More</span></button></a></div>
     </div>
 
     </section>
 </div>
 
     <section class="container-fluid pt-5 big-section pb-5">
-        <h2 class="row justify-content-center body-header col-12 mb-5 pb-5">How to Buy Hngcoin Tokens</h2>
+        <h2 class="row justify-content-center body-header col-12 mb-5 pb-5">How to Buy HNGC Tokens</h2>
 
         <div class="row">
         <div class="col-sm-12 col-md-4 pr-5">
