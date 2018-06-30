@@ -3,7 +3,10 @@
 // $_SESSION["user_id"];
 // require_once('db.php');
 // include_once("dashboard-header.php");
+include_once("header.php");
+
 ?>
+
 <!-- <script type="text/javascript" src="./web3.min.js"></script>
   <script type="text/javascript" src="./human_standard_token_abi.js"></script>
   <script type="text/javascript" src="./coin.js"></script>
@@ -66,67 +69,18 @@
  </section>
     <br> -->
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    
     <link href="css/coin.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-  </head>
-  <body>
+    
     <header class="banner">
         <div class="layer">
 
-          <!-- Image and text -->
-<nav class="container navbar navbar-expand-lg navbar-dark main-bg-colour">
-  <a class="navbar-brand" href="/coin">
-    <img src="img/hngcoin_logo.png" class="d-inline-block align-top coin-logo" alt="HNG coin Logo">
-  </a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-  <ul class="navbar-nav justify-content-md-end">
-<li class="nav-item">
-    <a class="nav-link d-flex align-items-center justify-content-center" href="index.php">ABOUT</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link d-flex align-items-center justify-content-center" href="about.php">TOKEN SALES</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link d-flex align-items-center justify-content-center" href="team.php">WHITEPAPER</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link d-flex align-items-center justify-content-center" href="#">TEAM</a>
-  </li>
-  <li class="nav-item dropdown dropdown-nav d-flex align-items-center justify-content-center">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          English
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">English</a>
-          <a class="dropdown-item" href="#">French</a>
-          <a class="dropdown-item" href="#">Dutch</a>
-        </div>
-      </li>
-</ul>
-</div>
-
-</nav>
-
-
-    
     <h1 class="banner-text-colour banner-header mb-3">The HNG Crypt-Token</h1>
-    <h2 class="banner-text-colour banner-subheader mb-5 sp">A token that is used to support the development of software developers in Africa through the HNG Internship</h2>
+    <h2 class="banner-text-colour banner-subheader mb-5 sp" style="margin:0 10%">A token that is used to support the development of software developers in Africa through the HNG Internship</h2>
     <div class="d-flex justify-content-center mt-3 mb-5">
 <a href="#"><button class="banner-button"><span class="button-text" href="#">Support the mission</span></button></a></div>
     </div>
@@ -234,7 +188,7 @@
     </section>
 </div>
 
-    <section class="container-fluid pt-5 big-section pb-5">
+    <section class="container-fluid pt-5 big-section pb-5" style="background-color: white">
         <h2 class="row justify-content-center body-header col-12 mb-5 pb-5">How to Buy HNGC Tokens</h2>
 
         <div class="row">
@@ -287,9 +241,9 @@
                 <h5 class="card-main-text">Aurang Torvekar</h5>
                 <p class="card-small-text">CEO and Co-Founder</p>
                 <div class="row justify-content-center">
-                    <span class="col-2"><i class="fab fa-facebook-f card-contacts"></i></span>
-                    <span class="col-2"><i class="fab fa-twitter card-contacts"></i></span>
-                    <span class="col-2"><i class="fab fa-linkedin-in card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-facebook-f card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-twitter card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-linkedin card-contacts"></i></span>
 
                 </div>
               </div>
@@ -303,9 +257,9 @@
                 <h5 class="card-main-text">Dike Thelma</h5>
                 <p class="card-small-text">Developer</p>
                 <div class="row justify-content-center">
-                    <span class="col-2"><i class="fab fa-facebook-f card-contacts"></i></span>
-                    <span class="col-2"><i class="fab fa-twitter card-contacts"></i></span>
-                    <span class="col-2"><i class="fab fa-linkedin-in card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-facebook-f card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-twitter card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-linkedin card-contacts"></i></span>
 
                 </div>
               </div>
@@ -319,9 +273,9 @@
                 <h5 class="card-main-text">Jeremiah Righteous</h5>
                 <p class="card-small-text">Product Manager</p>
                 <div class="row justify-content-center">
-                    <span class="col-2"><i class="fab fa-facebook-f card-contacts"></i></span>
-                    <span class="col-2"><i class="fab fa-twitter card-contacts"></i></span>
-                    <span class="col-2"><i class="fab fa-linkedin-in card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-facebook-f card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-twitter card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-linkedin card-contacts"></i></span>
 
                 </div>
               </div>
@@ -335,9 +289,9 @@
                 <h5 class="card-main-text">Seyikemi Sojiron</h5>
                 <p class="card-small-text">Designer</p>
                 <div class="row justify-content-center">
-                    <span class="col-2"><i class="fab fa-facebook-f card-contacts"></i></span>
-                    <span class="col-2"><i class="fab fa-twitter card-contacts"></i></span>
-                    <span class="col-2"><i class="fab fa-linkedin-in card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-facebook-f card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-twitter card-contacts"></i></span>
+                    <span class="col-2"><i class="fa fa-linkedin card-contacts"></i></span>
 
                 </div>
               </div>
@@ -403,42 +357,42 @@
                 
             
         </div>
-        <hr class="row mb-5"/>
+        <hr class="row"/>
 
-        <div class="row">
+        <div class="row align-items-center">
 
             <p class="col-6 text-left footer-text pl-0">Copyright © 2018 Hngcoin Project. All rights reserved</p>
 
 
             <div class="col row justify-content-end">
                     <span class="fa-stack ml-3">
-                        <i class="fas fa-circle fa-stack-2x socials"></i>
-                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x socials"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                     </span>
 
                     <span class="fa-stack ml-3">
-                        <i class="fas fa-circle fa-stack-2x socials"></i>
-                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x socials"></i>
+                        <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
                     </span>
 
                     <span class="fa-stack ml-3">
-                        <i class="fas fa-circle fa-stack-2x socials"></i>
-                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x socials"></i>
+                        <i class="fa fa-facebook-f fa-stack-1x fa-inverse"></i>
                     </span>
 
                     <span class="fa-stack ml-3">
-                        <i class="fas fa-circle fa-stack-2x socials"></i>
-                        <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x socials"></i>
+                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                     </span>
 
                     <span class="fa-stack ml-3">
-                        <i class="fas fa-circle fa-stack-2x socials"></i>
-                        <i class="fab fa-pinterest-p fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x socials"></i>
+                        <i class="fa fa-pinterest-p fa-stack-1x fa-inverse"></i>
                     </span>
 
                     <span class="fa-stack ml-3">
-                        <i class="fas fa-circle fa-stack-2x socials"></i>
-                        <i class="fab fa-medium fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x socials"></i>
+                        <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
                     </span>
                     
 
