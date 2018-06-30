@@ -18,6 +18,10 @@
         font-family: 'Lato', sans-serif;
         
     }
+      .sp {
+         width: 70%;
+         margin: 0 auto;
+    }
     .head, spa{
         color:#2196F3;
     }
@@ -122,37 +126,13 @@
 
     
     <h1 class="banner-text-colour banner-header mb-3">The HNG Crypt-Token</h1>
-    <h2 class="banner-text-colour banner-subheader mb-5">A token that is used to support the development of software developers in Africa through the HNG Internship</h2>
+    <h2 class="banner-text-colour banner-subheader mb-5 sp">A token that is used to support the development of software developers in Africa through the HNG Internship</h2>
     <div class="d-flex justify-content-center mt-3 mb-5">
 <a href="#"><button class="banner-button"><span class="button-text" href="#">Support the mission</span></button></a></div>
     </div>
 
         
     </header>
-
-    <div class="container-fluid">
-    <section class="row pt-5">
-        <div class="col-sm-0 col-md-2 pt-5" style="position: relative;">
-            <img src="img/left_phone.png" class="left-phone">
-        </div>
-
-        <div class="col-sm-12 col-md-4 pt-5" style="text-align: center;">
-        <div class="mt-4 wallet-ellipse py-5">
-            <img src="img/coin-wallet.png">
-        </div>
-        </div>
-        <div class="col-sm-12 col-md-5 pl-sm-3 pt-5" style="margin-bottom: 40px">
-            <h2 class="body-header body-black-deep" style="text-align: left;">What Is HNGCOIN</h2>
-
-            <p class="body-normal-font body-black-normal">Hngcoin is a peer-to-peer Internet currency that enables instant, near-zero cost payments to anyone in the world.</p>
-
-            <p class="body-small-font body-black-light pb-5">Hngcoin is an open source, global payment network that is fully decentralized without any central authorities. Mathematics secures the network and empowers individuals to control their own finances. Hngcoin features faster transaction </p>
-
-        </div>
-        
-    </section>
-</div>
-
 
     <div class="container-fluid">
 
@@ -258,41 +238,25 @@
         <h2 class="row justify-content-center body-header col-12 mb-5 pb-5">How to Buy HNGC Tokens</h2>
 
         <div class="row">
-        <div class="col-sm-12 col-md-4 pr-5">
+
+         <div class="col-sm-12 col-md-6 pr-5 pl-4">
            <div class="row mb-4 justify-content-center"> <div class="blue-number text-center py-2">1</div></div>
-
-           <div class="row justify-content-center">
-            <div class="col-2 py-2 mr-3" style="padding: 0">
-            <img src="img/add-chain-person.png" width= "58.67px" height= "42.67px">
-        </div>
-            <div class="col-9 pl-4" style="padding: 0">
-
-                <h4 class="row body-normal-font body-black-light">SIGN UP</h4>
-                <p class="row body-small-font body-black-light">Click on the buy token button and create an account. If you already have an account, click on signin on the signup page to access your dashboard.</p>
-                
-            </div>
-           </div>
-
-        </div>
-
-         <div class="col-sm-12 col-md-4 pr-5 pl-4">
-           <div class="row mb-4 justify-content-center"> <div class="blue-number text-center py-2">2</div></div>
            <div class="row align-items-start justify-content-center">
             <div class="col-2 py-2 mr-3" style="padding: 0">
             <img src="img/us-dollar.png" width= "56px" height= "56px">
         </div>
             <div class="col-9 pl-4" style="padding: 0">
 
-                <h4 class="row body-normal-font body-black-light">MAKE PAYMENT</h4>
-                <p class="row body-small-font body-black-light">Getting into your dashboard, you can click on purshase token and make payment with ETH, USD, XLM.</p>
+                <h4 class="row body-normal-font body-black-light">SEND ETH</h4>
+                <p class="row body-small-font body-black-light">You can send the eth to Our contract address to recive an equivalent amount of HNGC tokens</p>
                 
             </div>
            </div>
 
         </div>
 
-         <div class="col-sm-12 col-md-4 pl-4">
-           <div class="row mb-4 justify-content-center"> <div class="blue-number text-center py-2">3</div></div>
+         <div class="col-sm-12 col-md-6 pl-4">
+           <div class="row mb-4 justify-content-center"> <div class="blue-number text-center py-2">2</div></div>
            <div class="row align-items-start justify-content-center">
             <div class="col-2 py-2 mr-3" style="padding: 0">
             <img src="img/us-dollar-sack.png" width= "57px" height= "57px">
@@ -311,24 +275,6 @@
     <!-- </section>
 
     <section class="container-fluid" style="padding: 0% 10% 0% 10%"> -->
-        <div class="row mt-3 align-items-end mb-5">
-            <div class="col-md-4">
-             <h3 class="banner-header body-black-deep text-left mb-4" style="font-weight: normal;">Buy Your Hngcoin Tokens Now!</h3>
-            <div class="d-flex  mt-3">
-<a href="#"><button class="banner-button"><span class="button-text" href="#" style="font-size: 18px">BUY TOKENS</span></button></a></div>
-    </div>
-
-    <div class="col-md-5 offset-md-3">
-        <!-- <img src="img/triangle-left.png" class="traingle" width="100%"> -->
-        <p class="text-right body-small-font" style="font-size: 20px">Sale Start on <span class="text-success">June 25th <img class="ml-3" src="img/blue-triangle.png"></span></p>
-        <p class="text-right body-small-font" style="font-size: 20px">KYC and Whitelist Required <img class="ml-3" src="img/blue-triangle.png"></p>
-        <p class="text-right body-small-font" style="font-size: 20px">Payment in BTC, ETH and XLM <img class="ml-3" src="img/blue-triangle.png"></p>
-        <p class="text-right body-small-font" style="font-size: 20px">Min. Purchase of $100 worth of tokens <img class="ml-3" src="img/blue-triangle.png"></p>
-
-
-    </div>
-
-    </div>
 
         <h2 class="row justify-content-center body-header col-12 mb-5 pb-5 pt-5">The Team</h2>
 
@@ -433,7 +379,7 @@
 
         <div class="row align-items-baseline mb-5">
             <div class="col-4 row footer-text justify-content-between">
-                <a href="#" class="footer-text">About</a> | <a href="#" class="footer-text">Token Sales</a> | <a href="#" class="footer-text">WhitePaper</a>
+                <a href="#" class="footer-text">About</a> | 
             </div>
 
             <div class="col row">
