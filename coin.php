@@ -270,11 +270,11 @@ include_once("header.php");
 
             <div class="card" style="text-align: center;">
                 <div class="row justify-content-center pt-3">
-              <img class="card-avi" src="img/person.png" alt="Card image cap">
+              <img class="card-avi" src="img/Jeremiah righteous.jpg" alt="Card image cap">
           </div>
               <div class="card-body">
                 <h5 class="card-main-text">Jeremiah Righteous</h5>
-                <p class="card-small-text">Product Manager</p>
+                <p class="card-small-text">Designer</p>
                 <div class="row justify-content-center">
                     <span class="col-2"><i class="fa fa-facebook-f card-contacts"></i></span>
                     <span class="col-2"><i class="fa fa-twitter card-contacts"></i></span>
