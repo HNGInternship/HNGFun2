@@ -25,6 +25,9 @@ include_once("header.php");
          width: 70%;
          margin: 0 auto;
     }
+     .col-4 img{
+	width: 95%;
+    }
     .head, spa{
         color:#2196F3;
     }
@@ -304,17 +307,34 @@ include_once("header.php");
 
     </section>
 
-    <section class="container-fluid grey-bg mt-3 pb-5" style="padding: 0 10%">
+   <section class="container-fluid grey-bg mt-3 pb-5" style="padding: 0 10%">
 
         <h2 class="row justify-content-center body-header col-12 mb-5 pb-4 pt-5">Our Partners</h2>
+	<h4 class="row justify-content-center col-12">Internship 4</h4>
 
         <div class="row justify-content-around mb-4 pb-5">
-            <img src="img/nike-logo.png">
-            <img src="img/youtube-logo.png">
-            <img src="img/git-logo.png">
-            <img src="img/blender-logo.png">
-
-        </div>
+		<div class="col-4">
+			<img src="img/oracle-red.png">
+		</div>
+		<div class="col-4">
+			<img src="img/bluechips.png">
+		</div>
+		<div class="col-4">
+			<img src="img/figma-dark.png">
+		</div>
+            
+	</div>
+	   
+    <h4 class="row justify-content-center col-12">Internship 3</h4>
+    <div class="row justify-content-around mb-4 pb-5">
+        Akwa Ibom State Government
+    </div>
+	   
+    <h4 class="row justify-content-center col-12">Internship 1 &amp; 2</h4>
+    <div class="row justify-content-around mb-4 pb-5">
+    
+        <img src="img/hng-square.png" style="margin:  0 auto;">
+    </div>
 
         
     </section>
@@ -326,14 +346,13 @@ include_once("header.php");
                 <img src="img/hngcoin_logo_dark.png" class="coin-logo">
             </div>
 
-            <p class="col text-right footer-text pr-0">Don’t Miss The Limited Whitelist! Notify Me About Token Sales</p>
                 
             
         </div>
 
         <div class="row align-items-baseline mb-5">
             <div class="col-4 row footer-text justify-content-between">
-                <a href="#" class="footer-text">About</a> | 
+                <a href="#" class="footer-text">About</a> 
             </div>
 
             <div class="col row">
