@@ -238,11 +238,11 @@ include_once("header.php");
         <div class="row justify-content-between mb-2">
             <div class="card" style="text-align: center;">
                 <div class="row justify-content-center pt-3">
-              <img class="card-avi" src="img/person.png" alt="Card image cap">
+              <img class="card-avi" src="img/OminiObahs Ofemena David.jpg" alt="Card image cap">
           </div>
               <div class="card-body">
-                <h5 class="card-main-text">Aurang Torvekar</h5>
-                <p class="card-small-text">CEO and Co-Founder</p>
+                <h5 class="card-main-text">OminiObahs Ofemena David</h5>
+                <p class="card-small-text">Developer</p>
                 <div class="row justify-content-center">
                     <span class="col-2"><i class="fa fa-facebook-f card-contacts"></i></span>
                     <span class="col-2"><i class="fa fa-twitter card-contacts"></i></span>
@@ -254,10 +254,10 @@ include_once("header.php");
 
             <div class="card" style="text-align: center;">
                 <div class="row justify-content-center pt-3">
-              <img class="card-avi" src="img/person.png" alt="Card image cap">
+              <img class="card-avi" src="img/Everistus Olumese.jpg" alt="Card image cap">
           </div>
               <div class="card-body">
-                <h5 class="card-main-text">Dike Thelma</h5>
+                <h5 class="card-main-text">Everistus Olumese</h5>
                 <p class="card-small-text">Developer</p>
                 <div class="row justify-content-center">
                     <span class="col-2"><i class="fa fa-facebook-f card-contacts"></i></span>
@@ -286,11 +286,11 @@ include_once("header.php");
 
             <div class="card" style="text-align: center;">
                 <div class="row justify-content-center pt-3">
-              <img class="card-avi" src="img/person.png" alt="Card image cap">
+              <img class="card-avi" src="img/Okechuckuw Onwuohra.jpg" alt="Card image cap">
           </div>
               <div class="card-body">
-                <h5 class="card-main-text">Seyikemi Sojiron</h5>
-                <p class="card-small-text">Designer</p>
+                <h5 class="card-main-text">Okechuckuw Onwuohra</h5>
+                <p class="card-small-text">Developer</p>
                 <div class="row justify-content-center">
                     <span class="col-2"><i class="fa fa-facebook-f card-contacts"></i></span>
                     <span class="col-2"><i class="fa fa-twitter card-contacts"></i></span>
